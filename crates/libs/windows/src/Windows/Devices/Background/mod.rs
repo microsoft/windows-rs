@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
-pub struct IDeviceServicingDetails(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IDeviceServicingDetails {
+pub struct IDeviceServicingDetails(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for IDeviceServicingDetails {
     type Vtable = IDeviceServicingDetails_Vtbl;
 }
 impl ::core::clone::Clone for IDeviceServicingDetails {
@@ -9,24 +9,24 @@ impl ::core::clone::Clone for IDeviceServicingDetails {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IDeviceServicingDetails {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4aabee29_2344_4ac4_8527_4a8ef6905645);
+unsafe impl ::windows_core::ComInterface for IDeviceServicingDetails {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4aabee29_2344_4ac4_8527_4a8ef6905645);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceServicingDetails_Vtbl {
-    pub base__: ::windows::core::IInspectable_Vtbl,
-    pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub Arguments: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub Arguments: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub ExpectedDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
+    pub ExpectedDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     ExpectedDuration: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
-pub struct IDeviceUseDetails(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IDeviceUseDetails {
+pub struct IDeviceUseDetails(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for IDeviceUseDetails {
     type Vtable = IDeviceUseDetails_Vtbl;
 }
 impl ::core::clone::Clone for IDeviceUseDetails {
@@ -34,41 +34,41 @@ impl ::core::clone::Clone for IDeviceUseDetails {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IDeviceUseDetails {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d565141_557e_4154_b994_e4f7a11fb323);
+unsafe impl ::windows_core::ComInterface for IDeviceUseDetails {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7d565141_557e_4154_b994_e4f7a11fb323);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceUseDetails_Vtbl {
-    pub base__: ::windows::core::IInspectable_Vtbl,
-    pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub Arguments: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub Arguments: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Devices_Background\"`*"]
 #[repr(transparent)]
-pub struct DeviceServicingDetails(::windows::core::IUnknown);
+pub struct DeviceServicingDetails(::windows_core::IUnknown);
 impl DeviceServicingDetails {
-    pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn DeviceId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            (::windows_core::Interface::vtable(this).DeviceId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn Arguments(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn Arguments(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Interface::vtable(this).Arguments)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            (::windows_core::Interface::vtable(this).Arguments)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ExpectedDuration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
+    pub fn ExpectedDuration(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::TimeSpan>();
-            (::windows::core::Interface::vtable(this).ExpectedDuration)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::TimeSpan>();
+            (::windows_core::Interface::vtable(this).ExpectedDuration)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -83,42 +83,42 @@ impl ::core::fmt::Debug for DeviceServicingDetails {
         f.debug_tuple("DeviceServicingDetails").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for DeviceServicingDetails {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Background.DeviceServicingDetails;{4aabee29-2344-4ac4-8527-4a8ef6905645})");
+impl ::windows_core::RuntimeType for DeviceServicingDetails {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Background.DeviceServicingDetails;{4aabee29-2344-4ac4-8527-4a8ef6905645})");
 }
 impl ::core::clone::Clone for DeviceServicingDetails {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for DeviceServicingDetails {
+unsafe impl ::windows_core::Interface for DeviceServicingDetails {
     type Vtable = IDeviceServicingDetails_Vtbl;
 }
-unsafe impl ::windows::core::ComInterface for DeviceServicingDetails {
-    const IID: ::windows::core::GUID = <IDeviceServicingDetails as ::windows::core::ComInterface>::IID;
+unsafe impl ::windows_core::ComInterface for DeviceServicingDetails {
+    const IID: ::windows_core::GUID = <IDeviceServicingDetails as ::windows_core::ComInterface>::IID;
 }
-impl ::windows::core::RuntimeName for DeviceServicingDetails {
+impl ::windows_core::RuntimeName for DeviceServicingDetails {
     const NAME: &'static str = "Windows.Devices.Background.DeviceServicingDetails";
 }
-::windows::imp::interface_hierarchy!(DeviceServicingDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows_core::imp::interface_hierarchy!(DeviceServicingDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for DeviceServicingDetails {}
 unsafe impl ::core::marker::Sync for DeviceServicingDetails {}
 #[doc = "*Required features: `\"Devices_Background\"`*"]
 #[repr(transparent)]
-pub struct DeviceUseDetails(::windows::core::IUnknown);
+pub struct DeviceUseDetails(::windows_core::IUnknown);
 impl DeviceUseDetails {
-    pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn DeviceId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            (::windows_core::Interface::vtable(this).DeviceId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn Arguments(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn Arguments(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Interface::vtable(this).Arguments)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            (::windows_core::Interface::vtable(this).Arguments)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -133,24 +133,24 @@ impl ::core::fmt::Debug for DeviceUseDetails {
         f.debug_tuple("DeviceUseDetails").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for DeviceUseDetails {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Background.DeviceUseDetails;{7d565141-557e-4154-b994-e4f7a11fb323})");
+impl ::windows_core::RuntimeType for DeviceUseDetails {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Background.DeviceUseDetails;{7d565141-557e-4154-b994-e4f7a11fb323})");
 }
 impl ::core::clone::Clone for DeviceUseDetails {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for DeviceUseDetails {
+unsafe impl ::windows_core::Interface for DeviceUseDetails {
     type Vtable = IDeviceUseDetails_Vtbl;
 }
-unsafe impl ::windows::core::ComInterface for DeviceUseDetails {
-    const IID: ::windows::core::GUID = <IDeviceUseDetails as ::windows::core::ComInterface>::IID;
+unsafe impl ::windows_core::ComInterface for DeviceUseDetails {
+    const IID: ::windows_core::GUID = <IDeviceUseDetails as ::windows_core::ComInterface>::IID;
 }
-impl ::windows::core::RuntimeName for DeviceUseDetails {
+impl ::windows_core::RuntimeName for DeviceUseDetails {
     const NAME: &'static str = "Windows.Devices.Background.DeviceUseDetails";
 }
-::windows::imp::interface_hierarchy!(DeviceUseDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows_core::imp::interface_hierarchy!(DeviceUseDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for DeviceUseDetails {}
 unsafe impl ::core::marker::Sync for DeviceUseDetails {}
 #[cfg(feature = "implement")]

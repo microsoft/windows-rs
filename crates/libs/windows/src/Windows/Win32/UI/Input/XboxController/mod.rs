@@ -3,15 +3,15 @@
 #[inline]
 pub unsafe fn XInputEnable<P0>(enable: P0)
 where
-    P0: ::windows::core::IntoParam<super::super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<super::super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("xinput1_4.dll" "system" fn XInputEnable(enable : super::super::super::Foundation:: BOOL) -> ());
     XInputEnable(enable.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
 #[inline]
-pub unsafe fn XInputGetAudioDeviceIds(dwuserindex: u32, prenderdeviceid: ::windows::core::PWSTR, prendercount: ::core::option::Option<*mut u32>, pcapturedeviceid: ::windows::core::PWSTR, pcapturecount: ::core::option::Option<*mut u32>) -> u32 {
-    ::windows_targets::link!("xinput1_4.dll" "system" fn XInputGetAudioDeviceIds(dwuserindex : u32, prenderdeviceid : ::windows::core::PWSTR, prendercount : *mut u32, pcapturedeviceid : ::windows::core::PWSTR, pcapturecount : *mut u32) -> u32);
+pub unsafe fn XInputGetAudioDeviceIds(dwuserindex: u32, prenderdeviceid: ::windows_core::PWSTR, prendercount: ::core::option::Option<*mut u32>, pcapturedeviceid: ::windows_core::PWSTR, pcapturecount: ::core::option::Option<*mut u32>) -> u32 {
+    ::windows_targets::link!("xinput1_4.dll" "system" fn XInputGetAudioDeviceIds(dwuserindex : u32, prenderdeviceid : ::windows_core::PWSTR, prendercount : *mut u32, pcapturedeviceid : ::windows_core::PWSTR, pcapturecount : *mut u32) -> u32);
     XInputGetAudioDeviceIds(dwuserindex, ::core::mem::transmute(prenderdeviceid), ::core::mem::transmute(prendercount.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcapturedeviceid), ::core::mem::transmute(pcapturecount.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
@@ -45,11 +45,11 @@ pub unsafe fn XInputSetState(dwuserindex: u32, pvibration: *const XINPUT_VIBRATI
     XInputSetState(dwuserindex, pvibration)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
-pub const XINPUT_DLL: ::windows::core::PCWSTR = ::windows::core::w!("xinput1_4.dll");
+pub const XINPUT_DLL: ::windows_core::PCWSTR = ::windows_core::w!("xinput1_4.dll");
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
-pub const XINPUT_DLL_A: ::windows::core::PCSTR = ::windows::core::s!("xinput1_4.dll");
+pub const XINPUT_DLL_A: ::windows_core::PCSTR = ::windows_core::s!("xinput1_4.dll");
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
-pub const XINPUT_DLL_W: ::windows::core::PCWSTR = ::windows::core::w!("xinput1_4.dll");
+pub const XINPUT_DLL_W: ::windows_core::PCWSTR = ::windows_core::w!("xinput1_4.dll");
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
 pub const XUSER_INDEX_ANY: u32 = 255u32;
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
@@ -73,8 +73,8 @@ impl ::core::default::Default for BATTERY_DEVTYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for BATTERY_DEVTYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for BATTERY_DEVTYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for BATTERY_DEVTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -104,8 +104,8 @@ impl ::core::default::Default for BATTERY_LEVEL {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for BATTERY_LEVEL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for BATTERY_LEVEL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for BATTERY_LEVEL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -137,8 +137,8 @@ impl ::core::default::Default for BATTERY_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for BATTERY_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for BATTERY_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for BATTERY_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -170,8 +170,8 @@ impl ::core::default::Default for XINPUT_CAPABILITIES_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for XINPUT_CAPABILITIES_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for XINPUT_CAPABILITIES_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for XINPUT_CAPABILITIES_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -248,8 +248,8 @@ impl ::core::default::Default for XINPUT_DEVSUBTYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for XINPUT_DEVSUBTYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for XINPUT_DEVSUBTYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for XINPUT_DEVSUBTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -273,8 +273,8 @@ impl ::core::default::Default for XINPUT_DEVTYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for XINPUT_DEVTYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for XINPUT_DEVTYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for XINPUT_DEVTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -300,8 +300,8 @@ impl ::core::default::Default for XINPUT_FLAG {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for XINPUT_FLAG {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for XINPUT_FLAG {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for XINPUT_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -390,8 +390,8 @@ impl ::core::default::Default for XINPUT_GAMEPAD_BUTTON_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for XINPUT_GAMEPAD_BUTTON_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for XINPUT_GAMEPAD_BUTTON_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for XINPUT_GAMEPAD_BUTTON_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -452,8 +452,8 @@ impl ::core::default::Default for XINPUT_KEYSTROKE_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for XINPUT_KEYSTROKE_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for XINPUT_KEYSTROKE_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for XINPUT_KEYSTROKE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -572,8 +572,8 @@ impl ::core::default::Default for XINPUT_VIRTUAL_KEY {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for XINPUT_VIRTUAL_KEY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for XINPUT_VIRTUAL_KEY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for XINPUT_VIRTUAL_KEY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -597,8 +597,8 @@ impl ::core::fmt::Debug for XINPUT_BATTERY_INFORMATION {
         f.debug_struct("XINPUT_BATTERY_INFORMATION").field("BatteryType", &self.BatteryType).field("BatteryLevel", &self.BatteryLevel).finish()
     }
 }
-impl ::windows::core::TypeKind for XINPUT_BATTERY_INFORMATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for XINPUT_BATTERY_INFORMATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for XINPUT_BATTERY_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -631,8 +631,8 @@ impl ::core::fmt::Debug for XINPUT_CAPABILITIES {
         f.debug_struct("XINPUT_CAPABILITIES").field("Type", &self.Type).field("SubType", &self.SubType).field("Flags", &self.Flags).field("Gamepad", &self.Gamepad).field("Vibration", &self.Vibration).finish()
     }
 }
-impl ::windows::core::TypeKind for XINPUT_CAPABILITIES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for XINPUT_CAPABILITIES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for XINPUT_CAPABILITIES {
     fn eq(&self, other: &Self) -> bool {
@@ -667,8 +667,8 @@ impl ::core::fmt::Debug for XINPUT_GAMEPAD {
         f.debug_struct("XINPUT_GAMEPAD").field("wButtons", &self.wButtons).field("bLeftTrigger", &self.bLeftTrigger).field("bRightTrigger", &self.bRightTrigger).field("sThumbLX", &self.sThumbLX).field("sThumbLY", &self.sThumbLY).field("sThumbRX", &self.sThumbRX).field("sThumbRY", &self.sThumbRY).finish()
     }
 }
-impl ::windows::core::TypeKind for XINPUT_GAMEPAD {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for XINPUT_GAMEPAD {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for XINPUT_GAMEPAD {
     fn eq(&self, other: &Self) -> bool {
@@ -701,8 +701,8 @@ impl ::core::fmt::Debug for XINPUT_KEYSTROKE {
         f.debug_struct("XINPUT_KEYSTROKE").field("VirtualKey", &self.VirtualKey).field("Unicode", &self.Unicode).field("Flags", &self.Flags).field("UserIndex", &self.UserIndex).field("HidCode", &self.HidCode).finish()
     }
 }
-impl ::windows::core::TypeKind for XINPUT_KEYSTROKE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for XINPUT_KEYSTROKE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for XINPUT_KEYSTROKE {
     fn eq(&self, other: &Self) -> bool {
@@ -732,8 +732,8 @@ impl ::core::fmt::Debug for XINPUT_STATE {
         f.debug_struct("XINPUT_STATE").field("dwPacketNumber", &self.dwPacketNumber).field("Gamepad", &self.Gamepad).finish()
     }
 }
-impl ::windows::core::TypeKind for XINPUT_STATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for XINPUT_STATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for XINPUT_STATE {
     fn eq(&self, other: &Self) -> bool {
@@ -763,8 +763,8 @@ impl ::core::fmt::Debug for XINPUT_VIBRATION {
         f.debug_struct("XINPUT_VIBRATION").field("wLeftMotorSpeed", &self.wLeftMotorSpeed).field("wRightMotorSpeed", &self.wRightMotorSpeed).finish()
     }
 }
-impl ::windows::core::TypeKind for XINPUT_VIBRATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for XINPUT_VIBRATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for XINPUT_VIBRATION {
     fn eq(&self, other: &Self) -> bool {

@@ -3,7 +3,7 @@
 #[inline]
 pub unsafe fn CloseCompressor<P0>(compressorhandle: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<COMPRESSOR_HANDLE>,
+    P0: ::windows_core::IntoParam<COMPRESSOR_HANDLE>,
 {
     ::windows_targets::link!("cabinet.dll" "system" fn CloseCompressor(compressorhandle : COMPRESSOR_HANDLE) -> super::super::Foundation:: BOOL);
     CloseCompressor(compressorhandle.into_param().abi())
@@ -20,7 +20,7 @@ pub unsafe fn CloseDecompressor(decompressorhandle: isize) -> super::super::Foun
 #[inline]
 pub unsafe fn Compress<P0>(compressorhandle: P0, uncompresseddata: ::core::option::Option<*const ::core::ffi::c_void>, uncompresseddatasize: usize, compressedbuffer: ::core::option::Option<*mut ::core::ffi::c_void>, compressedbuffersize: usize, compresseddatasize: *mut usize) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<COMPRESSOR_HANDLE>,
+    P0: ::windows_core::IntoParam<COMPRESSOR_HANDLE>,
 {
     ::windows_targets::link!("cabinet.dll" "system" fn Compress(compressorhandle : COMPRESSOR_HANDLE, uncompresseddata : *const ::core::ffi::c_void, uncompresseddatasize : usize, compressedbuffer : *mut ::core::ffi::c_void, compressedbuffersize : usize, compresseddatasize : *mut usize) -> super::super::Foundation:: BOOL);
     Compress(compressorhandle.into_param().abi(), ::core::mem::transmute(uncompresseddata.unwrap_or(::std::ptr::null())), uncompresseddatasize, ::core::mem::transmute(compressedbuffer.unwrap_or(::std::ptr::null_mut())), compressedbuffersize, compresseddatasize)
@@ -51,7 +51,7 @@ pub unsafe fn Decompress(decompressorhandle: isize, compresseddata: ::core::opti
 #[inline]
 pub unsafe fn QueryCompressorInformation<P0>(compressorhandle: P0, compressinformationclass: COMPRESS_INFORMATION_CLASS, compressinformation: *mut ::core::ffi::c_void, compressinformationsize: usize) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<COMPRESSOR_HANDLE>,
+    P0: ::windows_core::IntoParam<COMPRESSOR_HANDLE>,
 {
     ::windows_targets::link!("cabinet.dll" "system" fn QueryCompressorInformation(compressorhandle : COMPRESSOR_HANDLE, compressinformationclass : COMPRESS_INFORMATION_CLASS, compressinformation : *mut ::core::ffi::c_void, compressinformationsize : usize) -> super::super::Foundation:: BOOL);
     QueryCompressorInformation(compressorhandle.into_param().abi(), compressinformationclass, compressinformation, compressinformationsize)
@@ -68,7 +68,7 @@ pub unsafe fn QueryDecompressorInformation(decompressorhandle: isize, compressin
 #[inline]
 pub unsafe fn ResetCompressor<P0>(compressorhandle: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<COMPRESSOR_HANDLE>,
+    P0: ::windows_core::IntoParam<COMPRESSOR_HANDLE>,
 {
     ::windows_targets::link!("cabinet.dll" "system" fn ResetCompressor(compressorhandle : COMPRESSOR_HANDLE) -> super::super::Foundation:: BOOL);
     ResetCompressor(compressorhandle.into_param().abi())
@@ -85,7 +85,7 @@ pub unsafe fn ResetDecompressor(decompressorhandle: isize) -> super::super::Foun
 #[inline]
 pub unsafe fn SetCompressorInformation<P0>(compressorhandle: P0, compressinformationclass: COMPRESS_INFORMATION_CLASS, compressinformation: *const ::core::ffi::c_void, compressinformationsize: usize) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<COMPRESSOR_HANDLE>,
+    P0: ::windows_core::IntoParam<COMPRESSOR_HANDLE>,
 {
     ::windows_targets::link!("cabinet.dll" "system" fn SetCompressorInformation(compressorhandle : COMPRESSOR_HANDLE, compressinformationclass : COMPRESS_INFORMATION_CLASS, compressinformation : *const ::core::ffi::c_void, compressinformationsize : usize) -> super::super::Foundation:: BOOL);
     SetCompressorInformation(compressorhandle.into_param().abi(), compressinformationclass, compressinformation, compressinformationsize)
@@ -128,8 +128,8 @@ impl ::core::default::Default for COMPRESS_ALGORITHM {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for COMPRESS_ALGORITHM {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for COMPRESS_ALGORITHM {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for COMPRESS_ALGORITHM {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -157,8 +157,8 @@ impl ::core::default::Default for COMPRESS_INFORMATION_CLASS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for COMPRESS_INFORMATION_CLASS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for COMPRESS_INFORMATION_CLASS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for COMPRESS_INFORMATION_CLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -189,8 +189,8 @@ impl ::core::fmt::Debug for COMPRESSOR_HANDLE {
         f.debug_tuple("COMPRESSOR_HANDLE").field(&self.0).finish()
     }
 }
-impl ::windows::core::TypeKind for COMPRESSOR_HANDLE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for COMPRESSOR_HANDLE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
@@ -210,8 +210,8 @@ impl ::core::fmt::Debug for COMPRESS_ALLOCATION_ROUTINES {
         f.debug_struct("COMPRESS_ALLOCATION_ROUTINES").field("UserContext", &self.UserContext).finish()
     }
 }
-impl ::windows::core::TypeKind for COMPRESS_ALLOCATION_ROUTINES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for COMPRESS_ALLOCATION_ROUTINES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for COMPRESS_ALLOCATION_ROUTINES {
     fn default() -> Self {

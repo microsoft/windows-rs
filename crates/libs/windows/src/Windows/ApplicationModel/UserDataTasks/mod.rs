@@ -2,8 +2,8 @@
 pub mod DataProvider;
 #[doc(hidden)]
 #[repr(transparent)]
-pub struct IUserDataTask(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IUserDataTask {
+pub struct IUserDataTask(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for IUserDataTask {
     type Vtable = IUserDataTask_Vtbl;
 }
 impl ::core::clone::Clone for IUserDataTask {
@@ -11,69 +11,69 @@ impl ::core::clone::Clone for IUserDataTask {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IUserDataTask {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c6585d1_e0d4_4f99_aee2_bc2d5ddadf4c);
+unsafe impl ::windows_core::ComInterface for IUserDataTask {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7c6585d1_e0d4_4f99_aee2_bc2d5ddadf4c);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataTask_Vtbl {
-    pub base__: ::windows::core::IInspectable_Vtbl,
-    pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub ListId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub RemoteId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SetRemoteId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub ListId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub RemoteId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub SetRemoteId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub CompletedDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CompletedDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     CompletedDate: usize,
     #[cfg(feature = "Foundation")]
-    pub SetCompletedDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetCompletedDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     SetCompletedDate: usize,
-    pub Details: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SetDetails: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub DetailsKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut UserDataTaskDetailsKind) -> ::windows::core::HRESULT,
-    pub SetDetailsKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: UserDataTaskDetailsKind) -> ::windows::core::HRESULT,
+    pub Details: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub SetDetails: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub DetailsKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut UserDataTaskDetailsKind) -> ::windows_core::HRESULT,
+    pub SetDetailsKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: UserDataTaskDetailsKind) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub DueDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub DueDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     DueDate: usize,
     #[cfg(feature = "Foundation")]
-    pub SetDueDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetDueDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     SetDueDate: usize,
-    pub Kind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut UserDataTaskKind) -> ::windows::core::HRESULT,
-    pub Priority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut UserDataTaskPriority) -> ::windows::core::HRESULT,
-    pub SetPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: UserDataTaskPriority) -> ::windows::core::HRESULT,
-    pub RecurrenceProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetRecurrenceProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub RegenerationProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetRegenerationProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Kind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut UserDataTaskKind) -> ::windows_core::HRESULT,
+    pub Priority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut UserDataTaskPriority) -> ::windows_core::HRESULT,
+    pub SetPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: UserDataTaskPriority) -> ::windows_core::HRESULT,
+    pub RecurrenceProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetRecurrenceProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RegenerationProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetRegenerationProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub Reminder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Reminder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     Reminder: usize,
     #[cfg(feature = "Foundation")]
-    pub SetReminder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetReminder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     SetReminder: usize,
-    pub Sensitivity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut UserDataTaskSensitivity) -> ::windows::core::HRESULT,
-    pub SetSensitivity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: UserDataTaskSensitivity) -> ::windows::core::HRESULT,
-    pub Subject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SetSubject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Sensitivity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut UserDataTaskSensitivity) -> ::windows_core::HRESULT,
+    pub SetSensitivity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: UserDataTaskSensitivity) -> ::windows_core::HRESULT,
+    pub Subject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub SetSubject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub StartDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub StartDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     StartDate: usize,
     #[cfg(feature = "Foundation")]
-    pub SetStartDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetStartDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     SetStartDate: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
-pub struct IUserDataTaskBatch(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IUserDataTaskBatch {
+pub struct IUserDataTaskBatch(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for IUserDataTaskBatch {
     type Vtable = IUserDataTaskBatch_Vtbl;
 }
 impl ::core::clone::Clone for IUserDataTaskBatch {
@@ -81,22 +81,22 @@ impl ::core::clone::Clone for IUserDataTaskBatch {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IUserDataTaskBatch {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x382da5fe_20b5_431c_8f42_a5d292ec930c);
+unsafe impl ::windows_core::ComInterface for IUserDataTaskBatch {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x382da5fe_20b5_431c_8f42_a5d292ec930c);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataTaskBatch_Vtbl {
-    pub base__: ::windows::core::IInspectable_Vtbl,
+    pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
-    pub Tasks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Tasks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     Tasks: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
-pub struct IUserDataTaskList(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IUserDataTaskList {
+pub struct IUserDataTaskList(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for IUserDataTaskList {
     type Vtable = IUserDataTaskList_Vtbl;
 }
 impl ::core::clone::Clone for IUserDataTaskList {
@@ -104,55 +104,55 @@ impl ::core::clone::Clone for IUserDataTaskList {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IUserDataTaskList {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49412e39_7c1d_4df1_bed3_314b7cbf5e4e);
+unsafe impl ::windows_core::ComInterface for IUserDataTaskList {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x49412e39_7c1d_4df1_bed3_314b7cbf5e4e);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataTaskList_Vtbl {
-    pub base__: ::windows::core::IInspectable_Vtbl,
-    pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub UserDataAccountId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SetDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SourceDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub OtherAppReadAccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut UserDataTaskListOtherAppReadAccess) -> ::windows::core::HRESULT,
-    pub SetOtherAppReadAccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: UserDataTaskListOtherAppReadAccess) -> ::windows::core::HRESULT,
-    pub OtherAppWriteAccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut UserDataTaskListOtherAppWriteAccess) -> ::windows::core::HRESULT,
-    pub SetOtherAppWriteAccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: UserDataTaskListOtherAppWriteAccess) -> ::windows::core::HRESULT,
-    pub LimitedWriteOperations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SyncManager: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub UserDataAccountId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub SetDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub SourceDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub OtherAppReadAccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut UserDataTaskListOtherAppReadAccess) -> ::windows_core::HRESULT,
+    pub SetOtherAppReadAccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: UserDataTaskListOtherAppReadAccess) -> ::windows_core::HRESULT,
+    pub OtherAppWriteAccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut UserDataTaskListOtherAppWriteAccess) -> ::windows_core::HRESULT,
+    pub SetOtherAppWriteAccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: UserDataTaskListOtherAppWriteAccess) -> ::windows_core::HRESULT,
+    pub LimitedWriteOperations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SyncManager: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub RegisterSyncManagerAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub RegisterSyncManagerAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     RegisterSyncManagerAsync: usize,
-    pub GetTaskReader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetTaskReaderWithOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetTaskReader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetTaskReaderWithOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub GetTaskAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, userdatatask: ::std::mem::MaybeUninit<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetTaskAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, userdatatask: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     GetTaskAsync: usize,
     #[cfg(feature = "Foundation")]
-    pub SaveTaskAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, userdatatask: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SaveTaskAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, userdatatask: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     SaveTaskAsync: usize,
     #[cfg(feature = "Foundation")]
-    pub DeleteTaskAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, userdatataskid: ::std::mem::MaybeUninit<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub DeleteTaskAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, userdatataskid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     DeleteTaskAsync: usize,
     #[cfg(feature = "Foundation")]
-    pub DeleteAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub DeleteAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     DeleteAsync: usize,
     #[cfg(feature = "Foundation")]
-    pub SaveAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SaveAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     SaveAsync: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
-pub struct IUserDataTaskListLimitedWriteOperations(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IUserDataTaskListLimitedWriteOperations {
+pub struct IUserDataTaskListLimitedWriteOperations(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for IUserDataTaskListLimitedWriteOperations {
     type Vtable = IUserDataTaskListLimitedWriteOperations_Vtbl;
 }
 impl ::core::clone::Clone for IUserDataTaskListLimitedWriteOperations {
@@ -160,34 +160,34 @@ impl ::core::clone::Clone for IUserDataTaskListLimitedWriteOperations {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IUserDataTaskListLimitedWriteOperations {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7aa267f2_6078_4183_919e_4f29f19cfae9);
+unsafe impl ::windows_core::ComInterface for IUserDataTaskListLimitedWriteOperations {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7aa267f2_6078_4183_919e_4f29f19cfae9);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataTaskListLimitedWriteOperations_Vtbl {
-    pub base__: ::windows::core::IInspectable_Vtbl,
+    pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
-    pub TryCompleteTaskAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, userdatataskid: ::std::mem::MaybeUninit<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub TryCompleteTaskAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, userdatataskid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     TryCompleteTaskAsync: usize,
     #[cfg(feature = "Foundation")]
-    pub TryCreateOrUpdateTaskAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, userdatatask: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub TryCreateOrUpdateTaskAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, userdatatask: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     TryCreateOrUpdateTaskAsync: usize,
     #[cfg(feature = "Foundation")]
-    pub TryDeleteTaskAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, userdatataskid: ::std::mem::MaybeUninit<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub TryDeleteTaskAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, userdatataskid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     TryDeleteTaskAsync: usize,
     #[cfg(feature = "Foundation")]
-    pub TrySkipOccurrenceAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, userdatataskid: ::std::mem::MaybeUninit<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub TrySkipOccurrenceAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, userdatataskid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     TrySkipOccurrenceAsync: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
-pub struct IUserDataTaskListSyncManager(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IUserDataTaskListSyncManager {
+pub struct IUserDataTaskListSyncManager(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for IUserDataTaskListSyncManager {
     type Vtable = IUserDataTaskListSyncManager_Vtbl;
 }
 impl ::core::clone::Clone for IUserDataTaskListSyncManager {
@@ -195,48 +195,48 @@ impl ::core::clone::Clone for IUserDataTaskListSyncManager {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IUserDataTaskListSyncManager {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e591a95_1dcf_469f_93ec_ba48bb553c6b);
+unsafe impl ::windows_core::ComInterface for IUserDataTaskListSyncManager {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8e591a95_1dcf_469f_93ec_ba48bb553c6b);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataTaskListSyncManager_Vtbl {
-    pub base__: ::windows::core::IInspectable_Vtbl,
+    pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
-    pub LastAttemptedSyncTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
+    pub LastAttemptedSyncTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     LastAttemptedSyncTime: usize,
     #[cfg(feature = "Foundation")]
-    pub SetLastAttemptedSyncTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
+    pub SetLastAttemptedSyncTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     SetLastAttemptedSyncTime: usize,
     #[cfg(feature = "Foundation")]
-    pub LastSuccessfulSyncTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
+    pub LastSuccessfulSyncTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     LastSuccessfulSyncTime: usize,
     #[cfg(feature = "Foundation")]
-    pub SetLastSuccessfulSyncTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
+    pub SetLastSuccessfulSyncTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     SetLastSuccessfulSyncTime: usize,
-    pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut UserDataTaskListSyncStatus) -> ::windows::core::HRESULT,
-    pub SetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: UserDataTaskListSyncStatus) -> ::windows::core::HRESULT,
+    pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut UserDataTaskListSyncStatus) -> ::windows_core::HRESULT,
+    pub SetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: UserDataTaskListSyncStatus) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub SyncAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SyncAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     SyncAsync: usize,
     #[cfg(feature = "Foundation")]
-    pub SyncStatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub SyncStatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     SyncStatusChanged: usize,
     #[cfg(feature = "Foundation")]
-    pub RemoveSyncStatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub RemoveSyncStatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     RemoveSyncStatusChanged: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
-pub struct IUserDataTaskManager(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IUserDataTaskManager {
+pub struct IUserDataTaskManager(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for IUserDataTaskManager {
     type Vtable = IUserDataTaskManager_Vtbl;
 }
 impl ::core::clone::Clone for IUserDataTaskManager {
@@ -244,26 +244,26 @@ impl ::core::clone::Clone for IUserDataTaskManager {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IUserDataTaskManager {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8451c914_e60b_48a9_9211_7fb8a56cb84c);
+unsafe impl ::windows_core::ComInterface for IUserDataTaskManager {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8451c914_e60b_48a9_9211_7fb8a56cb84c);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataTaskManager_Vtbl {
-    pub base__: ::windows::core::IInspectable_Vtbl,
+    pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
-    pub RequestStoreAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, accesstype: UserDataTaskStoreAccessType, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub RequestStoreAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, accesstype: UserDataTaskStoreAccessType, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     RequestStoreAsync: usize,
     #[cfg(feature = "System")]
-    pub User: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub User: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "System"))]
     User: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
-pub struct IUserDataTaskManagerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IUserDataTaskManagerStatics {
+pub struct IUserDataTaskManagerStatics(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for IUserDataTaskManagerStatics {
     type Vtable = IUserDataTaskManagerStatics_Vtbl;
 }
 impl ::core::clone::Clone for IUserDataTaskManagerStatics {
@@ -271,23 +271,23 @@ impl ::core::clone::Clone for IUserDataTaskManagerStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IUserDataTaskManagerStatics {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb35539f8_c502_47fc_a81e_100883719d55);
+unsafe impl ::windows_core::ComInterface for IUserDataTaskManagerStatics {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb35539f8_c502_47fc_a81e_100883719d55);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataTaskManagerStatics_Vtbl {
-    pub base__: ::windows::core::IInspectable_Vtbl,
-    pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "System")]
-    pub GetForUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetForUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "System"))]
     GetForUser: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
-pub struct IUserDataTaskQueryOptions(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IUserDataTaskQueryOptions {
+pub struct IUserDataTaskQueryOptions(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for IUserDataTaskQueryOptions {
     type Vtable = IUserDataTaskQueryOptions_Vtbl;
 }
 impl ::core::clone::Clone for IUserDataTaskQueryOptions {
@@ -295,22 +295,22 @@ impl ::core::clone::Clone for IUserDataTaskQueryOptions {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IUserDataTaskQueryOptions {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x959f27ed_909a_4d30_8c1b_331d8fe667e2);
+unsafe impl ::windows_core::ComInterface for IUserDataTaskQueryOptions {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x959f27ed_909a_4d30_8c1b_331d8fe667e2);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataTaskQueryOptions_Vtbl {
-    pub base__: ::windows::core::IInspectable_Vtbl,
-    pub SortProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut UserDataTaskQuerySortProperty) -> ::windows::core::HRESULT,
-    pub SetSortProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: UserDataTaskQuerySortProperty) -> ::windows::core::HRESULT,
-    pub Kind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut UserDataTaskQueryKind) -> ::windows::core::HRESULT,
-    pub SetKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: UserDataTaskQueryKind) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub SortProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut UserDataTaskQuerySortProperty) -> ::windows_core::HRESULT,
+    pub SetSortProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: UserDataTaskQuerySortProperty) -> ::windows_core::HRESULT,
+    pub Kind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut UserDataTaskQueryKind) -> ::windows_core::HRESULT,
+    pub SetKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: UserDataTaskQueryKind) -> ::windows_core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
-pub struct IUserDataTaskReader(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IUserDataTaskReader {
+pub struct IUserDataTaskReader(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for IUserDataTaskReader {
     type Vtable = IUserDataTaskReader_Vtbl;
 }
 impl ::core::clone::Clone for IUserDataTaskReader {
@@ -318,22 +318,22 @@ impl ::core::clone::Clone for IUserDataTaskReader {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IUserDataTaskReader {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03e688b1_4ccf_4500_883b_e76290cfed63);
+unsafe impl ::windows_core::ComInterface for IUserDataTaskReader {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x03e688b1_4ccf_4500_883b_e76290cfed63);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataTaskReader_Vtbl {
-    pub base__: ::windows::core::IInspectable_Vtbl,
+    pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
-    pub ReadBatchAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ReadBatchAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     ReadBatchAsync: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
-pub struct IUserDataTaskRecurrenceProperties(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IUserDataTaskRecurrenceProperties {
+pub struct IUserDataTaskRecurrenceProperties(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for IUserDataTaskRecurrenceProperties {
     type Vtable = IUserDataTaskRecurrenceProperties_Vtbl;
 }
 impl ::core::clone::Clone for IUserDataTaskRecurrenceProperties {
@@ -341,70 +341,70 @@ impl ::core::clone::Clone for IUserDataTaskRecurrenceProperties {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IUserDataTaskRecurrenceProperties {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73df80b0_27c6_40ce_b149_9cd41485a69e);
+unsafe impl ::windows_core::ComInterface for IUserDataTaskRecurrenceProperties {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x73df80b0_27c6_40ce_b149_9cd41485a69e);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataTaskRecurrenceProperties_Vtbl {
-    pub base__: ::windows::core::IInspectable_Vtbl,
-    pub Unit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut UserDataTaskRecurrenceUnit) -> ::windows::core::HRESULT,
-    pub SetUnit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: UserDataTaskRecurrenceUnit) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub Unit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut UserDataTaskRecurrenceUnit) -> ::windows_core::HRESULT,
+    pub SetUnit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: UserDataTaskRecurrenceUnit) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub Occurrences: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Occurrences: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     Occurrences: usize,
     #[cfg(feature = "Foundation")]
-    pub SetOccurrences: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetOccurrences: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     SetOccurrences: usize,
     #[cfg(feature = "Foundation")]
-    pub Until: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Until: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     Until: usize,
     #[cfg(feature = "Foundation")]
-    pub SetUntil: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetUntil: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     SetUntil: usize,
-    pub Interval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
-    pub SetInterval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT,
+    pub Interval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
+    pub SetInterval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub DaysOfWeek: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub DaysOfWeek: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     DaysOfWeek: usize,
     #[cfg(feature = "Foundation")]
-    pub SetDaysOfWeek: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetDaysOfWeek: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     SetDaysOfWeek: usize,
     #[cfg(feature = "Foundation")]
-    pub WeekOfMonth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub WeekOfMonth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     WeekOfMonth: usize,
     #[cfg(feature = "Foundation")]
-    pub SetWeekOfMonth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetWeekOfMonth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     SetWeekOfMonth: usize,
     #[cfg(feature = "Foundation")]
-    pub Month: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Month: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     Month: usize,
     #[cfg(feature = "Foundation")]
-    pub SetMonth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetMonth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     SetMonth: usize,
     #[cfg(feature = "Foundation")]
-    pub Day: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Day: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     Day: usize,
     #[cfg(feature = "Foundation")]
-    pub SetDay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetDay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     SetDay: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
-pub struct IUserDataTaskRegenerationProperties(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IUserDataTaskRegenerationProperties {
+pub struct IUserDataTaskRegenerationProperties(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for IUserDataTaskRegenerationProperties {
     type Vtable = IUserDataTaskRegenerationProperties_Vtbl;
 }
 impl ::core::clone::Clone for IUserDataTaskRegenerationProperties {
@@ -412,38 +412,38 @@ impl ::core::clone::Clone for IUserDataTaskRegenerationProperties {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IUserDataTaskRegenerationProperties {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92ab0007_090e_4704_bb5c_84fc0b0d9c31);
+unsafe impl ::windows_core::ComInterface for IUserDataTaskRegenerationProperties {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x92ab0007_090e_4704_bb5c_84fc0b0d9c31);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataTaskRegenerationProperties_Vtbl {
-    pub base__: ::windows::core::IInspectable_Vtbl,
-    pub Unit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut UserDataTaskRegenerationUnit) -> ::windows::core::HRESULT,
-    pub SetUnit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: UserDataTaskRegenerationUnit) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub Unit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut UserDataTaskRegenerationUnit) -> ::windows_core::HRESULT,
+    pub SetUnit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: UserDataTaskRegenerationUnit) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub Occurrences: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Occurrences: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     Occurrences: usize,
     #[cfg(feature = "Foundation")]
-    pub SetOccurrences: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetOccurrences: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     SetOccurrences: usize,
     #[cfg(feature = "Foundation")]
-    pub Until: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Until: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     Until: usize,
     #[cfg(feature = "Foundation")]
-    pub SetUntil: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetUntil: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     SetUntil: usize,
-    pub Interval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
-    pub SetInterval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT,
+    pub Interval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
+    pub SetInterval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows_core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
-pub struct IUserDataTaskStore(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IUserDataTaskStore {
+pub struct IUserDataTaskStore(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for IUserDataTaskStore {
     type Vtable = IUserDataTaskStore_Vtbl;
 }
 impl ::core::clone::Clone for IUserDataTaskStore {
@@ -451,221 +451,221 @@ impl ::core::clone::Clone for IUserDataTaskStore {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IUserDataTaskStore {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf06a9cb0_f1db_45ba_8a62_086004c0213d);
+unsafe impl ::windows_core::ComInterface for IUserDataTaskStore {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf06a9cb0_f1db_45ba_8a62_086004c0213d);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataTaskStore_Vtbl {
-    pub base__: ::windows::core::IInspectable_Vtbl,
+    pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
-    pub CreateListAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateListAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     CreateListAsync: usize,
     #[cfg(feature = "Foundation")]
-    pub CreateListInAccountAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows::core::HSTRING>, userdataaccountid: ::std::mem::MaybeUninit<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateListInAccountAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::HSTRING>, userdataaccountid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     CreateListInAccountAsync: usize,
     #[cfg(feature = "Foundation_Collections")]
-    pub FindListsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub FindListsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     FindListsAsync: usize,
     #[cfg(feature = "Foundation")]
-    pub GetListAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tasklistid: ::std::mem::MaybeUninit<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetListAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tasklistid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     GetListAsync: usize,
 }
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
-pub struct UserDataTask(::windows::core::IUnknown);
+pub struct UserDataTask(::windows_core::IUnknown);
 impl UserDataTask {
-    pub fn new() -> ::windows::core::Result<Self> {
+    pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::imp::FactoryCache<UserDataTask, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows_core::imp::IGenericFactory) -> ::windows_core::Result<R>>(callback: F) -> ::windows_core::Result<R> {
+        static SHARED: ::windows_core::imp::FactoryCache<UserDataTask, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn Id(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn ListId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn ListId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Interface::vtable(this).ListId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            (::windows_core::Interface::vtable(this).ListId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn RemoteId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn RemoteId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Interface::vtable(this).RemoteId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            (::windows_core::Interface::vtable(this).RemoteId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn SetRemoteId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
+    pub fn SetRemoteId(&self, value: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRemoteId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetRemoteId)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CompletedDate(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
+    pub fn CompletedDate(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>();
-            (::windows::core::Interface::vtable(this).CompletedDate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>();
+            (::windows_core::Interface::vtable(this).CompletedDate)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetCompletedDate<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetCompletedDate<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::TryIntoParam<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
+        P0: ::windows_core::TryIntoParam<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCompletedDate)(::windows::core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetCompletedDate)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    pub fn Details(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn Details(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Interface::vtable(this).Details)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            (::windows_core::Interface::vtable(this).Details)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn SetDetails(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
+    pub fn SetDetails(&self, value: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDetails)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetDetails)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    pub fn DetailsKind(&self) -> ::windows::core::Result<UserDataTaskDetailsKind> {
+    pub fn DetailsKind(&self) -> ::windows_core::Result<UserDataTaskDetailsKind> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<UserDataTaskDetailsKind>();
-            (::windows::core::Interface::vtable(this).DetailsKind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<UserDataTaskDetailsKind>();
+            (::windows_core::Interface::vtable(this).DetailsKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn SetDetailsKind(&self, value: UserDataTaskDetailsKind) -> ::windows::core::Result<()> {
+    pub fn SetDetailsKind(&self, value: UserDataTaskDetailsKind) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDetailsKind)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetDetailsKind)(::windows_core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DueDate(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
+    pub fn DueDate(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>();
-            (::windows::core::Interface::vtable(this).DueDate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>();
+            (::windows_core::Interface::vtable(this).DueDate)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetDueDate<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetDueDate<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::TryIntoParam<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
+        P0: ::windows_core::TryIntoParam<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDueDate)(::windows::core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetDueDate)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    pub fn Kind(&self) -> ::windows::core::Result<UserDataTaskKind> {
+    pub fn Kind(&self) -> ::windows_core::Result<UserDataTaskKind> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<UserDataTaskKind>();
-            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<UserDataTaskKind>();
+            (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn Priority(&self) -> ::windows::core::Result<UserDataTaskPriority> {
+    pub fn Priority(&self) -> ::windows_core::Result<UserDataTaskPriority> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<UserDataTaskPriority>();
-            (::windows::core::Interface::vtable(this).Priority)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<UserDataTaskPriority>();
+            (::windows_core::Interface::vtable(this).Priority)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn SetPriority(&self, value: UserDataTaskPriority) -> ::windows::core::Result<()> {
+    pub fn SetPriority(&self, value: UserDataTaskPriority) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPriority)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetPriority)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn RecurrenceProperties(&self) -> ::windows::core::Result<UserDataTaskRecurrenceProperties> {
+    pub fn RecurrenceProperties(&self) -> ::windows_core::Result<UserDataTaskRecurrenceProperties> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<UserDataTaskRecurrenceProperties>();
-            (::windows::core::Interface::vtable(this).RecurrenceProperties)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<UserDataTaskRecurrenceProperties>();
+            (::windows_core::Interface::vtable(this).RecurrenceProperties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn SetRecurrenceProperties(&self, value: &UserDataTaskRecurrenceProperties) -> ::windows::core::Result<()> {
+    pub fn SetRecurrenceProperties(&self, value: &UserDataTaskRecurrenceProperties) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRecurrenceProperties)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetRecurrenceProperties)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    pub fn RegenerationProperties(&self) -> ::windows::core::Result<UserDataTaskRegenerationProperties> {
+    pub fn RegenerationProperties(&self) -> ::windows_core::Result<UserDataTaskRegenerationProperties> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<UserDataTaskRegenerationProperties>();
-            (::windows::core::Interface::vtable(this).RegenerationProperties)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<UserDataTaskRegenerationProperties>();
+            (::windows_core::Interface::vtable(this).RegenerationProperties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn SetRegenerationProperties(&self, value: &UserDataTaskRegenerationProperties) -> ::windows::core::Result<()> {
+    pub fn SetRegenerationProperties(&self, value: &UserDataTaskRegenerationProperties) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRegenerationProperties)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetRegenerationProperties)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Reminder(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
+    pub fn Reminder(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>();
-            (::windows::core::Interface::vtable(this).Reminder)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>();
+            (::windows_core::Interface::vtable(this).Reminder)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetReminder<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetReminder<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::TryIntoParam<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
+        P0: ::windows_core::TryIntoParam<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetReminder)(::windows::core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetReminder)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    pub fn Sensitivity(&self) -> ::windows::core::Result<UserDataTaskSensitivity> {
+    pub fn Sensitivity(&self) -> ::windows_core::Result<UserDataTaskSensitivity> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<UserDataTaskSensitivity>();
-            (::windows::core::Interface::vtable(this).Sensitivity)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<UserDataTaskSensitivity>();
+            (::windows_core::Interface::vtable(this).Sensitivity)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn SetSensitivity(&self, value: UserDataTaskSensitivity) -> ::windows::core::Result<()> {
+    pub fn SetSensitivity(&self, value: UserDataTaskSensitivity) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSensitivity)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetSensitivity)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Subject(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn Subject(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Interface::vtable(this).Subject)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            (::windows_core::Interface::vtable(this).Subject)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn SetSubject(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
+    pub fn SetSubject(&self, value: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSubject)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetSubject)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StartDate(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
+    pub fn StartDate(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>();
-            (::windows::core::Interface::vtable(this).StartDate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>();
+            (::windows_core::Interface::vtable(this).StartDate)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetStartDate<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetStartDate<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::TryIntoParam<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
+        P0: ::windows_core::TryIntoParam<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStartDate)(::windows::core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetStartDate)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
 }
 impl ::core::cmp::PartialEq for UserDataTask {
@@ -679,37 +679,37 @@ impl ::core::fmt::Debug for UserDataTask {
         f.debug_tuple("UserDataTask").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for UserDataTask {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTask;{7c6585d1-e0d4-4f99-aee2-bc2d5ddadf4c})");
+impl ::windows_core::RuntimeType for UserDataTask {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTask;{7c6585d1-e0d4-4f99-aee2-bc2d5ddadf4c})");
 }
 impl ::core::clone::Clone for UserDataTask {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for UserDataTask {
+unsafe impl ::windows_core::Interface for UserDataTask {
     type Vtable = IUserDataTask_Vtbl;
 }
-unsafe impl ::windows::core::ComInterface for UserDataTask {
-    const IID: ::windows::core::GUID = <IUserDataTask as ::windows::core::ComInterface>::IID;
+unsafe impl ::windows_core::ComInterface for UserDataTask {
+    const IID: ::windows_core::GUID = <IUserDataTask as ::windows_core::ComInterface>::IID;
 }
-impl ::windows::core::RuntimeName for UserDataTask {
+impl ::windows_core::RuntimeName for UserDataTask {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTask";
 }
-::windows::imp::interface_hierarchy!(UserDataTask, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows_core::imp::interface_hierarchy!(UserDataTask, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTask {}
 unsafe impl ::core::marker::Sync for UserDataTask {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
-pub struct UserDataTaskBatch(::windows::core::IUnknown);
+pub struct UserDataTaskBatch(::windows_core::IUnknown);
 impl UserDataTaskBatch {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Tasks(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<UserDataTask>> {
+    pub fn Tasks(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<UserDataTask>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<UserDataTask>>();
-            (::windows::core::Interface::vtable(this).Tasks)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<UserDataTask>>();
+            (::windows_core::Interface::vtable(this).Tasks)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -724,164 +724,164 @@ impl ::core::fmt::Debug for UserDataTaskBatch {
         f.debug_tuple("UserDataTaskBatch").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for UserDataTaskBatch {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskBatch;{382da5fe-20b5-431c-8f42-a5d292ec930c})");
+impl ::windows_core::RuntimeType for UserDataTaskBatch {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskBatch;{382da5fe-20b5-431c-8f42-a5d292ec930c})");
 }
 impl ::core::clone::Clone for UserDataTaskBatch {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for UserDataTaskBatch {
+unsafe impl ::windows_core::Interface for UserDataTaskBatch {
     type Vtable = IUserDataTaskBatch_Vtbl;
 }
-unsafe impl ::windows::core::ComInterface for UserDataTaskBatch {
-    const IID: ::windows::core::GUID = <IUserDataTaskBatch as ::windows::core::ComInterface>::IID;
+unsafe impl ::windows_core::ComInterface for UserDataTaskBatch {
+    const IID: ::windows_core::GUID = <IUserDataTaskBatch as ::windows_core::ComInterface>::IID;
 }
-impl ::windows::core::RuntimeName for UserDataTaskBatch {
+impl ::windows_core::RuntimeName for UserDataTaskBatch {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskBatch";
 }
-::windows::imp::interface_hierarchy!(UserDataTaskBatch, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows_core::imp::interface_hierarchy!(UserDataTaskBatch, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskBatch {}
 unsafe impl ::core::marker::Sync for UserDataTaskBatch {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
-pub struct UserDataTaskList(::windows::core::IUnknown);
+pub struct UserDataTaskList(::windows_core::IUnknown);
 impl UserDataTaskList {
-    pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn Id(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn UserDataAccountId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn UserDataAccountId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Interface::vtable(this).UserDataAccountId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            (::windows_core::Interface::vtable(this).UserDataAccountId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn DisplayName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Interface::vtable(this).DisplayName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            (::windows_core::Interface::vtable(this).DisplayName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn SetDisplayName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
+    pub fn SetDisplayName(&self, value: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDisplayName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetDisplayName)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    pub fn SourceDisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn SourceDisplayName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Interface::vtable(this).SourceDisplayName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            (::windows_core::Interface::vtable(this).SourceDisplayName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn OtherAppReadAccess(&self) -> ::windows::core::Result<UserDataTaskListOtherAppReadAccess> {
+    pub fn OtherAppReadAccess(&self) -> ::windows_core::Result<UserDataTaskListOtherAppReadAccess> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<UserDataTaskListOtherAppReadAccess>();
-            (::windows::core::Interface::vtable(this).OtherAppReadAccess)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<UserDataTaskListOtherAppReadAccess>();
+            (::windows_core::Interface::vtable(this).OtherAppReadAccess)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn SetOtherAppReadAccess(&self, value: UserDataTaskListOtherAppReadAccess) -> ::windows::core::Result<()> {
+    pub fn SetOtherAppReadAccess(&self, value: UserDataTaskListOtherAppReadAccess) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetOtherAppReadAccess)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetOtherAppReadAccess)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn OtherAppWriteAccess(&self) -> ::windows::core::Result<UserDataTaskListOtherAppWriteAccess> {
+    pub fn OtherAppWriteAccess(&self) -> ::windows_core::Result<UserDataTaskListOtherAppWriteAccess> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<UserDataTaskListOtherAppWriteAccess>();
-            (::windows::core::Interface::vtable(this).OtherAppWriteAccess)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<UserDataTaskListOtherAppWriteAccess>();
+            (::windows_core::Interface::vtable(this).OtherAppWriteAccess)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn SetOtherAppWriteAccess(&self, value: UserDataTaskListOtherAppWriteAccess) -> ::windows::core::Result<()> {
+    pub fn SetOtherAppWriteAccess(&self, value: UserDataTaskListOtherAppWriteAccess) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetOtherAppWriteAccess)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetOtherAppWriteAccess)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn LimitedWriteOperations(&self) -> ::windows::core::Result<UserDataTaskListLimitedWriteOperations> {
+    pub fn LimitedWriteOperations(&self) -> ::windows_core::Result<UserDataTaskListLimitedWriteOperations> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<UserDataTaskListLimitedWriteOperations>();
-            (::windows::core::Interface::vtable(this).LimitedWriteOperations)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<UserDataTaskListLimitedWriteOperations>();
+            (::windows_core::Interface::vtable(this).LimitedWriteOperations)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn SyncManager(&self) -> ::windows::core::Result<UserDataTaskListSyncManager> {
+    pub fn SyncManager(&self) -> ::windows_core::Result<UserDataTaskListSyncManager> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<UserDataTaskListSyncManager>();
-            (::windows::core::Interface::vtable(this).SyncManager)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn RegisterSyncManagerAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncAction>();
-            (::windows::core::Interface::vtable(this).RegisterSyncManagerAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
-        }
-    }
-    pub fn GetTaskReader(&self) -> ::windows::core::Result<UserDataTaskReader> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::windows::core::zeroed::<UserDataTaskReader>();
-            (::windows::core::Interface::vtable(this).GetTaskReader)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
-        }
-    }
-    pub fn GetTaskReaderWithOptions(&self, options: &UserDataTaskQueryOptions) -> ::windows::core::Result<UserDataTaskReader> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::windows::core::zeroed::<UserDataTaskReader>();
-            (::windows::core::Interface::vtable(this).GetTaskReaderWithOptions)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(options), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<UserDataTaskListSyncManager>();
+            (::windows_core::Interface::vtable(this).SyncManager)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetTaskAsync(&self, userdatatask: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserDataTask>> {
+    pub fn RegisterSyncManagerAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<UserDataTask>>();
-            (::windows::core::Interface::vtable(this).GetTaskAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(userdatatask), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncAction>();
+            (::windows_core::Interface::vtable(this).RegisterSyncManagerAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        }
+    }
+    pub fn GetTaskReader(&self) -> ::windows_core::Result<UserDataTaskReader> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::windows_core::zeroed::<UserDataTaskReader>();
+            (::windows_core::Interface::vtable(this).GetTaskReader)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        }
+    }
+    pub fn GetTaskReaderWithOptions(&self, options: &UserDataTaskQueryOptions) -> ::windows_core::Result<UserDataTaskReader> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::windows_core::zeroed::<UserDataTaskReader>();
+            (::windows_core::Interface::vtable(this).GetTaskReaderWithOptions)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(options), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SaveTaskAsync(&self, userdatatask: &UserDataTask) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn GetTaskAsync(&self, userdatatask: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<UserDataTask>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncAction>();
-            (::windows::core::Interface::vtable(this).SaveTaskAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(userdatatask), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<UserDataTask>>();
+            (::windows_core::Interface::vtable(this).GetTaskAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(userdatatask), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DeleteTaskAsync(&self, userdatataskid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SaveTaskAsync(&self, userdatatask: &UserDataTask) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncAction>();
-            (::windows::core::Interface::vtable(this).DeleteTaskAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(userdatataskid), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncAction>();
+            (::windows_core::Interface::vtable(this).SaveTaskAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(userdatatask), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DeleteAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn DeleteTaskAsync(&self, userdatataskid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncAction>();
-            (::windows::core::Interface::vtable(this).DeleteAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncAction>();
+            (::windows_core::Interface::vtable(this).DeleteTaskAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(userdatataskid), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SaveAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn DeleteAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncAction>();
-            (::windows::core::Interface::vtable(this).SaveAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncAction>();
+            (::windows_core::Interface::vtable(this).DeleteAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn SaveAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncAction>();
+            (::windows_core::Interface::vtable(this).SaveAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -896,64 +896,64 @@ impl ::core::fmt::Debug for UserDataTaskList {
         f.debug_tuple("UserDataTaskList").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for UserDataTaskList {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskList;{49412e39-7c1d-4df1-bed3-314b7cbf5e4e})");
+impl ::windows_core::RuntimeType for UserDataTaskList {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskList;{49412e39-7c1d-4df1-bed3-314b7cbf5e4e})");
 }
 impl ::core::clone::Clone for UserDataTaskList {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for UserDataTaskList {
+unsafe impl ::windows_core::Interface for UserDataTaskList {
     type Vtable = IUserDataTaskList_Vtbl;
 }
-unsafe impl ::windows::core::ComInterface for UserDataTaskList {
-    const IID: ::windows::core::GUID = <IUserDataTaskList as ::windows::core::ComInterface>::IID;
+unsafe impl ::windows_core::ComInterface for UserDataTaskList {
+    const IID: ::windows_core::GUID = <IUserDataTaskList as ::windows_core::ComInterface>::IID;
 }
-impl ::windows::core::RuntimeName for UserDataTaskList {
+impl ::windows_core::RuntimeName for UserDataTaskList {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskList";
 }
-::windows::imp::interface_hierarchy!(UserDataTaskList, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows_core::imp::interface_hierarchy!(UserDataTaskList, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskList {}
 unsafe impl ::core::marker::Sync for UserDataTaskList {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
-pub struct UserDataTaskListLimitedWriteOperations(::windows::core::IUnknown);
+pub struct UserDataTaskListLimitedWriteOperations(::windows_core::IUnknown);
 impl UserDataTaskListLimitedWriteOperations {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryCompleteTaskAsync(&self, userdatataskid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
+    pub fn TryCompleteTaskAsync(&self, userdatataskid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>();
-            (::windows::core::Interface::vtable(this).TryCompleteTaskAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(userdatataskid), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>>();
+            (::windows_core::Interface::vtable(this).TryCompleteTaskAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(userdatataskid), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryCreateOrUpdateTaskAsync(&self, userdatatask: &UserDataTask) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryCreateOrUpdateTaskAsync(&self, userdatatask: &UserDataTask) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
-            (::windows::core::Interface::vtable(this).TryCreateOrUpdateTaskAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(userdatatask), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
+            (::windows_core::Interface::vtable(this).TryCreateOrUpdateTaskAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(userdatatask), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryDeleteTaskAsync(&self, userdatataskid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryDeleteTaskAsync(&self, userdatataskid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
-            (::windows::core::Interface::vtable(this).TryDeleteTaskAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(userdatataskid), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
+            (::windows_core::Interface::vtable(this).TryDeleteTaskAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(userdatataskid), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TrySkipOccurrenceAsync(&self, userdatataskid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TrySkipOccurrenceAsync(&self, userdatataskid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
-            (::windows::core::Interface::vtable(this).TrySkipOccurrenceAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(userdatataskid), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
+            (::windows_core::Interface::vtable(this).TrySkipOccurrenceAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(userdatataskid), &mut result__).from_abi(result__)
         }
     }
 }
@@ -968,94 +968,94 @@ impl ::core::fmt::Debug for UserDataTaskListLimitedWriteOperations {
         f.debug_tuple("UserDataTaskListLimitedWriteOperations").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for UserDataTaskListLimitedWriteOperations {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskListLimitedWriteOperations;{7aa267f2-6078-4183-919e-4f29f19cfae9})");
+impl ::windows_core::RuntimeType for UserDataTaskListLimitedWriteOperations {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskListLimitedWriteOperations;{7aa267f2-6078-4183-919e-4f29f19cfae9})");
 }
 impl ::core::clone::Clone for UserDataTaskListLimitedWriteOperations {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for UserDataTaskListLimitedWriteOperations {
+unsafe impl ::windows_core::Interface for UserDataTaskListLimitedWriteOperations {
     type Vtable = IUserDataTaskListLimitedWriteOperations_Vtbl;
 }
-unsafe impl ::windows::core::ComInterface for UserDataTaskListLimitedWriteOperations {
-    const IID: ::windows::core::GUID = <IUserDataTaskListLimitedWriteOperations as ::windows::core::ComInterface>::IID;
+unsafe impl ::windows_core::ComInterface for UserDataTaskListLimitedWriteOperations {
+    const IID: ::windows_core::GUID = <IUserDataTaskListLimitedWriteOperations as ::windows_core::ComInterface>::IID;
 }
-impl ::windows::core::RuntimeName for UserDataTaskListLimitedWriteOperations {
+impl ::windows_core::RuntimeName for UserDataTaskListLimitedWriteOperations {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskListLimitedWriteOperations";
 }
-::windows::imp::interface_hierarchy!(UserDataTaskListLimitedWriteOperations, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows_core::imp::interface_hierarchy!(UserDataTaskListLimitedWriteOperations, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskListLimitedWriteOperations {}
 unsafe impl ::core::marker::Sync for UserDataTaskListLimitedWriteOperations {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
-pub struct UserDataTaskListSyncManager(::windows::core::IUnknown);
+pub struct UserDataTaskListSyncManager(::windows_core::IUnknown);
 impl UserDataTaskListSyncManager {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn LastAttemptedSyncTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
+    pub fn LastAttemptedSyncTime(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::DateTime>();
-            (::windows::core::Interface::vtable(this).LastAttemptedSyncTime)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::DateTime>();
+            (::windows_core::Interface::vtable(this).LastAttemptedSyncTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetLastAttemptedSyncTime(&self, value: super::super::Foundation::DateTime) -> ::windows::core::Result<()> {
+    pub fn SetLastAttemptedSyncTime(&self, value: super::super::Foundation::DateTime) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetLastAttemptedSyncTime)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetLastAttemptedSyncTime)(::windows_core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn LastSuccessfulSyncTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
+    pub fn LastSuccessfulSyncTime(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::DateTime>();
-            (::windows::core::Interface::vtable(this).LastSuccessfulSyncTime)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::DateTime>();
+            (::windows_core::Interface::vtable(this).LastSuccessfulSyncTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetLastSuccessfulSyncTime(&self, value: super::super::Foundation::DateTime) -> ::windows::core::Result<()> {
+    pub fn SetLastSuccessfulSyncTime(&self, value: super::super::Foundation::DateTime) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetLastSuccessfulSyncTime)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetLastSuccessfulSyncTime)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Status(&self) -> ::windows::core::Result<UserDataTaskListSyncStatus> {
+    pub fn Status(&self) -> ::windows_core::Result<UserDataTaskListSyncStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<UserDataTaskListSyncStatus>();
-            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<UserDataTaskListSyncStatus>();
+            (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn SetStatus(&self, value: UserDataTaskListSyncStatus) -> ::windows::core::Result<()> {
+    pub fn SetStatus(&self, value: UserDataTaskListSyncStatus) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStatus)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetStatus)(::windows_core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SyncAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn SyncAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
-            (::windows::core::Interface::vtable(this).SyncAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn SyncStatusChanged(&self, handler: &super::super::Foundation::TypedEventHandler<UserDataTaskListSyncManager, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Interface::vtable(this).SyncStatusChanged)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
+            (::windows_core::Interface::vtable(this).SyncAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveSyncStatusChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+    pub fn SyncStatusChanged(&self, handler: &super::super::Foundation::TypedEventHandler<UserDataTaskListSyncManager, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveSyncStatusChanged)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe {
+            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            (::windows_core::Interface::vtable(this).SyncStatusChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn RemoveSyncStatusChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
+        let this = self;
+        unsafe { (::windows_core::Interface::vtable(this).RemoveSyncStatusChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
 }
 impl ::core::cmp::PartialEq for UserDataTaskListSyncManager {
@@ -1069,65 +1069,65 @@ impl ::core::fmt::Debug for UserDataTaskListSyncManager {
         f.debug_tuple("UserDataTaskListSyncManager").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for UserDataTaskListSyncManager {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskListSyncManager;{8e591a95-1dcf-469f-93ec-ba48bb553c6b})");
+impl ::windows_core::RuntimeType for UserDataTaskListSyncManager {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskListSyncManager;{8e591a95-1dcf-469f-93ec-ba48bb553c6b})");
 }
 impl ::core::clone::Clone for UserDataTaskListSyncManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for UserDataTaskListSyncManager {
+unsafe impl ::windows_core::Interface for UserDataTaskListSyncManager {
     type Vtable = IUserDataTaskListSyncManager_Vtbl;
 }
-unsafe impl ::windows::core::ComInterface for UserDataTaskListSyncManager {
-    const IID: ::windows::core::GUID = <IUserDataTaskListSyncManager as ::windows::core::ComInterface>::IID;
+unsafe impl ::windows_core::ComInterface for UserDataTaskListSyncManager {
+    const IID: ::windows_core::GUID = <IUserDataTaskListSyncManager as ::windows_core::ComInterface>::IID;
 }
-impl ::windows::core::RuntimeName for UserDataTaskListSyncManager {
+impl ::windows_core::RuntimeName for UserDataTaskListSyncManager {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskListSyncManager";
 }
-::windows::imp::interface_hierarchy!(UserDataTaskListSyncManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows_core::imp::interface_hierarchy!(UserDataTaskListSyncManager, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskListSyncManager {}
 unsafe impl ::core::marker::Sync for UserDataTaskListSyncManager {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
-pub struct UserDataTaskManager(::windows::core::IUnknown);
+pub struct UserDataTaskManager(::windows_core::IUnknown);
 impl UserDataTaskManager {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestStoreAsync(&self, accesstype: UserDataTaskStoreAccessType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserDataTaskStore>> {
+    pub fn RequestStoreAsync(&self, accesstype: UserDataTaskStoreAccessType) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<UserDataTaskStore>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<UserDataTaskStore>>();
-            (::windows::core::Interface::vtable(this).RequestStoreAsync)(::windows::core::Interface::as_raw(this), accesstype, &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<UserDataTaskStore>>();
+            (::windows_core::Interface::vtable(this).RequestStoreAsync)(::windows_core::Interface::as_raw(this), accesstype, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
+    pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::System::User>();
-            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::System::User>();
+            (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn GetDefault() -> ::windows::core::Result<UserDataTaskManager> {
+    pub fn GetDefault() -> ::windows_core::Result<UserDataTaskManager> {
         Self::IUserDataTaskManagerStatics(|this| unsafe {
-            let mut result__ = ::windows::core::zeroed::<UserDataTaskManager>();
-            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<UserDataTaskManager>();
+            (::windows_core::Interface::vtable(this).GetDefault)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn GetForUser(user: &super::super::System::User) -> ::windows::core::Result<UserDataTaskManager> {
+    pub fn GetForUser(user: &super::super::System::User) -> ::windows_core::Result<UserDataTaskManager> {
         Self::IUserDataTaskManagerStatics(|this| unsafe {
-            let mut result__ = ::windows::core::zeroed::<UserDataTaskManager>();
-            (::windows::core::Interface::vtable(this).GetForUser)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(user), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<UserDataTaskManager>();
+            (::windows_core::Interface::vtable(this).GetForUser)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(user), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
-    pub fn IUserDataTaskManagerStatics<R, F: FnOnce(&IUserDataTaskManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::imp::FactoryCache<UserDataTaskManager, IUserDataTaskManagerStatics> = ::windows::imp::FactoryCache::new();
+    pub fn IUserDataTaskManagerStatics<R, F: FnOnce(&IUserDataTaskManagerStatics) -> ::windows_core::Result<R>>(callback: F) -> ::windows_core::Result<R> {
+        static SHARED: ::windows_core::imp::FactoryCache<UserDataTaskManager, IUserDataTaskManagerStatics> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1142,58 +1142,58 @@ impl ::core::fmt::Debug for UserDataTaskManager {
         f.debug_tuple("UserDataTaskManager").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for UserDataTaskManager {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskManager;{8451c914-e60b-48a9-9211-7fb8a56cb84c})");
+impl ::windows_core::RuntimeType for UserDataTaskManager {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskManager;{8451c914-e60b-48a9-9211-7fb8a56cb84c})");
 }
 impl ::core::clone::Clone for UserDataTaskManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for UserDataTaskManager {
+unsafe impl ::windows_core::Interface for UserDataTaskManager {
     type Vtable = IUserDataTaskManager_Vtbl;
 }
-unsafe impl ::windows::core::ComInterface for UserDataTaskManager {
-    const IID: ::windows::core::GUID = <IUserDataTaskManager as ::windows::core::ComInterface>::IID;
+unsafe impl ::windows_core::ComInterface for UserDataTaskManager {
+    const IID: ::windows_core::GUID = <IUserDataTaskManager as ::windows_core::ComInterface>::IID;
 }
-impl ::windows::core::RuntimeName for UserDataTaskManager {
+impl ::windows_core::RuntimeName for UserDataTaskManager {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskManager";
 }
-::windows::imp::interface_hierarchy!(UserDataTaskManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows_core::imp::interface_hierarchy!(UserDataTaskManager, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskManager {}
 unsafe impl ::core::marker::Sync for UserDataTaskManager {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
-pub struct UserDataTaskQueryOptions(::windows::core::IUnknown);
+pub struct UserDataTaskQueryOptions(::windows_core::IUnknown);
 impl UserDataTaskQueryOptions {
-    pub fn new() -> ::windows::core::Result<Self> {
+    pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::imp::FactoryCache<UserDataTaskQueryOptions, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows_core::imp::IGenericFactory) -> ::windows_core::Result<R>>(callback: F) -> ::windows_core::Result<R> {
+        static SHARED: ::windows_core::imp::FactoryCache<UserDataTaskQueryOptions, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn SortProperty(&self) -> ::windows::core::Result<UserDataTaskQuerySortProperty> {
+    pub fn SortProperty(&self) -> ::windows_core::Result<UserDataTaskQuerySortProperty> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<UserDataTaskQuerySortProperty>();
-            (::windows::core::Interface::vtable(this).SortProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<UserDataTaskQuerySortProperty>();
+            (::windows_core::Interface::vtable(this).SortProperty)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn SetSortProperty(&self, value: UserDataTaskQuerySortProperty) -> ::windows::core::Result<()> {
+    pub fn SetSortProperty(&self, value: UserDataTaskQuerySortProperty) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSortProperty)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetSortProperty)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Kind(&self) -> ::windows::core::Result<UserDataTaskQueryKind> {
+    pub fn Kind(&self) -> ::windows_core::Result<UserDataTaskQueryKind> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<UserDataTaskQueryKind>();
-            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<UserDataTaskQueryKind>();
+            (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn SetKind(&self, value: UserDataTaskQueryKind) -> ::windows::core::Result<()> {
+    pub fn SetKind(&self, value: UserDataTaskQueryKind) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetKind)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetKind)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::cmp::PartialEq for UserDataTaskQueryOptions {
@@ -1207,37 +1207,37 @@ impl ::core::fmt::Debug for UserDataTaskQueryOptions {
         f.debug_tuple("UserDataTaskQueryOptions").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for UserDataTaskQueryOptions {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskQueryOptions;{959f27ed-909a-4d30-8c1b-331d8fe667e2})");
+impl ::windows_core::RuntimeType for UserDataTaskQueryOptions {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskQueryOptions;{959f27ed-909a-4d30-8c1b-331d8fe667e2})");
 }
 impl ::core::clone::Clone for UserDataTaskQueryOptions {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for UserDataTaskQueryOptions {
+unsafe impl ::windows_core::Interface for UserDataTaskQueryOptions {
     type Vtable = IUserDataTaskQueryOptions_Vtbl;
 }
-unsafe impl ::windows::core::ComInterface for UserDataTaskQueryOptions {
-    const IID: ::windows::core::GUID = <IUserDataTaskQueryOptions as ::windows::core::ComInterface>::IID;
+unsafe impl ::windows_core::ComInterface for UserDataTaskQueryOptions {
+    const IID: ::windows_core::GUID = <IUserDataTaskQueryOptions as ::windows_core::ComInterface>::IID;
 }
-impl ::windows::core::RuntimeName for UserDataTaskQueryOptions {
+impl ::windows_core::RuntimeName for UserDataTaskQueryOptions {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskQueryOptions";
 }
-::windows::imp::interface_hierarchy!(UserDataTaskQueryOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows_core::imp::interface_hierarchy!(UserDataTaskQueryOptions, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskQueryOptions {}
 unsafe impl ::core::marker::Sync for UserDataTaskQueryOptions {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
-pub struct UserDataTaskReader(::windows::core::IUnknown);
+pub struct UserDataTaskReader(::windows_core::IUnknown);
 impl UserDataTaskReader {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReadBatchAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserDataTaskBatch>> {
+    pub fn ReadBatchAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<UserDataTaskBatch>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<UserDataTaskBatch>>();
-            (::windows::core::Interface::vtable(this).ReadBatchAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<UserDataTaskBatch>>();
+            (::windows_core::Interface::vtable(this).ReadBatchAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1252,166 +1252,166 @@ impl ::core::fmt::Debug for UserDataTaskReader {
         f.debug_tuple("UserDataTaskReader").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for UserDataTaskReader {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskReader;{03e688b1-4ccf-4500-883b-e76290cfed63})");
+impl ::windows_core::RuntimeType for UserDataTaskReader {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskReader;{03e688b1-4ccf-4500-883b-e76290cfed63})");
 }
 impl ::core::clone::Clone for UserDataTaskReader {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for UserDataTaskReader {
+unsafe impl ::windows_core::Interface for UserDataTaskReader {
     type Vtable = IUserDataTaskReader_Vtbl;
 }
-unsafe impl ::windows::core::ComInterface for UserDataTaskReader {
-    const IID: ::windows::core::GUID = <IUserDataTaskReader as ::windows::core::ComInterface>::IID;
+unsafe impl ::windows_core::ComInterface for UserDataTaskReader {
+    const IID: ::windows_core::GUID = <IUserDataTaskReader as ::windows_core::ComInterface>::IID;
 }
-impl ::windows::core::RuntimeName for UserDataTaskReader {
+impl ::windows_core::RuntimeName for UserDataTaskReader {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskReader";
 }
-::windows::imp::interface_hierarchy!(UserDataTaskReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows_core::imp::interface_hierarchy!(UserDataTaskReader, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskReader {}
 unsafe impl ::core::marker::Sync for UserDataTaskReader {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
-pub struct UserDataTaskRecurrenceProperties(::windows::core::IUnknown);
+pub struct UserDataTaskRecurrenceProperties(::windows_core::IUnknown);
 impl UserDataTaskRecurrenceProperties {
-    pub fn new() -> ::windows::core::Result<Self> {
+    pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::imp::FactoryCache<UserDataTaskRecurrenceProperties, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows_core::imp::IGenericFactory) -> ::windows_core::Result<R>>(callback: F) -> ::windows_core::Result<R> {
+        static SHARED: ::windows_core::imp::FactoryCache<UserDataTaskRecurrenceProperties, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Unit(&self) -> ::windows::core::Result<UserDataTaskRecurrenceUnit> {
+    pub fn Unit(&self) -> ::windows_core::Result<UserDataTaskRecurrenceUnit> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<UserDataTaskRecurrenceUnit>();
-            (::windows::core::Interface::vtable(this).Unit)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<UserDataTaskRecurrenceUnit>();
+            (::windows_core::Interface::vtable(this).Unit)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn SetUnit(&self, value: UserDataTaskRecurrenceUnit) -> ::windows::core::Result<()> {
+    pub fn SetUnit(&self, value: UserDataTaskRecurrenceUnit) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetUnit)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetUnit)(::windows_core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Occurrences(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>> {
+    pub fn Occurrences(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IReference<i32>>();
-            (::windows::core::Interface::vtable(this).Occurrences)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<i32>>();
+            (::windows_core::Interface::vtable(this).Occurrences)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetOccurrences<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetOccurrences<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::TryIntoParam<super::super::Foundation::IReference<i32>>,
+        P0: ::windows_core::TryIntoParam<super::super::Foundation::IReference<i32>>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetOccurrences)(::windows::core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetOccurrences)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Until(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
+    pub fn Until(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>();
-            (::windows::core::Interface::vtable(this).Until)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>();
+            (::windows_core::Interface::vtable(this).Until)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetUntil<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetUntil<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::TryIntoParam<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
+        P0: ::windows_core::TryIntoParam<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetUntil)(::windows::core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetUntil)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    pub fn Interval(&self) -> ::windows::core::Result<i32> {
+    pub fn Interval(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Interface::vtable(this).Interval)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<i32>();
+            (::windows_core::Interface::vtable(this).Interval)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn SetInterval(&self, value: i32) -> ::windows::core::Result<()> {
+    pub fn SetInterval(&self, value: i32) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetInterval)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetInterval)(::windows_core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DaysOfWeek(&self) -> ::windows::core::Result<super::super::Foundation::IReference<UserDataTaskDaysOfWeek>> {
+    pub fn DaysOfWeek(&self) -> ::windows_core::Result<super::super::Foundation::IReference<UserDataTaskDaysOfWeek>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IReference<UserDataTaskDaysOfWeek>>();
-            (::windows::core::Interface::vtable(this).DaysOfWeek)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<UserDataTaskDaysOfWeek>>();
+            (::windows_core::Interface::vtable(this).DaysOfWeek)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetDaysOfWeek<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetDaysOfWeek<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::TryIntoParam<super::super::Foundation::IReference<UserDataTaskDaysOfWeek>>,
+        P0: ::windows_core::TryIntoParam<super::super::Foundation::IReference<UserDataTaskDaysOfWeek>>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDaysOfWeek)(::windows::core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetDaysOfWeek)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn WeekOfMonth(&self) -> ::windows::core::Result<super::super::Foundation::IReference<UserDataTaskWeekOfMonth>> {
+    pub fn WeekOfMonth(&self) -> ::windows_core::Result<super::super::Foundation::IReference<UserDataTaskWeekOfMonth>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IReference<UserDataTaskWeekOfMonth>>();
-            (::windows::core::Interface::vtable(this).WeekOfMonth)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<UserDataTaskWeekOfMonth>>();
+            (::windows_core::Interface::vtable(this).WeekOfMonth)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetWeekOfMonth<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetWeekOfMonth<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::TryIntoParam<super::super::Foundation::IReference<UserDataTaskWeekOfMonth>>,
+        P0: ::windows_core::TryIntoParam<super::super::Foundation::IReference<UserDataTaskWeekOfMonth>>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetWeekOfMonth)(::windows::core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetWeekOfMonth)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Month(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>> {
+    pub fn Month(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IReference<i32>>();
-            (::windows::core::Interface::vtable(this).Month)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<i32>>();
+            (::windows_core::Interface::vtable(this).Month)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetMonth<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetMonth<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::TryIntoParam<super::super::Foundation::IReference<i32>>,
+        P0: ::windows_core::TryIntoParam<super::super::Foundation::IReference<i32>>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMonth)(::windows::core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetMonth)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Day(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>> {
+    pub fn Day(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IReference<i32>>();
-            (::windows::core::Interface::vtable(this).Day)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<i32>>();
+            (::windows_core::Interface::vtable(this).Day)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetDay<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetDay<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::TryIntoParam<super::super::Foundation::IReference<i32>>,
+        P0: ::windows_core::TryIntoParam<super::super::Foundation::IReference<i32>>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDay)(::windows::core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetDay)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
 }
 impl ::core::cmp::PartialEq for UserDataTaskRecurrenceProperties {
@@ -1425,94 +1425,94 @@ impl ::core::fmt::Debug for UserDataTaskRecurrenceProperties {
         f.debug_tuple("UserDataTaskRecurrenceProperties").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for UserDataTaskRecurrenceProperties {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskRecurrenceProperties;{73df80b0-27c6-40ce-b149-9cd41485a69e})");
+impl ::windows_core::RuntimeType for UserDataTaskRecurrenceProperties {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskRecurrenceProperties;{73df80b0-27c6-40ce-b149-9cd41485a69e})");
 }
 impl ::core::clone::Clone for UserDataTaskRecurrenceProperties {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for UserDataTaskRecurrenceProperties {
+unsafe impl ::windows_core::Interface for UserDataTaskRecurrenceProperties {
     type Vtable = IUserDataTaskRecurrenceProperties_Vtbl;
 }
-unsafe impl ::windows::core::ComInterface for UserDataTaskRecurrenceProperties {
-    const IID: ::windows::core::GUID = <IUserDataTaskRecurrenceProperties as ::windows::core::ComInterface>::IID;
+unsafe impl ::windows_core::ComInterface for UserDataTaskRecurrenceProperties {
+    const IID: ::windows_core::GUID = <IUserDataTaskRecurrenceProperties as ::windows_core::ComInterface>::IID;
 }
-impl ::windows::core::RuntimeName for UserDataTaskRecurrenceProperties {
+impl ::windows_core::RuntimeName for UserDataTaskRecurrenceProperties {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskRecurrenceProperties";
 }
-::windows::imp::interface_hierarchy!(UserDataTaskRecurrenceProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows_core::imp::interface_hierarchy!(UserDataTaskRecurrenceProperties, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskRecurrenceProperties {}
 unsafe impl ::core::marker::Sync for UserDataTaskRecurrenceProperties {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
-pub struct UserDataTaskRegenerationProperties(::windows::core::IUnknown);
+pub struct UserDataTaskRegenerationProperties(::windows_core::IUnknown);
 impl UserDataTaskRegenerationProperties {
-    pub fn new() -> ::windows::core::Result<Self> {
+    pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::imp::FactoryCache<UserDataTaskRegenerationProperties, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows_core::imp::IGenericFactory) -> ::windows_core::Result<R>>(callback: F) -> ::windows_core::Result<R> {
+        static SHARED: ::windows_core::imp::FactoryCache<UserDataTaskRegenerationProperties, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Unit(&self) -> ::windows::core::Result<UserDataTaskRegenerationUnit> {
+    pub fn Unit(&self) -> ::windows_core::Result<UserDataTaskRegenerationUnit> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<UserDataTaskRegenerationUnit>();
-            (::windows::core::Interface::vtable(this).Unit)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<UserDataTaskRegenerationUnit>();
+            (::windows_core::Interface::vtable(this).Unit)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn SetUnit(&self, value: UserDataTaskRegenerationUnit) -> ::windows::core::Result<()> {
+    pub fn SetUnit(&self, value: UserDataTaskRegenerationUnit) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetUnit)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetUnit)(::windows_core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Occurrences(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>> {
+    pub fn Occurrences(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IReference<i32>>();
-            (::windows::core::Interface::vtable(this).Occurrences)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<i32>>();
+            (::windows_core::Interface::vtable(this).Occurrences)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetOccurrences<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetOccurrences<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::TryIntoParam<super::super::Foundation::IReference<i32>>,
+        P0: ::windows_core::TryIntoParam<super::super::Foundation::IReference<i32>>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetOccurrences)(::windows::core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetOccurrences)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Until(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
+    pub fn Until(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>();
-            (::windows::core::Interface::vtable(this).Until)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>();
+            (::windows_core::Interface::vtable(this).Until)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetUntil<P0>(&self, value: P0) -> ::windows::core::Result<()>
+    pub fn SetUntil<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::TryIntoParam<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
+        P0: ::windows_core::TryIntoParam<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetUntil)(::windows::core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetUntil)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    pub fn Interval(&self) -> ::windows::core::Result<i32> {
+    pub fn Interval(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Interface::vtable(this).Interval)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<i32>();
+            (::windows_core::Interface::vtable(this).Interval)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn SetInterval(&self, value: i32) -> ::windows::core::Result<()> {
+    pub fn SetInterval(&self, value: i32) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetInterval)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetInterval)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::cmp::PartialEq for UserDataTaskRegenerationProperties {
@@ -1526,64 +1526,64 @@ impl ::core::fmt::Debug for UserDataTaskRegenerationProperties {
         f.debug_tuple("UserDataTaskRegenerationProperties").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for UserDataTaskRegenerationProperties {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskRegenerationProperties;{92ab0007-090e-4704-bb5c-84fc0b0d9c31})");
+impl ::windows_core::RuntimeType for UserDataTaskRegenerationProperties {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskRegenerationProperties;{92ab0007-090e-4704-bb5c-84fc0b0d9c31})");
 }
 impl ::core::clone::Clone for UserDataTaskRegenerationProperties {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for UserDataTaskRegenerationProperties {
+unsafe impl ::windows_core::Interface for UserDataTaskRegenerationProperties {
     type Vtable = IUserDataTaskRegenerationProperties_Vtbl;
 }
-unsafe impl ::windows::core::ComInterface for UserDataTaskRegenerationProperties {
-    const IID: ::windows::core::GUID = <IUserDataTaskRegenerationProperties as ::windows::core::ComInterface>::IID;
+unsafe impl ::windows_core::ComInterface for UserDataTaskRegenerationProperties {
+    const IID: ::windows_core::GUID = <IUserDataTaskRegenerationProperties as ::windows_core::ComInterface>::IID;
 }
-impl ::windows::core::RuntimeName for UserDataTaskRegenerationProperties {
+impl ::windows_core::RuntimeName for UserDataTaskRegenerationProperties {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskRegenerationProperties";
 }
-::windows::imp::interface_hierarchy!(UserDataTaskRegenerationProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows_core::imp::interface_hierarchy!(UserDataTaskRegenerationProperties, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskRegenerationProperties {}
 unsafe impl ::core::marker::Sync for UserDataTaskRegenerationProperties {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
-pub struct UserDataTaskStore(::windows::core::IUnknown);
+pub struct UserDataTaskStore(::windows_core::IUnknown);
 impl UserDataTaskStore {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateListAsync(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserDataTaskList>> {
+    pub fn CreateListAsync(&self, name: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<UserDataTaskList>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<UserDataTaskList>>();
-            (::windows::core::Interface::vtable(this).CreateListAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(name), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<UserDataTaskList>>();
+            (::windows_core::Interface::vtable(this).CreateListAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateListInAccountAsync(&self, name: &::windows::core::HSTRING, userdataaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserDataTaskList>> {
+    pub fn CreateListInAccountAsync(&self, name: &::windows_core::HSTRING, userdataaccountid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<UserDataTaskList>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<UserDataTaskList>>();
-            (::windows::core::Interface::vtable(this).CreateListInAccountAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(userdataaccountid), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<UserDataTaskList>>();
+            (::windows_core::Interface::vtable(this).CreateListInAccountAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(userdataaccountid), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn FindListsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UserDataTaskList>>> {
+    pub fn FindListsAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UserDataTaskList>>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UserDataTaskList>>>();
-            (::windows::core::Interface::vtable(this).FindListsAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UserDataTaskList>>>();
+            (::windows_core::Interface::vtable(this).FindListsAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetListAsync(&self, tasklistid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserDataTaskList>> {
+    pub fn GetListAsync(&self, tasklistid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<UserDataTaskList>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<UserDataTaskList>>();
-            (::windows::core::Interface::vtable(this).GetListAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(tasklistid), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<UserDataTaskList>>();
+            (::windows_core::Interface::vtable(this).GetListAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(tasklistid), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1598,24 +1598,24 @@ impl ::core::fmt::Debug for UserDataTaskStore {
         f.debug_tuple("UserDataTaskStore").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for UserDataTaskStore {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskStore;{f06a9cb0-f1db-45ba-8a62-086004c0213d})");
+impl ::windows_core::RuntimeType for UserDataTaskStore {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskStore;{f06a9cb0-f1db-45ba-8a62-086004c0213d})");
 }
 impl ::core::clone::Clone for UserDataTaskStore {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for UserDataTaskStore {
+unsafe impl ::windows_core::Interface for UserDataTaskStore {
     type Vtable = IUserDataTaskStore_Vtbl;
 }
-unsafe impl ::windows::core::ComInterface for UserDataTaskStore {
-    const IID: ::windows::core::GUID = <IUserDataTaskStore as ::windows::core::ComInterface>::IID;
+unsafe impl ::windows_core::ComInterface for UserDataTaskStore {
+    const IID: ::windows_core::GUID = <IUserDataTaskStore as ::windows_core::ComInterface>::IID;
 }
-impl ::windows::core::RuntimeName for UserDataTaskStore {
+impl ::windows_core::RuntimeName for UserDataTaskStore {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskStore";
 }
-::windows::imp::interface_hierarchy!(UserDataTaskStore, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows_core::imp::interface_hierarchy!(UserDataTaskStore, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskStore {}
 unsafe impl ::core::marker::Sync for UserDataTaskStore {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
@@ -1643,8 +1643,8 @@ impl ::core::default::Default for UserDataTaskDaysOfWeek {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for UserDataTaskDaysOfWeek {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for UserDataTaskDaysOfWeek {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for UserDataTaskDaysOfWeek {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1684,8 +1684,8 @@ impl ::core::ops::Not for UserDataTaskDaysOfWeek {
         Self(self.0.not())
     }
 }
-impl ::windows::core::RuntimeType for UserDataTaskDaysOfWeek {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskDaysOfWeek;u4)");
+impl ::windows_core::RuntimeType for UserDataTaskDaysOfWeek {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskDaysOfWeek;u4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
@@ -1706,16 +1706,16 @@ impl ::core::default::Default for UserDataTaskDetailsKind {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for UserDataTaskDetailsKind {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for UserDataTaskDetailsKind {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for UserDataTaskDetailsKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UserDataTaskDetailsKind").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for UserDataTaskDetailsKind {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskDetailsKind;i4)");
+impl ::windows_core::RuntimeType for UserDataTaskDetailsKind {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskDetailsKind;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
@@ -1737,16 +1737,16 @@ impl ::core::default::Default for UserDataTaskKind {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for UserDataTaskKind {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for UserDataTaskKind {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for UserDataTaskKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UserDataTaskKind").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for UserDataTaskKind {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskKind;i4)");
+impl ::windows_core::RuntimeType for UserDataTaskKind {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskKind;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
@@ -1768,16 +1768,16 @@ impl ::core::default::Default for UserDataTaskListOtherAppReadAccess {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for UserDataTaskListOtherAppReadAccess {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for UserDataTaskListOtherAppReadAccess {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for UserDataTaskListOtherAppReadAccess {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UserDataTaskListOtherAppReadAccess").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for UserDataTaskListOtherAppReadAccess {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskListOtherAppReadAccess;i4)");
+impl ::windows_core::RuntimeType for UserDataTaskListOtherAppReadAccess {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskListOtherAppReadAccess;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
@@ -1798,16 +1798,16 @@ impl ::core::default::Default for UserDataTaskListOtherAppWriteAccess {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for UserDataTaskListOtherAppWriteAccess {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for UserDataTaskListOtherAppWriteAccess {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for UserDataTaskListOtherAppWriteAccess {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UserDataTaskListOtherAppWriteAccess").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for UserDataTaskListOtherAppWriteAccess {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskListOtherAppWriteAccess;i4)");
+impl ::windows_core::RuntimeType for UserDataTaskListOtherAppWriteAccess {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskListOtherAppWriteAccess;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
@@ -1832,16 +1832,16 @@ impl ::core::default::Default for UserDataTaskListSyncStatus {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for UserDataTaskListSyncStatus {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for UserDataTaskListSyncStatus {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for UserDataTaskListSyncStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UserDataTaskListSyncStatus").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for UserDataTaskListSyncStatus {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskListSyncStatus;i4)");
+impl ::windows_core::RuntimeType for UserDataTaskListSyncStatus {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskListSyncStatus;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
@@ -1863,16 +1863,16 @@ impl ::core::default::Default for UserDataTaskPriority {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for UserDataTaskPriority {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for UserDataTaskPriority {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for UserDataTaskPriority {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UserDataTaskPriority").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for UserDataTaskPriority {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskPriority;i4)");
+impl ::windows_core::RuntimeType for UserDataTaskPriority {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskPriority;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
@@ -1894,16 +1894,16 @@ impl ::core::default::Default for UserDataTaskQueryKind {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for UserDataTaskQueryKind {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for UserDataTaskQueryKind {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for UserDataTaskQueryKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UserDataTaskQueryKind").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for UserDataTaskQueryKind {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskQueryKind;i4)");
+impl ::windows_core::RuntimeType for UserDataTaskQueryKind {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskQueryKind;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
@@ -1923,16 +1923,16 @@ impl ::core::default::Default for UserDataTaskQuerySortProperty {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for UserDataTaskQuerySortProperty {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for UserDataTaskQuerySortProperty {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for UserDataTaskQuerySortProperty {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UserDataTaskQuerySortProperty").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for UserDataTaskQuerySortProperty {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskQuerySortProperty;i4)");
+impl ::windows_core::RuntimeType for UserDataTaskQuerySortProperty {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskQuerySortProperty;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
@@ -1957,16 +1957,16 @@ impl ::core::default::Default for UserDataTaskRecurrenceUnit {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for UserDataTaskRecurrenceUnit {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for UserDataTaskRecurrenceUnit {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for UserDataTaskRecurrenceUnit {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UserDataTaskRecurrenceUnit").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for UserDataTaskRecurrenceUnit {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskRecurrenceUnit;i4)");
+impl ::windows_core::RuntimeType for UserDataTaskRecurrenceUnit {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskRecurrenceUnit;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
@@ -1989,16 +1989,16 @@ impl ::core::default::Default for UserDataTaskRegenerationUnit {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for UserDataTaskRegenerationUnit {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for UserDataTaskRegenerationUnit {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for UserDataTaskRegenerationUnit {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UserDataTaskRegenerationUnit").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for UserDataTaskRegenerationUnit {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskRegenerationUnit;i4)");
+impl ::windows_core::RuntimeType for UserDataTaskRegenerationUnit {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskRegenerationUnit;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
@@ -2019,16 +2019,16 @@ impl ::core::default::Default for UserDataTaskSensitivity {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for UserDataTaskSensitivity {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for UserDataTaskSensitivity {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for UserDataTaskSensitivity {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UserDataTaskSensitivity").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for UserDataTaskSensitivity {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskSensitivity;i4)");
+impl ::windows_core::RuntimeType for UserDataTaskSensitivity {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskSensitivity;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
@@ -2049,16 +2049,16 @@ impl ::core::default::Default for UserDataTaskStoreAccessType {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for UserDataTaskStoreAccessType {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for UserDataTaskStoreAccessType {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for UserDataTaskStoreAccessType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UserDataTaskStoreAccessType").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for UserDataTaskStoreAccessType {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskStoreAccessType;i4)");
+impl ::windows_core::RuntimeType for UserDataTaskStoreAccessType {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskStoreAccessType;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
 #[repr(transparent)]
@@ -2082,16 +2082,16 @@ impl ::core::default::Default for UserDataTaskWeekOfMonth {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for UserDataTaskWeekOfMonth {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for UserDataTaskWeekOfMonth {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for UserDataTaskWeekOfMonth {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UserDataTaskWeekOfMonth").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for UserDataTaskWeekOfMonth {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskWeekOfMonth;i4)");
+impl ::windows_core::RuntimeType for UserDataTaskWeekOfMonth {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskWeekOfMonth;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

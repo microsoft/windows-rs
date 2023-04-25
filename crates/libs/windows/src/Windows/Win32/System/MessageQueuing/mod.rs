@@ -1,61 +1,61 @@
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 #[inline]
-pub unsafe fn MQADsPathToFormatName<P0>(lpwcsadspath: P0, lpwcsformatname: ::windows::core::PWSTR, lpdwformatnamelength: *mut u32) -> ::windows::core::Result<()>
+pub unsafe fn MQADsPathToFormatName<P0>(lpwcsadspath: P0, lpwcsformatname: ::windows_core::PWSTR, lpdwformatnamelength: *mut u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mqrt.dll" "system" fn MQADsPathToFormatName(lpwcsadspath : ::windows::core::PCWSTR, lpwcsformatname : ::windows::core::PWSTR, lpdwformatnamelength : *mut u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("mqrt.dll" "system" fn MQADsPathToFormatName(lpwcsadspath : ::windows_core::PCWSTR, lpwcsformatname : ::windows_core::PWSTR, lpdwformatnamelength : *mut u32) -> ::windows_core::HRESULT);
     MQADsPathToFormatName(lpwcsadspath.into_param().abi(), ::core::mem::transmute(lpwcsformatname), lpdwformatnamelength).ok()
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_DistributedTransactionCoordinator\"`*"]
 #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
 #[inline]
-pub unsafe fn MQBeginTransaction() -> ::windows::core::Result<super::DistributedTransactionCoordinator::ITransaction> {
-    ::windows_targets::link!("mqrt.dll" "system" fn MQBeginTransaction(pptransaction : *mut * mut::core::ffi::c_void) -> ::windows::core::HRESULT);
-    let mut result__ = ::windows::core::zeroed::<super::DistributedTransactionCoordinator::ITransaction>();
+pub unsafe fn MQBeginTransaction() -> ::windows_core::Result<super::DistributedTransactionCoordinator::ITransaction> {
+    ::windows_targets::link!("mqrt.dll" "system" fn MQBeginTransaction(pptransaction : *mut * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<super::DistributedTransactionCoordinator::ITransaction>();
     MQBeginTransaction(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MQCloseCursor<P0>(hcursor: P0) -> ::windows::core::Result<()>
+pub unsafe fn MQCloseCursor<P0>(hcursor: P0) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("mqrt.dll" "system" fn MQCloseCursor(hcursor : super::super::Foundation:: HANDLE) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("mqrt.dll" "system" fn MQCloseCursor(hcursor : super::super::Foundation:: HANDLE) -> ::windows_core::HRESULT);
     MQCloseCursor(hcursor.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 #[inline]
-pub unsafe fn MQCloseQueue(hqueue: isize) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("mqrt.dll" "system" fn MQCloseQueue(hqueue : isize) -> ::windows::core::HRESULT);
+pub unsafe fn MQCloseQueue(hqueue: isize) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("mqrt.dll" "system" fn MQCloseQueue(hqueue : isize) -> ::windows_core::HRESULT);
     MQCloseQueue(hqueue).ok()
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MQCreateCursor(hqueue: isize) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-    ::windows_targets::link!("mqrt.dll" "system" fn MQCreateCursor(hqueue : isize, phcursor : *mut super::super::Foundation:: HANDLE) -> ::windows::core::HRESULT);
-    let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HANDLE>();
+pub unsafe fn MQCreateCursor(hqueue: isize) -> ::windows_core::Result<super::super::Foundation::HANDLE> {
+    ::windows_targets::link!("mqrt.dll" "system" fn MQCreateCursor(hqueue : isize, phcursor : *mut super::super::Foundation:: HANDLE) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<super::super::Foundation::HANDLE>();
     MQCreateCursor(hqueue, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
-pub unsafe fn MQCreateQueue<P0>(psecuritydescriptor: P0, pqueueprops: *mut MQQUEUEPROPS, lpwcsformatname: ::windows::core::PWSTR, lpdwformatnamelength: *mut u32) -> ::windows::core::Result<()>
+pub unsafe fn MQCreateQueue<P0>(psecuritydescriptor: P0, pqueueprops: *mut MQQUEUEPROPS, lpwcsformatname: ::windows_core::PWSTR, lpdwformatnamelength: *mut u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Security::PSECURITY_DESCRIPTOR>,
+    P0: ::windows_core::IntoParam<super::super::Security::PSECURITY_DESCRIPTOR>,
 {
-    ::windows_targets::link!("mqrt.dll" "system" fn MQCreateQueue(psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, pqueueprops : *mut MQQUEUEPROPS, lpwcsformatname : ::windows::core::PWSTR, lpdwformatnamelength : *mut u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("mqrt.dll" "system" fn MQCreateQueue(psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, pqueueprops : *mut MQQUEUEPROPS, lpwcsformatname : ::windows_core::PWSTR, lpdwformatnamelength : *mut u32) -> ::windows_core::HRESULT);
     MQCreateQueue(psecuritydescriptor.into_param().abi(), pqueueprops, ::core::mem::transmute(lpwcsformatname), lpdwformatnamelength).ok()
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 #[inline]
-pub unsafe fn MQDeleteQueue<P0>(lpwcsformatname: P0) -> ::windows::core::Result<()>
+pub unsafe fn MQDeleteQueue<P0>(lpwcsformatname: P0) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mqrt.dll" "system" fn MQDeleteQueue(lpwcsformatname : ::windows::core::PCWSTR) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("mqrt.dll" "system" fn MQDeleteQueue(lpwcsformatname : ::windows_core::PCWSTR) -> ::windows_core::HRESULT);
     MQDeleteQueue(lpwcsformatname.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
@@ -69,7 +69,7 @@ pub unsafe fn MQFreeMemory(pvmemory: *const ::core::ffi::c_void) {
 #[inline]
 pub unsafe fn MQFreeSecurityContext<P0>(hsecuritycontext: P0)
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mqrt.dll" "system" fn MQFreeSecurityContext(hsecuritycontext : super::super::Foundation:: HANDLE) -> ());
     MQFreeSecurityContext(hsecuritycontext.into_param().abi())
@@ -77,250 +77,250 @@ where
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
-pub unsafe fn MQGetMachineProperties<P0>(lpwcsmachinename: P0, pguidmachineid: ::core::option::Option<*const ::windows::core::GUID>, pqmprops: *mut MQQMPROPS) -> ::windows::core::Result<()>
+pub unsafe fn MQGetMachineProperties<P0>(lpwcsmachinename: P0, pguidmachineid: ::core::option::Option<*const ::windows_core::GUID>, pqmprops: *mut MQQMPROPS) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mqrt.dll" "system" fn MQGetMachineProperties(lpwcsmachinename : ::windows::core::PCWSTR, pguidmachineid : *const ::windows::core::GUID, pqmprops : *mut MQQMPROPS) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("mqrt.dll" "system" fn MQGetMachineProperties(lpwcsmachinename : ::windows_core::PCWSTR, pguidmachineid : *const ::windows_core::GUID, pqmprops : *mut MQQMPROPS) -> ::windows_core::HRESULT);
     MQGetMachineProperties(lpwcsmachinename.into_param().abi(), ::core::mem::transmute(pguidmachineid.unwrap_or(::std::ptr::null())), pqmprops).ok()
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn MQGetOverlappedResult(lpoverlapped: *const super::IO::OVERLAPPED) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("mqrt.dll" "system" fn MQGetOverlappedResult(lpoverlapped : *const super::IO:: OVERLAPPED) -> ::windows::core::HRESULT);
+pub unsafe fn MQGetOverlappedResult(lpoverlapped: *const super::IO::OVERLAPPED) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("mqrt.dll" "system" fn MQGetOverlappedResult(lpoverlapped : *const super::IO:: OVERLAPPED) -> ::windows_core::HRESULT);
     MQGetOverlappedResult(lpoverlapped).ok()
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
-pub unsafe fn MQGetPrivateComputerInformation<P0>(lpwcscomputername: P0, pprivateprops: *mut MQPRIVATEPROPS) -> ::windows::core::Result<()>
+pub unsafe fn MQGetPrivateComputerInformation<P0>(lpwcscomputername: P0, pprivateprops: *mut MQPRIVATEPROPS) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mqrt.dll" "system" fn MQGetPrivateComputerInformation(lpwcscomputername : ::windows::core::PCWSTR, pprivateprops : *mut MQPRIVATEPROPS) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("mqrt.dll" "system" fn MQGetPrivateComputerInformation(lpwcscomputername : ::windows_core::PCWSTR, pprivateprops : *mut MQPRIVATEPROPS) -> ::windows_core::HRESULT);
     MQGetPrivateComputerInformation(lpwcscomputername.into_param().abi(), pprivateprops).ok()
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
-pub unsafe fn MQGetQueueProperties<P0>(lpwcsformatname: P0, pqueueprops: *mut MQQUEUEPROPS) -> ::windows::core::Result<()>
+pub unsafe fn MQGetQueueProperties<P0>(lpwcsformatname: P0, pqueueprops: *mut MQQUEUEPROPS) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mqrt.dll" "system" fn MQGetQueueProperties(lpwcsformatname : ::windows::core::PCWSTR, pqueueprops : *mut MQQUEUEPROPS) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("mqrt.dll" "system" fn MQGetQueueProperties(lpwcsformatname : ::windows_core::PCWSTR, pqueueprops : *mut MQQUEUEPROPS) -> ::windows_core::HRESULT);
     MQGetQueueProperties(lpwcsformatname.into_param().abi(), pqueueprops).ok()
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn MQGetQueueSecurity<P0>(lpwcsformatname: P0, requestedinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> ::windows::core::Result<()>
+pub unsafe fn MQGetQueueSecurity<P0>(lpwcsformatname: P0, requestedinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mqrt.dll" "system" fn MQGetQueueSecurity(lpwcsformatname : ::windows::core::PCWSTR, requestedinformation : u32, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, nlength : u32, lpnlengthneeded : *mut u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("mqrt.dll" "system" fn MQGetQueueSecurity(lpwcsformatname : ::windows_core::PCWSTR, requestedinformation : u32, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, nlength : u32, lpnlengthneeded : *mut u32) -> ::windows_core::HRESULT);
     MQGetQueueSecurity(lpwcsformatname.into_param().abi(), requestedinformation, psecuritydescriptor, nlength, lpnlengthneeded).ok()
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MQGetSecurityContext(lpcertbuffer: ::core::option::Option<*const ::core::ffi::c_void>, dwcertbufferlength: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-    ::windows_targets::link!("mqrt.dll" "system" fn MQGetSecurityContext(lpcertbuffer : *const ::core::ffi::c_void, dwcertbufferlength : u32, phsecuritycontext : *mut super::super::Foundation:: HANDLE) -> ::windows::core::HRESULT);
-    let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HANDLE>();
+pub unsafe fn MQGetSecurityContext(lpcertbuffer: ::core::option::Option<*const ::core::ffi::c_void>, dwcertbufferlength: u32) -> ::windows_core::Result<super::super::Foundation::HANDLE> {
+    ::windows_targets::link!("mqrt.dll" "system" fn MQGetSecurityContext(lpcertbuffer : *const ::core::ffi::c_void, dwcertbufferlength : u32, phsecuritycontext : *mut super::super::Foundation:: HANDLE) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<super::super::Foundation::HANDLE>();
     MQGetSecurityContext(::core::mem::transmute(lpcertbuffer.unwrap_or(::std::ptr::null())), dwcertbufferlength, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MQGetSecurityContextEx(lpcertbuffer: ::core::option::Option<*const ::core::ffi::c_void>, dwcertbufferlength: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-    ::windows_targets::link!("mqrt.dll" "system" fn MQGetSecurityContextEx(lpcertbuffer : *const ::core::ffi::c_void, dwcertbufferlength : u32, phsecuritycontext : *mut super::super::Foundation:: HANDLE) -> ::windows::core::HRESULT);
-    let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HANDLE>();
+pub unsafe fn MQGetSecurityContextEx(lpcertbuffer: ::core::option::Option<*const ::core::ffi::c_void>, dwcertbufferlength: u32) -> ::windows_core::Result<super::super::Foundation::HANDLE> {
+    ::windows_targets::link!("mqrt.dll" "system" fn MQGetSecurityContextEx(lpcertbuffer : *const ::core::ffi::c_void, dwcertbufferlength : u32, phsecuritycontext : *mut super::super::Foundation:: HANDLE) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<super::super::Foundation::HANDLE>();
     MQGetSecurityContextEx(::core::mem::transmute(lpcertbuffer.unwrap_or(::std::ptr::null())), dwcertbufferlength, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 #[inline]
-pub unsafe fn MQHandleToFormatName(hqueue: isize, lpwcsformatname: ::windows::core::PWSTR, lpdwformatnamelength: *mut u32) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("mqrt.dll" "system" fn MQHandleToFormatName(hqueue : isize, lpwcsformatname : ::windows::core::PWSTR, lpdwformatnamelength : *mut u32) -> ::windows::core::HRESULT);
+pub unsafe fn MQHandleToFormatName(hqueue: isize, lpwcsformatname: ::windows_core::PWSTR, lpdwformatnamelength: *mut u32) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("mqrt.dll" "system" fn MQHandleToFormatName(hqueue : isize, lpwcsformatname : ::windows_core::PWSTR, lpdwformatnamelength : *mut u32) -> ::windows_core::HRESULT);
     MQHandleToFormatName(hqueue, ::core::mem::transmute(lpwcsformatname), lpdwformatnamelength).ok()
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 #[inline]
-pub unsafe fn MQInstanceToFormatName(pguid: *const ::windows::core::GUID, lpwcsformatname: ::windows::core::PWSTR, lpdwformatnamelength: *mut u32) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("mqrt.dll" "system" fn MQInstanceToFormatName(pguid : *const ::windows::core::GUID, lpwcsformatname : ::windows::core::PWSTR, lpdwformatnamelength : *mut u32) -> ::windows::core::HRESULT);
+pub unsafe fn MQInstanceToFormatName(pguid: *const ::windows_core::GUID, lpwcsformatname: ::windows_core::PWSTR, lpdwformatnamelength: *mut u32) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("mqrt.dll" "system" fn MQInstanceToFormatName(pguid : *const ::windows_core::GUID, lpwcsformatname : ::windows_core::PWSTR, lpdwformatnamelength : *mut u32) -> ::windows_core::HRESULT);
     MQInstanceToFormatName(pguid, ::core::mem::transmute(lpwcsformatname), lpdwformatnamelength).ok()
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
-pub unsafe fn MQLocateBegin<P0>(lpwcscontext: P0, prestriction: ::core::option::Option<*const MQRESTRICTION>, pcolumns: *const MQCOLUMNSET, psort: *const MQSORTSET) -> ::windows::core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn MQLocateBegin<P0>(lpwcscontext: P0, prestriction: ::core::option::Option<*const MQRESTRICTION>, pcolumns: *const MQCOLUMNSET, psort: *const MQSORTSET) -> ::windows_core::Result<super::super::Foundation::HANDLE>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mqrt.dll" "system" fn MQLocateBegin(lpwcscontext : ::windows::core::PCWSTR, prestriction : *const MQRESTRICTION, pcolumns : *const MQCOLUMNSET, psort : *const MQSORTSET, phenum : *mut super::super::Foundation:: HANDLE) -> ::windows::core::HRESULT);
-    let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HANDLE>();
+    ::windows_targets::link!("mqrt.dll" "system" fn MQLocateBegin(lpwcscontext : ::windows_core::PCWSTR, prestriction : *const MQRESTRICTION, pcolumns : *const MQCOLUMNSET, psort : *const MQSORTSET, phenum : *mut super::super::Foundation:: HANDLE) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<super::super::Foundation::HANDLE>();
     MQLocateBegin(lpwcscontext.into_param().abi(), ::core::mem::transmute(prestriction.unwrap_or(::std::ptr::null())), pcolumns, psort, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MQLocateEnd<P0>(henum: P0) -> ::windows::core::Result<()>
+pub unsafe fn MQLocateEnd<P0>(henum: P0) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("mqrt.dll" "system" fn MQLocateEnd(henum : super::super::Foundation:: HANDLE) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("mqrt.dll" "system" fn MQLocateEnd(henum : super::super::Foundation:: HANDLE) -> ::windows_core::HRESULT);
     MQLocateEnd(henum.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
-pub unsafe fn MQLocateNext<P0>(henum: P0, pcprops: *mut u32, apropvar: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>
+pub unsafe fn MQLocateNext<P0>(henum: P0, pcprops: *mut u32, apropvar: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("mqrt.dll" "system" fn MQLocateNext(henum : super::super::Foundation:: HANDLE, pcprops : *mut u32, apropvar : *mut super::Com::StructuredStorage:: PROPVARIANT) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("mqrt.dll" "system" fn MQLocateNext(henum : super::super::Foundation:: HANDLE, pcprops : *mut u32, apropvar : *mut super::Com::StructuredStorage:: PROPVARIANT) -> ::windows_core::HRESULT);
     MQLocateNext(henum.into_param().abi(), pcprops, apropvar).ok()
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MQMarkMessageRejected<P0>(hqueue: P0, ulllookupid: u64) -> ::windows::core::Result<()>
+pub unsafe fn MQMarkMessageRejected<P0>(hqueue: P0, ulllookupid: u64) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("mqrt.dll" "system" fn MQMarkMessageRejected(hqueue : super::super::Foundation:: HANDLE, ulllookupid : u64) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("mqrt.dll" "system" fn MQMarkMessageRejected(hqueue : super::super::Foundation:: HANDLE, ulllookupid : u64) -> ::windows_core::HRESULT);
     MQMarkMessageRejected(hqueue.into_param().abi(), ulllookupid).ok()
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 #[inline]
-pub unsafe fn MQMgmtAction<P0, P1, P2>(pcomputername: P0, pobjectname: P1, paction: P2) -> ::windows::core::Result<()>
+pub unsafe fn MQMgmtAction<P0, P1, P2>(pcomputername: P0, pobjectname: P1, paction: P2) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mqrt.dll" "system" fn MQMgmtAction(pcomputername : ::windows::core::PCWSTR, pobjectname : ::windows::core::PCWSTR, paction : ::windows::core::PCWSTR) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("mqrt.dll" "system" fn MQMgmtAction(pcomputername : ::windows_core::PCWSTR, pobjectname : ::windows_core::PCWSTR, paction : ::windows_core::PCWSTR) -> ::windows_core::HRESULT);
     MQMgmtAction(pcomputername.into_param().abi(), pobjectname.into_param().abi(), paction.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
-pub unsafe fn MQMgmtGetInfo<P0, P1>(pcomputername: P0, pobjectname: P1, pmgmtprops: *mut MQMGMTPROPS) -> ::windows::core::Result<()>
+pub unsafe fn MQMgmtGetInfo<P0, P1>(pcomputername: P0, pobjectname: P1, pmgmtprops: *mut MQMGMTPROPS) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mqrt.dll" "system" fn MQMgmtGetInfo(pcomputername : ::windows::core::PCWSTR, pobjectname : ::windows::core::PCWSTR, pmgmtprops : *mut MQMGMTPROPS) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("mqrt.dll" "system" fn MQMgmtGetInfo(pcomputername : ::windows_core::PCWSTR, pobjectname : ::windows_core::PCWSTR, pmgmtprops : *mut MQMGMTPROPS) -> ::windows_core::HRESULT);
     MQMgmtGetInfo(pcomputername.into_param().abi(), pobjectname.into_param().abi(), pmgmtprops).ok()
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_DistributedTransactionCoordinator\"`*"]
 #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
 #[inline]
-pub unsafe fn MQMoveMessage<P0>(hsourcequeue: isize, hdestinationqueue: isize, ulllookupid: u64, ptransaction: P0) -> ::windows::core::Result<()>
+pub unsafe fn MQMoveMessage<P0>(hsourcequeue: isize, hdestinationqueue: isize, ulllookupid: u64, ptransaction: P0) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::DistributedTransactionCoordinator::ITransaction>,
+    P0: ::windows_core::IntoParam<super::DistributedTransactionCoordinator::ITransaction>,
 {
-    ::windows_targets::link!("mqrt.dll" "system" fn MQMoveMessage(hsourcequeue : isize, hdestinationqueue : isize, ulllookupid : u64, ptransaction : * mut::core::ffi::c_void) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("mqrt.dll" "system" fn MQMoveMessage(hsourcequeue : isize, hdestinationqueue : isize, ulllookupid : u64, ptransaction : * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
     MQMoveMessage(hsourcequeue, hdestinationqueue, ulllookupid, ptransaction.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 #[inline]
-pub unsafe fn MQOpenQueue<P0>(lpwcsformatname: P0, dwaccess: u32, dwsharemode: u32) -> ::windows::core::Result<isize>
+pub unsafe fn MQOpenQueue<P0>(lpwcsformatname: P0, dwaccess: u32, dwsharemode: u32) -> ::windows_core::Result<isize>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mqrt.dll" "system" fn MQOpenQueue(lpwcsformatname : ::windows::core::PCWSTR, dwaccess : u32, dwsharemode : u32, phqueue : *mut isize) -> ::windows::core::HRESULT);
-    let mut result__ = ::windows::core::zeroed::<isize>();
+    ::windows_targets::link!("mqrt.dll" "system" fn MQOpenQueue(lpwcsformatname : ::windows_core::PCWSTR, dwaccess : u32, dwsharemode : u32, phqueue : *mut isize) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<isize>();
     MQOpenQueue(lpwcsformatname.into_param().abi(), dwaccess, dwsharemode, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 #[inline]
-pub unsafe fn MQPathNameToFormatName<P0>(lpwcspathname: P0, lpwcsformatname: ::windows::core::PWSTR, lpdwformatnamelength: *mut u32) -> ::windows::core::Result<()>
+pub unsafe fn MQPathNameToFormatName<P0>(lpwcspathname: P0, lpwcsformatname: ::windows_core::PWSTR, lpdwformatnamelength: *mut u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mqrt.dll" "system" fn MQPathNameToFormatName(lpwcspathname : ::windows::core::PCWSTR, lpwcsformatname : ::windows::core::PWSTR, lpdwformatnamelength : *mut u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("mqrt.dll" "system" fn MQPathNameToFormatName(lpwcspathname : ::windows_core::PCWSTR, lpwcsformatname : ::windows_core::PWSTR, lpdwformatnamelength : *mut u32) -> ::windows_core::HRESULT);
     MQPathNameToFormatName(lpwcspathname.into_param().abi(), ::core::mem::transmute(lpwcsformatname), lpdwformatnamelength).ok()
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 #[inline]
-pub unsafe fn MQPurgeQueue(hqueue: isize) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("mqrt.dll" "system" fn MQPurgeQueue(hqueue : isize) -> ::windows::core::HRESULT);
+pub unsafe fn MQPurgeQueue(hqueue: isize) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("mqrt.dll" "system" fn MQPurgeQueue(hqueue : isize) -> ::windows_core::HRESULT);
     MQPurgeQueue(hqueue).ok()
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_DistributedTransactionCoordinator", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn MQReceiveMessage<P0, P1>(hsource: isize, dwtimeout: u32, dwaction: u32, pmessageprops: ::core::option::Option<*mut MQMSGPROPS>, lpoverlapped: ::core::option::Option<*mut super::IO::OVERLAPPED>, fnreceivecallback: PMQRECEIVECALLBACK, hcursor: P0, ptransaction: P1) -> ::windows::core::Result<()>
+pub unsafe fn MQReceiveMessage<P0, P1>(hsource: isize, dwtimeout: u32, dwaction: u32, pmessageprops: ::core::option::Option<*mut MQMSGPROPS>, lpoverlapped: ::core::option::Option<*mut super::IO::OVERLAPPED>, fnreceivecallback: PMQRECEIVECALLBACK, hcursor: P0, ptransaction: P1) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<super::DistributedTransactionCoordinator::ITransaction>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<super::DistributedTransactionCoordinator::ITransaction>,
 {
-    ::windows_targets::link!("mqrt.dll" "system" fn MQReceiveMessage(hsource : isize, dwtimeout : u32, dwaction : u32, pmessageprops : *mut MQMSGPROPS, lpoverlapped : *mut super::IO:: OVERLAPPED, fnreceivecallback : PMQRECEIVECALLBACK, hcursor : super::super::Foundation:: HANDLE, ptransaction : * mut::core::ffi::c_void) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("mqrt.dll" "system" fn MQReceiveMessage(hsource : isize, dwtimeout : u32, dwaction : u32, pmessageprops : *mut MQMSGPROPS, lpoverlapped : *mut super::IO:: OVERLAPPED, fnreceivecallback : PMQRECEIVECALLBACK, hcursor : super::super::Foundation:: HANDLE, ptransaction : * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
     MQReceiveMessage(hsource, dwtimeout, dwaction, ::core::mem::transmute(pmessageprops.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null_mut())), fnreceivecallback, hcursor.into_param().abi(), ptransaction.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_DistributedTransactionCoordinator", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn MQReceiveMessageByLookupId<P0>(hsource: isize, ulllookupid: u64, dwlookupaction: u32, pmessageprops: ::core::option::Option<*mut MQMSGPROPS>, lpoverlapped: ::core::option::Option<*mut super::IO::OVERLAPPED>, fnreceivecallback: PMQRECEIVECALLBACK, ptransaction: P0) -> ::windows::core::Result<()>
+pub unsafe fn MQReceiveMessageByLookupId<P0>(hsource: isize, ulllookupid: u64, dwlookupaction: u32, pmessageprops: ::core::option::Option<*mut MQMSGPROPS>, lpoverlapped: ::core::option::Option<*mut super::IO::OVERLAPPED>, fnreceivecallback: PMQRECEIVECALLBACK, ptransaction: P0) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::DistributedTransactionCoordinator::ITransaction>,
+    P0: ::windows_core::IntoParam<super::DistributedTransactionCoordinator::ITransaction>,
 {
-    ::windows_targets::link!("mqrt.dll" "system" fn MQReceiveMessageByLookupId(hsource : isize, ulllookupid : u64, dwlookupaction : u32, pmessageprops : *mut MQMSGPROPS, lpoverlapped : *mut super::IO:: OVERLAPPED, fnreceivecallback : PMQRECEIVECALLBACK, ptransaction : * mut::core::ffi::c_void) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("mqrt.dll" "system" fn MQReceiveMessageByLookupId(hsource : isize, ulllookupid : u64, dwlookupaction : u32, pmessageprops : *mut MQMSGPROPS, lpoverlapped : *mut super::IO:: OVERLAPPED, fnreceivecallback : PMQRECEIVECALLBACK, ptransaction : * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
     MQReceiveMessageByLookupId(hsource, ulllookupid, dwlookupaction, ::core::mem::transmute(pmessageprops.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null_mut())), fnreceivecallback, ptransaction.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 #[inline]
-pub unsafe fn MQRegisterCertificate(dwflags: u32, lpcertbuffer: *const ::core::ffi::c_void, dwcertbufferlength: u32) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("mqrt.dll" "system" fn MQRegisterCertificate(dwflags : u32, lpcertbuffer : *const ::core::ffi::c_void, dwcertbufferlength : u32) -> ::windows::core::HRESULT);
+pub unsafe fn MQRegisterCertificate(dwflags: u32, lpcertbuffer: *const ::core::ffi::c_void, dwcertbufferlength: u32) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("mqrt.dll" "system" fn MQRegisterCertificate(dwflags : u32, lpcertbuffer : *const ::core::ffi::c_void, dwcertbufferlength : u32) -> ::windows_core::HRESULT);
     MQRegisterCertificate(dwflags, lpcertbuffer, dwcertbufferlength).ok()
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_DistributedTransactionCoordinator\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_DistributedTransactionCoordinator"))]
 #[inline]
-pub unsafe fn MQSendMessage<P0>(hdestinationqueue: isize, pmessageprops: *const MQMSGPROPS, ptransaction: P0) -> ::windows::core::Result<()>
+pub unsafe fn MQSendMessage<P0>(hdestinationqueue: isize, pmessageprops: *const MQMSGPROPS, ptransaction: P0) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::DistributedTransactionCoordinator::ITransaction>,
+    P0: ::windows_core::IntoParam<super::DistributedTransactionCoordinator::ITransaction>,
 {
-    ::windows_targets::link!("mqrt.dll" "system" fn MQSendMessage(hdestinationqueue : isize, pmessageprops : *const MQMSGPROPS, ptransaction : * mut::core::ffi::c_void) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("mqrt.dll" "system" fn MQSendMessage(hdestinationqueue : isize, pmessageprops : *const MQMSGPROPS, ptransaction : * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
     MQSendMessage(hdestinationqueue, pmessageprops, ptransaction.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
-pub unsafe fn MQSetQueueProperties<P0>(lpwcsformatname: P0, pqueueprops: *mut MQQUEUEPROPS) -> ::windows::core::Result<()>
+pub unsafe fn MQSetQueueProperties<P0>(lpwcsformatname: P0, pqueueprops: *mut MQQUEUEPROPS) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mqrt.dll" "system" fn MQSetQueueProperties(lpwcsformatname : ::windows::core::PCWSTR, pqueueprops : *mut MQQUEUEPROPS) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("mqrt.dll" "system" fn MQSetQueueProperties(lpwcsformatname : ::windows_core::PCWSTR, pqueueprops : *mut MQQUEUEPROPS) -> ::windows_core::HRESULT);
     MQSetQueueProperties(lpwcsformatname.into_param().abi(), pqueueprops).ok()
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn MQSetQueueSecurity<P0, P1>(lpwcsformatname: P0, securityinformation: u32, psecuritydescriptor: P1) -> ::windows::core::Result<()>
+pub unsafe fn MQSetQueueSecurity<P0, P1>(lpwcsformatname: P0, securityinformation: u32, psecuritydescriptor: P1) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<super::super::Security::PSECURITY_DESCRIPTOR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<super::super::Security::PSECURITY_DESCRIPTOR>,
 {
-    ::windows_targets::link!("mqrt.dll" "system" fn MQSetQueueSecurity(lpwcsformatname : ::windows::core::PCWSTR, securityinformation : u32, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("mqrt.dll" "system" fn MQSetQueueSecurity(lpwcsformatname : ::windows_core::PCWSTR, securityinformation : u32, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR) -> ::windows_core::HRESULT);
     MQSetQueueSecurity(lpwcsformatname.into_param().abi(), securityinformation, psecuritydescriptor.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
-pub struct IMSMQApplication(::windows::core::IUnknown);
+pub struct IMSMQApplication(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQApplication {
-    pub unsafe fn MachineIdOfMachineName<P0>(&self, machinename: P0) -> ::windows::core::Result<::windows::core::BSTR>
+    pub unsafe fn MachineIdOfMachineName<P0>(&self, machinename: P0) -> ::windows_core::Result<::windows_core::BSTR>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).MachineIdOfMachineName)(::windows::core::Interface::as_raw(self), machinename.into_param().abi(), &mut result__).from_abi(result__)
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).MachineIdOfMachineName)(::windows_core::Interface::as_raw(self), machinename.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::imp::interface_hierarchy!(IMSMQApplication, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows_core::imp::interface_hierarchy!(IMSMQApplication, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQApplication {
     fn eq(&self, other: &Self) -> bool {
@@ -336,7 +336,7 @@ impl ::core::fmt::Debug for IMSMQApplication {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IMSMQApplication {
+unsafe impl ::windows_core::Interface for IMSMQApplication {
     type Vtable = IMSMQApplication_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -346,68 +346,68 @@ impl ::core::clone::Clone for IMSMQApplication {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::ComInterface for IMSMQApplication {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e085_dccd_11d0_aa4b_0060970debae);
+unsafe impl ::windows_core::ComInterface for IMSMQApplication {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd7d6e085_dccd_11d0_aa4b_0060970debae);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQApplication_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub MachineIdOfMachineName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, machinename: ::std::mem::MaybeUninit<::windows::core::BSTR>, pbstrguid: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub MachineIdOfMachineName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, machinename: ::std::mem::MaybeUninit<::windows_core::BSTR>, pbstrguid: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
-pub struct IMSMQApplication2(::windows::core::IUnknown);
+pub struct IMSMQApplication2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQApplication2 {
-    pub unsafe fn MachineIdOfMachineName<P0>(&self, machinename: P0) -> ::windows::core::Result<::windows::core::BSTR>
+    pub unsafe fn MachineIdOfMachineName<P0>(&self, machinename: P0) -> ::windows_core::Result<::windows_core::BSTR>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).base__.MachineIdOfMachineName)(::windows::core::Interface::as_raw(self), machinename.into_param().abi(), &mut result__).from_abi(result__)
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).base__.MachineIdOfMachineName)(::windows_core::Interface::as_raw(self), machinename.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn RegisterCertificate(&self, flags: *const super::Com::VARIANT, externalcertificate: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RegisterCertificate)(::windows::core::Interface::as_raw(self), flags, externalcertificate).ok()
+    pub unsafe fn RegisterCertificate(&self, flags: *const super::Com::VARIANT, externalcertificate: *const super::Com::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).RegisterCertificate)(::windows_core::Interface::as_raw(self), flags, externalcertificate).ok()
     }
-    pub unsafe fn MachineNameOfMachineId<P0>(&self, bstrguid: P0) -> ::windows::core::Result<::windows::core::BSTR>
+    pub unsafe fn MachineNameOfMachineId<P0>(&self, bstrguid: P0) -> ::windows_core::Result<::windows_core::BSTR>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).MachineNameOfMachineId)(::windows::core::Interface::as_raw(self), bstrguid.into_param().abi(), &mut result__).from_abi(result__)
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).MachineNameOfMachineId)(::windows_core::Interface::as_raw(self), bstrguid.into_param().abi(), &mut result__).from_abi(result__)
     }
-    pub unsafe fn MSMQVersionMajor(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::windows::core::zeroed::<i16>();
-        (::windows::core::Interface::vtable(self).MSMQVersionMajor)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn MSMQVersionMajor(&self) -> ::windows_core::Result<i16> {
+        let mut result__ = ::windows_core::zeroed::<i16>();
+        (::windows_core::Interface::vtable(self).MSMQVersionMajor)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn MSMQVersionMinor(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::windows::core::zeroed::<i16>();
-        (::windows::core::Interface::vtable(self).MSMQVersionMinor)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn MSMQVersionMinor(&self) -> ::windows_core::Result<i16> {
+        let mut result__ = ::windows_core::zeroed::<i16>();
+        (::windows_core::Interface::vtable(self).MSMQVersionMinor)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn MSMQVersionBuild(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::windows::core::zeroed::<i16>();
-        (::windows::core::Interface::vtable(self).MSMQVersionBuild)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn MSMQVersionBuild(&self) -> ::windows_core::Result<i16> {
+        let mut result__ = ::windows_core::zeroed::<i16>();
+        (::windows_core::Interface::vtable(self).MSMQVersionBuild)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsDsEnabled(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
-        (::windows::core::Interface::vtable(self).IsDsEnabled)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn IsDsEnabled(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        (::windows_core::Interface::vtable(self).IsDsEnabled)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::IDispatch>();
-        (::windows::core::Interface::vtable(self).Properties)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Properties(&self) -> ::windows_core::Result<super::Com::IDispatch> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::IDispatch>();
+        (::windows_core::Interface::vtable(self).Properties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::imp::interface_hierarchy!(IMSMQApplication2, ::windows::core::IUnknown, super::Com::IDispatch, IMSMQApplication);
+::windows_core::imp::interface_hierarchy!(IMSMQApplication2, ::windows_core::IUnknown, super::Com::IDispatch, IMSMQApplication);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQApplication2 {
     fn eq(&self, other: &Self) -> bool {
@@ -423,7 +423,7 @@ impl ::core::fmt::Debug for IMSMQApplication2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IMSMQApplication2 {
+unsafe impl ::windows_core::Interface for IMSMQApplication2 {
     type Vtable = IMSMQApplication2_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -433,8 +433,8 @@ impl ::core::clone::Clone for IMSMQApplication2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::ComInterface for IMSMQApplication2 {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12a30900_7300_11d2_b0e6_00e02c074f6b);
+unsafe impl ::windows_core::ComInterface for IMSMQApplication2 {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x12a30900_7300_11d2_b0e6_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
@@ -442,121 +442,121 @@ unsafe impl ::windows::core::ComInterface for IMSMQApplication2 {
 pub struct IMSMQApplication2_Vtbl {
     pub base__: IMSMQApplication_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub RegisterCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: *const super::Com::VARIANT, externalcertificate: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub RegisterCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: *const super::Com::VARIANT, externalcertificate: *const super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     RegisterCertificate: usize,
-    pub MachineNameOfMachineId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrguid: ::std::mem::MaybeUninit<::windows::core::BSTR>, pbstrmachinename: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub MSMQVersionMajor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psmsmqversionmajor: *mut i16) -> ::windows::core::HRESULT,
-    pub MSMQVersionMinor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psmsmqversionminor: *mut i16) -> ::windows::core::HRESULT,
-    pub MSMQVersionBuild: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psmsmqversionbuild: *mut i16) -> ::windows::core::HRESULT,
+    pub MachineNameOfMachineId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrguid: ::std::mem::MaybeUninit<::windows_core::BSTR>, pbstrmachinename: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub MSMQVersionMajor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psmsmqversionmajor: *mut i16) -> ::windows_core::HRESULT,
+    pub MSMQVersionMinor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psmsmqversionminor: *mut i16) -> ::windows_core::HRESULT,
+    pub MSMQVersionBuild: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psmsmqversionbuild: *mut i16) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub IsDsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfisdsenabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
+    pub IsDsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfisdsenabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     IsDsEnabled: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcolproperties: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcolproperties: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Properties: usize,
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
-pub struct IMSMQApplication3(::windows::core::IUnknown);
+pub struct IMSMQApplication3(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQApplication3 {
-    pub unsafe fn MachineIdOfMachineName<P0>(&self, machinename: P0) -> ::windows::core::Result<::windows::core::BSTR>
+    pub unsafe fn MachineIdOfMachineName<P0>(&self, machinename: P0) -> ::windows_core::Result<::windows_core::BSTR>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).base__.base__.MachineIdOfMachineName)(::windows::core::Interface::as_raw(self), machinename.into_param().abi(), &mut result__).from_abi(result__)
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).base__.base__.MachineIdOfMachineName)(::windows_core::Interface::as_raw(self), machinename.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn RegisterCertificate(&self, flags: *const super::Com::VARIANT, externalcertificate: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.RegisterCertificate)(::windows::core::Interface::as_raw(self), flags, externalcertificate).ok()
+    pub unsafe fn RegisterCertificate(&self, flags: *const super::Com::VARIANT, externalcertificate: *const super::Com::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.RegisterCertificate)(::windows_core::Interface::as_raw(self), flags, externalcertificate).ok()
     }
-    pub unsafe fn MachineNameOfMachineId<P0>(&self, bstrguid: P0) -> ::windows::core::Result<::windows::core::BSTR>
+    pub unsafe fn MachineNameOfMachineId<P0>(&self, bstrguid: P0) -> ::windows_core::Result<::windows_core::BSTR>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).base__.MachineNameOfMachineId)(::windows::core::Interface::as_raw(self), bstrguid.into_param().abi(), &mut result__).from_abi(result__)
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).base__.MachineNameOfMachineId)(::windows_core::Interface::as_raw(self), bstrguid.into_param().abi(), &mut result__).from_abi(result__)
     }
-    pub unsafe fn MSMQVersionMajor(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::windows::core::zeroed::<i16>();
-        (::windows::core::Interface::vtable(self).base__.MSMQVersionMajor)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn MSMQVersionMajor(&self) -> ::windows_core::Result<i16> {
+        let mut result__ = ::windows_core::zeroed::<i16>();
+        (::windows_core::Interface::vtable(self).base__.MSMQVersionMajor)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn MSMQVersionMinor(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::windows::core::zeroed::<i16>();
-        (::windows::core::Interface::vtable(self).base__.MSMQVersionMinor)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn MSMQVersionMinor(&self) -> ::windows_core::Result<i16> {
+        let mut result__ = ::windows_core::zeroed::<i16>();
+        (::windows_core::Interface::vtable(self).base__.MSMQVersionMinor)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn MSMQVersionBuild(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::windows::core::zeroed::<i16>();
-        (::windows::core::Interface::vtable(self).base__.MSMQVersionBuild)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn MSMQVersionBuild(&self) -> ::windows_core::Result<i16> {
+        let mut result__ = ::windows_core::zeroed::<i16>();
+        (::windows_core::Interface::vtable(self).base__.MSMQVersionBuild)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsDsEnabled(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
-        (::windows::core::Interface::vtable(self).base__.IsDsEnabled)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn IsDsEnabled(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        (::windows_core::Interface::vtable(self).base__.IsDsEnabled)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::IDispatch>();
-        (::windows::core::Interface::vtable(self).base__.Properties)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Properties(&self) -> ::windows_core::Result<super::Com::IDispatch> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::IDispatch>();
+        (::windows_core::Interface::vtable(self).base__.Properties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ActiveQueues(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).ActiveQueues)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn ActiveQueues(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).ActiveQueues)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PrivateQueues(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).PrivateQueues)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn PrivateQueues(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).PrivateQueues)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn DirectoryServiceServer(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).DirectoryServiceServer)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn DirectoryServiceServer(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).DirectoryServiceServer)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsConnected(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
-        (::windows::core::Interface::vtable(self).IsConnected)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn IsConnected(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        (::windows_core::Interface::vtable(self).IsConnected)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn BytesInAllQueues(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).BytesInAllQueues)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn BytesInAllQueues(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).BytesInAllQueues)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetMachine<P0>(&self, bstrmachine: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetMachine<P0>(&self, bstrmachine: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetMachine)(::windows::core::Interface::as_raw(self), bstrmachine.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).SetMachine)(::windows_core::Interface::as_raw(self), bstrmachine.into_param().abi()).ok()
     }
-    pub unsafe fn Machine(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).Machine)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Machine(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).Machine)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn Connect(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Connect)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn Connect(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Connect)(::windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn Disconnect(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Disconnect)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn Disconnect(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Disconnect)(::windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn Tidy(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Tidy)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn Tidy(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Tidy)(::windows_core::Interface::as_raw(self)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::imp::interface_hierarchy!(IMSMQApplication3, ::windows::core::IUnknown, super::Com::IDispatch, IMSMQApplication, IMSMQApplication2);
+::windows_core::imp::interface_hierarchy!(IMSMQApplication3, ::windows_core::IUnknown, super::Com::IDispatch, IMSMQApplication, IMSMQApplication2);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQApplication3 {
     fn eq(&self, other: &Self) -> bool {
@@ -572,7 +572,7 @@ impl ::core::fmt::Debug for IMSMQApplication3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IMSMQApplication3 {
+unsafe impl ::windows_core::Interface for IMSMQApplication3 {
     type Vtable = IMSMQApplication3_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -582,8 +582,8 @@ impl ::core::clone::Clone for IMSMQApplication3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::ComInterface for IMSMQApplication3 {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b1f_2168_11d3_898c_00e02c074f6b);
+unsafe impl ::windows_core::ComInterface for IMSMQApplication3 {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeba96b1f_2168_11d3_898c_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
@@ -591,51 +591,51 @@ unsafe impl ::windows::core::ComInterface for IMSMQApplication3 {
 pub struct IMSMQApplication3_Vtbl {
     pub base__: IMSMQApplication2_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub ActiveQueues: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvactivequeues: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub ActiveQueues: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvactivequeues: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     ActiveQueues: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub PrivateQueues: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvprivatequeues: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub PrivateQueues: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvprivatequeues: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     PrivateQueues: usize,
-    pub DirectoryServiceServer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdirectoryserviceserver: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub DirectoryServiceServer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdirectoryserviceserver: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub IsConnected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfisconnected: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
+    pub IsConnected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfisconnected: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     IsConnected: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub BytesInAllQueues: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvbytesinallqueues: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub BytesInAllQueues: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvbytesinallqueues: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     BytesInAllQueues: usize,
-    pub SetMachine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrmachine: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub Machine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrmachine: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub Connect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Disconnect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Tidy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetMachine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrmachine: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub Machine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrmachine: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub Connect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Disconnect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Tidy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
-pub struct IMSMQCollection(::windows::core::IUnknown);
+pub struct IMSMQCollection(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQCollection {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Item(&self, index: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
+    pub unsafe fn Item(&self, index: *const super::Com::VARIANT) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).Item)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
-    pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Count(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
-        (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::imp::interface_hierarchy!(IMSMQCollection, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows_core::imp::interface_hierarchy!(IMSMQCollection, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQCollection {
     fn eq(&self, other: &Self) -> bool {
@@ -651,7 +651,7 @@ impl ::core::fmt::Debug for IMSMQCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IMSMQCollection {
+unsafe impl ::windows_core::Interface for IMSMQCollection {
     type Vtable = IMSMQCollection_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -661,8 +661,8 @@ impl ::core::clone::Clone for IMSMQCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::ComInterface for IMSMQCollection {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0188ac2f_ecb3_4173_9779_635ca2039c72);
+unsafe impl ::windows_core::ComInterface for IMSMQCollection {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0188ac2f_ecb3_4173_9779_635ca2039c72);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
@@ -670,27 +670,27 @@ unsafe impl ::windows::core::ComInterface for IMSMQCollection {
 pub struct IMSMQCollection_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: *const super::Com::VARIANT, pvarret: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: *const super::Com::VARIANT, pvarret: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Item: usize,
-    pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut i32) -> ::windows::core::HRESULT,
-    pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut i32) -> ::windows_core::HRESULT,
+    pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
-pub struct IMSMQCoordinatedTransactionDispenser(::windows::core::IUnknown);
+pub struct IMSMQCoordinatedTransactionDispenser(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQCoordinatedTransactionDispenser {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn BeginTransaction(&self) -> ::windows::core::Result<IMSMQTransaction> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQTransaction>();
-        (::windows::core::Interface::vtable(self).BeginTransaction)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn BeginTransaction(&self) -> ::windows_core::Result<IMSMQTransaction> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQTransaction>();
+        (::windows_core::Interface::vtable(self).BeginTransaction)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::imp::interface_hierarchy!(IMSMQCoordinatedTransactionDispenser, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows_core::imp::interface_hierarchy!(IMSMQCoordinatedTransactionDispenser, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQCoordinatedTransactionDispenser {
     fn eq(&self, other: &Self) -> bool {
@@ -706,7 +706,7 @@ impl ::core::fmt::Debug for IMSMQCoordinatedTransactionDispenser {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IMSMQCoordinatedTransactionDispenser {
+unsafe impl ::windows_core::Interface for IMSMQCoordinatedTransactionDispenser {
     type Vtable = IMSMQCoordinatedTransactionDispenser_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -716,8 +716,8 @@ impl ::core::clone::Clone for IMSMQCoordinatedTransactionDispenser {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::ComInterface for IMSMQCoordinatedTransactionDispenser {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e081_dccd_11d0_aa4b_0060970debae);
+unsafe impl ::windows_core::ComInterface for IMSMQCoordinatedTransactionDispenser {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd7d6e081_dccd_11d0_aa4b_0060970debae);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
@@ -725,31 +725,31 @@ unsafe impl ::windows::core::ComInterface for IMSMQCoordinatedTransactionDispens
 pub struct IMSMQCoordinatedTransactionDispenser_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub BeginTransaction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptransaction: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub BeginTransaction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptransaction: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     BeginTransaction: usize,
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
-pub struct IMSMQCoordinatedTransactionDispenser2(::windows::core::IUnknown);
+pub struct IMSMQCoordinatedTransactionDispenser2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQCoordinatedTransactionDispenser2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn BeginTransaction(&self) -> ::windows::core::Result<IMSMQTransaction2> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQTransaction2>();
-        (::windows::core::Interface::vtable(self).BeginTransaction)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn BeginTransaction(&self) -> ::windows_core::Result<IMSMQTransaction2> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQTransaction2>();
+        (::windows_core::Interface::vtable(self).BeginTransaction)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::IDispatch>();
-        (::windows::core::Interface::vtable(self).Properties)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Properties(&self) -> ::windows_core::Result<super::Com::IDispatch> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::IDispatch>();
+        (::windows_core::Interface::vtable(self).Properties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::imp::interface_hierarchy!(IMSMQCoordinatedTransactionDispenser2, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows_core::imp::interface_hierarchy!(IMSMQCoordinatedTransactionDispenser2, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQCoordinatedTransactionDispenser2 {
     fn eq(&self, other: &Self) -> bool {
@@ -765,7 +765,7 @@ impl ::core::fmt::Debug for IMSMQCoordinatedTransactionDispenser2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IMSMQCoordinatedTransactionDispenser2 {
+unsafe impl ::windows_core::Interface for IMSMQCoordinatedTransactionDispenser2 {
     type Vtable = IMSMQCoordinatedTransactionDispenser2_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -775,8 +775,8 @@ impl ::core::clone::Clone for IMSMQCoordinatedTransactionDispenser2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::ComInterface for IMSMQCoordinatedTransactionDispenser2 {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b10_2168_11d3_898c_00e02c074f6b);
+unsafe impl ::windows_core::ComInterface for IMSMQCoordinatedTransactionDispenser2 {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeba96b10_2168_11d3_898c_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
@@ -784,35 +784,35 @@ unsafe impl ::windows::core::ComInterface for IMSMQCoordinatedTransactionDispens
 pub struct IMSMQCoordinatedTransactionDispenser2_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub BeginTransaction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptransaction: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub BeginTransaction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptransaction: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     BeginTransaction: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcolproperties: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcolproperties: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Properties: usize,
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
-pub struct IMSMQCoordinatedTransactionDispenser3(::windows::core::IUnknown);
+pub struct IMSMQCoordinatedTransactionDispenser3(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQCoordinatedTransactionDispenser3 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn BeginTransaction(&self) -> ::windows::core::Result<IMSMQTransaction3> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQTransaction3>();
-        (::windows::core::Interface::vtable(self).BeginTransaction)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn BeginTransaction(&self) -> ::windows_core::Result<IMSMQTransaction3> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQTransaction3>();
+        (::windows_core::Interface::vtable(self).BeginTransaction)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::IDispatch>();
-        (::windows::core::Interface::vtable(self).Properties)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Properties(&self) -> ::windows_core::Result<super::Com::IDispatch> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::IDispatch>();
+        (::windows_core::Interface::vtable(self).Properties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::imp::interface_hierarchy!(IMSMQCoordinatedTransactionDispenser3, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows_core::imp::interface_hierarchy!(IMSMQCoordinatedTransactionDispenser3, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQCoordinatedTransactionDispenser3 {
     fn eq(&self, other: &Self) -> bool {
@@ -828,7 +828,7 @@ impl ::core::fmt::Debug for IMSMQCoordinatedTransactionDispenser3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IMSMQCoordinatedTransactionDispenser3 {
+unsafe impl ::windows_core::Interface for IMSMQCoordinatedTransactionDispenser3 {
     type Vtable = IMSMQCoordinatedTransactionDispenser3_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -838,8 +838,8 @@ impl ::core::clone::Clone for IMSMQCoordinatedTransactionDispenser3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::ComInterface for IMSMQCoordinatedTransactionDispenser3 {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b14_2168_11d3_898c_00e02c074f6b);
+unsafe impl ::windows_core::ComInterface for IMSMQCoordinatedTransactionDispenser3 {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeba96b14_2168_11d3_898c_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
@@ -847,99 +847,99 @@ unsafe impl ::windows::core::ComInterface for IMSMQCoordinatedTransactionDispens
 pub struct IMSMQCoordinatedTransactionDispenser3_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub BeginTransaction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptransaction: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub BeginTransaction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptransaction: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     BeginTransaction: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcolproperties: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcolproperties: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Properties: usize,
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
-pub struct IMSMQDestination(::windows::core::IUnknown);
+pub struct IMSMQDestination(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQDestination {
-    pub unsafe fn Open(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Open)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn Open(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Open)(::windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Close)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn Close(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Close)(::windows_core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsOpen(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
-        (::windows::core::Interface::vtable(self).IsOpen)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn IsOpen(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        (::windows_core::Interface::vtable(self).IsOpen)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn IADs(&self) -> ::windows::core::Result<super::Com::IDispatch> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::IDispatch>();
-        (::windows::core::Interface::vtable(self).IADs)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn IADs(&self) -> ::windows_core::Result<super::Com::IDispatch> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::IDispatch>();
+        (::windows_core::Interface::vtable(self).IADs)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_IADs<P0>(&self, piads: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_IADs<P0>(&self, piads: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::Com::IDispatch>,
+        P0: ::windows_core::IntoParam<super::Com::IDispatch>,
     {
-        (::windows::core::Interface::vtable(self).putref_IADs)(::windows::core::Interface::as_raw(self), piads.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).putref_IADs)(::windows_core::Interface::as_raw(self), piads.into_param().abi()).ok()
     }
-    pub unsafe fn ADsPath(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).ADsPath)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn ADsPath(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).ADsPath)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetADsPath<P0>(&self, bstradspath: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetADsPath<P0>(&self, bstradspath: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetADsPath)(::windows::core::Interface::as_raw(self), bstradspath.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).SetADsPath)(::windows_core::Interface::as_raw(self), bstradspath.into_param().abi()).ok()
     }
-    pub unsafe fn PathName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).PathName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn PathName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).PathName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetPathName<P0>(&self, bstrpathname: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPathName<P0>(&self, bstrpathname: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetPathName)(::windows::core::Interface::as_raw(self), bstrpathname.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).SetPathName)(::windows_core::Interface::as_raw(self), bstrpathname.into_param().abi()).ok()
     }
-    pub unsafe fn FormatName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).FormatName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn FormatName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).FormatName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetFormatName<P0>(&self, bstrformatname: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetFormatName<P0>(&self, bstrformatname: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetFormatName)(::windows::core::Interface::as_raw(self), bstrformatname.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).SetFormatName)(::windows_core::Interface::as_raw(self), bstrformatname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Destinations(&self) -> ::windows::core::Result<super::Com::IDispatch> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::IDispatch>();
-        (::windows::core::Interface::vtable(self).Destinations)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Destinations(&self) -> ::windows_core::Result<super::Com::IDispatch> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::IDispatch>();
+        (::windows_core::Interface::vtable(self).Destinations)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_Destinations<P0>(&self, pdestinations: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_Destinations<P0>(&self, pdestinations: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::Com::IDispatch>,
+        P0: ::windows_core::IntoParam<super::Com::IDispatch>,
     {
-        (::windows::core::Interface::vtable(self).putref_Destinations)(::windows::core::Interface::as_raw(self), pdestinations.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).putref_Destinations)(::windows_core::Interface::as_raw(self), pdestinations.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::IDispatch>();
-        (::windows::core::Interface::vtable(self).Properties)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Properties(&self) -> ::windows_core::Result<super::Com::IDispatch> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::IDispatch>();
+        (::windows_core::Interface::vtable(self).Properties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::imp::interface_hierarchy!(IMSMQDestination, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows_core::imp::interface_hierarchy!(IMSMQDestination, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQDestination {
     fn eq(&self, other: &Self) -> bool {
@@ -955,7 +955,7 @@ impl ::core::fmt::Debug for IMSMQDestination {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IMSMQDestination {
+unsafe impl ::windows_core::Interface for IMSMQDestination {
     type Vtable = IMSMQDestination_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -965,55 +965,55 @@ impl ::core::clone::Clone for IMSMQDestination {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::ComInterface for IMSMQDestination {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b16_2168_11d3_898c_00e02c074f6b);
+unsafe impl ::windows_core::ComInterface for IMSMQDestination {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeba96b16_2168_11d3_898c_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQDestination_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub IsOpen: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfisopen: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
+    pub IsOpen: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfisopen: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     IsOpen: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub IADs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppiads: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub IADs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppiads: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     IADs: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub putref_IADs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piads: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub putref_IADs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piads: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     putref_IADs: usize,
-    pub ADsPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstradspath: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetADsPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstradspath: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub PathName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrpathname: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetPathName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpathname: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub FormatName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrformatname: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetFormatName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrformatname: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub ADsPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstradspath: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetADsPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstradspath: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub PathName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrpathname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetPathName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpathname: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub FormatName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrformatname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetFormatName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrformatname: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Destinations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdestinations: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Destinations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdestinations: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Destinations: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub putref_Destinations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdestinations: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub putref_Destinations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdestinations: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     putref_Destinations: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcolproperties: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcolproperties: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Properties: usize,
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
-pub struct IMSMQEvent(::windows::core::IUnknown);
+pub struct IMSMQEvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQEvent {}
 #[cfg(feature = "Win32_System_Com")]
-::windows::imp::interface_hierarchy!(IMSMQEvent, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows_core::imp::interface_hierarchy!(IMSMQEvent, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQEvent {
     fn eq(&self, other: &Self) -> bool {
@@ -1029,7 +1029,7 @@ impl ::core::fmt::Debug for IMSMQEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IMSMQEvent {
+unsafe impl ::windows_core::Interface for IMSMQEvent {
     type Vtable = IMSMQEvent_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1039,8 +1039,8 @@ impl ::core::clone::Clone for IMSMQEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::ComInterface for IMSMQEvent {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e077_dccd_11d0_aa4b_0060970debae);
+unsafe impl ::windows_core::ComInterface for IMSMQEvent {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd7d6e077_dccd_11d0_aa4b_0060970debae);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
@@ -1051,18 +1051,18 @@ pub struct IMSMQEvent_Vtbl {
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
-pub struct IMSMQEvent2(::windows::core::IUnknown);
+pub struct IMSMQEvent2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQEvent2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::IDispatch>();
-        (::windows::core::Interface::vtable(self).Properties)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Properties(&self) -> ::windows_core::Result<super::Com::IDispatch> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::IDispatch>();
+        (::windows_core::Interface::vtable(self).Properties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::imp::interface_hierarchy!(IMSMQEvent2, ::windows::core::IUnknown, super::Com::IDispatch, IMSMQEvent);
+::windows_core::imp::interface_hierarchy!(IMSMQEvent2, ::windows_core::IUnknown, super::Com::IDispatch, IMSMQEvent);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQEvent2 {
     fn eq(&self, other: &Self) -> bool {
@@ -1078,7 +1078,7 @@ impl ::core::fmt::Debug for IMSMQEvent2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IMSMQEvent2 {
+unsafe impl ::windows_core::Interface for IMSMQEvent2 {
     type Vtable = IMSMQEvent2_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1088,8 +1088,8 @@ impl ::core::clone::Clone for IMSMQEvent2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::ComInterface for IMSMQEvent2 {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b12_2168_11d3_898c_00e02c074f6b);
+unsafe impl ::windows_core::ComInterface for IMSMQEvent2 {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeba96b12_2168_11d3_898c_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
@@ -1097,25 +1097,25 @@ unsafe impl ::windows::core::ComInterface for IMSMQEvent2 {
 pub struct IMSMQEvent2_Vtbl {
     pub base__: IMSMQEvent_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcolproperties: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcolproperties: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Properties: usize,
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
-pub struct IMSMQEvent3(::windows::core::IUnknown);
+pub struct IMSMQEvent3(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQEvent3 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::IDispatch>();
-        (::windows::core::Interface::vtable(self).base__.Properties)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Properties(&self) -> ::windows_core::Result<super::Com::IDispatch> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::IDispatch>();
+        (::windows_core::Interface::vtable(self).base__.Properties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::imp::interface_hierarchy!(IMSMQEvent3, ::windows::core::IUnknown, super::Com::IDispatch, IMSMQEvent, IMSMQEvent2);
+::windows_core::imp::interface_hierarchy!(IMSMQEvent3, ::windows_core::IUnknown, super::Com::IDispatch, IMSMQEvent, IMSMQEvent2);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQEvent3 {
     fn eq(&self, other: &Self) -> bool {
@@ -1131,7 +1131,7 @@ impl ::core::fmt::Debug for IMSMQEvent3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IMSMQEvent3 {
+unsafe impl ::windows_core::Interface for IMSMQEvent3 {
     type Vtable = IMSMQEvent3_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1141,8 +1141,8 @@ impl ::core::clone::Clone for IMSMQEvent3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::ComInterface for IMSMQEvent3 {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b1c_2168_11d3_898c_00e02c074f6b);
+unsafe impl ::windows_core::ComInterface for IMSMQEvent3 {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeba96b1c_2168_11d3_898c_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
@@ -1153,53 +1153,53 @@ pub struct IMSMQEvent3_Vtbl {
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
-pub struct IMSMQManagement(::windows::core::IUnknown);
+pub struct IMSMQManagement(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQManagement {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Init(&self, machine: *const super::Com::VARIANT, pathname: *const super::Com::VARIANT, formatname: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Init)(::windows::core::Interface::as_raw(self), machine, pathname, formatname).ok()
+    pub unsafe fn Init(&self, machine: *const super::Com::VARIANT, pathname: *const super::Com::VARIANT, formatname: *const super::Com::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Init)(::windows_core::Interface::as_raw(self), machine, pathname, formatname).ok()
     }
-    pub unsafe fn FormatName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).FormatName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn FormatName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).FormatName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn Machine(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).Machine)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Machine(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).Machine)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn MessageCount(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).MessageCount)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn MessageCount(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).MessageCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn ForeignStatus(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).ForeignStatus)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn ForeignStatus(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).ForeignStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn QueueType(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).QueueType)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn QueueType(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).QueueType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsLocal(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
-        (::windows::core::Interface::vtable(self).IsLocal)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn IsLocal(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        (::windows_core::Interface::vtable(self).IsLocal)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn TransactionalStatus(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).TransactionalStatus)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn TransactionalStatus(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).TransactionalStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn BytesInQueue(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).BytesInQueue)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn BytesInQueue(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).BytesInQueue)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::imp::interface_hierarchy!(IMSMQManagement, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows_core::imp::interface_hierarchy!(IMSMQManagement, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQManagement {
     fn eq(&self, other: &Self) -> bool {
@@ -1215,7 +1215,7 @@ impl ::core::fmt::Debug for IMSMQManagement {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IMSMQManagement {
+unsafe impl ::windows_core::Interface for IMSMQManagement {
     type Vtable = IMSMQManagement_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1225,8 +1225,8 @@ impl ::core::clone::Clone for IMSMQManagement {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::ComInterface for IMSMQManagement {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe5f0241_e489_4957_8cc4_a452fcf3e23e);
+unsafe impl ::windows_core::ComInterface for IMSMQManagement {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbe5f0241_e489_4957_8cc4_a452fcf3e23e);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
@@ -1234,252 +1234,252 @@ unsafe impl ::windows::core::ComInterface for IMSMQManagement {
 pub struct IMSMQManagement_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Init: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, machine: *const super::Com::VARIANT, pathname: *const super::Com::VARIANT, formatname: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub Init: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, machine: *const super::Com::VARIANT, pathname: *const super::Com::VARIANT, formatname: *const super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Init: usize,
-    pub FormatName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrformatname: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub Machine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrmachine: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub MessageCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plmessagecount: *mut i32) -> ::windows::core::HRESULT,
-    pub ForeignStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plforeignstatus: *mut i32) -> ::windows::core::HRESULT,
-    pub QueueType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plqueuetype: *mut i32) -> ::windows::core::HRESULT,
+    pub FormatName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrformatname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub Machine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrmachine: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub MessageCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plmessagecount: *mut i32) -> ::windows_core::HRESULT,
+    pub ForeignStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plforeignstatus: *mut i32) -> ::windows_core::HRESULT,
+    pub QueueType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plqueuetype: *mut i32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub IsLocal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfislocal: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
+    pub IsLocal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfislocal: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     IsLocal: usize,
-    pub TransactionalStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pltransactionalstatus: *mut i32) -> ::windows::core::HRESULT,
+    pub TransactionalStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pltransactionalstatus: *mut i32) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub BytesInQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvbytesinqueue: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub BytesInQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvbytesinqueue: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     BytesInQueue: usize,
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
-pub struct IMSMQMessage(::windows::core::IUnknown);
+pub struct IMSMQMessage(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQMessage {
-    pub unsafe fn Class(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).Class)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Class(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).Class)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn PrivLevel(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).PrivLevel)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn PrivLevel(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).PrivLevel)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetPrivLevel(&self, lprivlevel: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivLevel)(::windows::core::Interface::as_raw(self), lprivlevel).ok()
+    pub unsafe fn SetPrivLevel(&self, lprivlevel: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetPrivLevel)(::windows_core::Interface::as_raw(self), lprivlevel).ok()
     }
-    pub unsafe fn AuthLevel(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).AuthLevel)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn AuthLevel(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).AuthLevel)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetAuthLevel(&self, lauthlevel: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAuthLevel)(::windows::core::Interface::as_raw(self), lauthlevel).ok()
+    pub unsafe fn SetAuthLevel(&self, lauthlevel: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetAuthLevel)(::windows_core::Interface::as_raw(self), lauthlevel).ok()
     }
-    pub unsafe fn IsAuthenticated(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::windows::core::zeroed::<i16>();
-        (::windows::core::Interface::vtable(self).IsAuthenticated)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn IsAuthenticated(&self) -> ::windows_core::Result<i16> {
+        let mut result__ = ::windows_core::zeroed::<i16>();
+        (::windows_core::Interface::vtable(self).IsAuthenticated)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn Delivery(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).Delivery)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Delivery(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).Delivery)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetDelivery(&self, ldelivery: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDelivery)(::windows::core::Interface::as_raw(self), ldelivery).ok()
+    pub unsafe fn SetDelivery(&self, ldelivery: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetDelivery)(::windows_core::Interface::as_raw(self), ldelivery).ok()
     }
-    pub unsafe fn Trace(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).Trace)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Trace(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).Trace)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetTrace(&self, ltrace: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTrace)(::windows::core::Interface::as_raw(self), ltrace).ok()
+    pub unsafe fn SetTrace(&self, ltrace: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetTrace)(::windows_core::Interface::as_raw(self), ltrace).ok()
     }
-    pub unsafe fn Priority(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).Priority)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Priority(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).Priority)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetPriority(&self, lpriority: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPriority)(::windows::core::Interface::as_raw(self), lpriority).ok()
+    pub unsafe fn SetPriority(&self, lpriority: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetPriority)(::windows_core::Interface::as_raw(self), lpriority).ok()
     }
-    pub unsafe fn Journal(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).Journal)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Journal(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).Journal)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetJournal(&self, ljournal: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetJournal)(::windows::core::Interface::as_raw(self), ljournal).ok()
-    }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn ResponseQueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQQueueInfo>();
-        (::windows::core::Interface::vtable(self).ResponseQueueInfo)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn SetJournal(&self, ljournal: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetJournal)(::windows_core::Interface::as_raw(self), ljournal).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_ResponseQueueInfo<P0>(&self, pqinforesponse: P0) -> ::windows::core::Result<()>
+    pub unsafe fn ResponseQueueInfo(&self) -> ::windows_core::Result<IMSMQQueueInfo> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQQueueInfo>();
+        (::windows_core::Interface::vtable(self).ResponseQueueInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn putref_ResponseQueueInfo<P0>(&self, pqinforesponse: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IMSMQQueueInfo>,
+        P0: ::windows_core::IntoParam<IMSMQQueueInfo>,
     {
-        (::windows::core::Interface::vtable(self).putref_ResponseQueueInfo)(::windows::core::Interface::as_raw(self), pqinforesponse.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).putref_ResponseQueueInfo)(::windows_core::Interface::as_raw(self), pqinforesponse.into_param().abi()).ok()
     }
-    pub unsafe fn AppSpecific(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).AppSpecific)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn AppSpecific(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).AppSpecific)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetAppSpecific(&self, lappspecific: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAppSpecific)(::windows::core::Interface::as_raw(self), lappspecific).ok()
+    pub unsafe fn SetAppSpecific(&self, lappspecific: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetAppSpecific)(::windows_core::Interface::as_raw(self), lappspecific).ok()
     }
-    pub unsafe fn SourceMachineGuid(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).SourceMachineGuid)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn SourceMachineGuid(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).SourceMachineGuid)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn BodyLength(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).BodyLength)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Body(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).Body)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn BodyLength(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).BodyLength)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetBody(&self, varbody: super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBody)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(varbody)).ok()
+    pub unsafe fn Body(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).Body)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub unsafe fn SetBody(&self, varbody: super::Com::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetBody)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varbody)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AdminQueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQQueueInfo>();
-        (::windows::core::Interface::vtable(self).AdminQueueInfo)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn AdminQueueInfo(&self) -> ::windows_core::Result<IMSMQQueueInfo> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQQueueInfo>();
+        (::windows_core::Interface::vtable(self).AdminQueueInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_AdminQueueInfo<P0>(&self, pqinfoadmin: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_AdminQueueInfo<P0>(&self, pqinfoadmin: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IMSMQQueueInfo>,
+        P0: ::windows_core::IntoParam<IMSMQQueueInfo>,
     {
-        (::windows::core::Interface::vtable(self).putref_AdminQueueInfo)(::windows::core::Interface::as_raw(self), pqinfoadmin.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).putref_AdminQueueInfo)(::windows_core::Interface::as_raw(self), pqinfoadmin.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Id(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).Id)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Id(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).Id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CorrelationId(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).CorrelationId)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn CorrelationId(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).CorrelationId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetCorrelationId(&self, varmsgid: super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCorrelationId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(varmsgid)).ok()
+    pub unsafe fn SetCorrelationId(&self, varmsgid: super::Com::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetCorrelationId)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varmsgid)).ok()
     }
-    pub unsafe fn Ack(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).Ack)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Ack(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).Ack)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetAck(&self, lack: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAck)(::windows::core::Interface::as_raw(self), lack).ok()
+    pub unsafe fn SetAck(&self, lack: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetAck)(::windows_core::Interface::as_raw(self), lack).ok()
     }
-    pub unsafe fn Label(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).Label)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Label(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).Label)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetLabel<P0>(&self, bstrlabel: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetLabel<P0>(&self, bstrlabel: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetLabel)(::windows::core::Interface::as_raw(self), bstrlabel.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).SetLabel)(::windows_core::Interface::as_raw(self), bstrlabel.into_param().abi()).ok()
     }
-    pub unsafe fn MaxTimeToReachQueue(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).MaxTimeToReachQueue)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn MaxTimeToReachQueue(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).MaxTimeToReachQueue)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetMaxTimeToReachQueue(&self, lmaxtimetoreachqueue: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaxTimeToReachQueue)(::windows::core::Interface::as_raw(self), lmaxtimetoreachqueue).ok()
+    pub unsafe fn SetMaxTimeToReachQueue(&self, lmaxtimetoreachqueue: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetMaxTimeToReachQueue)(::windows_core::Interface::as_raw(self), lmaxtimetoreachqueue).ok()
     }
-    pub unsafe fn MaxTimeToReceive(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).MaxTimeToReceive)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn MaxTimeToReceive(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).MaxTimeToReceive)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetMaxTimeToReceive(&self, lmaxtimetoreceive: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaxTimeToReceive)(::windows::core::Interface::as_raw(self), lmaxtimetoreceive).ok()
+    pub unsafe fn SetMaxTimeToReceive(&self, lmaxtimetoreceive: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetMaxTimeToReceive)(::windows_core::Interface::as_raw(self), lmaxtimetoreceive).ok()
     }
-    pub unsafe fn HashAlgorithm(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).HashAlgorithm)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn HashAlgorithm(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).HashAlgorithm)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetHashAlgorithm(&self, lhashalg: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHashAlgorithm)(::windows::core::Interface::as_raw(self), lhashalg).ok()
+    pub unsafe fn SetHashAlgorithm(&self, lhashalg: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetHashAlgorithm)(::windows_core::Interface::as_raw(self), lhashalg).ok()
     }
-    pub unsafe fn EncryptAlgorithm(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).EncryptAlgorithm)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn EncryptAlgorithm(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).EncryptAlgorithm)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetEncryptAlgorithm(&self, lencryptalg: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEncryptAlgorithm)(::windows::core::Interface::as_raw(self), lencryptalg).ok()
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SentTime(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).SentTime)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn SetEncryptAlgorithm(&self, lencryptalg: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetEncryptAlgorithm)(::windows_core::Interface::as_raw(self), lencryptalg).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ArrivedTime(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).ArrivedTime)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn SentTime(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).SentTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub unsafe fn ArrivedTime(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).ArrivedTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn DestinationQueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQQueueInfo>();
-        (::windows::core::Interface::vtable(self).DestinationQueueInfo)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn DestinationQueueInfo(&self) -> ::windows_core::Result<IMSMQQueueInfo> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQQueueInfo>();
+        (::windows_core::Interface::vtable(self).DestinationQueueInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SenderCertificate(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).SenderCertificate)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn SenderCertificate(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).SenderCertificate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSenderCertificate(&self, varsendercert: super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSenderCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(varsendercert)).ok()
+    pub unsafe fn SetSenderCertificate(&self, varsendercert: super::Com::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetSenderCertificate)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varsendercert)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SenderId(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).SenderId)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn SenderId(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).SenderId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SenderIdType(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).SenderIdType)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn SenderIdType(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).SenderIdType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetSenderIdType(&self, lsenderidtype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSenderIdType)(::windows::core::Interface::as_raw(self), lsenderidtype).ok()
+    pub unsafe fn SetSenderIdType(&self, lsenderidtype: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetSenderIdType)(::windows_core::Interface::as_raw(self), lsenderidtype).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Send<P0>(&self, destinationqueue: P0, transaction: *const super::Com::VARIANT) -> ::windows::core::Result<()>
+    pub unsafe fn Send<P0>(&self, destinationqueue: P0, transaction: *const super::Com::VARIANT) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IMSMQQueue>,
+        P0: ::windows_core::IntoParam<IMSMQQueue>,
     {
-        (::windows::core::Interface::vtable(self).Send)(::windows::core::Interface::as_raw(self), destinationqueue.into_param().abi(), transaction).ok()
+        (::windows_core::Interface::vtable(self).Send)(::windows_core::Interface::as_raw(self), destinationqueue.into_param().abi(), transaction).ok()
     }
-    pub unsafe fn AttachCurrentSecurityContext(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AttachCurrentSecurityContext)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn AttachCurrentSecurityContext(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).AttachCurrentSecurityContext)(::windows_core::Interface::as_raw(self)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::imp::interface_hierarchy!(IMSMQMessage, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows_core::imp::interface_hierarchy!(IMSMQMessage, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQMessage {
     fn eq(&self, other: &Self) -> bool {
@@ -1495,7 +1495,7 @@ impl ::core::fmt::Debug for IMSMQMessage {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IMSMQMessage {
+unsafe impl ::windows_core::Interface for IMSMQMessage {
     type Vtable = IMSMQMessage_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1505,474 +1505,474 @@ impl ::core::clone::Clone for IMSMQMessage {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::ComInterface for IMSMQMessage {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e074_dccd_11d0_aa4b_0060970debae);
+unsafe impl ::windows_core::ComInterface for IMSMQMessage {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd7d6e074_dccd_11d0_aa4b_0060970debae);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQMessage_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub Class: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plclass: *mut i32) -> ::windows::core::HRESULT,
-    pub PrivLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plprivlevel: *mut i32) -> ::windows::core::HRESULT,
-    pub SetPrivLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lprivlevel: i32) -> ::windows::core::HRESULT,
-    pub AuthLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plauthlevel: *mut i32) -> ::windows::core::HRESULT,
-    pub SetAuthLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lauthlevel: i32) -> ::windows::core::HRESULT,
-    pub IsAuthenticated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisauthenticated: *mut i16) -> ::windows::core::HRESULT,
-    pub Delivery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pldelivery: *mut i32) -> ::windows::core::HRESULT,
-    pub SetDelivery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ldelivery: i32) -> ::windows::core::HRESULT,
-    pub Trace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pltrace: *mut i32) -> ::windows::core::HRESULT,
-    pub SetTrace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ltrace: i32) -> ::windows::core::HRESULT,
-    pub Priority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plpriority: *mut i32) -> ::windows::core::HRESULT,
-    pub SetPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpriority: i32) -> ::windows::core::HRESULT,
-    pub Journal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pljournal: *mut i32) -> ::windows::core::HRESULT,
-    pub SetJournal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ljournal: i32) -> ::windows::core::HRESULT,
+    pub Class: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plclass: *mut i32) -> ::windows_core::HRESULT,
+    pub PrivLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plprivlevel: *mut i32) -> ::windows_core::HRESULT,
+    pub SetPrivLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lprivlevel: i32) -> ::windows_core::HRESULT,
+    pub AuthLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plauthlevel: *mut i32) -> ::windows_core::HRESULT,
+    pub SetAuthLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lauthlevel: i32) -> ::windows_core::HRESULT,
+    pub IsAuthenticated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisauthenticated: *mut i16) -> ::windows_core::HRESULT,
+    pub Delivery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pldelivery: *mut i32) -> ::windows_core::HRESULT,
+    pub SetDelivery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ldelivery: i32) -> ::windows_core::HRESULT,
+    pub Trace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pltrace: *mut i32) -> ::windows_core::HRESULT,
+    pub SetTrace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ltrace: i32) -> ::windows_core::HRESULT,
+    pub Priority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plpriority: *mut i32) -> ::windows_core::HRESULT,
+    pub SetPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpriority: i32) -> ::windows_core::HRESULT,
+    pub Journal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pljournal: *mut i32) -> ::windows_core::HRESULT,
+    pub SetJournal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ljournal: i32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub ResponseQueueInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinforesponse: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ResponseQueueInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinforesponse: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     ResponseQueueInfo: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub putref_ResponseQueueInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqinforesponse: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub putref_ResponseQueueInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqinforesponse: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     putref_ResponseQueueInfo: usize,
-    pub AppSpecific: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plappspecific: *mut i32) -> ::windows::core::HRESULT,
-    pub SetAppSpecific: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lappspecific: i32) -> ::windows::core::HRESULT,
-    pub SourceMachineGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrguidsrcmachine: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub BodyLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcbbody: *mut i32) -> ::windows::core::HRESULT,
+    pub AppSpecific: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plappspecific: *mut i32) -> ::windows_core::HRESULT,
+    pub SetAppSpecific: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lappspecific: i32) -> ::windows_core::HRESULT,
+    pub SourceMachineGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrguidsrcmachine: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub BodyLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcbbody: *mut i32) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Body: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarbody: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub Body: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarbody: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Body: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetBody: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varbody: super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SetBody: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varbody: super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetBody: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub AdminQueueInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinfoadmin: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub AdminQueueInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinfoadmin: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     AdminQueueInfo: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub putref_AdminQueueInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqinfoadmin: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub putref_AdminQueueInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqinfoadmin: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     putref_AdminQueueInfo: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarmsgid: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarmsgid: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Id: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub CorrelationId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarmsgid: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub CorrelationId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarmsgid: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     CorrelationId: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetCorrelationId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varmsgid: super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SetCorrelationId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varmsgid: super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetCorrelationId: usize,
-    pub Ack: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plack: *mut i32) -> ::windows::core::HRESULT,
-    pub SetAck: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lack: i32) -> ::windows::core::HRESULT,
-    pub Label: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrlabel: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetLabel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrlabel: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub MaxTimeToReachQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plmaxtimetoreachqueue: *mut i32) -> ::windows::core::HRESULT,
-    pub SetMaxTimeToReachQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lmaxtimetoreachqueue: i32) -> ::windows::core::HRESULT,
-    pub MaxTimeToReceive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plmaxtimetoreceive: *mut i32) -> ::windows::core::HRESULT,
-    pub SetMaxTimeToReceive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lmaxtimetoreceive: i32) -> ::windows::core::HRESULT,
-    pub HashAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plhashalg: *mut i32) -> ::windows::core::HRESULT,
-    pub SetHashAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lhashalg: i32) -> ::windows::core::HRESULT,
-    pub EncryptAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plencryptalg: *mut i32) -> ::windows::core::HRESULT,
-    pub SetEncryptAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lencryptalg: i32) -> ::windows::core::HRESULT,
+    pub Ack: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plack: *mut i32) -> ::windows_core::HRESULT,
+    pub SetAck: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lack: i32) -> ::windows_core::HRESULT,
+    pub Label: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrlabel: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetLabel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrlabel: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub MaxTimeToReachQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plmaxtimetoreachqueue: *mut i32) -> ::windows_core::HRESULT,
+    pub SetMaxTimeToReachQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lmaxtimetoreachqueue: i32) -> ::windows_core::HRESULT,
+    pub MaxTimeToReceive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plmaxtimetoreceive: *mut i32) -> ::windows_core::HRESULT,
+    pub SetMaxTimeToReceive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lmaxtimetoreceive: i32) -> ::windows_core::HRESULT,
+    pub HashAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plhashalg: *mut i32) -> ::windows_core::HRESULT,
+    pub SetHashAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lhashalg: i32) -> ::windows_core::HRESULT,
+    pub EncryptAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plencryptalg: *mut i32) -> ::windows_core::HRESULT,
+    pub SetEncryptAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lencryptalg: i32) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SentTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarsenttime: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SentTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarsenttime: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SentTime: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub ArrivedTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plarrivedtime: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub ArrivedTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plarrivedtime: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     ArrivedTime: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub DestinationQueueInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinfodest: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub DestinationQueueInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinfodest: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     DestinationQueueInfo: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SenderCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarsendercert: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SenderCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarsendercert: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SenderCertificate: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetSenderCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varsendercert: super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SetSenderCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varsendercert: super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetSenderCertificate: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SenderId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarsenderid: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SenderId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarsenderid: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SenderId: usize,
-    pub SenderIdType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plsenderidtype: *mut i32) -> ::windows::core::HRESULT,
-    pub SetSenderIdType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lsenderidtype: i32) -> ::windows::core::HRESULT,
+    pub SenderIdType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plsenderidtype: *mut i32) -> ::windows_core::HRESULT,
+    pub SetSenderIdType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lsenderidtype: i32) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Send: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, destinationqueue: *mut ::core::ffi::c_void, transaction: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub Send: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, destinationqueue: *mut ::core::ffi::c_void, transaction: *const super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Send: usize,
-    pub AttachCurrentSecurityContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub AttachCurrentSecurityContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
-pub struct IMSMQMessage2(::windows::core::IUnknown);
+pub struct IMSMQMessage2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQMessage2 {
-    pub unsafe fn Class(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).Class)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Class(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).Class)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn PrivLevel(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).PrivLevel)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn PrivLevel(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).PrivLevel)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetPrivLevel(&self, lprivlevel: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivLevel)(::windows::core::Interface::as_raw(self), lprivlevel).ok()
+    pub unsafe fn SetPrivLevel(&self, lprivlevel: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetPrivLevel)(::windows_core::Interface::as_raw(self), lprivlevel).ok()
     }
-    pub unsafe fn AuthLevel(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).AuthLevel)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn AuthLevel(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).AuthLevel)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetAuthLevel(&self, lauthlevel: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAuthLevel)(::windows::core::Interface::as_raw(self), lauthlevel).ok()
+    pub unsafe fn SetAuthLevel(&self, lauthlevel: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetAuthLevel)(::windows_core::Interface::as_raw(self), lauthlevel).ok()
     }
-    pub unsafe fn IsAuthenticated(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::windows::core::zeroed::<i16>();
-        (::windows::core::Interface::vtable(self).IsAuthenticated)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn IsAuthenticated(&self) -> ::windows_core::Result<i16> {
+        let mut result__ = ::windows_core::zeroed::<i16>();
+        (::windows_core::Interface::vtable(self).IsAuthenticated)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn Delivery(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).Delivery)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Delivery(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).Delivery)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetDelivery(&self, ldelivery: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDelivery)(::windows::core::Interface::as_raw(self), ldelivery).ok()
+    pub unsafe fn SetDelivery(&self, ldelivery: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetDelivery)(::windows_core::Interface::as_raw(self), ldelivery).ok()
     }
-    pub unsafe fn Trace(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).Trace)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Trace(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).Trace)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetTrace(&self, ltrace: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTrace)(::windows::core::Interface::as_raw(self), ltrace).ok()
+    pub unsafe fn SetTrace(&self, ltrace: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetTrace)(::windows_core::Interface::as_raw(self), ltrace).ok()
     }
-    pub unsafe fn Priority(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).Priority)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Priority(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).Priority)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetPriority(&self, lpriority: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPriority)(::windows::core::Interface::as_raw(self), lpriority).ok()
+    pub unsafe fn SetPriority(&self, lpriority: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetPriority)(::windows_core::Interface::as_raw(self), lpriority).ok()
     }
-    pub unsafe fn Journal(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).Journal)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Journal(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).Journal)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetJournal(&self, ljournal: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetJournal)(::windows::core::Interface::as_raw(self), ljournal).ok()
-    }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn ResponseQueueInfo_v1(&self) -> ::windows::core::Result<IMSMQQueueInfo> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQQueueInfo>();
-        (::windows::core::Interface::vtable(self).ResponseQueueInfo_v1)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn SetJournal(&self, ljournal: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetJournal)(::windows_core::Interface::as_raw(self), ljournal).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_ResponseQueueInfo_v1<P0>(&self, pqinforesponse: P0) -> ::windows::core::Result<()>
+    pub unsafe fn ResponseQueueInfo_v1(&self) -> ::windows_core::Result<IMSMQQueueInfo> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQQueueInfo>();
+        (::windows_core::Interface::vtable(self).ResponseQueueInfo_v1)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn putref_ResponseQueueInfo_v1<P0>(&self, pqinforesponse: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IMSMQQueueInfo>,
+        P0: ::windows_core::IntoParam<IMSMQQueueInfo>,
     {
-        (::windows::core::Interface::vtable(self).putref_ResponseQueueInfo_v1)(::windows::core::Interface::as_raw(self), pqinforesponse.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).putref_ResponseQueueInfo_v1)(::windows_core::Interface::as_raw(self), pqinforesponse.into_param().abi()).ok()
     }
-    pub unsafe fn AppSpecific(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).AppSpecific)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn AppSpecific(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).AppSpecific)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetAppSpecific(&self, lappspecific: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAppSpecific)(::windows::core::Interface::as_raw(self), lappspecific).ok()
+    pub unsafe fn SetAppSpecific(&self, lappspecific: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetAppSpecific)(::windows_core::Interface::as_raw(self), lappspecific).ok()
     }
-    pub unsafe fn SourceMachineGuid(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).SourceMachineGuid)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn SourceMachineGuid(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).SourceMachineGuid)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn BodyLength(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).BodyLength)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Body(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).Body)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn BodyLength(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).BodyLength)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetBody(&self, varbody: super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBody)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(varbody)).ok()
+    pub unsafe fn Body(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).Body)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub unsafe fn SetBody(&self, varbody: super::Com::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetBody)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varbody)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AdminQueueInfo_v1(&self) -> ::windows::core::Result<IMSMQQueueInfo> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQQueueInfo>();
-        (::windows::core::Interface::vtable(self).AdminQueueInfo_v1)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn AdminQueueInfo_v1(&self) -> ::windows_core::Result<IMSMQQueueInfo> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQQueueInfo>();
+        (::windows_core::Interface::vtable(self).AdminQueueInfo_v1)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_AdminQueueInfo_v1<P0>(&self, pqinfoadmin: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_AdminQueueInfo_v1<P0>(&self, pqinfoadmin: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IMSMQQueueInfo>,
+        P0: ::windows_core::IntoParam<IMSMQQueueInfo>,
     {
-        (::windows::core::Interface::vtable(self).putref_AdminQueueInfo_v1)(::windows::core::Interface::as_raw(self), pqinfoadmin.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).putref_AdminQueueInfo_v1)(::windows_core::Interface::as_raw(self), pqinfoadmin.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Id(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).Id)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Id(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).Id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CorrelationId(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).CorrelationId)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn CorrelationId(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).CorrelationId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetCorrelationId(&self, varmsgid: super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCorrelationId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(varmsgid)).ok()
+    pub unsafe fn SetCorrelationId(&self, varmsgid: super::Com::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetCorrelationId)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varmsgid)).ok()
     }
-    pub unsafe fn Ack(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).Ack)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Ack(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).Ack)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetAck(&self, lack: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAck)(::windows::core::Interface::as_raw(self), lack).ok()
+    pub unsafe fn SetAck(&self, lack: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetAck)(::windows_core::Interface::as_raw(self), lack).ok()
     }
-    pub unsafe fn Label(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).Label)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Label(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).Label)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetLabel<P0>(&self, bstrlabel: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetLabel<P0>(&self, bstrlabel: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetLabel)(::windows::core::Interface::as_raw(self), bstrlabel.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).SetLabel)(::windows_core::Interface::as_raw(self), bstrlabel.into_param().abi()).ok()
     }
-    pub unsafe fn MaxTimeToReachQueue(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).MaxTimeToReachQueue)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn MaxTimeToReachQueue(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).MaxTimeToReachQueue)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetMaxTimeToReachQueue(&self, lmaxtimetoreachqueue: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaxTimeToReachQueue)(::windows::core::Interface::as_raw(self), lmaxtimetoreachqueue).ok()
+    pub unsafe fn SetMaxTimeToReachQueue(&self, lmaxtimetoreachqueue: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetMaxTimeToReachQueue)(::windows_core::Interface::as_raw(self), lmaxtimetoreachqueue).ok()
     }
-    pub unsafe fn MaxTimeToReceive(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).MaxTimeToReceive)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn MaxTimeToReceive(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).MaxTimeToReceive)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetMaxTimeToReceive(&self, lmaxtimetoreceive: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaxTimeToReceive)(::windows::core::Interface::as_raw(self), lmaxtimetoreceive).ok()
+    pub unsafe fn SetMaxTimeToReceive(&self, lmaxtimetoreceive: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetMaxTimeToReceive)(::windows_core::Interface::as_raw(self), lmaxtimetoreceive).ok()
     }
-    pub unsafe fn HashAlgorithm(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).HashAlgorithm)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn HashAlgorithm(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).HashAlgorithm)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetHashAlgorithm(&self, lhashalg: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHashAlgorithm)(::windows::core::Interface::as_raw(self), lhashalg).ok()
+    pub unsafe fn SetHashAlgorithm(&self, lhashalg: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetHashAlgorithm)(::windows_core::Interface::as_raw(self), lhashalg).ok()
     }
-    pub unsafe fn EncryptAlgorithm(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).EncryptAlgorithm)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn EncryptAlgorithm(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).EncryptAlgorithm)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetEncryptAlgorithm(&self, lencryptalg: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEncryptAlgorithm)(::windows::core::Interface::as_raw(self), lencryptalg).ok()
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SentTime(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).SentTime)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn SetEncryptAlgorithm(&self, lencryptalg: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetEncryptAlgorithm)(::windows_core::Interface::as_raw(self), lencryptalg).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ArrivedTime(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).ArrivedTime)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn SentTime(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).SentTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub unsafe fn ArrivedTime(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).ArrivedTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn DestinationQueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo2> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQQueueInfo2>();
-        (::windows::core::Interface::vtable(self).DestinationQueueInfo)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn DestinationQueueInfo(&self) -> ::windows_core::Result<IMSMQQueueInfo2> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQQueueInfo2>();
+        (::windows_core::Interface::vtable(self).DestinationQueueInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SenderCertificate(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).SenderCertificate)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn SenderCertificate(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).SenderCertificate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSenderCertificate(&self, varsendercert: super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSenderCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(varsendercert)).ok()
+    pub unsafe fn SetSenderCertificate(&self, varsendercert: super::Com::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetSenderCertificate)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varsendercert)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SenderId(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).SenderId)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn SenderId(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).SenderId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SenderIdType(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).SenderIdType)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn SenderIdType(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).SenderIdType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetSenderIdType(&self, lsenderidtype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSenderIdType)(::windows::core::Interface::as_raw(self), lsenderidtype).ok()
+    pub unsafe fn SetSenderIdType(&self, lsenderidtype: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetSenderIdType)(::windows_core::Interface::as_raw(self), lsenderidtype).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Send<P0>(&self, destinationqueue: P0, transaction: *const super::Com::VARIANT) -> ::windows::core::Result<()>
+    pub unsafe fn Send<P0>(&self, destinationqueue: P0, transaction: *const super::Com::VARIANT) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IMSMQQueue2>,
+        P0: ::windows_core::IntoParam<IMSMQQueue2>,
     {
-        (::windows::core::Interface::vtable(self).Send)(::windows::core::Interface::as_raw(self), destinationqueue.into_param().abi(), transaction).ok()
+        (::windows_core::Interface::vtable(self).Send)(::windows_core::Interface::as_raw(self), destinationqueue.into_param().abi(), transaction).ok()
     }
-    pub unsafe fn AttachCurrentSecurityContext(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AttachCurrentSecurityContext)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn AttachCurrentSecurityContext(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).AttachCurrentSecurityContext)(::windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn SenderVersion(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).SenderVersion)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Extension(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).Extension)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn SenderVersion(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).SenderVersion)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetExtension(&self, varextension: super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetExtension)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(varextension)).ok()
+    pub unsafe fn Extension(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).Extension)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn ConnectorTypeGuid(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).ConnectorTypeGuid)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub unsafe fn SetExtension(&self, varextension: super::Com::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetExtension)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varextension)).ok()
     }
-    pub unsafe fn SetConnectorTypeGuid<P0>(&self, bstrguidconnectortype: P0) -> ::windows::core::Result<()>
+    pub unsafe fn ConnectorTypeGuid(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).ConnectorTypeGuid)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    pub unsafe fn SetConnectorTypeGuid<P0>(&self, bstrguidconnectortype: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetConnectorTypeGuid)(::windows::core::Interface::as_raw(self), bstrguidconnectortype.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).SetConnectorTypeGuid)(::windows_core::Interface::as_raw(self), bstrguidconnectortype.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn TransactionStatusQueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo2> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQQueueInfo2>();
-        (::windows::core::Interface::vtable(self).TransactionStatusQueueInfo)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn TransactionStatusQueueInfo(&self) -> ::windows_core::Result<IMSMQQueueInfo2> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQQueueInfo2>();
+        (::windows_core::Interface::vtable(self).TransactionStatusQueueInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn DestinationSymmetricKey(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).DestinationSymmetricKey)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn DestinationSymmetricKey(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).DestinationSymmetricKey)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetDestinationSymmetricKey(&self, vardestsymmkey: super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDestinationSymmetricKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(vardestsymmkey)).ok()
+    pub unsafe fn SetDestinationSymmetricKey(&self, vardestsymmkey: super::Com::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetDestinationSymmetricKey)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vardestsymmkey)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Signature(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).Signature)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Signature(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).Signature)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSignature(&self, varsignature: super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSignature)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(varsignature)).ok()
+    pub unsafe fn SetSignature(&self, varsignature: super::Com::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetSignature)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varsignature)).ok()
     }
-    pub unsafe fn AuthenticationProviderType(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).AuthenticationProviderType)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn AuthenticationProviderType(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).AuthenticationProviderType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetAuthenticationProviderType(&self, lauthprovtype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAuthenticationProviderType)(::windows::core::Interface::as_raw(self), lauthprovtype).ok()
+    pub unsafe fn SetAuthenticationProviderType(&self, lauthprovtype: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetAuthenticationProviderType)(::windows_core::Interface::as_raw(self), lauthprovtype).ok()
     }
-    pub unsafe fn AuthenticationProviderName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).AuthenticationProviderName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn AuthenticationProviderName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).AuthenticationProviderName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetAuthenticationProviderName<P0>(&self, bstrauthprovname: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetAuthenticationProviderName<P0>(&self, bstrauthprovname: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetAuthenticationProviderName)(::windows::core::Interface::as_raw(self), bstrauthprovname.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).SetAuthenticationProviderName)(::windows_core::Interface::as_raw(self), bstrauthprovname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSenderId(&self, varsenderid: super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSenderId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(varsenderid)).ok()
+    pub unsafe fn SetSenderId(&self, varsenderid: super::Com::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetSenderId)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varsenderid)).ok()
     }
-    pub unsafe fn MsgClass(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).MsgClass)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn MsgClass(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).MsgClass)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetMsgClass(&self, lmsgclass: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMsgClass)(::windows::core::Interface::as_raw(self), lmsgclass).ok()
+    pub unsafe fn SetMsgClass(&self, lmsgclass: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetMsgClass)(::windows_core::Interface::as_raw(self), lmsgclass).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::IDispatch>();
-        (::windows::core::Interface::vtable(self).Properties)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Properties(&self) -> ::windows_core::Result<super::Com::IDispatch> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::IDispatch>();
+        (::windows_core::Interface::vtable(self).Properties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn TransactionId(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).TransactionId)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn TransactionId(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).TransactionId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn IsFirstInTransaction(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::windows::core::zeroed::<i16>();
-        (::windows::core::Interface::vtable(self).IsFirstInTransaction)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn IsFirstInTransaction(&self) -> ::windows_core::Result<i16> {
+        let mut result__ = ::windows_core::zeroed::<i16>();
+        (::windows_core::Interface::vtable(self).IsFirstInTransaction)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn IsLastInTransaction(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::windows::core::zeroed::<i16>();
-        (::windows::core::Interface::vtable(self).IsLastInTransaction)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
-    }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn ResponseQueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo2> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQQueueInfo2>();
-        (::windows::core::Interface::vtable(self).ResponseQueueInfo)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn IsLastInTransaction(&self) -> ::windows_core::Result<i16> {
+        let mut result__ = ::windows_core::zeroed::<i16>();
+        (::windows_core::Interface::vtable(self).IsLastInTransaction)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_ResponseQueueInfo<P0>(&self, pqinforesponse: P0) -> ::windows::core::Result<()>
+    pub unsafe fn ResponseQueueInfo(&self) -> ::windows_core::Result<IMSMQQueueInfo2> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQQueueInfo2>();
+        (::windows_core::Interface::vtable(self).ResponseQueueInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn putref_ResponseQueueInfo<P0>(&self, pqinforesponse: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IMSMQQueueInfo2>,
+        P0: ::windows_core::IntoParam<IMSMQQueueInfo2>,
     {
-        (::windows::core::Interface::vtable(self).putref_ResponseQueueInfo)(::windows::core::Interface::as_raw(self), pqinforesponse.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).putref_ResponseQueueInfo)(::windows_core::Interface::as_raw(self), pqinforesponse.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AdminQueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo2> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQQueueInfo2>();
-        (::windows::core::Interface::vtable(self).AdminQueueInfo)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn AdminQueueInfo(&self) -> ::windows_core::Result<IMSMQQueueInfo2> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQQueueInfo2>();
+        (::windows_core::Interface::vtable(self).AdminQueueInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_AdminQueueInfo<P0>(&self, pqinfoadmin: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_AdminQueueInfo<P0>(&self, pqinfoadmin: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IMSMQQueueInfo2>,
+        P0: ::windows_core::IntoParam<IMSMQQueueInfo2>,
     {
-        (::windows::core::Interface::vtable(self).putref_AdminQueueInfo)(::windows::core::Interface::as_raw(self), pqinfoadmin.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).putref_AdminQueueInfo)(::windows_core::Interface::as_raw(self), pqinfoadmin.into_param().abi()).ok()
     }
-    pub unsafe fn ReceivedAuthenticationLevel(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::windows::core::zeroed::<i16>();
-        (::windows::core::Interface::vtable(self).ReceivedAuthenticationLevel)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn ReceivedAuthenticationLevel(&self) -> ::windows_core::Result<i16> {
+        let mut result__ = ::windows_core::zeroed::<i16>();
+        (::windows_core::Interface::vtable(self).ReceivedAuthenticationLevel)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::imp::interface_hierarchy!(IMSMQMessage2, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows_core::imp::interface_hierarchy!(IMSMQMessage2, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQMessage2 {
     fn eq(&self, other: &Self) -> bool {
@@ -1988,7 +1988,7 @@ impl ::core::fmt::Debug for IMSMQMessage2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IMSMQMessage2 {
+unsafe impl ::windows_core::Interface for IMSMQMessage2 {
     type Vtable = IMSMQMessage2_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1998,639 +1998,639 @@ impl ::core::clone::Clone for IMSMQMessage2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::ComInterface for IMSMQMessage2 {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd9933be0_a567_11d2_b0f3_00e02c074f6b);
+unsafe impl ::windows_core::ComInterface for IMSMQMessage2 {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd9933be0_a567_11d2_b0f3_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQMessage2_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub Class: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plclass: *mut i32) -> ::windows::core::HRESULT,
-    pub PrivLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plprivlevel: *mut i32) -> ::windows::core::HRESULT,
-    pub SetPrivLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lprivlevel: i32) -> ::windows::core::HRESULT,
-    pub AuthLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plauthlevel: *mut i32) -> ::windows::core::HRESULT,
-    pub SetAuthLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lauthlevel: i32) -> ::windows::core::HRESULT,
-    pub IsAuthenticated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisauthenticated: *mut i16) -> ::windows::core::HRESULT,
-    pub Delivery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pldelivery: *mut i32) -> ::windows::core::HRESULT,
-    pub SetDelivery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ldelivery: i32) -> ::windows::core::HRESULT,
-    pub Trace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pltrace: *mut i32) -> ::windows::core::HRESULT,
-    pub SetTrace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ltrace: i32) -> ::windows::core::HRESULT,
-    pub Priority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plpriority: *mut i32) -> ::windows::core::HRESULT,
-    pub SetPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpriority: i32) -> ::windows::core::HRESULT,
-    pub Journal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pljournal: *mut i32) -> ::windows::core::HRESULT,
-    pub SetJournal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ljournal: i32) -> ::windows::core::HRESULT,
+    pub Class: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plclass: *mut i32) -> ::windows_core::HRESULT,
+    pub PrivLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plprivlevel: *mut i32) -> ::windows_core::HRESULT,
+    pub SetPrivLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lprivlevel: i32) -> ::windows_core::HRESULT,
+    pub AuthLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plauthlevel: *mut i32) -> ::windows_core::HRESULT,
+    pub SetAuthLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lauthlevel: i32) -> ::windows_core::HRESULT,
+    pub IsAuthenticated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisauthenticated: *mut i16) -> ::windows_core::HRESULT,
+    pub Delivery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pldelivery: *mut i32) -> ::windows_core::HRESULT,
+    pub SetDelivery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ldelivery: i32) -> ::windows_core::HRESULT,
+    pub Trace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pltrace: *mut i32) -> ::windows_core::HRESULT,
+    pub SetTrace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ltrace: i32) -> ::windows_core::HRESULT,
+    pub Priority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plpriority: *mut i32) -> ::windows_core::HRESULT,
+    pub SetPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpriority: i32) -> ::windows_core::HRESULT,
+    pub Journal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pljournal: *mut i32) -> ::windows_core::HRESULT,
+    pub SetJournal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ljournal: i32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub ResponseQueueInfo_v1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinforesponse: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ResponseQueueInfo_v1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinforesponse: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     ResponseQueueInfo_v1: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub putref_ResponseQueueInfo_v1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqinforesponse: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub putref_ResponseQueueInfo_v1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqinforesponse: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     putref_ResponseQueueInfo_v1: usize,
-    pub AppSpecific: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plappspecific: *mut i32) -> ::windows::core::HRESULT,
-    pub SetAppSpecific: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lappspecific: i32) -> ::windows::core::HRESULT,
-    pub SourceMachineGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrguidsrcmachine: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub BodyLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcbbody: *mut i32) -> ::windows::core::HRESULT,
+    pub AppSpecific: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plappspecific: *mut i32) -> ::windows_core::HRESULT,
+    pub SetAppSpecific: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lappspecific: i32) -> ::windows_core::HRESULT,
+    pub SourceMachineGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrguidsrcmachine: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub BodyLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcbbody: *mut i32) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Body: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarbody: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub Body: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarbody: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Body: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetBody: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varbody: super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SetBody: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varbody: super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetBody: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub AdminQueueInfo_v1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinfoadmin: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub AdminQueueInfo_v1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinfoadmin: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     AdminQueueInfo_v1: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub putref_AdminQueueInfo_v1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqinfoadmin: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub putref_AdminQueueInfo_v1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqinfoadmin: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     putref_AdminQueueInfo_v1: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarmsgid: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarmsgid: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Id: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub CorrelationId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarmsgid: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub CorrelationId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarmsgid: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     CorrelationId: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetCorrelationId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varmsgid: super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SetCorrelationId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varmsgid: super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetCorrelationId: usize,
-    pub Ack: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plack: *mut i32) -> ::windows::core::HRESULT,
-    pub SetAck: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lack: i32) -> ::windows::core::HRESULT,
-    pub Label: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrlabel: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetLabel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrlabel: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub MaxTimeToReachQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plmaxtimetoreachqueue: *mut i32) -> ::windows::core::HRESULT,
-    pub SetMaxTimeToReachQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lmaxtimetoreachqueue: i32) -> ::windows::core::HRESULT,
-    pub MaxTimeToReceive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plmaxtimetoreceive: *mut i32) -> ::windows::core::HRESULT,
-    pub SetMaxTimeToReceive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lmaxtimetoreceive: i32) -> ::windows::core::HRESULT,
-    pub HashAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plhashalg: *mut i32) -> ::windows::core::HRESULT,
-    pub SetHashAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lhashalg: i32) -> ::windows::core::HRESULT,
-    pub EncryptAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plencryptalg: *mut i32) -> ::windows::core::HRESULT,
-    pub SetEncryptAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lencryptalg: i32) -> ::windows::core::HRESULT,
+    pub Ack: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plack: *mut i32) -> ::windows_core::HRESULT,
+    pub SetAck: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lack: i32) -> ::windows_core::HRESULT,
+    pub Label: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrlabel: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetLabel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrlabel: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub MaxTimeToReachQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plmaxtimetoreachqueue: *mut i32) -> ::windows_core::HRESULT,
+    pub SetMaxTimeToReachQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lmaxtimetoreachqueue: i32) -> ::windows_core::HRESULT,
+    pub MaxTimeToReceive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plmaxtimetoreceive: *mut i32) -> ::windows_core::HRESULT,
+    pub SetMaxTimeToReceive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lmaxtimetoreceive: i32) -> ::windows_core::HRESULT,
+    pub HashAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plhashalg: *mut i32) -> ::windows_core::HRESULT,
+    pub SetHashAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lhashalg: i32) -> ::windows_core::HRESULT,
+    pub EncryptAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plencryptalg: *mut i32) -> ::windows_core::HRESULT,
+    pub SetEncryptAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lencryptalg: i32) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SentTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarsenttime: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SentTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarsenttime: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SentTime: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub ArrivedTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plarrivedtime: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub ArrivedTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plarrivedtime: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     ArrivedTime: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub DestinationQueueInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinfodest: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub DestinationQueueInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinfodest: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     DestinationQueueInfo: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SenderCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarsendercert: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SenderCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarsendercert: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SenderCertificate: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetSenderCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varsendercert: super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SetSenderCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varsendercert: super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetSenderCertificate: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SenderId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarsenderid: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SenderId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarsenderid: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SenderId: usize,
-    pub SenderIdType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plsenderidtype: *mut i32) -> ::windows::core::HRESULT,
-    pub SetSenderIdType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lsenderidtype: i32) -> ::windows::core::HRESULT,
+    pub SenderIdType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plsenderidtype: *mut i32) -> ::windows_core::HRESULT,
+    pub SetSenderIdType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lsenderidtype: i32) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Send: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, destinationqueue: *mut ::core::ffi::c_void, transaction: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub Send: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, destinationqueue: *mut ::core::ffi::c_void, transaction: *const super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Send: usize,
-    pub AttachCurrentSecurityContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SenderVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plsenderversion: *mut i32) -> ::windows::core::HRESULT,
+    pub AttachCurrentSecurityContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SenderVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plsenderversion: *mut i32) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Extension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarextension: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub Extension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarextension: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Extension: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varextension: super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SetExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varextension: super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetExtension: usize,
-    pub ConnectorTypeGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrguidconnectortype: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetConnectorTypeGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrguidconnectortype: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub ConnectorTypeGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrguidconnectortype: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetConnectorTypeGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrguidconnectortype: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub TransactionStatusQueueInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinfoxactstatus: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub TransactionStatusQueueInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinfoxactstatus: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     TransactionStatusQueueInfo: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub DestinationSymmetricKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvardestsymmkey: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub DestinationSymmetricKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvardestsymmkey: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     DestinationSymmetricKey: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetDestinationSymmetricKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vardestsymmkey: super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SetDestinationSymmetricKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vardestsymmkey: super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetDestinationSymmetricKey: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Signature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarsignature: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub Signature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarsignature: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Signature: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetSignature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varsignature: super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SetSignature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varsignature: super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetSignature: usize,
-    pub AuthenticationProviderType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plauthprovtype: *mut i32) -> ::windows::core::HRESULT,
-    pub SetAuthenticationProviderType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lauthprovtype: i32) -> ::windows::core::HRESULT,
-    pub AuthenticationProviderName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrauthprovname: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetAuthenticationProviderName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrauthprovname: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub AuthenticationProviderType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plauthprovtype: *mut i32) -> ::windows_core::HRESULT,
+    pub SetAuthenticationProviderType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lauthprovtype: i32) -> ::windows_core::HRESULT,
+    pub AuthenticationProviderName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrauthprovname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetAuthenticationProviderName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrauthprovname: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetSenderId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varsenderid: super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SetSenderId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varsenderid: super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetSenderId: usize,
-    pub MsgClass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plmsgclass: *mut i32) -> ::windows::core::HRESULT,
-    pub SetMsgClass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lmsgclass: i32) -> ::windows::core::HRESULT,
+    pub MsgClass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plmsgclass: *mut i32) -> ::windows_core::HRESULT,
+    pub SetMsgClass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lmsgclass: i32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcolproperties: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcolproperties: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Properties: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub TransactionId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarxactid: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub TransactionId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarxactid: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     TransactionId: usize,
-    pub IsFirstInTransaction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisfirstinxact: *mut i16) -> ::windows::core::HRESULT,
-    pub IsLastInTransaction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pislastinxact: *mut i16) -> ::windows::core::HRESULT,
+    pub IsFirstInTransaction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisfirstinxact: *mut i16) -> ::windows_core::HRESULT,
+    pub IsLastInTransaction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pislastinxact: *mut i16) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub ResponseQueueInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinforesponse: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ResponseQueueInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinforesponse: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     ResponseQueueInfo: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub putref_ResponseQueueInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqinforesponse: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub putref_ResponseQueueInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqinforesponse: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     putref_ResponseQueueInfo: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub AdminQueueInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinfoadmin: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub AdminQueueInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinfoadmin: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     AdminQueueInfo: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub putref_AdminQueueInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqinfoadmin: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub putref_AdminQueueInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqinfoadmin: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     putref_AdminQueueInfo: usize,
-    pub ReceivedAuthenticationLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psreceivedauthenticationlevel: *mut i16) -> ::windows::core::HRESULT,
+    pub ReceivedAuthenticationLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psreceivedauthenticationlevel: *mut i16) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
-pub struct IMSMQMessage3(::windows::core::IUnknown);
+pub struct IMSMQMessage3(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQMessage3 {
-    pub unsafe fn Class(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).Class)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Class(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).Class)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn PrivLevel(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).PrivLevel)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn PrivLevel(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).PrivLevel)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetPrivLevel(&self, lprivlevel: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivLevel)(::windows::core::Interface::as_raw(self), lprivlevel).ok()
+    pub unsafe fn SetPrivLevel(&self, lprivlevel: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetPrivLevel)(::windows_core::Interface::as_raw(self), lprivlevel).ok()
     }
-    pub unsafe fn AuthLevel(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).AuthLevel)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn AuthLevel(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).AuthLevel)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetAuthLevel(&self, lauthlevel: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAuthLevel)(::windows::core::Interface::as_raw(self), lauthlevel).ok()
+    pub unsafe fn SetAuthLevel(&self, lauthlevel: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetAuthLevel)(::windows_core::Interface::as_raw(self), lauthlevel).ok()
     }
-    pub unsafe fn IsAuthenticated(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::windows::core::zeroed::<i16>();
-        (::windows::core::Interface::vtable(self).IsAuthenticated)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn IsAuthenticated(&self) -> ::windows_core::Result<i16> {
+        let mut result__ = ::windows_core::zeroed::<i16>();
+        (::windows_core::Interface::vtable(self).IsAuthenticated)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn Delivery(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).Delivery)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Delivery(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).Delivery)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetDelivery(&self, ldelivery: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDelivery)(::windows::core::Interface::as_raw(self), ldelivery).ok()
+    pub unsafe fn SetDelivery(&self, ldelivery: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetDelivery)(::windows_core::Interface::as_raw(self), ldelivery).ok()
     }
-    pub unsafe fn Trace(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).Trace)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Trace(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).Trace)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetTrace(&self, ltrace: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTrace)(::windows::core::Interface::as_raw(self), ltrace).ok()
+    pub unsafe fn SetTrace(&self, ltrace: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetTrace)(::windows_core::Interface::as_raw(self), ltrace).ok()
     }
-    pub unsafe fn Priority(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).Priority)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Priority(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).Priority)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetPriority(&self, lpriority: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPriority)(::windows::core::Interface::as_raw(self), lpriority).ok()
+    pub unsafe fn SetPriority(&self, lpriority: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetPriority)(::windows_core::Interface::as_raw(self), lpriority).ok()
     }
-    pub unsafe fn Journal(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).Journal)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Journal(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).Journal)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetJournal(&self, ljournal: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetJournal)(::windows::core::Interface::as_raw(self), ljournal).ok()
-    }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn ResponseQueueInfo_v1(&self) -> ::windows::core::Result<IMSMQQueueInfo> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQQueueInfo>();
-        (::windows::core::Interface::vtable(self).ResponseQueueInfo_v1)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn SetJournal(&self, ljournal: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetJournal)(::windows_core::Interface::as_raw(self), ljournal).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_ResponseQueueInfo_v1<P0>(&self, pqinforesponse: P0) -> ::windows::core::Result<()>
+    pub unsafe fn ResponseQueueInfo_v1(&self) -> ::windows_core::Result<IMSMQQueueInfo> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQQueueInfo>();
+        (::windows_core::Interface::vtable(self).ResponseQueueInfo_v1)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn putref_ResponseQueueInfo_v1<P0>(&self, pqinforesponse: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IMSMQQueueInfo>,
+        P0: ::windows_core::IntoParam<IMSMQQueueInfo>,
     {
-        (::windows::core::Interface::vtable(self).putref_ResponseQueueInfo_v1)(::windows::core::Interface::as_raw(self), pqinforesponse.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).putref_ResponseQueueInfo_v1)(::windows_core::Interface::as_raw(self), pqinforesponse.into_param().abi()).ok()
     }
-    pub unsafe fn AppSpecific(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).AppSpecific)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn AppSpecific(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).AppSpecific)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetAppSpecific(&self, lappspecific: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAppSpecific)(::windows::core::Interface::as_raw(self), lappspecific).ok()
+    pub unsafe fn SetAppSpecific(&self, lappspecific: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetAppSpecific)(::windows_core::Interface::as_raw(self), lappspecific).ok()
     }
-    pub unsafe fn SourceMachineGuid(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).SourceMachineGuid)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn SourceMachineGuid(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).SourceMachineGuid)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn BodyLength(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).BodyLength)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Body(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).Body)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn BodyLength(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).BodyLength)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetBody(&self, varbody: super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBody)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(varbody)).ok()
+    pub unsafe fn Body(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).Body)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub unsafe fn SetBody(&self, varbody: super::Com::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetBody)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varbody)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AdminQueueInfo_v1(&self) -> ::windows::core::Result<IMSMQQueueInfo> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQQueueInfo>();
-        (::windows::core::Interface::vtable(self).AdminQueueInfo_v1)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn AdminQueueInfo_v1(&self) -> ::windows_core::Result<IMSMQQueueInfo> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQQueueInfo>();
+        (::windows_core::Interface::vtable(self).AdminQueueInfo_v1)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_AdminQueueInfo_v1<P0>(&self, pqinfoadmin: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_AdminQueueInfo_v1<P0>(&self, pqinfoadmin: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IMSMQQueueInfo>,
+        P0: ::windows_core::IntoParam<IMSMQQueueInfo>,
     {
-        (::windows::core::Interface::vtable(self).putref_AdminQueueInfo_v1)(::windows::core::Interface::as_raw(self), pqinfoadmin.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).putref_AdminQueueInfo_v1)(::windows_core::Interface::as_raw(self), pqinfoadmin.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Id(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).Id)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Id(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).Id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CorrelationId(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).CorrelationId)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn CorrelationId(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).CorrelationId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetCorrelationId(&self, varmsgid: super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCorrelationId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(varmsgid)).ok()
+    pub unsafe fn SetCorrelationId(&self, varmsgid: super::Com::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetCorrelationId)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varmsgid)).ok()
     }
-    pub unsafe fn Ack(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).Ack)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Ack(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).Ack)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetAck(&self, lack: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAck)(::windows::core::Interface::as_raw(self), lack).ok()
+    pub unsafe fn SetAck(&self, lack: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetAck)(::windows_core::Interface::as_raw(self), lack).ok()
     }
-    pub unsafe fn Label(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).Label)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Label(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).Label)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetLabel<P0>(&self, bstrlabel: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetLabel<P0>(&self, bstrlabel: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetLabel)(::windows::core::Interface::as_raw(self), bstrlabel.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).SetLabel)(::windows_core::Interface::as_raw(self), bstrlabel.into_param().abi()).ok()
     }
-    pub unsafe fn MaxTimeToReachQueue(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).MaxTimeToReachQueue)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn MaxTimeToReachQueue(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).MaxTimeToReachQueue)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetMaxTimeToReachQueue(&self, lmaxtimetoreachqueue: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaxTimeToReachQueue)(::windows::core::Interface::as_raw(self), lmaxtimetoreachqueue).ok()
+    pub unsafe fn SetMaxTimeToReachQueue(&self, lmaxtimetoreachqueue: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetMaxTimeToReachQueue)(::windows_core::Interface::as_raw(self), lmaxtimetoreachqueue).ok()
     }
-    pub unsafe fn MaxTimeToReceive(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).MaxTimeToReceive)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn MaxTimeToReceive(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).MaxTimeToReceive)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetMaxTimeToReceive(&self, lmaxtimetoreceive: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaxTimeToReceive)(::windows::core::Interface::as_raw(self), lmaxtimetoreceive).ok()
+    pub unsafe fn SetMaxTimeToReceive(&self, lmaxtimetoreceive: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetMaxTimeToReceive)(::windows_core::Interface::as_raw(self), lmaxtimetoreceive).ok()
     }
-    pub unsafe fn HashAlgorithm(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).HashAlgorithm)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn HashAlgorithm(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).HashAlgorithm)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetHashAlgorithm(&self, lhashalg: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHashAlgorithm)(::windows::core::Interface::as_raw(self), lhashalg).ok()
+    pub unsafe fn SetHashAlgorithm(&self, lhashalg: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetHashAlgorithm)(::windows_core::Interface::as_raw(self), lhashalg).ok()
     }
-    pub unsafe fn EncryptAlgorithm(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).EncryptAlgorithm)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn EncryptAlgorithm(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).EncryptAlgorithm)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetEncryptAlgorithm(&self, lencryptalg: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEncryptAlgorithm)(::windows::core::Interface::as_raw(self), lencryptalg).ok()
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SentTime(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).SentTime)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn SetEncryptAlgorithm(&self, lencryptalg: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetEncryptAlgorithm)(::windows_core::Interface::as_raw(self), lencryptalg).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ArrivedTime(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).ArrivedTime)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn SentTime(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).SentTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub unsafe fn ArrivedTime(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).ArrivedTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn DestinationQueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo3> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQQueueInfo3>();
-        (::windows::core::Interface::vtable(self).DestinationQueueInfo)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn DestinationQueueInfo(&self) -> ::windows_core::Result<IMSMQQueueInfo3> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQQueueInfo3>();
+        (::windows_core::Interface::vtable(self).DestinationQueueInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SenderCertificate(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).SenderCertificate)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn SenderCertificate(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).SenderCertificate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSenderCertificate(&self, varsendercert: super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSenderCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(varsendercert)).ok()
+    pub unsafe fn SetSenderCertificate(&self, varsendercert: super::Com::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetSenderCertificate)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varsendercert)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SenderId(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).SenderId)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn SenderId(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).SenderId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SenderIdType(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).SenderIdType)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn SenderIdType(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).SenderIdType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetSenderIdType(&self, lsenderidtype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSenderIdType)(::windows::core::Interface::as_raw(self), lsenderidtype).ok()
+    pub unsafe fn SetSenderIdType(&self, lsenderidtype: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetSenderIdType)(::windows_core::Interface::as_raw(self), lsenderidtype).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Send<P0>(&self, destinationqueue: P0, transaction: *const super::Com::VARIANT) -> ::windows::core::Result<()>
+    pub unsafe fn Send<P0>(&self, destinationqueue: P0, transaction: *const super::Com::VARIANT) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::Com::IDispatch>,
+        P0: ::windows_core::IntoParam<super::Com::IDispatch>,
     {
-        (::windows::core::Interface::vtable(self).Send)(::windows::core::Interface::as_raw(self), destinationqueue.into_param().abi(), transaction).ok()
+        (::windows_core::Interface::vtable(self).Send)(::windows_core::Interface::as_raw(self), destinationqueue.into_param().abi(), transaction).ok()
     }
-    pub unsafe fn AttachCurrentSecurityContext(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AttachCurrentSecurityContext)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn AttachCurrentSecurityContext(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).AttachCurrentSecurityContext)(::windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn SenderVersion(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).SenderVersion)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Extension(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).Extension)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn SenderVersion(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).SenderVersion)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetExtension(&self, varextension: super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetExtension)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(varextension)).ok()
+    pub unsafe fn Extension(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).Extension)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn ConnectorTypeGuid(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).ConnectorTypeGuid)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub unsafe fn SetExtension(&self, varextension: super::Com::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetExtension)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varextension)).ok()
     }
-    pub unsafe fn SetConnectorTypeGuid<P0>(&self, bstrguidconnectortype: P0) -> ::windows::core::Result<()>
+    pub unsafe fn ConnectorTypeGuid(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).ConnectorTypeGuid)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    pub unsafe fn SetConnectorTypeGuid<P0>(&self, bstrguidconnectortype: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetConnectorTypeGuid)(::windows::core::Interface::as_raw(self), bstrguidconnectortype.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).SetConnectorTypeGuid)(::windows_core::Interface::as_raw(self), bstrguidconnectortype.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn TransactionStatusQueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo3> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQQueueInfo3>();
-        (::windows::core::Interface::vtable(self).TransactionStatusQueueInfo)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn TransactionStatusQueueInfo(&self) -> ::windows_core::Result<IMSMQQueueInfo3> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQQueueInfo3>();
+        (::windows_core::Interface::vtable(self).TransactionStatusQueueInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn DestinationSymmetricKey(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).DestinationSymmetricKey)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn DestinationSymmetricKey(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).DestinationSymmetricKey)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetDestinationSymmetricKey(&self, vardestsymmkey: super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDestinationSymmetricKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(vardestsymmkey)).ok()
+    pub unsafe fn SetDestinationSymmetricKey(&self, vardestsymmkey: super::Com::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetDestinationSymmetricKey)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vardestsymmkey)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Signature(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).Signature)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Signature(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).Signature)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSignature(&self, varsignature: super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSignature)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(varsignature)).ok()
+    pub unsafe fn SetSignature(&self, varsignature: super::Com::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetSignature)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varsignature)).ok()
     }
-    pub unsafe fn AuthenticationProviderType(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).AuthenticationProviderType)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn AuthenticationProviderType(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).AuthenticationProviderType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetAuthenticationProviderType(&self, lauthprovtype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAuthenticationProviderType)(::windows::core::Interface::as_raw(self), lauthprovtype).ok()
+    pub unsafe fn SetAuthenticationProviderType(&self, lauthprovtype: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetAuthenticationProviderType)(::windows_core::Interface::as_raw(self), lauthprovtype).ok()
     }
-    pub unsafe fn AuthenticationProviderName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).AuthenticationProviderName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn AuthenticationProviderName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).AuthenticationProviderName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetAuthenticationProviderName<P0>(&self, bstrauthprovname: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetAuthenticationProviderName<P0>(&self, bstrauthprovname: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetAuthenticationProviderName)(::windows::core::Interface::as_raw(self), bstrauthprovname.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).SetAuthenticationProviderName)(::windows_core::Interface::as_raw(self), bstrauthprovname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSenderId(&self, varsenderid: super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSenderId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(varsenderid)).ok()
+    pub unsafe fn SetSenderId(&self, varsenderid: super::Com::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetSenderId)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varsenderid)).ok()
     }
-    pub unsafe fn MsgClass(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).MsgClass)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn MsgClass(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).MsgClass)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetMsgClass(&self, lmsgclass: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMsgClass)(::windows::core::Interface::as_raw(self), lmsgclass).ok()
+    pub unsafe fn SetMsgClass(&self, lmsgclass: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetMsgClass)(::windows_core::Interface::as_raw(self), lmsgclass).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::IDispatch>();
-        (::windows::core::Interface::vtable(self).Properties)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Properties(&self) -> ::windows_core::Result<super::Com::IDispatch> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::IDispatch>();
+        (::windows_core::Interface::vtable(self).Properties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn TransactionId(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).TransactionId)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn TransactionId(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).TransactionId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn IsFirstInTransaction(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::windows::core::zeroed::<i16>();
-        (::windows::core::Interface::vtable(self).IsFirstInTransaction)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn IsFirstInTransaction(&self) -> ::windows_core::Result<i16> {
+        let mut result__ = ::windows_core::zeroed::<i16>();
+        (::windows_core::Interface::vtable(self).IsFirstInTransaction)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn IsLastInTransaction(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::windows::core::zeroed::<i16>();
-        (::windows::core::Interface::vtable(self).IsLastInTransaction)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
-    }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn ResponseQueueInfo_v2(&self) -> ::windows::core::Result<IMSMQQueueInfo2> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQQueueInfo2>();
-        (::windows::core::Interface::vtable(self).ResponseQueueInfo_v2)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn IsLastInTransaction(&self) -> ::windows_core::Result<i16> {
+        let mut result__ = ::windows_core::zeroed::<i16>();
+        (::windows_core::Interface::vtable(self).IsLastInTransaction)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_ResponseQueueInfo_v2<P0>(&self, pqinforesponse: P0) -> ::windows::core::Result<()>
+    pub unsafe fn ResponseQueueInfo_v2(&self) -> ::windows_core::Result<IMSMQQueueInfo2> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQQueueInfo2>();
+        (::windows_core::Interface::vtable(self).ResponseQueueInfo_v2)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn putref_ResponseQueueInfo_v2<P0>(&self, pqinforesponse: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IMSMQQueueInfo2>,
+        P0: ::windows_core::IntoParam<IMSMQQueueInfo2>,
     {
-        (::windows::core::Interface::vtable(self).putref_ResponseQueueInfo_v2)(::windows::core::Interface::as_raw(self), pqinforesponse.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).putref_ResponseQueueInfo_v2)(::windows_core::Interface::as_raw(self), pqinforesponse.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AdminQueueInfo_v2(&self) -> ::windows::core::Result<IMSMQQueueInfo2> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQQueueInfo2>();
-        (::windows::core::Interface::vtable(self).AdminQueueInfo_v2)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn AdminQueueInfo_v2(&self) -> ::windows_core::Result<IMSMQQueueInfo2> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQQueueInfo2>();
+        (::windows_core::Interface::vtable(self).AdminQueueInfo_v2)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_AdminQueueInfo_v2<P0>(&self, pqinfoadmin: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_AdminQueueInfo_v2<P0>(&self, pqinfoadmin: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IMSMQQueueInfo2>,
+        P0: ::windows_core::IntoParam<IMSMQQueueInfo2>,
     {
-        (::windows::core::Interface::vtable(self).putref_AdminQueueInfo_v2)(::windows::core::Interface::as_raw(self), pqinfoadmin.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).putref_AdminQueueInfo_v2)(::windows_core::Interface::as_raw(self), pqinfoadmin.into_param().abi()).ok()
     }
-    pub unsafe fn ReceivedAuthenticationLevel(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::windows::core::zeroed::<i16>();
-        (::windows::core::Interface::vtable(self).ReceivedAuthenticationLevel)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
-    }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn ResponseQueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo3> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQQueueInfo3>();
-        (::windows::core::Interface::vtable(self).ResponseQueueInfo)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn ReceivedAuthenticationLevel(&self) -> ::windows_core::Result<i16> {
+        let mut result__ = ::windows_core::zeroed::<i16>();
+        (::windows_core::Interface::vtable(self).ReceivedAuthenticationLevel)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_ResponseQueueInfo<P0>(&self, pqinforesponse: P0) -> ::windows::core::Result<()>
+    pub unsafe fn ResponseQueueInfo(&self) -> ::windows_core::Result<IMSMQQueueInfo3> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQQueueInfo3>();
+        (::windows_core::Interface::vtable(self).ResponseQueueInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn putref_ResponseQueueInfo<P0>(&self, pqinforesponse: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IMSMQQueueInfo3>,
+        P0: ::windows_core::IntoParam<IMSMQQueueInfo3>,
     {
-        (::windows::core::Interface::vtable(self).putref_ResponseQueueInfo)(::windows::core::Interface::as_raw(self), pqinforesponse.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).putref_ResponseQueueInfo)(::windows_core::Interface::as_raw(self), pqinforesponse.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AdminQueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo3> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQQueueInfo3>();
-        (::windows::core::Interface::vtable(self).AdminQueueInfo)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn AdminQueueInfo(&self) -> ::windows_core::Result<IMSMQQueueInfo3> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQQueueInfo3>();
+        (::windows_core::Interface::vtable(self).AdminQueueInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_AdminQueueInfo<P0>(&self, pqinfoadmin: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_AdminQueueInfo<P0>(&self, pqinfoadmin: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IMSMQQueueInfo3>,
+        P0: ::windows_core::IntoParam<IMSMQQueueInfo3>,
     {
-        (::windows::core::Interface::vtable(self).putref_AdminQueueInfo)(::windows::core::Interface::as_raw(self), pqinfoadmin.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).putref_AdminQueueInfo)(::windows_core::Interface::as_raw(self), pqinfoadmin.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn ResponseDestination(&self) -> ::windows::core::Result<super::Com::IDispatch> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::IDispatch>();
-        (::windows::core::Interface::vtable(self).ResponseDestination)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn ResponseDestination(&self) -> ::windows_core::Result<super::Com::IDispatch> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::IDispatch>();
+        (::windows_core::Interface::vtable(self).ResponseDestination)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_ResponseDestination<P0>(&self, pdestresponse: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_ResponseDestination<P0>(&self, pdestresponse: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::Com::IDispatch>,
+        P0: ::windows_core::IntoParam<super::Com::IDispatch>,
     {
-        (::windows::core::Interface::vtable(self).putref_ResponseDestination)(::windows::core::Interface::as_raw(self), pdestresponse.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).putref_ResponseDestination)(::windows_core::Interface::as_raw(self), pdestresponse.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Destination(&self) -> ::windows::core::Result<super::Com::IDispatch> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::IDispatch>();
-        (::windows::core::Interface::vtable(self).Destination)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Destination(&self) -> ::windows_core::Result<super::Com::IDispatch> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::IDispatch>();
+        (::windows_core::Interface::vtable(self).Destination)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn LookupId(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).LookupId)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn LookupId(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).LookupId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsAuthenticated2(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
-        (::windows::core::Interface::vtable(self).IsAuthenticated2)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn IsAuthenticated2(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        (::windows_core::Interface::vtable(self).IsAuthenticated2)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsFirstInTransaction2(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
-        (::windows::core::Interface::vtable(self).IsFirstInTransaction2)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn IsFirstInTransaction2(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        (::windows_core::Interface::vtable(self).IsFirstInTransaction2)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsLastInTransaction2(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
-        (::windows::core::Interface::vtable(self).IsLastInTransaction2)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn IsLastInTransaction2(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        (::windows_core::Interface::vtable(self).IsLastInTransaction2)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn AttachCurrentSecurityContext2(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AttachCurrentSecurityContext2)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn AttachCurrentSecurityContext2(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).AttachCurrentSecurityContext2)(::windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn SoapEnvelope(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).SoapEnvelope)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn SoapEnvelope(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).SoapEnvelope)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CompoundMessage(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).CompoundMessage)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn CompoundMessage(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).CompoundMessage)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetSoapHeader<P0>(&self, bstrsoapheader: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetSoapHeader<P0>(&self, bstrsoapheader: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetSoapHeader)(::windows::core::Interface::as_raw(self), bstrsoapheader.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).SetSoapHeader)(::windows_core::Interface::as_raw(self), bstrsoapheader.into_param().abi()).ok()
     }
-    pub unsafe fn SetSoapBody<P0>(&self, bstrsoapbody: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetSoapBody<P0>(&self, bstrsoapbody: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetSoapBody)(::windows::core::Interface::as_raw(self), bstrsoapbody.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).SetSoapBody)(::windows_core::Interface::as_raw(self), bstrsoapbody.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::imp::interface_hierarchy!(IMSMQMessage3, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows_core::imp::interface_hierarchy!(IMSMQMessage3, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQMessage3 {
     fn eq(&self, other: &Self) -> bool {
@@ -2646,7 +2646,7 @@ impl ::core::fmt::Debug for IMSMQMessage3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IMSMQMessage3 {
+unsafe impl ::windows_core::Interface for IMSMQMessage3 {
     type Vtable = IMSMQMessage3_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2656,691 +2656,691 @@ impl ::core::clone::Clone for IMSMQMessage3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::ComInterface for IMSMQMessage3 {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b1a_2168_11d3_898c_00e02c074f6b);
+unsafe impl ::windows_core::ComInterface for IMSMQMessage3 {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeba96b1a_2168_11d3_898c_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQMessage3_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub Class: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plclass: *mut i32) -> ::windows::core::HRESULT,
-    pub PrivLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plprivlevel: *mut i32) -> ::windows::core::HRESULT,
-    pub SetPrivLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lprivlevel: i32) -> ::windows::core::HRESULT,
-    pub AuthLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plauthlevel: *mut i32) -> ::windows::core::HRESULT,
-    pub SetAuthLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lauthlevel: i32) -> ::windows::core::HRESULT,
-    pub IsAuthenticated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisauthenticated: *mut i16) -> ::windows::core::HRESULT,
-    pub Delivery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pldelivery: *mut i32) -> ::windows::core::HRESULT,
-    pub SetDelivery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ldelivery: i32) -> ::windows::core::HRESULT,
-    pub Trace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pltrace: *mut i32) -> ::windows::core::HRESULT,
-    pub SetTrace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ltrace: i32) -> ::windows::core::HRESULT,
-    pub Priority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plpriority: *mut i32) -> ::windows::core::HRESULT,
-    pub SetPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpriority: i32) -> ::windows::core::HRESULT,
-    pub Journal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pljournal: *mut i32) -> ::windows::core::HRESULT,
-    pub SetJournal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ljournal: i32) -> ::windows::core::HRESULT,
+    pub Class: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plclass: *mut i32) -> ::windows_core::HRESULT,
+    pub PrivLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plprivlevel: *mut i32) -> ::windows_core::HRESULT,
+    pub SetPrivLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lprivlevel: i32) -> ::windows_core::HRESULT,
+    pub AuthLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plauthlevel: *mut i32) -> ::windows_core::HRESULT,
+    pub SetAuthLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lauthlevel: i32) -> ::windows_core::HRESULT,
+    pub IsAuthenticated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisauthenticated: *mut i16) -> ::windows_core::HRESULT,
+    pub Delivery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pldelivery: *mut i32) -> ::windows_core::HRESULT,
+    pub SetDelivery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ldelivery: i32) -> ::windows_core::HRESULT,
+    pub Trace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pltrace: *mut i32) -> ::windows_core::HRESULT,
+    pub SetTrace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ltrace: i32) -> ::windows_core::HRESULT,
+    pub Priority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plpriority: *mut i32) -> ::windows_core::HRESULT,
+    pub SetPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpriority: i32) -> ::windows_core::HRESULT,
+    pub Journal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pljournal: *mut i32) -> ::windows_core::HRESULT,
+    pub SetJournal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ljournal: i32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub ResponseQueueInfo_v1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinforesponse: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ResponseQueueInfo_v1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinforesponse: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     ResponseQueueInfo_v1: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub putref_ResponseQueueInfo_v1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqinforesponse: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub putref_ResponseQueueInfo_v1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqinforesponse: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     putref_ResponseQueueInfo_v1: usize,
-    pub AppSpecific: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plappspecific: *mut i32) -> ::windows::core::HRESULT,
-    pub SetAppSpecific: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lappspecific: i32) -> ::windows::core::HRESULT,
-    pub SourceMachineGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrguidsrcmachine: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub BodyLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcbbody: *mut i32) -> ::windows::core::HRESULT,
+    pub AppSpecific: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plappspecific: *mut i32) -> ::windows_core::HRESULT,
+    pub SetAppSpecific: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lappspecific: i32) -> ::windows_core::HRESULT,
+    pub SourceMachineGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrguidsrcmachine: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub BodyLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcbbody: *mut i32) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Body: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarbody: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub Body: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarbody: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Body: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetBody: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varbody: super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SetBody: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varbody: super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetBody: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub AdminQueueInfo_v1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinfoadmin: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub AdminQueueInfo_v1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinfoadmin: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     AdminQueueInfo_v1: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub putref_AdminQueueInfo_v1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqinfoadmin: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub putref_AdminQueueInfo_v1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqinfoadmin: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     putref_AdminQueueInfo_v1: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarmsgid: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarmsgid: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Id: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub CorrelationId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarmsgid: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub CorrelationId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarmsgid: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     CorrelationId: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetCorrelationId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varmsgid: super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SetCorrelationId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varmsgid: super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetCorrelationId: usize,
-    pub Ack: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plack: *mut i32) -> ::windows::core::HRESULT,
-    pub SetAck: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lack: i32) -> ::windows::core::HRESULT,
-    pub Label: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrlabel: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetLabel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrlabel: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub MaxTimeToReachQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plmaxtimetoreachqueue: *mut i32) -> ::windows::core::HRESULT,
-    pub SetMaxTimeToReachQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lmaxtimetoreachqueue: i32) -> ::windows::core::HRESULT,
-    pub MaxTimeToReceive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plmaxtimetoreceive: *mut i32) -> ::windows::core::HRESULT,
-    pub SetMaxTimeToReceive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lmaxtimetoreceive: i32) -> ::windows::core::HRESULT,
-    pub HashAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plhashalg: *mut i32) -> ::windows::core::HRESULT,
-    pub SetHashAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lhashalg: i32) -> ::windows::core::HRESULT,
-    pub EncryptAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plencryptalg: *mut i32) -> ::windows::core::HRESULT,
-    pub SetEncryptAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lencryptalg: i32) -> ::windows::core::HRESULT,
+    pub Ack: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plack: *mut i32) -> ::windows_core::HRESULT,
+    pub SetAck: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lack: i32) -> ::windows_core::HRESULT,
+    pub Label: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrlabel: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetLabel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrlabel: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub MaxTimeToReachQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plmaxtimetoreachqueue: *mut i32) -> ::windows_core::HRESULT,
+    pub SetMaxTimeToReachQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lmaxtimetoreachqueue: i32) -> ::windows_core::HRESULT,
+    pub MaxTimeToReceive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plmaxtimetoreceive: *mut i32) -> ::windows_core::HRESULT,
+    pub SetMaxTimeToReceive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lmaxtimetoreceive: i32) -> ::windows_core::HRESULT,
+    pub HashAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plhashalg: *mut i32) -> ::windows_core::HRESULT,
+    pub SetHashAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lhashalg: i32) -> ::windows_core::HRESULT,
+    pub EncryptAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plencryptalg: *mut i32) -> ::windows_core::HRESULT,
+    pub SetEncryptAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lencryptalg: i32) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SentTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarsenttime: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SentTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarsenttime: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SentTime: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub ArrivedTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plarrivedtime: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub ArrivedTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plarrivedtime: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     ArrivedTime: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub DestinationQueueInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinfodest: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub DestinationQueueInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinfodest: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     DestinationQueueInfo: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SenderCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarsendercert: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SenderCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarsendercert: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SenderCertificate: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetSenderCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varsendercert: super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SetSenderCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varsendercert: super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetSenderCertificate: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SenderId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarsenderid: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SenderId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarsenderid: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SenderId: usize,
-    pub SenderIdType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plsenderidtype: *mut i32) -> ::windows::core::HRESULT,
-    pub SetSenderIdType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lsenderidtype: i32) -> ::windows::core::HRESULT,
+    pub SenderIdType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plsenderidtype: *mut i32) -> ::windows_core::HRESULT,
+    pub SetSenderIdType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lsenderidtype: i32) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Send: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, destinationqueue: *mut ::core::ffi::c_void, transaction: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub Send: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, destinationqueue: *mut ::core::ffi::c_void, transaction: *const super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Send: usize,
-    pub AttachCurrentSecurityContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SenderVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plsenderversion: *mut i32) -> ::windows::core::HRESULT,
+    pub AttachCurrentSecurityContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SenderVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plsenderversion: *mut i32) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Extension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarextension: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub Extension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarextension: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Extension: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varextension: super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SetExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varextension: super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetExtension: usize,
-    pub ConnectorTypeGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrguidconnectortype: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetConnectorTypeGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrguidconnectortype: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub ConnectorTypeGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrguidconnectortype: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetConnectorTypeGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrguidconnectortype: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub TransactionStatusQueueInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinfoxactstatus: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub TransactionStatusQueueInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinfoxactstatus: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     TransactionStatusQueueInfo: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub DestinationSymmetricKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvardestsymmkey: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub DestinationSymmetricKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvardestsymmkey: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     DestinationSymmetricKey: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetDestinationSymmetricKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vardestsymmkey: super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SetDestinationSymmetricKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vardestsymmkey: super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetDestinationSymmetricKey: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Signature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarsignature: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub Signature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarsignature: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Signature: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetSignature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varsignature: super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SetSignature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varsignature: super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetSignature: usize,
-    pub AuthenticationProviderType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plauthprovtype: *mut i32) -> ::windows::core::HRESULT,
-    pub SetAuthenticationProviderType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lauthprovtype: i32) -> ::windows::core::HRESULT,
-    pub AuthenticationProviderName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrauthprovname: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetAuthenticationProviderName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrauthprovname: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub AuthenticationProviderType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plauthprovtype: *mut i32) -> ::windows_core::HRESULT,
+    pub SetAuthenticationProviderType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lauthprovtype: i32) -> ::windows_core::HRESULT,
+    pub AuthenticationProviderName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrauthprovname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetAuthenticationProviderName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrauthprovname: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetSenderId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varsenderid: super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SetSenderId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varsenderid: super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetSenderId: usize,
-    pub MsgClass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plmsgclass: *mut i32) -> ::windows::core::HRESULT,
-    pub SetMsgClass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lmsgclass: i32) -> ::windows::core::HRESULT,
+    pub MsgClass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plmsgclass: *mut i32) -> ::windows_core::HRESULT,
+    pub SetMsgClass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lmsgclass: i32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcolproperties: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcolproperties: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Properties: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub TransactionId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarxactid: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub TransactionId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarxactid: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     TransactionId: usize,
-    pub IsFirstInTransaction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisfirstinxact: *mut i16) -> ::windows::core::HRESULT,
-    pub IsLastInTransaction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pislastinxact: *mut i16) -> ::windows::core::HRESULT,
+    pub IsFirstInTransaction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisfirstinxact: *mut i16) -> ::windows_core::HRESULT,
+    pub IsLastInTransaction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pislastinxact: *mut i16) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub ResponseQueueInfo_v2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinforesponse: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ResponseQueueInfo_v2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinforesponse: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     ResponseQueueInfo_v2: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub putref_ResponseQueueInfo_v2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqinforesponse: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub putref_ResponseQueueInfo_v2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqinforesponse: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     putref_ResponseQueueInfo_v2: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub AdminQueueInfo_v2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinfoadmin: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub AdminQueueInfo_v2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinfoadmin: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     AdminQueueInfo_v2: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub putref_AdminQueueInfo_v2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqinfoadmin: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub putref_AdminQueueInfo_v2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqinfoadmin: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     putref_AdminQueueInfo_v2: usize,
-    pub ReceivedAuthenticationLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psreceivedauthenticationlevel: *mut i16) -> ::windows::core::HRESULT,
+    pub ReceivedAuthenticationLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psreceivedauthenticationlevel: *mut i16) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub ResponseQueueInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinforesponse: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ResponseQueueInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinforesponse: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     ResponseQueueInfo: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub putref_ResponseQueueInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqinforesponse: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub putref_ResponseQueueInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqinforesponse: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     putref_ResponseQueueInfo: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub AdminQueueInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinfoadmin: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub AdminQueueInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinfoadmin: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     AdminQueueInfo: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub putref_AdminQueueInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqinfoadmin: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub putref_AdminQueueInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqinfoadmin: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     putref_AdminQueueInfo: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub ResponseDestination: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdestresponse: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ResponseDestination: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdestresponse: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     ResponseDestination: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub putref_ResponseDestination: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdestresponse: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub putref_ResponseDestination: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdestresponse: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     putref_ResponseDestination: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Destination: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdestdestination: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Destination: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdestdestination: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Destination: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub LookupId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarlookupid: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub LookupId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarlookupid: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     LookupId: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub IsAuthenticated2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisauthenticated: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
+    pub IsAuthenticated2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisauthenticated: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     IsAuthenticated2: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub IsFirstInTransaction2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisfirstinxact: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
+    pub IsFirstInTransaction2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisfirstinxact: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     IsFirstInTransaction2: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub IsLastInTransaction2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pislastinxact: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
+    pub IsLastInTransaction2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pislastinxact: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     IsLastInTransaction2: usize,
-    pub AttachCurrentSecurityContext2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SoapEnvelope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrsoapenvelope: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub AttachCurrentSecurityContext2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SoapEnvelope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrsoapenvelope: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub CompoundMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarcompoundmessage: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub CompoundMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarcompoundmessage: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     CompoundMessage: usize,
-    pub SetSoapHeader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrsoapheader: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetSoapBody: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrsoapbody: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub SetSoapHeader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrsoapheader: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetSoapBody: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrsoapbody: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
-pub struct IMSMQMessage4(::windows::core::IUnknown);
+pub struct IMSMQMessage4(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQMessage4 {
-    pub unsafe fn Class(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).Class)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Class(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).Class)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn PrivLevel(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).PrivLevel)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn PrivLevel(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).PrivLevel)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetPrivLevel(&self, lprivlevel: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivLevel)(::windows::core::Interface::as_raw(self), lprivlevel).ok()
+    pub unsafe fn SetPrivLevel(&self, lprivlevel: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetPrivLevel)(::windows_core::Interface::as_raw(self), lprivlevel).ok()
     }
-    pub unsafe fn AuthLevel(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).AuthLevel)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn AuthLevel(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).AuthLevel)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetAuthLevel(&self, lauthlevel: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAuthLevel)(::windows::core::Interface::as_raw(self), lauthlevel).ok()
+    pub unsafe fn SetAuthLevel(&self, lauthlevel: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetAuthLevel)(::windows_core::Interface::as_raw(self), lauthlevel).ok()
     }
-    pub unsafe fn IsAuthenticated(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::windows::core::zeroed::<i16>();
-        (::windows::core::Interface::vtable(self).IsAuthenticated)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn IsAuthenticated(&self) -> ::windows_core::Result<i16> {
+        let mut result__ = ::windows_core::zeroed::<i16>();
+        (::windows_core::Interface::vtable(self).IsAuthenticated)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn Delivery(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).Delivery)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Delivery(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).Delivery)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetDelivery(&self, ldelivery: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDelivery)(::windows::core::Interface::as_raw(self), ldelivery).ok()
+    pub unsafe fn SetDelivery(&self, ldelivery: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetDelivery)(::windows_core::Interface::as_raw(self), ldelivery).ok()
     }
-    pub unsafe fn Trace(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).Trace)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Trace(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).Trace)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetTrace(&self, ltrace: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTrace)(::windows::core::Interface::as_raw(self), ltrace).ok()
+    pub unsafe fn SetTrace(&self, ltrace: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetTrace)(::windows_core::Interface::as_raw(self), ltrace).ok()
     }
-    pub unsafe fn Priority(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).Priority)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Priority(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).Priority)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetPriority(&self, lpriority: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPriority)(::windows::core::Interface::as_raw(self), lpriority).ok()
+    pub unsafe fn SetPriority(&self, lpriority: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetPriority)(::windows_core::Interface::as_raw(self), lpriority).ok()
     }
-    pub unsafe fn Journal(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).Journal)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Journal(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).Journal)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetJournal(&self, ljournal: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetJournal)(::windows::core::Interface::as_raw(self), ljournal).ok()
-    }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn ResponseQueueInfo_v1(&self) -> ::windows::core::Result<IMSMQQueueInfo> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQQueueInfo>();
-        (::windows::core::Interface::vtable(self).ResponseQueueInfo_v1)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn SetJournal(&self, ljournal: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetJournal)(::windows_core::Interface::as_raw(self), ljournal).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_ResponseQueueInfo_v1<P0>(&self, pqinforesponse: P0) -> ::windows::core::Result<()>
+    pub unsafe fn ResponseQueueInfo_v1(&self) -> ::windows_core::Result<IMSMQQueueInfo> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQQueueInfo>();
+        (::windows_core::Interface::vtable(self).ResponseQueueInfo_v1)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn putref_ResponseQueueInfo_v1<P0>(&self, pqinforesponse: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IMSMQQueueInfo>,
+        P0: ::windows_core::IntoParam<IMSMQQueueInfo>,
     {
-        (::windows::core::Interface::vtable(self).putref_ResponseQueueInfo_v1)(::windows::core::Interface::as_raw(self), pqinforesponse.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).putref_ResponseQueueInfo_v1)(::windows_core::Interface::as_raw(self), pqinforesponse.into_param().abi()).ok()
     }
-    pub unsafe fn AppSpecific(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).AppSpecific)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn AppSpecific(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).AppSpecific)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetAppSpecific(&self, lappspecific: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAppSpecific)(::windows::core::Interface::as_raw(self), lappspecific).ok()
+    pub unsafe fn SetAppSpecific(&self, lappspecific: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetAppSpecific)(::windows_core::Interface::as_raw(self), lappspecific).ok()
     }
-    pub unsafe fn SourceMachineGuid(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).SourceMachineGuid)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn SourceMachineGuid(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).SourceMachineGuid)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn BodyLength(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).BodyLength)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Body(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).Body)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn BodyLength(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).BodyLength)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetBody(&self, varbody: super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBody)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(varbody)).ok()
+    pub unsafe fn Body(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).Body)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub unsafe fn SetBody(&self, varbody: super::Com::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetBody)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varbody)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AdminQueueInfo_v1(&self) -> ::windows::core::Result<IMSMQQueueInfo> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQQueueInfo>();
-        (::windows::core::Interface::vtable(self).AdminQueueInfo_v1)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn AdminQueueInfo_v1(&self) -> ::windows_core::Result<IMSMQQueueInfo> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQQueueInfo>();
+        (::windows_core::Interface::vtable(self).AdminQueueInfo_v1)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_AdminQueueInfo_v1<P0>(&self, pqinfoadmin: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_AdminQueueInfo_v1<P0>(&self, pqinfoadmin: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IMSMQQueueInfo>,
+        P0: ::windows_core::IntoParam<IMSMQQueueInfo>,
     {
-        (::windows::core::Interface::vtable(self).putref_AdminQueueInfo_v1)(::windows::core::Interface::as_raw(self), pqinfoadmin.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).putref_AdminQueueInfo_v1)(::windows_core::Interface::as_raw(self), pqinfoadmin.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Id(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).Id)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Id(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).Id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CorrelationId(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).CorrelationId)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn CorrelationId(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).CorrelationId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetCorrelationId(&self, varmsgid: super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCorrelationId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(varmsgid)).ok()
+    pub unsafe fn SetCorrelationId(&self, varmsgid: super::Com::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetCorrelationId)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varmsgid)).ok()
     }
-    pub unsafe fn Ack(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).Ack)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Ack(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).Ack)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetAck(&self, lack: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAck)(::windows::core::Interface::as_raw(self), lack).ok()
+    pub unsafe fn SetAck(&self, lack: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetAck)(::windows_core::Interface::as_raw(self), lack).ok()
     }
-    pub unsafe fn Label(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).Label)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Label(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).Label)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetLabel<P0>(&self, bstrlabel: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetLabel<P0>(&self, bstrlabel: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetLabel)(::windows::core::Interface::as_raw(self), bstrlabel.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).SetLabel)(::windows_core::Interface::as_raw(self), bstrlabel.into_param().abi()).ok()
     }
-    pub unsafe fn MaxTimeToReachQueue(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).MaxTimeToReachQueue)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn MaxTimeToReachQueue(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).MaxTimeToReachQueue)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetMaxTimeToReachQueue(&self, lmaxtimetoreachqueue: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaxTimeToReachQueue)(::windows::core::Interface::as_raw(self), lmaxtimetoreachqueue).ok()
+    pub unsafe fn SetMaxTimeToReachQueue(&self, lmaxtimetoreachqueue: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetMaxTimeToReachQueue)(::windows_core::Interface::as_raw(self), lmaxtimetoreachqueue).ok()
     }
-    pub unsafe fn MaxTimeToReceive(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).MaxTimeToReceive)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn MaxTimeToReceive(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).MaxTimeToReceive)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetMaxTimeToReceive(&self, lmaxtimetoreceive: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaxTimeToReceive)(::windows::core::Interface::as_raw(self), lmaxtimetoreceive).ok()
+    pub unsafe fn SetMaxTimeToReceive(&self, lmaxtimetoreceive: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetMaxTimeToReceive)(::windows_core::Interface::as_raw(self), lmaxtimetoreceive).ok()
     }
-    pub unsafe fn HashAlgorithm(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).HashAlgorithm)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn HashAlgorithm(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).HashAlgorithm)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetHashAlgorithm(&self, lhashalg: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHashAlgorithm)(::windows::core::Interface::as_raw(self), lhashalg).ok()
+    pub unsafe fn SetHashAlgorithm(&self, lhashalg: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetHashAlgorithm)(::windows_core::Interface::as_raw(self), lhashalg).ok()
     }
-    pub unsafe fn EncryptAlgorithm(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).EncryptAlgorithm)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn EncryptAlgorithm(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).EncryptAlgorithm)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetEncryptAlgorithm(&self, lencryptalg: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEncryptAlgorithm)(::windows::core::Interface::as_raw(self), lencryptalg).ok()
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SentTime(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).SentTime)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn SetEncryptAlgorithm(&self, lencryptalg: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetEncryptAlgorithm)(::windows_core::Interface::as_raw(self), lencryptalg).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ArrivedTime(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).ArrivedTime)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn SentTime(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).SentTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub unsafe fn ArrivedTime(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).ArrivedTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn DestinationQueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo4> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQQueueInfo4>();
-        (::windows::core::Interface::vtable(self).DestinationQueueInfo)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn DestinationQueueInfo(&self) -> ::windows_core::Result<IMSMQQueueInfo4> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQQueueInfo4>();
+        (::windows_core::Interface::vtable(self).DestinationQueueInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SenderCertificate(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).SenderCertificate)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn SenderCertificate(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).SenderCertificate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSenderCertificate(&self, varsendercert: super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSenderCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(varsendercert)).ok()
+    pub unsafe fn SetSenderCertificate(&self, varsendercert: super::Com::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetSenderCertificate)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varsendercert)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SenderId(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).SenderId)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn SenderId(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).SenderId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SenderIdType(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).SenderIdType)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn SenderIdType(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).SenderIdType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetSenderIdType(&self, lsenderidtype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSenderIdType)(::windows::core::Interface::as_raw(self), lsenderidtype).ok()
+    pub unsafe fn SetSenderIdType(&self, lsenderidtype: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetSenderIdType)(::windows_core::Interface::as_raw(self), lsenderidtype).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Send<P0>(&self, destinationqueue: P0, transaction: *const super::Com::VARIANT) -> ::windows::core::Result<()>
+    pub unsafe fn Send<P0>(&self, destinationqueue: P0, transaction: *const super::Com::VARIANT) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::Com::IDispatch>,
+        P0: ::windows_core::IntoParam<super::Com::IDispatch>,
     {
-        (::windows::core::Interface::vtable(self).Send)(::windows::core::Interface::as_raw(self), destinationqueue.into_param().abi(), transaction).ok()
+        (::windows_core::Interface::vtable(self).Send)(::windows_core::Interface::as_raw(self), destinationqueue.into_param().abi(), transaction).ok()
     }
-    pub unsafe fn AttachCurrentSecurityContext(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AttachCurrentSecurityContext)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn AttachCurrentSecurityContext(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).AttachCurrentSecurityContext)(::windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn SenderVersion(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).SenderVersion)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Extension(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).Extension)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn SenderVersion(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).SenderVersion)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetExtension(&self, varextension: super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetExtension)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(varextension)).ok()
+    pub unsafe fn Extension(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).Extension)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn ConnectorTypeGuid(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).ConnectorTypeGuid)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub unsafe fn SetExtension(&self, varextension: super::Com::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetExtension)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varextension)).ok()
     }
-    pub unsafe fn SetConnectorTypeGuid<P0>(&self, bstrguidconnectortype: P0) -> ::windows::core::Result<()>
+    pub unsafe fn ConnectorTypeGuid(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).ConnectorTypeGuid)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    pub unsafe fn SetConnectorTypeGuid<P0>(&self, bstrguidconnectortype: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetConnectorTypeGuid)(::windows::core::Interface::as_raw(self), bstrguidconnectortype.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).SetConnectorTypeGuid)(::windows_core::Interface::as_raw(self), bstrguidconnectortype.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn TransactionStatusQueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo4> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQQueueInfo4>();
-        (::windows::core::Interface::vtable(self).TransactionStatusQueueInfo)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn TransactionStatusQueueInfo(&self) -> ::windows_core::Result<IMSMQQueueInfo4> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQQueueInfo4>();
+        (::windows_core::Interface::vtable(self).TransactionStatusQueueInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn DestinationSymmetricKey(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).DestinationSymmetricKey)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn DestinationSymmetricKey(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).DestinationSymmetricKey)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetDestinationSymmetricKey(&self, vardestsymmkey: super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDestinationSymmetricKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(vardestsymmkey)).ok()
+    pub unsafe fn SetDestinationSymmetricKey(&self, vardestsymmkey: super::Com::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetDestinationSymmetricKey)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vardestsymmkey)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Signature(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).Signature)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Signature(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).Signature)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSignature(&self, varsignature: super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSignature)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(varsignature)).ok()
+    pub unsafe fn SetSignature(&self, varsignature: super::Com::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetSignature)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varsignature)).ok()
     }
-    pub unsafe fn AuthenticationProviderType(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).AuthenticationProviderType)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn AuthenticationProviderType(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).AuthenticationProviderType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetAuthenticationProviderType(&self, lauthprovtype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAuthenticationProviderType)(::windows::core::Interface::as_raw(self), lauthprovtype).ok()
+    pub unsafe fn SetAuthenticationProviderType(&self, lauthprovtype: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetAuthenticationProviderType)(::windows_core::Interface::as_raw(self), lauthprovtype).ok()
     }
-    pub unsafe fn AuthenticationProviderName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).AuthenticationProviderName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn AuthenticationProviderName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).AuthenticationProviderName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetAuthenticationProviderName<P0>(&self, bstrauthprovname: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetAuthenticationProviderName<P0>(&self, bstrauthprovname: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetAuthenticationProviderName)(::windows::core::Interface::as_raw(self), bstrauthprovname.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).SetAuthenticationProviderName)(::windows_core::Interface::as_raw(self), bstrauthprovname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSenderId(&self, varsenderid: super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSenderId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(varsenderid)).ok()
+    pub unsafe fn SetSenderId(&self, varsenderid: super::Com::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetSenderId)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varsenderid)).ok()
     }
-    pub unsafe fn MsgClass(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).MsgClass)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn MsgClass(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).MsgClass)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetMsgClass(&self, lmsgclass: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMsgClass)(::windows::core::Interface::as_raw(self), lmsgclass).ok()
+    pub unsafe fn SetMsgClass(&self, lmsgclass: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetMsgClass)(::windows_core::Interface::as_raw(self), lmsgclass).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::IDispatch>();
-        (::windows::core::Interface::vtable(self).Properties)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Properties(&self) -> ::windows_core::Result<super::Com::IDispatch> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::IDispatch>();
+        (::windows_core::Interface::vtable(self).Properties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn TransactionId(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).TransactionId)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn TransactionId(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).TransactionId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn IsFirstInTransaction(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::windows::core::zeroed::<i16>();
-        (::windows::core::Interface::vtable(self).IsFirstInTransaction)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn IsFirstInTransaction(&self) -> ::windows_core::Result<i16> {
+        let mut result__ = ::windows_core::zeroed::<i16>();
+        (::windows_core::Interface::vtable(self).IsFirstInTransaction)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn IsLastInTransaction(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::windows::core::zeroed::<i16>();
-        (::windows::core::Interface::vtable(self).IsLastInTransaction)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
-    }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn ResponseQueueInfo_v2(&self) -> ::windows::core::Result<IMSMQQueueInfo2> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQQueueInfo2>();
-        (::windows::core::Interface::vtable(self).ResponseQueueInfo_v2)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn IsLastInTransaction(&self) -> ::windows_core::Result<i16> {
+        let mut result__ = ::windows_core::zeroed::<i16>();
+        (::windows_core::Interface::vtable(self).IsLastInTransaction)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_ResponseQueueInfo_v2<P0>(&self, pqinforesponse: P0) -> ::windows::core::Result<()>
+    pub unsafe fn ResponseQueueInfo_v2(&self) -> ::windows_core::Result<IMSMQQueueInfo2> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQQueueInfo2>();
+        (::windows_core::Interface::vtable(self).ResponseQueueInfo_v2)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn putref_ResponseQueueInfo_v2<P0>(&self, pqinforesponse: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IMSMQQueueInfo2>,
+        P0: ::windows_core::IntoParam<IMSMQQueueInfo2>,
     {
-        (::windows::core::Interface::vtable(self).putref_ResponseQueueInfo_v2)(::windows::core::Interface::as_raw(self), pqinforesponse.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).putref_ResponseQueueInfo_v2)(::windows_core::Interface::as_raw(self), pqinforesponse.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AdminQueueInfo_v2(&self) -> ::windows::core::Result<IMSMQQueueInfo2> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQQueueInfo2>();
-        (::windows::core::Interface::vtable(self).AdminQueueInfo_v2)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn AdminQueueInfo_v2(&self) -> ::windows_core::Result<IMSMQQueueInfo2> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQQueueInfo2>();
+        (::windows_core::Interface::vtable(self).AdminQueueInfo_v2)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_AdminQueueInfo_v2<P0>(&self, pqinfoadmin: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_AdminQueueInfo_v2<P0>(&self, pqinfoadmin: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IMSMQQueueInfo2>,
+        P0: ::windows_core::IntoParam<IMSMQQueueInfo2>,
     {
-        (::windows::core::Interface::vtable(self).putref_AdminQueueInfo_v2)(::windows::core::Interface::as_raw(self), pqinfoadmin.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).putref_AdminQueueInfo_v2)(::windows_core::Interface::as_raw(self), pqinfoadmin.into_param().abi()).ok()
     }
-    pub unsafe fn ReceivedAuthenticationLevel(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::windows::core::zeroed::<i16>();
-        (::windows::core::Interface::vtable(self).ReceivedAuthenticationLevel)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
-    }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn ResponseQueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo4> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQQueueInfo4>();
-        (::windows::core::Interface::vtable(self).ResponseQueueInfo)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn ReceivedAuthenticationLevel(&self) -> ::windows_core::Result<i16> {
+        let mut result__ = ::windows_core::zeroed::<i16>();
+        (::windows_core::Interface::vtable(self).ReceivedAuthenticationLevel)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_ResponseQueueInfo<P0>(&self, pqinforesponse: P0) -> ::windows::core::Result<()>
+    pub unsafe fn ResponseQueueInfo(&self) -> ::windows_core::Result<IMSMQQueueInfo4> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQQueueInfo4>();
+        (::windows_core::Interface::vtable(self).ResponseQueueInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn putref_ResponseQueueInfo<P0>(&self, pqinforesponse: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IMSMQQueueInfo4>,
+        P0: ::windows_core::IntoParam<IMSMQQueueInfo4>,
     {
-        (::windows::core::Interface::vtable(self).putref_ResponseQueueInfo)(::windows::core::Interface::as_raw(self), pqinforesponse.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).putref_ResponseQueueInfo)(::windows_core::Interface::as_raw(self), pqinforesponse.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AdminQueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo4> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQQueueInfo4>();
-        (::windows::core::Interface::vtable(self).AdminQueueInfo)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn AdminQueueInfo(&self) -> ::windows_core::Result<IMSMQQueueInfo4> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQQueueInfo4>();
+        (::windows_core::Interface::vtable(self).AdminQueueInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_AdminQueueInfo<P0>(&self, pqinfoadmin: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_AdminQueueInfo<P0>(&self, pqinfoadmin: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IMSMQQueueInfo4>,
+        P0: ::windows_core::IntoParam<IMSMQQueueInfo4>,
     {
-        (::windows::core::Interface::vtable(self).putref_AdminQueueInfo)(::windows::core::Interface::as_raw(self), pqinfoadmin.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).putref_AdminQueueInfo)(::windows_core::Interface::as_raw(self), pqinfoadmin.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn ResponseDestination(&self) -> ::windows::core::Result<super::Com::IDispatch> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::IDispatch>();
-        (::windows::core::Interface::vtable(self).ResponseDestination)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn ResponseDestination(&self) -> ::windows_core::Result<super::Com::IDispatch> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::IDispatch>();
+        (::windows_core::Interface::vtable(self).ResponseDestination)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_ResponseDestination<P0>(&self, pdestresponse: P0) -> ::windows::core::Result<()>
+    pub unsafe fn putref_ResponseDestination<P0>(&self, pdestresponse: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::Com::IDispatch>,
+        P0: ::windows_core::IntoParam<super::Com::IDispatch>,
     {
-        (::windows::core::Interface::vtable(self).putref_ResponseDestination)(::windows::core::Interface::as_raw(self), pdestresponse.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).putref_ResponseDestination)(::windows_core::Interface::as_raw(self), pdestresponse.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Destination(&self) -> ::windows::core::Result<super::Com::IDispatch> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::IDispatch>();
-        (::windows::core::Interface::vtable(self).Destination)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Destination(&self) -> ::windows_core::Result<super::Com::IDispatch> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::IDispatch>();
+        (::windows_core::Interface::vtable(self).Destination)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn LookupId(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).LookupId)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn LookupId(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).LookupId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsAuthenticated2(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
-        (::windows::core::Interface::vtable(self).IsAuthenticated2)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn IsAuthenticated2(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        (::windows_core::Interface::vtable(self).IsAuthenticated2)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsFirstInTransaction2(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
-        (::windows::core::Interface::vtable(self).IsFirstInTransaction2)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn IsFirstInTransaction2(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        (::windows_core::Interface::vtable(self).IsFirstInTransaction2)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsLastInTransaction2(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
-        (::windows::core::Interface::vtable(self).IsLastInTransaction2)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn IsLastInTransaction2(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        (::windows_core::Interface::vtable(self).IsLastInTransaction2)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn AttachCurrentSecurityContext2(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AttachCurrentSecurityContext2)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn AttachCurrentSecurityContext2(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).AttachCurrentSecurityContext2)(::windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn SoapEnvelope(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).SoapEnvelope)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn SoapEnvelope(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).SoapEnvelope)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CompoundMessage(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).CompoundMessage)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn CompoundMessage(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).CompoundMessage)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetSoapHeader<P0>(&self, bstrsoapheader: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetSoapHeader<P0>(&self, bstrsoapheader: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetSoapHeader)(::windows::core::Interface::as_raw(self), bstrsoapheader.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).SetSoapHeader)(::windows_core::Interface::as_raw(self), bstrsoapheader.into_param().abi()).ok()
     }
-    pub unsafe fn SetSoapBody<P0>(&self, bstrsoapbody: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetSoapBody<P0>(&self, bstrsoapbody: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetSoapBody)(::windows::core::Interface::as_raw(self), bstrsoapbody.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).SetSoapBody)(::windows_core::Interface::as_raw(self), bstrsoapbody.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::imp::interface_hierarchy!(IMSMQMessage4, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows_core::imp::interface_hierarchy!(IMSMQMessage4, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQMessage4 {
     fn eq(&self, other: &Self) -> bool {
@@ -3356,7 +3356,7 @@ impl ::core::fmt::Debug for IMSMQMessage4 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IMSMQMessage4 {
+unsafe impl ::windows_core::Interface for IMSMQMessage4 {
     type Vtable = IMSMQMessage4_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3366,307 +3366,307 @@ impl ::core::clone::Clone for IMSMQMessage4 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::ComInterface for IMSMQMessage4 {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b23_2168_11d3_898c_00e02c074f6b);
+unsafe impl ::windows_core::ComInterface for IMSMQMessage4 {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeba96b23_2168_11d3_898c_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQMessage4_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub Class: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plclass: *mut i32) -> ::windows::core::HRESULT,
-    pub PrivLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plprivlevel: *mut i32) -> ::windows::core::HRESULT,
-    pub SetPrivLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lprivlevel: i32) -> ::windows::core::HRESULT,
-    pub AuthLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plauthlevel: *mut i32) -> ::windows::core::HRESULT,
-    pub SetAuthLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lauthlevel: i32) -> ::windows::core::HRESULT,
-    pub IsAuthenticated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisauthenticated: *mut i16) -> ::windows::core::HRESULT,
-    pub Delivery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pldelivery: *mut i32) -> ::windows::core::HRESULT,
-    pub SetDelivery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ldelivery: i32) -> ::windows::core::HRESULT,
-    pub Trace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pltrace: *mut i32) -> ::windows::core::HRESULT,
-    pub SetTrace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ltrace: i32) -> ::windows::core::HRESULT,
-    pub Priority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plpriority: *mut i32) -> ::windows::core::HRESULT,
-    pub SetPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpriority: i32) -> ::windows::core::HRESULT,
-    pub Journal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pljournal: *mut i32) -> ::windows::core::HRESULT,
-    pub SetJournal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ljournal: i32) -> ::windows::core::HRESULT,
+    pub Class: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plclass: *mut i32) -> ::windows_core::HRESULT,
+    pub PrivLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plprivlevel: *mut i32) -> ::windows_core::HRESULT,
+    pub SetPrivLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lprivlevel: i32) -> ::windows_core::HRESULT,
+    pub AuthLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plauthlevel: *mut i32) -> ::windows_core::HRESULT,
+    pub SetAuthLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lauthlevel: i32) -> ::windows_core::HRESULT,
+    pub IsAuthenticated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisauthenticated: *mut i16) -> ::windows_core::HRESULT,
+    pub Delivery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pldelivery: *mut i32) -> ::windows_core::HRESULT,
+    pub SetDelivery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ldelivery: i32) -> ::windows_core::HRESULT,
+    pub Trace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pltrace: *mut i32) -> ::windows_core::HRESULT,
+    pub SetTrace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ltrace: i32) -> ::windows_core::HRESULT,
+    pub Priority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plpriority: *mut i32) -> ::windows_core::HRESULT,
+    pub SetPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpriority: i32) -> ::windows_core::HRESULT,
+    pub Journal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pljournal: *mut i32) -> ::windows_core::HRESULT,
+    pub SetJournal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ljournal: i32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub ResponseQueueInfo_v1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinforesponse: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ResponseQueueInfo_v1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinforesponse: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     ResponseQueueInfo_v1: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub putref_ResponseQueueInfo_v1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqinforesponse: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub putref_ResponseQueueInfo_v1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqinforesponse: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     putref_ResponseQueueInfo_v1: usize,
-    pub AppSpecific: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plappspecific: *mut i32) -> ::windows::core::HRESULT,
-    pub SetAppSpecific: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lappspecific: i32) -> ::windows::core::HRESULT,
-    pub SourceMachineGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrguidsrcmachine: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub BodyLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcbbody: *mut i32) -> ::windows::core::HRESULT,
+    pub AppSpecific: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plappspecific: *mut i32) -> ::windows_core::HRESULT,
+    pub SetAppSpecific: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lappspecific: i32) -> ::windows_core::HRESULT,
+    pub SourceMachineGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrguidsrcmachine: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub BodyLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcbbody: *mut i32) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Body: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarbody: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub Body: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarbody: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Body: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetBody: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varbody: super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SetBody: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varbody: super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetBody: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub AdminQueueInfo_v1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinfoadmin: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub AdminQueueInfo_v1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinfoadmin: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     AdminQueueInfo_v1: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub putref_AdminQueueInfo_v1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqinfoadmin: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub putref_AdminQueueInfo_v1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqinfoadmin: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     putref_AdminQueueInfo_v1: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarmsgid: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarmsgid: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Id: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub CorrelationId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarmsgid: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub CorrelationId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarmsgid: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     CorrelationId: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetCorrelationId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varmsgid: super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SetCorrelationId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varmsgid: super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetCorrelationId: usize,
-    pub Ack: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plack: *mut i32) -> ::windows::core::HRESULT,
-    pub SetAck: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lack: i32) -> ::windows::core::HRESULT,
-    pub Label: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrlabel: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetLabel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrlabel: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub MaxTimeToReachQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plmaxtimetoreachqueue: *mut i32) -> ::windows::core::HRESULT,
-    pub SetMaxTimeToReachQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lmaxtimetoreachqueue: i32) -> ::windows::core::HRESULT,
-    pub MaxTimeToReceive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plmaxtimetoreceive: *mut i32) -> ::windows::core::HRESULT,
-    pub SetMaxTimeToReceive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lmaxtimetoreceive: i32) -> ::windows::core::HRESULT,
-    pub HashAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plhashalg: *mut i32) -> ::windows::core::HRESULT,
-    pub SetHashAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lhashalg: i32) -> ::windows::core::HRESULT,
-    pub EncryptAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plencryptalg: *mut i32) -> ::windows::core::HRESULT,
-    pub SetEncryptAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lencryptalg: i32) -> ::windows::core::HRESULT,
+    pub Ack: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plack: *mut i32) -> ::windows_core::HRESULT,
+    pub SetAck: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lack: i32) -> ::windows_core::HRESULT,
+    pub Label: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrlabel: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetLabel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrlabel: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub MaxTimeToReachQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plmaxtimetoreachqueue: *mut i32) -> ::windows_core::HRESULT,
+    pub SetMaxTimeToReachQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lmaxtimetoreachqueue: i32) -> ::windows_core::HRESULT,
+    pub MaxTimeToReceive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plmaxtimetoreceive: *mut i32) -> ::windows_core::HRESULT,
+    pub SetMaxTimeToReceive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lmaxtimetoreceive: i32) -> ::windows_core::HRESULT,
+    pub HashAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plhashalg: *mut i32) -> ::windows_core::HRESULT,
+    pub SetHashAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lhashalg: i32) -> ::windows_core::HRESULT,
+    pub EncryptAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plencryptalg: *mut i32) -> ::windows_core::HRESULT,
+    pub SetEncryptAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lencryptalg: i32) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SentTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarsenttime: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SentTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarsenttime: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SentTime: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub ArrivedTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plarrivedtime: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub ArrivedTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plarrivedtime: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     ArrivedTime: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub DestinationQueueInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinfodest: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub DestinationQueueInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinfodest: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     DestinationQueueInfo: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SenderCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarsendercert: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SenderCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarsendercert: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SenderCertificate: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetSenderCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varsendercert: super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SetSenderCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varsendercert: super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetSenderCertificate: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SenderId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarsenderid: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SenderId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarsenderid: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SenderId: usize,
-    pub SenderIdType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plsenderidtype: *mut i32) -> ::windows::core::HRESULT,
-    pub SetSenderIdType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lsenderidtype: i32) -> ::windows::core::HRESULT,
+    pub SenderIdType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plsenderidtype: *mut i32) -> ::windows_core::HRESULT,
+    pub SetSenderIdType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lsenderidtype: i32) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Send: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, destinationqueue: *mut ::core::ffi::c_void, transaction: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub Send: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, destinationqueue: *mut ::core::ffi::c_void, transaction: *const super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Send: usize,
-    pub AttachCurrentSecurityContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SenderVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plsenderversion: *mut i32) -> ::windows::core::HRESULT,
+    pub AttachCurrentSecurityContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SenderVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plsenderversion: *mut i32) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Extension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarextension: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub Extension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarextension: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Extension: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varextension: super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SetExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varextension: super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetExtension: usize,
-    pub ConnectorTypeGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrguidconnectortype: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetConnectorTypeGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrguidconnectortype: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub ConnectorTypeGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrguidconnectortype: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetConnectorTypeGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrguidconnectortype: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub TransactionStatusQueueInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinfoxactstatus: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub TransactionStatusQueueInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinfoxactstatus: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     TransactionStatusQueueInfo: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub DestinationSymmetricKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvardestsymmkey: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub DestinationSymmetricKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvardestsymmkey: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     DestinationSymmetricKey: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetDestinationSymmetricKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vardestsymmkey: super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SetDestinationSymmetricKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vardestsymmkey: super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetDestinationSymmetricKey: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Signature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarsignature: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub Signature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarsignature: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Signature: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetSignature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varsignature: super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SetSignature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varsignature: super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetSignature: usize,
-    pub AuthenticationProviderType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plauthprovtype: *mut i32) -> ::windows::core::HRESULT,
-    pub SetAuthenticationProviderType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lauthprovtype: i32) -> ::windows::core::HRESULT,
-    pub AuthenticationProviderName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrauthprovname: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetAuthenticationProviderName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrauthprovname: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub AuthenticationProviderType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plauthprovtype: *mut i32) -> ::windows_core::HRESULT,
+    pub SetAuthenticationProviderType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lauthprovtype: i32) -> ::windows_core::HRESULT,
+    pub AuthenticationProviderName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrauthprovname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetAuthenticationProviderName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrauthprovname: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetSenderId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varsenderid: super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SetSenderId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varsenderid: super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetSenderId: usize,
-    pub MsgClass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plmsgclass: *mut i32) -> ::windows::core::HRESULT,
-    pub SetMsgClass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lmsgclass: i32) -> ::windows::core::HRESULT,
+    pub MsgClass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plmsgclass: *mut i32) -> ::windows_core::HRESULT,
+    pub SetMsgClass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lmsgclass: i32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcolproperties: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcolproperties: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Properties: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub TransactionId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarxactid: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub TransactionId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarxactid: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     TransactionId: usize,
-    pub IsFirstInTransaction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisfirstinxact: *mut i16) -> ::windows::core::HRESULT,
-    pub IsLastInTransaction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pislastinxact: *mut i16) -> ::windows::core::HRESULT,
+    pub IsFirstInTransaction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisfirstinxact: *mut i16) -> ::windows_core::HRESULT,
+    pub IsLastInTransaction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pislastinxact: *mut i16) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub ResponseQueueInfo_v2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinforesponse: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ResponseQueueInfo_v2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinforesponse: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     ResponseQueueInfo_v2: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub putref_ResponseQueueInfo_v2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqinforesponse: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub putref_ResponseQueueInfo_v2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqinforesponse: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     putref_ResponseQueueInfo_v2: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub AdminQueueInfo_v2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinfoadmin: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub AdminQueueInfo_v2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinfoadmin: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     AdminQueueInfo_v2: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub putref_AdminQueueInfo_v2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqinfoadmin: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub putref_AdminQueueInfo_v2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqinfoadmin: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     putref_AdminQueueInfo_v2: usize,
-    pub ReceivedAuthenticationLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psreceivedauthenticationlevel: *mut i16) -> ::windows::core::HRESULT,
+    pub ReceivedAuthenticationLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psreceivedauthenticationlevel: *mut i16) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub ResponseQueueInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinforesponse: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ResponseQueueInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinforesponse: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     ResponseQueueInfo: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub putref_ResponseQueueInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqinforesponse: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub putref_ResponseQueueInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqinforesponse: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     putref_ResponseQueueInfo: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub AdminQueueInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinfoadmin: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub AdminQueueInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinfoadmin: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     AdminQueueInfo: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub putref_AdminQueueInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqinfoadmin: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub putref_AdminQueueInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqinfoadmin: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     putref_AdminQueueInfo: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub ResponseDestination: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdestresponse: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ResponseDestination: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdestresponse: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     ResponseDestination: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub putref_ResponseDestination: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdestresponse: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub putref_ResponseDestination: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdestresponse: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     putref_ResponseDestination: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Destination: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdestdestination: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Destination: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdestdestination: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Destination: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub LookupId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarlookupid: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub LookupId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarlookupid: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     LookupId: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub IsAuthenticated2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisauthenticated: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
+    pub IsAuthenticated2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisauthenticated: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     IsAuthenticated2: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub IsFirstInTransaction2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisfirstinxact: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
+    pub IsFirstInTransaction2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisfirstinxact: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     IsFirstInTransaction2: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub IsLastInTransaction2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pislastinxact: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
+    pub IsLastInTransaction2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pislastinxact: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     IsLastInTransaction2: usize,
-    pub AttachCurrentSecurityContext2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SoapEnvelope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrsoapenvelope: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub AttachCurrentSecurityContext2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SoapEnvelope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrsoapenvelope: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub CompoundMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarcompoundmessage: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub CompoundMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarcompoundmessage: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     CompoundMessage: usize,
-    pub SetSoapHeader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrsoapheader: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetSoapBody: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrsoapbody: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub SetSoapHeader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrsoapheader: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetSoapBody: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrsoapbody: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
-pub struct IMSMQOutgoingQueueManagement(::windows::core::IUnknown);
+pub struct IMSMQOutgoingQueueManagement(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQOutgoingQueueManagement {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Init(&self, machine: *const super::Com::VARIANT, pathname: *const super::Com::VARIANT, formatname: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Init)(::windows::core::Interface::as_raw(self), machine, pathname, formatname).ok()
+    pub unsafe fn Init(&self, machine: *const super::Com::VARIANT, pathname: *const super::Com::VARIANT, formatname: *const super::Com::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.Init)(::windows_core::Interface::as_raw(self), machine, pathname, formatname).ok()
     }
-    pub unsafe fn FormatName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).base__.FormatName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn FormatName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).base__.FormatName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn Machine(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).base__.Machine)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Machine(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).base__.Machine)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn MessageCount(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).base__.MessageCount)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn MessageCount(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).base__.MessageCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn ForeignStatus(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).base__.ForeignStatus)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn ForeignStatus(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).base__.ForeignStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn QueueType(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).base__.QueueType)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn QueueType(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).base__.QueueType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsLocal(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
-        (::windows::core::Interface::vtable(self).base__.IsLocal)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn IsLocal(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        (::windows_core::Interface::vtable(self).base__.IsLocal)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn TransactionalStatus(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).base__.TransactionalStatus)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn BytesInQueue(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).base__.BytesInQueue)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
-    }
-    pub unsafe fn State(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).State)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn TransactionalStatus(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).base__.TransactionalStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn NextHops(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).NextHops)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn BytesInQueue(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).base__.BytesInQueue)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    pub unsafe fn State(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).State)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub unsafe fn NextHops(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).NextHops)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EodGetSendInfo(&self) -> ::windows::core::Result<IMSMQCollection> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQCollection>();
-        (::windows::core::Interface::vtable(self).EodGetSendInfo)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn EodGetSendInfo(&self) -> ::windows_core::Result<IMSMQCollection> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQCollection>();
+        (::windows_core::Interface::vtable(self).EodGetSendInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn Resume(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Resume)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn Resume(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Resume)(::windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn Pause(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Pause)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn Pause(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Pause)(::windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn EodResend(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EodResend)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn EodResend(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).EodResend)(::windows_core::Interface::as_raw(self)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::imp::interface_hierarchy!(IMSMQOutgoingQueueManagement, ::windows::core::IUnknown, super::Com::IDispatch, IMSMQManagement);
+::windows_core::imp::interface_hierarchy!(IMSMQOutgoingQueueManagement, ::windows_core::IUnknown, super::Com::IDispatch, IMSMQManagement);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQOutgoingQueueManagement {
     fn eq(&self, other: &Self) -> bool {
@@ -3682,7 +3682,7 @@ impl ::core::fmt::Debug for IMSMQOutgoingQueueManagement {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IMSMQOutgoingQueueManagement {
+unsafe impl ::windows_core::Interface for IMSMQOutgoingQueueManagement {
     type Vtable = IMSMQOutgoingQueueManagement_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3692,47 +3692,47 @@ impl ::core::clone::Clone for IMSMQOutgoingQueueManagement {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::ComInterface for IMSMQOutgoingQueueManagement {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64c478fb_f9b0_4695_8a7f_439ac94326d3);
+unsafe impl ::windows_core::ComInterface for IMSMQOutgoingQueueManagement {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x64c478fb_f9b0_4695_8a7f_439ac94326d3);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQOutgoingQueueManagement_Vtbl {
     pub base__: IMSMQManagement_Vtbl,
-    pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plstate: *mut i32) -> ::windows::core::HRESULT,
+    pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plstate: *mut i32) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub NextHops: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvnexthops: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub NextHops: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvnexthops: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     NextHops: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub EodGetSendInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcollection: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub EodGetSendInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcollection: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     EodGetSendInfo: usize,
-    pub Resume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Pause: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub EodResend: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Resume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Pause: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EodResend: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
-pub struct IMSMQPrivateDestination(::windows::core::IUnknown);
+pub struct IMSMQPrivateDestination(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQPrivateDestination {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Handle(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).Handle)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Handle(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).Handle)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetHandle(&self, varhandle: super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHandle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(varhandle)).ok()
+    pub unsafe fn SetHandle(&self, varhandle: super::Com::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetHandle)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varhandle)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::imp::interface_hierarchy!(IMSMQPrivateDestination, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows_core::imp::interface_hierarchy!(IMSMQPrivateDestination, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQPrivateDestination {
     fn eq(&self, other: &Self) -> bool {
@@ -3748,7 +3748,7 @@ impl ::core::fmt::Debug for IMSMQPrivateDestination {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IMSMQPrivateDestination {
+unsafe impl ::windows_core::Interface for IMSMQPrivateDestination {
     type Vtable = IMSMQPrivateDestination_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3758,8 +3758,8 @@ impl ::core::clone::Clone for IMSMQPrivateDestination {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::ComInterface for IMSMQPrivateDestination {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b17_2168_11d3_898c_00e02c074f6b);
+unsafe impl ::windows_core::ComInterface for IMSMQPrivateDestination {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeba96b17_2168_11d3_898c_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
@@ -3767,43 +3767,43 @@ unsafe impl ::windows::core::ComInterface for IMSMQPrivateDestination {
 pub struct IMSMQPrivateDestination_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Handle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarhandle: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub Handle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarhandle: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Handle: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varhandle: super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SetHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varhandle: super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetHandle: usize,
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
-pub struct IMSMQPrivateEvent(::windows::core::IUnknown);
+pub struct IMSMQPrivateEvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQPrivateEvent {
-    pub unsafe fn Hwnd(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).Hwnd)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Hwnd(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).Hwnd)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn FireArrivedEvent<P0>(&self, pq: P0, msgcursor: i32) -> ::windows::core::Result<()>
+    pub unsafe fn FireArrivedEvent<P0>(&self, pq: P0, msgcursor: i32) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IMSMQQueue>,
+        P0: ::windows_core::IntoParam<IMSMQQueue>,
     {
-        (::windows::core::Interface::vtable(self).FireArrivedEvent)(::windows::core::Interface::as_raw(self), pq.into_param().abi(), msgcursor).ok()
+        (::windows_core::Interface::vtable(self).FireArrivedEvent)(::windows_core::Interface::as_raw(self), pq.into_param().abi(), msgcursor).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn FireArrivedErrorEvent<P0>(&self, pq: P0, hrstatus: ::windows::core::HRESULT, msgcursor: i32) -> ::windows::core::Result<()>
+    pub unsafe fn FireArrivedErrorEvent<P0>(&self, pq: P0, hrstatus: ::windows_core::HRESULT, msgcursor: i32) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IMSMQQueue>,
+        P0: ::windows_core::IntoParam<IMSMQQueue>,
     {
-        (::windows::core::Interface::vtable(self).FireArrivedErrorEvent)(::windows::core::Interface::as_raw(self), pq.into_param().abi(), hrstatus, msgcursor).ok()
+        (::windows_core::Interface::vtable(self).FireArrivedErrorEvent)(::windows_core::Interface::as_raw(self), pq.into_param().abi(), hrstatus, msgcursor).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::imp::interface_hierarchy!(IMSMQPrivateEvent, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows_core::imp::interface_hierarchy!(IMSMQPrivateEvent, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQPrivateEvent {
     fn eq(&self, other: &Self) -> bool {
@@ -3819,7 +3819,7 @@ impl ::core::fmt::Debug for IMSMQPrivateEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IMSMQPrivateEvent {
+unsafe impl ::windows_core::Interface for IMSMQPrivateEvent {
     type Vtable = IMSMQPrivateEvent_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3829,39 +3829,39 @@ impl ::core::clone::Clone for IMSMQPrivateEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::ComInterface for IMSMQPrivateEvent {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7ab3341_c9d3_11d1_bb47_0080c7c5a2c0);
+unsafe impl ::windows_core::ComInterface for IMSMQPrivateEvent {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd7ab3341_c9d3_11d1_bb47_0080c7c5a2c0);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQPrivateEvent_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub Hwnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phwnd: *mut i32) -> ::windows::core::HRESULT,
+    pub Hwnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phwnd: *mut i32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub FireArrivedEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pq: *mut ::core::ffi::c_void, msgcursor: i32) -> ::windows::core::HRESULT,
+    pub FireArrivedEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pq: *mut ::core::ffi::c_void, msgcursor: i32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     FireArrivedEvent: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub FireArrivedErrorEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pq: *mut ::core::ffi::c_void, hrstatus: ::windows::core::HRESULT, msgcursor: i32) -> ::windows::core::HRESULT,
+    pub FireArrivedErrorEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pq: *mut ::core::ffi::c_void, hrstatus: ::windows_core::HRESULT, msgcursor: i32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     FireArrivedErrorEvent: usize,
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
-pub struct IMSMQQuery(::windows::core::IUnknown);
+pub struct IMSMQQuery(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQQuery {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn LookupQueue(&self, queueguid: *const super::Com::VARIANT, servicetypeguid: *const super::Com::VARIANT, label: *const super::Com::VARIANT, createtime: *const super::Com::VARIANT, modifytime: *const super::Com::VARIANT, relservicetype: *const super::Com::VARIANT, rellabel: *const super::Com::VARIANT, relcreatetime: *const super::Com::VARIANT, relmodifytime: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQQueueInfos> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQQueueInfos>();
-        (::windows::core::Interface::vtable(self).LookupQueue)(::windows::core::Interface::as_raw(self), queueguid, servicetypeguid, label, createtime, modifytime, relservicetype, rellabel, relcreatetime, relmodifytime, &mut result__).from_abi(result__)
+    pub unsafe fn LookupQueue(&self, queueguid: *const super::Com::VARIANT, servicetypeguid: *const super::Com::VARIANT, label: *const super::Com::VARIANT, createtime: *const super::Com::VARIANT, modifytime: *const super::Com::VARIANT, relservicetype: *const super::Com::VARIANT, rellabel: *const super::Com::VARIANT, relcreatetime: *const super::Com::VARIANT, relmodifytime: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQQueueInfos> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQQueueInfos>();
+        (::windows_core::Interface::vtable(self).LookupQueue)(::windows_core::Interface::as_raw(self), queueguid, servicetypeguid, label, createtime, modifytime, relservicetype, rellabel, relcreatetime, relmodifytime, &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::imp::interface_hierarchy!(IMSMQQuery, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows_core::imp::interface_hierarchy!(IMSMQQuery, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQQuery {
     fn eq(&self, other: &Self) -> bool {
@@ -3877,7 +3877,7 @@ impl ::core::fmt::Debug for IMSMQQuery {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IMSMQQuery {
+unsafe impl ::windows_core::Interface for IMSMQQuery {
     type Vtable = IMSMQQuery_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3887,8 +3887,8 @@ impl ::core::clone::Clone for IMSMQQuery {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::ComInterface for IMSMQQuery {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e072_dccd_11d0_aa4b_0060970debae);
+unsafe impl ::windows_core::ComInterface for IMSMQQuery {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd7d6e072_dccd_11d0_aa4b_0060970debae);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
@@ -3896,31 +3896,31 @@ unsafe impl ::windows::core::ComInterface for IMSMQQuery {
 pub struct IMSMQQuery_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub LookupQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, queueguid: *const super::Com::VARIANT, servicetypeguid: *const super::Com::VARIANT, label: *const super::Com::VARIANT, createtime: *const super::Com::VARIANT, modifytime: *const super::Com::VARIANT, relservicetype: *const super::Com::VARIANT, rellabel: *const super::Com::VARIANT, relcreatetime: *const super::Com::VARIANT, relmodifytime: *const super::Com::VARIANT, ppqinfos: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub LookupQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, queueguid: *const super::Com::VARIANT, servicetypeguid: *const super::Com::VARIANT, label: *const super::Com::VARIANT, createtime: *const super::Com::VARIANT, modifytime: *const super::Com::VARIANT, relservicetype: *const super::Com::VARIANT, rellabel: *const super::Com::VARIANT, relcreatetime: *const super::Com::VARIANT, relmodifytime: *const super::Com::VARIANT, ppqinfos: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     LookupQueue: usize,
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
-pub struct IMSMQQuery2(::windows::core::IUnknown);
+pub struct IMSMQQuery2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQQuery2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn LookupQueue(&self, queueguid: *const super::Com::VARIANT, servicetypeguid: *const super::Com::VARIANT, label: *const super::Com::VARIANT, createtime: *const super::Com::VARIANT, modifytime: *const super::Com::VARIANT, relservicetype: *const super::Com::VARIANT, rellabel: *const super::Com::VARIANT, relcreatetime: *const super::Com::VARIANT, relmodifytime: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQQueueInfos2> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQQueueInfos2>();
-        (::windows::core::Interface::vtable(self).LookupQueue)(::windows::core::Interface::as_raw(self), queueguid, servicetypeguid, label, createtime, modifytime, relservicetype, rellabel, relcreatetime, relmodifytime, &mut result__).from_abi(result__)
+    pub unsafe fn LookupQueue(&self, queueguid: *const super::Com::VARIANT, servicetypeguid: *const super::Com::VARIANT, label: *const super::Com::VARIANT, createtime: *const super::Com::VARIANT, modifytime: *const super::Com::VARIANT, relservicetype: *const super::Com::VARIANT, rellabel: *const super::Com::VARIANT, relcreatetime: *const super::Com::VARIANT, relmodifytime: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQQueueInfos2> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQQueueInfos2>();
+        (::windows_core::Interface::vtable(self).LookupQueue)(::windows_core::Interface::as_raw(self), queueguid, servicetypeguid, label, createtime, modifytime, relservicetype, rellabel, relcreatetime, relmodifytime, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::IDispatch>();
-        (::windows::core::Interface::vtable(self).Properties)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Properties(&self) -> ::windows_core::Result<super::Com::IDispatch> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::IDispatch>();
+        (::windows_core::Interface::vtable(self).Properties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::imp::interface_hierarchy!(IMSMQQuery2, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows_core::imp::interface_hierarchy!(IMSMQQuery2, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQQuery2 {
     fn eq(&self, other: &Self) -> bool {
@@ -3936,7 +3936,7 @@ impl ::core::fmt::Debug for IMSMQQuery2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IMSMQQuery2 {
+unsafe impl ::windows_core::Interface for IMSMQQuery2 {
     type Vtable = IMSMQQuery2_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3946,8 +3946,8 @@ impl ::core::clone::Clone for IMSMQQuery2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::ComInterface for IMSMQQuery2 {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b0e_2168_11d3_898c_00e02c074f6b);
+unsafe impl ::windows_core::ComInterface for IMSMQQuery2 {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeba96b0e_2168_11d3_898c_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
@@ -3955,41 +3955,41 @@ unsafe impl ::windows::core::ComInterface for IMSMQQuery2 {
 pub struct IMSMQQuery2_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub LookupQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, queueguid: *const super::Com::VARIANT, servicetypeguid: *const super::Com::VARIANT, label: *const super::Com::VARIANT, createtime: *const super::Com::VARIANT, modifytime: *const super::Com::VARIANT, relservicetype: *const super::Com::VARIANT, rellabel: *const super::Com::VARIANT, relcreatetime: *const super::Com::VARIANT, relmodifytime: *const super::Com::VARIANT, ppqinfos: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub LookupQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, queueguid: *const super::Com::VARIANT, servicetypeguid: *const super::Com::VARIANT, label: *const super::Com::VARIANT, createtime: *const super::Com::VARIANT, modifytime: *const super::Com::VARIANT, relservicetype: *const super::Com::VARIANT, rellabel: *const super::Com::VARIANT, relcreatetime: *const super::Com::VARIANT, relmodifytime: *const super::Com::VARIANT, ppqinfos: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     LookupQueue: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcolproperties: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcolproperties: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Properties: usize,
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
-pub struct IMSMQQuery3(::windows::core::IUnknown);
+pub struct IMSMQQuery3(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQQuery3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn LookupQueue_v2(&self, queueguid: *const super::Com::VARIANT, servicetypeguid: *const super::Com::VARIANT, label: *const super::Com::VARIANT, createtime: *const super::Com::VARIANT, modifytime: *const super::Com::VARIANT, relservicetype: *const super::Com::VARIANT, rellabel: *const super::Com::VARIANT, relcreatetime: *const super::Com::VARIANT, relmodifytime: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQQueueInfos3> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQQueueInfos3>();
-        (::windows::core::Interface::vtable(self).LookupQueue_v2)(::windows::core::Interface::as_raw(self), queueguid, servicetypeguid, label, createtime, modifytime, relservicetype, rellabel, relcreatetime, relmodifytime, &mut result__).from_abi(result__)
+    pub unsafe fn LookupQueue_v2(&self, queueguid: *const super::Com::VARIANT, servicetypeguid: *const super::Com::VARIANT, label: *const super::Com::VARIANT, createtime: *const super::Com::VARIANT, modifytime: *const super::Com::VARIANT, relservicetype: *const super::Com::VARIANT, rellabel: *const super::Com::VARIANT, relcreatetime: *const super::Com::VARIANT, relmodifytime: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQQueueInfos3> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQQueueInfos3>();
+        (::windows_core::Interface::vtable(self).LookupQueue_v2)(::windows_core::Interface::as_raw(self), queueguid, servicetypeguid, label, createtime, modifytime, relservicetype, rellabel, relcreatetime, relmodifytime, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::IDispatch>();
-        (::windows::core::Interface::vtable(self).Properties)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Properties(&self) -> ::windows_core::Result<super::Com::IDispatch> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::IDispatch>();
+        (::windows_core::Interface::vtable(self).Properties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn LookupQueue(&self, queueguid: *const super::Com::VARIANT, servicetypeguid: *const super::Com::VARIANT, label: *const super::Com::VARIANT, createtime: *const super::Com::VARIANT, modifytime: *const super::Com::VARIANT, relservicetype: *const super::Com::VARIANT, rellabel: *const super::Com::VARIANT, relcreatetime: *const super::Com::VARIANT, relmodifytime: *const super::Com::VARIANT, multicastaddress: *const super::Com::VARIANT, relmulticastaddress: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQQueueInfos3> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQQueueInfos3>();
-        (::windows::core::Interface::vtable(self).LookupQueue)(::windows::core::Interface::as_raw(self), queueguid, servicetypeguid, label, createtime, modifytime, relservicetype, rellabel, relcreatetime, relmodifytime, multicastaddress, relmulticastaddress, &mut result__).from_abi(result__)
+    pub unsafe fn LookupQueue(&self, queueguid: *const super::Com::VARIANT, servicetypeguid: *const super::Com::VARIANT, label: *const super::Com::VARIANT, createtime: *const super::Com::VARIANT, modifytime: *const super::Com::VARIANT, relservicetype: *const super::Com::VARIANT, rellabel: *const super::Com::VARIANT, relcreatetime: *const super::Com::VARIANT, relmodifytime: *const super::Com::VARIANT, multicastaddress: *const super::Com::VARIANT, relmulticastaddress: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQQueueInfos3> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQQueueInfos3>();
+        (::windows_core::Interface::vtable(self).LookupQueue)(::windows_core::Interface::as_raw(self), queueguid, servicetypeguid, label, createtime, modifytime, relservicetype, rellabel, relcreatetime, relmodifytime, multicastaddress, relmulticastaddress, &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::imp::interface_hierarchy!(IMSMQQuery3, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows_core::imp::interface_hierarchy!(IMSMQQuery3, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQQuery3 {
     fn eq(&self, other: &Self) -> bool {
@@ -4005,7 +4005,7 @@ impl ::core::fmt::Debug for IMSMQQuery3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IMSMQQuery3 {
+unsafe impl ::windows_core::Interface for IMSMQQuery3 {
     type Vtable = IMSMQQuery3_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4015,8 +4015,8 @@ impl ::core::clone::Clone for IMSMQQuery3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::ComInterface for IMSMQQuery3 {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b19_2168_11d3_898c_00e02c074f6b);
+unsafe impl ::windows_core::ComInterface for IMSMQQuery3 {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeba96b19_2168_11d3_898c_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
@@ -4024,45 +4024,45 @@ unsafe impl ::windows::core::ComInterface for IMSMQQuery3 {
 pub struct IMSMQQuery3_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub LookupQueue_v2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, queueguid: *const super::Com::VARIANT, servicetypeguid: *const super::Com::VARIANT, label: *const super::Com::VARIANT, createtime: *const super::Com::VARIANT, modifytime: *const super::Com::VARIANT, relservicetype: *const super::Com::VARIANT, rellabel: *const super::Com::VARIANT, relcreatetime: *const super::Com::VARIANT, relmodifytime: *const super::Com::VARIANT, ppqinfos: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub LookupQueue_v2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, queueguid: *const super::Com::VARIANT, servicetypeguid: *const super::Com::VARIANT, label: *const super::Com::VARIANT, createtime: *const super::Com::VARIANT, modifytime: *const super::Com::VARIANT, relservicetype: *const super::Com::VARIANT, rellabel: *const super::Com::VARIANT, relcreatetime: *const super::Com::VARIANT, relmodifytime: *const super::Com::VARIANT, ppqinfos: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     LookupQueue_v2: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcolproperties: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcolproperties: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Properties: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub LookupQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, queueguid: *const super::Com::VARIANT, servicetypeguid: *const super::Com::VARIANT, label: *const super::Com::VARIANT, createtime: *const super::Com::VARIANT, modifytime: *const super::Com::VARIANT, relservicetype: *const super::Com::VARIANT, rellabel: *const super::Com::VARIANT, relcreatetime: *const super::Com::VARIANT, relmodifytime: *const super::Com::VARIANT, multicastaddress: *const super::Com::VARIANT, relmulticastaddress: *const super::Com::VARIANT, ppqinfos: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub LookupQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, queueguid: *const super::Com::VARIANT, servicetypeguid: *const super::Com::VARIANT, label: *const super::Com::VARIANT, createtime: *const super::Com::VARIANT, modifytime: *const super::Com::VARIANT, relservicetype: *const super::Com::VARIANT, rellabel: *const super::Com::VARIANT, relcreatetime: *const super::Com::VARIANT, relmodifytime: *const super::Com::VARIANT, multicastaddress: *const super::Com::VARIANT, relmulticastaddress: *const super::Com::VARIANT, ppqinfos: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     LookupQueue: usize,
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
-pub struct IMSMQQuery4(::windows::core::IUnknown);
+pub struct IMSMQQuery4(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQQuery4 {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn LookupQueue_v2(&self, queueguid: *const super::Com::VARIANT, servicetypeguid: *const super::Com::VARIANT, label: *const super::Com::VARIANT, createtime: *const super::Com::VARIANT, modifytime: *const super::Com::VARIANT, relservicetype: *const super::Com::VARIANT, rellabel: *const super::Com::VARIANT, relcreatetime: *const super::Com::VARIANT, relmodifytime: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQQueueInfos4> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQQueueInfos4>();
-        (::windows::core::Interface::vtable(self).LookupQueue_v2)(::windows::core::Interface::as_raw(self), queueguid, servicetypeguid, label, createtime, modifytime, relservicetype, rellabel, relcreatetime, relmodifytime, &mut result__).from_abi(result__)
+    pub unsafe fn LookupQueue_v2(&self, queueguid: *const super::Com::VARIANT, servicetypeguid: *const super::Com::VARIANT, label: *const super::Com::VARIANT, createtime: *const super::Com::VARIANT, modifytime: *const super::Com::VARIANT, relservicetype: *const super::Com::VARIANT, rellabel: *const super::Com::VARIANT, relcreatetime: *const super::Com::VARIANT, relmodifytime: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQQueueInfos4> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQQueueInfos4>();
+        (::windows_core::Interface::vtable(self).LookupQueue_v2)(::windows_core::Interface::as_raw(self), queueguid, servicetypeguid, label, createtime, modifytime, relservicetype, rellabel, relcreatetime, relmodifytime, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::IDispatch>();
-        (::windows::core::Interface::vtable(self).Properties)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Properties(&self) -> ::windows_core::Result<super::Com::IDispatch> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::IDispatch>();
+        (::windows_core::Interface::vtable(self).Properties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn LookupQueue(&self, queueguid: *const super::Com::VARIANT, servicetypeguid: *const super::Com::VARIANT, label: *const super::Com::VARIANT, createtime: *const super::Com::VARIANT, modifytime: *const super::Com::VARIANT, relservicetype: *const super::Com::VARIANT, rellabel: *const super::Com::VARIANT, relcreatetime: *const super::Com::VARIANT, relmodifytime: *const super::Com::VARIANT, multicastaddress: *const super::Com::VARIANT, relmulticastaddress: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQQueueInfos4> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQQueueInfos4>();
-        (::windows::core::Interface::vtable(self).LookupQueue)(::windows::core::Interface::as_raw(self), queueguid, servicetypeguid, label, createtime, modifytime, relservicetype, rellabel, relcreatetime, relmodifytime, multicastaddress, relmulticastaddress, &mut result__).from_abi(result__)
+    pub unsafe fn LookupQueue(&self, queueguid: *const super::Com::VARIANT, servicetypeguid: *const super::Com::VARIANT, label: *const super::Com::VARIANT, createtime: *const super::Com::VARIANT, modifytime: *const super::Com::VARIANT, relservicetype: *const super::Com::VARIANT, rellabel: *const super::Com::VARIANT, relcreatetime: *const super::Com::VARIANT, relmodifytime: *const super::Com::VARIANT, multicastaddress: *const super::Com::VARIANT, relmulticastaddress: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQQueueInfos4> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQQueueInfos4>();
+        (::windows_core::Interface::vtable(self).LookupQueue)(::windows_core::Interface::as_raw(self), queueguid, servicetypeguid, label, createtime, modifytime, relservicetype, rellabel, relcreatetime, relmodifytime, multicastaddress, relmulticastaddress, &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::imp::interface_hierarchy!(IMSMQQuery4, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows_core::imp::interface_hierarchy!(IMSMQQuery4, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQQuery4 {
     fn eq(&self, other: &Self) -> bool {
@@ -4078,7 +4078,7 @@ impl ::core::fmt::Debug for IMSMQQuery4 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IMSMQQuery4 {
+unsafe impl ::windows_core::Interface for IMSMQQuery4 {
     type Vtable = IMSMQQuery4_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4088,8 +4088,8 @@ impl ::core::clone::Clone for IMSMQQuery4 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::ComInterface for IMSMQQuery4 {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b24_2168_11d3_898c_00e02c074f6b);
+unsafe impl ::windows_core::ComInterface for IMSMQQuery4 {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeba96b24_2168_11d3_898c_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
@@ -4097,93 +4097,93 @@ unsafe impl ::windows::core::ComInterface for IMSMQQuery4 {
 pub struct IMSMQQuery4_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub LookupQueue_v2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, queueguid: *const super::Com::VARIANT, servicetypeguid: *const super::Com::VARIANT, label: *const super::Com::VARIANT, createtime: *const super::Com::VARIANT, modifytime: *const super::Com::VARIANT, relservicetype: *const super::Com::VARIANT, rellabel: *const super::Com::VARIANT, relcreatetime: *const super::Com::VARIANT, relmodifytime: *const super::Com::VARIANT, ppqinfos: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub LookupQueue_v2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, queueguid: *const super::Com::VARIANT, servicetypeguid: *const super::Com::VARIANT, label: *const super::Com::VARIANT, createtime: *const super::Com::VARIANT, modifytime: *const super::Com::VARIANT, relservicetype: *const super::Com::VARIANT, rellabel: *const super::Com::VARIANT, relcreatetime: *const super::Com::VARIANT, relmodifytime: *const super::Com::VARIANT, ppqinfos: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     LookupQueue_v2: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcolproperties: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcolproperties: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Properties: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub LookupQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, queueguid: *const super::Com::VARIANT, servicetypeguid: *const super::Com::VARIANT, label: *const super::Com::VARIANT, createtime: *const super::Com::VARIANT, modifytime: *const super::Com::VARIANT, relservicetype: *const super::Com::VARIANT, rellabel: *const super::Com::VARIANT, relcreatetime: *const super::Com::VARIANT, relmodifytime: *const super::Com::VARIANT, multicastaddress: *const super::Com::VARIANT, relmulticastaddress: *const super::Com::VARIANT, ppqinfos: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub LookupQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, queueguid: *const super::Com::VARIANT, servicetypeguid: *const super::Com::VARIANT, label: *const super::Com::VARIANT, createtime: *const super::Com::VARIANT, modifytime: *const super::Com::VARIANT, relservicetype: *const super::Com::VARIANT, rellabel: *const super::Com::VARIANT, relcreatetime: *const super::Com::VARIANT, relmodifytime: *const super::Com::VARIANT, multicastaddress: *const super::Com::VARIANT, relmulticastaddress: *const super::Com::VARIANT, ppqinfos: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     LookupQueue: usize,
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
-pub struct IMSMQQueue(::windows::core::IUnknown);
+pub struct IMSMQQueue(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQQueue {
-    pub unsafe fn Access(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).Access)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Access(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).Access)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn ShareMode(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).ShareMode)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn ShareMode(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).ShareMode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn QueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQQueueInfo>();
-        (::windows::core::Interface::vtable(self).QueueInfo)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn QueueInfo(&self) -> ::windows_core::Result<IMSMQQueueInfo> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQQueueInfo>();
+        (::windows_core::Interface::vtable(self).QueueInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn Handle(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).Handle)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Handle(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).Handle)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn IsOpen(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::windows::core::zeroed::<i16>();
-        (::windows::core::Interface::vtable(self).IsOpen)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn IsOpen(&self) -> ::windows_core::Result<i16> {
+        let mut result__ = ::windows_core::zeroed::<i16>();
+        (::windows_core::Interface::vtable(self).IsOpen)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Close)(::windows::core::Interface::as_raw(self)).ok()
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Receive(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage>();
-        (::windows::core::Interface::vtable(self).Receive)(::windows::core::Interface::as_raw(self), transaction, wantdestinationqueue, wantbody, receivetimeout, &mut result__).from_abi(result__)
+    pub unsafe fn Close(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Close)(::windows_core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Peek(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage>();
-        (::windows::core::Interface::vtable(self).Peek)(::windows::core::Interface::as_raw(self), wantdestinationqueue, wantbody, receivetimeout, &mut result__).from_abi(result__)
+    pub unsafe fn Receive(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage>();
+        (::windows_core::Interface::vtable(self).Receive)(::windows_core::Interface::as_raw(self), transaction, wantdestinationqueue, wantbody, receivetimeout, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn EnableNotification<P0>(&self, event: P0, cursor: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<()>
+    pub unsafe fn Peek(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage>();
+        (::windows_core::Interface::vtable(self).Peek)(::windows_core::Interface::as_raw(self), wantdestinationqueue, wantbody, receivetimeout, &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub unsafe fn EnableNotification<P0>(&self, event: P0, cursor: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IMSMQEvent>,
+        P0: ::windows_core::IntoParam<IMSMQEvent>,
     {
-        (::windows::core::Interface::vtable(self).EnableNotification)(::windows::core::Interface::as_raw(self), event.into_param().abi(), cursor, receivetimeout).ok()
+        (::windows_core::Interface::vtable(self).EnableNotification)(::windows_core::Interface::as_raw(self), event.into_param().abi(), cursor, receivetimeout).ok()
     }
-    pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self)).ok()
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ReceiveCurrent(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage>();
-        (::windows::core::Interface::vtable(self).ReceiveCurrent)(::windows::core::Interface::as_raw(self), transaction, wantdestinationqueue, wantbody, receivetimeout, &mut result__).from_abi(result__)
+    pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PeekNext(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage>();
-        (::windows::core::Interface::vtable(self).PeekNext)(::windows::core::Interface::as_raw(self), wantdestinationqueue, wantbody, receivetimeout, &mut result__).from_abi(result__)
+    pub unsafe fn ReceiveCurrent(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage>();
+        (::windows_core::Interface::vtable(self).ReceiveCurrent)(::windows_core::Interface::as_raw(self), transaction, wantdestinationqueue, wantbody, receivetimeout, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PeekCurrent(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage>();
-        (::windows::core::Interface::vtable(self).PeekCurrent)(::windows::core::Interface::as_raw(self), wantdestinationqueue, wantbody, receivetimeout, &mut result__).from_abi(result__)
+    pub unsafe fn PeekNext(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage>();
+        (::windows_core::Interface::vtable(self).PeekNext)(::windows_core::Interface::as_raw(self), wantdestinationqueue, wantbody, receivetimeout, &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub unsafe fn PeekCurrent(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage>();
+        (::windows_core::Interface::vtable(self).PeekCurrent)(::windows_core::Interface::as_raw(self), wantdestinationqueue, wantbody, receivetimeout, &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::imp::interface_hierarchy!(IMSMQQueue, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows_core::imp::interface_hierarchy!(IMSMQQueue, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQQueue {
     fn eq(&self, other: &Self) -> bool {
@@ -4199,7 +4199,7 @@ impl ::core::fmt::Debug for IMSMQQueue {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IMSMQQueue {
+unsafe impl ::windows_core::Interface for IMSMQQueue {
     type Vtable = IMSMQQueue_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4209,160 +4209,160 @@ impl ::core::clone::Clone for IMSMQQueue {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::ComInterface for IMSMQQueue {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e076_dccd_11d0_aa4b_0060970debae);
+unsafe impl ::windows_core::ComInterface for IMSMQQueue {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd7d6e076_dccd_11d0_aa4b_0060970debae);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQQueue_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub Access: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, placcess: *mut i32) -> ::windows::core::HRESULT,
-    pub ShareMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plsharemode: *mut i32) -> ::windows::core::HRESULT,
+    pub Access: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, placcess: *mut i32) -> ::windows_core::HRESULT,
+    pub ShareMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plsharemode: *mut i32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub QueueInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub QueueInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinfo: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     QueueInfo: usize,
-    pub Handle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plhandle: *mut i32) -> ::windows::core::HRESULT,
-    pub IsOpen: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisopen: *mut i16) -> ::windows::core::HRESULT,
-    pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Handle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plhandle: *mut i32) -> ::windows_core::HRESULT,
+    pub IsOpen: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisopen: *mut i16) -> ::windows_core::HRESULT,
+    pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Receive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Receive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Receive: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Peek: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Peek: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Peek: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub EnableNotification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, event: *mut ::core::ffi::c_void, cursor: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub EnableNotification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, event: *mut ::core::ffi::c_void, cursor: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     EnableNotification: usize,
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub ReceiveCurrent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ReceiveCurrent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     ReceiveCurrent: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub PeekNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub PeekNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     PeekNext: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub PeekCurrent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub PeekCurrent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     PeekCurrent: usize,
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
-pub struct IMSMQQueue2(::windows::core::IUnknown);
+pub struct IMSMQQueue2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQQueue2 {
-    pub unsafe fn Access(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).Access)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Access(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).Access)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn ShareMode(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).ShareMode)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn ShareMode(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).ShareMode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn QueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo2> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQQueueInfo2>();
-        (::windows::core::Interface::vtable(self).QueueInfo)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn QueueInfo(&self) -> ::windows_core::Result<IMSMQQueueInfo2> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQQueueInfo2>();
+        (::windows_core::Interface::vtable(self).QueueInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn Handle(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).Handle)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Handle(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).Handle)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn IsOpen(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::windows::core::zeroed::<i16>();
-        (::windows::core::Interface::vtable(self).IsOpen)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn IsOpen(&self) -> ::windows_core::Result<i16> {
+        let mut result__ = ::windows_core::zeroed::<i16>();
+        (::windows_core::Interface::vtable(self).IsOpen)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Close)(::windows::core::Interface::as_raw(self)).ok()
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Receive_v1(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage>();
-        (::windows::core::Interface::vtable(self).Receive_v1)(::windows::core::Interface::as_raw(self), transaction, wantdestinationqueue, wantbody, receivetimeout, &mut result__).from_abi(result__)
+    pub unsafe fn Close(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Close)(::windows_core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Peek_v1(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage>();
-        (::windows::core::Interface::vtable(self).Peek_v1)(::windows::core::Interface::as_raw(self), wantdestinationqueue, wantbody, receivetimeout, &mut result__).from_abi(result__)
+    pub unsafe fn Receive_v1(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage>();
+        (::windows_core::Interface::vtable(self).Receive_v1)(::windows_core::Interface::as_raw(self), transaction, wantdestinationqueue, wantbody, receivetimeout, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn EnableNotification<P0>(&self, event: P0, cursor: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<()>
+    pub unsafe fn Peek_v1(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage>();
+        (::windows_core::Interface::vtable(self).Peek_v1)(::windows_core::Interface::as_raw(self), wantdestinationqueue, wantbody, receivetimeout, &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub unsafe fn EnableNotification<P0>(&self, event: P0, cursor: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IMSMQEvent2>,
+        P0: ::windows_core::IntoParam<IMSMQEvent2>,
     {
-        (::windows::core::Interface::vtable(self).EnableNotification)(::windows::core::Interface::as_raw(self), event.into_param().abi(), cursor, receivetimeout).ok()
+        (::windows_core::Interface::vtable(self).EnableNotification)(::windows_core::Interface::as_raw(self), event.into_param().abi(), cursor, receivetimeout).ok()
     }
-    pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self)).ok()
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ReceiveCurrent_v1(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage>();
-        (::windows::core::Interface::vtable(self).ReceiveCurrent_v1)(::windows::core::Interface::as_raw(self), transaction, wantdestinationqueue, wantbody, receivetimeout, &mut result__).from_abi(result__)
+    pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PeekNext_v1(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage>();
-        (::windows::core::Interface::vtable(self).PeekNext_v1)(::windows::core::Interface::as_raw(self), wantdestinationqueue, wantbody, receivetimeout, &mut result__).from_abi(result__)
+    pub unsafe fn ReceiveCurrent_v1(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage>();
+        (::windows_core::Interface::vtable(self).ReceiveCurrent_v1)(::windows_core::Interface::as_raw(self), transaction, wantdestinationqueue, wantbody, receivetimeout, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PeekCurrent_v1(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage>();
-        (::windows::core::Interface::vtable(self).PeekCurrent_v1)(::windows::core::Interface::as_raw(self), wantdestinationqueue, wantbody, receivetimeout, &mut result__).from_abi(result__)
+    pub unsafe fn PeekNext_v1(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage>();
+        (::windows_core::Interface::vtable(self).PeekNext_v1)(::windows_core::Interface::as_raw(self), wantdestinationqueue, wantbody, receivetimeout, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Receive(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage2> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage2>();
-        (::windows::core::Interface::vtable(self).Receive)(::windows::core::Interface::as_raw(self), transaction, wantdestinationqueue, wantbody, receivetimeout, wantconnectortype, &mut result__).from_abi(result__)
+    pub unsafe fn PeekCurrent_v1(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage>();
+        (::windows_core::Interface::vtable(self).PeekCurrent_v1)(::windows_core::Interface::as_raw(self), wantdestinationqueue, wantbody, receivetimeout, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Peek(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage2> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage2>();
-        (::windows::core::Interface::vtable(self).Peek)(::windows::core::Interface::as_raw(self), wantdestinationqueue, wantbody, receivetimeout, wantconnectortype, &mut result__).from_abi(result__)
+    pub unsafe fn Receive(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage2> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage2>();
+        (::windows_core::Interface::vtable(self).Receive)(::windows_core::Interface::as_raw(self), transaction, wantdestinationqueue, wantbody, receivetimeout, wantconnectortype, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ReceiveCurrent(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage2> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage2>();
-        (::windows::core::Interface::vtable(self).ReceiveCurrent)(::windows::core::Interface::as_raw(self), transaction, wantdestinationqueue, wantbody, receivetimeout, wantconnectortype, &mut result__).from_abi(result__)
+    pub unsafe fn Peek(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage2> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage2>();
+        (::windows_core::Interface::vtable(self).Peek)(::windows_core::Interface::as_raw(self), wantdestinationqueue, wantbody, receivetimeout, wantconnectortype, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PeekNext(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage2> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage2>();
-        (::windows::core::Interface::vtable(self).PeekNext)(::windows::core::Interface::as_raw(self), wantdestinationqueue, wantbody, receivetimeout, wantconnectortype, &mut result__).from_abi(result__)
+    pub unsafe fn ReceiveCurrent(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage2> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage2>();
+        (::windows_core::Interface::vtable(self).ReceiveCurrent)(::windows_core::Interface::as_raw(self), transaction, wantdestinationqueue, wantbody, receivetimeout, wantconnectortype, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PeekCurrent(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage2> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage2>();
-        (::windows::core::Interface::vtable(self).PeekCurrent)(::windows::core::Interface::as_raw(self), wantdestinationqueue, wantbody, receivetimeout, wantconnectortype, &mut result__).from_abi(result__)
+    pub unsafe fn PeekNext(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage2> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage2>();
+        (::windows_core::Interface::vtable(self).PeekNext)(::windows_core::Interface::as_raw(self), wantdestinationqueue, wantbody, receivetimeout, wantconnectortype, &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub unsafe fn PeekCurrent(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage2> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage2>();
+        (::windows_core::Interface::vtable(self).PeekCurrent)(::windows_core::Interface::as_raw(self), wantdestinationqueue, wantbody, receivetimeout, wantconnectortype, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::IDispatch>();
-        (::windows::core::Interface::vtable(self).Properties)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Properties(&self) -> ::windows_core::Result<super::Com::IDispatch> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::IDispatch>();
+        (::windows_core::Interface::vtable(self).Properties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::imp::interface_hierarchy!(IMSMQQueue2, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows_core::imp::interface_hierarchy!(IMSMQQueue2, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQQueue2 {
     fn eq(&self, other: &Self) -> bool {
@@ -4378,7 +4378,7 @@ impl ::core::fmt::Debug for IMSMQQueue2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IMSMQQueue2 {
+unsafe impl ::windows_core::Interface for IMSMQQueue2 {
     type Vtable = IMSMQQueue2_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4388,259 +4388,259 @@ impl ::core::clone::Clone for IMSMQQueue2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::ComInterface for IMSMQQueue2 {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef0574e0_06d8_11d3_b100_00e02c074f6b);
+unsafe impl ::windows_core::ComInterface for IMSMQQueue2 {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xef0574e0_06d8_11d3_b100_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQQueue2_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub Access: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, placcess: *mut i32) -> ::windows::core::HRESULT,
-    pub ShareMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plsharemode: *mut i32) -> ::windows::core::HRESULT,
+    pub Access: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, placcess: *mut i32) -> ::windows_core::HRESULT,
+    pub ShareMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plsharemode: *mut i32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub QueueInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub QueueInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinfo: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     QueueInfo: usize,
-    pub Handle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plhandle: *mut i32) -> ::windows::core::HRESULT,
-    pub IsOpen: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisopen: *mut i16) -> ::windows::core::HRESULT,
-    pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Handle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plhandle: *mut i32) -> ::windows_core::HRESULT,
+    pub IsOpen: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisopen: *mut i16) -> ::windows_core::HRESULT,
+    pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Receive_v1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Receive_v1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Receive_v1: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Peek_v1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Peek_v1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Peek_v1: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub EnableNotification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, event: *mut ::core::ffi::c_void, cursor: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub EnableNotification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, event: *mut ::core::ffi::c_void, cursor: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     EnableNotification: usize,
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub ReceiveCurrent_v1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ReceiveCurrent_v1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     ReceiveCurrent_v1: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub PeekNext_v1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub PeekNext_v1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     PeekNext_v1: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub PeekCurrent_v1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub PeekCurrent_v1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     PeekCurrent_v1: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Receive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Receive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Receive: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Peek: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Peek: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Peek: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub ReceiveCurrent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ReceiveCurrent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     ReceiveCurrent: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub PeekNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub PeekNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     PeekNext: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub PeekCurrent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub PeekCurrent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     PeekCurrent: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcolproperties: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcolproperties: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Properties: usize,
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
-pub struct IMSMQQueue3(::windows::core::IUnknown);
+pub struct IMSMQQueue3(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQQueue3 {
-    pub unsafe fn Access(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).Access)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Access(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).Access)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn ShareMode(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).ShareMode)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn ShareMode(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).ShareMode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn QueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo3> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQQueueInfo3>();
-        (::windows::core::Interface::vtable(self).QueueInfo)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn QueueInfo(&self) -> ::windows_core::Result<IMSMQQueueInfo3> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQQueueInfo3>();
+        (::windows_core::Interface::vtable(self).QueueInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn Handle(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).Handle)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Handle(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).Handle)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn IsOpen(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::windows::core::zeroed::<i16>();
-        (::windows::core::Interface::vtable(self).IsOpen)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn IsOpen(&self) -> ::windows_core::Result<i16> {
+        let mut result__ = ::windows_core::zeroed::<i16>();
+        (::windows_core::Interface::vtable(self).IsOpen)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Close)(::windows::core::Interface::as_raw(self)).ok()
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Receive_v1(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage>();
-        (::windows::core::Interface::vtable(self).Receive_v1)(::windows::core::Interface::as_raw(self), transaction, wantdestinationqueue, wantbody, receivetimeout, &mut result__).from_abi(result__)
+    pub unsafe fn Close(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Close)(::windows_core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Peek_v1(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage>();
-        (::windows::core::Interface::vtable(self).Peek_v1)(::windows::core::Interface::as_raw(self), wantdestinationqueue, wantbody, receivetimeout, &mut result__).from_abi(result__)
+    pub unsafe fn Receive_v1(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage>();
+        (::windows_core::Interface::vtable(self).Receive_v1)(::windows_core::Interface::as_raw(self), transaction, wantdestinationqueue, wantbody, receivetimeout, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn EnableNotification<P0>(&self, event: P0, cursor: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<()>
+    pub unsafe fn Peek_v1(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage>();
+        (::windows_core::Interface::vtable(self).Peek_v1)(::windows_core::Interface::as_raw(self), wantdestinationqueue, wantbody, receivetimeout, &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub unsafe fn EnableNotification<P0>(&self, event: P0, cursor: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IMSMQEvent3>,
+        P0: ::windows_core::IntoParam<IMSMQEvent3>,
     {
-        (::windows::core::Interface::vtable(self).EnableNotification)(::windows::core::Interface::as_raw(self), event.into_param().abi(), cursor, receivetimeout).ok()
+        (::windows_core::Interface::vtable(self).EnableNotification)(::windows_core::Interface::as_raw(self), event.into_param().abi(), cursor, receivetimeout).ok()
     }
-    pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self)).ok()
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ReceiveCurrent_v1(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage>();
-        (::windows::core::Interface::vtable(self).ReceiveCurrent_v1)(::windows::core::Interface::as_raw(self), transaction, wantdestinationqueue, wantbody, receivetimeout, &mut result__).from_abi(result__)
+    pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PeekNext_v1(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage>();
-        (::windows::core::Interface::vtable(self).PeekNext_v1)(::windows::core::Interface::as_raw(self), wantdestinationqueue, wantbody, receivetimeout, &mut result__).from_abi(result__)
+    pub unsafe fn ReceiveCurrent_v1(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage>();
+        (::windows_core::Interface::vtable(self).ReceiveCurrent_v1)(::windows_core::Interface::as_raw(self), transaction, wantdestinationqueue, wantbody, receivetimeout, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PeekCurrent_v1(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage>();
-        (::windows::core::Interface::vtable(self).PeekCurrent_v1)(::windows::core::Interface::as_raw(self), wantdestinationqueue, wantbody, receivetimeout, &mut result__).from_abi(result__)
+    pub unsafe fn PeekNext_v1(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage>();
+        (::windows_core::Interface::vtable(self).PeekNext_v1)(::windows_core::Interface::as_raw(self), wantdestinationqueue, wantbody, receivetimeout, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Receive(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage3>();
-        (::windows::core::Interface::vtable(self).Receive)(::windows::core::Interface::as_raw(self), transaction, wantdestinationqueue, wantbody, receivetimeout, wantconnectortype, &mut result__).from_abi(result__)
+    pub unsafe fn PeekCurrent_v1(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage>();
+        (::windows_core::Interface::vtable(self).PeekCurrent_v1)(::windows_core::Interface::as_raw(self), wantdestinationqueue, wantbody, receivetimeout, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Peek(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage3>();
-        (::windows::core::Interface::vtable(self).Peek)(::windows::core::Interface::as_raw(self), wantdestinationqueue, wantbody, receivetimeout, wantconnectortype, &mut result__).from_abi(result__)
+    pub unsafe fn Receive(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage3> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage3>();
+        (::windows_core::Interface::vtable(self).Receive)(::windows_core::Interface::as_raw(self), transaction, wantdestinationqueue, wantbody, receivetimeout, wantconnectortype, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ReceiveCurrent(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage3>();
-        (::windows::core::Interface::vtable(self).ReceiveCurrent)(::windows::core::Interface::as_raw(self), transaction, wantdestinationqueue, wantbody, receivetimeout, wantconnectortype, &mut result__).from_abi(result__)
+    pub unsafe fn Peek(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage3> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage3>();
+        (::windows_core::Interface::vtable(self).Peek)(::windows_core::Interface::as_raw(self), wantdestinationqueue, wantbody, receivetimeout, wantconnectortype, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PeekNext(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage3>();
-        (::windows::core::Interface::vtable(self).PeekNext)(::windows::core::Interface::as_raw(self), wantdestinationqueue, wantbody, receivetimeout, wantconnectortype, &mut result__).from_abi(result__)
+    pub unsafe fn ReceiveCurrent(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage3> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage3>();
+        (::windows_core::Interface::vtable(self).ReceiveCurrent)(::windows_core::Interface::as_raw(self), transaction, wantdestinationqueue, wantbody, receivetimeout, wantconnectortype, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PeekCurrent(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage3>();
-        (::windows::core::Interface::vtable(self).PeekCurrent)(::windows::core::Interface::as_raw(self), wantdestinationqueue, wantbody, receivetimeout, wantconnectortype, &mut result__).from_abi(result__)
+    pub unsafe fn PeekNext(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage3> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage3>();
+        (::windows_core::Interface::vtable(self).PeekNext)(::windows_core::Interface::as_raw(self), wantdestinationqueue, wantbody, receivetimeout, wantconnectortype, &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub unsafe fn PeekCurrent(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage3> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage3>();
+        (::windows_core::Interface::vtable(self).PeekCurrent)(::windows_core::Interface::as_raw(self), wantdestinationqueue, wantbody, receivetimeout, wantconnectortype, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::IDispatch>();
-        (::windows::core::Interface::vtable(self).Properties)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Properties(&self) -> ::windows_core::Result<super::Com::IDispatch> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::IDispatch>();
+        (::windows_core::Interface::vtable(self).Properties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Handle2(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).Handle2)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Handle2(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).Handle2)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ReceiveByLookupId(&self, lookupid: super::Com::VARIANT, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage3>();
-        (::windows::core::Interface::vtable(self).ReceiveByLookupId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lookupid), transaction, wantdestinationqueue, wantbody, wantconnectortype, &mut result__).from_abi(result__)
+    pub unsafe fn ReceiveByLookupId(&self, lookupid: super::Com::VARIANT, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage3> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage3>();
+        (::windows_core::Interface::vtable(self).ReceiveByLookupId)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(lookupid), transaction, wantdestinationqueue, wantbody, wantconnectortype, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ReceiveNextByLookupId(&self, lookupid: super::Com::VARIANT, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage3>();
-        (::windows::core::Interface::vtable(self).ReceiveNextByLookupId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lookupid), transaction, wantdestinationqueue, wantbody, wantconnectortype, &mut result__).from_abi(result__)
+    pub unsafe fn ReceiveNextByLookupId(&self, lookupid: super::Com::VARIANT, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage3> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage3>();
+        (::windows_core::Interface::vtable(self).ReceiveNextByLookupId)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(lookupid), transaction, wantdestinationqueue, wantbody, wantconnectortype, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ReceivePreviousByLookupId(&self, lookupid: super::Com::VARIANT, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage3>();
-        (::windows::core::Interface::vtable(self).ReceivePreviousByLookupId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lookupid), transaction, wantdestinationqueue, wantbody, wantconnectortype, &mut result__).from_abi(result__)
+    pub unsafe fn ReceivePreviousByLookupId(&self, lookupid: super::Com::VARIANT, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage3> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage3>();
+        (::windows_core::Interface::vtable(self).ReceivePreviousByLookupId)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(lookupid), transaction, wantdestinationqueue, wantbody, wantconnectortype, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ReceiveFirstByLookupId(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage3>();
-        (::windows::core::Interface::vtable(self).ReceiveFirstByLookupId)(::windows::core::Interface::as_raw(self), transaction, wantdestinationqueue, wantbody, wantconnectortype, &mut result__).from_abi(result__)
+    pub unsafe fn ReceiveFirstByLookupId(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage3> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage3>();
+        (::windows_core::Interface::vtable(self).ReceiveFirstByLookupId)(::windows_core::Interface::as_raw(self), transaction, wantdestinationqueue, wantbody, wantconnectortype, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ReceiveLastByLookupId(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage3>();
-        (::windows::core::Interface::vtable(self).ReceiveLastByLookupId)(::windows::core::Interface::as_raw(self), transaction, wantdestinationqueue, wantbody, wantconnectortype, &mut result__).from_abi(result__)
+    pub unsafe fn ReceiveLastByLookupId(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage3> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage3>();
+        (::windows_core::Interface::vtable(self).ReceiveLastByLookupId)(::windows_core::Interface::as_raw(self), transaction, wantdestinationqueue, wantbody, wantconnectortype, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PeekByLookupId(&self, lookupid: super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage3>();
-        (::windows::core::Interface::vtable(self).PeekByLookupId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lookupid), wantdestinationqueue, wantbody, wantconnectortype, &mut result__).from_abi(result__)
+    pub unsafe fn PeekByLookupId(&self, lookupid: super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage3> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage3>();
+        (::windows_core::Interface::vtable(self).PeekByLookupId)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(lookupid), wantdestinationqueue, wantbody, wantconnectortype, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PeekNextByLookupId(&self, lookupid: super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage3>();
-        (::windows::core::Interface::vtable(self).PeekNextByLookupId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lookupid), wantdestinationqueue, wantbody, wantconnectortype, &mut result__).from_abi(result__)
+    pub unsafe fn PeekNextByLookupId(&self, lookupid: super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage3> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage3>();
+        (::windows_core::Interface::vtable(self).PeekNextByLookupId)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(lookupid), wantdestinationqueue, wantbody, wantconnectortype, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PeekPreviousByLookupId(&self, lookupid: super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage3>();
-        (::windows::core::Interface::vtable(self).PeekPreviousByLookupId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lookupid), wantdestinationqueue, wantbody, wantconnectortype, &mut result__).from_abi(result__)
+    pub unsafe fn PeekPreviousByLookupId(&self, lookupid: super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage3> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage3>();
+        (::windows_core::Interface::vtable(self).PeekPreviousByLookupId)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(lookupid), wantdestinationqueue, wantbody, wantconnectortype, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PeekFirstByLookupId(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage3>();
-        (::windows::core::Interface::vtable(self).PeekFirstByLookupId)(::windows::core::Interface::as_raw(self), wantdestinationqueue, wantbody, wantconnectortype, &mut result__).from_abi(result__)
+    pub unsafe fn PeekFirstByLookupId(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage3> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage3>();
+        (::windows_core::Interface::vtable(self).PeekFirstByLookupId)(::windows_core::Interface::as_raw(self), wantdestinationqueue, wantbody, wantconnectortype, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PeekLastByLookupId(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage3>();
-        (::windows::core::Interface::vtable(self).PeekLastByLookupId)(::windows::core::Interface::as_raw(self), wantdestinationqueue, wantbody, wantconnectortype, &mut result__).from_abi(result__)
+    pub unsafe fn PeekLastByLookupId(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage3> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage3>();
+        (::windows_core::Interface::vtable(self).PeekLastByLookupId)(::windows_core::Interface::as_raw(self), wantdestinationqueue, wantbody, wantconnectortype, &mut result__).from_abi(result__)
     }
-    pub unsafe fn Purge(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Purge)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn Purge(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Purge)(::windows_core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsOpen2(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
-        (::windows::core::Interface::vtable(self).IsOpen2)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn IsOpen2(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        (::windows_core::Interface::vtable(self).IsOpen2)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::imp::interface_hierarchy!(IMSMQQueue3, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows_core::imp::interface_hierarchy!(IMSMQQueue3, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQQueue3 {
     fn eq(&self, other: &Self) -> bool {
@@ -4656,7 +4656,7 @@ impl ::core::fmt::Debug for IMSMQQueue3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IMSMQQueue3 {
+unsafe impl ::windows_core::Interface for IMSMQQueue3 {
     type Vtable = IMSMQQueue3_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4666,314 +4666,314 @@ impl ::core::clone::Clone for IMSMQQueue3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::ComInterface for IMSMQQueue3 {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b1b_2168_11d3_898c_00e02c074f6b);
+unsafe impl ::windows_core::ComInterface for IMSMQQueue3 {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeba96b1b_2168_11d3_898c_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQQueue3_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub Access: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, placcess: *mut i32) -> ::windows::core::HRESULT,
-    pub ShareMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plsharemode: *mut i32) -> ::windows::core::HRESULT,
+    pub Access: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, placcess: *mut i32) -> ::windows_core::HRESULT,
+    pub ShareMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plsharemode: *mut i32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub QueueInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub QueueInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinfo: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     QueueInfo: usize,
-    pub Handle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plhandle: *mut i32) -> ::windows::core::HRESULT,
-    pub IsOpen: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisopen: *mut i16) -> ::windows::core::HRESULT,
-    pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Handle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plhandle: *mut i32) -> ::windows_core::HRESULT,
+    pub IsOpen: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisopen: *mut i16) -> ::windows_core::HRESULT,
+    pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Receive_v1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Receive_v1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Receive_v1: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Peek_v1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Peek_v1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Peek_v1: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub EnableNotification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, event: *mut ::core::ffi::c_void, cursor: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub EnableNotification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, event: *mut ::core::ffi::c_void, cursor: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     EnableNotification: usize,
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub ReceiveCurrent_v1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ReceiveCurrent_v1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     ReceiveCurrent_v1: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub PeekNext_v1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub PeekNext_v1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     PeekNext_v1: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub PeekCurrent_v1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub PeekCurrent_v1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     PeekCurrent_v1: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Receive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Receive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Receive: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Peek: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Peek: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Peek: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub ReceiveCurrent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ReceiveCurrent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     ReceiveCurrent: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub PeekNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub PeekNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     PeekNext: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub PeekCurrent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub PeekCurrent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     PeekCurrent: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcolproperties: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcolproperties: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Properties: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Handle2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarhandle: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub Handle2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarhandle: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Handle2: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub ReceiveByLookupId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lookupid: super::Com::VARIANT, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ReceiveByLookupId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lookupid: super::Com::VARIANT, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     ReceiveByLookupId: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub ReceiveNextByLookupId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lookupid: super::Com::VARIANT, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ReceiveNextByLookupId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lookupid: super::Com::VARIANT, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     ReceiveNextByLookupId: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub ReceivePreviousByLookupId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lookupid: super::Com::VARIANT, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ReceivePreviousByLookupId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lookupid: super::Com::VARIANT, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     ReceivePreviousByLookupId: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub ReceiveFirstByLookupId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ReceiveFirstByLookupId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     ReceiveFirstByLookupId: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub ReceiveLastByLookupId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ReceiveLastByLookupId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     ReceiveLastByLookupId: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub PeekByLookupId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lookupid: super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub PeekByLookupId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lookupid: super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     PeekByLookupId: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub PeekNextByLookupId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lookupid: super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub PeekNextByLookupId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lookupid: super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     PeekNextByLookupId: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub PeekPreviousByLookupId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lookupid: super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub PeekPreviousByLookupId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lookupid: super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     PeekPreviousByLookupId: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub PeekFirstByLookupId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub PeekFirstByLookupId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     PeekFirstByLookupId: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub PeekLastByLookupId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub PeekLastByLookupId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     PeekLastByLookupId: usize,
-    pub Purge: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Purge: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub IsOpen2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisopen: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
+    pub IsOpen2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisopen: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     IsOpen2: usize,
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
-pub struct IMSMQQueue4(::windows::core::IUnknown);
+pub struct IMSMQQueue4(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQQueue4 {
-    pub unsafe fn Access(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).Access)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Access(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).Access)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn ShareMode(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).ShareMode)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn ShareMode(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).ShareMode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn QueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo4> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQQueueInfo4>();
-        (::windows::core::Interface::vtable(self).QueueInfo)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn QueueInfo(&self) -> ::windows_core::Result<IMSMQQueueInfo4> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQQueueInfo4>();
+        (::windows_core::Interface::vtable(self).QueueInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn Handle(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).Handle)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Handle(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).Handle)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn IsOpen(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::windows::core::zeroed::<i16>();
-        (::windows::core::Interface::vtable(self).IsOpen)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn IsOpen(&self) -> ::windows_core::Result<i16> {
+        let mut result__ = ::windows_core::zeroed::<i16>();
+        (::windows_core::Interface::vtable(self).IsOpen)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Close)(::windows::core::Interface::as_raw(self)).ok()
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Receive_v1(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage>();
-        (::windows::core::Interface::vtable(self).Receive_v1)(::windows::core::Interface::as_raw(self), transaction, wantdestinationqueue, wantbody, receivetimeout, &mut result__).from_abi(result__)
+    pub unsafe fn Close(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Close)(::windows_core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Peek_v1(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage>();
-        (::windows::core::Interface::vtable(self).Peek_v1)(::windows::core::Interface::as_raw(self), wantdestinationqueue, wantbody, receivetimeout, &mut result__).from_abi(result__)
+    pub unsafe fn Receive_v1(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage>();
+        (::windows_core::Interface::vtable(self).Receive_v1)(::windows_core::Interface::as_raw(self), transaction, wantdestinationqueue, wantbody, receivetimeout, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn EnableNotification<P0>(&self, event: P0, cursor: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<()>
+    pub unsafe fn Peek_v1(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage>();
+        (::windows_core::Interface::vtable(self).Peek_v1)(::windows_core::Interface::as_raw(self), wantdestinationqueue, wantbody, receivetimeout, &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub unsafe fn EnableNotification<P0>(&self, event: P0, cursor: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IMSMQEvent3>,
+        P0: ::windows_core::IntoParam<IMSMQEvent3>,
     {
-        (::windows::core::Interface::vtable(self).EnableNotification)(::windows::core::Interface::as_raw(self), event.into_param().abi(), cursor, receivetimeout).ok()
+        (::windows_core::Interface::vtable(self).EnableNotification)(::windows_core::Interface::as_raw(self), event.into_param().abi(), cursor, receivetimeout).ok()
     }
-    pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self)).ok()
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ReceiveCurrent_v1(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage>();
-        (::windows::core::Interface::vtable(self).ReceiveCurrent_v1)(::windows::core::Interface::as_raw(self), transaction, wantdestinationqueue, wantbody, receivetimeout, &mut result__).from_abi(result__)
+    pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PeekNext_v1(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage>();
-        (::windows::core::Interface::vtable(self).PeekNext_v1)(::windows::core::Interface::as_raw(self), wantdestinationqueue, wantbody, receivetimeout, &mut result__).from_abi(result__)
+    pub unsafe fn ReceiveCurrent_v1(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage>();
+        (::windows_core::Interface::vtable(self).ReceiveCurrent_v1)(::windows_core::Interface::as_raw(self), transaction, wantdestinationqueue, wantbody, receivetimeout, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PeekCurrent_v1(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage>();
-        (::windows::core::Interface::vtable(self).PeekCurrent_v1)(::windows::core::Interface::as_raw(self), wantdestinationqueue, wantbody, receivetimeout, &mut result__).from_abi(result__)
+    pub unsafe fn PeekNext_v1(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage>();
+        (::windows_core::Interface::vtable(self).PeekNext_v1)(::windows_core::Interface::as_raw(self), wantdestinationqueue, wantbody, receivetimeout, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Receive(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage4>();
-        (::windows::core::Interface::vtable(self).Receive)(::windows::core::Interface::as_raw(self), transaction, wantdestinationqueue, wantbody, receivetimeout, wantconnectortype, &mut result__).from_abi(result__)
+    pub unsafe fn PeekCurrent_v1(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage>();
+        (::windows_core::Interface::vtable(self).PeekCurrent_v1)(::windows_core::Interface::as_raw(self), wantdestinationqueue, wantbody, receivetimeout, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Peek(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage4>();
-        (::windows::core::Interface::vtable(self).Peek)(::windows::core::Interface::as_raw(self), wantdestinationqueue, wantbody, receivetimeout, wantconnectortype, &mut result__).from_abi(result__)
+    pub unsafe fn Receive(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage4> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage4>();
+        (::windows_core::Interface::vtable(self).Receive)(::windows_core::Interface::as_raw(self), transaction, wantdestinationqueue, wantbody, receivetimeout, wantconnectortype, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ReceiveCurrent(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage4>();
-        (::windows::core::Interface::vtable(self).ReceiveCurrent)(::windows::core::Interface::as_raw(self), transaction, wantdestinationqueue, wantbody, receivetimeout, wantconnectortype, &mut result__).from_abi(result__)
+    pub unsafe fn Peek(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage4> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage4>();
+        (::windows_core::Interface::vtable(self).Peek)(::windows_core::Interface::as_raw(self), wantdestinationqueue, wantbody, receivetimeout, wantconnectortype, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PeekNext(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage4>();
-        (::windows::core::Interface::vtable(self).PeekNext)(::windows::core::Interface::as_raw(self), wantdestinationqueue, wantbody, receivetimeout, wantconnectortype, &mut result__).from_abi(result__)
+    pub unsafe fn ReceiveCurrent(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage4> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage4>();
+        (::windows_core::Interface::vtable(self).ReceiveCurrent)(::windows_core::Interface::as_raw(self), transaction, wantdestinationqueue, wantbody, receivetimeout, wantconnectortype, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PeekCurrent(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage4>();
-        (::windows::core::Interface::vtable(self).PeekCurrent)(::windows::core::Interface::as_raw(self), wantdestinationqueue, wantbody, receivetimeout, wantconnectortype, &mut result__).from_abi(result__)
+    pub unsafe fn PeekNext(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage4> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage4>();
+        (::windows_core::Interface::vtable(self).PeekNext)(::windows_core::Interface::as_raw(self), wantdestinationqueue, wantbody, receivetimeout, wantconnectortype, &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub unsafe fn PeekCurrent(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage4> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage4>();
+        (::windows_core::Interface::vtable(self).PeekCurrent)(::windows_core::Interface::as_raw(self), wantdestinationqueue, wantbody, receivetimeout, wantconnectortype, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::IDispatch>();
-        (::windows::core::Interface::vtable(self).Properties)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Properties(&self) -> ::windows_core::Result<super::Com::IDispatch> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::IDispatch>();
+        (::windows_core::Interface::vtable(self).Properties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Handle2(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).Handle2)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Handle2(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).Handle2)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ReceiveByLookupId(&self, lookupid: super::Com::VARIANT, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage4>();
-        (::windows::core::Interface::vtable(self).ReceiveByLookupId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lookupid), transaction, wantdestinationqueue, wantbody, wantconnectortype, &mut result__).from_abi(result__)
+    pub unsafe fn ReceiveByLookupId(&self, lookupid: super::Com::VARIANT, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage4> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage4>();
+        (::windows_core::Interface::vtable(self).ReceiveByLookupId)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(lookupid), transaction, wantdestinationqueue, wantbody, wantconnectortype, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ReceiveNextByLookupId(&self, lookupid: super::Com::VARIANT, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage4>();
-        (::windows::core::Interface::vtable(self).ReceiveNextByLookupId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lookupid), transaction, wantdestinationqueue, wantbody, wantconnectortype, &mut result__).from_abi(result__)
+    pub unsafe fn ReceiveNextByLookupId(&self, lookupid: super::Com::VARIANT, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage4> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage4>();
+        (::windows_core::Interface::vtable(self).ReceiveNextByLookupId)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(lookupid), transaction, wantdestinationqueue, wantbody, wantconnectortype, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ReceivePreviousByLookupId(&self, lookupid: super::Com::VARIANT, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage4>();
-        (::windows::core::Interface::vtable(self).ReceivePreviousByLookupId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lookupid), transaction, wantdestinationqueue, wantbody, wantconnectortype, &mut result__).from_abi(result__)
+    pub unsafe fn ReceivePreviousByLookupId(&self, lookupid: super::Com::VARIANT, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage4> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage4>();
+        (::windows_core::Interface::vtable(self).ReceivePreviousByLookupId)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(lookupid), transaction, wantdestinationqueue, wantbody, wantconnectortype, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ReceiveFirstByLookupId(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage4>();
-        (::windows::core::Interface::vtable(self).ReceiveFirstByLookupId)(::windows::core::Interface::as_raw(self), transaction, wantdestinationqueue, wantbody, wantconnectortype, &mut result__).from_abi(result__)
+    pub unsafe fn ReceiveFirstByLookupId(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage4> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage4>();
+        (::windows_core::Interface::vtable(self).ReceiveFirstByLookupId)(::windows_core::Interface::as_raw(self), transaction, wantdestinationqueue, wantbody, wantconnectortype, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ReceiveLastByLookupId(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage4>();
-        (::windows::core::Interface::vtable(self).ReceiveLastByLookupId)(::windows::core::Interface::as_raw(self), transaction, wantdestinationqueue, wantbody, wantconnectortype, &mut result__).from_abi(result__)
+    pub unsafe fn ReceiveLastByLookupId(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage4> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage4>();
+        (::windows_core::Interface::vtable(self).ReceiveLastByLookupId)(::windows_core::Interface::as_raw(self), transaction, wantdestinationqueue, wantbody, wantconnectortype, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PeekByLookupId(&self, lookupid: super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage4>();
-        (::windows::core::Interface::vtable(self).PeekByLookupId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lookupid), wantdestinationqueue, wantbody, wantconnectortype, &mut result__).from_abi(result__)
+    pub unsafe fn PeekByLookupId(&self, lookupid: super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage4> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage4>();
+        (::windows_core::Interface::vtable(self).PeekByLookupId)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(lookupid), wantdestinationqueue, wantbody, wantconnectortype, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PeekNextByLookupId(&self, lookupid: super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage4>();
-        (::windows::core::Interface::vtable(self).PeekNextByLookupId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lookupid), wantdestinationqueue, wantbody, wantconnectortype, &mut result__).from_abi(result__)
+    pub unsafe fn PeekNextByLookupId(&self, lookupid: super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage4> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage4>();
+        (::windows_core::Interface::vtable(self).PeekNextByLookupId)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(lookupid), wantdestinationqueue, wantbody, wantconnectortype, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PeekPreviousByLookupId(&self, lookupid: super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage4>();
-        (::windows::core::Interface::vtable(self).PeekPreviousByLookupId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lookupid), wantdestinationqueue, wantbody, wantconnectortype, &mut result__).from_abi(result__)
+    pub unsafe fn PeekPreviousByLookupId(&self, lookupid: super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage4> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage4>();
+        (::windows_core::Interface::vtable(self).PeekPreviousByLookupId)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(lookupid), wantdestinationqueue, wantbody, wantconnectortype, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PeekFirstByLookupId(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage4>();
-        (::windows::core::Interface::vtable(self).PeekFirstByLookupId)(::windows::core::Interface::as_raw(self), wantdestinationqueue, wantbody, wantconnectortype, &mut result__).from_abi(result__)
+    pub unsafe fn PeekFirstByLookupId(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage4> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage4>();
+        (::windows_core::Interface::vtable(self).PeekFirstByLookupId)(::windows_core::Interface::as_raw(self), wantdestinationqueue, wantbody, wantconnectortype, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PeekLastByLookupId(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage4>();
-        (::windows::core::Interface::vtable(self).PeekLastByLookupId)(::windows::core::Interface::as_raw(self), wantdestinationqueue, wantbody, wantconnectortype, &mut result__).from_abi(result__)
+    pub unsafe fn PeekLastByLookupId(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage4> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage4>();
+        (::windows_core::Interface::vtable(self).PeekLastByLookupId)(::windows_core::Interface::as_raw(self), wantdestinationqueue, wantbody, wantconnectortype, &mut result__).from_abi(result__)
     }
-    pub unsafe fn Purge(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Purge)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn Purge(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Purge)(::windows_core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsOpen2(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
-        (::windows::core::Interface::vtable(self).IsOpen2)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn IsOpen2(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        (::windows_core::Interface::vtable(self).IsOpen2)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ReceiveByLookupIdAllowPeek(&self, lookupid: super::Com::VARIANT, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQMessage4>();
-        (::windows::core::Interface::vtable(self).ReceiveByLookupIdAllowPeek)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lookupid), transaction, wantdestinationqueue, wantbody, wantconnectortype, &mut result__).from_abi(result__)
+    pub unsafe fn ReceiveByLookupIdAllowPeek(&self, lookupid: super::Com::VARIANT, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows_core::Result<IMSMQMessage4> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQMessage4>();
+        (::windows_core::Interface::vtable(self).ReceiveByLookupIdAllowPeek)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(lookupid), transaction, wantdestinationqueue, wantbody, wantconnectortype, &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::imp::interface_hierarchy!(IMSMQQueue4, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows_core::imp::interface_hierarchy!(IMSMQQueue4, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQQueue4 {
     fn eq(&self, other: &Self) -> bool {
@@ -4989,7 +4989,7 @@ impl ::core::fmt::Debug for IMSMQQueue4 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IMSMQQueue4 {
+unsafe impl ::windows_core::Interface for IMSMQQueue4 {
     type Vtable = IMSMQQueue4_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4999,261 +4999,261 @@ impl ::core::clone::Clone for IMSMQQueue4 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::ComInterface for IMSMQQueue4 {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b20_2168_11d3_898c_00e02c074f6b);
+unsafe impl ::windows_core::ComInterface for IMSMQQueue4 {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeba96b20_2168_11d3_898c_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQQueue4_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub Access: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, placcess: *mut i32) -> ::windows::core::HRESULT,
-    pub ShareMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plsharemode: *mut i32) -> ::windows::core::HRESULT,
+    pub Access: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, placcess: *mut i32) -> ::windows_core::HRESULT,
+    pub ShareMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plsharemode: *mut i32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub QueueInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub QueueInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinfo: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     QueueInfo: usize,
-    pub Handle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plhandle: *mut i32) -> ::windows::core::HRESULT,
-    pub IsOpen: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisopen: *mut i16) -> ::windows::core::HRESULT,
-    pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Handle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plhandle: *mut i32) -> ::windows_core::HRESULT,
+    pub IsOpen: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisopen: *mut i16) -> ::windows_core::HRESULT,
+    pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Receive_v1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Receive_v1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Receive_v1: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Peek_v1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Peek_v1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Peek_v1: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub EnableNotification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, event: *mut ::core::ffi::c_void, cursor: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub EnableNotification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, event: *mut ::core::ffi::c_void, cursor: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     EnableNotification: usize,
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub ReceiveCurrent_v1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ReceiveCurrent_v1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     ReceiveCurrent_v1: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub PeekNext_v1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub PeekNext_v1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     PeekNext_v1: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub PeekCurrent_v1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub PeekCurrent_v1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     PeekCurrent_v1: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Receive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Receive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Receive: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Peek: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Peek: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Peek: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub ReceiveCurrent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ReceiveCurrent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     ReceiveCurrent: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub PeekNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub PeekNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     PeekNext: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub PeekCurrent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub PeekCurrent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     PeekCurrent: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcolproperties: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcolproperties: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Properties: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Handle2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarhandle: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub Handle2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarhandle: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Handle2: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub ReceiveByLookupId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lookupid: super::Com::VARIANT, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ReceiveByLookupId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lookupid: super::Com::VARIANT, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     ReceiveByLookupId: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub ReceiveNextByLookupId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lookupid: super::Com::VARIANT, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ReceiveNextByLookupId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lookupid: super::Com::VARIANT, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     ReceiveNextByLookupId: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub ReceivePreviousByLookupId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lookupid: super::Com::VARIANT, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ReceivePreviousByLookupId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lookupid: super::Com::VARIANT, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     ReceivePreviousByLookupId: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub ReceiveFirstByLookupId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ReceiveFirstByLookupId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     ReceiveFirstByLookupId: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub ReceiveLastByLookupId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ReceiveLastByLookupId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     ReceiveLastByLookupId: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub PeekByLookupId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lookupid: super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub PeekByLookupId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lookupid: super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     PeekByLookupId: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub PeekNextByLookupId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lookupid: super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub PeekNextByLookupId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lookupid: super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     PeekNextByLookupId: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub PeekPreviousByLookupId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lookupid: super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub PeekPreviousByLookupId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lookupid: super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     PeekPreviousByLookupId: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub PeekFirstByLookupId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub PeekFirstByLookupId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     PeekFirstByLookupId: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub PeekLastByLookupId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub PeekLastByLookupId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     PeekLastByLookupId: usize,
-    pub Purge: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Purge: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub IsOpen2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisopen: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
+    pub IsOpen2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisopen: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     IsOpen2: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub ReceiveByLookupIdAllowPeek: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lookupid: super::Com::VARIANT, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ReceiveByLookupIdAllowPeek: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lookupid: super::Com::VARIANT, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT, ppmsg: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     ReceiveByLookupIdAllowPeek: usize,
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
-pub struct IMSMQQueueInfo(::windows::core::IUnknown);
+pub struct IMSMQQueueInfo(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQQueueInfo {
-    pub unsafe fn QueueGuid(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).QueueGuid)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn QueueGuid(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).QueueGuid)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn ServiceTypeGuid(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).ServiceTypeGuid)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn ServiceTypeGuid(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).ServiceTypeGuid)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetServiceTypeGuid<P0>(&self, bstrguidservicetype: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetServiceTypeGuid<P0>(&self, bstrguidservicetype: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetServiceTypeGuid)(::windows::core::Interface::as_raw(self), bstrguidservicetype.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).SetServiceTypeGuid)(::windows_core::Interface::as_raw(self), bstrguidservicetype.into_param().abi()).ok()
     }
-    pub unsafe fn Label(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).Label)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Label(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).Label)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetLabel<P0>(&self, bstrlabel: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetLabel<P0>(&self, bstrlabel: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetLabel)(::windows::core::Interface::as_raw(self), bstrlabel.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).SetLabel)(::windows_core::Interface::as_raw(self), bstrlabel.into_param().abi()).ok()
     }
-    pub unsafe fn PathName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).PathName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn PathName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).PathName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetPathName<P0>(&self, bstrpathname: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPathName<P0>(&self, bstrpathname: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetPathName)(::windows::core::Interface::as_raw(self), bstrpathname.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).SetPathName)(::windows_core::Interface::as_raw(self), bstrpathname.into_param().abi()).ok()
     }
-    pub unsafe fn FormatName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).FormatName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn FormatName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).FormatName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetFormatName<P0>(&self, bstrformatname: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetFormatName<P0>(&self, bstrformatname: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetFormatName)(::windows::core::Interface::as_raw(self), bstrformatname.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).SetFormatName)(::windows_core::Interface::as_raw(self), bstrformatname.into_param().abi()).ok()
     }
-    pub unsafe fn IsTransactional(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::windows::core::zeroed::<i16>();
-        (::windows::core::Interface::vtable(self).IsTransactional)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn IsTransactional(&self) -> ::windows_core::Result<i16> {
+        let mut result__ = ::windows_core::zeroed::<i16>();
+        (::windows_core::Interface::vtable(self).IsTransactional)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn PrivLevel(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).PrivLevel)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn PrivLevel(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).PrivLevel)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetPrivLevel(&self, lprivlevel: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivLevel)(::windows::core::Interface::as_raw(self), lprivlevel).ok()
+    pub unsafe fn SetPrivLevel(&self, lprivlevel: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetPrivLevel)(::windows_core::Interface::as_raw(self), lprivlevel).ok()
     }
-    pub unsafe fn Journal(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).Journal)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Journal(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).Journal)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetJournal(&self, ljournal: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetJournal)(::windows::core::Interface::as_raw(self), ljournal).ok()
+    pub unsafe fn SetJournal(&self, ljournal: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetJournal)(::windows_core::Interface::as_raw(self), ljournal).ok()
     }
-    pub unsafe fn Quota(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).Quota)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Quota(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).Quota)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetQuota(&self, lquota: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetQuota)(::windows::core::Interface::as_raw(self), lquota).ok()
+    pub unsafe fn SetQuota(&self, lquota: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetQuota)(::windows_core::Interface::as_raw(self), lquota).ok()
     }
-    pub unsafe fn BasePriority(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).BasePriority)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn BasePriority(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).BasePriority)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetBasePriority(&self, lbasepriority: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBasePriority)(::windows::core::Interface::as_raw(self), lbasepriority).ok()
+    pub unsafe fn SetBasePriority(&self, lbasepriority: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetBasePriority)(::windows_core::Interface::as_raw(self), lbasepriority).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CreateTime(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).CreateTime)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn CreateTime(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).CreateTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ModifyTime(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).ModifyTime)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn ModifyTime(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).ModifyTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn Authenticate(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).Authenticate)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Authenticate(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).Authenticate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetAuthenticate(&self, lauthenticate: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAuthenticate)(::windows::core::Interface::as_raw(self), lauthenticate).ok()
+    pub unsafe fn SetAuthenticate(&self, lauthenticate: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetAuthenticate)(::windows_core::Interface::as_raw(self), lauthenticate).ok()
     }
-    pub unsafe fn JournalQuota(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).JournalQuota)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn JournalQuota(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).JournalQuota)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetJournalQuota(&self, ljournalquota: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetJournalQuota)(::windows::core::Interface::as_raw(self), ljournalquota).ok()
+    pub unsafe fn SetJournalQuota(&self, ljournalquota: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetJournalQuota)(::windows_core::Interface::as_raw(self), ljournalquota).ok()
     }
-    pub unsafe fn IsWorldReadable(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::windows::core::zeroed::<i16>();
-        (::windows::core::Interface::vtable(self).IsWorldReadable)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn IsWorldReadable(&self) -> ::windows_core::Result<i16> {
+        let mut result__ = ::windows_core::zeroed::<i16>();
+        (::windows_core::Interface::vtable(self).IsWorldReadable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Create(&self, istransactional: *const super::Com::VARIANT, isworldreadable: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), istransactional, isworldreadable).ok()
+    pub unsafe fn Create(&self, istransactional: *const super::Com::VARIANT, isworldreadable: *const super::Com::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Create)(::windows_core::Interface::as_raw(self), istransactional, isworldreadable).ok()
     }
-    pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn Delete(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Delete)(::windows_core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Open(&self, access: i32, sharemode: i32) -> ::windows::core::Result<IMSMQQueue> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQQueue>();
-        (::windows::core::Interface::vtable(self).Open)(::windows::core::Interface::as_raw(self), access, sharemode, &mut result__).from_abi(result__)
+    pub unsafe fn Open(&self, access: i32, sharemode: i32) -> ::windows_core::Result<IMSMQQueue> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQQueue>();
+        (::windows_core::Interface::vtable(self).Open)(::windows_core::Interface::as_raw(self), access, sharemode, &mut result__).from_abi(result__)
     }
-    pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Refresh)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn Refresh(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Refresh)(::windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn Update(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Update)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn Update(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Update)(::windows_core::Interface::as_raw(self)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::imp::interface_hierarchy!(IMSMQQueueInfo, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows_core::imp::interface_hierarchy!(IMSMQQueueInfo, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQQueueInfo {
     fn eq(&self, other: &Self) -> bool {
@@ -5269,7 +5269,7 @@ impl ::core::fmt::Debug for IMSMQQueueInfo {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IMSMQQueueInfo {
+unsafe impl ::windows_core::Interface for IMSMQQueueInfo {
     type Vtable = IMSMQQueueInfo_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5279,213 +5279,213 @@ impl ::core::clone::Clone for IMSMQQueueInfo {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::ComInterface for IMSMQQueueInfo {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e07b_dccd_11d0_aa4b_0060970debae);
+unsafe impl ::windows_core::ComInterface for IMSMQQueueInfo {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd7d6e07b_dccd_11d0_aa4b_0060970debae);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQQueueInfo_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub QueueGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrguidqueue: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub ServiceTypeGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrguidservicetype: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetServiceTypeGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrguidservicetype: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub Label: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrlabel: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetLabel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrlabel: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub PathName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrpathname: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetPathName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpathname: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub FormatName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrformatname: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetFormatName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrformatname: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub IsTransactional: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pistransactional: *mut i16) -> ::windows::core::HRESULT,
-    pub PrivLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plprivlevel: *mut i32) -> ::windows::core::HRESULT,
-    pub SetPrivLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lprivlevel: i32) -> ::windows::core::HRESULT,
-    pub Journal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pljournal: *mut i32) -> ::windows::core::HRESULT,
-    pub SetJournal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ljournal: i32) -> ::windows::core::HRESULT,
-    pub Quota: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plquota: *mut i32) -> ::windows::core::HRESULT,
-    pub SetQuota: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lquota: i32) -> ::windows::core::HRESULT,
-    pub BasePriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plbasepriority: *mut i32) -> ::windows::core::HRESULT,
-    pub SetBasePriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lbasepriority: i32) -> ::windows::core::HRESULT,
+    pub QueueGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrguidqueue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub ServiceTypeGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrguidservicetype: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetServiceTypeGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrguidservicetype: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub Label: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrlabel: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetLabel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrlabel: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub PathName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrpathname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetPathName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpathname: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub FormatName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrformatname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetFormatName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrformatname: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub IsTransactional: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pistransactional: *mut i16) -> ::windows_core::HRESULT,
+    pub PrivLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plprivlevel: *mut i32) -> ::windows_core::HRESULT,
+    pub SetPrivLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lprivlevel: i32) -> ::windows_core::HRESULT,
+    pub Journal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pljournal: *mut i32) -> ::windows_core::HRESULT,
+    pub SetJournal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ljournal: i32) -> ::windows_core::HRESULT,
+    pub Quota: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plquota: *mut i32) -> ::windows_core::HRESULT,
+    pub SetQuota: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lquota: i32) -> ::windows_core::HRESULT,
+    pub BasePriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plbasepriority: *mut i32) -> ::windows_core::HRESULT,
+    pub SetBasePriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lbasepriority: i32) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub CreateTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarcreatetime: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub CreateTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarcreatetime: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     CreateTime: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub ModifyTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarmodifytime: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub ModifyTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarmodifytime: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     ModifyTime: usize,
-    pub Authenticate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plauthenticate: *mut i32) -> ::windows::core::HRESULT,
-    pub SetAuthenticate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lauthenticate: i32) -> ::windows::core::HRESULT,
-    pub JournalQuota: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pljournalquota: *mut i32) -> ::windows::core::HRESULT,
-    pub SetJournalQuota: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ljournalquota: i32) -> ::windows::core::HRESULT,
-    pub IsWorldReadable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisworldreadable: *mut i16) -> ::windows::core::HRESULT,
+    pub Authenticate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plauthenticate: *mut i32) -> ::windows_core::HRESULT,
+    pub SetAuthenticate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lauthenticate: i32) -> ::windows_core::HRESULT,
+    pub JournalQuota: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pljournalquota: *mut i32) -> ::windows_core::HRESULT,
+    pub SetJournalQuota: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ljournalquota: i32) -> ::windows_core::HRESULT,
+    pub IsWorldReadable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisworldreadable: *mut i16) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, istransactional: *const super::Com::VARIANT, isworldreadable: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, istransactional: *const super::Com::VARIANT, isworldreadable: *const super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Create: usize,
-    pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, access: i32, sharemode: i32, ppq: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, access: i32, sharemode: i32, ppq: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Open: usize,
-    pub Refresh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Update: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Refresh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Update: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
-pub struct IMSMQQueueInfo2(::windows::core::IUnknown);
+pub struct IMSMQQueueInfo2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQQueueInfo2 {
-    pub unsafe fn QueueGuid(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).QueueGuid)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn QueueGuid(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).QueueGuid)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn ServiceTypeGuid(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).ServiceTypeGuid)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn ServiceTypeGuid(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).ServiceTypeGuid)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetServiceTypeGuid<P0>(&self, bstrguidservicetype: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetServiceTypeGuid<P0>(&self, bstrguidservicetype: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetServiceTypeGuid)(::windows::core::Interface::as_raw(self), bstrguidservicetype.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).SetServiceTypeGuid)(::windows_core::Interface::as_raw(self), bstrguidservicetype.into_param().abi()).ok()
     }
-    pub unsafe fn Label(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).Label)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Label(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).Label)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetLabel<P0>(&self, bstrlabel: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetLabel<P0>(&self, bstrlabel: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetLabel)(::windows::core::Interface::as_raw(self), bstrlabel.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).SetLabel)(::windows_core::Interface::as_raw(self), bstrlabel.into_param().abi()).ok()
     }
-    pub unsafe fn PathName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).PathName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn PathName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).PathName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetPathName<P0>(&self, bstrpathname: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPathName<P0>(&self, bstrpathname: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetPathName)(::windows::core::Interface::as_raw(self), bstrpathname.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).SetPathName)(::windows_core::Interface::as_raw(self), bstrpathname.into_param().abi()).ok()
     }
-    pub unsafe fn FormatName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).FormatName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn FormatName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).FormatName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetFormatName<P0>(&self, bstrformatname: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetFormatName<P0>(&self, bstrformatname: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetFormatName)(::windows::core::Interface::as_raw(self), bstrformatname.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).SetFormatName)(::windows_core::Interface::as_raw(self), bstrformatname.into_param().abi()).ok()
     }
-    pub unsafe fn IsTransactional(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::windows::core::zeroed::<i16>();
-        (::windows::core::Interface::vtable(self).IsTransactional)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn IsTransactional(&self) -> ::windows_core::Result<i16> {
+        let mut result__ = ::windows_core::zeroed::<i16>();
+        (::windows_core::Interface::vtable(self).IsTransactional)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn PrivLevel(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).PrivLevel)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn PrivLevel(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).PrivLevel)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetPrivLevel(&self, lprivlevel: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivLevel)(::windows::core::Interface::as_raw(self), lprivlevel).ok()
+    pub unsafe fn SetPrivLevel(&self, lprivlevel: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetPrivLevel)(::windows_core::Interface::as_raw(self), lprivlevel).ok()
     }
-    pub unsafe fn Journal(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).Journal)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Journal(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).Journal)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetJournal(&self, ljournal: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetJournal)(::windows::core::Interface::as_raw(self), ljournal).ok()
+    pub unsafe fn SetJournal(&self, ljournal: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetJournal)(::windows_core::Interface::as_raw(self), ljournal).ok()
     }
-    pub unsafe fn Quota(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).Quota)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Quota(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).Quota)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetQuota(&self, lquota: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetQuota)(::windows::core::Interface::as_raw(self), lquota).ok()
+    pub unsafe fn SetQuota(&self, lquota: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetQuota)(::windows_core::Interface::as_raw(self), lquota).ok()
     }
-    pub unsafe fn BasePriority(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).BasePriority)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn BasePriority(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).BasePriority)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetBasePriority(&self, lbasepriority: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBasePriority)(::windows::core::Interface::as_raw(self), lbasepriority).ok()
+    pub unsafe fn SetBasePriority(&self, lbasepriority: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetBasePriority)(::windows_core::Interface::as_raw(self), lbasepriority).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CreateTime(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).CreateTime)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn CreateTime(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).CreateTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ModifyTime(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).ModifyTime)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn ModifyTime(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).ModifyTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn Authenticate(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).Authenticate)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Authenticate(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).Authenticate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetAuthenticate(&self, lauthenticate: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAuthenticate)(::windows::core::Interface::as_raw(self), lauthenticate).ok()
+    pub unsafe fn SetAuthenticate(&self, lauthenticate: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetAuthenticate)(::windows_core::Interface::as_raw(self), lauthenticate).ok()
     }
-    pub unsafe fn JournalQuota(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).JournalQuota)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn JournalQuota(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).JournalQuota)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetJournalQuota(&self, ljournalquota: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetJournalQuota)(::windows::core::Interface::as_raw(self), ljournalquota).ok()
+    pub unsafe fn SetJournalQuota(&self, ljournalquota: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetJournalQuota)(::windows_core::Interface::as_raw(self), ljournalquota).ok()
     }
-    pub unsafe fn IsWorldReadable(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::windows::core::zeroed::<i16>();
-        (::windows::core::Interface::vtable(self).IsWorldReadable)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn IsWorldReadable(&self) -> ::windows_core::Result<i16> {
+        let mut result__ = ::windows_core::zeroed::<i16>();
+        (::windows_core::Interface::vtable(self).IsWorldReadable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Create(&self, istransactional: *const super::Com::VARIANT, isworldreadable: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), istransactional, isworldreadable).ok()
+    pub unsafe fn Create(&self, istransactional: *const super::Com::VARIANT, isworldreadable: *const super::Com::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Create)(::windows_core::Interface::as_raw(self), istransactional, isworldreadable).ok()
     }
-    pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn Delete(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Delete)(::windows_core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Open(&self, access: i32, sharemode: i32) -> ::windows::core::Result<IMSMQQueue2> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQQueue2>();
-        (::windows::core::Interface::vtable(self).Open)(::windows::core::Interface::as_raw(self), access, sharemode, &mut result__).from_abi(result__)
+    pub unsafe fn Open(&self, access: i32, sharemode: i32) -> ::windows_core::Result<IMSMQQueue2> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQQueue2>();
+        (::windows_core::Interface::vtable(self).Open)(::windows_core::Interface::as_raw(self), access, sharemode, &mut result__).from_abi(result__)
     }
-    pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Refresh)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn Refresh(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Refresh)(::windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn Update(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Update)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn Update(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Update)(::windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn PathNameDNS(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).PathNameDNS)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn PathNameDNS(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).PathNameDNS)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::IDispatch>();
-        (::windows::core::Interface::vtable(self).Properties)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Properties(&self) -> ::windows_core::Result<super::Com::IDispatch> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::IDispatch>();
+        (::windows_core::Interface::vtable(self).Properties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Security(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).Security)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Security(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).Security)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSecurity(&self, varsecurity: super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSecurity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(varsecurity)).ok()
+    pub unsafe fn SetSecurity(&self, varsecurity: super::Com::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetSecurity)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varsecurity)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::imp::interface_hierarchy!(IMSMQQueueInfo2, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows_core::imp::interface_hierarchy!(IMSMQQueueInfo2, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQQueueInfo2 {
     fn eq(&self, other: &Self) -> bool {
@@ -5501,7 +5501,7 @@ impl ::core::fmt::Debug for IMSMQQueueInfo2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IMSMQQueueInfo2 {
+unsafe impl ::windows_core::Interface for IMSMQQueueInfo2 {
     type Vtable = IMSMQQueueInfo2_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5511,252 +5511,252 @@ impl ::core::clone::Clone for IMSMQQueueInfo2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::ComInterface for IMSMQQueueInfo2 {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd174a80_89cf_11d2_b0f2_00e02c074f6b);
+unsafe impl ::windows_core::ComInterface for IMSMQQueueInfo2 {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfd174a80_89cf_11d2_b0f2_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQQueueInfo2_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub QueueGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrguidqueue: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub ServiceTypeGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrguidservicetype: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetServiceTypeGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrguidservicetype: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub Label: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrlabel: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetLabel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrlabel: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub PathName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrpathname: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetPathName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpathname: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub FormatName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrformatname: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetFormatName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrformatname: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub IsTransactional: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pistransactional: *mut i16) -> ::windows::core::HRESULT,
-    pub PrivLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plprivlevel: *mut i32) -> ::windows::core::HRESULT,
-    pub SetPrivLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lprivlevel: i32) -> ::windows::core::HRESULT,
-    pub Journal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pljournal: *mut i32) -> ::windows::core::HRESULT,
-    pub SetJournal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ljournal: i32) -> ::windows::core::HRESULT,
-    pub Quota: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plquota: *mut i32) -> ::windows::core::HRESULT,
-    pub SetQuota: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lquota: i32) -> ::windows::core::HRESULT,
-    pub BasePriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plbasepriority: *mut i32) -> ::windows::core::HRESULT,
-    pub SetBasePriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lbasepriority: i32) -> ::windows::core::HRESULT,
+    pub QueueGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrguidqueue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub ServiceTypeGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrguidservicetype: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetServiceTypeGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrguidservicetype: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub Label: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrlabel: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetLabel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrlabel: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub PathName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrpathname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetPathName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpathname: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub FormatName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrformatname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetFormatName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrformatname: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub IsTransactional: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pistransactional: *mut i16) -> ::windows_core::HRESULT,
+    pub PrivLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plprivlevel: *mut i32) -> ::windows_core::HRESULT,
+    pub SetPrivLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lprivlevel: i32) -> ::windows_core::HRESULT,
+    pub Journal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pljournal: *mut i32) -> ::windows_core::HRESULT,
+    pub SetJournal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ljournal: i32) -> ::windows_core::HRESULT,
+    pub Quota: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plquota: *mut i32) -> ::windows_core::HRESULT,
+    pub SetQuota: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lquota: i32) -> ::windows_core::HRESULT,
+    pub BasePriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plbasepriority: *mut i32) -> ::windows_core::HRESULT,
+    pub SetBasePriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lbasepriority: i32) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub CreateTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarcreatetime: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub CreateTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarcreatetime: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     CreateTime: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub ModifyTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarmodifytime: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub ModifyTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarmodifytime: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     ModifyTime: usize,
-    pub Authenticate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plauthenticate: *mut i32) -> ::windows::core::HRESULT,
-    pub SetAuthenticate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lauthenticate: i32) -> ::windows::core::HRESULT,
-    pub JournalQuota: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pljournalquota: *mut i32) -> ::windows::core::HRESULT,
-    pub SetJournalQuota: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ljournalquota: i32) -> ::windows::core::HRESULT,
-    pub IsWorldReadable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisworldreadable: *mut i16) -> ::windows::core::HRESULT,
+    pub Authenticate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plauthenticate: *mut i32) -> ::windows_core::HRESULT,
+    pub SetAuthenticate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lauthenticate: i32) -> ::windows_core::HRESULT,
+    pub JournalQuota: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pljournalquota: *mut i32) -> ::windows_core::HRESULT,
+    pub SetJournalQuota: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ljournalquota: i32) -> ::windows_core::HRESULT,
+    pub IsWorldReadable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisworldreadable: *mut i16) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, istransactional: *const super::Com::VARIANT, isworldreadable: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, istransactional: *const super::Com::VARIANT, isworldreadable: *const super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Create: usize,
-    pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, access: i32, sharemode: i32, ppq: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, access: i32, sharemode: i32, ppq: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Open: usize,
-    pub Refresh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Update: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub PathNameDNS: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrpathnamedns: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Refresh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Update: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub PathNameDNS: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrpathnamedns: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcolproperties: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcolproperties: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Properties: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Security: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarsecurity: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub Security: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarsecurity: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Security: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetSecurity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varsecurity: super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SetSecurity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varsecurity: super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetSecurity: usize,
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
-pub struct IMSMQQueueInfo3(::windows::core::IUnknown);
+pub struct IMSMQQueueInfo3(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQQueueInfo3 {
-    pub unsafe fn QueueGuid(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).QueueGuid)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn QueueGuid(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).QueueGuid)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn ServiceTypeGuid(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).ServiceTypeGuid)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn ServiceTypeGuid(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).ServiceTypeGuid)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetServiceTypeGuid<P0>(&self, bstrguidservicetype: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetServiceTypeGuid<P0>(&self, bstrguidservicetype: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetServiceTypeGuid)(::windows::core::Interface::as_raw(self), bstrguidservicetype.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).SetServiceTypeGuid)(::windows_core::Interface::as_raw(self), bstrguidservicetype.into_param().abi()).ok()
     }
-    pub unsafe fn Label(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).Label)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Label(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).Label)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetLabel<P0>(&self, bstrlabel: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetLabel<P0>(&self, bstrlabel: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetLabel)(::windows::core::Interface::as_raw(self), bstrlabel.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).SetLabel)(::windows_core::Interface::as_raw(self), bstrlabel.into_param().abi()).ok()
     }
-    pub unsafe fn PathName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).PathName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn PathName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).PathName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetPathName<P0>(&self, bstrpathname: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPathName<P0>(&self, bstrpathname: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetPathName)(::windows::core::Interface::as_raw(self), bstrpathname.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).SetPathName)(::windows_core::Interface::as_raw(self), bstrpathname.into_param().abi()).ok()
     }
-    pub unsafe fn FormatName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).FormatName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn FormatName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).FormatName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetFormatName<P0>(&self, bstrformatname: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetFormatName<P0>(&self, bstrformatname: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetFormatName)(::windows::core::Interface::as_raw(self), bstrformatname.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).SetFormatName)(::windows_core::Interface::as_raw(self), bstrformatname.into_param().abi()).ok()
     }
-    pub unsafe fn IsTransactional(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::windows::core::zeroed::<i16>();
-        (::windows::core::Interface::vtable(self).IsTransactional)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn IsTransactional(&self) -> ::windows_core::Result<i16> {
+        let mut result__ = ::windows_core::zeroed::<i16>();
+        (::windows_core::Interface::vtable(self).IsTransactional)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn PrivLevel(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).PrivLevel)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn PrivLevel(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).PrivLevel)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetPrivLevel(&self, lprivlevel: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivLevel)(::windows::core::Interface::as_raw(self), lprivlevel).ok()
+    pub unsafe fn SetPrivLevel(&self, lprivlevel: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetPrivLevel)(::windows_core::Interface::as_raw(self), lprivlevel).ok()
     }
-    pub unsafe fn Journal(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).Journal)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Journal(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).Journal)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetJournal(&self, ljournal: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetJournal)(::windows::core::Interface::as_raw(self), ljournal).ok()
+    pub unsafe fn SetJournal(&self, ljournal: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetJournal)(::windows_core::Interface::as_raw(self), ljournal).ok()
     }
-    pub unsafe fn Quota(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).Quota)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Quota(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).Quota)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetQuota(&self, lquota: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetQuota)(::windows::core::Interface::as_raw(self), lquota).ok()
+    pub unsafe fn SetQuota(&self, lquota: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetQuota)(::windows_core::Interface::as_raw(self), lquota).ok()
     }
-    pub unsafe fn BasePriority(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).BasePriority)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn BasePriority(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).BasePriority)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetBasePriority(&self, lbasepriority: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBasePriority)(::windows::core::Interface::as_raw(self), lbasepriority).ok()
+    pub unsafe fn SetBasePriority(&self, lbasepriority: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetBasePriority)(::windows_core::Interface::as_raw(self), lbasepriority).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CreateTime(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).CreateTime)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn CreateTime(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).CreateTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ModifyTime(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).ModifyTime)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn ModifyTime(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).ModifyTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn Authenticate(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).Authenticate)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Authenticate(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).Authenticate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetAuthenticate(&self, lauthenticate: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAuthenticate)(::windows::core::Interface::as_raw(self), lauthenticate).ok()
+    pub unsafe fn SetAuthenticate(&self, lauthenticate: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetAuthenticate)(::windows_core::Interface::as_raw(self), lauthenticate).ok()
     }
-    pub unsafe fn JournalQuota(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).JournalQuota)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn JournalQuota(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).JournalQuota)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetJournalQuota(&self, ljournalquota: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetJournalQuota)(::windows::core::Interface::as_raw(self), ljournalquota).ok()
+    pub unsafe fn SetJournalQuota(&self, ljournalquota: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetJournalQuota)(::windows_core::Interface::as_raw(self), ljournalquota).ok()
     }
-    pub unsafe fn IsWorldReadable(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::windows::core::zeroed::<i16>();
-        (::windows::core::Interface::vtable(self).IsWorldReadable)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn IsWorldReadable(&self) -> ::windows_core::Result<i16> {
+        let mut result__ = ::windows_core::zeroed::<i16>();
+        (::windows_core::Interface::vtable(self).IsWorldReadable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Create(&self, istransactional: *const super::Com::VARIANT, isworldreadable: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), istransactional, isworldreadable).ok()
+    pub unsafe fn Create(&self, istransactional: *const super::Com::VARIANT, isworldreadable: *const super::Com::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Create)(::windows_core::Interface::as_raw(self), istransactional, isworldreadable).ok()
     }
-    pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn Delete(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Delete)(::windows_core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Open(&self, access: i32, sharemode: i32) -> ::windows::core::Result<IMSMQQueue3> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQQueue3>();
-        (::windows::core::Interface::vtable(self).Open)(::windows::core::Interface::as_raw(self), access, sharemode, &mut result__).from_abi(result__)
+    pub unsafe fn Open(&self, access: i32, sharemode: i32) -> ::windows_core::Result<IMSMQQueue3> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQQueue3>();
+        (::windows_core::Interface::vtable(self).Open)(::windows_core::Interface::as_raw(self), access, sharemode, &mut result__).from_abi(result__)
     }
-    pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Refresh)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn Refresh(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Refresh)(::windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn Update(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Update)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn Update(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Update)(::windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn PathNameDNS(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).PathNameDNS)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn PathNameDNS(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).PathNameDNS)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::IDispatch>();
-        (::windows::core::Interface::vtable(self).Properties)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Properties(&self) -> ::windows_core::Result<super::Com::IDispatch> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::IDispatch>();
+        (::windows_core::Interface::vtable(self).Properties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Security(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).Security)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Security(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).Security)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSecurity(&self, varsecurity: super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSecurity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(varsecurity)).ok()
+    pub unsafe fn SetSecurity(&self, varsecurity: super::Com::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetSecurity)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varsecurity)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsTransactional2(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
-        (::windows::core::Interface::vtable(self).IsTransactional2)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn IsTransactional2(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        (::windows_core::Interface::vtable(self).IsTransactional2)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsWorldReadable2(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
-        (::windows::core::Interface::vtable(self).IsWorldReadable2)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn IsWorldReadable2(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        (::windows_core::Interface::vtable(self).IsWorldReadable2)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn MulticastAddress(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).MulticastAddress)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn MulticastAddress(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).MulticastAddress)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetMulticastAddress<P0>(&self, bstrmulticastaddress: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetMulticastAddress<P0>(&self, bstrmulticastaddress: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetMulticastAddress)(::windows::core::Interface::as_raw(self), bstrmulticastaddress.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).SetMulticastAddress)(::windows_core::Interface::as_raw(self), bstrmulticastaddress.into_param().abi()).ok()
     }
-    pub unsafe fn ADsPath(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).ADsPath)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn ADsPath(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).ADsPath)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::imp::interface_hierarchy!(IMSMQQueueInfo3, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows_core::imp::interface_hierarchy!(IMSMQQueueInfo3, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQQueueInfo3 {
     fn eq(&self, other: &Self) -> bool {
@@ -5772,7 +5772,7 @@ impl ::core::fmt::Debug for IMSMQQueueInfo3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IMSMQQueueInfo3 {
+unsafe impl ::windows_core::Interface for IMSMQQueueInfo3 {
     type Vtable = IMSMQQueueInfo3_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5782,263 +5782,263 @@ impl ::core::clone::Clone for IMSMQQueueInfo3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::ComInterface for IMSMQQueueInfo3 {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b1d_2168_11d3_898c_00e02c074f6b);
+unsafe impl ::windows_core::ComInterface for IMSMQQueueInfo3 {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeba96b1d_2168_11d3_898c_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQQueueInfo3_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub QueueGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrguidqueue: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub ServiceTypeGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrguidservicetype: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetServiceTypeGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrguidservicetype: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub Label: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrlabel: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetLabel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrlabel: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub PathName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrpathname: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetPathName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpathname: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub FormatName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrformatname: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetFormatName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrformatname: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub IsTransactional: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pistransactional: *mut i16) -> ::windows::core::HRESULT,
-    pub PrivLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plprivlevel: *mut i32) -> ::windows::core::HRESULT,
-    pub SetPrivLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lprivlevel: i32) -> ::windows::core::HRESULT,
-    pub Journal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pljournal: *mut i32) -> ::windows::core::HRESULT,
-    pub SetJournal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ljournal: i32) -> ::windows::core::HRESULT,
-    pub Quota: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plquota: *mut i32) -> ::windows::core::HRESULT,
-    pub SetQuota: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lquota: i32) -> ::windows::core::HRESULT,
-    pub BasePriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plbasepriority: *mut i32) -> ::windows::core::HRESULT,
-    pub SetBasePriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lbasepriority: i32) -> ::windows::core::HRESULT,
+    pub QueueGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrguidqueue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub ServiceTypeGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrguidservicetype: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetServiceTypeGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrguidservicetype: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub Label: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrlabel: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetLabel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrlabel: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub PathName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrpathname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetPathName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpathname: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub FormatName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrformatname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetFormatName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrformatname: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub IsTransactional: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pistransactional: *mut i16) -> ::windows_core::HRESULT,
+    pub PrivLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plprivlevel: *mut i32) -> ::windows_core::HRESULT,
+    pub SetPrivLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lprivlevel: i32) -> ::windows_core::HRESULT,
+    pub Journal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pljournal: *mut i32) -> ::windows_core::HRESULT,
+    pub SetJournal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ljournal: i32) -> ::windows_core::HRESULT,
+    pub Quota: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plquota: *mut i32) -> ::windows_core::HRESULT,
+    pub SetQuota: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lquota: i32) -> ::windows_core::HRESULT,
+    pub BasePriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plbasepriority: *mut i32) -> ::windows_core::HRESULT,
+    pub SetBasePriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lbasepriority: i32) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub CreateTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarcreatetime: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub CreateTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarcreatetime: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     CreateTime: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub ModifyTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarmodifytime: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub ModifyTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarmodifytime: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     ModifyTime: usize,
-    pub Authenticate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plauthenticate: *mut i32) -> ::windows::core::HRESULT,
-    pub SetAuthenticate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lauthenticate: i32) -> ::windows::core::HRESULT,
-    pub JournalQuota: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pljournalquota: *mut i32) -> ::windows::core::HRESULT,
-    pub SetJournalQuota: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ljournalquota: i32) -> ::windows::core::HRESULT,
-    pub IsWorldReadable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisworldreadable: *mut i16) -> ::windows::core::HRESULT,
+    pub Authenticate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plauthenticate: *mut i32) -> ::windows_core::HRESULT,
+    pub SetAuthenticate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lauthenticate: i32) -> ::windows_core::HRESULT,
+    pub JournalQuota: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pljournalquota: *mut i32) -> ::windows_core::HRESULT,
+    pub SetJournalQuota: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ljournalquota: i32) -> ::windows_core::HRESULT,
+    pub IsWorldReadable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisworldreadable: *mut i16) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, istransactional: *const super::Com::VARIANT, isworldreadable: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, istransactional: *const super::Com::VARIANT, isworldreadable: *const super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Create: usize,
-    pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, access: i32, sharemode: i32, ppq: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, access: i32, sharemode: i32, ppq: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Open: usize,
-    pub Refresh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Update: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub PathNameDNS: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrpathnamedns: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Refresh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Update: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub PathNameDNS: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrpathnamedns: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcolproperties: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcolproperties: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Properties: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Security: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarsecurity: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub Security: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarsecurity: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Security: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetSecurity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varsecurity: super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SetSecurity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varsecurity: super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetSecurity: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub IsTransactional2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pistransactional: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
+    pub IsTransactional2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pistransactional: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     IsTransactional2: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub IsWorldReadable2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisworldreadable: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
+    pub IsWorldReadable2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisworldreadable: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     IsWorldReadable2: usize,
-    pub MulticastAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrmulticastaddress: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetMulticastAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrmulticastaddress: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub ADsPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstradspath: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub MulticastAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrmulticastaddress: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetMulticastAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrmulticastaddress: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub ADsPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstradspath: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
-pub struct IMSMQQueueInfo4(::windows::core::IUnknown);
+pub struct IMSMQQueueInfo4(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQQueueInfo4 {
-    pub unsafe fn QueueGuid(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).QueueGuid)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn QueueGuid(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).QueueGuid)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn ServiceTypeGuid(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).ServiceTypeGuid)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn ServiceTypeGuid(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).ServiceTypeGuid)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetServiceTypeGuid<P0>(&self, bstrguidservicetype: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetServiceTypeGuid<P0>(&self, bstrguidservicetype: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetServiceTypeGuid)(::windows::core::Interface::as_raw(self), bstrguidservicetype.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).SetServiceTypeGuid)(::windows_core::Interface::as_raw(self), bstrguidservicetype.into_param().abi()).ok()
     }
-    pub unsafe fn Label(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).Label)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Label(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).Label)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetLabel<P0>(&self, bstrlabel: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetLabel<P0>(&self, bstrlabel: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetLabel)(::windows::core::Interface::as_raw(self), bstrlabel.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).SetLabel)(::windows_core::Interface::as_raw(self), bstrlabel.into_param().abi()).ok()
     }
-    pub unsafe fn PathName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).PathName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn PathName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).PathName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetPathName<P0>(&self, bstrpathname: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPathName<P0>(&self, bstrpathname: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetPathName)(::windows::core::Interface::as_raw(self), bstrpathname.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).SetPathName)(::windows_core::Interface::as_raw(self), bstrpathname.into_param().abi()).ok()
     }
-    pub unsafe fn FormatName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).FormatName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn FormatName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).FormatName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetFormatName<P0>(&self, bstrformatname: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetFormatName<P0>(&self, bstrformatname: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetFormatName)(::windows::core::Interface::as_raw(self), bstrformatname.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).SetFormatName)(::windows_core::Interface::as_raw(self), bstrformatname.into_param().abi()).ok()
     }
-    pub unsafe fn IsTransactional(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::windows::core::zeroed::<i16>();
-        (::windows::core::Interface::vtable(self).IsTransactional)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn IsTransactional(&self) -> ::windows_core::Result<i16> {
+        let mut result__ = ::windows_core::zeroed::<i16>();
+        (::windows_core::Interface::vtable(self).IsTransactional)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn PrivLevel(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).PrivLevel)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn PrivLevel(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).PrivLevel)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetPrivLevel(&self, lprivlevel: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivLevel)(::windows::core::Interface::as_raw(self), lprivlevel).ok()
+    pub unsafe fn SetPrivLevel(&self, lprivlevel: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetPrivLevel)(::windows_core::Interface::as_raw(self), lprivlevel).ok()
     }
-    pub unsafe fn Journal(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).Journal)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Journal(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).Journal)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetJournal(&self, ljournal: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetJournal)(::windows::core::Interface::as_raw(self), ljournal).ok()
+    pub unsafe fn SetJournal(&self, ljournal: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetJournal)(::windows_core::Interface::as_raw(self), ljournal).ok()
     }
-    pub unsafe fn Quota(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).Quota)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Quota(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).Quota)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetQuota(&self, lquota: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetQuota)(::windows::core::Interface::as_raw(self), lquota).ok()
+    pub unsafe fn SetQuota(&self, lquota: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetQuota)(::windows_core::Interface::as_raw(self), lquota).ok()
     }
-    pub unsafe fn BasePriority(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).BasePriority)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn BasePriority(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).BasePriority)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetBasePriority(&self, lbasepriority: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBasePriority)(::windows::core::Interface::as_raw(self), lbasepriority).ok()
+    pub unsafe fn SetBasePriority(&self, lbasepriority: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetBasePriority)(::windows_core::Interface::as_raw(self), lbasepriority).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CreateTime(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).CreateTime)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn CreateTime(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).CreateTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ModifyTime(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).ModifyTime)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn ModifyTime(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).ModifyTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn Authenticate(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).Authenticate)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Authenticate(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).Authenticate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetAuthenticate(&self, lauthenticate: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAuthenticate)(::windows::core::Interface::as_raw(self), lauthenticate).ok()
+    pub unsafe fn SetAuthenticate(&self, lauthenticate: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetAuthenticate)(::windows_core::Interface::as_raw(self), lauthenticate).ok()
     }
-    pub unsafe fn JournalQuota(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).JournalQuota)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn JournalQuota(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).JournalQuota)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetJournalQuota(&self, ljournalquota: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetJournalQuota)(::windows::core::Interface::as_raw(self), ljournalquota).ok()
+    pub unsafe fn SetJournalQuota(&self, ljournalquota: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetJournalQuota)(::windows_core::Interface::as_raw(self), ljournalquota).ok()
     }
-    pub unsafe fn IsWorldReadable(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::windows::core::zeroed::<i16>();
-        (::windows::core::Interface::vtable(self).IsWorldReadable)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn IsWorldReadable(&self) -> ::windows_core::Result<i16> {
+        let mut result__ = ::windows_core::zeroed::<i16>();
+        (::windows_core::Interface::vtable(self).IsWorldReadable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Create(&self, istransactional: *const super::Com::VARIANT, isworldreadable: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), istransactional, isworldreadable).ok()
+    pub unsafe fn Create(&self, istransactional: *const super::Com::VARIANT, isworldreadable: *const super::Com::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Create)(::windows_core::Interface::as_raw(self), istransactional, isworldreadable).ok()
     }
-    pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn Delete(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Delete)(::windows_core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Open(&self, access: i32, sharemode: i32) -> ::windows::core::Result<IMSMQQueue4> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQQueue4>();
-        (::windows::core::Interface::vtable(self).Open)(::windows::core::Interface::as_raw(self), access, sharemode, &mut result__).from_abi(result__)
+    pub unsafe fn Open(&self, access: i32, sharemode: i32) -> ::windows_core::Result<IMSMQQueue4> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQQueue4>();
+        (::windows_core::Interface::vtable(self).Open)(::windows_core::Interface::as_raw(self), access, sharemode, &mut result__).from_abi(result__)
     }
-    pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Refresh)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn Refresh(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Refresh)(::windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn Update(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Update)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn Update(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Update)(::windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn PathNameDNS(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).PathNameDNS)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn PathNameDNS(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).PathNameDNS)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::IDispatch>();
-        (::windows::core::Interface::vtable(self).Properties)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Properties(&self) -> ::windows_core::Result<super::Com::IDispatch> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::IDispatch>();
+        (::windows_core::Interface::vtable(self).Properties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Security(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).Security)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Security(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).Security)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSecurity(&self, varsecurity: super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSecurity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(varsecurity)).ok()
+    pub unsafe fn SetSecurity(&self, varsecurity: super::Com::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetSecurity)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varsecurity)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsTransactional2(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
-        (::windows::core::Interface::vtable(self).IsTransactional2)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn IsTransactional2(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        (::windows_core::Interface::vtable(self).IsTransactional2)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsWorldReadable2(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
-        (::windows::core::Interface::vtable(self).IsWorldReadable2)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn IsWorldReadable2(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        (::windows_core::Interface::vtable(self).IsWorldReadable2)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn MulticastAddress(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).MulticastAddress)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn MulticastAddress(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).MulticastAddress)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetMulticastAddress<P0>(&self, bstrmulticastaddress: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetMulticastAddress<P0>(&self, bstrmulticastaddress: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetMulticastAddress)(::windows::core::Interface::as_raw(self), bstrmulticastaddress.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).SetMulticastAddress)(::windows_core::Interface::as_raw(self), bstrmulticastaddress.into_param().abi()).ok()
     }
-    pub unsafe fn ADsPath(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).ADsPath)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn ADsPath(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).ADsPath)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::imp::interface_hierarchy!(IMSMQQueueInfo4, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows_core::imp::interface_hierarchy!(IMSMQQueueInfo4, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQQueueInfo4 {
     fn eq(&self, other: &Self) -> bool {
@@ -6054,7 +6054,7 @@ impl ::core::fmt::Debug for IMSMQQueueInfo4 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IMSMQQueueInfo4 {
+unsafe impl ::windows_core::Interface for IMSMQQueueInfo4 {
     type Vtable = IMSMQQueueInfo4_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6064,99 +6064,99 @@ impl ::core::clone::Clone for IMSMQQueueInfo4 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::ComInterface for IMSMQQueueInfo4 {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b21_2168_11d3_898c_00e02c074f6b);
+unsafe impl ::windows_core::ComInterface for IMSMQQueueInfo4 {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeba96b21_2168_11d3_898c_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQQueueInfo4_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub QueueGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrguidqueue: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub ServiceTypeGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrguidservicetype: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetServiceTypeGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrguidservicetype: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub Label: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrlabel: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetLabel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrlabel: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub PathName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrpathname: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetPathName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpathname: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub FormatName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrformatname: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetFormatName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrformatname: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub IsTransactional: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pistransactional: *mut i16) -> ::windows::core::HRESULT,
-    pub PrivLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plprivlevel: *mut i32) -> ::windows::core::HRESULT,
-    pub SetPrivLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lprivlevel: i32) -> ::windows::core::HRESULT,
-    pub Journal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pljournal: *mut i32) -> ::windows::core::HRESULT,
-    pub SetJournal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ljournal: i32) -> ::windows::core::HRESULT,
-    pub Quota: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plquota: *mut i32) -> ::windows::core::HRESULT,
-    pub SetQuota: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lquota: i32) -> ::windows::core::HRESULT,
-    pub BasePriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plbasepriority: *mut i32) -> ::windows::core::HRESULT,
-    pub SetBasePriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lbasepriority: i32) -> ::windows::core::HRESULT,
+    pub QueueGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrguidqueue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub ServiceTypeGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrguidservicetype: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetServiceTypeGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrguidservicetype: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub Label: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrlabel: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetLabel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrlabel: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub PathName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrpathname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetPathName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpathname: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub FormatName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrformatname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetFormatName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrformatname: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub IsTransactional: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pistransactional: *mut i16) -> ::windows_core::HRESULT,
+    pub PrivLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plprivlevel: *mut i32) -> ::windows_core::HRESULT,
+    pub SetPrivLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lprivlevel: i32) -> ::windows_core::HRESULT,
+    pub Journal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pljournal: *mut i32) -> ::windows_core::HRESULT,
+    pub SetJournal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ljournal: i32) -> ::windows_core::HRESULT,
+    pub Quota: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plquota: *mut i32) -> ::windows_core::HRESULT,
+    pub SetQuota: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lquota: i32) -> ::windows_core::HRESULT,
+    pub BasePriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plbasepriority: *mut i32) -> ::windows_core::HRESULT,
+    pub SetBasePriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lbasepriority: i32) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub CreateTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarcreatetime: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub CreateTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarcreatetime: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     CreateTime: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub ModifyTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarmodifytime: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub ModifyTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarmodifytime: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     ModifyTime: usize,
-    pub Authenticate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plauthenticate: *mut i32) -> ::windows::core::HRESULT,
-    pub SetAuthenticate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lauthenticate: i32) -> ::windows::core::HRESULT,
-    pub JournalQuota: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pljournalquota: *mut i32) -> ::windows::core::HRESULT,
-    pub SetJournalQuota: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ljournalquota: i32) -> ::windows::core::HRESULT,
-    pub IsWorldReadable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisworldreadable: *mut i16) -> ::windows::core::HRESULT,
+    pub Authenticate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plauthenticate: *mut i32) -> ::windows_core::HRESULT,
+    pub SetAuthenticate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lauthenticate: i32) -> ::windows_core::HRESULT,
+    pub JournalQuota: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pljournalquota: *mut i32) -> ::windows_core::HRESULT,
+    pub SetJournalQuota: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ljournalquota: i32) -> ::windows_core::HRESULT,
+    pub IsWorldReadable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisworldreadable: *mut i16) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, istransactional: *const super::Com::VARIANT, isworldreadable: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, istransactional: *const super::Com::VARIANT, isworldreadable: *const super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Create: usize,
-    pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, access: i32, sharemode: i32, ppq: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, access: i32, sharemode: i32, ppq: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Open: usize,
-    pub Refresh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Update: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub PathNameDNS: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrpathnamedns: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Refresh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Update: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub PathNameDNS: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrpathnamedns: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcolproperties: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcolproperties: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Properties: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Security: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarsecurity: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub Security: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarsecurity: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Security: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetSecurity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varsecurity: super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SetSecurity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varsecurity: super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetSecurity: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub IsTransactional2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pistransactional: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
+    pub IsTransactional2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pistransactional: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     IsTransactional2: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub IsWorldReadable2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisworldreadable: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
+    pub IsWorldReadable2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisworldreadable: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     IsWorldReadable2: usize,
-    pub MulticastAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrmulticastaddress: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub SetMulticastAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrmulticastaddress: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub ADsPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstradspath: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub MulticastAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrmulticastaddress: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetMulticastAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrmulticastaddress: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub ADsPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstradspath: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
-pub struct IMSMQQueueInfos(::windows::core::IUnknown);
+pub struct IMSMQQueueInfos(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQQueueInfos {
-    pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Next(&self) -> ::windows::core::Result<IMSMQQueueInfo> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQQueueInfo>();
-        (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Next(&self) -> ::windows_core::Result<IMSMQQueueInfo> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQQueueInfo>();
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::imp::interface_hierarchy!(IMSMQQueueInfos, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows_core::imp::interface_hierarchy!(IMSMQQueueInfos, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQQueueInfos {
     fn eq(&self, other: &Self) -> bool {
@@ -6172,7 +6172,7 @@ impl ::core::fmt::Debug for IMSMQQueueInfos {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IMSMQQueueInfos {
+unsafe impl ::windows_core::Interface for IMSMQQueueInfos {
     type Vtable = IMSMQQueueInfos_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6182,44 +6182,44 @@ impl ::core::clone::Clone for IMSMQQueueInfos {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::ComInterface for IMSMQQueueInfos {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e07d_dccd_11d0_aa4b_0060970debae);
+unsafe impl ::windows_core::ComInterface for IMSMQQueueInfos {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd7d6e07d_dccd_11d0_aa4b_0060970debae);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQQueueInfos_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinfonext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinfonext: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Next: usize,
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
-pub struct IMSMQQueueInfos2(::windows::core::IUnknown);
+pub struct IMSMQQueueInfos2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQQueueInfos2 {
-    pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Next(&self) -> ::windows::core::Result<IMSMQQueueInfo2> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQQueueInfo2>();
-        (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Next(&self) -> ::windows_core::Result<IMSMQQueueInfo2> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQQueueInfo2>();
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::IDispatch>();
-        (::windows::core::Interface::vtable(self).Properties)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Properties(&self) -> ::windows_core::Result<super::Com::IDispatch> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::IDispatch>();
+        (::windows_core::Interface::vtable(self).Properties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::imp::interface_hierarchy!(IMSMQQueueInfos2, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows_core::imp::interface_hierarchy!(IMSMQQueueInfos2, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQQueueInfos2 {
     fn eq(&self, other: &Self) -> bool {
@@ -6235,7 +6235,7 @@ impl ::core::fmt::Debug for IMSMQQueueInfos2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IMSMQQueueInfos2 {
+unsafe impl ::windows_core::Interface for IMSMQQueueInfos2 {
     type Vtable = IMSMQQueueInfos2_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6245,48 +6245,48 @@ impl ::core::clone::Clone for IMSMQQueueInfos2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::ComInterface for IMSMQQueueInfos2 {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b0f_2168_11d3_898c_00e02c074f6b);
+unsafe impl ::windows_core::ComInterface for IMSMQQueueInfos2 {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeba96b0f_2168_11d3_898c_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQQueueInfos2_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinfonext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinfonext: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Next: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcolproperties: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcolproperties: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Properties: usize,
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
-pub struct IMSMQQueueInfos3(::windows::core::IUnknown);
+pub struct IMSMQQueueInfos3(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQQueueInfos3 {
-    pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Next(&self) -> ::windows::core::Result<IMSMQQueueInfo3> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQQueueInfo3>();
-        (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Next(&self) -> ::windows_core::Result<IMSMQQueueInfo3> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQQueueInfo3>();
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::IDispatch>();
-        (::windows::core::Interface::vtable(self).Properties)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Properties(&self) -> ::windows_core::Result<super::Com::IDispatch> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::IDispatch>();
+        (::windows_core::Interface::vtable(self).Properties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::imp::interface_hierarchy!(IMSMQQueueInfos3, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows_core::imp::interface_hierarchy!(IMSMQQueueInfos3, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQQueueInfos3 {
     fn eq(&self, other: &Self) -> bool {
@@ -6302,7 +6302,7 @@ impl ::core::fmt::Debug for IMSMQQueueInfos3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IMSMQQueueInfos3 {
+unsafe impl ::windows_core::Interface for IMSMQQueueInfos3 {
     type Vtable = IMSMQQueueInfos3_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6312,48 +6312,48 @@ impl ::core::clone::Clone for IMSMQQueueInfos3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::ComInterface for IMSMQQueueInfos3 {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b1e_2168_11d3_898c_00e02c074f6b);
+unsafe impl ::windows_core::ComInterface for IMSMQQueueInfos3 {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeba96b1e_2168_11d3_898c_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQQueueInfos3_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinfonext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinfonext: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Next: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcolproperties: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcolproperties: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Properties: usize,
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
-pub struct IMSMQQueueInfos4(::windows::core::IUnknown);
+pub struct IMSMQQueueInfos4(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQQueueInfos4 {
-    pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Next(&self) -> ::windows::core::Result<IMSMQQueueInfo4> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQQueueInfo4>();
-        (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Next(&self) -> ::windows_core::Result<IMSMQQueueInfo4> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQQueueInfo4>();
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::IDispatch>();
-        (::windows::core::Interface::vtable(self).Properties)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Properties(&self) -> ::windows_core::Result<super::Com::IDispatch> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::IDispatch>();
+        (::windows_core::Interface::vtable(self).Properties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::imp::interface_hierarchy!(IMSMQQueueInfos4, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows_core::imp::interface_hierarchy!(IMSMQQueueInfos4, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQQueueInfos4 {
     fn eq(&self, other: &Self) -> bool {
@@ -6369,7 +6369,7 @@ impl ::core::fmt::Debug for IMSMQQueueInfos4 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IMSMQQueueInfos4 {
+unsafe impl ::windows_core::Interface for IMSMQQueueInfos4 {
     type Vtable = IMSMQQueueInfos4_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6379,90 +6379,90 @@ impl ::core::clone::Clone for IMSMQQueueInfos4 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::ComInterface for IMSMQQueueInfos4 {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b22_2168_11d3_898c_00e02c074f6b);
+unsafe impl ::windows_core::ComInterface for IMSMQQueueInfos4 {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeba96b22_2168_11d3_898c_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQQueueInfos4_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinfonext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqinfonext: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Next: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcolproperties: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcolproperties: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Properties: usize,
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
-pub struct IMSMQQueueManagement(::windows::core::IUnknown);
+pub struct IMSMQQueueManagement(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQQueueManagement {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Init(&self, machine: *const super::Com::VARIANT, pathname: *const super::Com::VARIANT, formatname: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Init)(::windows::core::Interface::as_raw(self), machine, pathname, formatname).ok()
+    pub unsafe fn Init(&self, machine: *const super::Com::VARIANT, pathname: *const super::Com::VARIANT, formatname: *const super::Com::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.Init)(::windows_core::Interface::as_raw(self), machine, pathname, formatname).ok()
     }
-    pub unsafe fn FormatName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).base__.FormatName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn FormatName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).base__.FormatName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn Machine(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
-        (::windows::core::Interface::vtable(self).base__.Machine)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Machine(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        (::windows_core::Interface::vtable(self).base__.Machine)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn MessageCount(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).base__.MessageCount)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn MessageCount(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).base__.MessageCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn ForeignStatus(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).base__.ForeignStatus)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn ForeignStatus(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).base__.ForeignStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn QueueType(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).base__.QueueType)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn QueueType(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).base__.QueueType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsLocal(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
-        (::windows::core::Interface::vtable(self).base__.IsLocal)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn IsLocal(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        (::windows_core::Interface::vtable(self).base__.IsLocal)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn TransactionalStatus(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).base__.TransactionalStatus)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn BytesInQueue(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).base__.BytesInQueue)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
-    }
-    pub unsafe fn JournalMessageCount(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).JournalMessageCount)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn TransactionalStatus(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).base__.TransactionalStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn BytesInJournal(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).BytesInJournal)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn BytesInQueue(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).base__.BytesInQueue)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    pub unsafe fn JournalMessageCount(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).JournalMessageCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn EodGetReceiveInfo(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).EodGetReceiveInfo)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn BytesInJournal(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).BytesInJournal)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub unsafe fn EodGetReceiveInfo(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).EodGetReceiveInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::imp::interface_hierarchy!(IMSMQQueueManagement, ::windows::core::IUnknown, super::Com::IDispatch, IMSMQManagement);
+::windows_core::imp::interface_hierarchy!(IMSMQQueueManagement, ::windows_core::IUnknown, super::Com::IDispatch, IMSMQManagement);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQQueueManagement {
     fn eq(&self, other: &Self) -> bool {
@@ -6478,7 +6478,7 @@ impl ::core::fmt::Debug for IMSMQQueueManagement {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IMSMQQueueManagement {
+unsafe impl ::windows_core::Interface for IMSMQQueueManagement {
     type Vtable = IMSMQQueueManagement_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6488,47 +6488,47 @@ impl ::core::clone::Clone for IMSMQQueueManagement {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::ComInterface for IMSMQQueueManagement {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fbe7759_5760_444d_b8a5_5e7ab9a84cce);
+unsafe impl ::windows_core::ComInterface for IMSMQQueueManagement {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7fbe7759_5760_444d_b8a5_5e7ab9a84cce);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQQueueManagement_Vtbl {
     pub base__: IMSMQManagement_Vtbl,
-    pub JournalMessageCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pljournalmessagecount: *mut i32) -> ::windows::core::HRESULT,
+    pub JournalMessageCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pljournalmessagecount: *mut i32) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub BytesInJournal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvbytesinjournal: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub BytesInJournal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvbytesinjournal: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     BytesInJournal: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub EodGetReceiveInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvcollection: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub EodGetReceiveInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvcollection: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     EodGetReceiveInfo: usize,
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
-pub struct IMSMQTransaction(::windows::core::IUnknown);
+pub struct IMSMQTransaction(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQTransaction {
-    pub unsafe fn Transaction(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).Transaction)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Transaction(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).Transaction)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Commit(&self, fretaining: *const super::Com::VARIANT, grftc: *const super::Com::VARIANT, grfrm: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Commit)(::windows::core::Interface::as_raw(self), fretaining, grftc, grfrm).ok()
+    pub unsafe fn Commit(&self, fretaining: *const super::Com::VARIANT, grftc: *const super::Com::VARIANT, grfrm: *const super::Com::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Commit)(::windows_core::Interface::as_raw(self), fretaining, grftc, grfrm).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Abort(&self, fretaining: *const super::Com::VARIANT, fasync: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Abort)(::windows::core::Interface::as_raw(self), fretaining, fasync).ok()
+    pub unsafe fn Abort(&self, fretaining: *const super::Com::VARIANT, fasync: *const super::Com::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Abort)(::windows_core::Interface::as_raw(self), fretaining, fasync).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::imp::interface_hierarchy!(IMSMQTransaction, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows_core::imp::interface_hierarchy!(IMSMQTransaction, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQTransaction {
     fn eq(&self, other: &Self) -> bool {
@@ -6544,7 +6544,7 @@ impl ::core::fmt::Debug for IMSMQTransaction {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IMSMQTransaction {
+unsafe impl ::windows_core::Interface for IMSMQTransaction {
     type Vtable = IMSMQTransaction_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6554,58 +6554,58 @@ impl ::core::clone::Clone for IMSMQTransaction {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::ComInterface for IMSMQTransaction {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e07f_dccd_11d0_aa4b_0060970debae);
+unsafe impl ::windows_core::ComInterface for IMSMQTransaction {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd7d6e07f_dccd_11d0_aa4b_0060970debae);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQTransaction_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub Transaction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pltransaction: *mut i32) -> ::windows::core::HRESULT,
+    pub Transaction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pltransaction: *mut i32) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Commit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fretaining: *const super::Com::VARIANT, grftc: *const super::Com::VARIANT, grfrm: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub Commit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fretaining: *const super::Com::VARIANT, grftc: *const super::Com::VARIANT, grfrm: *const super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Commit: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Abort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fretaining: *const super::Com::VARIANT, fasync: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub Abort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fretaining: *const super::Com::VARIANT, fasync: *const super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Abort: usize,
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
-pub struct IMSMQTransaction2(::windows::core::IUnknown);
+pub struct IMSMQTransaction2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQTransaction2 {
-    pub unsafe fn Transaction(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).base__.Transaction)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Transaction(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).base__.Transaction)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Commit(&self, fretaining: *const super::Com::VARIANT, grftc: *const super::Com::VARIANT, grfrm: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Commit)(::windows::core::Interface::as_raw(self), fretaining, grftc, grfrm).ok()
+    pub unsafe fn Commit(&self, fretaining: *const super::Com::VARIANT, grftc: *const super::Com::VARIANT, grfrm: *const super::Com::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.Commit)(::windows_core::Interface::as_raw(self), fretaining, grftc, grfrm).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Abort(&self, fretaining: *const super::Com::VARIANT, fasync: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Abort)(::windows::core::Interface::as_raw(self), fretaining, fasync).ok()
+    pub unsafe fn Abort(&self, fretaining: *const super::Com::VARIANT, fasync: *const super::Com::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.Abort)(::windows_core::Interface::as_raw(self), fretaining, fasync).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn InitNew(&self, vartransaction: super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InitNew)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(vartransaction)).ok()
+    pub unsafe fn InitNew(&self, vartransaction: super::Com::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).InitNew)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vartransaction)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::IDispatch>();
-        (::windows::core::Interface::vtable(self).Properties)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Properties(&self) -> ::windows_core::Result<super::Com::IDispatch> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::IDispatch>();
+        (::windows_core::Interface::vtable(self).Properties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::imp::interface_hierarchy!(IMSMQTransaction2, ::windows::core::IUnknown, super::Com::IDispatch, IMSMQTransaction);
+::windows_core::imp::interface_hierarchy!(IMSMQTransaction2, ::windows_core::IUnknown, super::Com::IDispatch, IMSMQTransaction);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQTransaction2 {
     fn eq(&self, other: &Self) -> bool {
@@ -6621,7 +6621,7 @@ impl ::core::fmt::Debug for IMSMQTransaction2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IMSMQTransaction2 {
+unsafe impl ::windows_core::Interface for IMSMQTransaction2 {
     type Vtable = IMSMQTransaction2_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6631,8 +6631,8 @@ impl ::core::clone::Clone for IMSMQTransaction2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::ComInterface for IMSMQTransaction2 {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ce0c5b0_6e67_11d2_b0e6_00e02c074f6b);
+unsafe impl ::windows_core::ComInterface for IMSMQTransaction2 {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2ce0c5b0_6e67_11d2_b0e6_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
@@ -6640,54 +6640,54 @@ unsafe impl ::windows::core::ComInterface for IMSMQTransaction2 {
 pub struct IMSMQTransaction2_Vtbl {
     pub base__: IMSMQTransaction_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub InitNew: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vartransaction: super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub InitNew: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vartransaction: super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     InitNew: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcolproperties: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcolproperties: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Properties: usize,
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
-pub struct IMSMQTransaction3(::windows::core::IUnknown);
+pub struct IMSMQTransaction3(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQTransaction3 {
-    pub unsafe fn Transaction(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).base__.base__.Transaction)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Transaction(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).base__.base__.Transaction)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Commit(&self, fretaining: *const super::Com::VARIANT, grftc: *const super::Com::VARIANT, grfrm: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.Commit)(::windows::core::Interface::as_raw(self), fretaining, grftc, grfrm).ok()
+    pub unsafe fn Commit(&self, fretaining: *const super::Com::VARIANT, grftc: *const super::Com::VARIANT, grfrm: *const super::Com::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.base__.Commit)(::windows_core::Interface::as_raw(self), fretaining, grftc, grfrm).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Abort(&self, fretaining: *const super::Com::VARIANT, fasync: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.Abort)(::windows::core::Interface::as_raw(self), fretaining, fasync).ok()
+    pub unsafe fn Abort(&self, fretaining: *const super::Com::VARIANT, fasync: *const super::Com::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.base__.Abort)(::windows_core::Interface::as_raw(self), fretaining, fasync).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn InitNew(&self, vartransaction: super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.InitNew)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(vartransaction)).ok()
+    pub unsafe fn InitNew(&self, vartransaction: super::Com::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.InitNew)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vartransaction)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::IDispatch>();
-        (::windows::core::Interface::vtable(self).base__.Properties)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Properties(&self) -> ::windows_core::Result<super::Com::IDispatch> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::IDispatch>();
+        (::windows_core::Interface::vtable(self).base__.Properties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ITransaction(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::VARIANT>();
-        (::windows::core::Interface::vtable(self).ITransaction)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn ITransaction(&self) -> ::windows_core::Result<super::Com::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        (::windows_core::Interface::vtable(self).ITransaction)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::imp::interface_hierarchy!(IMSMQTransaction3, ::windows::core::IUnknown, super::Com::IDispatch, IMSMQTransaction, IMSMQTransaction2);
+::windows_core::imp::interface_hierarchy!(IMSMQTransaction3, ::windows_core::IUnknown, super::Com::IDispatch, IMSMQTransaction, IMSMQTransaction2);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQTransaction3 {
     fn eq(&self, other: &Self) -> bool {
@@ -6703,7 +6703,7 @@ impl ::core::fmt::Debug for IMSMQTransaction3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IMSMQTransaction3 {
+unsafe impl ::windows_core::Interface for IMSMQTransaction3 {
     type Vtable = IMSMQTransaction3_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6713,8 +6713,8 @@ impl ::core::clone::Clone for IMSMQTransaction3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::ComInterface for IMSMQTransaction3 {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b13_2168_11d3_898c_00e02c074f6b);
+unsafe impl ::windows_core::ComInterface for IMSMQTransaction3 {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeba96b13_2168_11d3_898c_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
@@ -6722,25 +6722,25 @@ unsafe impl ::windows::core::ComInterface for IMSMQTransaction3 {
 pub struct IMSMQTransaction3_Vtbl {
     pub base__: IMSMQTransaction2_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub ITransaction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvaritransaction: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub ITransaction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvaritransaction: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     ITransaction: usize,
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
-pub struct IMSMQTransactionDispenser(::windows::core::IUnknown);
+pub struct IMSMQTransactionDispenser(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQTransactionDispenser {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn BeginTransaction(&self) -> ::windows::core::Result<IMSMQTransaction> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQTransaction>();
-        (::windows::core::Interface::vtable(self).BeginTransaction)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn BeginTransaction(&self) -> ::windows_core::Result<IMSMQTransaction> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQTransaction>();
+        (::windows_core::Interface::vtable(self).BeginTransaction)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::imp::interface_hierarchy!(IMSMQTransactionDispenser, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows_core::imp::interface_hierarchy!(IMSMQTransactionDispenser, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQTransactionDispenser {
     fn eq(&self, other: &Self) -> bool {
@@ -6756,7 +6756,7 @@ impl ::core::fmt::Debug for IMSMQTransactionDispenser {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IMSMQTransactionDispenser {
+unsafe impl ::windows_core::Interface for IMSMQTransactionDispenser {
     type Vtable = IMSMQTransactionDispenser_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6766,8 +6766,8 @@ impl ::core::clone::Clone for IMSMQTransactionDispenser {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::ComInterface for IMSMQTransactionDispenser {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e083_dccd_11d0_aa4b_0060970debae);
+unsafe impl ::windows_core::ComInterface for IMSMQTransactionDispenser {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd7d6e083_dccd_11d0_aa4b_0060970debae);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
@@ -6775,31 +6775,31 @@ unsafe impl ::windows::core::ComInterface for IMSMQTransactionDispenser {
 pub struct IMSMQTransactionDispenser_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub BeginTransaction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptransaction: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub BeginTransaction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptransaction: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     BeginTransaction: usize,
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
-pub struct IMSMQTransactionDispenser2(::windows::core::IUnknown);
+pub struct IMSMQTransactionDispenser2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQTransactionDispenser2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn BeginTransaction(&self) -> ::windows::core::Result<IMSMQTransaction2> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQTransaction2>();
-        (::windows::core::Interface::vtable(self).BeginTransaction)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn BeginTransaction(&self) -> ::windows_core::Result<IMSMQTransaction2> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQTransaction2>();
+        (::windows_core::Interface::vtable(self).BeginTransaction)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::IDispatch>();
-        (::windows::core::Interface::vtable(self).Properties)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Properties(&self) -> ::windows_core::Result<super::Com::IDispatch> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::IDispatch>();
+        (::windows_core::Interface::vtable(self).Properties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::imp::interface_hierarchy!(IMSMQTransactionDispenser2, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows_core::imp::interface_hierarchy!(IMSMQTransactionDispenser2, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQTransactionDispenser2 {
     fn eq(&self, other: &Self) -> bool {
@@ -6815,7 +6815,7 @@ impl ::core::fmt::Debug for IMSMQTransactionDispenser2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IMSMQTransactionDispenser2 {
+unsafe impl ::windows_core::Interface for IMSMQTransactionDispenser2 {
     type Vtable = IMSMQTransactionDispenser2_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6825,8 +6825,8 @@ impl ::core::clone::Clone for IMSMQTransactionDispenser2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::ComInterface for IMSMQTransactionDispenser2 {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b11_2168_11d3_898c_00e02c074f6b);
+unsafe impl ::windows_core::ComInterface for IMSMQTransactionDispenser2 {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeba96b11_2168_11d3_898c_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
@@ -6834,35 +6834,35 @@ unsafe impl ::windows::core::ComInterface for IMSMQTransactionDispenser2 {
 pub struct IMSMQTransactionDispenser2_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub BeginTransaction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptransaction: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub BeginTransaction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptransaction: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     BeginTransaction: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcolproperties: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcolproperties: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Properties: usize,
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
-pub struct IMSMQTransactionDispenser3(::windows::core::IUnknown);
+pub struct IMSMQTransactionDispenser3(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQTransactionDispenser3 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn BeginTransaction(&self) -> ::windows::core::Result<IMSMQTransaction3> {
-        let mut result__ = ::windows::core::zeroed::<IMSMQTransaction3>();
-        (::windows::core::Interface::vtable(self).BeginTransaction)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn BeginTransaction(&self) -> ::windows_core::Result<IMSMQTransaction3> {
+        let mut result__ = ::windows_core::zeroed::<IMSMQTransaction3>();
+        (::windows_core::Interface::vtable(self).BeginTransaction)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch> {
-        let mut result__ = ::windows::core::zeroed::<super::Com::IDispatch>();
-        (::windows::core::Interface::vtable(self).Properties)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn Properties(&self) -> ::windows_core::Result<super::Com::IDispatch> {
+        let mut result__ = ::windows_core::zeroed::<super::Com::IDispatch>();
+        (::windows_core::Interface::vtable(self).Properties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::imp::interface_hierarchy!(IMSMQTransactionDispenser3, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows_core::imp::interface_hierarchy!(IMSMQTransactionDispenser3, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSMQTransactionDispenser3 {
     fn eq(&self, other: &Self) -> bool {
@@ -6878,7 +6878,7 @@ impl ::core::fmt::Debug for IMSMQTransactionDispenser3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IMSMQTransactionDispenser3 {
+unsafe impl ::windows_core::Interface for IMSMQTransactionDispenser3 {
     type Vtable = IMSMQTransactionDispenser3_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6888,8 +6888,8 @@ impl ::core::clone::Clone for IMSMQTransactionDispenser3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::ComInterface for IMSMQTransactionDispenser3 {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b15_2168_11d3_898c_00e02c074f6b);
+unsafe impl ::windows_core::ComInterface for IMSMQTransactionDispenser3 {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeba96b15_2168_11d3_898c_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
@@ -6897,22 +6897,22 @@ unsafe impl ::windows::core::ComInterface for IMSMQTransactionDispenser3 {
 pub struct IMSMQTransactionDispenser3_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub BeginTransaction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptransaction: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub BeginTransaction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptransaction: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     BeginTransaction: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcolproperties: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcolproperties: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Properties: usize,
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
-pub struct _DMSMQEventEvents(::windows::core::IUnknown);
+pub struct _DMSMQEventEvents(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl _DMSMQEventEvents {}
 #[cfg(feature = "Win32_System_Com")]
-::windows::imp::interface_hierarchy!(_DMSMQEventEvents, ::windows::core::IUnknown, super::Com::IDispatch);
+::windows_core::imp::interface_hierarchy!(_DMSMQEventEvents, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for _DMSMQEventEvents {
     fn eq(&self, other: &Self) -> bool {
@@ -6928,7 +6928,7 @@ impl ::core::fmt::Debug for _DMSMQEventEvents {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for _DMSMQEventEvents {
+unsafe impl ::windows_core::Interface for _DMSMQEventEvents {
     type Vtable = _DMSMQEventEvents_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6938,8 +6938,8 @@ impl ::core::clone::Clone for _DMSMQEventEvents {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::ComInterface for _DMSMQEventEvents {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e078_dccd_11d0_aa4b_0060970debae);
+unsafe impl ::windows_core::ComInterface for _DMSMQEventEvents {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd7d6e078_dccd_11d0_aa4b_0060970debae);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
@@ -6950,61 +6950,61 @@ pub struct _DMSMQEventEvents_Vtbl {
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 pub const LONG_LIVED: u32 = 4294967294u32;
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MACHINE_ACTION_CONNECT: ::windows::core::PCWSTR = ::windows::core::w!("CONNECT");
+pub const MACHINE_ACTION_CONNECT: ::windows_core::PCWSTR = ::windows_core::w!("CONNECT");
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MACHINE_ACTION_DISCONNECT: ::windows::core::PCWSTR = ::windows::core::w!("DISCONNECT");
+pub const MACHINE_ACTION_DISCONNECT: ::windows_core::PCWSTR = ::windows_core::w!("DISCONNECT");
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MACHINE_ACTION_TIDY: ::windows::core::PCWSTR = ::windows::core::w!("TIDY");
+pub const MACHINE_ACTION_TIDY: ::windows_core::PCWSTR = ::windows_core::w!("TIDY");
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MGMT_QUEUE_CORRECT_TYPE: ::windows::core::PCWSTR = ::windows::core::w!("YES");
+pub const MGMT_QUEUE_CORRECT_TYPE: ::windows_core::PCWSTR = ::windows_core::w!("YES");
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MGMT_QUEUE_FOREIGN_TYPE: ::windows::core::PCWSTR = ::windows::core::w!("YES");
+pub const MGMT_QUEUE_FOREIGN_TYPE: ::windows_core::PCWSTR = ::windows_core::w!("YES");
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MGMT_QUEUE_INCORRECT_TYPE: ::windows::core::PCWSTR = ::windows::core::w!("NO");
+pub const MGMT_QUEUE_INCORRECT_TYPE: ::windows_core::PCWSTR = ::windows_core::w!("NO");
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MGMT_QUEUE_LOCAL_LOCATION: ::windows::core::PCWSTR = ::windows::core::w!("LOCAL");
+pub const MGMT_QUEUE_LOCAL_LOCATION: ::windows_core::PCWSTR = ::windows_core::w!("LOCAL");
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MGMT_QUEUE_NOT_FOREIGN_TYPE: ::windows::core::PCWSTR = ::windows::core::w!("NO");
+pub const MGMT_QUEUE_NOT_FOREIGN_TYPE: ::windows_core::PCWSTR = ::windows_core::w!("NO");
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MGMT_QUEUE_NOT_TRANSACTIONAL_TYPE: ::windows::core::PCWSTR = ::windows::core::w!("NO");
+pub const MGMT_QUEUE_NOT_TRANSACTIONAL_TYPE: ::windows_core::PCWSTR = ::windows_core::w!("NO");
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MGMT_QUEUE_REMOTE_LOCATION: ::windows::core::PCWSTR = ::windows::core::w!("REMOTE");
+pub const MGMT_QUEUE_REMOTE_LOCATION: ::windows_core::PCWSTR = ::windows_core::w!("REMOTE");
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MGMT_QUEUE_STATE_CONNECTED: ::windows::core::PCWSTR = ::windows::core::w!("CONNECTED");
+pub const MGMT_QUEUE_STATE_CONNECTED: ::windows_core::PCWSTR = ::windows_core::w!("CONNECTED");
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MGMT_QUEUE_STATE_DISCONNECTED: ::windows::core::PCWSTR = ::windows::core::w!("DISCONNECTED");
+pub const MGMT_QUEUE_STATE_DISCONNECTED: ::windows_core::PCWSTR = ::windows_core::w!("DISCONNECTED");
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MGMT_QUEUE_STATE_DISCONNECTING: ::windows::core::PCWSTR = ::windows::core::w!("DISCONNECTING");
+pub const MGMT_QUEUE_STATE_DISCONNECTING: ::windows_core::PCWSTR = ::windows_core::w!("DISCONNECTING");
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MGMT_QUEUE_STATE_LOCAL: ::windows::core::PCWSTR = ::windows::core::w!("LOCAL CONNECTION");
+pub const MGMT_QUEUE_STATE_LOCAL: ::windows_core::PCWSTR = ::windows_core::w!("LOCAL CONNECTION");
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MGMT_QUEUE_STATE_LOCKED: ::windows::core::PCWSTR = ::windows::core::w!("LOCKED");
+pub const MGMT_QUEUE_STATE_LOCKED: ::windows_core::PCWSTR = ::windows_core::w!("LOCKED");
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MGMT_QUEUE_STATE_NEED_VALIDATE: ::windows::core::PCWSTR = ::windows::core::w!("NEED VALIDATION");
+pub const MGMT_QUEUE_STATE_NEED_VALIDATE: ::windows_core::PCWSTR = ::windows_core::w!("NEED VALIDATION");
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MGMT_QUEUE_STATE_NONACTIVE: ::windows::core::PCWSTR = ::windows::core::w!("INACTIVE");
+pub const MGMT_QUEUE_STATE_NONACTIVE: ::windows_core::PCWSTR = ::windows_core::w!("INACTIVE");
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MGMT_QUEUE_STATE_ONHOLD: ::windows::core::PCWSTR = ::windows::core::w!("ONHOLD");
+pub const MGMT_QUEUE_STATE_ONHOLD: ::windows_core::PCWSTR = ::windows_core::w!("ONHOLD");
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MGMT_QUEUE_STATE_WAITING: ::windows::core::PCWSTR = ::windows::core::w!("WAITING");
+pub const MGMT_QUEUE_STATE_WAITING: ::windows_core::PCWSTR = ::windows_core::w!("WAITING");
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MGMT_QUEUE_TRANSACTIONAL_TYPE: ::windows::core::PCWSTR = ::windows::core::w!("YES");
+pub const MGMT_QUEUE_TRANSACTIONAL_TYPE: ::windows_core::PCWSTR = ::windows_core::w!("YES");
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MGMT_QUEUE_TYPE_CONNECTOR: ::windows::core::PCWSTR = ::windows::core::w!("CONNECTOR");
+pub const MGMT_QUEUE_TYPE_CONNECTOR: ::windows_core::PCWSTR = ::windows_core::w!("CONNECTOR");
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MGMT_QUEUE_TYPE_MACHINE: ::windows::core::PCWSTR = ::windows::core::w!("MACHINE");
+pub const MGMT_QUEUE_TYPE_MACHINE: ::windows_core::PCWSTR = ::windows_core::w!("MACHINE");
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MGMT_QUEUE_TYPE_MULTICAST: ::windows::core::PCWSTR = ::windows::core::w!("MULTICAST");
+pub const MGMT_QUEUE_TYPE_MULTICAST: ::windows_core::PCWSTR = ::windows_core::w!("MULTICAST");
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MGMT_QUEUE_TYPE_PRIVATE: ::windows::core::PCWSTR = ::windows::core::w!("PRIVATE");
+pub const MGMT_QUEUE_TYPE_PRIVATE: ::windows_core::PCWSTR = ::windows_core::w!("PRIVATE");
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MGMT_QUEUE_TYPE_PUBLIC: ::windows::core::PCWSTR = ::windows::core::w!("PUBLIC");
+pub const MGMT_QUEUE_TYPE_PUBLIC: ::windows_core::PCWSTR = ::windows_core::w!("PUBLIC");
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MGMT_QUEUE_UNKNOWN_TYPE: ::windows::core::PCWSTR = ::windows::core::w!("UNKNOWN");
+pub const MGMT_QUEUE_UNKNOWN_TYPE: ::windows_core::PCWSTR = ::windows_core::w!("UNKNOWN");
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MO_MACHINE_TOKEN: ::windows::core::PCWSTR = ::windows::core::w!("MACHINE");
+pub const MO_MACHINE_TOKEN: ::windows_core::PCWSTR = ::windows_core::w!("MACHINE");
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MO_QUEUE_TOKEN: ::windows::core::PCWSTR = ::windows::core::w!("QUEUE");
+pub const MO_QUEUE_TOKEN: ::windows_core::PCWSTR = ::windows_core::w!("QUEUE");
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 pub const MQMSG_AUTHENTICATED_QM_MESSAGE: u32 = 11u32;
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
@@ -7024,13 +7024,13 @@ pub const MQ_ACTION_PEEK_NEXT: u32 = 2147483649u32;
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 pub const MQ_ACTION_RECEIVE: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MQ_ERROR_MESSAGE_LOCKED_UNDER_TRANSACTION: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072824164i32);
+pub const MQ_ERROR_MESSAGE_LOCKED_UNDER_TRANSACTION: ::windows_core::HRESULT = ::windows_core::HRESULT(-1072824164i32);
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MQ_ERROR_MESSAGE_NOT_AUTHENTICATED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072824165i32);
+pub const MQ_ERROR_MESSAGE_NOT_AUTHENTICATED: ::windows_core::HRESULT = ::windows_core::HRESULT(-1072824165i32);
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MQ_ERROR_RESOLVE_ADDRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072824167i32);
+pub const MQ_ERROR_RESOLVE_ADDRESS: ::windows_core::HRESULT = ::windows_core::HRESULT(-1072824167i32);
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MQ_ERROR_TOO_MANY_PROPERTIES: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072824166i32);
+pub const MQ_ERROR_TOO_MANY_PROPERTIES: ::windows_core::HRESULT = ::windows_core::HRESULT(-1072824166i32);
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 pub const MQ_LOOKUP_PEEK_CURRENT: u32 = 1073741840u32;
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
@@ -7056,45 +7056,45 @@ pub const MQ_LOOKUP_RECEIVE_PREV: u32 = 1073741858u32;
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 pub const MQ_MOVE_ACCESS: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MQ_OK: ::windows::core::HRESULT = ::windows::core::HRESULT(0i32);
+pub const MQ_OK: ::windows_core::HRESULT = ::windows_core::HRESULT(0i32);
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MQ_QTYPE_REPORT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55ee8f32_cce9_11cf_b108_0020afd61ce9);
+pub const MQ_QTYPE_REPORT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x55ee8f32_cce9_11cf_b108_0020afd61ce9);
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MQ_QTYPE_TEST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55ee8f33_cce9_11cf_b108_0020afd61ce9);
+pub const MQ_QTYPE_TEST: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x55ee8f33_cce9_11cf_b108_0020afd61ce9);
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MSMQApplication: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e086_dccd_11d0_aa4b_0060970debae);
+pub const MSMQApplication: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd7d6e086_dccd_11d0_aa4b_0060970debae);
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MSMQCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf72b9031_2f0c_43e8_924e_e6052cdc493f);
+pub const MSMQCollection: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf72b9031_2f0c_43e8_924e_e6052cdc493f);
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MSMQCoordinatedTransactionDispenser: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e082_dccd_11d0_aa4b_0060970debae);
+pub const MSMQCoordinatedTransactionDispenser: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd7d6e082_dccd_11d0_aa4b_0060970debae);
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MSMQDestination: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b18_2168_11d3_898c_00e02c074f6b);
+pub const MSMQDestination: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeba96b18_2168_11d3_898c_00e02c074f6b);
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MSMQEvent: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e07a_dccd_11d0_aa4b_0060970debae);
+pub const MSMQEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd7d6e07a_dccd_11d0_aa4b_0060970debae);
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MSMQManagement: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39ce96fe_f4c5_4484_a143_4c2d5d324229);
+pub const MSMQManagement: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x39ce96fe_f4c5_4484_a143_4c2d5d324229);
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MSMQMessage: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e075_dccd_11d0_aa4b_0060970debae);
+pub const MSMQMessage: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd7d6e075_dccd_11d0_aa4b_0060970debae);
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MSMQOutgoingQueueManagement: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0188401c_247a_4fed_99c6_bf14119d7055);
+pub const MSMQOutgoingQueueManagement: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0188401c_247a_4fed_99c6_bf14119d7055);
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MSMQQuery: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e073_dccd_11d0_aa4b_0060970debae);
+pub const MSMQQuery: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd7d6e073_dccd_11d0_aa4b_0060970debae);
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MSMQQueue: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e079_dccd_11d0_aa4b_0060970debae);
+pub const MSMQQueue: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd7d6e079_dccd_11d0_aa4b_0060970debae);
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MSMQQueueInfo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e07c_dccd_11d0_aa4b_0060970debae);
+pub const MSMQQueueInfo: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd7d6e07c_dccd_11d0_aa4b_0060970debae);
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MSMQQueueInfos: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e07e_dccd_11d0_aa4b_0060970debae);
+pub const MSMQQueueInfos: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd7d6e07e_dccd_11d0_aa4b_0060970debae);
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MSMQQueueManagement: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33b6d07e_f27d_42fa_b2d7_bf82e11e9374);
+pub const MSMQQueueManagement: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x33b6d07e_f27d_42fa_b2d7_bf82e11e9374);
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MSMQTransaction: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e080_dccd_11d0_aa4b_0060970debae);
+pub const MSMQTransaction: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd7d6e080_dccd_11d0_aa4b_0060970debae);
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MSMQTransactionDispenser: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e084_dccd_11d0_aa4b_0060970debae);
+pub const MSMQTransactionDispenser: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd7d6e084_dccd_11d0_aa4b_0060970debae);
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MSMQ_CONNECTED: ::windows::core::PCWSTR = ::windows::core::w!("CONNECTED");
+pub const MSMQ_CONNECTED: ::windows_core::PCWSTR = ::windows_core::w!("CONNECTED");
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MSMQ_DISCONNECTED: ::windows::core::PCWSTR = ::windows::core::w!("DISCONNECTED");
+pub const MSMQ_DISCONNECTED: ::windows_core::PCWSTR = ::windows_core::w!("DISCONNECTED");
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 pub const PREQ: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
@@ -7392,11 +7392,11 @@ pub const QUERY_SORTASCEND: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 pub const QUERY_SORTDESCEND: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const QUEUE_ACTION_EOD_RESEND: ::windows::core::PCWSTR = ::windows::core::w!("EOD_RESEND");
+pub const QUEUE_ACTION_EOD_RESEND: ::windows_core::PCWSTR = ::windows_core::w!("EOD_RESEND");
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const QUEUE_ACTION_PAUSE: ::windows::core::PCWSTR = ::windows::core::w!("PAUSE");
+pub const QUEUE_ACTION_PAUSE: ::windows_core::PCWSTR = ::windows_core::w!("PAUSE");
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const QUEUE_ACTION_RESUME: ::windows::core::PCWSTR = ::windows::core::w!("RESUME");
+pub const QUEUE_ACTION_RESUME: ::windows_core::PCWSTR = ::windows_core::w!("RESUME");
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -7418,8 +7418,8 @@ impl ::core::default::Default for FOREIGN_STATUS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for FOREIGN_STATUS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for FOREIGN_STATUS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for FOREIGN_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7449,8 +7449,8 @@ impl ::core::default::Default for MQACCESS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MQACCESS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MQACCESS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MQACCESS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7476,8 +7476,8 @@ impl ::core::default::Default for MQAUTHENTICATE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MQAUTHENTICATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MQAUTHENTICATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MQAUTHENTICATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7525,8 +7525,8 @@ impl ::core::default::Default for MQCALG {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MQCALG {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MQCALG {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MQCALG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7552,8 +7552,8 @@ impl ::core::default::Default for MQCERT_REGISTER {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MQCERT_REGISTER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MQCERT_REGISTER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MQCERT_REGISTER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7609,8 +7609,8 @@ impl ::core::default::Default for MQConnectionState {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MQConnectionState {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MQConnectionState {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MQConnectionState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7664,8 +7664,8 @@ impl ::core::default::Default for MQDEFAULT {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MQDEFAULT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MQDEFAULT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MQDEFAULT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7953,8 +7953,8 @@ impl ::core::default::Default for MQERROR {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MQERROR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MQERROR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MQERROR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7980,8 +7980,8 @@ impl ::core::default::Default for MQJOURNAL {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MQJOURNAL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MQJOURNAL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MQJOURNAL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8007,8 +8007,8 @@ impl ::core::default::Default for MQMAX {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MQMAX {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MQMAX {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MQMAX {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8048,8 +8048,8 @@ impl ::core::default::Default for MQMSGACKNOWLEDGEMENT {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MQMSGACKNOWLEDGEMENT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MQMSGACKNOWLEDGEMENT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MQMSGACKNOWLEDGEMENT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8085,8 +8085,8 @@ impl ::core::default::Default for MQMSGAUTHENTICATION {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MQMSGAUTHENTICATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MQMSGAUTHENTICATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MQMSGAUTHENTICATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8122,8 +8122,8 @@ impl ::core::default::Default for MQMSGAUTHLEVEL {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MQMSGAUTHLEVEL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MQMSGAUTHLEVEL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MQMSGAUTHLEVEL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8187,8 +8187,8 @@ impl ::core::default::Default for MQMSGCLASS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MQMSGCLASS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MQMSGCLASS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MQMSGCLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8216,8 +8216,8 @@ impl ::core::default::Default for MQMSGCURSOR {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MQMSGCURSOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MQMSGCURSOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MQMSGCURSOR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8243,8 +8243,8 @@ impl ::core::default::Default for MQMSGDELIVERY {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MQMSGDELIVERY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MQMSGDELIVERY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MQMSGDELIVERY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8272,8 +8272,8 @@ impl ::core::default::Default for MQMSGIDSIZE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MQMSGIDSIZE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MQMSGIDSIZE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MQMSGIDSIZE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8301,8 +8301,8 @@ impl ::core::default::Default for MQMSGJOURNAL {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MQMSGJOURNAL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MQMSGJOURNAL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MQMSGJOURNAL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8326,8 +8326,8 @@ impl ::core::default::Default for MQMSGMAX {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MQMSGMAX {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MQMSGMAX {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MQMSGMAX {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8355,8 +8355,8 @@ impl ::core::default::Default for MQMSGPRIVLEVEL {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MQMSGPRIVLEVEL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MQMSGPRIVLEVEL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MQMSGPRIVLEVEL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8382,8 +8382,8 @@ impl ::core::default::Default for MQMSGSENDERIDTYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MQMSGSENDERIDTYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MQMSGSENDERIDTYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MQMSGSENDERIDTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8409,8 +8409,8 @@ impl ::core::default::Default for MQMSGTRACE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MQMSGTRACE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MQMSGTRACE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MQMSGTRACE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8436,8 +8436,8 @@ impl ::core::default::Default for MQPRIORITY {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MQPRIORITY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MQPRIORITY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MQPRIORITY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8465,8 +8465,8 @@ impl ::core::default::Default for MQPRIVLEVEL {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MQPRIVLEVEL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MQPRIVLEVEL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MQPRIVLEVEL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8520,8 +8520,8 @@ impl ::core::default::Default for MQQUEUEACCESSMASK {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MQQUEUEACCESSMASK {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MQQUEUEACCESSMASK {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MQQUEUEACCESSMASK {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8580,8 +8580,8 @@ impl ::core::default::Default for MQSHARE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MQSHARE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MQSHARE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MQSHARE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8611,8 +8611,8 @@ impl ::core::default::Default for MQTRANSACTION {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MQTRANSACTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MQTRANSACTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MQTRANSACTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8638,8 +8638,8 @@ impl ::core::default::Default for MQTRANSACTIONAL {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MQTRANSACTIONAL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MQTRANSACTIONAL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MQTRANSACTIONAL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8679,8 +8679,8 @@ impl ::core::default::Default for MQWARNING {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MQWARNING {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MQWARNING {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MQWARNING {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8720,8 +8720,8 @@ impl ::core::default::Default for QUEUE_STATE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for QUEUE_STATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for QUEUE_STATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for QUEUE_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8753,8 +8753,8 @@ impl ::core::default::Default for QUEUE_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for QUEUE_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for QUEUE_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for QUEUE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8790,8 +8790,8 @@ impl ::core::default::Default for RELOPS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for RELOPS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RELOPS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for RELOPS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8819,8 +8819,8 @@ impl ::core::default::Default for XACT_STATUS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for XACT_STATUS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for XACT_STATUS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for XACT_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8844,8 +8844,8 @@ impl ::core::fmt::Debug for MQCOLUMNSET {
         f.debug_struct("MQCOLUMNSET").field("cCol", &self.cCol).field("aCol", &self.aCol).finish()
     }
 }
-impl ::windows::core::TypeKind for MQCOLUMNSET {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MQCOLUMNSET {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for MQCOLUMNSET {
     fn eq(&self, other: &Self) -> bool {
@@ -8865,7 +8865,7 @@ pub struct MQMGMTPROPS {
     pub cProp: u32,
     pub aPropID: *mut u32,
     pub aPropVar: *mut super::Com::StructuredStorage::PROPVARIANT,
-    pub aStatus: *mut ::windows::core::HRESULT,
+    pub aStatus: *mut ::windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::marker::Copy for MQMGMTPROPS {}
@@ -8882,8 +8882,8 @@ impl ::core::fmt::Debug for MQMGMTPROPS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::windows::core::TypeKind for MQMGMTPROPS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MQMGMTPROPS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::cmp::PartialEq for MQMGMTPROPS {
@@ -8906,7 +8906,7 @@ pub struct MQMSGPROPS {
     pub cProp: u32,
     pub aPropID: *mut u32,
     pub aPropVar: *mut super::Com::StructuredStorage::PROPVARIANT,
-    pub aStatus: *mut ::windows::core::HRESULT,
+    pub aStatus: *mut ::windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::marker::Copy for MQMSGPROPS {}
@@ -8923,8 +8923,8 @@ impl ::core::fmt::Debug for MQMSGPROPS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::windows::core::TypeKind for MQMSGPROPS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MQMSGPROPS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::cmp::PartialEq for MQMSGPROPS {
@@ -8947,7 +8947,7 @@ pub struct MQPRIVATEPROPS {
     pub cProp: u32,
     pub aPropID: *mut u32,
     pub aPropVar: *mut super::Com::StructuredStorage::PROPVARIANT,
-    pub aStatus: *mut ::windows::core::HRESULT,
+    pub aStatus: *mut ::windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::marker::Copy for MQPRIVATEPROPS {}
@@ -8964,8 +8964,8 @@ impl ::core::fmt::Debug for MQPRIVATEPROPS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::windows::core::TypeKind for MQPRIVATEPROPS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MQPRIVATEPROPS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::cmp::PartialEq for MQPRIVATEPROPS {
@@ -8996,8 +8996,8 @@ impl ::core::clone::Clone for MQPROPERTYRESTRICTION {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::windows::core::TypeKind for MQPROPERTYRESTRICTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MQPROPERTYRESTRICTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::default::Default for MQPROPERTYRESTRICTION {
@@ -9012,7 +9012,7 @@ pub struct MQQMPROPS {
     pub cProp: u32,
     pub aPropID: *mut u32,
     pub aPropVar: *mut super::Com::StructuredStorage::PROPVARIANT,
-    pub aStatus: *mut ::windows::core::HRESULT,
+    pub aStatus: *mut ::windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::marker::Copy for MQQMPROPS {}
@@ -9029,8 +9029,8 @@ impl ::core::fmt::Debug for MQQMPROPS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::windows::core::TypeKind for MQQMPROPS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MQQMPROPS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::cmp::PartialEq for MQQMPROPS {
@@ -9053,7 +9053,7 @@ pub struct MQQUEUEPROPS {
     pub cProp: u32,
     pub aPropID: *mut u32,
     pub aPropVar: *mut super::Com::StructuredStorage::PROPVARIANT,
-    pub aStatus: *mut ::windows::core::HRESULT,
+    pub aStatus: *mut ::windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::marker::Copy for MQQUEUEPROPS {}
@@ -9070,8 +9070,8 @@ impl ::core::fmt::Debug for MQQUEUEPROPS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::windows::core::TypeKind for MQQUEUEPROPS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MQQUEUEPROPS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::cmp::PartialEq for MQQUEUEPROPS {
@@ -9109,8 +9109,8 @@ impl ::core::fmt::Debug for MQRESTRICTION {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::windows::core::TypeKind for MQRESTRICTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MQRESTRICTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::cmp::PartialEq for MQRESTRICTION {
@@ -9143,8 +9143,8 @@ impl ::core::fmt::Debug for MQSORTKEY {
         f.debug_struct("MQSORTKEY").field("propColumn", &self.propColumn).field("dwOrder", &self.dwOrder).finish()
     }
 }
-impl ::windows::core::TypeKind for MQSORTKEY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MQSORTKEY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for MQSORTKEY {
     fn eq(&self, other: &Self) -> bool {
@@ -9174,8 +9174,8 @@ impl ::core::fmt::Debug for MQSORTSET {
         f.debug_struct("MQSORTSET").field("cCol", &self.cCol).field("aCol", &self.aCol).finish()
     }
 }
-impl ::windows::core::TypeKind for MQSORTSET {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MQSORTSET {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for MQSORTSET {
     fn eq(&self, other: &Self) -> bool {
@@ -9206,8 +9206,8 @@ impl ::core::fmt::Debug for SEQUENCE_INFO {
         f.debug_struct("SEQUENCE_INFO").field("SeqID", &self.SeqID).field("SeqNo", &self.SeqNo).field("PrevNo", &self.PrevNo).finish()
     }
 }
-impl ::windows::core::TypeKind for SEQUENCE_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SEQUENCE_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for SEQUENCE_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -9222,6 +9222,6 @@ impl ::core::default::Default for SEQUENCE_INFO {
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_IO"))]
-pub type PMQRECEIVECALLBACK = ::core::option::Option<unsafe extern "system" fn(hrstatus: ::windows::core::HRESULT, hsource: isize, dwtimeout: u32, dwaction: u32, pmessageprops: *mut MQMSGPROPS, lpoverlapped: *mut super::IO::OVERLAPPED, hcursor: super::super::Foundation::HANDLE) -> ()>;
+pub type PMQRECEIVECALLBACK = ::core::option::Option<unsafe extern "system" fn(hrstatus: ::windows_core::HRESULT, hsource: isize, dwtimeout: u32, dwaction: u32, pmessageprops: *mut MQMSGPROPS, lpoverlapped: *mut super::IO::OVERLAPPED, hcursor: super::super::Foundation::HANDLE) -> ()>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

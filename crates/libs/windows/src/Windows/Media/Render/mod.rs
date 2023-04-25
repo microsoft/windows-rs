@@ -27,16 +27,16 @@ impl ::core::default::Default for AudioRenderCategory {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for AudioRenderCategory {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for AudioRenderCategory {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for AudioRenderCategory {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AudioRenderCategory").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for AudioRenderCategory {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Render.AudioRenderCategory;i4)");
+impl ::windows_core::RuntimeType for AudioRenderCategory {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Render.AudioRenderCategory;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

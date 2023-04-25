@@ -1,15 +1,15 @@
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetDeviceID(pbwindowsaik: ::core::option::Option<&mut [u8]>, pcbresult: *mut u32, pfprotectedbytpm: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("tbs.dll" "system" fn GetDeviceID(pbwindowsaik : *mut u8, cbwindowsaik : u32, pcbresult : *mut u32, pfprotectedbytpm : *mut super::super::Foundation:: BOOL) -> ::windows::core::HRESULT);
+pub unsafe fn GetDeviceID(pbwindowsaik: ::core::option::Option<&mut [u8]>, pcbresult: *mut u32, pfprotectedbytpm: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("tbs.dll" "system" fn GetDeviceID(pbwindowsaik : *mut u8, cbwindowsaik : u32, pcbresult : *mut u32, pfprotectedbytpm : *mut super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
     GetDeviceID(::core::mem::transmute(pbwindowsaik.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pbwindowsaik.as_deref().map_or(0, |slice| slice.len() as _), pcbresult, ::core::mem::transmute(pfprotectedbytpm.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetDeviceIDString(pszwindowsaik: ::core::option::Option<&mut [u16]>, pcchresult: *mut u32, pfprotectedbytpm: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("tbs.dll" "system" fn GetDeviceIDString(pszwindowsaik : ::windows::core::PWSTR, cchwindowsaik : u32, pcchresult : *mut u32, pfprotectedbytpm : *mut super::super::Foundation:: BOOL) -> ::windows::core::HRESULT);
+pub unsafe fn GetDeviceIDString(pszwindowsaik: ::core::option::Option<&mut [u16]>, pcchresult: *mut u32, pfprotectedbytpm: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("tbs.dll" "system" fn GetDeviceIDString(pszwindowsaik : ::windows_core::PWSTR, cchwindowsaik : u32, pcchresult : *mut u32, pfprotectedbytpm : *mut super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
     GetDeviceIDString(::core::mem::transmute(pszwindowsaik.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pszwindowsaik.as_deref().map_or(0, |slice| slice.len() as _), pcchresult, ::core::mem::transmute(pfprotectedbytpm.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
@@ -157,8 +157,8 @@ impl ::core::default::Default for TBS_COMMAND_LOCALITY {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TBS_COMMAND_LOCALITY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TBS_COMMAND_LOCALITY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TBS_COMMAND_LOCALITY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -190,8 +190,8 @@ impl ::core::default::Default for TBS_COMMAND_PRIORITY {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TBS_COMMAND_PRIORITY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TBS_COMMAND_PRIORITY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TBS_COMMAND_PRIORITY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -214,8 +214,8 @@ impl ::core::fmt::Debug for TBS_CONTEXT_PARAMS {
         f.debug_struct("TBS_CONTEXT_PARAMS").field("version", &self.version).finish()
     }
 }
-impl ::windows::core::TypeKind for TBS_CONTEXT_PARAMS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TBS_CONTEXT_PARAMS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for TBS_CONTEXT_PARAMS {
     fn eq(&self, other: &Self) -> bool {
@@ -240,8 +240,8 @@ impl ::core::clone::Clone for TBS_CONTEXT_PARAMS2 {
         *self
     }
 }
-impl ::windows::core::TypeKind for TBS_CONTEXT_PARAMS2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TBS_CONTEXT_PARAMS2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for TBS_CONTEXT_PARAMS2 {
     fn default() -> Self {
@@ -260,8 +260,8 @@ impl ::core::clone::Clone for TBS_CONTEXT_PARAMS2_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for TBS_CONTEXT_PARAMS2_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TBS_CONTEXT_PARAMS2_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for TBS_CONTEXT_PARAMS2_0 {
     fn default() -> Self {
@@ -284,8 +284,8 @@ impl ::core::fmt::Debug for TBS_CONTEXT_PARAMS2_0_0 {
         f.debug_struct("TBS_CONTEXT_PARAMS2_0_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows::core::TypeKind for TBS_CONTEXT_PARAMS2_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TBS_CONTEXT_PARAMS2_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for TBS_CONTEXT_PARAMS2_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -317,8 +317,8 @@ impl ::core::fmt::Debug for TPM_DEVICE_INFO {
         f.debug_struct("TPM_DEVICE_INFO").field("structVersion", &self.structVersion).field("tpmVersion", &self.tpmVersion).field("tpmInterfaceType", &self.tpmInterfaceType).field("tpmImpRevision", &self.tpmImpRevision).finish()
     }
 }
-impl ::windows::core::TypeKind for TPM_DEVICE_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TPM_DEVICE_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for TPM_DEVICE_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -348,8 +348,8 @@ impl ::core::fmt::Debug for TPM_WNF_PROVISIONING {
         f.debug_struct("TPM_WNF_PROVISIONING").field("status", &self.status).field("message", &self.message).finish()
     }
 }
-impl ::windows::core::TypeKind for TPM_WNF_PROVISIONING {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TPM_WNF_PROVISIONING {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for TPM_WNF_PROVISIONING {
     fn eq(&self, other: &Self) -> bool {

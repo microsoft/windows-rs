@@ -3,7 +3,7 @@
 #[inline]
 pub unsafe fn EnableMouseInPointer<P0>(fenable: P0) -> super::super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<super::super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("user32.dll" "system" fn EnableMouseInPointer(fenable : super::super::super::Foundation:: BOOL) -> super::super::super::Foundation:: BOOL);
     EnableMouseInPointer(fenable.into_param().abi())
@@ -20,7 +20,7 @@ pub unsafe fn GetPointerCursorId(pointerid: u32, cursorid: *mut u32) -> super::s
 #[inline]
 pub unsafe fn GetPointerDevice<P0>(device: P0, pointerdevice: *mut super::super::Controls::POINTER_DEVICE_INFO) -> super::super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("user32.dll" "system" fn GetPointerDevice(device : super::super::super::Foundation:: HANDLE, pointerdevice : *mut super::super::Controls:: POINTER_DEVICE_INFO) -> super::super::super::Foundation:: BOOL);
     GetPointerDevice(device.into_param().abi(), pointerdevice)
@@ -30,7 +30,7 @@ where
 #[inline]
 pub unsafe fn GetPointerDeviceCursors<P0>(device: P0, cursorcount: *mut u32, devicecursors: ::core::option::Option<*mut super::super::Controls::POINTER_DEVICE_CURSOR_INFO>) -> super::super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("user32.dll" "system" fn GetPointerDeviceCursors(device : super::super::super::Foundation:: HANDLE, cursorcount : *mut u32, devicecursors : *mut super::super::Controls:: POINTER_DEVICE_CURSOR_INFO) -> super::super::super::Foundation:: BOOL);
     GetPointerDeviceCursors(device.into_param().abi(), cursorcount, ::core::mem::transmute(devicecursors.unwrap_or(::std::ptr::null_mut())))
@@ -40,7 +40,7 @@ where
 #[inline]
 pub unsafe fn GetPointerDeviceProperties<P0>(device: P0, propertycount: *mut u32, pointerproperties: ::core::option::Option<*mut super::super::Controls::POINTER_DEVICE_PROPERTY>) -> super::super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("user32.dll" "system" fn GetPointerDeviceProperties(device : super::super::super::Foundation:: HANDLE, propertycount : *mut u32, pointerproperties : *mut super::super::Controls:: POINTER_DEVICE_PROPERTY) -> super::super::super::Foundation:: BOOL);
     GetPointerDeviceProperties(device.into_param().abi(), propertycount, ::core::mem::transmute(pointerproperties.unwrap_or(::std::ptr::null_mut())))
@@ -50,7 +50,7 @@ where
 #[inline]
 pub unsafe fn GetPointerDeviceRects<P0>(device: P0, pointerdevicerect: *mut super::super::super::Foundation::RECT, displayrect: *mut super::super::super::Foundation::RECT) -> super::super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("user32.dll" "system" fn GetPointerDeviceRects(device : super::super::super::Foundation:: HANDLE, pointerdevicerect : *mut super::super::super::Foundation:: RECT, displayrect : *mut super::super::super::Foundation:: RECT) -> super::super::super::Foundation:: BOOL);
     GetPointerDeviceRects(device.into_param().abi(), pointerdevicerect, displayrect)
@@ -185,7 +185,7 @@ pub unsafe fn InitializeTouchInjection(maxcount: u32, dwmode: TOUCH_FEEDBACK_MOD
 #[inline]
 pub unsafe fn InjectSyntheticPointerInput<P0>(device: P0, pointerinfo: &[super::super::Controls::POINTER_TYPE_INFO]) -> super::super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Controls::HSYNTHETICPOINTERDEVICE>,
+    P0: ::windows_core::IntoParam<super::super::Controls::HSYNTHETICPOINTERDEVICE>,
 {
     ::windows_targets::link!("user32.dll" "system" fn InjectSyntheticPointerInput(device : super::super::Controls:: HSYNTHETICPOINTERDEVICE, pointerinfo : *const super::super::Controls:: POINTER_TYPE_INFO, count : u32) -> super::super::super::Foundation:: BOOL);
     InjectSyntheticPointerInput(device.into_param().abi(), ::core::mem::transmute(pointerinfo.as_ptr()), pointerinfo.len() as _)
@@ -248,8 +248,8 @@ impl ::core::default::Default for POINTER_BUTTON_CHANGE_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for POINTER_BUTTON_CHANGE_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for POINTER_BUTTON_CHANGE_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for POINTER_BUTTON_CHANGE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -309,8 +309,8 @@ impl ::core::default::Default for POINTER_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for POINTER_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for POINTER_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for POINTER_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -371,8 +371,8 @@ impl ::core::default::Default for TOUCH_FEEDBACK_MODE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TOUCH_FEEDBACK_MODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TOUCH_FEEDBACK_MODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TOUCH_FEEDBACK_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -398,8 +398,8 @@ impl ::core::fmt::Debug for INPUT_INJECTION_VALUE {
         f.debug_struct("INPUT_INJECTION_VALUE").field("page", &self.page).field("usage", &self.usage).field("value", &self.value).field("index", &self.index).finish()
     }
 }
-impl ::windows::core::TypeKind for INPUT_INJECTION_VALUE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for INPUT_INJECTION_VALUE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for INPUT_INJECTION_VALUE {
     fn eq(&self, other: &Self) -> bool {
@@ -423,8 +423,8 @@ impl ::core::clone::Clone for INPUT_TRANSFORM {
         *self
     }
 }
-impl ::windows::core::TypeKind for INPUT_TRANSFORM {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for INPUT_TRANSFORM {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for INPUT_TRANSFORM {
     fn default() -> Self {
@@ -443,8 +443,8 @@ impl ::core::clone::Clone for INPUT_TRANSFORM_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for INPUT_TRANSFORM_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for INPUT_TRANSFORM_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for INPUT_TRANSFORM_0 {
     fn default() -> Self {
@@ -482,8 +482,8 @@ impl ::core::fmt::Debug for INPUT_TRANSFORM_0_0 {
         f.debug_struct("INPUT_TRANSFORM_0_0").field("_11", &self._11).field("_12", &self._12).field("_13", &self._13).field("_14", &self._14).field("_21", &self._21).field("_22", &self._22).field("_23", &self._23).field("_24", &self._24).field("_31", &self._31).field("_32", &self._32).field("_33", &self._33).field("_34", &self._34).field("_41", &self._41).field("_42", &self._42).field("_43", &self._43).field("_44", &self._44).finish()
     }
 }
-impl ::windows::core::TypeKind for INPUT_TRANSFORM_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for INPUT_TRANSFORM_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for INPUT_TRANSFORM_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -549,8 +549,8 @@ impl ::core::fmt::Debug for POINTER_INFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for POINTER_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for POINTER_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::cmp::PartialEq for POINTER_INFO {
@@ -593,8 +593,8 @@ impl ::core::fmt::Debug for POINTER_PEN_INFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for POINTER_PEN_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for POINTER_PEN_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::cmp::PartialEq for POINTER_PEN_INFO {
@@ -637,8 +637,8 @@ impl ::core::fmt::Debug for POINTER_TOUCH_INFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for POINTER_TOUCH_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for POINTER_TOUCH_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::cmp::PartialEq for POINTER_TOUCH_INFO {

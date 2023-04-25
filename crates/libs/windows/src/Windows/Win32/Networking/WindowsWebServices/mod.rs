@@ -1,30 +1,30 @@
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WebAuthNAuthenticatorGetAssertion<P0, P1>(hwnd: P0, pwszrpid: P1, pwebauthnclientdata: *const WEBAUTHN_CLIENT_DATA, pwebauthngetassertionoptions: ::core::option::Option<*const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS>) -> ::windows::core::Result<*mut WEBAUTHN_ASSERTION>
+pub unsafe fn WebAuthNAuthenticatorGetAssertion<P0, P1>(hwnd: P0, pwszrpid: P1, pwebauthnclientdata: *const WEBAUTHN_CLIENT_DATA, pwebauthngetassertionoptions: ::core::option::Option<*const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS>) -> ::windows_core::Result<*mut WEBAUTHN_ASSERTION>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("webauthn.dll" "system" fn WebAuthNAuthenticatorGetAssertion(hwnd : super::super::Foundation:: HWND, pwszrpid : ::windows::core::PCWSTR, pwebauthnclientdata : *const WEBAUTHN_CLIENT_DATA, pwebauthngetassertionoptions : *const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS, ppwebauthnassertion : *mut *mut WEBAUTHN_ASSERTION) -> ::windows::core::HRESULT);
-    let mut result__ = ::windows::core::zeroed::<*mut WEBAUTHN_ASSERTION>();
+    ::windows_targets::link!("webauthn.dll" "system" fn WebAuthNAuthenticatorGetAssertion(hwnd : super::super::Foundation:: HWND, pwszrpid : ::windows_core::PCWSTR, pwebauthnclientdata : *const WEBAUTHN_CLIENT_DATA, pwebauthngetassertionoptions : *const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS, ppwebauthnassertion : *mut *mut WEBAUTHN_ASSERTION) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<*mut WEBAUTHN_ASSERTION>();
     WebAuthNAuthenticatorGetAssertion(hwnd.into_param().abi(), pwszrpid.into_param().abi(), pwebauthnclientdata, ::core::mem::transmute(pwebauthngetassertionoptions.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WebAuthNAuthenticatorMakeCredential<P0>(hwnd: P0, prpinformation: *const WEBAUTHN_RP_ENTITY_INFORMATION, puserinformation: *const WEBAUTHN_USER_ENTITY_INFORMATION, ppubkeycredparams: *const WEBAUTHN_COSE_CREDENTIAL_PARAMETERS, pwebauthnclientdata: *const WEBAUTHN_CLIENT_DATA, pwebauthnmakecredentialoptions: ::core::option::Option<*const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS>) -> ::windows::core::Result<*mut WEBAUTHN_CREDENTIAL_ATTESTATION>
+pub unsafe fn WebAuthNAuthenticatorMakeCredential<P0>(hwnd: P0, prpinformation: *const WEBAUTHN_RP_ENTITY_INFORMATION, puserinformation: *const WEBAUTHN_USER_ENTITY_INFORMATION, ppubkeycredparams: *const WEBAUTHN_COSE_CREDENTIAL_PARAMETERS, pwebauthnclientdata: *const WEBAUTHN_CLIENT_DATA, pwebauthnmakecredentialoptions: ::core::option::Option<*const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS>) -> ::windows_core::Result<*mut WEBAUTHN_CREDENTIAL_ATTESTATION>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("webauthn.dll" "system" fn WebAuthNAuthenticatorMakeCredential(hwnd : super::super::Foundation:: HWND, prpinformation : *const WEBAUTHN_RP_ENTITY_INFORMATION, puserinformation : *const WEBAUTHN_USER_ENTITY_INFORMATION, ppubkeycredparams : *const WEBAUTHN_COSE_CREDENTIAL_PARAMETERS, pwebauthnclientdata : *const WEBAUTHN_CLIENT_DATA, pwebauthnmakecredentialoptions : *const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS, ppwebauthncredentialattestation : *mut *mut WEBAUTHN_CREDENTIAL_ATTESTATION) -> ::windows::core::HRESULT);
-    let mut result__ = ::windows::core::zeroed::<*mut WEBAUTHN_CREDENTIAL_ATTESTATION>();
+    ::windows_targets::link!("webauthn.dll" "system" fn WebAuthNAuthenticatorMakeCredential(hwnd : super::super::Foundation:: HWND, prpinformation : *const WEBAUTHN_RP_ENTITY_INFORMATION, puserinformation : *const WEBAUTHN_USER_ENTITY_INFORMATION, ppubkeycredparams : *const WEBAUTHN_COSE_CREDENTIAL_PARAMETERS, pwebauthnclientdata : *const WEBAUTHN_CLIENT_DATA, pwebauthnmakecredentialoptions : *const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS, ppwebauthncredentialattestation : *mut *mut WEBAUTHN_CREDENTIAL_ATTESTATION) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<*mut WEBAUTHN_CREDENTIAL_ATTESTATION>();
     WebAuthNAuthenticatorMakeCredential(hwnd.into_param().abi(), prpinformation, puserinformation, ppubkeycredparams, pwebauthnclientdata, ::core::mem::transmute(pwebauthnmakecredentialoptions.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WebAuthNCancelCurrentOperation(pcancellationid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webauthn.dll" "system" fn WebAuthNCancelCurrentOperation(pcancellationid : *const ::windows::core::GUID) -> ::windows::core::HRESULT);
+pub unsafe fn WebAuthNCancelCurrentOperation(pcancellationid: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webauthn.dll" "system" fn WebAuthNCancelCurrentOperation(pcancellationid : *const ::windows_core::GUID) -> ::windows_core::HRESULT);
     WebAuthNCancelCurrentOperation(pcancellationid).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
@@ -48,233 +48,233 @@ pub unsafe fn WebAuthNGetApiVersionNumber() -> u32 {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WebAuthNGetCancellationId() -> ::windows::core::Result<::windows::core::GUID> {
-    ::windows_targets::link!("webauthn.dll" "system" fn WebAuthNGetCancellationId(pcancellationid : *mut ::windows::core::GUID) -> ::windows::core::HRESULT);
-    let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+pub unsafe fn WebAuthNGetCancellationId() -> ::windows_core::Result<::windows_core::GUID> {
+    ::windows_targets::link!("webauthn.dll" "system" fn WebAuthNGetCancellationId(pcancellationid : *mut ::windows_core::GUID) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
     WebAuthNGetCancellationId(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WebAuthNGetErrorName(hr: ::windows::core::HRESULT) -> ::windows::core::PCWSTR {
-    ::windows_targets::link!("webauthn.dll" "system" fn WebAuthNGetErrorName(hr : ::windows::core::HRESULT) -> ::windows::core::PCWSTR);
+pub unsafe fn WebAuthNGetErrorName(hr: ::windows_core::HRESULT) -> ::windows_core::PCWSTR {
+    ::windows_targets::link!("webauthn.dll" "system" fn WebAuthNGetErrorName(hr : ::windows_core::HRESULT) -> ::windows_core::PCWSTR);
     WebAuthNGetErrorName(hr)
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WebAuthNGetW3CExceptionDOMError(hr: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webauthn.dll" "system" fn WebAuthNGetW3CExceptionDOMError(hr : ::windows::core::HRESULT) -> ::windows::core::HRESULT);
+pub unsafe fn WebAuthNGetW3CExceptionDOMError(hr: ::windows_core::HRESULT) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webauthn.dll" "system" fn WebAuthNGetW3CExceptionDOMError(hr : ::windows_core::HRESULT) -> ::windows_core::HRESULT);
     WebAuthNGetW3CExceptionDOMError(hr).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WebAuthNIsUserVerifyingPlatformAuthenticatorAvailable() -> ::windows::core::Result<super::super::Foundation::BOOL> {
-    ::windows_targets::link!("webauthn.dll" "system" fn WebAuthNIsUserVerifyingPlatformAuthenticatorAvailable(pbisuserverifyingplatformauthenticatoravailable : *mut super::super::Foundation:: BOOL) -> ::windows::core::HRESULT);
-    let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+pub unsafe fn WebAuthNIsUserVerifyingPlatformAuthenticatorAvailable() -> ::windows_core::Result<super::super::Foundation::BOOL> {
+    ::windows_targets::link!("webauthn.dll" "system" fn WebAuthNIsUserVerifyingPlatformAuthenticatorAvailable(pbisuserverifyingplatformauthenticatoravailable : *mut super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
     WebAuthNIsUserVerifyingPlatformAuthenticatorAvailable(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsAbandonCall(serviceproxy: *const WS_SERVICE_PROXY, callid: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsAbandonCall(serviceproxy : *const WS_SERVICE_PROXY, callid : u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsAbandonCall(serviceproxy: *const WS_SERVICE_PROXY, callid: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsAbandonCall(serviceproxy : *const WS_SERVICE_PROXY, callid : u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsAbandonCall(serviceproxy, callid, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsAbandonMessage(channel: *const WS_CHANNEL, message: *const WS_MESSAGE, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsAbandonMessage(channel : *const WS_CHANNEL, message : *const WS_MESSAGE, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsAbandonMessage(channel: *const WS_CHANNEL, message: *const WS_MESSAGE, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsAbandonMessage(channel : *const WS_CHANNEL, message : *const WS_MESSAGE, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsAbandonMessage(channel, message, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsAbortChannel(channel: *const WS_CHANNEL, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsAbortChannel(channel : *const WS_CHANNEL, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsAbortChannel(channel: *const WS_CHANNEL, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsAbortChannel(channel : *const WS_CHANNEL, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsAbortChannel(channel, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsAbortListener(listener: *const WS_LISTENER, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsAbortListener(listener : *const WS_LISTENER, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsAbortListener(listener: *const WS_LISTENER, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsAbortListener(listener : *const WS_LISTENER, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsAbortListener(listener, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsAbortServiceHost(servicehost: *const WS_SERVICE_HOST, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsAbortServiceHost(servicehost : *const WS_SERVICE_HOST, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsAbortServiceHost(servicehost: *const WS_SERVICE_HOST, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsAbortServiceHost(servicehost : *const WS_SERVICE_HOST, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsAbortServiceHost(servicehost, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsAbortServiceProxy(serviceproxy: *const WS_SERVICE_PROXY, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsAbortServiceProxy(serviceproxy : *const WS_SERVICE_PROXY, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsAbortServiceProxy(serviceproxy: *const WS_SERVICE_PROXY, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsAbortServiceProxy(serviceproxy : *const WS_SERVICE_PROXY, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsAbortServiceProxy(serviceproxy, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsAcceptChannel(listener: *const WS_LISTENER, channel: *const WS_CHANNEL, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsAcceptChannel(listener : *const WS_LISTENER, channel : *const WS_CHANNEL, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsAcceptChannel(listener: *const WS_LISTENER, channel: *const WS_CHANNEL, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsAcceptChannel(listener : *const WS_LISTENER, channel : *const WS_CHANNEL, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsAcceptChannel(listener, channel, ::core::mem::transmute(asynccontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsAddCustomHeader(message: *const WS_MESSAGE, headerdescription: *const WS_ELEMENT_DESCRIPTION, writeoption: WS_WRITE_OPTION, value: *const ::core::ffi::c_void, valuesize: u32, headerattributes: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsAddCustomHeader(message : *const WS_MESSAGE, headerdescription : *const WS_ELEMENT_DESCRIPTION, writeoption : WS_WRITE_OPTION, value : *const ::core::ffi::c_void, valuesize : u32, headerattributes : u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsAddCustomHeader(message: *const WS_MESSAGE, headerdescription: *const WS_ELEMENT_DESCRIPTION, writeoption: WS_WRITE_OPTION, value: *const ::core::ffi::c_void, valuesize: u32, headerattributes: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsAddCustomHeader(message : *const WS_MESSAGE, headerdescription : *const WS_ELEMENT_DESCRIPTION, writeoption : WS_WRITE_OPTION, value : *const ::core::ffi::c_void, valuesize : u32, headerattributes : u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsAddCustomHeader(message, headerdescription, writeoption, value, valuesize, headerattributes, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsAddErrorString(error: *const WS_ERROR, string: *const WS_STRING) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsAddErrorString(error : *const WS_ERROR, string : *const WS_STRING) -> ::windows::core::HRESULT);
+pub unsafe fn WsAddErrorString(error: *const WS_ERROR, string: *const WS_STRING) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsAddErrorString(error : *const WS_ERROR, string : *const WS_STRING) -> ::windows_core::HRESULT);
     WsAddErrorString(error, string).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsAddMappedHeader(message: *const WS_MESSAGE, headername: *const WS_XML_STRING, valuetype: WS_TYPE, writeoption: WS_WRITE_OPTION, value: *const ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsAddMappedHeader(message : *const WS_MESSAGE, headername : *const WS_XML_STRING, valuetype : WS_TYPE, writeoption : WS_WRITE_OPTION, value : *const ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsAddMappedHeader(message: *const WS_MESSAGE, headername: *const WS_XML_STRING, valuetype: WS_TYPE, writeoption: WS_WRITE_OPTION, value: *const ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsAddMappedHeader(message : *const WS_MESSAGE, headername : *const WS_XML_STRING, valuetype : WS_TYPE, writeoption : WS_WRITE_OPTION, value : *const ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsAddMappedHeader(message, headername, valuetype, writeoption, value, valuesize, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsAddressMessage(message: *const WS_MESSAGE, address: ::core::option::Option<*const WS_ENDPOINT_ADDRESS>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsAddressMessage(message : *const WS_MESSAGE, address : *const WS_ENDPOINT_ADDRESS, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsAddressMessage(message: *const WS_MESSAGE, address: ::core::option::Option<*const WS_ENDPOINT_ADDRESS>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsAddressMessage(message : *const WS_MESSAGE, address : *const WS_ENDPOINT_ADDRESS, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsAddressMessage(message, ::core::mem::transmute(address.unwrap_or(::std::ptr::null())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsAlloc(heap: *const WS_HEAP, size: usize, ptr: *mut *mut ::core::ffi::c_void, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsAlloc(heap : *const WS_HEAP, size : usize, ptr : *mut *mut ::core::ffi::c_void, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsAlloc(heap: *const WS_HEAP, size: usize, ptr: *mut *mut ::core::ffi::c_void, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsAlloc(heap : *const WS_HEAP, size : usize, ptr : *mut *mut ::core::ffi::c_void, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsAlloc(heap, size, ptr, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsAsyncExecute(asyncstate: *const WS_ASYNC_STATE, operation: WS_ASYNC_FUNCTION, callbackmodel: WS_CALLBACK_MODEL, callbackstate: ::core::option::Option<*const ::core::ffi::c_void>, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsAsyncExecute(asyncstate : *const WS_ASYNC_STATE, operation : WS_ASYNC_FUNCTION, callbackmodel : WS_CALLBACK_MODEL, callbackstate : *const ::core::ffi::c_void, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsAsyncExecute(asyncstate: *const WS_ASYNC_STATE, operation: WS_ASYNC_FUNCTION, callbackmodel: WS_CALLBACK_MODEL, callbackstate: ::core::option::Option<*const ::core::ffi::c_void>, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsAsyncExecute(asyncstate : *const WS_ASYNC_STATE, operation : WS_ASYNC_FUNCTION, callbackmodel : WS_CALLBACK_MODEL, callbackstate : *const ::core::ffi::c_void, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsAsyncExecute(asyncstate, operation, callbackmodel, ::core::mem::transmute(callbackstate.unwrap_or(::std::ptr::null())), ::core::mem::transmute(asynccontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsCall(serviceproxy: *const WS_SERVICE_PROXY, operation: *const WS_OPERATION_DESCRIPTION, arguments: ::core::option::Option<*const *const ::core::ffi::c_void>, heap: *const WS_HEAP, callproperties: ::core::option::Option<&[WS_CALL_PROPERTY]>, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsCall(serviceproxy : *const WS_SERVICE_PROXY, operation : *const WS_OPERATION_DESCRIPTION, arguments : *const *const ::core::ffi::c_void, heap : *const WS_HEAP, callproperties : *const WS_CALL_PROPERTY, callpropertycount : u32, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsCall(serviceproxy: *const WS_SERVICE_PROXY, operation: *const WS_OPERATION_DESCRIPTION, arguments: ::core::option::Option<*const *const ::core::ffi::c_void>, heap: *const WS_HEAP, callproperties: ::core::option::Option<&[WS_CALL_PROPERTY]>, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsCall(serviceproxy : *const WS_SERVICE_PROXY, operation : *const WS_OPERATION_DESCRIPTION, arguments : *const *const ::core::ffi::c_void, heap : *const WS_HEAP, callproperties : *const WS_CALL_PROPERTY, callpropertycount : u32, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsCall(serviceproxy, operation, ::core::mem::transmute(arguments.unwrap_or(::std::ptr::null())), heap, ::core::mem::transmute(callproperties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), callproperties.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(asynccontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsCheckMustUnderstandHeaders(message: *const WS_MESSAGE, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsCheckMustUnderstandHeaders(message : *const WS_MESSAGE, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsCheckMustUnderstandHeaders(message: *const WS_MESSAGE, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsCheckMustUnderstandHeaders(message : *const WS_MESSAGE, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsCheckMustUnderstandHeaders(message, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsCloseChannel(channel: *const WS_CHANNEL, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsCloseChannel(channel : *const WS_CHANNEL, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsCloseChannel(channel: *const WS_CHANNEL, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsCloseChannel(channel : *const WS_CHANNEL, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsCloseChannel(channel, ::core::mem::transmute(asynccontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsCloseListener(listener: *const WS_LISTENER, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsCloseListener(listener : *const WS_LISTENER, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsCloseListener(listener: *const WS_LISTENER, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsCloseListener(listener : *const WS_LISTENER, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsCloseListener(listener, ::core::mem::transmute(asynccontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsCloseServiceHost(servicehost: *const WS_SERVICE_HOST, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsCloseServiceHost(servicehost : *const WS_SERVICE_HOST, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsCloseServiceHost(servicehost: *const WS_SERVICE_HOST, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsCloseServiceHost(servicehost : *const WS_SERVICE_HOST, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsCloseServiceHost(servicehost, ::core::mem::transmute(asynccontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsCloseServiceProxy(serviceproxy: *const WS_SERVICE_PROXY, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsCloseServiceProxy(serviceproxy : *const WS_SERVICE_PROXY, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsCloseServiceProxy(serviceproxy: *const WS_SERVICE_PROXY, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsCloseServiceProxy(serviceproxy : *const WS_SERVICE_PROXY, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsCloseServiceProxy(serviceproxy, ::core::mem::transmute(asynccontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsCombineUrl(baseurl: *const WS_STRING, referenceurl: *const WS_STRING, flags: u32, heap: *const WS_HEAP, resulturl: *mut WS_STRING, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsCombineUrl(baseurl : *const WS_STRING, referenceurl : *const WS_STRING, flags : u32, heap : *const WS_HEAP, resulturl : *mut WS_STRING, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsCombineUrl(baseurl: *const WS_STRING, referenceurl: *const WS_STRING, flags: u32, heap: *const WS_HEAP, resulturl: *mut WS_STRING, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsCombineUrl(baseurl : *const WS_STRING, referenceurl : *const WS_STRING, flags : u32, heap : *const WS_HEAP, resulturl : *mut WS_STRING, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsCombineUrl(baseurl, referenceurl, flags, heap, resulturl, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsCopyError(source: *const WS_ERROR, destination: *const WS_ERROR) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsCopyError(source : *const WS_ERROR, destination : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsCopyError(source: *const WS_ERROR, destination: *const WS_ERROR) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsCopyError(source : *const WS_ERROR, destination : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsCopyError(source, destination).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsCopyNode(writer: *const WS_XML_WRITER, reader: *const WS_XML_READER, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsCopyNode(writer : *const WS_XML_WRITER, reader : *const WS_XML_READER, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsCopyNode(writer: *const WS_XML_WRITER, reader: *const WS_XML_READER, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsCopyNode(writer : *const WS_XML_WRITER, reader : *const WS_XML_READER, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsCopyNode(writer, reader, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsCreateChannel(channeltype: WS_CHANNEL_TYPE, channelbinding: WS_CHANNEL_BINDING, properties: ::core::option::Option<&[WS_CHANNEL_PROPERTY]>, securitydescription: ::core::option::Option<*const WS_SECURITY_DESCRIPTION>, channel: *mut *mut WS_CHANNEL, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsCreateChannel(channeltype : WS_CHANNEL_TYPE, channelbinding : WS_CHANNEL_BINDING, properties : *const WS_CHANNEL_PROPERTY, propertycount : u32, securitydescription : *const WS_SECURITY_DESCRIPTION, channel : *mut *mut WS_CHANNEL, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsCreateChannel(channeltype: WS_CHANNEL_TYPE, channelbinding: WS_CHANNEL_BINDING, properties: ::core::option::Option<&[WS_CHANNEL_PROPERTY]>, securitydescription: ::core::option::Option<*const WS_SECURITY_DESCRIPTION>, channel: *mut *mut WS_CHANNEL, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsCreateChannel(channeltype : WS_CHANNEL_TYPE, channelbinding : WS_CHANNEL_BINDING, properties : *const WS_CHANNEL_PROPERTY, propertycount : u32, securitydescription : *const WS_SECURITY_DESCRIPTION, channel : *mut *mut WS_CHANNEL, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsCreateChannel(channeltype, channelbinding, ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(securitydescription.unwrap_or(::std::ptr::null())), channel, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsCreateChannelForListener(listener: *const WS_LISTENER, properties: ::core::option::Option<&[WS_CHANNEL_PROPERTY]>, channel: *mut *mut WS_CHANNEL, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsCreateChannelForListener(listener : *const WS_LISTENER, properties : *const WS_CHANNEL_PROPERTY, propertycount : u32, channel : *mut *mut WS_CHANNEL, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsCreateChannelForListener(listener: *const WS_LISTENER, properties: ::core::option::Option<&[WS_CHANNEL_PROPERTY]>, channel: *mut *mut WS_CHANNEL, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsCreateChannelForListener(listener : *const WS_LISTENER, properties : *const WS_CHANNEL_PROPERTY, propertycount : u32, channel : *mut *mut WS_CHANNEL, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsCreateChannelForListener(listener, ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len() as _), channel, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsCreateError(properties: ::core::option::Option<&[WS_ERROR_PROPERTY]>) -> ::windows::core::Result<*mut WS_ERROR> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsCreateError(properties : *const WS_ERROR_PROPERTY, propertycount : u32, error : *mut *mut WS_ERROR) -> ::windows::core::HRESULT);
-    let mut result__ = ::windows::core::zeroed::<*mut WS_ERROR>();
+pub unsafe fn WsCreateError(properties: ::core::option::Option<&[WS_ERROR_PROPERTY]>) -> ::windows_core::Result<*mut WS_ERROR> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsCreateError(properties : *const WS_ERROR_PROPERTY, propertycount : u32, error : *mut *mut WS_ERROR) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<*mut WS_ERROR>();
     WsCreateError(::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len() as _), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsCreateFaultFromError(error: *const WS_ERROR, faulterrorcode: ::windows::core::HRESULT, faultdisclosure: WS_FAULT_DISCLOSURE, heap: *const WS_HEAP, fault: *mut WS_FAULT) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsCreateFaultFromError(error : *const WS_ERROR, faulterrorcode : ::windows::core::HRESULT, faultdisclosure : WS_FAULT_DISCLOSURE, heap : *const WS_HEAP, fault : *mut WS_FAULT) -> ::windows::core::HRESULT);
+pub unsafe fn WsCreateFaultFromError(error: *const WS_ERROR, faulterrorcode: ::windows_core::HRESULT, faultdisclosure: WS_FAULT_DISCLOSURE, heap: *const WS_HEAP, fault: *mut WS_FAULT) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsCreateFaultFromError(error : *const WS_ERROR, faulterrorcode : ::windows_core::HRESULT, faultdisclosure : WS_FAULT_DISCLOSURE, heap : *const WS_HEAP, fault : *mut WS_FAULT) -> ::windows_core::HRESULT);
     WsCreateFaultFromError(error, faulterrorcode, faultdisclosure, heap, fault).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsCreateHeap(maxsize: usize, trimsize: usize, properties: ::core::option::Option<*const WS_HEAP_PROPERTY>, propertycount: u32, heap: *mut *mut WS_HEAP, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsCreateHeap(maxsize : usize, trimsize : usize, properties : *const WS_HEAP_PROPERTY, propertycount : u32, heap : *mut *mut WS_HEAP, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsCreateHeap(maxsize: usize, trimsize: usize, properties: ::core::option::Option<*const WS_HEAP_PROPERTY>, propertycount: u32, heap: *mut *mut WS_HEAP, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsCreateHeap(maxsize : usize, trimsize : usize, properties : *const WS_HEAP_PROPERTY, propertycount : u32, heap : *mut *mut WS_HEAP, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsCreateHeap(maxsize, trimsize, ::core::mem::transmute(properties.unwrap_or(::std::ptr::null())), propertycount, heap, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsCreateListener(channeltype: WS_CHANNEL_TYPE, channelbinding: WS_CHANNEL_BINDING, properties: ::core::option::Option<&[WS_LISTENER_PROPERTY]>, securitydescription: ::core::option::Option<*const WS_SECURITY_DESCRIPTION>, listener: *mut *mut WS_LISTENER, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsCreateListener(channeltype : WS_CHANNEL_TYPE, channelbinding : WS_CHANNEL_BINDING, properties : *const WS_LISTENER_PROPERTY, propertycount : u32, securitydescription : *const WS_SECURITY_DESCRIPTION, listener : *mut *mut WS_LISTENER, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsCreateListener(channeltype: WS_CHANNEL_TYPE, channelbinding: WS_CHANNEL_BINDING, properties: ::core::option::Option<&[WS_LISTENER_PROPERTY]>, securitydescription: ::core::option::Option<*const WS_SECURITY_DESCRIPTION>, listener: *mut *mut WS_LISTENER, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsCreateListener(channeltype : WS_CHANNEL_TYPE, channelbinding : WS_CHANNEL_BINDING, properties : *const WS_LISTENER_PROPERTY, propertycount : u32, securitydescription : *const WS_SECURITY_DESCRIPTION, listener : *mut *mut WS_LISTENER, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsCreateListener(channeltype, channelbinding, ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(securitydescription.unwrap_or(::std::ptr::null())), listener, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsCreateMessage(envelopeversion: WS_ENVELOPE_VERSION, addressingversion: WS_ADDRESSING_VERSION, properties: ::core::option::Option<&[WS_MESSAGE_PROPERTY]>, message: *mut *mut WS_MESSAGE, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsCreateMessage(envelopeversion : WS_ENVELOPE_VERSION, addressingversion : WS_ADDRESSING_VERSION, properties : *const WS_MESSAGE_PROPERTY, propertycount : u32, message : *mut *mut WS_MESSAGE, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsCreateMessage(envelopeversion: WS_ENVELOPE_VERSION, addressingversion: WS_ADDRESSING_VERSION, properties: ::core::option::Option<&[WS_MESSAGE_PROPERTY]>, message: *mut *mut WS_MESSAGE, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsCreateMessage(envelopeversion : WS_ENVELOPE_VERSION, addressingversion : WS_ADDRESSING_VERSION, properties : *const WS_MESSAGE_PROPERTY, propertycount : u32, message : *mut *mut WS_MESSAGE, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsCreateMessage(envelopeversion, addressingversion, ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len() as _), message, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsCreateMessageForChannel(channel: *const WS_CHANNEL, properties: ::core::option::Option<&[WS_MESSAGE_PROPERTY]>, message: *mut *mut WS_MESSAGE, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsCreateMessageForChannel(channel : *const WS_CHANNEL, properties : *const WS_MESSAGE_PROPERTY, propertycount : u32, message : *mut *mut WS_MESSAGE, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsCreateMessageForChannel(channel: *const WS_CHANNEL, properties: ::core::option::Option<&[WS_MESSAGE_PROPERTY]>, message: *mut *mut WS_MESSAGE, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsCreateMessageForChannel(channel : *const WS_CHANNEL, properties : *const WS_MESSAGE_PROPERTY, propertycount : u32, message : *mut *mut WS_MESSAGE, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsCreateMessageForChannel(channel, ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len() as _), message, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsCreateMetadata(properties: ::core::option::Option<&[WS_METADATA_PROPERTY]>, metadata: *mut *mut WS_METADATA, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsCreateMetadata(properties : *const WS_METADATA_PROPERTY, propertycount : u32, metadata : *mut *mut WS_METADATA, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsCreateMetadata(properties: ::core::option::Option<&[WS_METADATA_PROPERTY]>, metadata: *mut *mut WS_METADATA, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsCreateMetadata(properties : *const WS_METADATA_PROPERTY, propertycount : u32, metadata : *mut *mut WS_METADATA, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsCreateMetadata(::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len() as _), metadata, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsCreateReader(properties: ::core::option::Option<&[WS_XML_READER_PROPERTY]>, reader: *mut *mut WS_XML_READER, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsCreateReader(properties : *const WS_XML_READER_PROPERTY, propertycount : u32, reader : *mut *mut WS_XML_READER, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsCreateReader(properties: ::core::option::Option<&[WS_XML_READER_PROPERTY]>, reader: *mut *mut WS_XML_READER, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsCreateReader(properties : *const WS_XML_READER_PROPERTY, propertycount : u32, reader : *mut *mut WS_XML_READER, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsCreateReader(::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len() as _), reader, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsCreateServiceEndpointFromTemplate(channeltype: WS_CHANNEL_TYPE, properties: ::core::option::Option<&[WS_SERVICE_ENDPOINT_PROPERTY]>, addressurl: ::core::option::Option<*const WS_STRING>, contract: *const WS_SERVICE_CONTRACT, authorizationcallback: WS_SERVICE_SECURITY_CALLBACK, heap: *const WS_HEAP, templatetype: WS_BINDING_TEMPLATE_TYPE, templatevalue: ::core::option::Option<*const ::core::ffi::c_void>, templatesize: u32, templatedescription: *const ::core::ffi::c_void, templatedescriptionsize: u32, serviceendpoint: *mut *mut WS_SERVICE_ENDPOINT, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsCreateServiceEndpointFromTemplate(channeltype : WS_CHANNEL_TYPE, properties : *const WS_SERVICE_ENDPOINT_PROPERTY, propertycount : u32, addressurl : *const WS_STRING, contract : *const WS_SERVICE_CONTRACT, authorizationcallback : WS_SERVICE_SECURITY_CALLBACK, heap : *const WS_HEAP, templatetype : WS_BINDING_TEMPLATE_TYPE, templatevalue : *const ::core::ffi::c_void, templatesize : u32, templatedescription : *const ::core::ffi::c_void, templatedescriptionsize : u32, serviceendpoint : *mut *mut WS_SERVICE_ENDPOINT, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsCreateServiceEndpointFromTemplate(channeltype: WS_CHANNEL_TYPE, properties: ::core::option::Option<&[WS_SERVICE_ENDPOINT_PROPERTY]>, addressurl: ::core::option::Option<*const WS_STRING>, contract: *const WS_SERVICE_CONTRACT, authorizationcallback: WS_SERVICE_SECURITY_CALLBACK, heap: *const WS_HEAP, templatetype: WS_BINDING_TEMPLATE_TYPE, templatevalue: ::core::option::Option<*const ::core::ffi::c_void>, templatesize: u32, templatedescription: *const ::core::ffi::c_void, templatedescriptionsize: u32, serviceendpoint: *mut *mut WS_SERVICE_ENDPOINT, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsCreateServiceEndpointFromTemplate(channeltype : WS_CHANNEL_TYPE, properties : *const WS_SERVICE_ENDPOINT_PROPERTY, propertycount : u32, addressurl : *const WS_STRING, contract : *const WS_SERVICE_CONTRACT, authorizationcallback : WS_SERVICE_SECURITY_CALLBACK, heap : *const WS_HEAP, templatetype : WS_BINDING_TEMPLATE_TYPE, templatevalue : *const ::core::ffi::c_void, templatesize : u32, templatedescription : *const ::core::ffi::c_void, templatedescriptionsize : u32, serviceendpoint : *mut *mut WS_SERVICE_ENDPOINT, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsCreateServiceEndpointFromTemplate(
         channeltype,
         ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
@@ -296,14 +296,14 @@ pub unsafe fn WsCreateServiceEndpointFromTemplate(channeltype: WS_CHANNEL_TYPE, 
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsCreateServiceHost(endpoints: ::core::option::Option<&[*const WS_SERVICE_ENDPOINT]>, serviceproperties: ::core::option::Option<&[WS_SERVICE_PROPERTY]>, servicehost: *mut *mut WS_SERVICE_HOST, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsCreateServiceHost(endpoints : *const *const WS_SERVICE_ENDPOINT, endpointcount : u16, serviceproperties : *const WS_SERVICE_PROPERTY, servicepropertycount : u32, servicehost : *mut *mut WS_SERVICE_HOST, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsCreateServiceHost(endpoints: ::core::option::Option<&[*const WS_SERVICE_ENDPOINT]>, serviceproperties: ::core::option::Option<&[WS_SERVICE_PROPERTY]>, servicehost: *mut *mut WS_SERVICE_HOST, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsCreateServiceHost(endpoints : *const *const WS_SERVICE_ENDPOINT, endpointcount : u16, serviceproperties : *const WS_SERVICE_PROPERTY, servicepropertycount : u32, servicehost : *mut *mut WS_SERVICE_HOST, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsCreateServiceHost(::core::mem::transmute(endpoints.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), endpoints.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(serviceproperties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), serviceproperties.as_deref().map_or(0, |slice| slice.len() as _), servicehost, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsCreateServiceProxy(channeltype: WS_CHANNEL_TYPE, channelbinding: WS_CHANNEL_BINDING, securitydescription: ::core::option::Option<*const WS_SECURITY_DESCRIPTION>, properties: ::core::option::Option<&[WS_PROXY_PROPERTY]>, channelproperties: ::core::option::Option<&[WS_CHANNEL_PROPERTY]>, serviceproxy: *mut *mut WS_SERVICE_PROXY, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsCreateServiceProxy(channeltype : WS_CHANNEL_TYPE, channelbinding : WS_CHANNEL_BINDING, securitydescription : *const WS_SECURITY_DESCRIPTION, properties : *const WS_PROXY_PROPERTY, propertycount : u32, channelproperties : *const WS_CHANNEL_PROPERTY, channelpropertycount : u32, serviceproxy : *mut *mut WS_SERVICE_PROXY, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsCreateServiceProxy(channeltype: WS_CHANNEL_TYPE, channelbinding: WS_CHANNEL_BINDING, securitydescription: ::core::option::Option<*const WS_SECURITY_DESCRIPTION>, properties: ::core::option::Option<&[WS_PROXY_PROPERTY]>, channelproperties: ::core::option::Option<&[WS_CHANNEL_PROPERTY]>, serviceproxy: *mut *mut WS_SERVICE_PROXY, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsCreateServiceProxy(channeltype : WS_CHANNEL_TYPE, channelbinding : WS_CHANNEL_BINDING, securitydescription : *const WS_SECURITY_DESCRIPTION, properties : *const WS_PROXY_PROPERTY, propertycount : u32, channelproperties : *const WS_CHANNEL_PROPERTY, channelpropertycount : u32, serviceproxy : *mut *mut WS_SERVICE_PROXY, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsCreateServiceProxy(
         channeltype,
         channelbinding,
@@ -319,98 +319,98 @@ pub unsafe fn WsCreateServiceProxy(channeltype: WS_CHANNEL_TYPE, channelbinding:
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsCreateServiceProxyFromTemplate(channeltype: WS_CHANNEL_TYPE, properties: ::core::option::Option<&[WS_PROXY_PROPERTY]>, templatetype: WS_BINDING_TEMPLATE_TYPE, templatevalue: ::core::option::Option<*const ::core::ffi::c_void>, templatesize: u32, templatedescription: *const ::core::ffi::c_void, templatedescriptionsize: u32, serviceproxy: *mut *mut WS_SERVICE_PROXY, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsCreateServiceProxyFromTemplate(channeltype : WS_CHANNEL_TYPE, properties : *const WS_PROXY_PROPERTY, propertycount : u32, templatetype : WS_BINDING_TEMPLATE_TYPE, templatevalue : *const ::core::ffi::c_void, templatesize : u32, templatedescription : *const ::core::ffi::c_void, templatedescriptionsize : u32, serviceproxy : *mut *mut WS_SERVICE_PROXY, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsCreateServiceProxyFromTemplate(channeltype: WS_CHANNEL_TYPE, properties: ::core::option::Option<&[WS_PROXY_PROPERTY]>, templatetype: WS_BINDING_TEMPLATE_TYPE, templatevalue: ::core::option::Option<*const ::core::ffi::c_void>, templatesize: u32, templatedescription: *const ::core::ffi::c_void, templatedescriptionsize: u32, serviceproxy: *mut *mut WS_SERVICE_PROXY, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsCreateServiceProxyFromTemplate(channeltype : WS_CHANNEL_TYPE, properties : *const WS_PROXY_PROPERTY, propertycount : u32, templatetype : WS_BINDING_TEMPLATE_TYPE, templatevalue : *const ::core::ffi::c_void, templatesize : u32, templatedescription : *const ::core::ffi::c_void, templatedescriptionsize : u32, serviceproxy : *mut *mut WS_SERVICE_PROXY, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsCreateServiceProxyFromTemplate(channeltype, ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len() as _), templatetype, ::core::mem::transmute(templatevalue.unwrap_or(::std::ptr::null())), templatesize, templatedescription, templatedescriptionsize, serviceproxy, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsCreateWriter(properties: ::core::option::Option<&[WS_XML_WRITER_PROPERTY]>, writer: *mut *mut WS_XML_WRITER, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsCreateWriter(properties : *const WS_XML_WRITER_PROPERTY, propertycount : u32, writer : *mut *mut WS_XML_WRITER, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsCreateWriter(properties: ::core::option::Option<&[WS_XML_WRITER_PROPERTY]>, writer: *mut *mut WS_XML_WRITER, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsCreateWriter(properties : *const WS_XML_WRITER_PROPERTY, propertycount : u32, writer : *mut *mut WS_XML_WRITER, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsCreateWriter(::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len() as _), writer, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsCreateXmlBuffer(heap: *const WS_HEAP, properties: ::core::option::Option<&[WS_XML_BUFFER_PROPERTY]>, buffer: *mut *mut WS_XML_BUFFER, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsCreateXmlBuffer(heap : *const WS_HEAP, properties : *const WS_XML_BUFFER_PROPERTY, propertycount : u32, buffer : *mut *mut WS_XML_BUFFER, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsCreateXmlBuffer(heap: *const WS_HEAP, properties: ::core::option::Option<&[WS_XML_BUFFER_PROPERTY]>, buffer: *mut *mut WS_XML_BUFFER, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsCreateXmlBuffer(heap : *const WS_HEAP, properties : *const WS_XML_BUFFER_PROPERTY, propertycount : u32, buffer : *mut *mut WS_XML_BUFFER, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsCreateXmlBuffer(heap, ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len() as _), buffer, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsCreateXmlSecurityToken(tokenxml: ::core::option::Option<*const WS_XML_BUFFER>, tokenkey: ::core::option::Option<*const WS_SECURITY_KEY_HANDLE>, properties: ::core::option::Option<&[WS_XML_SECURITY_TOKEN_PROPERTY]>, token: *mut *mut WS_SECURITY_TOKEN, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsCreateXmlSecurityToken(tokenxml : *const WS_XML_BUFFER, tokenkey : *const WS_SECURITY_KEY_HANDLE, properties : *const WS_XML_SECURITY_TOKEN_PROPERTY, propertycount : u32, token : *mut *mut WS_SECURITY_TOKEN, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsCreateXmlSecurityToken(tokenxml: ::core::option::Option<*const WS_XML_BUFFER>, tokenkey: ::core::option::Option<*const WS_SECURITY_KEY_HANDLE>, properties: ::core::option::Option<&[WS_XML_SECURITY_TOKEN_PROPERTY]>, token: *mut *mut WS_SECURITY_TOKEN, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsCreateXmlSecurityToken(tokenxml : *const WS_XML_BUFFER, tokenkey : *const WS_SECURITY_KEY_HANDLE, properties : *const WS_XML_SECURITY_TOKEN_PROPERTY, propertycount : u32, token : *mut *mut WS_SECURITY_TOKEN, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsCreateXmlSecurityToken(::core::mem::transmute(tokenxml.unwrap_or(::std::ptr::null())), ::core::mem::transmute(tokenkey.unwrap_or(::std::ptr::null())), ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len() as _), token, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsDateTimeToFileTime(datetime: *const WS_DATETIME, filetime: *mut super::super::Foundation::FILETIME, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsDateTimeToFileTime(datetime : *const WS_DATETIME, filetime : *mut super::super::Foundation:: FILETIME, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsDateTimeToFileTime(datetime: *const WS_DATETIME, filetime: *mut super::super::Foundation::FILETIME, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsDateTimeToFileTime(datetime : *const WS_DATETIME, filetime : *mut super::super::Foundation:: FILETIME, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsDateTimeToFileTime(datetime, filetime, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsDecodeUrl(url: *const WS_STRING, flags: u32, heap: *const WS_HEAP, outurl: *mut *mut WS_URL, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsDecodeUrl(url : *const WS_STRING, flags : u32, heap : *const WS_HEAP, outurl : *mut *mut WS_URL, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsDecodeUrl(url: *const WS_STRING, flags: u32, heap: *const WS_HEAP, outurl: *mut *mut WS_URL, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsDecodeUrl(url : *const WS_STRING, flags : u32, heap : *const WS_HEAP, outurl : *mut *mut WS_URL, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsDecodeUrl(url, flags, heap, outurl, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsEncodeUrl(url: *const WS_URL, flags: u32, heap: *const WS_HEAP, outurl: *mut WS_STRING, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsEncodeUrl(url : *const WS_URL, flags : u32, heap : *const WS_HEAP, outurl : *mut WS_STRING, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsEncodeUrl(url: *const WS_URL, flags: u32, heap: *const WS_HEAP, outurl: *mut WS_STRING, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsEncodeUrl(url : *const WS_URL, flags : u32, heap : *const WS_HEAP, outurl : *mut WS_STRING, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsEncodeUrl(url, flags, heap, outurl, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsEndReaderCanonicalization(reader: *const WS_XML_READER, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsEndReaderCanonicalization(reader : *const WS_XML_READER, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsEndReaderCanonicalization(reader: *const WS_XML_READER, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsEndReaderCanonicalization(reader : *const WS_XML_READER, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsEndReaderCanonicalization(reader, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsEndWriterCanonicalization(writer: *const WS_XML_WRITER, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsEndWriterCanonicalization(writer : *const WS_XML_WRITER, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsEndWriterCanonicalization(writer: *const WS_XML_WRITER, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsEndWriterCanonicalization(writer : *const WS_XML_WRITER, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsEndWriterCanonicalization(writer, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsFileTimeToDateTime(filetime: *const super::super::Foundation::FILETIME, datetime: *mut WS_DATETIME, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsFileTimeToDateTime(filetime : *const super::super::Foundation:: FILETIME, datetime : *mut WS_DATETIME, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsFileTimeToDateTime(filetime: *const super::super::Foundation::FILETIME, datetime: *mut WS_DATETIME, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsFileTimeToDateTime(filetime : *const super::super::Foundation:: FILETIME, datetime : *mut WS_DATETIME, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsFileTimeToDateTime(filetime, datetime, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsFillBody(message: *const WS_MESSAGE, minsize: u32, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsFillBody(message : *const WS_MESSAGE, minsize : u32, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsFillBody(message: *const WS_MESSAGE, minsize: u32, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsFillBody(message : *const WS_MESSAGE, minsize : u32, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsFillBody(message, minsize, ::core::mem::transmute(asynccontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsFillReader(reader: *const WS_XML_READER, minsize: u32, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsFillReader(reader : *const WS_XML_READER, minsize : u32, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsFillReader(reader: *const WS_XML_READER, minsize: u32, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsFillReader(reader : *const WS_XML_READER, minsize : u32, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsFillReader(reader, minsize, ::core::mem::transmute(asynccontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsFindAttribute<P0>(reader: *const WS_XML_READER, localname: *const WS_XML_STRING, ns: *const WS_XML_STRING, required: P0, attributeindex: *mut u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()>
+pub unsafe fn WsFindAttribute<P0>(reader: *const WS_XML_READER, localname: *const WS_XML_STRING, ns: *const WS_XML_STRING, required: P0, attributeindex: *mut u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("webservices.dll" "system" fn WsFindAttribute(reader : *const WS_XML_READER, localname : *const WS_XML_STRING, ns : *const WS_XML_STRING, required : super::super::Foundation:: BOOL, attributeindex : *mut u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("webservices.dll" "system" fn WsFindAttribute(reader : *const WS_XML_READER, localname : *const WS_XML_STRING, ns : *const WS_XML_STRING, required : super::super::Foundation:: BOOL, attributeindex : *mut u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsFindAttribute(reader, localname, ns, required.into_param().abi(), attributeindex, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsFlushBody(message: *const WS_MESSAGE, minsize: u32, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsFlushBody(message : *const WS_MESSAGE, minsize : u32, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsFlushBody(message: *const WS_MESSAGE, minsize: u32, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsFlushBody(message : *const WS_MESSAGE, minsize : u32, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsFlushBody(message, minsize, ::core::mem::transmute(asynccontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsFlushWriter(writer: *const WS_XML_WRITER, minsize: u32, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsFlushWriter(writer : *const WS_XML_WRITER, minsize : u32, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsFlushWriter(writer: *const WS_XML_WRITER, minsize: u32, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsFlushWriter(writer : *const WS_XML_WRITER, minsize : u32, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsFlushWriter(writer, minsize, ::core::mem::transmute(asynccontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
@@ -481,864 +481,864 @@ pub unsafe fn WsFreeWriter(writer: *const WS_XML_WRITER) {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsGetChannelProperty(channel: *const WS_CHANNEL, id: WS_CHANNEL_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsGetChannelProperty(channel : *const WS_CHANNEL, id : WS_CHANNEL_PROPERTY_ID, value : *mut ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsGetChannelProperty(channel: *const WS_CHANNEL, id: WS_CHANNEL_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsGetChannelProperty(channel : *const WS_CHANNEL, id : WS_CHANNEL_PROPERTY_ID, value : *mut ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsGetChannelProperty(channel, id, value, valuesize, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsGetCustomHeader(message: *const WS_MESSAGE, customheaderdescription: *const WS_ELEMENT_DESCRIPTION, repeatingoption: WS_REPEATING_HEADER_OPTION, headerindex: u32, readoption: WS_READ_OPTION, heap: ::core::option::Option<*const WS_HEAP>, value: *mut ::core::ffi::c_void, valuesize: u32, headerattributes: ::core::option::Option<*mut u32>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsGetCustomHeader(message : *const WS_MESSAGE, customheaderdescription : *const WS_ELEMENT_DESCRIPTION, repeatingoption : WS_REPEATING_HEADER_OPTION, headerindex : u32, readoption : WS_READ_OPTION, heap : *const WS_HEAP, value : *mut ::core::ffi::c_void, valuesize : u32, headerattributes : *mut u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsGetCustomHeader(message: *const WS_MESSAGE, customheaderdescription: *const WS_ELEMENT_DESCRIPTION, repeatingoption: WS_REPEATING_HEADER_OPTION, headerindex: u32, readoption: WS_READ_OPTION, heap: ::core::option::Option<*const WS_HEAP>, value: *mut ::core::ffi::c_void, valuesize: u32, headerattributes: ::core::option::Option<*mut u32>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsGetCustomHeader(message : *const WS_MESSAGE, customheaderdescription : *const WS_ELEMENT_DESCRIPTION, repeatingoption : WS_REPEATING_HEADER_OPTION, headerindex : u32, readoption : WS_READ_OPTION, heap : *const WS_HEAP, value : *mut ::core::ffi::c_void, valuesize : u32, headerattributes : *mut u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsGetCustomHeader(message, customheaderdescription, repeatingoption, headerindex, readoption, ::core::mem::transmute(heap.unwrap_or(::std::ptr::null())), value, valuesize, ::core::mem::transmute(headerattributes.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsGetDictionary(encoding: WS_ENCODING, dictionary: *mut *mut WS_XML_DICTIONARY, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsGetDictionary(encoding : WS_ENCODING, dictionary : *mut *mut WS_XML_DICTIONARY, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsGetDictionary(encoding: WS_ENCODING, dictionary: *mut *mut WS_XML_DICTIONARY, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsGetDictionary(encoding : WS_ENCODING, dictionary : *mut *mut WS_XML_DICTIONARY, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsGetDictionary(encoding, dictionary, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsGetErrorProperty(error: *const WS_ERROR, id: WS_ERROR_PROPERTY_ID, buffer: *mut ::core::ffi::c_void, buffersize: u32) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsGetErrorProperty(error : *const WS_ERROR, id : WS_ERROR_PROPERTY_ID, buffer : *mut ::core::ffi::c_void, buffersize : u32) -> ::windows::core::HRESULT);
+pub unsafe fn WsGetErrorProperty(error: *const WS_ERROR, id: WS_ERROR_PROPERTY_ID, buffer: *mut ::core::ffi::c_void, buffersize: u32) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsGetErrorProperty(error : *const WS_ERROR, id : WS_ERROR_PROPERTY_ID, buffer : *mut ::core::ffi::c_void, buffersize : u32) -> ::windows_core::HRESULT);
     WsGetErrorProperty(error, id, buffer, buffersize).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsGetErrorString(error: *const WS_ERROR, index: u32) -> ::windows::core::Result<WS_STRING> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsGetErrorString(error : *const WS_ERROR, index : u32, string : *mut WS_STRING) -> ::windows::core::HRESULT);
-    let mut result__ = ::windows::core::zeroed::<WS_STRING>();
+pub unsafe fn WsGetErrorString(error: *const WS_ERROR, index: u32) -> ::windows_core::Result<WS_STRING> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsGetErrorString(error : *const WS_ERROR, index : u32, string : *mut WS_STRING) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<WS_STRING>();
     WsGetErrorString(error, index, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsGetFaultErrorDetail(error: *const WS_ERROR, faultdetaildescription: *const WS_FAULT_DETAIL_DESCRIPTION, readoption: WS_READ_OPTION, heap: ::core::option::Option<*const WS_HEAP>, value: *mut ::core::ffi::c_void, valuesize: u32) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsGetFaultErrorDetail(error : *const WS_ERROR, faultdetaildescription : *const WS_FAULT_DETAIL_DESCRIPTION, readoption : WS_READ_OPTION, heap : *const WS_HEAP, value : *mut ::core::ffi::c_void, valuesize : u32) -> ::windows::core::HRESULT);
+pub unsafe fn WsGetFaultErrorDetail(error: *const WS_ERROR, faultdetaildescription: *const WS_FAULT_DETAIL_DESCRIPTION, readoption: WS_READ_OPTION, heap: ::core::option::Option<*const WS_HEAP>, value: *mut ::core::ffi::c_void, valuesize: u32) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsGetFaultErrorDetail(error : *const WS_ERROR, faultdetaildescription : *const WS_FAULT_DETAIL_DESCRIPTION, readoption : WS_READ_OPTION, heap : *const WS_HEAP, value : *mut ::core::ffi::c_void, valuesize : u32) -> ::windows_core::HRESULT);
     WsGetFaultErrorDetail(error, faultdetaildescription, readoption, ::core::mem::transmute(heap.unwrap_or(::std::ptr::null())), value, valuesize).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsGetFaultErrorProperty(error: *const WS_ERROR, id: WS_FAULT_ERROR_PROPERTY_ID, buffer: *mut ::core::ffi::c_void, buffersize: u32) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsGetFaultErrorProperty(error : *const WS_ERROR, id : WS_FAULT_ERROR_PROPERTY_ID, buffer : *mut ::core::ffi::c_void, buffersize : u32) -> ::windows::core::HRESULT);
+pub unsafe fn WsGetFaultErrorProperty(error: *const WS_ERROR, id: WS_FAULT_ERROR_PROPERTY_ID, buffer: *mut ::core::ffi::c_void, buffersize: u32) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsGetFaultErrorProperty(error : *const WS_ERROR, id : WS_FAULT_ERROR_PROPERTY_ID, buffer : *mut ::core::ffi::c_void, buffersize : u32) -> ::windows_core::HRESULT);
     WsGetFaultErrorProperty(error, id, buffer, buffersize).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsGetHeader(message: *const WS_MESSAGE, headertype: WS_HEADER_TYPE, valuetype: WS_TYPE, readoption: WS_READ_OPTION, heap: ::core::option::Option<*const WS_HEAP>, value: *mut ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsGetHeader(message : *const WS_MESSAGE, headertype : WS_HEADER_TYPE, valuetype : WS_TYPE, readoption : WS_READ_OPTION, heap : *const WS_HEAP, value : *mut ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsGetHeader(message: *const WS_MESSAGE, headertype: WS_HEADER_TYPE, valuetype: WS_TYPE, readoption: WS_READ_OPTION, heap: ::core::option::Option<*const WS_HEAP>, value: *mut ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsGetHeader(message : *const WS_MESSAGE, headertype : WS_HEADER_TYPE, valuetype : WS_TYPE, readoption : WS_READ_OPTION, heap : *const WS_HEAP, value : *mut ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsGetHeader(message, headertype, valuetype, readoption, ::core::mem::transmute(heap.unwrap_or(::std::ptr::null())), value, valuesize, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsGetHeaderAttributes(message: *const WS_MESSAGE, reader: *const WS_XML_READER, headerattributes: *mut u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsGetHeaderAttributes(message : *const WS_MESSAGE, reader : *const WS_XML_READER, headerattributes : *mut u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsGetHeaderAttributes(message: *const WS_MESSAGE, reader: *const WS_XML_READER, headerattributes: *mut u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsGetHeaderAttributes(message : *const WS_MESSAGE, reader : *const WS_XML_READER, headerattributes : *mut u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsGetHeaderAttributes(message, reader, headerattributes, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsGetHeapProperty(heap: *const WS_HEAP, id: WS_HEAP_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsGetHeapProperty(heap : *const WS_HEAP, id : WS_HEAP_PROPERTY_ID, value : *mut ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsGetHeapProperty(heap: *const WS_HEAP, id: WS_HEAP_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsGetHeapProperty(heap : *const WS_HEAP, id : WS_HEAP_PROPERTY_ID, value : *mut ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsGetHeapProperty(heap, id, value, valuesize, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsGetListenerProperty(listener: *const WS_LISTENER, id: WS_LISTENER_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsGetListenerProperty(listener : *const WS_LISTENER, id : WS_LISTENER_PROPERTY_ID, value : *mut ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsGetListenerProperty(listener: *const WS_LISTENER, id: WS_LISTENER_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsGetListenerProperty(listener : *const WS_LISTENER, id : WS_LISTENER_PROPERTY_ID, value : *mut ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsGetListenerProperty(listener, id, value, valuesize, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsGetMappedHeader(message: *const WS_MESSAGE, headername: *const WS_XML_STRING, repeatingoption: WS_REPEATING_HEADER_OPTION, headerindex: u32, valuetype: WS_TYPE, readoption: WS_READ_OPTION, heap: ::core::option::Option<*const WS_HEAP>, value: *mut ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsGetMappedHeader(message : *const WS_MESSAGE, headername : *const WS_XML_STRING, repeatingoption : WS_REPEATING_HEADER_OPTION, headerindex : u32, valuetype : WS_TYPE, readoption : WS_READ_OPTION, heap : *const WS_HEAP, value : *mut ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsGetMappedHeader(message: *const WS_MESSAGE, headername: *const WS_XML_STRING, repeatingoption: WS_REPEATING_HEADER_OPTION, headerindex: u32, valuetype: WS_TYPE, readoption: WS_READ_OPTION, heap: ::core::option::Option<*const WS_HEAP>, value: *mut ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsGetMappedHeader(message : *const WS_MESSAGE, headername : *const WS_XML_STRING, repeatingoption : WS_REPEATING_HEADER_OPTION, headerindex : u32, valuetype : WS_TYPE, readoption : WS_READ_OPTION, heap : *const WS_HEAP, value : *mut ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsGetMappedHeader(message, headername, repeatingoption, headerindex, valuetype, readoption, ::core::mem::transmute(heap.unwrap_or(::std::ptr::null())), value, valuesize, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsGetMessageProperty(message: *const WS_MESSAGE, id: WS_MESSAGE_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsGetMessageProperty(message : *const WS_MESSAGE, id : WS_MESSAGE_PROPERTY_ID, value : *mut ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsGetMessageProperty(message: *const WS_MESSAGE, id: WS_MESSAGE_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsGetMessageProperty(message : *const WS_MESSAGE, id : WS_MESSAGE_PROPERTY_ID, value : *mut ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsGetMessageProperty(message, id, value, valuesize, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsGetMetadataEndpoints(metadata: *const WS_METADATA, endpoints: *mut WS_METADATA_ENDPOINTS, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsGetMetadataEndpoints(metadata : *const WS_METADATA, endpoints : *mut WS_METADATA_ENDPOINTS, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsGetMetadataEndpoints(metadata: *const WS_METADATA, endpoints: *mut WS_METADATA_ENDPOINTS, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsGetMetadataEndpoints(metadata : *const WS_METADATA, endpoints : *mut WS_METADATA_ENDPOINTS, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsGetMetadataEndpoints(metadata, endpoints, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsGetMetadataProperty(metadata: *const WS_METADATA, id: WS_METADATA_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsGetMetadataProperty(metadata : *const WS_METADATA, id : WS_METADATA_PROPERTY_ID, value : *mut ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsGetMetadataProperty(metadata: *const WS_METADATA, id: WS_METADATA_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsGetMetadataProperty(metadata : *const WS_METADATA, id : WS_METADATA_PROPERTY_ID, value : *mut ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsGetMetadataProperty(metadata, id, value, valuesize, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsGetMissingMetadataDocumentAddress(metadata: *const WS_METADATA, address: *mut *mut WS_ENDPOINT_ADDRESS, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsGetMissingMetadataDocumentAddress(metadata : *const WS_METADATA, address : *mut *mut WS_ENDPOINT_ADDRESS, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsGetMissingMetadataDocumentAddress(metadata: *const WS_METADATA, address: *mut *mut WS_ENDPOINT_ADDRESS, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsGetMissingMetadataDocumentAddress(metadata : *const WS_METADATA, address : *mut *mut WS_ENDPOINT_ADDRESS, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsGetMissingMetadataDocumentAddress(metadata, address, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsGetNamespaceFromPrefix<P0>(reader: *const WS_XML_READER, prefix: *const WS_XML_STRING, required: P0, ns: *mut *mut WS_XML_STRING, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()>
+pub unsafe fn WsGetNamespaceFromPrefix<P0>(reader: *const WS_XML_READER, prefix: *const WS_XML_STRING, required: P0, ns: *mut *mut WS_XML_STRING, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("webservices.dll" "system" fn WsGetNamespaceFromPrefix(reader : *const WS_XML_READER, prefix : *const WS_XML_STRING, required : super::super::Foundation:: BOOL, ns : *mut *mut WS_XML_STRING, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("webservices.dll" "system" fn WsGetNamespaceFromPrefix(reader : *const WS_XML_READER, prefix : *const WS_XML_STRING, required : super::super::Foundation:: BOOL, ns : *mut *mut WS_XML_STRING, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsGetNamespaceFromPrefix(reader, prefix, required.into_param().abi(), ns, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsGetOperationContextProperty(context: *const WS_OPERATION_CONTEXT, id: WS_OPERATION_CONTEXT_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsGetOperationContextProperty(context : *const WS_OPERATION_CONTEXT, id : WS_OPERATION_CONTEXT_PROPERTY_ID, value : *mut ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsGetOperationContextProperty(context: *const WS_OPERATION_CONTEXT, id: WS_OPERATION_CONTEXT_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsGetOperationContextProperty(context : *const WS_OPERATION_CONTEXT, id : WS_OPERATION_CONTEXT_PROPERTY_ID, value : *mut ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsGetOperationContextProperty(context, id, value, valuesize, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsGetPolicyAlternativeCount(policy: *const WS_POLICY, count: *mut u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsGetPolicyAlternativeCount(policy : *const WS_POLICY, count : *mut u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsGetPolicyAlternativeCount(policy: *const WS_POLICY, count: *mut u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsGetPolicyAlternativeCount(policy : *const WS_POLICY, count : *mut u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsGetPolicyAlternativeCount(policy, count, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsGetPolicyProperty(policy: *const WS_POLICY, id: WS_POLICY_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsGetPolicyProperty(policy : *const WS_POLICY, id : WS_POLICY_PROPERTY_ID, value : *mut ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsGetPolicyProperty(policy: *const WS_POLICY, id: WS_POLICY_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsGetPolicyProperty(policy : *const WS_POLICY, id : WS_POLICY_PROPERTY_ID, value : *mut ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsGetPolicyProperty(policy, id, value, valuesize, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsGetPrefixFromNamespace<P0>(writer: *const WS_XML_WRITER, ns: *const WS_XML_STRING, required: P0, prefix: *mut *mut WS_XML_STRING, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()>
+pub unsafe fn WsGetPrefixFromNamespace<P0>(writer: *const WS_XML_WRITER, ns: *const WS_XML_STRING, required: P0, prefix: *mut *mut WS_XML_STRING, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("webservices.dll" "system" fn WsGetPrefixFromNamespace(writer : *const WS_XML_WRITER, ns : *const WS_XML_STRING, required : super::super::Foundation:: BOOL, prefix : *mut *mut WS_XML_STRING, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("webservices.dll" "system" fn WsGetPrefixFromNamespace(writer : *const WS_XML_WRITER, ns : *const WS_XML_STRING, required : super::super::Foundation:: BOOL, prefix : *mut *mut WS_XML_STRING, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsGetPrefixFromNamespace(writer, ns, required.into_param().abi(), prefix, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsGetReaderNode(xmlreader: *const WS_XML_READER, node: *mut *mut WS_XML_NODE, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsGetReaderNode(xmlreader : *const WS_XML_READER, node : *mut *mut WS_XML_NODE, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsGetReaderNode(xmlreader: *const WS_XML_READER, node: *mut *mut WS_XML_NODE, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsGetReaderNode(xmlreader : *const WS_XML_READER, node : *mut *mut WS_XML_NODE, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsGetReaderNode(xmlreader, node, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsGetReaderPosition(reader: *const WS_XML_READER, nodeposition: *mut WS_XML_NODE_POSITION, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsGetReaderPosition(reader : *const WS_XML_READER, nodeposition : *mut WS_XML_NODE_POSITION, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsGetReaderPosition(reader: *const WS_XML_READER, nodeposition: *mut WS_XML_NODE_POSITION, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsGetReaderPosition(reader : *const WS_XML_READER, nodeposition : *mut WS_XML_NODE_POSITION, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsGetReaderPosition(reader, nodeposition, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsGetReaderProperty(reader: *const WS_XML_READER, id: WS_XML_READER_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsGetReaderProperty(reader : *const WS_XML_READER, id : WS_XML_READER_PROPERTY_ID, value : *mut ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsGetReaderProperty(reader: *const WS_XML_READER, id: WS_XML_READER_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsGetReaderProperty(reader : *const WS_XML_READER, id : WS_XML_READER_PROPERTY_ID, value : *mut ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsGetReaderProperty(reader, id, value, valuesize, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsGetSecurityContextProperty(securitycontext: *const WS_SECURITY_CONTEXT, id: WS_SECURITY_CONTEXT_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsGetSecurityContextProperty(securitycontext : *const WS_SECURITY_CONTEXT, id : WS_SECURITY_CONTEXT_PROPERTY_ID, value : *mut ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsGetSecurityContextProperty(securitycontext: *const WS_SECURITY_CONTEXT, id: WS_SECURITY_CONTEXT_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsGetSecurityContextProperty(securitycontext : *const WS_SECURITY_CONTEXT, id : WS_SECURITY_CONTEXT_PROPERTY_ID, value : *mut ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsGetSecurityContextProperty(securitycontext, id, value, valuesize, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsGetSecurityTokenProperty(securitytoken: *const WS_SECURITY_TOKEN, id: WS_SECURITY_TOKEN_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, heap: ::core::option::Option<*const WS_HEAP>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsGetSecurityTokenProperty(securitytoken : *const WS_SECURITY_TOKEN, id : WS_SECURITY_TOKEN_PROPERTY_ID, value : *mut ::core::ffi::c_void, valuesize : u32, heap : *const WS_HEAP, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsGetSecurityTokenProperty(securitytoken: *const WS_SECURITY_TOKEN, id: WS_SECURITY_TOKEN_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, heap: ::core::option::Option<*const WS_HEAP>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsGetSecurityTokenProperty(securitytoken : *const WS_SECURITY_TOKEN, id : WS_SECURITY_TOKEN_PROPERTY_ID, value : *mut ::core::ffi::c_void, valuesize : u32, heap : *const WS_HEAP, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsGetSecurityTokenProperty(securitytoken, id, value, valuesize, ::core::mem::transmute(heap.unwrap_or(::std::ptr::null())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsGetServiceHostProperty(servicehost: *const WS_SERVICE_HOST, id: WS_SERVICE_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsGetServiceHostProperty(servicehost : *const WS_SERVICE_HOST, id : WS_SERVICE_PROPERTY_ID, value : *mut ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsGetServiceHostProperty(servicehost: *const WS_SERVICE_HOST, id: WS_SERVICE_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsGetServiceHostProperty(servicehost : *const WS_SERVICE_HOST, id : WS_SERVICE_PROPERTY_ID, value : *mut ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsGetServiceHostProperty(servicehost, id, value, valuesize, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsGetServiceProxyProperty(serviceproxy: *const WS_SERVICE_PROXY, id: WS_PROXY_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsGetServiceProxyProperty(serviceproxy : *const WS_SERVICE_PROXY, id : WS_PROXY_PROPERTY_ID, value : *mut ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsGetServiceProxyProperty(serviceproxy: *const WS_SERVICE_PROXY, id: WS_PROXY_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsGetServiceProxyProperty(serviceproxy : *const WS_SERVICE_PROXY, id : WS_PROXY_PROPERTY_ID, value : *mut ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsGetServiceProxyProperty(serviceproxy, id, value, valuesize, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsGetWriterPosition(writer: *const WS_XML_WRITER, nodeposition: *mut WS_XML_NODE_POSITION, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsGetWriterPosition(writer : *const WS_XML_WRITER, nodeposition : *mut WS_XML_NODE_POSITION, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsGetWriterPosition(writer: *const WS_XML_WRITER, nodeposition: *mut WS_XML_NODE_POSITION, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsGetWriterPosition(writer : *const WS_XML_WRITER, nodeposition : *mut WS_XML_NODE_POSITION, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsGetWriterPosition(writer, nodeposition, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsGetWriterProperty(writer: *const WS_XML_WRITER, id: WS_XML_WRITER_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsGetWriterProperty(writer : *const WS_XML_WRITER, id : WS_XML_WRITER_PROPERTY_ID, value : *mut ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsGetWriterProperty(writer: *const WS_XML_WRITER, id: WS_XML_WRITER_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsGetWriterProperty(writer : *const WS_XML_WRITER, id : WS_XML_WRITER_PROPERTY_ID, value : *mut ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsGetWriterProperty(writer, id, value, valuesize, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsGetXmlAttribute(reader: *const WS_XML_READER, localname: *const WS_XML_STRING, heap: *const WS_HEAP, valuechars: ::core::option::Option<*mut *mut u16>, valuecharcount: *mut u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsGetXmlAttribute(reader : *const WS_XML_READER, localname : *const WS_XML_STRING, heap : *const WS_HEAP, valuechars : *mut *mut u16, valuecharcount : *mut u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsGetXmlAttribute(reader: *const WS_XML_READER, localname: *const WS_XML_STRING, heap: *const WS_HEAP, valuechars: ::core::option::Option<*mut *mut u16>, valuecharcount: *mut u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsGetXmlAttribute(reader : *const WS_XML_READER, localname : *const WS_XML_STRING, heap : *const WS_HEAP, valuechars : *mut *mut u16, valuecharcount : *mut u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsGetXmlAttribute(reader, localname, heap, ::core::mem::transmute(valuechars.unwrap_or(::std::ptr::null_mut())), valuecharcount, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsInitializeMessage(message: *const WS_MESSAGE, initialization: WS_MESSAGE_INITIALIZATION, sourcemessage: ::core::option::Option<*const WS_MESSAGE>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsInitializeMessage(message : *const WS_MESSAGE, initialization : WS_MESSAGE_INITIALIZATION, sourcemessage : *const WS_MESSAGE, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsInitializeMessage(message: *const WS_MESSAGE, initialization: WS_MESSAGE_INITIALIZATION, sourcemessage: ::core::option::Option<*const WS_MESSAGE>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsInitializeMessage(message : *const WS_MESSAGE, initialization : WS_MESSAGE_INITIALIZATION, sourcemessage : *const WS_MESSAGE, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsInitializeMessage(message, initialization, ::core::mem::transmute(sourcemessage.unwrap_or(::std::ptr::null())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsMarkHeaderAsUnderstood(message: *const WS_MESSAGE, headerposition: *const WS_XML_NODE_POSITION, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsMarkHeaderAsUnderstood(message : *const WS_MESSAGE, headerposition : *const WS_XML_NODE_POSITION, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsMarkHeaderAsUnderstood(message: *const WS_MESSAGE, headerposition: *const WS_XML_NODE_POSITION, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsMarkHeaderAsUnderstood(message : *const WS_MESSAGE, headerposition : *const WS_XML_NODE_POSITION, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsMarkHeaderAsUnderstood(message, headerposition, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsMatchPolicyAlternative<P0>(policy: *const WS_POLICY, alternativeindex: u32, policyconstraints: *const WS_POLICY_CONSTRAINTS, matchrequired: P0, heap: *const WS_HEAP, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()>
+pub unsafe fn WsMatchPolicyAlternative<P0>(policy: *const WS_POLICY, alternativeindex: u32, policyconstraints: *const WS_POLICY_CONSTRAINTS, matchrequired: P0, heap: *const WS_HEAP, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("webservices.dll" "system" fn WsMatchPolicyAlternative(policy : *const WS_POLICY, alternativeindex : u32, policyconstraints : *const WS_POLICY_CONSTRAINTS, matchrequired : super::super::Foundation:: BOOL, heap : *const WS_HEAP, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("webservices.dll" "system" fn WsMatchPolicyAlternative(policy : *const WS_POLICY, alternativeindex : u32, policyconstraints : *const WS_POLICY_CONSTRAINTS, matchrequired : super::super::Foundation:: BOOL, heap : *const WS_HEAP, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsMatchPolicyAlternative(policy, alternativeindex, policyconstraints, matchrequired.into_param().abi(), heap, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsMoveReader(reader: *const WS_XML_READER, moveto: WS_MOVE_TO, found: ::core::option::Option<*mut super::super::Foundation::BOOL>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsMoveReader(reader : *const WS_XML_READER, moveto : WS_MOVE_TO, found : *mut super::super::Foundation:: BOOL, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsMoveReader(reader: *const WS_XML_READER, moveto: WS_MOVE_TO, found: ::core::option::Option<*mut super::super::Foundation::BOOL>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsMoveReader(reader : *const WS_XML_READER, moveto : WS_MOVE_TO, found : *mut super::super::Foundation:: BOOL, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsMoveReader(reader, moveto, ::core::mem::transmute(found.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsMoveWriter(writer: *const WS_XML_WRITER, moveto: WS_MOVE_TO, found: ::core::option::Option<*mut super::super::Foundation::BOOL>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsMoveWriter(writer : *const WS_XML_WRITER, moveto : WS_MOVE_TO, found : *mut super::super::Foundation:: BOOL, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsMoveWriter(writer: *const WS_XML_WRITER, moveto: WS_MOVE_TO, found: ::core::option::Option<*mut super::super::Foundation::BOOL>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsMoveWriter(writer : *const WS_XML_WRITER, moveto : WS_MOVE_TO, found : *mut super::super::Foundation:: BOOL, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsMoveWriter(writer, moveto, ::core::mem::transmute(found.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsOpenChannel(channel: *const WS_CHANNEL, endpointaddress: *const WS_ENDPOINT_ADDRESS, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsOpenChannel(channel : *const WS_CHANNEL, endpointaddress : *const WS_ENDPOINT_ADDRESS, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsOpenChannel(channel: *const WS_CHANNEL, endpointaddress: *const WS_ENDPOINT_ADDRESS, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsOpenChannel(channel : *const WS_CHANNEL, endpointaddress : *const WS_ENDPOINT_ADDRESS, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsOpenChannel(channel, endpointaddress, ::core::mem::transmute(asynccontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsOpenListener(listener: *const WS_LISTENER, url: *const WS_STRING, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsOpenListener(listener : *const WS_LISTENER, url : *const WS_STRING, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsOpenListener(listener: *const WS_LISTENER, url: *const WS_STRING, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsOpenListener(listener : *const WS_LISTENER, url : *const WS_STRING, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsOpenListener(listener, url, ::core::mem::transmute(asynccontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsOpenServiceHost(servicehost: *const WS_SERVICE_HOST, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsOpenServiceHost(servicehost : *const WS_SERVICE_HOST, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsOpenServiceHost(servicehost: *const WS_SERVICE_HOST, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsOpenServiceHost(servicehost : *const WS_SERVICE_HOST, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsOpenServiceHost(servicehost, ::core::mem::transmute(asynccontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsOpenServiceProxy(serviceproxy: *const WS_SERVICE_PROXY, address: *const WS_ENDPOINT_ADDRESS, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsOpenServiceProxy(serviceproxy : *const WS_SERVICE_PROXY, address : *const WS_ENDPOINT_ADDRESS, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsOpenServiceProxy(serviceproxy: *const WS_SERVICE_PROXY, address: *const WS_ENDPOINT_ADDRESS, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsOpenServiceProxy(serviceproxy : *const WS_SERVICE_PROXY, address : *const WS_ENDPOINT_ADDRESS, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsOpenServiceProxy(serviceproxy, address, ::core::mem::transmute(asynccontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsPullBytes(writer: *const WS_XML_WRITER, callback: WS_PULL_BYTES_CALLBACK, callbackstate: ::core::option::Option<*const ::core::ffi::c_void>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsPullBytes(writer : *const WS_XML_WRITER, callback : WS_PULL_BYTES_CALLBACK, callbackstate : *const ::core::ffi::c_void, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsPullBytes(writer: *const WS_XML_WRITER, callback: WS_PULL_BYTES_CALLBACK, callbackstate: ::core::option::Option<*const ::core::ffi::c_void>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsPullBytes(writer : *const WS_XML_WRITER, callback : WS_PULL_BYTES_CALLBACK, callbackstate : *const ::core::ffi::c_void, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsPullBytes(writer, callback, ::core::mem::transmute(callbackstate.unwrap_or(::std::ptr::null())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsPushBytes(writer: *const WS_XML_WRITER, callback: WS_PUSH_BYTES_CALLBACK, callbackstate: ::core::option::Option<*const ::core::ffi::c_void>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsPushBytes(writer : *const WS_XML_WRITER, callback : WS_PUSH_BYTES_CALLBACK, callbackstate : *const ::core::ffi::c_void, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsPushBytes(writer: *const WS_XML_WRITER, callback: WS_PUSH_BYTES_CALLBACK, callbackstate: ::core::option::Option<*const ::core::ffi::c_void>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsPushBytes(writer : *const WS_XML_WRITER, callback : WS_PUSH_BYTES_CALLBACK, callbackstate : *const ::core::ffi::c_void, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsPushBytes(writer, callback, ::core::mem::transmute(callbackstate.unwrap_or(::std::ptr::null())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsReadArray(reader: *const WS_XML_READER, localname: *const WS_XML_STRING, ns: *const WS_XML_STRING, valuetype: WS_VALUE_TYPE, array: ::core::option::Option<*mut ::core::ffi::c_void>, arraysize: u32, itemoffset: u32, itemcount: u32, actualitemcount: *mut u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsReadArray(reader : *const WS_XML_READER, localname : *const WS_XML_STRING, ns : *const WS_XML_STRING, valuetype : WS_VALUE_TYPE, array : *mut ::core::ffi::c_void, arraysize : u32, itemoffset : u32, itemcount : u32, actualitemcount : *mut u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsReadArray(reader: *const WS_XML_READER, localname: *const WS_XML_STRING, ns: *const WS_XML_STRING, valuetype: WS_VALUE_TYPE, array: ::core::option::Option<*mut ::core::ffi::c_void>, arraysize: u32, itemoffset: u32, itemcount: u32, actualitemcount: *mut u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsReadArray(reader : *const WS_XML_READER, localname : *const WS_XML_STRING, ns : *const WS_XML_STRING, valuetype : WS_VALUE_TYPE, array : *mut ::core::ffi::c_void, arraysize : u32, itemoffset : u32, itemcount : u32, actualitemcount : *mut u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsReadArray(reader, localname, ns, valuetype, ::core::mem::transmute(array.unwrap_or(::std::ptr::null_mut())), arraysize, itemoffset, itemcount, actualitemcount, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsReadAttribute(reader: *const WS_XML_READER, attributedescription: *const WS_ATTRIBUTE_DESCRIPTION, readoption: WS_READ_OPTION, heap: ::core::option::Option<*const WS_HEAP>, value: *mut ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsReadAttribute(reader : *const WS_XML_READER, attributedescription : *const WS_ATTRIBUTE_DESCRIPTION, readoption : WS_READ_OPTION, heap : *const WS_HEAP, value : *mut ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsReadAttribute(reader: *const WS_XML_READER, attributedescription: *const WS_ATTRIBUTE_DESCRIPTION, readoption: WS_READ_OPTION, heap: ::core::option::Option<*const WS_HEAP>, value: *mut ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsReadAttribute(reader : *const WS_XML_READER, attributedescription : *const WS_ATTRIBUTE_DESCRIPTION, readoption : WS_READ_OPTION, heap : *const WS_HEAP, value : *mut ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsReadAttribute(reader, attributedescription, readoption, ::core::mem::transmute(heap.unwrap_or(::std::ptr::null())), value, valuesize, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsReadBody(message: *const WS_MESSAGE, bodydescription: *const WS_ELEMENT_DESCRIPTION, readoption: WS_READ_OPTION, heap: ::core::option::Option<*const WS_HEAP>, value: *mut ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsReadBody(message : *const WS_MESSAGE, bodydescription : *const WS_ELEMENT_DESCRIPTION, readoption : WS_READ_OPTION, heap : *const WS_HEAP, value : *mut ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsReadBody(message: *const WS_MESSAGE, bodydescription: *const WS_ELEMENT_DESCRIPTION, readoption: WS_READ_OPTION, heap: ::core::option::Option<*const WS_HEAP>, value: *mut ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsReadBody(message : *const WS_MESSAGE, bodydescription : *const WS_ELEMENT_DESCRIPTION, readoption : WS_READ_OPTION, heap : *const WS_HEAP, value : *mut ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsReadBody(message, bodydescription, readoption, ::core::mem::transmute(heap.unwrap_or(::std::ptr::null())), value, valuesize, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsReadBytes(reader: *const WS_XML_READER, bytes: *mut ::core::ffi::c_void, maxbytecount: u32, actualbytecount: *mut u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsReadBytes(reader : *const WS_XML_READER, bytes : *mut ::core::ffi::c_void, maxbytecount : u32, actualbytecount : *mut u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsReadBytes(reader: *const WS_XML_READER, bytes: *mut ::core::ffi::c_void, maxbytecount: u32, actualbytecount: *mut u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsReadBytes(reader : *const WS_XML_READER, bytes : *mut ::core::ffi::c_void, maxbytecount : u32, actualbytecount : *mut u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsReadBytes(reader, bytes, maxbytecount, actualbytecount, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsReadChars(reader: *const WS_XML_READER, chars: &mut [u16], actualcharcount: *mut u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsReadChars(reader : *const WS_XML_READER, chars : ::windows::core::PWSTR, maxcharcount : u32, actualcharcount : *mut u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsReadChars(reader: *const WS_XML_READER, chars: &mut [u16], actualcharcount: *mut u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsReadChars(reader : *const WS_XML_READER, chars : ::windows_core::PWSTR, maxcharcount : u32, actualcharcount : *mut u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsReadChars(reader, ::core::mem::transmute(chars.as_ptr()), chars.len() as _, actualcharcount, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsReadCharsUtf8(reader: *const WS_XML_READER, bytes: &mut [u8], actualbytecount: *mut u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsReadCharsUtf8(reader : *const WS_XML_READER, bytes : *mut u8, maxbytecount : u32, actualbytecount : *mut u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsReadCharsUtf8(reader: *const WS_XML_READER, bytes: &mut [u8], actualbytecount: *mut u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsReadCharsUtf8(reader : *const WS_XML_READER, bytes : *mut u8, maxbytecount : u32, actualbytecount : *mut u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsReadCharsUtf8(reader, ::core::mem::transmute(bytes.as_ptr()), bytes.len() as _, actualbytecount, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsReadElement(reader: *const WS_XML_READER, elementdescription: *const WS_ELEMENT_DESCRIPTION, readoption: WS_READ_OPTION, heap: ::core::option::Option<*const WS_HEAP>, value: *mut ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsReadElement(reader : *const WS_XML_READER, elementdescription : *const WS_ELEMENT_DESCRIPTION, readoption : WS_READ_OPTION, heap : *const WS_HEAP, value : *mut ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsReadElement(reader: *const WS_XML_READER, elementdescription: *const WS_ELEMENT_DESCRIPTION, readoption: WS_READ_OPTION, heap: ::core::option::Option<*const WS_HEAP>, value: *mut ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsReadElement(reader : *const WS_XML_READER, elementdescription : *const WS_ELEMENT_DESCRIPTION, readoption : WS_READ_OPTION, heap : *const WS_HEAP, value : *mut ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsReadElement(reader, elementdescription, readoption, ::core::mem::transmute(heap.unwrap_or(::std::ptr::null())), value, valuesize, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsReadEndAttribute(reader: *const WS_XML_READER, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsReadEndAttribute(reader : *const WS_XML_READER, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsReadEndAttribute(reader: *const WS_XML_READER, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsReadEndAttribute(reader : *const WS_XML_READER, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsReadEndAttribute(reader, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsReadEndElement(reader: *const WS_XML_READER, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsReadEndElement(reader : *const WS_XML_READER, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsReadEndElement(reader: *const WS_XML_READER, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsReadEndElement(reader : *const WS_XML_READER, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsReadEndElement(reader, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsReadEndpointAddressExtension(reader: *const WS_XML_READER, endpointaddress: *const WS_ENDPOINT_ADDRESS, extensiontype: WS_ENDPOINT_ADDRESS_EXTENSION_TYPE, readoption: WS_READ_OPTION, heap: *const WS_HEAP, value: *mut ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsReadEndpointAddressExtension(reader : *const WS_XML_READER, endpointaddress : *const WS_ENDPOINT_ADDRESS, extensiontype : WS_ENDPOINT_ADDRESS_EXTENSION_TYPE, readoption : WS_READ_OPTION, heap : *const WS_HEAP, value : *mut ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsReadEndpointAddressExtension(reader: *const WS_XML_READER, endpointaddress: *const WS_ENDPOINT_ADDRESS, extensiontype: WS_ENDPOINT_ADDRESS_EXTENSION_TYPE, readoption: WS_READ_OPTION, heap: *const WS_HEAP, value: *mut ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsReadEndpointAddressExtension(reader : *const WS_XML_READER, endpointaddress : *const WS_ENDPOINT_ADDRESS, extensiontype : WS_ENDPOINT_ADDRESS_EXTENSION_TYPE, readoption : WS_READ_OPTION, heap : *const WS_HEAP, value : *mut ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsReadEndpointAddressExtension(reader, endpointaddress, extensiontype, readoption, heap, value, valuesize, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsReadEnvelopeEnd(message: *const WS_MESSAGE, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsReadEnvelopeEnd(message : *const WS_MESSAGE, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsReadEnvelopeEnd(message: *const WS_MESSAGE, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsReadEnvelopeEnd(message : *const WS_MESSAGE, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsReadEnvelopeEnd(message, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsReadEnvelopeStart(message: *const WS_MESSAGE, reader: *const WS_XML_READER, donecallback: WS_MESSAGE_DONE_CALLBACK, donecallbackstate: ::core::option::Option<*const ::core::ffi::c_void>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsReadEnvelopeStart(message : *const WS_MESSAGE, reader : *const WS_XML_READER, donecallback : WS_MESSAGE_DONE_CALLBACK, donecallbackstate : *const ::core::ffi::c_void, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsReadEnvelopeStart(message: *const WS_MESSAGE, reader: *const WS_XML_READER, donecallback: WS_MESSAGE_DONE_CALLBACK, donecallbackstate: ::core::option::Option<*const ::core::ffi::c_void>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsReadEnvelopeStart(message : *const WS_MESSAGE, reader : *const WS_XML_READER, donecallback : WS_MESSAGE_DONE_CALLBACK, donecallbackstate : *const ::core::ffi::c_void, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsReadEnvelopeStart(message, reader, donecallback, ::core::mem::transmute(donecallbackstate.unwrap_or(::std::ptr::null())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsReadMessageEnd(channel: *const WS_CHANNEL, message: *const WS_MESSAGE, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsReadMessageEnd(channel : *const WS_CHANNEL, message : *const WS_MESSAGE, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsReadMessageEnd(channel: *const WS_CHANNEL, message: *const WS_MESSAGE, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsReadMessageEnd(channel : *const WS_CHANNEL, message : *const WS_MESSAGE, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsReadMessageEnd(channel, message, ::core::mem::transmute(asynccontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsReadMessageStart(channel: *const WS_CHANNEL, message: *const WS_MESSAGE, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsReadMessageStart(channel : *const WS_CHANNEL, message : *const WS_MESSAGE, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsReadMessageStart(channel: *const WS_CHANNEL, message: *const WS_MESSAGE, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsReadMessageStart(channel : *const WS_CHANNEL, message : *const WS_MESSAGE, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsReadMessageStart(channel, message, ::core::mem::transmute(asynccontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsReadMetadata(metadata: *const WS_METADATA, reader: *const WS_XML_READER, url: *const WS_STRING, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsReadMetadata(metadata : *const WS_METADATA, reader : *const WS_XML_READER, url : *const WS_STRING, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsReadMetadata(metadata: *const WS_METADATA, reader: *const WS_XML_READER, url: *const WS_STRING, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsReadMetadata(metadata : *const WS_METADATA, reader : *const WS_XML_READER, url : *const WS_STRING, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsReadMetadata(metadata, reader, url, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsReadNode(reader: *const WS_XML_READER, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsReadNode(reader : *const WS_XML_READER, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsReadNode(reader: *const WS_XML_READER, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsReadNode(reader : *const WS_XML_READER, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsReadNode(reader, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsReadQualifiedName(reader: *const WS_XML_READER, heap: *const WS_HEAP, prefix: ::core::option::Option<*mut WS_XML_STRING>, localname: *mut WS_XML_STRING, ns: ::core::option::Option<*mut WS_XML_STRING>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsReadQualifiedName(reader : *const WS_XML_READER, heap : *const WS_HEAP, prefix : *mut WS_XML_STRING, localname : *mut WS_XML_STRING, ns : *mut WS_XML_STRING, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsReadQualifiedName(reader: *const WS_XML_READER, heap: *const WS_HEAP, prefix: ::core::option::Option<*mut WS_XML_STRING>, localname: *mut WS_XML_STRING, ns: ::core::option::Option<*mut WS_XML_STRING>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsReadQualifiedName(reader : *const WS_XML_READER, heap : *const WS_HEAP, prefix : *mut WS_XML_STRING, localname : *mut WS_XML_STRING, ns : *mut WS_XML_STRING, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsReadQualifiedName(reader, heap, ::core::mem::transmute(prefix.unwrap_or(::std::ptr::null_mut())), localname, ::core::mem::transmute(ns.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsReadStartAttribute(reader: *const WS_XML_READER, attributeindex: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsReadStartAttribute(reader : *const WS_XML_READER, attributeindex : u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsReadStartAttribute(reader: *const WS_XML_READER, attributeindex: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsReadStartAttribute(reader : *const WS_XML_READER, attributeindex : u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsReadStartAttribute(reader, attributeindex, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsReadStartElement(reader: *const WS_XML_READER, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsReadStartElement(reader : *const WS_XML_READER, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsReadStartElement(reader: *const WS_XML_READER, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsReadStartElement(reader : *const WS_XML_READER, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsReadStartElement(reader, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsReadToStartElement(reader: *const WS_XML_READER, localname: ::core::option::Option<*const WS_XML_STRING>, ns: ::core::option::Option<*const WS_XML_STRING>, found: ::core::option::Option<*mut super::super::Foundation::BOOL>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsReadToStartElement(reader : *const WS_XML_READER, localname : *const WS_XML_STRING, ns : *const WS_XML_STRING, found : *mut super::super::Foundation:: BOOL, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsReadToStartElement(reader: *const WS_XML_READER, localname: ::core::option::Option<*const WS_XML_STRING>, ns: ::core::option::Option<*const WS_XML_STRING>, found: ::core::option::Option<*mut super::super::Foundation::BOOL>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsReadToStartElement(reader : *const WS_XML_READER, localname : *const WS_XML_STRING, ns : *const WS_XML_STRING, found : *mut super::super::Foundation:: BOOL, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsReadToStartElement(reader, ::core::mem::transmute(localname.unwrap_or(::std::ptr::null())), ::core::mem::transmute(ns.unwrap_or(::std::ptr::null())), ::core::mem::transmute(found.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsReadType(reader: *const WS_XML_READER, typemapping: WS_TYPE_MAPPING, r#type: WS_TYPE, typedescription: ::core::option::Option<*const ::core::ffi::c_void>, readoption: WS_READ_OPTION, heap: ::core::option::Option<*const WS_HEAP>, value: *mut ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsReadType(reader : *const WS_XML_READER, typemapping : WS_TYPE_MAPPING, r#type : WS_TYPE, typedescription : *const ::core::ffi::c_void, readoption : WS_READ_OPTION, heap : *const WS_HEAP, value : *mut ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsReadType(reader: *const WS_XML_READER, typemapping: WS_TYPE_MAPPING, r#type: WS_TYPE, typedescription: ::core::option::Option<*const ::core::ffi::c_void>, readoption: WS_READ_OPTION, heap: ::core::option::Option<*const WS_HEAP>, value: *mut ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsReadType(reader : *const WS_XML_READER, typemapping : WS_TYPE_MAPPING, r#type : WS_TYPE, typedescription : *const ::core::ffi::c_void, readoption : WS_READ_OPTION, heap : *const WS_HEAP, value : *mut ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsReadType(reader, typemapping, r#type, ::core::mem::transmute(typedescription.unwrap_or(::std::ptr::null())), readoption, ::core::mem::transmute(heap.unwrap_or(::std::ptr::null())), value, valuesize, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsReadValue(reader: *const WS_XML_READER, valuetype: WS_VALUE_TYPE, value: *mut ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsReadValue(reader : *const WS_XML_READER, valuetype : WS_VALUE_TYPE, value : *mut ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsReadValue(reader: *const WS_XML_READER, valuetype: WS_VALUE_TYPE, value: *mut ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsReadValue(reader : *const WS_XML_READER, valuetype : WS_VALUE_TYPE, value : *mut ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsReadValue(reader, valuetype, value, valuesize, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsReadXmlBuffer(reader: *const WS_XML_READER, heap: *const WS_HEAP, xmlbuffer: *mut *mut WS_XML_BUFFER, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsReadXmlBuffer(reader : *const WS_XML_READER, heap : *const WS_HEAP, xmlbuffer : *mut *mut WS_XML_BUFFER, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsReadXmlBuffer(reader: *const WS_XML_READER, heap: *const WS_HEAP, xmlbuffer: *mut *mut WS_XML_BUFFER, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsReadXmlBuffer(reader : *const WS_XML_READER, heap : *const WS_HEAP, xmlbuffer : *mut *mut WS_XML_BUFFER, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsReadXmlBuffer(reader, heap, xmlbuffer, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsReadXmlBufferFromBytes(reader: *const WS_XML_READER, encoding: ::core::option::Option<*const WS_XML_READER_ENCODING>, properties: ::core::option::Option<&[WS_XML_READER_PROPERTY]>, bytes: *const ::core::ffi::c_void, bytecount: u32, heap: *const WS_HEAP, xmlbuffer: *mut *mut WS_XML_BUFFER, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsReadXmlBufferFromBytes(reader : *const WS_XML_READER, encoding : *const WS_XML_READER_ENCODING, properties : *const WS_XML_READER_PROPERTY, propertycount : u32, bytes : *const ::core::ffi::c_void, bytecount : u32, heap : *const WS_HEAP, xmlbuffer : *mut *mut WS_XML_BUFFER, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsReadXmlBufferFromBytes(reader: *const WS_XML_READER, encoding: ::core::option::Option<*const WS_XML_READER_ENCODING>, properties: ::core::option::Option<&[WS_XML_READER_PROPERTY]>, bytes: *const ::core::ffi::c_void, bytecount: u32, heap: *const WS_HEAP, xmlbuffer: *mut *mut WS_XML_BUFFER, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsReadXmlBufferFromBytes(reader : *const WS_XML_READER, encoding : *const WS_XML_READER_ENCODING, properties : *const WS_XML_READER_PROPERTY, propertycount : u32, bytes : *const ::core::ffi::c_void, bytecount : u32, heap : *const WS_HEAP, xmlbuffer : *mut *mut WS_XML_BUFFER, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsReadXmlBufferFromBytes(reader, ::core::mem::transmute(encoding.unwrap_or(::std::ptr::null())), ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len() as _), bytes, bytecount, heap, xmlbuffer, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsReceiveMessage(channel: *const WS_CHANNEL, message: *const WS_MESSAGE, messagedescriptions: &[*const WS_MESSAGE_DESCRIPTION], receiveoption: WS_RECEIVE_OPTION, readbodyoption: WS_READ_OPTION, heap: ::core::option::Option<*const WS_HEAP>, value: *mut ::core::ffi::c_void, valuesize: u32, index: ::core::option::Option<*mut u32>, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsReceiveMessage(channel : *const WS_CHANNEL, message : *const WS_MESSAGE, messagedescriptions : *const *const WS_MESSAGE_DESCRIPTION, messagedescriptioncount : u32, receiveoption : WS_RECEIVE_OPTION, readbodyoption : WS_READ_OPTION, heap : *const WS_HEAP, value : *mut ::core::ffi::c_void, valuesize : u32, index : *mut u32, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsReceiveMessage(channel: *const WS_CHANNEL, message: *const WS_MESSAGE, messagedescriptions: &[*const WS_MESSAGE_DESCRIPTION], receiveoption: WS_RECEIVE_OPTION, readbodyoption: WS_READ_OPTION, heap: ::core::option::Option<*const WS_HEAP>, value: *mut ::core::ffi::c_void, valuesize: u32, index: ::core::option::Option<*mut u32>, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsReceiveMessage(channel : *const WS_CHANNEL, message : *const WS_MESSAGE, messagedescriptions : *const *const WS_MESSAGE_DESCRIPTION, messagedescriptioncount : u32, receiveoption : WS_RECEIVE_OPTION, readbodyoption : WS_READ_OPTION, heap : *const WS_HEAP, value : *mut ::core::ffi::c_void, valuesize : u32, index : *mut u32, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsReceiveMessage(channel, message, ::core::mem::transmute(messagedescriptions.as_ptr()), messagedescriptions.len() as _, receiveoption, readbodyoption, ::core::mem::transmute(heap.unwrap_or(::std::ptr::null())), value, valuesize, ::core::mem::transmute(index.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(asynccontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsRegisterOperationForCancel(context: *const WS_OPERATION_CONTEXT, cancelcallback: WS_OPERATION_CANCEL_CALLBACK, freestatecallback: WS_OPERATION_FREE_STATE_CALLBACK, userstate: ::core::option::Option<*const ::core::ffi::c_void>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsRegisterOperationForCancel(context : *const WS_OPERATION_CONTEXT, cancelcallback : WS_OPERATION_CANCEL_CALLBACK, freestatecallback : WS_OPERATION_FREE_STATE_CALLBACK, userstate : *const ::core::ffi::c_void, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsRegisterOperationForCancel(context: *const WS_OPERATION_CONTEXT, cancelcallback: WS_OPERATION_CANCEL_CALLBACK, freestatecallback: WS_OPERATION_FREE_STATE_CALLBACK, userstate: ::core::option::Option<*const ::core::ffi::c_void>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsRegisterOperationForCancel(context : *const WS_OPERATION_CONTEXT, cancelcallback : WS_OPERATION_CANCEL_CALLBACK, freestatecallback : WS_OPERATION_FREE_STATE_CALLBACK, userstate : *const ::core::ffi::c_void, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsRegisterOperationForCancel(context, cancelcallback, freestatecallback, ::core::mem::transmute(userstate.unwrap_or(::std::ptr::null())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsRemoveCustomHeader(message: *const WS_MESSAGE, headername: *const WS_XML_STRING, headerns: *const WS_XML_STRING, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsRemoveCustomHeader(message : *const WS_MESSAGE, headername : *const WS_XML_STRING, headerns : *const WS_XML_STRING, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsRemoveCustomHeader(message: *const WS_MESSAGE, headername: *const WS_XML_STRING, headerns: *const WS_XML_STRING, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsRemoveCustomHeader(message : *const WS_MESSAGE, headername : *const WS_XML_STRING, headerns : *const WS_XML_STRING, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsRemoveCustomHeader(message, headername, headerns, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsRemoveHeader(message: *const WS_MESSAGE, headertype: WS_HEADER_TYPE, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsRemoveHeader(message : *const WS_MESSAGE, headertype : WS_HEADER_TYPE, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsRemoveHeader(message: *const WS_MESSAGE, headertype: WS_HEADER_TYPE, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsRemoveHeader(message : *const WS_MESSAGE, headertype : WS_HEADER_TYPE, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsRemoveHeader(message, headertype, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsRemoveMappedHeader(message: *const WS_MESSAGE, headername: *const WS_XML_STRING, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsRemoveMappedHeader(message : *const WS_MESSAGE, headername : *const WS_XML_STRING, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsRemoveMappedHeader(message: *const WS_MESSAGE, headername: *const WS_XML_STRING, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsRemoveMappedHeader(message : *const WS_MESSAGE, headername : *const WS_XML_STRING, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsRemoveMappedHeader(message, headername, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsRemoveNode(nodeposition: *const WS_XML_NODE_POSITION, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsRemoveNode(nodeposition : *const WS_XML_NODE_POSITION, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsRemoveNode(nodeposition: *const WS_XML_NODE_POSITION, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsRemoveNode(nodeposition : *const WS_XML_NODE_POSITION, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsRemoveNode(nodeposition, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsRequestReply(channel: *const WS_CHANNEL, requestmessage: *const WS_MESSAGE, requestmessagedescription: *const WS_MESSAGE_DESCRIPTION, writeoption: WS_WRITE_OPTION, requestbodyvalue: ::core::option::Option<*const ::core::ffi::c_void>, requestbodyvaluesize: u32, replymessage: *const WS_MESSAGE, replymessagedescription: *const WS_MESSAGE_DESCRIPTION, readoption: WS_READ_OPTION, heap: ::core::option::Option<*const WS_HEAP>, value: ::core::option::Option<*mut ::core::ffi::c_void>, valuesize: u32, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsRequestReply(channel : *const WS_CHANNEL, requestmessage : *const WS_MESSAGE, requestmessagedescription : *const WS_MESSAGE_DESCRIPTION, writeoption : WS_WRITE_OPTION, requestbodyvalue : *const ::core::ffi::c_void, requestbodyvaluesize : u32, replymessage : *const WS_MESSAGE, replymessagedescription : *const WS_MESSAGE_DESCRIPTION, readoption : WS_READ_OPTION, heap : *const WS_HEAP, value : *mut ::core::ffi::c_void, valuesize : u32, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsRequestReply(channel: *const WS_CHANNEL, requestmessage: *const WS_MESSAGE, requestmessagedescription: *const WS_MESSAGE_DESCRIPTION, writeoption: WS_WRITE_OPTION, requestbodyvalue: ::core::option::Option<*const ::core::ffi::c_void>, requestbodyvaluesize: u32, replymessage: *const WS_MESSAGE, replymessagedescription: *const WS_MESSAGE_DESCRIPTION, readoption: WS_READ_OPTION, heap: ::core::option::Option<*const WS_HEAP>, value: ::core::option::Option<*mut ::core::ffi::c_void>, valuesize: u32, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsRequestReply(channel : *const WS_CHANNEL, requestmessage : *const WS_MESSAGE, requestmessagedescription : *const WS_MESSAGE_DESCRIPTION, writeoption : WS_WRITE_OPTION, requestbodyvalue : *const ::core::ffi::c_void, requestbodyvaluesize : u32, replymessage : *const WS_MESSAGE, replymessagedescription : *const WS_MESSAGE_DESCRIPTION, readoption : WS_READ_OPTION, heap : *const WS_HEAP, value : *mut ::core::ffi::c_void, valuesize : u32, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsRequestReply(channel, requestmessage, requestmessagedescription, writeoption, ::core::mem::transmute(requestbodyvalue.unwrap_or(::std::ptr::null())), requestbodyvaluesize, replymessage, replymessagedescription, readoption, ::core::mem::transmute(heap.unwrap_or(::std::ptr::null())), ::core::mem::transmute(value.unwrap_or(::std::ptr::null_mut())), valuesize, ::core::mem::transmute(asynccontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsRequestSecurityToken(channel: *const WS_CHANNEL, properties: ::core::option::Option<&[WS_REQUEST_SECURITY_TOKEN_PROPERTY]>, token: *mut *mut WS_SECURITY_TOKEN, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsRequestSecurityToken(channel : *const WS_CHANNEL, properties : *const WS_REQUEST_SECURITY_TOKEN_PROPERTY, propertycount : u32, token : *mut *mut WS_SECURITY_TOKEN, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsRequestSecurityToken(channel: *const WS_CHANNEL, properties: ::core::option::Option<&[WS_REQUEST_SECURITY_TOKEN_PROPERTY]>, token: *mut *mut WS_SECURITY_TOKEN, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsRequestSecurityToken(channel : *const WS_CHANNEL, properties : *const WS_REQUEST_SECURITY_TOKEN_PROPERTY, propertycount : u32, token : *mut *mut WS_SECURITY_TOKEN, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsRequestSecurityToken(channel, ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len() as _), token, ::core::mem::transmute(asynccontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsResetChannel(channel: *const WS_CHANNEL, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsResetChannel(channel : *const WS_CHANNEL, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsResetChannel(channel: *const WS_CHANNEL, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsResetChannel(channel : *const WS_CHANNEL, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsResetChannel(channel, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsResetError(error: *const WS_ERROR) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsResetError(error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsResetError(error: *const WS_ERROR) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsResetError(error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsResetError(error).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsResetHeap(heap: *const WS_HEAP, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsResetHeap(heap : *const WS_HEAP, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsResetHeap(heap: *const WS_HEAP, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsResetHeap(heap : *const WS_HEAP, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsResetHeap(heap, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsResetListener(listener: *const WS_LISTENER, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsResetListener(listener : *const WS_LISTENER, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsResetListener(listener: *const WS_LISTENER, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsResetListener(listener : *const WS_LISTENER, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsResetListener(listener, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsResetMessage(message: *const WS_MESSAGE, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsResetMessage(message : *const WS_MESSAGE, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsResetMessage(message: *const WS_MESSAGE, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsResetMessage(message : *const WS_MESSAGE, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsResetMessage(message, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsResetMetadata(metadata: *const WS_METADATA, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsResetMetadata(metadata : *const WS_METADATA, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsResetMetadata(metadata: *const WS_METADATA, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsResetMetadata(metadata : *const WS_METADATA, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsResetMetadata(metadata, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsResetServiceHost(servicehost: *const WS_SERVICE_HOST, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsResetServiceHost(servicehost : *const WS_SERVICE_HOST, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsResetServiceHost(servicehost: *const WS_SERVICE_HOST, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsResetServiceHost(servicehost : *const WS_SERVICE_HOST, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsResetServiceHost(servicehost, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsResetServiceProxy(serviceproxy: *const WS_SERVICE_PROXY, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsResetServiceProxy(serviceproxy : *const WS_SERVICE_PROXY, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsResetServiceProxy(serviceproxy: *const WS_SERVICE_PROXY, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsResetServiceProxy(serviceproxy : *const WS_SERVICE_PROXY, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsResetServiceProxy(serviceproxy, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsRevokeSecurityContext(securitycontext: *const WS_SECURITY_CONTEXT, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsRevokeSecurityContext(securitycontext : *const WS_SECURITY_CONTEXT, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsRevokeSecurityContext(securitycontext: *const WS_SECURITY_CONTEXT, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsRevokeSecurityContext(securitycontext : *const WS_SECURITY_CONTEXT, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsRevokeSecurityContext(securitycontext, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsSendFaultMessageForError(channel: *const WS_CHANNEL, replymessage: *const WS_MESSAGE, faulterror: *const WS_ERROR, faulterrorcode: ::windows::core::HRESULT, faultdisclosure: WS_FAULT_DISCLOSURE, requestmessage: *const WS_MESSAGE, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsSendFaultMessageForError(channel : *const WS_CHANNEL, replymessage : *const WS_MESSAGE, faulterror : *const WS_ERROR, faulterrorcode : ::windows::core::HRESULT, faultdisclosure : WS_FAULT_DISCLOSURE, requestmessage : *const WS_MESSAGE, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsSendFaultMessageForError(channel: *const WS_CHANNEL, replymessage: *const WS_MESSAGE, faulterror: *const WS_ERROR, faulterrorcode: ::windows_core::HRESULT, faultdisclosure: WS_FAULT_DISCLOSURE, requestmessage: *const WS_MESSAGE, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsSendFaultMessageForError(channel : *const WS_CHANNEL, replymessage : *const WS_MESSAGE, faulterror : *const WS_ERROR, faulterrorcode : ::windows_core::HRESULT, faultdisclosure : WS_FAULT_DISCLOSURE, requestmessage : *const WS_MESSAGE, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsSendFaultMessageForError(channel, replymessage, faulterror, faulterrorcode, faultdisclosure, requestmessage, ::core::mem::transmute(asynccontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsSendMessage(channel: *const WS_CHANNEL, message: *const WS_MESSAGE, messagedescription: *const WS_MESSAGE_DESCRIPTION, writeoption: WS_WRITE_OPTION, bodyvalue: ::core::option::Option<*const ::core::ffi::c_void>, bodyvaluesize: u32, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsSendMessage(channel : *const WS_CHANNEL, message : *const WS_MESSAGE, messagedescription : *const WS_MESSAGE_DESCRIPTION, writeoption : WS_WRITE_OPTION, bodyvalue : *const ::core::ffi::c_void, bodyvaluesize : u32, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsSendMessage(channel: *const WS_CHANNEL, message: *const WS_MESSAGE, messagedescription: *const WS_MESSAGE_DESCRIPTION, writeoption: WS_WRITE_OPTION, bodyvalue: ::core::option::Option<*const ::core::ffi::c_void>, bodyvaluesize: u32, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsSendMessage(channel : *const WS_CHANNEL, message : *const WS_MESSAGE, messagedescription : *const WS_MESSAGE_DESCRIPTION, writeoption : WS_WRITE_OPTION, bodyvalue : *const ::core::ffi::c_void, bodyvaluesize : u32, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsSendMessage(channel, message, messagedescription, writeoption, ::core::mem::transmute(bodyvalue.unwrap_or(::std::ptr::null())), bodyvaluesize, ::core::mem::transmute(asynccontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsSendReplyMessage(channel: *const WS_CHANNEL, replymessage: *const WS_MESSAGE, replymessagedescription: *const WS_MESSAGE_DESCRIPTION, writeoption: WS_WRITE_OPTION, replybodyvalue: ::core::option::Option<*const ::core::ffi::c_void>, replybodyvaluesize: u32, requestmessage: *const WS_MESSAGE, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsSendReplyMessage(channel : *const WS_CHANNEL, replymessage : *const WS_MESSAGE, replymessagedescription : *const WS_MESSAGE_DESCRIPTION, writeoption : WS_WRITE_OPTION, replybodyvalue : *const ::core::ffi::c_void, replybodyvaluesize : u32, requestmessage : *const WS_MESSAGE, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsSendReplyMessage(channel: *const WS_CHANNEL, replymessage: *const WS_MESSAGE, replymessagedescription: *const WS_MESSAGE_DESCRIPTION, writeoption: WS_WRITE_OPTION, replybodyvalue: ::core::option::Option<*const ::core::ffi::c_void>, replybodyvaluesize: u32, requestmessage: *const WS_MESSAGE, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsSendReplyMessage(channel : *const WS_CHANNEL, replymessage : *const WS_MESSAGE, replymessagedescription : *const WS_MESSAGE_DESCRIPTION, writeoption : WS_WRITE_OPTION, replybodyvalue : *const ::core::ffi::c_void, replybodyvaluesize : u32, requestmessage : *const WS_MESSAGE, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsSendReplyMessage(channel, replymessage, replymessagedescription, writeoption, ::core::mem::transmute(replybodyvalue.unwrap_or(::std::ptr::null())), replybodyvaluesize, requestmessage, ::core::mem::transmute(asynccontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsSetChannelProperty(channel: *const WS_CHANNEL, id: WS_CHANNEL_PROPERTY_ID, value: *const ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsSetChannelProperty(channel : *const WS_CHANNEL, id : WS_CHANNEL_PROPERTY_ID, value : *const ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsSetChannelProperty(channel: *const WS_CHANNEL, id: WS_CHANNEL_PROPERTY_ID, value: *const ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsSetChannelProperty(channel : *const WS_CHANNEL, id : WS_CHANNEL_PROPERTY_ID, value : *const ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsSetChannelProperty(channel, id, value, valuesize, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsSetErrorProperty(error: *const WS_ERROR, id: WS_ERROR_PROPERTY_ID, value: *const ::core::ffi::c_void, valuesize: u32) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsSetErrorProperty(error : *const WS_ERROR, id : WS_ERROR_PROPERTY_ID, value : *const ::core::ffi::c_void, valuesize : u32) -> ::windows::core::HRESULT);
+pub unsafe fn WsSetErrorProperty(error: *const WS_ERROR, id: WS_ERROR_PROPERTY_ID, value: *const ::core::ffi::c_void, valuesize: u32) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsSetErrorProperty(error : *const WS_ERROR, id : WS_ERROR_PROPERTY_ID, value : *const ::core::ffi::c_void, valuesize : u32) -> ::windows_core::HRESULT);
     WsSetErrorProperty(error, id, value, valuesize).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsSetFaultErrorDetail(error: *const WS_ERROR, faultdetaildescription: *const WS_FAULT_DETAIL_DESCRIPTION, writeoption: WS_WRITE_OPTION, value: ::core::option::Option<*const ::core::ffi::c_void>, valuesize: u32) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsSetFaultErrorDetail(error : *const WS_ERROR, faultdetaildescription : *const WS_FAULT_DETAIL_DESCRIPTION, writeoption : WS_WRITE_OPTION, value : *const ::core::ffi::c_void, valuesize : u32) -> ::windows::core::HRESULT);
+pub unsafe fn WsSetFaultErrorDetail(error: *const WS_ERROR, faultdetaildescription: *const WS_FAULT_DETAIL_DESCRIPTION, writeoption: WS_WRITE_OPTION, value: ::core::option::Option<*const ::core::ffi::c_void>, valuesize: u32) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsSetFaultErrorDetail(error : *const WS_ERROR, faultdetaildescription : *const WS_FAULT_DETAIL_DESCRIPTION, writeoption : WS_WRITE_OPTION, value : *const ::core::ffi::c_void, valuesize : u32) -> ::windows_core::HRESULT);
     WsSetFaultErrorDetail(error, faultdetaildescription, writeoption, ::core::mem::transmute(value.unwrap_or(::std::ptr::null())), valuesize).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsSetFaultErrorProperty(error: *const WS_ERROR, id: WS_FAULT_ERROR_PROPERTY_ID, value: *const ::core::ffi::c_void, valuesize: u32) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsSetFaultErrorProperty(error : *const WS_ERROR, id : WS_FAULT_ERROR_PROPERTY_ID, value : *const ::core::ffi::c_void, valuesize : u32) -> ::windows::core::HRESULT);
+pub unsafe fn WsSetFaultErrorProperty(error: *const WS_ERROR, id: WS_FAULT_ERROR_PROPERTY_ID, value: *const ::core::ffi::c_void, valuesize: u32) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsSetFaultErrorProperty(error : *const WS_ERROR, id : WS_FAULT_ERROR_PROPERTY_ID, value : *const ::core::ffi::c_void, valuesize : u32) -> ::windows_core::HRESULT);
     WsSetFaultErrorProperty(error, id, value, valuesize).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsSetHeader(message: *const WS_MESSAGE, headertype: WS_HEADER_TYPE, valuetype: WS_TYPE, writeoption: WS_WRITE_OPTION, value: *const ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsSetHeader(message : *const WS_MESSAGE, headertype : WS_HEADER_TYPE, valuetype : WS_TYPE, writeoption : WS_WRITE_OPTION, value : *const ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsSetHeader(message: *const WS_MESSAGE, headertype: WS_HEADER_TYPE, valuetype: WS_TYPE, writeoption: WS_WRITE_OPTION, value: *const ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsSetHeader(message : *const WS_MESSAGE, headertype : WS_HEADER_TYPE, valuetype : WS_TYPE, writeoption : WS_WRITE_OPTION, value : *const ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsSetHeader(message, headertype, valuetype, writeoption, value, valuesize, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsSetInput(reader: *const WS_XML_READER, encoding: ::core::option::Option<*const WS_XML_READER_ENCODING>, input: ::core::option::Option<*const WS_XML_READER_INPUT>, properties: ::core::option::Option<&[WS_XML_READER_PROPERTY]>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsSetInput(reader : *const WS_XML_READER, encoding : *const WS_XML_READER_ENCODING, input : *const WS_XML_READER_INPUT, properties : *const WS_XML_READER_PROPERTY, propertycount : u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsSetInput(reader: *const WS_XML_READER, encoding: ::core::option::Option<*const WS_XML_READER_ENCODING>, input: ::core::option::Option<*const WS_XML_READER_INPUT>, properties: ::core::option::Option<&[WS_XML_READER_PROPERTY]>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsSetInput(reader : *const WS_XML_READER, encoding : *const WS_XML_READER_ENCODING, input : *const WS_XML_READER_INPUT, properties : *const WS_XML_READER_PROPERTY, propertycount : u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsSetInput(reader, ::core::mem::transmute(encoding.unwrap_or(::std::ptr::null())), ::core::mem::transmute(input.unwrap_or(::std::ptr::null())), ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsSetInputToBuffer(reader: *const WS_XML_READER, buffer: *const WS_XML_BUFFER, properties: ::core::option::Option<&[WS_XML_READER_PROPERTY]>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsSetInputToBuffer(reader : *const WS_XML_READER, buffer : *const WS_XML_BUFFER, properties : *const WS_XML_READER_PROPERTY, propertycount : u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsSetInputToBuffer(reader: *const WS_XML_READER, buffer: *const WS_XML_BUFFER, properties: ::core::option::Option<&[WS_XML_READER_PROPERTY]>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsSetInputToBuffer(reader : *const WS_XML_READER, buffer : *const WS_XML_BUFFER, properties : *const WS_XML_READER_PROPERTY, propertycount : u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsSetInputToBuffer(reader, buffer, ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsSetListenerProperty(listener: *const WS_LISTENER, id: WS_LISTENER_PROPERTY_ID, value: *const ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsSetListenerProperty(listener : *const WS_LISTENER, id : WS_LISTENER_PROPERTY_ID, value : *const ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsSetListenerProperty(listener: *const WS_LISTENER, id: WS_LISTENER_PROPERTY_ID, value: *const ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsSetListenerProperty(listener : *const WS_LISTENER, id : WS_LISTENER_PROPERTY_ID, value : *const ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsSetListenerProperty(listener, id, value, valuesize, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsSetMessageProperty(message: *const WS_MESSAGE, id: WS_MESSAGE_PROPERTY_ID, value: *const ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsSetMessageProperty(message : *const WS_MESSAGE, id : WS_MESSAGE_PROPERTY_ID, value : *const ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsSetMessageProperty(message: *const WS_MESSAGE, id: WS_MESSAGE_PROPERTY_ID, value: *const ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsSetMessageProperty(message : *const WS_MESSAGE, id : WS_MESSAGE_PROPERTY_ID, value : *const ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsSetMessageProperty(message, id, value, valuesize, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsSetOutput(writer: *const WS_XML_WRITER, encoding: ::core::option::Option<*const WS_XML_WRITER_ENCODING>, output: ::core::option::Option<*const WS_XML_WRITER_OUTPUT>, properties: ::core::option::Option<&[WS_XML_WRITER_PROPERTY]>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsSetOutput(writer : *const WS_XML_WRITER, encoding : *const WS_XML_WRITER_ENCODING, output : *const WS_XML_WRITER_OUTPUT, properties : *const WS_XML_WRITER_PROPERTY, propertycount : u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsSetOutput(writer: *const WS_XML_WRITER, encoding: ::core::option::Option<*const WS_XML_WRITER_ENCODING>, output: ::core::option::Option<*const WS_XML_WRITER_OUTPUT>, properties: ::core::option::Option<&[WS_XML_WRITER_PROPERTY]>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsSetOutput(writer : *const WS_XML_WRITER, encoding : *const WS_XML_WRITER_ENCODING, output : *const WS_XML_WRITER_OUTPUT, properties : *const WS_XML_WRITER_PROPERTY, propertycount : u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsSetOutput(writer, ::core::mem::transmute(encoding.unwrap_or(::std::ptr::null())), ::core::mem::transmute(output.unwrap_or(::std::ptr::null())), ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsSetOutputToBuffer(writer: *const WS_XML_WRITER, buffer: *const WS_XML_BUFFER, properties: ::core::option::Option<&[WS_XML_WRITER_PROPERTY]>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsSetOutputToBuffer(writer : *const WS_XML_WRITER, buffer : *const WS_XML_BUFFER, properties : *const WS_XML_WRITER_PROPERTY, propertycount : u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsSetOutputToBuffer(writer: *const WS_XML_WRITER, buffer: *const WS_XML_BUFFER, properties: ::core::option::Option<&[WS_XML_WRITER_PROPERTY]>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsSetOutputToBuffer(writer : *const WS_XML_WRITER, buffer : *const WS_XML_BUFFER, properties : *const WS_XML_WRITER_PROPERTY, propertycount : u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsSetOutputToBuffer(writer, buffer, ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsSetReaderPosition(reader: *const WS_XML_READER, nodeposition: *const WS_XML_NODE_POSITION, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsSetReaderPosition(reader : *const WS_XML_READER, nodeposition : *const WS_XML_NODE_POSITION, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsSetReaderPosition(reader: *const WS_XML_READER, nodeposition: *const WS_XML_NODE_POSITION, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsSetReaderPosition(reader : *const WS_XML_READER, nodeposition : *const WS_XML_NODE_POSITION, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsSetReaderPosition(reader, nodeposition, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsSetWriterPosition(writer: *const WS_XML_WRITER, nodeposition: *const WS_XML_NODE_POSITION, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsSetWriterPosition(writer : *const WS_XML_WRITER, nodeposition : *const WS_XML_NODE_POSITION, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsSetWriterPosition(writer: *const WS_XML_WRITER, nodeposition: *const WS_XML_NODE_POSITION, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsSetWriterPosition(writer : *const WS_XML_WRITER, nodeposition : *const WS_XML_NODE_POSITION, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsSetWriterPosition(writer, nodeposition, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsShutdownSessionChannel(channel: *const WS_CHANNEL, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsShutdownSessionChannel(channel : *const WS_CHANNEL, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsShutdownSessionChannel(channel: *const WS_CHANNEL, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsShutdownSessionChannel(channel : *const WS_CHANNEL, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsShutdownSessionChannel(channel, ::core::mem::transmute(asynccontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsSkipNode(reader: *const WS_XML_READER, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsSkipNode(reader : *const WS_XML_READER, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsSkipNode(reader: *const WS_XML_READER, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsSkipNode(reader : *const WS_XML_READER, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsSkipNode(reader, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsStartReaderCanonicalization(reader: *const WS_XML_READER, writecallback: WS_WRITE_CALLBACK, writecallbackstate: ::core::option::Option<*const ::core::ffi::c_void>, properties: ::core::option::Option<&[WS_XML_CANONICALIZATION_PROPERTY]>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsStartReaderCanonicalization(reader : *const WS_XML_READER, writecallback : WS_WRITE_CALLBACK, writecallbackstate : *const ::core::ffi::c_void, properties : *const WS_XML_CANONICALIZATION_PROPERTY, propertycount : u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsStartReaderCanonicalization(reader: *const WS_XML_READER, writecallback: WS_WRITE_CALLBACK, writecallbackstate: ::core::option::Option<*const ::core::ffi::c_void>, properties: ::core::option::Option<&[WS_XML_CANONICALIZATION_PROPERTY]>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsStartReaderCanonicalization(reader : *const WS_XML_READER, writecallback : WS_WRITE_CALLBACK, writecallbackstate : *const ::core::ffi::c_void, properties : *const WS_XML_CANONICALIZATION_PROPERTY, propertycount : u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsStartReaderCanonicalization(reader, writecallback, ::core::mem::transmute(writecallbackstate.unwrap_or(::std::ptr::null())), ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsStartWriterCanonicalization(writer: *const WS_XML_WRITER, writecallback: WS_WRITE_CALLBACK, writecallbackstate: ::core::option::Option<*const ::core::ffi::c_void>, properties: ::core::option::Option<&[WS_XML_CANONICALIZATION_PROPERTY]>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsStartWriterCanonicalization(writer : *const WS_XML_WRITER, writecallback : WS_WRITE_CALLBACK, writecallbackstate : *const ::core::ffi::c_void, properties : *const WS_XML_CANONICALIZATION_PROPERTY, propertycount : u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsStartWriterCanonicalization(writer: *const WS_XML_WRITER, writecallback: WS_WRITE_CALLBACK, writecallbackstate: ::core::option::Option<*const ::core::ffi::c_void>, properties: ::core::option::Option<&[WS_XML_CANONICALIZATION_PROPERTY]>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsStartWriterCanonicalization(writer : *const WS_XML_WRITER, writecallback : WS_WRITE_CALLBACK, writecallbackstate : *const ::core::ffi::c_void, properties : *const WS_XML_CANONICALIZATION_PROPERTY, propertycount : u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsStartWriterCanonicalization(writer, writecallback, ::core::mem::transmute(writecallbackstate.unwrap_or(::std::ptr::null())), ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsTrimXmlWhitespace(chars: &[u16], trimmedchars: *mut *mut u16, trimmedcount: *mut u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsTrimXmlWhitespace(chars : ::windows::core::PCWSTR, charcount : u32, trimmedchars : *mut *mut u16, trimmedcount : *mut u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsTrimXmlWhitespace(chars: &[u16], trimmedchars: *mut *mut u16, trimmedcount: *mut u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsTrimXmlWhitespace(chars : ::windows_core::PCWSTR, charcount : u32, trimmedchars : *mut *mut u16, trimmedcount : *mut u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsTrimXmlWhitespace(::core::mem::transmute(chars.as_ptr()), chars.len() as _, trimmedchars, trimmedcount, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsVerifyXmlNCName(ncnamechars: &[u16], error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsVerifyXmlNCName(ncnamechars : ::windows::core::PCWSTR, ncnamecharcount : u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsVerifyXmlNCName(ncnamechars: &[u16], error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsVerifyXmlNCName(ncnamechars : ::windows_core::PCWSTR, ncnamecharcount : u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsVerifyXmlNCName(::core::mem::transmute(ncnamechars.as_ptr()), ncnamechars.len() as _, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsWriteArray(writer: *const WS_XML_WRITER, localname: *const WS_XML_STRING, ns: *const WS_XML_STRING, valuetype: WS_VALUE_TYPE, array: ::core::option::Option<*const ::core::ffi::c_void>, arraysize: u32, itemoffset: u32, itemcount: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsWriteArray(writer : *const WS_XML_WRITER, localname : *const WS_XML_STRING, ns : *const WS_XML_STRING, valuetype : WS_VALUE_TYPE, array : *const ::core::ffi::c_void, arraysize : u32, itemoffset : u32, itemcount : u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsWriteArray(writer: *const WS_XML_WRITER, localname: *const WS_XML_STRING, ns: *const WS_XML_STRING, valuetype: WS_VALUE_TYPE, array: ::core::option::Option<*const ::core::ffi::c_void>, arraysize: u32, itemoffset: u32, itemcount: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsWriteArray(writer : *const WS_XML_WRITER, localname : *const WS_XML_STRING, ns : *const WS_XML_STRING, valuetype : WS_VALUE_TYPE, array : *const ::core::ffi::c_void, arraysize : u32, itemoffset : u32, itemcount : u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsWriteArray(writer, localname, ns, valuetype, ::core::mem::transmute(array.unwrap_or(::std::ptr::null())), arraysize, itemoffset, itemcount, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsWriteAttribute(writer: *const WS_XML_WRITER, attributedescription: *const WS_ATTRIBUTE_DESCRIPTION, writeoption: WS_WRITE_OPTION, value: ::core::option::Option<*const ::core::ffi::c_void>, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsWriteAttribute(writer : *const WS_XML_WRITER, attributedescription : *const WS_ATTRIBUTE_DESCRIPTION, writeoption : WS_WRITE_OPTION, value : *const ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsWriteAttribute(writer: *const WS_XML_WRITER, attributedescription: *const WS_ATTRIBUTE_DESCRIPTION, writeoption: WS_WRITE_OPTION, value: ::core::option::Option<*const ::core::ffi::c_void>, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsWriteAttribute(writer : *const WS_XML_WRITER, attributedescription : *const WS_ATTRIBUTE_DESCRIPTION, writeoption : WS_WRITE_OPTION, value : *const ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsWriteAttribute(writer, attributedescription, writeoption, ::core::mem::transmute(value.unwrap_or(::std::ptr::null())), valuesize, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsWriteBody(message: *const WS_MESSAGE, bodydescription: *const WS_ELEMENT_DESCRIPTION, writeoption: WS_WRITE_OPTION, value: *const ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsWriteBody(message : *const WS_MESSAGE, bodydescription : *const WS_ELEMENT_DESCRIPTION, writeoption : WS_WRITE_OPTION, value : *const ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsWriteBody(message: *const WS_MESSAGE, bodydescription: *const WS_ELEMENT_DESCRIPTION, writeoption: WS_WRITE_OPTION, value: *const ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsWriteBody(message : *const WS_MESSAGE, bodydescription : *const WS_ELEMENT_DESCRIPTION, writeoption : WS_WRITE_OPTION, value : *const ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsWriteBody(message, bodydescription, writeoption, value, valuesize, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsWriteBytes(writer: *const WS_XML_WRITER, bytes: *const ::core::ffi::c_void, bytecount: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsWriteBytes(writer : *const WS_XML_WRITER, bytes : *const ::core::ffi::c_void, bytecount : u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsWriteBytes(writer: *const WS_XML_WRITER, bytes: *const ::core::ffi::c_void, bytecount: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsWriteBytes(writer : *const WS_XML_WRITER, bytes : *const ::core::ffi::c_void, bytecount : u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsWriteBytes(writer, bytes, bytecount, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsWriteChars(writer: *const WS_XML_WRITER, chars: &[u16], error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsWriteChars(writer : *const WS_XML_WRITER, chars : ::windows::core::PCWSTR, charcount : u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsWriteChars(writer: *const WS_XML_WRITER, chars: &[u16], error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsWriteChars(writer : *const WS_XML_WRITER, chars : ::windows_core::PCWSTR, charcount : u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsWriteChars(writer, ::core::mem::transmute(chars.as_ptr()), chars.len() as _, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsWriteCharsUtf8(writer: *const WS_XML_WRITER, bytes: &[u8], error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsWriteCharsUtf8(writer : *const WS_XML_WRITER, bytes : *const u8, bytecount : u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsWriteCharsUtf8(writer: *const WS_XML_WRITER, bytes: &[u8], error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsWriteCharsUtf8(writer : *const WS_XML_WRITER, bytes : *const u8, bytecount : u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsWriteCharsUtf8(writer, ::core::mem::transmute(bytes.as_ptr()), bytes.len() as _, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsWriteElement(writer: *const WS_XML_WRITER, elementdescription: *const WS_ELEMENT_DESCRIPTION, writeoption: WS_WRITE_OPTION, value: ::core::option::Option<*const ::core::ffi::c_void>, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsWriteElement(writer : *const WS_XML_WRITER, elementdescription : *const WS_ELEMENT_DESCRIPTION, writeoption : WS_WRITE_OPTION, value : *const ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsWriteElement(writer: *const WS_XML_WRITER, elementdescription: *const WS_ELEMENT_DESCRIPTION, writeoption: WS_WRITE_OPTION, value: ::core::option::Option<*const ::core::ffi::c_void>, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsWriteElement(writer : *const WS_XML_WRITER, elementdescription : *const WS_ELEMENT_DESCRIPTION, writeoption : WS_WRITE_OPTION, value : *const ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsWriteElement(writer, elementdescription, writeoption, ::core::mem::transmute(value.unwrap_or(::std::ptr::null())), valuesize, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsWriteEndAttribute(writer: *const WS_XML_WRITER, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsWriteEndAttribute(writer : *const WS_XML_WRITER, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsWriteEndAttribute(writer: *const WS_XML_WRITER, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsWriteEndAttribute(writer : *const WS_XML_WRITER, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsWriteEndAttribute(writer, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsWriteEndCData(writer: *const WS_XML_WRITER, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsWriteEndCData(writer : *const WS_XML_WRITER, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsWriteEndCData(writer: *const WS_XML_WRITER, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsWriteEndCData(writer : *const WS_XML_WRITER, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsWriteEndCData(writer, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsWriteEndElement(writer: *const WS_XML_WRITER, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsWriteEndElement(writer : *const WS_XML_WRITER, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsWriteEndElement(writer: *const WS_XML_WRITER, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsWriteEndElement(writer : *const WS_XML_WRITER, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsWriteEndElement(writer, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsWriteEndStartElement(writer: *const WS_XML_WRITER, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsWriteEndStartElement(writer : *const WS_XML_WRITER, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsWriteEndStartElement(writer: *const WS_XML_WRITER, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsWriteEndStartElement(writer : *const WS_XML_WRITER, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsWriteEndStartElement(writer, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsWriteEnvelopeEnd(message: *const WS_MESSAGE, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsWriteEnvelopeEnd(message : *const WS_MESSAGE, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsWriteEnvelopeEnd(message: *const WS_MESSAGE, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsWriteEnvelopeEnd(message : *const WS_MESSAGE, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsWriteEnvelopeEnd(message, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsWriteEnvelopeStart(message: *const WS_MESSAGE, writer: *const WS_XML_WRITER, donecallback: WS_MESSAGE_DONE_CALLBACK, donecallbackstate: ::core::option::Option<*const ::core::ffi::c_void>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsWriteEnvelopeStart(message : *const WS_MESSAGE, writer : *const WS_XML_WRITER, donecallback : WS_MESSAGE_DONE_CALLBACK, donecallbackstate : *const ::core::ffi::c_void, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsWriteEnvelopeStart(message: *const WS_MESSAGE, writer: *const WS_XML_WRITER, donecallback: WS_MESSAGE_DONE_CALLBACK, donecallbackstate: ::core::option::Option<*const ::core::ffi::c_void>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsWriteEnvelopeStart(message : *const WS_MESSAGE, writer : *const WS_XML_WRITER, donecallback : WS_MESSAGE_DONE_CALLBACK, donecallbackstate : *const ::core::ffi::c_void, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsWriteEnvelopeStart(message, writer, donecallback, ::core::mem::transmute(donecallbackstate.unwrap_or(::std::ptr::null())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsWriteMessageEnd(channel: *const WS_CHANNEL, message: *const WS_MESSAGE, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsWriteMessageEnd(channel : *const WS_CHANNEL, message : *const WS_MESSAGE, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsWriteMessageEnd(channel: *const WS_CHANNEL, message: *const WS_MESSAGE, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsWriteMessageEnd(channel : *const WS_CHANNEL, message : *const WS_MESSAGE, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsWriteMessageEnd(channel, message, ::core::mem::transmute(asynccontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsWriteMessageStart(channel: *const WS_CHANNEL, message: *const WS_MESSAGE, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsWriteMessageStart(channel : *const WS_CHANNEL, message : *const WS_MESSAGE, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsWriteMessageStart(channel: *const WS_CHANNEL, message: *const WS_MESSAGE, asynccontext: ::core::option::Option<*const WS_ASYNC_CONTEXT>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsWriteMessageStart(channel : *const WS_CHANNEL, message : *const WS_MESSAGE, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsWriteMessageStart(channel, message, ::core::mem::transmute(asynccontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsWriteNode(writer: *const WS_XML_WRITER, node: *const WS_XML_NODE, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsWriteNode(writer : *const WS_XML_WRITER, node : *const WS_XML_NODE, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsWriteNode(writer: *const WS_XML_WRITER, node: *const WS_XML_NODE, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsWriteNode(writer : *const WS_XML_WRITER, node : *const WS_XML_NODE, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsWriteNode(writer, node, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsWriteQualifiedName(writer: *const WS_XML_WRITER, prefix: ::core::option::Option<*const WS_XML_STRING>, localname: *const WS_XML_STRING, ns: ::core::option::Option<*const WS_XML_STRING>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsWriteQualifiedName(writer : *const WS_XML_WRITER, prefix : *const WS_XML_STRING, localname : *const WS_XML_STRING, ns : *const WS_XML_STRING, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsWriteQualifiedName(writer: *const WS_XML_WRITER, prefix: ::core::option::Option<*const WS_XML_STRING>, localname: *const WS_XML_STRING, ns: ::core::option::Option<*const WS_XML_STRING>, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsWriteQualifiedName(writer : *const WS_XML_WRITER, prefix : *const WS_XML_STRING, localname : *const WS_XML_STRING, ns : *const WS_XML_STRING, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsWriteQualifiedName(writer, ::core::mem::transmute(prefix.unwrap_or(::std::ptr::null())), localname, ::core::mem::transmute(ns.unwrap_or(::std::ptr::null())), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsWriteStartAttribute<P0>(writer: *const WS_XML_WRITER, prefix: ::core::option::Option<*const WS_XML_STRING>, localname: *const WS_XML_STRING, ns: *const WS_XML_STRING, singlequote: P0, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()>
+pub unsafe fn WsWriteStartAttribute<P0>(writer: *const WS_XML_WRITER, prefix: ::core::option::Option<*const WS_XML_STRING>, localname: *const WS_XML_STRING, ns: *const WS_XML_STRING, singlequote: P0, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("webservices.dll" "system" fn WsWriteStartAttribute(writer : *const WS_XML_WRITER, prefix : *const WS_XML_STRING, localname : *const WS_XML_STRING, ns : *const WS_XML_STRING, singlequote : super::super::Foundation:: BOOL, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("webservices.dll" "system" fn WsWriteStartAttribute(writer : *const WS_XML_WRITER, prefix : *const WS_XML_STRING, localname : *const WS_XML_STRING, ns : *const WS_XML_STRING, singlequote : super::super::Foundation:: BOOL, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsWriteStartAttribute(writer, ::core::mem::transmute(prefix.unwrap_or(::std::ptr::null())), localname, ns, singlequote.into_param().abi(), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsWriteStartCData(writer: *const WS_XML_WRITER, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsWriteStartCData(writer : *const WS_XML_WRITER, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsWriteStartCData(writer: *const WS_XML_WRITER, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsWriteStartCData(writer : *const WS_XML_WRITER, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsWriteStartCData(writer, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsWriteStartElement(writer: *const WS_XML_WRITER, prefix: ::core::option::Option<*const WS_XML_STRING>, localname: *const WS_XML_STRING, ns: *const WS_XML_STRING, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsWriteStartElement(writer : *const WS_XML_WRITER, prefix : *const WS_XML_STRING, localname : *const WS_XML_STRING, ns : *const WS_XML_STRING, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsWriteStartElement(writer: *const WS_XML_WRITER, prefix: ::core::option::Option<*const WS_XML_STRING>, localname: *const WS_XML_STRING, ns: *const WS_XML_STRING, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsWriteStartElement(writer : *const WS_XML_WRITER, prefix : *const WS_XML_STRING, localname : *const WS_XML_STRING, ns : *const WS_XML_STRING, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsWriteStartElement(writer, ::core::mem::transmute(prefix.unwrap_or(::std::ptr::null())), localname, ns, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsWriteText(writer: *const WS_XML_WRITER, text: *const WS_XML_TEXT, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsWriteText(writer : *const WS_XML_WRITER, text : *const WS_XML_TEXT, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsWriteText(writer: *const WS_XML_WRITER, text: *const WS_XML_TEXT, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsWriteText(writer : *const WS_XML_WRITER, text : *const WS_XML_TEXT, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsWriteText(writer, text, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsWriteType(writer: *const WS_XML_WRITER, typemapping: WS_TYPE_MAPPING, r#type: WS_TYPE, typedescription: ::core::option::Option<*const ::core::ffi::c_void>, writeoption: WS_WRITE_OPTION, value: ::core::option::Option<*const ::core::ffi::c_void>, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsWriteType(writer : *const WS_XML_WRITER, typemapping : WS_TYPE_MAPPING, r#type : WS_TYPE, typedescription : *const ::core::ffi::c_void, writeoption : WS_WRITE_OPTION, value : *const ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsWriteType(writer: *const WS_XML_WRITER, typemapping: WS_TYPE_MAPPING, r#type: WS_TYPE, typedescription: ::core::option::Option<*const ::core::ffi::c_void>, writeoption: WS_WRITE_OPTION, value: ::core::option::Option<*const ::core::ffi::c_void>, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsWriteType(writer : *const WS_XML_WRITER, typemapping : WS_TYPE_MAPPING, r#type : WS_TYPE, typedescription : *const ::core::ffi::c_void, writeoption : WS_WRITE_OPTION, value : *const ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsWriteType(writer, typemapping, r#type, ::core::mem::transmute(typedescription.unwrap_or(::std::ptr::null())), writeoption, ::core::mem::transmute(value.unwrap_or(::std::ptr::null())), valuesize, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsWriteValue(writer: *const WS_XML_WRITER, valuetype: WS_VALUE_TYPE, value: *const ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsWriteValue(writer : *const WS_XML_WRITER, valuetype : WS_VALUE_TYPE, value : *const ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsWriteValue(writer: *const WS_XML_WRITER, valuetype: WS_VALUE_TYPE, value: *const ::core::ffi::c_void, valuesize: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsWriteValue(writer : *const WS_XML_WRITER, valuetype : WS_VALUE_TYPE, value : *const ::core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsWriteValue(writer, valuetype, value, valuesize, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsWriteXmlBuffer(writer: *const WS_XML_WRITER, xmlbuffer: *const WS_XML_BUFFER, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsWriteXmlBuffer(writer : *const WS_XML_WRITER, xmlbuffer : *const WS_XML_BUFFER, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsWriteXmlBuffer(writer: *const WS_XML_WRITER, xmlbuffer: *const WS_XML_BUFFER, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsWriteXmlBuffer(writer : *const WS_XML_WRITER, xmlbuffer : *const WS_XML_BUFFER, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsWriteXmlBuffer(writer, xmlbuffer, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
-pub unsafe fn WsWriteXmlBufferToBytes(writer: *const WS_XML_WRITER, xmlbuffer: *const WS_XML_BUFFER, encoding: ::core::option::Option<*const WS_XML_WRITER_ENCODING>, properties: ::core::option::Option<&[WS_XML_WRITER_PROPERTY]>, heap: *const WS_HEAP, bytes: *mut *mut ::core::ffi::c_void, bytecount: *mut u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsWriteXmlBufferToBytes(writer : *const WS_XML_WRITER, xmlbuffer : *const WS_XML_BUFFER, encoding : *const WS_XML_WRITER_ENCODING, properties : *const WS_XML_WRITER_PROPERTY, propertycount : u32, heap : *const WS_HEAP, bytes : *mut *mut ::core::ffi::c_void, bytecount : *mut u32, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsWriteXmlBufferToBytes(writer: *const WS_XML_WRITER, xmlbuffer: *const WS_XML_BUFFER, encoding: ::core::option::Option<*const WS_XML_WRITER_ENCODING>, properties: ::core::option::Option<&[WS_XML_WRITER_PROPERTY]>, heap: *const WS_HEAP, bytes: *mut *mut ::core::ffi::c_void, bytecount: *mut u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsWriteXmlBufferToBytes(writer : *const WS_XML_WRITER, xmlbuffer : *const WS_XML_BUFFER, encoding : *const WS_XML_WRITER_ENCODING, properties : *const WS_XML_WRITER_PROPERTY, propertycount : u32, heap : *const WS_HEAP, bytes : *mut *mut ::core::ffi::c_void, bytecount : *mut u32, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsWriteXmlBufferToBytes(writer, xmlbuffer, ::core::mem::transmute(encoding.unwrap_or(::std::ptr::null())), ::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len() as _), heap, bytes, bytecount, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsWriteXmlnsAttribute<P0>(writer: *const WS_XML_WRITER, prefix: ::core::option::Option<*const WS_XML_STRING>, ns: *const WS_XML_STRING, singlequote: P0, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()>
+pub unsafe fn WsWriteXmlnsAttribute<P0>(writer: *const WS_XML_WRITER, prefix: ::core::option::Option<*const WS_XML_STRING>, ns: *const WS_XML_STRING, singlequote: P0, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("webservices.dll" "system" fn WsWriteXmlnsAttribute(writer : *const WS_XML_WRITER, prefix : *const WS_XML_STRING, ns : *const WS_XML_STRING, singlequote : super::super::Foundation:: BOOL, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("webservices.dll" "system" fn WsWriteXmlnsAttribute(writer : *const WS_XML_WRITER, prefix : *const WS_XML_STRING, ns : *const WS_XML_STRING, singlequote : super::super::Foundation:: BOOL, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsWriteXmlnsAttribute(writer, ::core::mem::transmute(prefix.unwrap_or(::std::ptr::null())), ns, singlequote.into_param().abi(), ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsXmlStringEquals(string1: *const WS_XML_STRING, string2: *const WS_XML_STRING, error: ::core::option::Option<*const WS_ERROR>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("webservices.dll" "system" fn WsXmlStringEquals(string1 : *const WS_XML_STRING, string2 : *const WS_XML_STRING, error : *const WS_ERROR) -> ::windows::core::HRESULT);
+pub unsafe fn WsXmlStringEquals(string1: *const WS_XML_STRING, string2: *const WS_XML_STRING, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webservices.dll" "system" fn WsXmlStringEquals(string1 : *const WS_XML_STRING, string2 : *const WS_XML_STRING, error : *const WS_ERROR) -> ::windows_core::HRESULT);
     WsXmlStringEquals(string1, string2, ::core::mem::transmute(error.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-pub struct IContentPrefetcherTaskTrigger(::windows::core::IUnknown);
+pub struct IContentPrefetcherTaskTrigger(::windows_core::IUnknown);
 impl IContentPrefetcherTaskTrigger {
-    pub unsafe fn TriggerContentPrefetcherTask<P0>(&self, packagefullname: P0) -> ::windows::core::Result<()>
+    pub unsafe fn TriggerContentPrefetcherTask<P0>(&self, packagefullname: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).TriggerContentPrefetcherTask)(::windows::core::Interface::as_raw(self), packagefullname.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).TriggerContentPrefetcherTask)(::windows_core::Interface::as_raw(self), packagefullname.into_param().abi()).ok()
     }
-    pub unsafe fn IsRegisteredForContentPrefetch<P0>(&self, packagefullname: P0) -> ::windows::core::Result<u8>
+    pub unsafe fn IsRegisteredForContentPrefetch<P0>(&self, packagefullname: P0) -> ::windows_core::Result<u8>
     where
-        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows::core::zeroed::<u8>();
-        (::windows::core::Interface::vtable(self).IsRegisteredForContentPrefetch)(::windows::core::Interface::as_raw(self), packagefullname.into_param().abi(), &mut result__).from_abi(result__)
+        let mut result__ = ::windows_core::zeroed::<u8>();
+        (::windows_core::Interface::vtable(self).IsRegisteredForContentPrefetch)(::windows_core::Interface::as_raw(self), packagefullname.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::imp::interface_hierarchy!(IContentPrefetcherTaskTrigger, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows_core::imp::interface_hierarchy!(IContentPrefetcherTaskTrigger, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::core::cmp::PartialEq for IContentPrefetcherTaskTrigger {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1350,7 +1350,7 @@ impl ::core::fmt::Debug for IContentPrefetcherTaskTrigger {
         f.debug_tuple("IContentPrefetcherTaskTrigger").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IContentPrefetcherTaskTrigger {
+unsafe impl ::windows_core::Interface for IContentPrefetcherTaskTrigger {
     type Vtable = IContentPrefetcherTaskTrigger_Vtbl;
 }
 impl ::core::clone::Clone for IContentPrefetcherTaskTrigger {
@@ -1358,15 +1358,15 @@ impl ::core::clone::Clone for IContentPrefetcherTaskTrigger {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IContentPrefetcherTaskTrigger {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b35a14a_6094_4799_a60e_e474e15d4dc9);
+unsafe impl ::windows_core::ComInterface for IContentPrefetcherTaskTrigger {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1b35a14a_6094_4799_a60e_e474e15d4dc9);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContentPrefetcherTaskTrigger_Vtbl {
-    pub base__: ::windows::core::IInspectable_Vtbl,
-    pub TriggerContentPrefetcherTask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagefullname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
-    pub IsRegisteredForContentPrefetch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagefullname: ::windows::core::PCWSTR, isregistered: *mut u8) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub TriggerContentPrefetcherTask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagefullname: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub IsRegisteredForContentPrefetch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagefullname: ::windows_core::PCWSTR, isregistered: *mut u8) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WEBAUTHN_API_CURRENT_VERSION: u32 = 4u32;
@@ -1399,15 +1399,15 @@ pub const WEBAUTHN_ATTESTATION_DECODE_COMMON: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WEBAUTHN_ATTESTATION_DECODE_NONE: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WEBAUTHN_ATTESTATION_TYPE_NONE: ::windows::core::PCWSTR = ::windows::core::w!("none");
+pub const WEBAUTHN_ATTESTATION_TYPE_NONE: ::windows_core::PCWSTR = ::windows_core::w!("none");
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WEBAUTHN_ATTESTATION_TYPE_PACKED: ::windows::core::PCWSTR = ::windows::core::w!("packed");
+pub const WEBAUTHN_ATTESTATION_TYPE_PACKED: ::windows_core::PCWSTR = ::windows_core::w!("packed");
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WEBAUTHN_ATTESTATION_TYPE_TPM: ::windows::core::PCWSTR = ::windows::core::w!("tpm");
+pub const WEBAUTHN_ATTESTATION_TYPE_TPM: ::windows_core::PCWSTR = ::windows_core::w!("tpm");
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WEBAUTHN_ATTESTATION_TYPE_U2F: ::windows::core::PCWSTR = ::windows::core::w!("fido-u2f");
+pub const WEBAUTHN_ATTESTATION_TYPE_U2F: ::windows_core::PCWSTR = ::windows_core::w!("fido-u2f");
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WEBAUTHN_ATTESTATION_VER_TPM_2_0: ::windows::core::PCWSTR = ::windows::core::w!("2.0");
+pub const WEBAUTHN_ATTESTATION_VER_TPM_2_0: ::windows_core::PCWSTR = ::windows_core::w!("2.0");
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WEBAUTHN_AUTHENTICATOR_ATTACHMENT_ANY: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
@@ -1487,7 +1487,7 @@ pub const WEBAUTHN_CREDENTIAL_DETAILS_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WEBAUTHN_CREDENTIAL_EX_CURRENT_VERSION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WEBAUTHN_CREDENTIAL_TYPE_PUBLIC_KEY: ::windows::core::PCWSTR = ::windows::core::w!("public-key");
+pub const WEBAUTHN_CREDENTIAL_TYPE_PUBLIC_KEY: ::windows_core::PCWSTR = ::windows_core::w!("public-key");
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WEBAUTHN_CRED_LARGE_BLOB_OPERATION_DELETE: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
@@ -1537,23 +1537,23 @@ pub const WEBAUTHN_ENTERPRISE_ATTESTATION_PLATFORM_MANAGED: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WEBAUTHN_ENTERPRISE_ATTESTATION_VENDOR_FACILITATED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WEBAUTHN_EXTENSIONS_IDENTIFIER_CRED_BLOB: ::windows::core::PCWSTR = ::windows::core::w!("credBlob");
+pub const WEBAUTHN_EXTENSIONS_IDENTIFIER_CRED_BLOB: ::windows_core::PCWSTR = ::windows_core::w!("credBlob");
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WEBAUTHN_EXTENSIONS_IDENTIFIER_CRED_PROTECT: ::windows::core::PCWSTR = ::windows::core::w!("credProtect");
+pub const WEBAUTHN_EXTENSIONS_IDENTIFIER_CRED_PROTECT: ::windows_core::PCWSTR = ::windows_core::w!("credProtect");
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WEBAUTHN_EXTENSIONS_IDENTIFIER_HMAC_SECRET: ::windows::core::PCWSTR = ::windows::core::w!("hmac-secret");
+pub const WEBAUTHN_EXTENSIONS_IDENTIFIER_HMAC_SECRET: ::windows_core::PCWSTR = ::windows_core::w!("hmac-secret");
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WEBAUTHN_EXTENSIONS_IDENTIFIER_MIN_PIN_LENGTH: ::windows::core::PCWSTR = ::windows::core::w!("minPinLength");
+pub const WEBAUTHN_EXTENSIONS_IDENTIFIER_MIN_PIN_LENGTH: ::windows_core::PCWSTR = ::windows_core::w!("minPinLength");
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WEBAUTHN_GET_CREDENTIALS_OPTIONS_CURRENT_VERSION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WEBAUTHN_GET_CREDENTIALS_OPTIONS_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WEBAUTHN_HASH_ALGORITHM_SHA_256: ::windows::core::PCWSTR = ::windows::core::w!("SHA-256");
+pub const WEBAUTHN_HASH_ALGORITHM_SHA_256: ::windows_core::PCWSTR = ::windows_core::w!("SHA-256");
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WEBAUTHN_HASH_ALGORITHM_SHA_384: ::windows::core::PCWSTR = ::windows::core::w!("SHA-384");
+pub const WEBAUTHN_HASH_ALGORITHM_SHA_384: ::windows_core::PCWSTR = ::windows_core::w!("SHA-384");
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WEBAUTHN_HASH_ALGORITHM_SHA_512: ::windows::core::PCWSTR = ::windows::core::w!("SHA-512");
+pub const WEBAUTHN_HASH_ALGORITHM_SHA_512: ::windows_core::PCWSTR = ::windows_core::w!("SHA-512");
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WEBAUTHN_LARGE_BLOB_SUPPORT_NONE: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
@@ -1685,8 +1685,8 @@ impl ::core::default::Default for WS_ADDRESSING_VERSION {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_ADDRESSING_VERSION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_ADDRESSING_VERSION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_ADDRESSING_VERSION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1736,8 +1736,8 @@ impl ::core::default::Default for WS_BINDING_TEMPLATE_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_BINDING_TEMPLATE_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_BINDING_TEMPLATE_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_BINDING_TEMPLATE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1763,8 +1763,8 @@ impl ::core::default::Default for WS_CALLBACK_MODEL {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_CALLBACK_MODEL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_CALLBACK_MODEL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_CALLBACK_MODEL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1794,8 +1794,8 @@ impl ::core::default::Default for WS_CALL_PROPERTY_ID {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_CALL_PROPERTY_ID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_CALL_PROPERTY_ID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_CALL_PROPERTY_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1823,8 +1823,8 @@ impl ::core::default::Default for WS_CERT_CREDENTIAL_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_CERT_CREDENTIAL_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_CERT_CREDENTIAL_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_CERT_CREDENTIAL_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1856,8 +1856,8 @@ impl ::core::default::Default for WS_CHANNEL_BINDING {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_CHANNEL_BINDING {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_CHANNEL_BINDING {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_CHANNEL_BINDING {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1979,8 +1979,8 @@ impl ::core::default::Default for WS_CHANNEL_PROPERTY_ID {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_CHANNEL_PROPERTY_ID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_CHANNEL_PROPERTY_ID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_CHANNEL_PROPERTY_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2016,8 +2016,8 @@ impl ::core::default::Default for WS_CHANNEL_STATE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_CHANNEL_STATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_CHANNEL_STATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_CHANNEL_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2057,8 +2057,8 @@ impl ::core::default::Default for WS_CHANNEL_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_CHANNEL_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_CHANNEL_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_CHANNEL_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2088,8 +2088,8 @@ impl ::core::default::Default for WS_CHARSET {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_CHARSET {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_CHARSET {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_CHARSET {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2115,8 +2115,8 @@ impl ::core::default::Default for WS_COOKIE_MODE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_COOKIE_MODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_COOKIE_MODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_COOKIE_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2144,8 +2144,8 @@ impl ::core::default::Default for WS_DATETIME_FORMAT {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_DATETIME_FORMAT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_DATETIME_FORMAT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_DATETIME_FORMAT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2185,8 +2185,8 @@ impl ::core::default::Default for WS_ENCODING {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_ENCODING {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_ENCODING {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_ENCODING {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2210,8 +2210,8 @@ impl ::core::default::Default for WS_ENDPOINT_ADDRESS_EXTENSION_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_ENDPOINT_ADDRESS_EXTENSION_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_ENDPOINT_ADDRESS_EXTENSION_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_ENDPOINT_ADDRESS_EXTENSION_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2245,8 +2245,8 @@ impl ::core::default::Default for WS_ENDPOINT_IDENTITY_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_ENDPOINT_IDENTITY_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_ENDPOINT_IDENTITY_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_ENDPOINT_IDENTITY_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2274,8 +2274,8 @@ impl ::core::default::Default for WS_ENVELOPE_VERSION {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_ENVELOPE_VERSION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_ENVELOPE_VERSION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_ENVELOPE_VERSION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2303,8 +2303,8 @@ impl ::core::default::Default for WS_ERROR_PROPERTY_ID {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_ERROR_PROPERTY_ID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_ERROR_PROPERTY_ID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_ERROR_PROPERTY_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2330,8 +2330,8 @@ impl ::core::default::Default for WS_EXCEPTION_CODE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_EXCEPTION_CODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_EXCEPTION_CODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_EXCEPTION_CODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2359,8 +2359,8 @@ impl ::core::default::Default for WS_EXTENDED_PROTECTION_POLICY {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_EXTENDED_PROTECTION_POLICY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_EXTENDED_PROTECTION_POLICY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_EXTENDED_PROTECTION_POLICY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2386,8 +2386,8 @@ impl ::core::default::Default for WS_EXTENDED_PROTECTION_SCENARIO {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_EXTENDED_PROTECTION_SCENARIO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_EXTENDED_PROTECTION_SCENARIO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_EXTENDED_PROTECTION_SCENARIO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2413,8 +2413,8 @@ impl ::core::default::Default for WS_FAULT_DISCLOSURE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_FAULT_DISCLOSURE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_FAULT_DISCLOSURE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_FAULT_DISCLOSURE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2442,8 +2442,8 @@ impl ::core::default::Default for WS_FAULT_ERROR_PROPERTY_ID {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_FAULT_ERROR_PROPERTY_ID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_FAULT_ERROR_PROPERTY_ID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_FAULT_ERROR_PROPERTY_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2491,8 +2491,8 @@ impl ::core::default::Default for WS_FIELD_MAPPING {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_FIELD_MAPPING {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_FIELD_MAPPING {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_FIELD_MAPPING {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2528,8 +2528,8 @@ impl ::core::default::Default for WS_HEADER_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_HEADER_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_HEADER_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_HEADER_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2559,8 +2559,8 @@ impl ::core::default::Default for WS_HEAP_PROPERTY_ID {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_HEAP_PROPERTY_ID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_HEAP_PROPERTY_ID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_HEAP_PROPERTY_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2586,8 +2586,8 @@ impl ::core::default::Default for WS_HTTP_HEADER_AUTH_TARGET {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_HTTP_HEADER_AUTH_TARGET {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_HTTP_HEADER_AUTH_TARGET {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_HTTP_HEADER_AUTH_TARGET {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2615,8 +2615,8 @@ impl ::core::default::Default for WS_HTTP_PROXY_SETTING_MODE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_HTTP_PROXY_SETTING_MODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_HTTP_PROXY_SETTING_MODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_HTTP_PROXY_SETTING_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2644,8 +2644,8 @@ impl ::core::default::Default for WS_IP_VERSION {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_IP_VERSION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_IP_VERSION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_IP_VERSION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2701,8 +2701,8 @@ impl ::core::default::Default for WS_LISTENER_PROPERTY_ID {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_LISTENER_PROPERTY_ID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_LISTENER_PROPERTY_ID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_LISTENER_PROPERTY_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2736,8 +2736,8 @@ impl ::core::default::Default for WS_LISTENER_STATE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_LISTENER_STATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_LISTENER_STATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_LISTENER_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2769,8 +2769,8 @@ impl ::core::default::Default for WS_MESSAGE_INITIALIZATION {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_MESSAGE_INITIALIZATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_MESSAGE_INITIALIZATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_MESSAGE_INITIALIZATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2836,8 +2836,8 @@ impl ::core::default::Default for WS_MESSAGE_PROPERTY_ID {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_MESSAGE_PROPERTY_ID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_MESSAGE_PROPERTY_ID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_MESSAGE_PROPERTY_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2861,8 +2861,8 @@ impl ::core::default::Default for WS_MESSAGE_SECURITY_USAGE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_MESSAGE_SECURITY_USAGE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_MESSAGE_SECURITY_USAGE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_MESSAGE_SECURITY_USAGE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2894,8 +2894,8 @@ impl ::core::default::Default for WS_MESSAGE_STATE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_MESSAGE_STATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_MESSAGE_STATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_MESSAGE_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2923,8 +2923,8 @@ impl ::core::default::Default for WS_METADATA_EXCHANGE_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_METADATA_EXCHANGE_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_METADATA_EXCHANGE_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_METADATA_EXCHANGE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2960,8 +2960,8 @@ impl ::core::default::Default for WS_METADATA_PROPERTY_ID {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_METADATA_PROPERTY_ID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_METADATA_PROPERTY_ID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_METADATA_PROPERTY_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2989,8 +2989,8 @@ impl ::core::default::Default for WS_METADATA_STATE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_METADATA_STATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_METADATA_STATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_METADATA_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3036,8 +3036,8 @@ impl ::core::default::Default for WS_MOVE_TO {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_MOVE_TO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_MOVE_TO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_MOVE_TO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3077,8 +3077,8 @@ impl ::core::default::Default for WS_OPERATION_CONTEXT_PROPERTY_ID {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_OPERATION_CONTEXT_PROPERTY_ID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_OPERATION_CONTEXT_PROPERTY_ID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_OPERATION_CONTEXT_PROPERTY_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3104,8 +3104,8 @@ impl ::core::default::Default for WS_OPERATION_STYLE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_OPERATION_STYLE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_OPERATION_STYLE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_OPERATION_STYLE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3135,8 +3135,8 @@ impl ::core::default::Default for WS_PARAMETER_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_PARAMETER_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_PARAMETER_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_PARAMETER_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3160,8 +3160,8 @@ impl ::core::default::Default for WS_POLICY_EXTENSION_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_POLICY_EXTENSION_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_POLICY_EXTENSION_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_POLICY_EXTENSION_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3191,8 +3191,8 @@ impl ::core::default::Default for WS_POLICY_PROPERTY_ID {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_POLICY_PROPERTY_ID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_POLICY_PROPERTY_ID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_POLICY_PROPERTY_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3218,8 +3218,8 @@ impl ::core::default::Default for WS_POLICY_STATE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_POLICY_STATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_POLICY_STATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_POLICY_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3247,8 +3247,8 @@ impl ::core::default::Default for WS_PROTECTION_LEVEL {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_PROTECTION_LEVEL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_PROTECTION_LEVEL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_PROTECTION_LEVEL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3284,8 +3284,8 @@ impl ::core::default::Default for WS_PROXY_PROPERTY_ID {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_PROXY_PROPERTY_ID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_PROXY_PROPERTY_ID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_PROXY_PROPERTY_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3317,8 +3317,8 @@ impl ::core::default::Default for WS_READ_OPTION {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_READ_OPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_READ_OPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_READ_OPTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3344,8 +3344,8 @@ impl ::core::default::Default for WS_RECEIVE_OPTION {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_RECEIVE_OPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_RECEIVE_OPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_RECEIVE_OPTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3371,8 +3371,8 @@ impl ::core::default::Default for WS_REPEATING_HEADER_OPTION {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_REPEATING_HEADER_OPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_REPEATING_HEADER_OPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_REPEATING_HEADER_OPTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3400,8 +3400,8 @@ impl ::core::default::Default for WS_REQUEST_SECURITY_TOKEN_ACTION {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_REQUEST_SECURITY_TOKEN_ACTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_REQUEST_SECURITY_TOKEN_ACTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_REQUEST_SECURITY_TOKEN_ACTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3449,8 +3449,8 @@ impl ::core::default::Default for WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3474,8 +3474,8 @@ impl ::core::default::Default for WS_SAML_AUTHENTICATOR_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_SAML_AUTHENTICATOR_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SAML_AUTHENTICATOR_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_SAML_AUTHENTICATOR_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3501,8 +3501,8 @@ impl ::core::default::Default for WS_SECURE_CONVERSATION_VERSION {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_SECURE_CONVERSATION_VERSION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SECURE_CONVERSATION_VERSION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_SECURE_CONVERSATION_VERSION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3534,8 +3534,8 @@ impl ::core::default::Default for WS_SECURE_PROTOCOL {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_SECURE_PROTOCOL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SECURE_PROTOCOL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_SECURE_PROTOCOL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3595,8 +3595,8 @@ impl ::core::default::Default for WS_SECURITY_ALGORITHM_ID {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_SECURITY_ALGORITHM_ID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SECURITY_ALGORITHM_ID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_SECURITY_ALGORITHM_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3618,8 +3618,8 @@ impl ::core::default::Default for WS_SECURITY_ALGORITHM_PROPERTY_ID {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_SECURITY_ALGORITHM_PROPERTY_ID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SECURITY_ALGORITHM_PROPERTY_ID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_SECURITY_ALGORITHM_PROPERTY_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3665,8 +3665,8 @@ impl ::core::default::Default for WS_SECURITY_ALGORITHM_SUITE_NAME {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_SECURITY_ALGORITHM_SUITE_NAME {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SECURITY_ALGORITHM_SUITE_NAME {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_SECURITY_ALGORITHM_SUITE_NAME {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3694,8 +3694,8 @@ impl ::core::default::Default for WS_SECURITY_BEARER_KEY_TYPE_VERSION {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_SECURITY_BEARER_KEY_TYPE_VERSION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SECURITY_BEARER_KEY_TYPE_VERSION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_SECURITY_BEARER_KEY_TYPE_VERSION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3733,8 +3733,8 @@ impl ::core::default::Default for WS_SECURITY_BINDING_CONSTRAINT_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_SECURITY_BINDING_CONSTRAINT_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SECURITY_BINDING_CONSTRAINT_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_SECURITY_BINDING_CONSTRAINT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3802,8 +3802,8 @@ impl ::core::default::Default for WS_SECURITY_BINDING_PROPERTY_ID {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_SECURITY_BINDING_PROPERTY_ID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SECURITY_BINDING_PROPERTY_ID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_SECURITY_BINDING_PROPERTY_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3843,8 +3843,8 @@ impl ::core::default::Default for WS_SECURITY_BINDING_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_SECURITY_BINDING_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SECURITY_BINDING_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_SECURITY_BINDING_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3874,8 +3874,8 @@ impl ::core::default::Default for WS_SECURITY_CONTEXT_PROPERTY_ID {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_SECURITY_CONTEXT_PROPERTY_ID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SECURITY_CONTEXT_PROPERTY_ID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_SECURITY_CONTEXT_PROPERTY_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3905,8 +3905,8 @@ impl ::core::default::Default for WS_SECURITY_HEADER_LAYOUT {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_SECURITY_HEADER_LAYOUT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SECURITY_HEADER_LAYOUT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_SECURITY_HEADER_LAYOUT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3932,8 +3932,8 @@ impl ::core::default::Default for WS_SECURITY_HEADER_VERSION {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_SECURITY_HEADER_VERSION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SECURITY_HEADER_VERSION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_SECURITY_HEADER_VERSION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3961,8 +3961,8 @@ impl ::core::default::Default for WS_SECURITY_KEY_ENTROPY_MODE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_SECURITY_KEY_ENTROPY_MODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SECURITY_KEY_ENTROPY_MODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_SECURITY_KEY_ENTROPY_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3990,8 +3990,8 @@ impl ::core::default::Default for WS_SECURITY_KEY_HANDLE_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_SECURITY_KEY_HANDLE_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SECURITY_KEY_HANDLE_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_SECURITY_KEY_HANDLE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4019,8 +4019,8 @@ impl ::core::default::Default for WS_SECURITY_KEY_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_SECURITY_KEY_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SECURITY_KEY_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_SECURITY_KEY_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4066,8 +4066,8 @@ impl ::core::default::Default for WS_SECURITY_PROPERTY_ID {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_SECURITY_PROPERTY_ID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SECURITY_PROPERTY_ID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_SECURITY_PROPERTY_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4095,8 +4095,8 @@ impl ::core::default::Default for WS_SECURITY_TIMESTAMP_USAGE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_SECURITY_TIMESTAMP_USAGE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SECURITY_TIMESTAMP_USAGE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_SECURITY_TIMESTAMP_USAGE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4132,8 +4132,8 @@ impl ::core::default::Default for WS_SECURITY_TOKEN_PROPERTY_ID {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_SECURITY_TOKEN_PROPERTY_ID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SECURITY_TOKEN_PROPERTY_ID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_SECURITY_TOKEN_PROPERTY_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4165,8 +4165,8 @@ impl ::core::default::Default for WS_SECURITY_TOKEN_REFERENCE_MODE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_SECURITY_TOKEN_REFERENCE_MODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SECURITY_TOKEN_REFERENCE_MODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_SECURITY_TOKEN_REFERENCE_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4192,8 +4192,8 @@ impl ::core::default::Default for WS_SERVICE_CANCEL_REASON {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_SERVICE_CANCEL_REASON {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SERVICE_CANCEL_REASON {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_SERVICE_CANCEL_REASON {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4245,8 +4245,8 @@ impl ::core::default::Default for WS_SERVICE_ENDPOINT_PROPERTY_ID {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_SERVICE_ENDPOINT_PROPERTY_ID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SERVICE_ENDPOINT_PROPERTY_ID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_SERVICE_ENDPOINT_PROPERTY_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4280,8 +4280,8 @@ impl ::core::default::Default for WS_SERVICE_HOST_STATE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_SERVICE_HOST_STATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SERVICE_HOST_STATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_SERVICE_HOST_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4315,8 +4315,8 @@ impl ::core::default::Default for WS_SERVICE_PROPERTY_ID {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_SERVICE_PROPERTY_ID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SERVICE_PROPERTY_ID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_SERVICE_PROPERTY_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4350,8 +4350,8 @@ impl ::core::default::Default for WS_SERVICE_PROXY_STATE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_SERVICE_PROXY_STATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SERVICE_PROXY_STATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_SERVICE_PROXY_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4765,8 +4765,8 @@ impl ::core::default::Default for WS_TRACE_API {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_TRACE_API {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_TRACE_API {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_TRACE_API {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4796,8 +4796,8 @@ impl ::core::default::Default for WS_TRANSFER_MODE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_TRANSFER_MODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_TRANSFER_MODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_TRANSFER_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4823,8 +4823,8 @@ impl ::core::default::Default for WS_TRUST_VERSION {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_TRUST_VERSION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_TRUST_VERSION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_TRUST_VERSION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4916,8 +4916,8 @@ impl ::core::default::Default for WS_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4947,8 +4947,8 @@ impl ::core::default::Default for WS_TYPE_MAPPING {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_TYPE_MAPPING {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_TYPE_MAPPING {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_TYPE_MAPPING {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4980,8 +4980,8 @@ impl ::core::default::Default for WS_URL_SCHEME_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_URL_SCHEME_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_URL_SCHEME_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_URL_SCHEME_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5005,8 +5005,8 @@ impl ::core::default::Default for WS_USERNAME_CREDENTIAL_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_USERNAME_CREDENTIAL_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_USERNAME_CREDENTIAL_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_USERNAME_CREDENTIAL_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5060,8 +5060,8 @@ impl ::core::default::Default for WS_VALUE_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_VALUE_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_VALUE_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_VALUE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5089,8 +5089,8 @@ impl ::core::default::Default for WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5118,8 +5118,8 @@ impl ::core::default::Default for WS_WINDOWS_INTEGRATED_AUTH_PACKAGE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_WINDOWS_INTEGRATED_AUTH_PACKAGE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_WINDOWS_INTEGRATED_AUTH_PACKAGE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_WINDOWS_INTEGRATED_AUTH_PACKAGE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5149,8 +5149,8 @@ impl ::core::default::Default for WS_WRITE_OPTION {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_WRITE_OPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_WRITE_OPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_WRITE_OPTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5172,8 +5172,8 @@ impl ::core::default::Default for WS_XML_BUFFER_PROPERTY_ID {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_XML_BUFFER_PROPERTY_ID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_BUFFER_PROPERTY_ID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_XML_BUFFER_PROPERTY_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5203,8 +5203,8 @@ impl ::core::default::Default for WS_XML_CANONICALIZATION_ALGORITHM {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_XML_CANONICALIZATION_ALGORITHM {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_CANONICALIZATION_ALGORITHM {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_XML_CANONICALIZATION_ALGORITHM {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5234,8 +5234,8 @@ impl ::core::default::Default for WS_XML_CANONICALIZATION_PROPERTY_ID {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_XML_CANONICALIZATION_PROPERTY_ID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_CANONICALIZATION_PROPERTY_ID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_XML_CANONICALIZATION_PROPERTY_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5273,8 +5273,8 @@ impl ::core::default::Default for WS_XML_NODE_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_XML_NODE_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_NODE_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_XML_NODE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5304,8 +5304,8 @@ impl ::core::default::Default for WS_XML_READER_ENCODING_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_XML_READER_ENCODING_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_READER_ENCODING_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_XML_READER_ENCODING_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5331,8 +5331,8 @@ impl ::core::default::Default for WS_XML_READER_INPUT_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_XML_READER_INPUT_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_READER_INPUT_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_XML_READER_INPUT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5384,8 +5384,8 @@ impl ::core::default::Default for WS_XML_READER_PROPERTY_ID {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_XML_READER_PROPERTY_ID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_READER_PROPERTY_ID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_XML_READER_PROPERTY_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5415,8 +5415,8 @@ impl ::core::default::Default for WS_XML_SECURITY_TOKEN_PROPERTY_ID {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_XML_SECURITY_TOKEN_PROPERTY_ID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_SECURITY_TOKEN_PROPERTY_ID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_XML_SECURITY_TOKEN_PROPERTY_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5470,8 +5470,8 @@ impl ::core::default::Default for WS_XML_TEXT_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_XML_TEXT_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_TEXT_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_XML_TEXT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5501,8 +5501,8 @@ impl ::core::default::Default for WS_XML_WRITER_ENCODING_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_XML_WRITER_ENCODING_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_WRITER_ENCODING_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_XML_WRITER_ENCODING_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5528,8 +5528,8 @@ impl ::core::default::Default for WS_XML_WRITER_OUTPUT_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_XML_WRITER_OUTPUT_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_WRITER_OUTPUT_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_XML_WRITER_OUTPUT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5589,8 +5589,8 @@ impl ::core::default::Default for WS_XML_WRITER_PROPERTY_ID {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WS_XML_WRITER_PROPERTY_ID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_WRITER_PROPERTY_ID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WS_XML_WRITER_PROPERTY_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5639,8 +5639,8 @@ impl ::core::fmt::Debug for WEBAUTHN_ASSERTION {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for WEBAUTHN_ASSERTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WEBAUTHN_ASSERTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WEBAUTHN_ASSERTION {
     fn eq(&self, other: &Self) -> bool {
@@ -5664,9 +5664,9 @@ pub struct WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS {
     pub dwAuthenticatorAttachment: u32,
     pub dwUserVerificationRequirement: u32,
     pub dwFlags: u32,
-    pub pwszU2fAppId: ::windows::core::PCWSTR,
+    pub pwszU2fAppId: ::windows_core::PCWSTR,
     pub pbU2fAppId: *mut super::super::Foundation::BOOL,
-    pub pCancellationId: *mut ::windows::core::GUID,
+    pub pCancellationId: *mut ::windows_core::GUID,
     pub pAllowCredentialList: *mut WEBAUTHN_CREDENTIAL_LIST,
     pub dwCredLargeBlobOperation: u32,
     pub cbCredLargeBlob: u32,
@@ -5706,8 +5706,8 @@ impl ::core::fmt::Debug for WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS {
@@ -5751,7 +5751,7 @@ pub struct WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS {
     pub dwUserVerificationRequirement: u32,
     pub dwAttestationConveyancePreference: u32,
     pub dwFlags: u32,
-    pub pCancellationId: *mut ::windows::core::GUID,
+    pub pCancellationId: *mut ::windows_core::GUID,
     pub pExcludeCredentialList: *mut WEBAUTHN_CREDENTIAL_LIST,
     pub dwEnterpriseAttestation: u32,
     pub dwLargeBlobSupport: u32,
@@ -5789,8 +5789,8 @@ impl ::core::fmt::Debug for WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS {
@@ -5826,7 +5826,7 @@ pub struct WEBAUTHN_CLIENT_DATA {
     pub dwVersion: u32,
     pub cbClientDataJSON: u32,
     pub pbClientDataJSON: *mut u8,
-    pub pwszHashAlgId: ::windows::core::PCWSTR,
+    pub pwszHashAlgId: ::windows_core::PCWSTR,
 }
 impl ::core::marker::Copy for WEBAUTHN_CLIENT_DATA {}
 impl ::core::clone::Clone for WEBAUTHN_CLIENT_DATA {
@@ -5839,8 +5839,8 @@ impl ::core::fmt::Debug for WEBAUTHN_CLIENT_DATA {
         f.debug_struct("WEBAUTHN_CLIENT_DATA").field("dwVersion", &self.dwVersion).field("cbClientDataJSON", &self.cbClientDataJSON).field("pbClientDataJSON", &self.pbClientDataJSON).field("pwszHashAlgId", &self.pwszHashAlgId).finish()
     }
 }
-impl ::windows::core::TypeKind for WEBAUTHN_CLIENT_DATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WEBAUTHN_CLIENT_DATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WEBAUTHN_CLIENT_DATA {
     fn eq(&self, other: &Self) -> bool {
@@ -5857,13 +5857,13 @@ impl ::core::default::Default for WEBAUTHN_CLIENT_DATA {
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub struct WEBAUTHN_COMMON_ATTESTATION {
     pub dwVersion: u32,
-    pub pwszAlg: ::windows::core::PCWSTR,
+    pub pwszAlg: ::windows_core::PCWSTR,
     pub lAlg: i32,
     pub cbSignature: u32,
     pub pbSignature: *mut u8,
     pub cX5c: u32,
     pub pX5c: *mut WEBAUTHN_X5C,
-    pub pwszVer: ::windows::core::PCWSTR,
+    pub pwszVer: ::windows_core::PCWSTR,
     pub cbCertInfo: u32,
     pub pbCertInfo: *mut u8,
     pub cbPubArea: u32,
@@ -5880,8 +5880,8 @@ impl ::core::fmt::Debug for WEBAUTHN_COMMON_ATTESTATION {
         f.debug_struct("WEBAUTHN_COMMON_ATTESTATION").field("dwVersion", &self.dwVersion).field("pwszAlg", &self.pwszAlg).field("lAlg", &self.lAlg).field("cbSignature", &self.cbSignature).field("pbSignature", &self.pbSignature).field("cX5c", &self.cX5c).field("pX5c", &self.pX5c).field("pwszVer", &self.pwszVer).field("cbCertInfo", &self.cbCertInfo).field("pbCertInfo", &self.pbCertInfo).field("cbPubArea", &self.cbPubArea).field("pbPubArea", &self.pbPubArea).finish()
     }
 }
-impl ::windows::core::TypeKind for WEBAUTHN_COMMON_ATTESTATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WEBAUTHN_COMMON_ATTESTATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WEBAUTHN_COMMON_ATTESTATION {
     fn eq(&self, other: &Self) -> bool {
@@ -5898,7 +5898,7 @@ impl ::core::default::Default for WEBAUTHN_COMMON_ATTESTATION {
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub struct WEBAUTHN_COSE_CREDENTIAL_PARAMETER {
     pub dwVersion: u32,
-    pub pwszCredentialType: ::windows::core::PCWSTR,
+    pub pwszCredentialType: ::windows_core::PCWSTR,
     pub lAlg: i32,
 }
 impl ::core::marker::Copy for WEBAUTHN_COSE_CREDENTIAL_PARAMETER {}
@@ -5912,8 +5912,8 @@ impl ::core::fmt::Debug for WEBAUTHN_COSE_CREDENTIAL_PARAMETER {
         f.debug_struct("WEBAUTHN_COSE_CREDENTIAL_PARAMETER").field("dwVersion", &self.dwVersion).field("pwszCredentialType", &self.pwszCredentialType).field("lAlg", &self.lAlg).finish()
     }
 }
-impl ::windows::core::TypeKind for WEBAUTHN_COSE_CREDENTIAL_PARAMETER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WEBAUTHN_COSE_CREDENTIAL_PARAMETER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WEBAUTHN_COSE_CREDENTIAL_PARAMETER {
     fn eq(&self, other: &Self) -> bool {
@@ -5943,8 +5943,8 @@ impl ::core::fmt::Debug for WEBAUTHN_COSE_CREDENTIAL_PARAMETERS {
         f.debug_struct("WEBAUTHN_COSE_CREDENTIAL_PARAMETERS").field("cCredentialParameters", &self.cCredentialParameters).field("pCredentialParameters", &self.pCredentialParameters).finish()
     }
 }
-impl ::windows::core::TypeKind for WEBAUTHN_COSE_CREDENTIAL_PARAMETERS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WEBAUTHN_COSE_CREDENTIAL_PARAMETERS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WEBAUTHN_COSE_CREDENTIAL_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
@@ -5963,7 +5963,7 @@ pub struct WEBAUTHN_CREDENTIAL {
     pub dwVersion: u32,
     pub cbId: u32,
     pub pbId: *mut u8,
-    pub pwszCredentialType: ::windows::core::PCWSTR,
+    pub pwszCredentialType: ::windows_core::PCWSTR,
 }
 impl ::core::marker::Copy for WEBAUTHN_CREDENTIAL {}
 impl ::core::clone::Clone for WEBAUTHN_CREDENTIAL {
@@ -5976,8 +5976,8 @@ impl ::core::fmt::Debug for WEBAUTHN_CREDENTIAL {
         f.debug_struct("WEBAUTHN_CREDENTIAL").field("dwVersion", &self.dwVersion).field("cbId", &self.cbId).field("pbId", &self.pbId).field("pwszCredentialType", &self.pwszCredentialType).finish()
     }
 }
-impl ::windows::core::TypeKind for WEBAUTHN_CREDENTIAL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WEBAUTHN_CREDENTIAL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WEBAUTHN_CREDENTIAL {
     fn eq(&self, other: &Self) -> bool {
@@ -6007,8 +6007,8 @@ impl ::core::fmt::Debug for WEBAUTHN_CREDENTIALS {
         f.debug_struct("WEBAUTHN_CREDENTIALS").field("cCredentials", &self.cCredentials).field("pCredentials", &self.pCredentials).finish()
     }
 }
-impl ::windows::core::TypeKind for WEBAUTHN_CREDENTIALS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WEBAUTHN_CREDENTIALS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WEBAUTHN_CREDENTIALS {
     fn eq(&self, other: &Self) -> bool {
@@ -6026,7 +6026,7 @@ impl ::core::default::Default for WEBAUTHN_CREDENTIALS {
 #[cfg(feature = "Win32_Foundation")]
 pub struct WEBAUTHN_CREDENTIAL_ATTESTATION {
     pub dwVersion: u32,
-    pub pwszFormatType: ::windows::core::PCWSTR,
+    pub pwszFormatType: ::windows_core::PCWSTR,
     pub cbAuthenticatorData: u32,
     pub pbAuthenticatorData: *mut u8,
     pub cbAttestation: u32,
@@ -6076,8 +6076,8 @@ impl ::core::fmt::Debug for WEBAUTHN_CREDENTIAL_ATTESTATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WEBAUTHN_CREDENTIAL_ATTESTATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WEBAUTHN_CREDENTIAL_ATTESTATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WEBAUTHN_CREDENTIAL_ATTESTATION {
@@ -6135,8 +6135,8 @@ impl ::core::fmt::Debug for WEBAUTHN_CREDENTIAL_DETAILS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WEBAUTHN_CREDENTIAL_DETAILS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WEBAUTHN_CREDENTIAL_DETAILS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WEBAUTHN_CREDENTIAL_DETAILS {
@@ -6174,8 +6174,8 @@ impl ::core::fmt::Debug for WEBAUTHN_CREDENTIAL_DETAILS_LIST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WEBAUTHN_CREDENTIAL_DETAILS_LIST {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WEBAUTHN_CREDENTIAL_DETAILS_LIST {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WEBAUTHN_CREDENTIAL_DETAILS_LIST {
@@ -6197,7 +6197,7 @@ pub struct WEBAUTHN_CREDENTIAL_EX {
     pub dwVersion: u32,
     pub cbId: u32,
     pub pbId: *mut u8,
-    pub pwszCredentialType: ::windows::core::PCWSTR,
+    pub pwszCredentialType: ::windows_core::PCWSTR,
     pub dwTransports: u32,
 }
 impl ::core::marker::Copy for WEBAUTHN_CREDENTIAL_EX {}
@@ -6211,8 +6211,8 @@ impl ::core::fmt::Debug for WEBAUTHN_CREDENTIAL_EX {
         f.debug_struct("WEBAUTHN_CREDENTIAL_EX").field("dwVersion", &self.dwVersion).field("cbId", &self.cbId).field("pbId", &self.pbId).field("pwszCredentialType", &self.pwszCredentialType).field("dwTransports", &self.dwTransports).finish()
     }
 }
-impl ::windows::core::TypeKind for WEBAUTHN_CREDENTIAL_EX {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WEBAUTHN_CREDENTIAL_EX {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WEBAUTHN_CREDENTIAL_EX {
     fn eq(&self, other: &Self) -> bool {
@@ -6242,8 +6242,8 @@ impl ::core::fmt::Debug for WEBAUTHN_CREDENTIAL_LIST {
         f.debug_struct("WEBAUTHN_CREDENTIAL_LIST").field("cCredentials", &self.cCredentials).field("ppCredentials", &self.ppCredentials).finish()
     }
 }
-impl ::windows::core::TypeKind for WEBAUTHN_CREDENTIAL_LIST {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WEBAUTHN_CREDENTIAL_LIST {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WEBAUTHN_CREDENTIAL_LIST {
     fn eq(&self, other: &Self) -> bool {
@@ -6273,8 +6273,8 @@ impl ::core::fmt::Debug for WEBAUTHN_CRED_BLOB_EXTENSION {
         f.debug_struct("WEBAUTHN_CRED_BLOB_EXTENSION").field("cbCredBlob", &self.cbCredBlob).field("pbCredBlob", &self.pbCredBlob).finish()
     }
 }
-impl ::windows::core::TypeKind for WEBAUTHN_CRED_BLOB_EXTENSION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WEBAUTHN_CRED_BLOB_EXTENSION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WEBAUTHN_CRED_BLOB_EXTENSION {
     fn eq(&self, other: &Self) -> bool {
@@ -6309,8 +6309,8 @@ impl ::core::fmt::Debug for WEBAUTHN_CRED_PROTECT_EXTENSION_IN {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WEBAUTHN_CRED_PROTECT_EXTENSION_IN {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WEBAUTHN_CRED_PROTECT_EXTENSION_IN {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WEBAUTHN_CRED_PROTECT_EXTENSION_IN {
@@ -6344,8 +6344,8 @@ impl ::core::fmt::Debug for WEBAUTHN_CRED_WITH_HMAC_SECRET_SALT {
         f.debug_struct("WEBAUTHN_CRED_WITH_HMAC_SECRET_SALT").field("cbCredID", &self.cbCredID).field("pbCredID", &self.pbCredID).field("pHmacSecretSalt", &self.pHmacSecretSalt).finish()
     }
 }
-impl ::windows::core::TypeKind for WEBAUTHN_CRED_WITH_HMAC_SECRET_SALT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WEBAUTHN_CRED_WITH_HMAC_SECRET_SALT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WEBAUTHN_CRED_WITH_HMAC_SECRET_SALT {
     fn eq(&self, other: &Self) -> bool {
@@ -6361,7 +6361,7 @@ impl ::core::default::Default for WEBAUTHN_CRED_WITH_HMAC_SECRET_SALT {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub struct WEBAUTHN_EXTENSION {
-    pub pwszExtensionIdentifier: ::windows::core::PCWSTR,
+    pub pwszExtensionIdentifier: ::windows_core::PCWSTR,
     pub cbExtension: u32,
     pub pvExtension: *mut ::core::ffi::c_void,
 }
@@ -6376,8 +6376,8 @@ impl ::core::fmt::Debug for WEBAUTHN_EXTENSION {
         f.debug_struct("WEBAUTHN_EXTENSION").field("pwszExtensionIdentifier", &self.pwszExtensionIdentifier).field("cbExtension", &self.cbExtension).field("pvExtension", &self.pvExtension).finish()
     }
 }
-impl ::windows::core::TypeKind for WEBAUTHN_EXTENSION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WEBAUTHN_EXTENSION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WEBAUTHN_EXTENSION {
     fn eq(&self, other: &Self) -> bool {
@@ -6407,8 +6407,8 @@ impl ::core::fmt::Debug for WEBAUTHN_EXTENSIONS {
         f.debug_struct("WEBAUTHN_EXTENSIONS").field("cExtensions", &self.cExtensions).field("pExtensions", &self.pExtensions).finish()
     }
 }
-impl ::windows::core::TypeKind for WEBAUTHN_EXTENSIONS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WEBAUTHN_EXTENSIONS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WEBAUTHN_EXTENSIONS {
     fn eq(&self, other: &Self) -> bool {
@@ -6426,7 +6426,7 @@ impl ::core::default::Default for WEBAUTHN_EXTENSIONS {
 #[cfg(feature = "Win32_Foundation")]
 pub struct WEBAUTHN_GET_CREDENTIALS_OPTIONS {
     pub dwVersion: u32,
-    pub pwszRpId: ::windows::core::PCWSTR,
+    pub pwszRpId: ::windows_core::PCWSTR,
     pub bBrowserInPrivateMode: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6444,8 +6444,8 @@ impl ::core::fmt::Debug for WEBAUTHN_GET_CREDENTIALS_OPTIONS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WEBAUTHN_GET_CREDENTIALS_OPTIONS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WEBAUTHN_GET_CREDENTIALS_OPTIONS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WEBAUTHN_GET_CREDENTIALS_OPTIONS {
@@ -6480,8 +6480,8 @@ impl ::core::fmt::Debug for WEBAUTHN_HMAC_SECRET_SALT {
         f.debug_struct("WEBAUTHN_HMAC_SECRET_SALT").field("cbFirst", &self.cbFirst).field("pbFirst", &self.pbFirst).field("cbSecond", &self.cbSecond).field("pbSecond", &self.pbSecond).finish()
     }
 }
-impl ::windows::core::TypeKind for WEBAUTHN_HMAC_SECRET_SALT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WEBAUTHN_HMAC_SECRET_SALT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WEBAUTHN_HMAC_SECRET_SALT {
     fn eq(&self, other: &Self) -> bool {
@@ -6512,8 +6512,8 @@ impl ::core::fmt::Debug for WEBAUTHN_HMAC_SECRET_SALT_VALUES {
         f.debug_struct("WEBAUTHN_HMAC_SECRET_SALT_VALUES").field("pGlobalHmacSalt", &self.pGlobalHmacSalt).field("cCredWithHmacSecretSaltList", &self.cCredWithHmacSecretSaltList).field("pCredWithHmacSecretSaltList", &self.pCredWithHmacSecretSaltList).finish()
     }
 }
-impl ::windows::core::TypeKind for WEBAUTHN_HMAC_SECRET_SALT_VALUES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WEBAUTHN_HMAC_SECRET_SALT_VALUES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WEBAUTHN_HMAC_SECRET_SALT_VALUES {
     fn eq(&self, other: &Self) -> bool {
@@ -6530,9 +6530,9 @@ impl ::core::default::Default for WEBAUTHN_HMAC_SECRET_SALT_VALUES {
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub struct WEBAUTHN_RP_ENTITY_INFORMATION {
     pub dwVersion: u32,
-    pub pwszId: ::windows::core::PCWSTR,
-    pub pwszName: ::windows::core::PCWSTR,
-    pub pwszIcon: ::windows::core::PCWSTR,
+    pub pwszId: ::windows_core::PCWSTR,
+    pub pwszName: ::windows_core::PCWSTR,
+    pub pwszIcon: ::windows_core::PCWSTR,
 }
 impl ::core::marker::Copy for WEBAUTHN_RP_ENTITY_INFORMATION {}
 impl ::core::clone::Clone for WEBAUTHN_RP_ENTITY_INFORMATION {
@@ -6545,8 +6545,8 @@ impl ::core::fmt::Debug for WEBAUTHN_RP_ENTITY_INFORMATION {
         f.debug_struct("WEBAUTHN_RP_ENTITY_INFORMATION").field("dwVersion", &self.dwVersion).field("pwszId", &self.pwszId).field("pwszName", &self.pwszName).field("pwszIcon", &self.pwszIcon).finish()
     }
 }
-impl ::windows::core::TypeKind for WEBAUTHN_RP_ENTITY_INFORMATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WEBAUTHN_RP_ENTITY_INFORMATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WEBAUTHN_RP_ENTITY_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -6565,9 +6565,9 @@ pub struct WEBAUTHN_USER_ENTITY_INFORMATION {
     pub dwVersion: u32,
     pub cbId: u32,
     pub pbId: *mut u8,
-    pub pwszName: ::windows::core::PCWSTR,
-    pub pwszIcon: ::windows::core::PCWSTR,
-    pub pwszDisplayName: ::windows::core::PCWSTR,
+    pub pwszName: ::windows_core::PCWSTR,
+    pub pwszIcon: ::windows_core::PCWSTR,
+    pub pwszDisplayName: ::windows_core::PCWSTR,
 }
 impl ::core::marker::Copy for WEBAUTHN_USER_ENTITY_INFORMATION {}
 impl ::core::clone::Clone for WEBAUTHN_USER_ENTITY_INFORMATION {
@@ -6580,8 +6580,8 @@ impl ::core::fmt::Debug for WEBAUTHN_USER_ENTITY_INFORMATION {
         f.debug_struct("WEBAUTHN_USER_ENTITY_INFORMATION").field("dwVersion", &self.dwVersion).field("cbId", &self.cbId).field("pbId", &self.pbId).field("pwszName", &self.pwszName).field("pwszIcon", &self.pwszIcon).field("pwszDisplayName", &self.pwszDisplayName).finish()
     }
 }
-impl ::windows::core::TypeKind for WEBAUTHN_USER_ENTITY_INFORMATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WEBAUTHN_USER_ENTITY_INFORMATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WEBAUTHN_USER_ENTITY_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -6611,8 +6611,8 @@ impl ::core::fmt::Debug for WEBAUTHN_X5C {
         f.debug_struct("WEBAUTHN_X5C").field("cbData", &self.cbData).field("pbData", &self.pbData).finish()
     }
 }
-impl ::windows::core::TypeKind for WEBAUTHN_X5C {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WEBAUTHN_X5C {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WEBAUTHN_X5C {
     fn eq(&self, other: &Self) -> bool {
@@ -6648,8 +6648,8 @@ impl ::core::fmt::Debug for WS_ANY_ATTRIBUTE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WS_ANY_ATTRIBUTE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_ANY_ATTRIBUTE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_ANY_ATTRIBUTE {
@@ -6687,8 +6687,8 @@ impl ::core::fmt::Debug for WS_ANY_ATTRIBUTES {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WS_ANY_ATTRIBUTES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_ANY_ATTRIBUTES {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_ANY_ATTRIBUTES {
@@ -6721,8 +6721,8 @@ impl ::core::fmt::Debug for WS_ASYNC_CONTEXT {
         f.debug_struct("WS_ASYNC_CONTEXT").field("callbackState", &self.callbackState).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_ASYNC_CONTEXT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_ASYNC_CONTEXT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WS_ASYNC_CONTEXT {
     fn default() -> Self {
@@ -6745,8 +6745,8 @@ impl ::core::fmt::Debug for WS_ASYNC_OPERATION {
         f.debug_struct("WS_ASYNC_OPERATION").finish()
     }
 }
-impl ::windows::core::TypeKind for WS_ASYNC_OPERATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_ASYNC_OPERATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WS_ASYNC_OPERATION {
     fn default() -> Self {
@@ -6773,8 +6773,8 @@ impl ::core::fmt::Debug for WS_ASYNC_STATE {
         f.debug_struct("WS_ASYNC_STATE").field("internal0", &self.internal0).field("internal1", &self.internal1).field("internal2", &self.internal2).field("internal3", &self.internal3).field("internal4", &self.internal4).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_ASYNC_STATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_ASYNC_STATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_ASYNC_STATE {
     fn eq(&self, other: &Self) -> bool {
@@ -6811,8 +6811,8 @@ impl ::core::fmt::Debug for WS_ATTRIBUTE_DESCRIPTION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WS_ATTRIBUTE_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_ATTRIBUTE_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_ATTRIBUTE_DESCRIPTION {
@@ -6849,8 +6849,8 @@ impl ::core::fmt::Debug for WS_BOOL_DESCRIPTION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WS_BOOL_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_BOOL_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_BOOL_DESCRIPTION {
@@ -6883,8 +6883,8 @@ impl ::core::fmt::Debug for WS_BUFFERS {
         f.debug_struct("WS_BUFFERS").field("bufferCount", &self.bufferCount).field("buffers", &self.buffers).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_BUFFERS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_BUFFERS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_BUFFERS {
     fn eq(&self, other: &Self) -> bool {
@@ -6914,8 +6914,8 @@ impl ::core::fmt::Debug for WS_BYTES {
         f.debug_struct("WS_BYTES").field("length", &self.length).field("bytes", &self.bytes).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_BYTES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_BYTES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_BYTES {
     fn eq(&self, other: &Self) -> bool {
@@ -6945,8 +6945,8 @@ impl ::core::fmt::Debug for WS_BYTES_DESCRIPTION {
         f.debug_struct("WS_BYTES_DESCRIPTION").field("minByteCount", &self.minByteCount).field("maxByteCount", &self.maxByteCount).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_BYTES_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_BYTES_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_BYTES_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
@@ -6976,8 +6976,8 @@ impl ::core::fmt::Debug for WS_BYTE_ARRAY_DESCRIPTION {
         f.debug_struct("WS_BYTE_ARRAY_DESCRIPTION").field("minByteCount", &self.minByteCount).field("maxByteCount", &self.maxByteCount).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_BYTE_ARRAY_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_BYTE_ARRAY_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_BYTE_ARRAY_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
@@ -7008,8 +7008,8 @@ impl ::core::fmt::Debug for WS_CALL_PROPERTY {
         f.debug_struct("WS_CALL_PROPERTY").field("id", &self.id).field("value", &self.value).field("valueSize", &self.valueSize).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_CALL_PROPERTY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_CALL_PROPERTY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_CALL_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
@@ -7040,8 +7040,8 @@ impl ::core::fmt::Debug for WS_CAPI_ASYMMETRIC_SECURITY_KEY_HANDLE {
         f.debug_struct("WS_CAPI_ASYMMETRIC_SECURITY_KEY_HANDLE").field("keyHandle", &self.keyHandle).field("provider", &self.provider).field("keySpec", &self.keySpec).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_CAPI_ASYMMETRIC_SECURITY_KEY_HANDLE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_CAPI_ASYMMETRIC_SECURITY_KEY_HANDLE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_CAPI_ASYMMETRIC_SECURITY_KEY_HANDLE {
     fn eq(&self, other: &Self) -> bool {
@@ -7076,8 +7076,8 @@ impl ::core::fmt::Debug for WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::windows::core::TypeKind for WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::default::Default for WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT {
@@ -7101,8 +7101,8 @@ impl ::core::fmt::Debug for WS_CERT_CREDENTIAL {
         f.debug_struct("WS_CERT_CREDENTIAL").field("credentialType", &self.credentialType).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_CERT_CREDENTIAL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_CERT_CREDENTIAL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_CERT_CREDENTIAL {
     fn eq(&self, other: &Self) -> bool {
@@ -7132,8 +7132,8 @@ impl ::core::fmt::Debug for WS_CERT_ENDPOINT_IDENTITY {
         f.debug_struct("WS_CERT_ENDPOINT_IDENTITY").field("identity", &self.identity).field("rawCertificateData", &self.rawCertificateData).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_CERT_ENDPOINT_IDENTITY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_CERT_ENDPOINT_IDENTITY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_CERT_ENDPOINT_IDENTITY {
     fn eq(&self, other: &Self) -> bool {
@@ -7163,8 +7163,8 @@ impl ::core::fmt::Debug for WS_CERT_MESSAGE_SECURITY_BINDING_CONSTRAINT {
         f.debug_struct("WS_CERT_MESSAGE_SECURITY_BINDING_CONSTRAINT").field("bindingConstraint", &self.bindingConstraint).field("bindingUsage", &self.bindingUsage).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_CERT_MESSAGE_SECURITY_BINDING_CONSTRAINT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_CERT_MESSAGE_SECURITY_BINDING_CONSTRAINT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_CERT_MESSAGE_SECURITY_BINDING_CONSTRAINT {
     fn eq(&self, other: &Self) -> bool {
@@ -7203,8 +7203,8 @@ impl ::core::fmt::Debug for WS_CERT_SIGNED_SAML_AUTHENTICATOR {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-impl ::windows::core::TypeKind for WS_CERT_SIGNED_SAML_AUTHENTICATOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_CERT_SIGNED_SAML_AUTHENTICATOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::default::Default for WS_CERT_SIGNED_SAML_AUTHENTICATOR {
@@ -7220,8 +7220,8 @@ impl ::core::clone::Clone for WS_CHANNEL {
         *self
     }
 }
-impl ::windows::core::TypeKind for WS_CHANNEL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_CHANNEL {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
@@ -7245,8 +7245,8 @@ impl ::core::fmt::Debug for WS_CHANNEL_DECODER {
         f.debug_struct("WS_CHANNEL_DECODER").field("createContext", &self.createContext).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_CHANNEL_DECODER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_CHANNEL_DECODER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WS_CHANNEL_DECODER {
     fn default() -> Self {
@@ -7275,8 +7275,8 @@ impl ::core::fmt::Debug for WS_CHANNEL_ENCODER {
         f.debug_struct("WS_CHANNEL_ENCODER").field("createContext", &self.createContext).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_CHANNEL_ENCODER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_CHANNEL_ENCODER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WS_CHANNEL_ENCODER {
     fn default() -> Self {
@@ -7300,8 +7300,8 @@ impl ::core::fmt::Debug for WS_CHANNEL_PROPERTIES {
         f.debug_struct("WS_CHANNEL_PROPERTIES").field("properties", &self.properties).field("propertyCount", &self.propertyCount).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_CHANNEL_PROPERTIES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_CHANNEL_PROPERTIES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_CHANNEL_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
@@ -7332,8 +7332,8 @@ impl ::core::fmt::Debug for WS_CHANNEL_PROPERTY {
         f.debug_struct("WS_CHANNEL_PROPERTY").field("id", &self.id).field("value", &self.value).field("valueSize", &self.valueSize).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_CHANNEL_PROPERTY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_CHANNEL_PROPERTY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_CHANNEL_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
@@ -7365,8 +7365,8 @@ impl ::core::fmt::Debug for WS_CHANNEL_PROPERTY_CONSTRAINT {
         f.debug_struct("WS_CHANNEL_PROPERTY_CONSTRAINT").field("id", &self.id).field("allowedValues", &self.allowedValues).field("allowedValuesSize", &self.allowedValuesSize).field("out", &self.out).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_CHANNEL_PROPERTY_CONSTRAINT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_CHANNEL_PROPERTY_CONSTRAINT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_CHANNEL_PROPERTY_CONSTRAINT {
     fn eq(&self, other: &Self) -> bool {
@@ -7395,8 +7395,8 @@ impl ::core::fmt::Debug for WS_CHANNEL_PROPERTY_CONSTRAINT_0 {
         f.debug_struct("WS_CHANNEL_PROPERTY_CONSTRAINT_0").field("channelProperty", &self.channelProperty).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_CHANNEL_PROPERTY_CONSTRAINT_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_CHANNEL_PROPERTY_CONSTRAINT_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_CHANNEL_PROPERTY_CONSTRAINT_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -7426,8 +7426,8 @@ impl ::core::fmt::Debug for WS_CHAR_ARRAY_DESCRIPTION {
         f.debug_struct("WS_CHAR_ARRAY_DESCRIPTION").field("minCharCount", &self.minCharCount).field("maxCharCount", &self.maxCharCount).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_CHAR_ARRAY_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_CHAR_ARRAY_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_CHAR_ARRAY_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
@@ -7462,8 +7462,8 @@ impl ::core::fmt::Debug for WS_CONTRACT_DESCRIPTION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WS_CONTRACT_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_CONTRACT_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_CONTRACT_DESCRIPTION {
@@ -7504,8 +7504,8 @@ impl ::core::fmt::Debug for WS_CUSTOM_CERT_CREDENTIAL {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
-impl ::windows::core::TypeKind for WS_CUSTOM_CERT_CREDENTIAL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_CUSTOM_CERT_CREDENTIAL {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
 impl ::core::default::Default for WS_CUSTOM_CERT_CREDENTIAL {
@@ -7542,8 +7542,8 @@ impl ::core::fmt::Debug for WS_CUSTOM_CHANNEL_CALLBACKS {
         f.debug_struct("WS_CUSTOM_CHANNEL_CALLBACKS").finish()
     }
 }
-impl ::windows::core::TypeKind for WS_CUSTOM_CHANNEL_CALLBACKS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_CUSTOM_CHANNEL_CALLBACKS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WS_CUSTOM_CHANNEL_CALLBACKS {
     fn default() -> Self {
@@ -7567,8 +7567,8 @@ impl ::core::fmt::Debug for WS_CUSTOM_HTTP_PROXY {
         f.debug_struct("WS_CUSTOM_HTTP_PROXY").field("servers", &self.servers).field("bypass", &self.bypass).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_CUSTOM_HTTP_PROXY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_CUSTOM_HTTP_PROXY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_CUSTOM_HTTP_PROXY {
     fn eq(&self, other: &Self) -> bool {
@@ -7606,8 +7606,8 @@ impl ::core::fmt::Debug for WS_CUSTOM_LISTENER_CALLBACKS {
         f.debug_struct("WS_CUSTOM_LISTENER_CALLBACKS").finish()
     }
 }
-impl ::windows::core::TypeKind for WS_CUSTOM_LISTENER_CALLBACKS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_CUSTOM_LISTENER_CALLBACKS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WS_CUSTOM_LISTENER_CALLBACKS {
     fn default() -> Self {
@@ -7640,8 +7640,8 @@ impl ::core::fmt::Debug for WS_CUSTOM_TYPE_DESCRIPTION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WS_CUSTOM_TYPE_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_CUSTOM_TYPE_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WS_CUSTOM_TYPE_DESCRIPTION {
@@ -7666,8 +7666,8 @@ impl ::core::fmt::Debug for WS_DATETIME {
         f.debug_struct("WS_DATETIME").field("ticks", &self.ticks).field("format", &self.format).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_DATETIME {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_DATETIME {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_DATETIME {
     fn eq(&self, other: &Self) -> bool {
@@ -7697,8 +7697,8 @@ impl ::core::fmt::Debug for WS_DATETIME_DESCRIPTION {
         f.debug_struct("WS_DATETIME_DESCRIPTION").field("minValue", &self.minValue).field("maxValue", &self.maxValue).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_DATETIME_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_DATETIME_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_DATETIME_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
@@ -7727,8 +7727,8 @@ impl ::core::clone::Clone for WS_DECIMAL_DESCRIPTION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WS_DECIMAL_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_DECIMAL_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WS_DECIMAL_DESCRIPTION {
@@ -7753,8 +7753,8 @@ impl ::core::fmt::Debug for WS_DEFAULT_VALUE {
         f.debug_struct("WS_DEFAULT_VALUE").field("value", &self.value).field("valueSize", &self.valueSize).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_DEFAULT_VALUE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_DEFAULT_VALUE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_DEFAULT_VALUE {
     fn eq(&self, other: &Self) -> bool {
@@ -7783,8 +7783,8 @@ impl ::core::fmt::Debug for WS_DEFAULT_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
         f.debug_struct("WS_DEFAULT_WINDOWS_INTEGRATED_AUTH_CREDENTIAL").field("credential", &self.credential).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_DEFAULT_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_DEFAULT_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_DEFAULT_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
     fn eq(&self, other: &Self) -> bool {
@@ -7814,8 +7814,8 @@ impl ::core::fmt::Debug for WS_DISALLOWED_USER_AGENT_SUBSTRINGS {
         f.debug_struct("WS_DISALLOWED_USER_AGENT_SUBSTRINGS").field("subStringCount", &self.subStringCount).field("subStrings", &self.subStrings).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_DISALLOWED_USER_AGENT_SUBSTRINGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_DISALLOWED_USER_AGENT_SUBSTRINGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_DISALLOWED_USER_AGENT_SUBSTRINGS {
     fn eq(&self, other: &Self) -> bool {
@@ -7845,8 +7845,8 @@ impl ::core::fmt::Debug for WS_DNS_ENDPOINT_IDENTITY {
         f.debug_struct("WS_DNS_ENDPOINT_IDENTITY").field("identity", &self.identity).field("dns", &self.dns).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_DNS_ENDPOINT_IDENTITY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_DNS_ENDPOINT_IDENTITY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_DNS_ENDPOINT_IDENTITY {
     fn eq(&self, other: &Self) -> bool {
@@ -7876,8 +7876,8 @@ impl ::core::fmt::Debug for WS_DOUBLE_DESCRIPTION {
         f.debug_struct("WS_DOUBLE_DESCRIPTION").field("minValue", &self.minValue).field("maxValue", &self.maxValue).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_DOUBLE_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_DOUBLE_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_DOUBLE_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
@@ -7919,8 +7919,8 @@ impl ::core::fmt::Debug for WS_DURATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WS_DURATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_DURATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_DURATION {
@@ -7959,8 +7959,8 @@ impl ::core::fmt::Debug for WS_DURATION_DESCRIPTION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WS_DURATION_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_DURATION_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WS_DURATION_DESCRIPTION {
@@ -7992,8 +7992,8 @@ impl ::core::fmt::Debug for WS_ELEMENT_DESCRIPTION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WS_ELEMENT_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_ELEMENT_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_ELEMENT_DESCRIPTION {
@@ -8028,8 +8028,8 @@ impl ::core::fmt::Debug for WS_ENDPOINT_ADDRESS {
         f.debug_struct("WS_ENDPOINT_ADDRESS").field("url", &self.url).field("headers", &self.headers).field("extensions", &self.extensions).field("identity", &self.identity).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_ENDPOINT_ADDRESS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_ENDPOINT_ADDRESS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_ENDPOINT_ADDRESS {
     fn eq(&self, other: &Self) -> bool {
@@ -8058,8 +8058,8 @@ impl ::core::fmt::Debug for WS_ENDPOINT_ADDRESS_DESCRIPTION {
         f.debug_struct("WS_ENDPOINT_ADDRESS_DESCRIPTION").field("addressingVersion", &self.addressingVersion).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_ENDPOINT_ADDRESS_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_ENDPOINT_ADDRESS_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_ENDPOINT_ADDRESS_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
@@ -8088,8 +8088,8 @@ impl ::core::fmt::Debug for WS_ENDPOINT_IDENTITY {
         f.debug_struct("WS_ENDPOINT_IDENTITY").field("identityType", &self.identityType).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_ENDPOINT_IDENTITY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_ENDPOINT_IDENTITY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_ENDPOINT_IDENTITY {
     fn eq(&self, other: &Self) -> bool {
@@ -8126,8 +8126,8 @@ impl ::core::fmt::Debug for WS_ENDPOINT_POLICY_EXTENSION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WS_ENDPOINT_POLICY_EXTENSION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_ENDPOINT_POLICY_EXTENSION {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_ENDPOINT_POLICY_EXTENSION {
@@ -8164,8 +8164,8 @@ impl ::core::fmt::Debug for WS_ENDPOINT_POLICY_EXTENSION_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WS_ENDPOINT_POLICY_EXTENSION_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_ENDPOINT_POLICY_EXTENSION_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_ENDPOINT_POLICY_EXTENSION_0 {
@@ -8205,8 +8205,8 @@ impl ::core::fmt::Debug for WS_ENUM_DESCRIPTION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WS_ENUM_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_ENUM_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_ENUM_DESCRIPTION {
@@ -8244,8 +8244,8 @@ impl ::core::fmt::Debug for WS_ENUM_VALUE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WS_ENUM_VALUE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_ENUM_VALUE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_ENUM_VALUE {
@@ -8269,8 +8269,8 @@ impl ::core::clone::Clone for WS_ERROR {
         *self
     }
 }
-impl ::windows::core::TypeKind for WS_ERROR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_ERROR {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
@@ -8290,8 +8290,8 @@ impl ::core::fmt::Debug for WS_ERROR_PROPERTY {
         f.debug_struct("WS_ERROR_PROPERTY").field("id", &self.id).field("value", &self.value).field("valueSize", &self.valueSize).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_ERROR_PROPERTY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_ERROR_PROPERTY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_ERROR_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
@@ -8330,8 +8330,8 @@ impl ::core::fmt::Debug for WS_FAULT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WS_FAULT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_FAULT {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_FAULT {
@@ -8369,8 +8369,8 @@ impl ::core::fmt::Debug for WS_FAULT_CODE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WS_FAULT_CODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_FAULT_CODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_FAULT_CODE {
@@ -8402,8 +8402,8 @@ impl ::core::fmt::Debug for WS_FAULT_DESCRIPTION {
         f.debug_struct("WS_FAULT_DESCRIPTION").field("envelopeVersion", &self.envelopeVersion).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_FAULT_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_FAULT_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_FAULT_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
@@ -8438,8 +8438,8 @@ impl ::core::fmt::Debug for WS_FAULT_DETAIL_DESCRIPTION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WS_FAULT_DETAIL_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_FAULT_DETAIL_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_FAULT_DETAIL_DESCRIPTION {
@@ -8472,8 +8472,8 @@ impl ::core::fmt::Debug for WS_FAULT_REASON {
         f.debug_struct("WS_FAULT_REASON").field("text", &self.text).field("lang", &self.lang).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_FAULT_REASON {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_FAULT_REASON {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_FAULT_REASON {
     fn eq(&self, other: &Self) -> bool {
@@ -8518,8 +8518,8 @@ impl ::core::fmt::Debug for WS_FIELD_DESCRIPTION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WS_FIELD_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_FIELD_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_FIELD_DESCRIPTION {
@@ -8552,8 +8552,8 @@ impl ::core::fmt::Debug for WS_FLOAT_DESCRIPTION {
         f.debug_struct("WS_FLOAT_DESCRIPTION").field("minValue", &self.minValue).field("maxValue", &self.maxValue).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_FLOAT_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_FLOAT_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_FLOAT_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
@@ -8569,7 +8569,7 @@ impl ::core::default::Default for WS_FLOAT_DESCRIPTION {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub struct WS_GUID_DESCRIPTION {
-    pub value: ::windows::core::GUID,
+    pub value: ::windows_core::GUID,
 }
 impl ::core::marker::Copy for WS_GUID_DESCRIPTION {}
 impl ::core::clone::Clone for WS_GUID_DESCRIPTION {
@@ -8582,8 +8582,8 @@ impl ::core::fmt::Debug for WS_GUID_DESCRIPTION {
         f.debug_struct("WS_GUID_DESCRIPTION").field("value", &self.value).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_GUID_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_GUID_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_GUID_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
@@ -8604,8 +8604,8 @@ impl ::core::clone::Clone for WS_HEAP {
         *self
     }
 }
-impl ::windows::core::TypeKind for WS_HEAP {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_HEAP {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
@@ -8624,8 +8624,8 @@ impl ::core::fmt::Debug for WS_HEAP_PROPERTIES {
         f.debug_struct("WS_HEAP_PROPERTIES").field("properties", &self.properties).field("propertyCount", &self.propertyCount).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_HEAP_PROPERTIES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_HEAP_PROPERTIES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_HEAP_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
@@ -8656,8 +8656,8 @@ impl ::core::fmt::Debug for WS_HEAP_PROPERTY {
         f.debug_struct("WS_HEAP_PROPERTY").field("id", &self.id).field("value", &self.value).field("valueSize", &self.valueSize).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_HEAP_PROPERTY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_HEAP_PROPERTY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_HEAP_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
@@ -8687,8 +8687,8 @@ impl ::core::fmt::Debug for WS_HOST_NAMES {
         f.debug_struct("WS_HOST_NAMES").field("hostNames", &self.hostNames).field("hostNameCount", &self.hostNameCount).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_HOST_NAMES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_HOST_NAMES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_HOST_NAMES {
     fn eq(&self, other: &Self) -> bool {
@@ -8723,8 +8723,8 @@ impl ::core::fmt::Debug for WS_HTTPS_URL {
         f.debug_struct("WS_HTTPS_URL").field("url", &self.url).field("host", &self.host).field("port", &self.port).field("portAsString", &self.portAsString).field("path", &self.path).field("query", &self.query).field("fragment", &self.fragment).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_HTTPS_URL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_HTTPS_URL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_HTTPS_URL {
     fn eq(&self, other: &Self) -> bool {
@@ -8753,8 +8753,8 @@ impl ::core::fmt::Debug for WS_HTTP_BINDING_TEMPLATE {
         f.debug_struct("WS_HTTP_BINDING_TEMPLATE").field("channelProperties", &self.channelProperties).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_HTTP_BINDING_TEMPLATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_HTTP_BINDING_TEMPLATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_HTTP_BINDING_TEMPLATE {
     fn eq(&self, other: &Self) -> bool {
@@ -8785,8 +8785,8 @@ impl ::core::fmt::Debug for WS_HTTP_HEADER_AUTH_BINDING_TEMPLATE {
         f.debug_struct("WS_HTTP_HEADER_AUTH_BINDING_TEMPLATE").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("httpHeaderAuthSecurityBinding", &self.httpHeaderAuthSecurityBinding).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_HTTP_HEADER_AUTH_BINDING_TEMPLATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_HTTP_HEADER_AUTH_BINDING_TEMPLATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_HTTP_HEADER_AUTH_BINDING_TEMPLATE {
     fn eq(&self, other: &Self) -> bool {
@@ -8817,8 +8817,8 @@ impl ::core::fmt::Debug for WS_HTTP_HEADER_AUTH_POLICY_DESCRIPTION {
         f.debug_struct("WS_HTTP_HEADER_AUTH_POLICY_DESCRIPTION").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("httpHeaderAuthSecurityBinding", &self.httpHeaderAuthSecurityBinding).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_HTTP_HEADER_AUTH_POLICY_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_HTTP_HEADER_AUTH_POLICY_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_HTTP_HEADER_AUTH_POLICY_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
@@ -8848,8 +8848,8 @@ impl ::core::fmt::Debug for WS_HTTP_HEADER_AUTH_SECURITY_BINDING {
         f.debug_struct("WS_HTTP_HEADER_AUTH_SECURITY_BINDING").field("binding", &self.binding).field("clientCredential", &self.clientCredential).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_HTTP_HEADER_AUTH_SECURITY_BINDING {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_HTTP_HEADER_AUTH_SECURITY_BINDING {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_HTTP_HEADER_AUTH_SECURITY_BINDING {
     fn eq(&self, other: &Self) -> bool {
@@ -8878,8 +8878,8 @@ impl ::core::fmt::Debug for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_CONSTRAINT {
         f.debug_struct("WS_HTTP_HEADER_AUTH_SECURITY_BINDING_CONSTRAINT").field("bindingConstraint", &self.bindingConstraint).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_CONSTRAINT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_CONSTRAINT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_CONSTRAINT {
     fn eq(&self, other: &Self) -> bool {
@@ -8908,8 +8908,8 @@ impl ::core::fmt::Debug for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_POLICY_DESCRIPT
         f.debug_struct("WS_HTTP_HEADER_AUTH_SECURITY_BINDING_POLICY_DESCRIPTION").field("securityBindingProperties", &self.securityBindingProperties).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_POLICY_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_POLICY_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_POLICY_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
@@ -8939,8 +8939,8 @@ impl ::core::fmt::Debug for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_TEMPLATE {
         f.debug_struct("WS_HTTP_HEADER_AUTH_SECURITY_BINDING_TEMPLATE").field("securityBindingProperties", &self.securityBindingProperties).field("clientCredential", &self.clientCredential).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_TEMPLATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_TEMPLATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_TEMPLATE {
     fn eq(&self, other: &Self) -> bool {
@@ -8975,8 +8975,8 @@ impl ::core::fmt::Debug for WS_HTTP_HEADER_MAPPING {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WS_HTTP_HEADER_MAPPING {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_HTTP_HEADER_MAPPING {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_HTTP_HEADER_MAPPING {
@@ -9018,8 +9018,8 @@ impl ::core::fmt::Debug for WS_HTTP_MESSAGE_MAPPING {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WS_HTTP_MESSAGE_MAPPING {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_HTTP_MESSAGE_MAPPING {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_HTTP_MESSAGE_MAPPING {
@@ -9051,8 +9051,8 @@ impl ::core::fmt::Debug for WS_HTTP_POLICY_DESCRIPTION {
         f.debug_struct("WS_HTTP_POLICY_DESCRIPTION").field("channelProperties", &self.channelProperties).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_HTTP_POLICY_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_HTTP_POLICY_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_HTTP_POLICY_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
@@ -9082,8 +9082,8 @@ impl ::core::fmt::Debug for WS_HTTP_REDIRECT_CALLBACK_CONTEXT {
         f.debug_struct("WS_HTTP_REDIRECT_CALLBACK_CONTEXT").field("state", &self.state).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_HTTP_REDIRECT_CALLBACK_CONTEXT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_HTTP_REDIRECT_CALLBACK_CONTEXT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WS_HTTP_REDIRECT_CALLBACK_CONTEXT {
     fn default() -> Self {
@@ -9108,8 +9108,8 @@ impl ::core::fmt::Debug for WS_HTTP_SSL_BINDING_TEMPLATE {
         f.debug_struct("WS_HTTP_SSL_BINDING_TEMPLATE").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sslTransportSecurityBinding", &self.sslTransportSecurityBinding).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_HTTP_SSL_BINDING_TEMPLATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_HTTP_SSL_BINDING_TEMPLATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_HTTP_SSL_BINDING_TEMPLATE {
     fn eq(&self, other: &Self) -> bool {
@@ -9141,8 +9141,8 @@ impl ::core::fmt::Debug for WS_HTTP_SSL_HEADER_AUTH_BINDING_TEMPLATE {
         f.debug_struct("WS_HTTP_SSL_HEADER_AUTH_BINDING_TEMPLATE").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sslTransportSecurityBinding", &self.sslTransportSecurityBinding).field("httpHeaderAuthSecurityBinding", &self.httpHeaderAuthSecurityBinding).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_HTTP_SSL_HEADER_AUTH_BINDING_TEMPLATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_HTTP_SSL_HEADER_AUTH_BINDING_TEMPLATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_HTTP_SSL_HEADER_AUTH_BINDING_TEMPLATE {
     fn eq(&self, other: &Self) -> bool {
@@ -9174,8 +9174,8 @@ impl ::core::fmt::Debug for WS_HTTP_SSL_HEADER_AUTH_POLICY_DESCRIPTION {
         f.debug_struct("WS_HTTP_SSL_HEADER_AUTH_POLICY_DESCRIPTION").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sslTransportSecurityBinding", &self.sslTransportSecurityBinding).field("httpHeaderAuthSecurityBinding", &self.httpHeaderAuthSecurityBinding).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_HTTP_SSL_HEADER_AUTH_POLICY_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_HTTP_SSL_HEADER_AUTH_POLICY_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_HTTP_SSL_HEADER_AUTH_POLICY_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
@@ -9207,8 +9207,8 @@ impl ::core::fmt::Debug for WS_HTTP_SSL_KERBEROS_APREQ_BINDING_TEMPLATE {
         f.debug_struct("WS_HTTP_SSL_KERBEROS_APREQ_BINDING_TEMPLATE").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sslTransportSecurityBinding", &self.sslTransportSecurityBinding).field("kerberosApreqMessageSecurityBinding", &self.kerberosApreqMessageSecurityBinding).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_HTTP_SSL_KERBEROS_APREQ_BINDING_TEMPLATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_HTTP_SSL_KERBEROS_APREQ_BINDING_TEMPLATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_HTTP_SSL_KERBEROS_APREQ_BINDING_TEMPLATE {
     fn eq(&self, other: &Self) -> bool {
@@ -9240,8 +9240,8 @@ impl ::core::fmt::Debug for WS_HTTP_SSL_KERBEROS_APREQ_POLICY_DESCRIPTION {
         f.debug_struct("WS_HTTP_SSL_KERBEROS_APREQ_POLICY_DESCRIPTION").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sslTransportSecurityBinding", &self.sslTransportSecurityBinding).field("kerberosApreqMessageSecurityBinding", &self.kerberosApreqMessageSecurityBinding).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_HTTP_SSL_KERBEROS_APREQ_POLICY_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_HTTP_SSL_KERBEROS_APREQ_POLICY_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_HTTP_SSL_KERBEROS_APREQ_POLICY_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
@@ -9274,8 +9274,8 @@ impl ::core::fmt::Debug for WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_
         f.debug_struct("WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sslTransportSecurityBinding", &self.sslTransportSecurityBinding).field("kerberosApreqMessageSecurityBinding", &self.kerberosApreqMessageSecurityBinding).field("securityContextSecurityBinding", &self.securityContextSecurityBinding).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE {
     fn eq(&self, other: &Self) -> bool {
@@ -9308,8 +9308,8 @@ impl ::core::fmt::Debug for WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_D
         f.debug_struct("WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sslTransportSecurityBinding", &self.sslTransportSecurityBinding).field("kerberosApreqMessageSecurityBinding", &self.kerberosApreqMessageSecurityBinding).field("securityContextSecurityBinding", &self.securityContextSecurityBinding).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
@@ -9340,8 +9340,8 @@ impl ::core::fmt::Debug for WS_HTTP_SSL_POLICY_DESCRIPTION {
         f.debug_struct("WS_HTTP_SSL_POLICY_DESCRIPTION").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sslTransportSecurityBinding", &self.sslTransportSecurityBinding).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_HTTP_SSL_POLICY_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_HTTP_SSL_POLICY_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_HTTP_SSL_POLICY_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
@@ -9373,8 +9373,8 @@ impl ::core::fmt::Debug for WS_HTTP_SSL_USERNAME_BINDING_TEMPLATE {
         f.debug_struct("WS_HTTP_SSL_USERNAME_BINDING_TEMPLATE").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sslTransportSecurityBinding", &self.sslTransportSecurityBinding).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_HTTP_SSL_USERNAME_BINDING_TEMPLATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_HTTP_SSL_USERNAME_BINDING_TEMPLATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WS_HTTP_SSL_USERNAME_BINDING_TEMPLATE {
     fn default() -> Self {
@@ -9400,8 +9400,8 @@ impl ::core::fmt::Debug for WS_HTTP_SSL_USERNAME_POLICY_DESCRIPTION {
         f.debug_struct("WS_HTTP_SSL_USERNAME_POLICY_DESCRIPTION").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sslTransportSecurityBinding", &self.sslTransportSecurityBinding).field("usernameMessageSecurityBinding", &self.usernameMessageSecurityBinding).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_HTTP_SSL_USERNAME_POLICY_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_HTTP_SSL_USERNAME_POLICY_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_HTTP_SSL_USERNAME_POLICY_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
@@ -9434,8 +9434,8 @@ impl ::core::fmt::Debug for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLA
         f.debug_struct("WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sslTransportSecurityBinding", &self.sslTransportSecurityBinding).field("securityContextSecurityBinding", &self.securityContextSecurityBinding).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
     fn default() -> Self {
@@ -9462,8 +9462,8 @@ impl ::core::fmt::Debug for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIP
         f.debug_struct("WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sslTransportSecurityBinding", &self.sslTransportSecurityBinding).field("usernameMessageSecurityBinding", &self.usernameMessageSecurityBinding).field("securityContextSecurityBinding", &self.securityContextSecurityBinding).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
@@ -9498,8 +9498,8 @@ impl ::core::fmt::Debug for WS_HTTP_URL {
         f.debug_struct("WS_HTTP_URL").field("url", &self.url).field("host", &self.host).field("port", &self.port).field("portAsString", &self.portAsString).field("path", &self.path).field("query", &self.query).field("fragment", &self.fragment).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_HTTP_URL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_HTTP_URL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_HTTP_URL {
     fn eq(&self, other: &Self) -> bool {
@@ -9529,8 +9529,8 @@ impl ::core::fmt::Debug for WS_INT16_DESCRIPTION {
         f.debug_struct("WS_INT16_DESCRIPTION").field("minValue", &self.minValue).field("maxValue", &self.maxValue).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_INT16_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_INT16_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_INT16_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
@@ -9560,8 +9560,8 @@ impl ::core::fmt::Debug for WS_INT32_DESCRIPTION {
         f.debug_struct("WS_INT32_DESCRIPTION").field("minValue", &self.minValue).field("maxValue", &self.maxValue).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_INT32_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_INT32_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_INT32_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
@@ -9591,8 +9591,8 @@ impl ::core::fmt::Debug for WS_INT64_DESCRIPTION {
         f.debug_struct("WS_INT64_DESCRIPTION").field("minValue", &self.minValue).field("maxValue", &self.maxValue).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_INT64_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_INT64_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_INT64_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
@@ -9622,8 +9622,8 @@ impl ::core::fmt::Debug for WS_INT8_DESCRIPTION {
         f.debug_struct("WS_INT8_DESCRIPTION").field("minValue", &self.minValue).field("maxValue", &self.maxValue).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_INT8_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_INT8_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_INT8_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
@@ -9671,8 +9671,8 @@ impl ::core::fmt::Debug for WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT 
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT {
@@ -9710,8 +9710,8 @@ impl ::core::fmt::Debug for WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT_
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT_0 {
@@ -9744,8 +9744,8 @@ impl ::core::fmt::Debug for WS_ITEM_RANGE {
         f.debug_struct("WS_ITEM_RANGE").field("minItemCount", &self.minItemCount).field("maxItemCount", &self.maxItemCount).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_ITEM_RANGE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_ITEM_RANGE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_ITEM_RANGE {
     fn eq(&self, other: &Self) -> bool {
@@ -9776,8 +9776,8 @@ impl ::core::fmt::Debug for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING {
         f.debug_struct("WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING").field("binding", &self.binding).field("bindingUsage", &self.bindingUsage).field("clientCredential", &self.clientCredential).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING {
     fn eq(&self, other: &Self) -> bool {
@@ -9807,8 +9807,8 @@ impl ::core::fmt::Debug for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_CONSTRAIN
         f.debug_struct("WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_CONSTRAINT").field("bindingConstraint", &self.bindingConstraint).field("bindingUsage", &self.bindingUsage).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_CONSTRAINT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_CONSTRAINT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_CONSTRAINT {
     fn eq(&self, other: &Self) -> bool {
@@ -9838,8 +9838,8 @@ impl ::core::fmt::Debug for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_POLICY_DE
         f.debug_struct("WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION").field("securityBindingProperties", &self.securityBindingProperties).field("bindingUsage", &self.bindingUsage).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
@@ -9869,8 +9869,8 @@ impl ::core::fmt::Debug for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TEMPLATE 
         f.debug_struct("WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TEMPLATE").field("securityBindingProperties", &self.securityBindingProperties).field("clientCredential", &self.clientCredential).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TEMPLATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TEMPLATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TEMPLATE {
     fn eq(&self, other: &Self) -> bool {
@@ -9891,8 +9891,8 @@ impl ::core::clone::Clone for WS_LISTENER {
         *self
     }
 }
-impl ::windows::core::TypeKind for WS_LISTENER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_LISTENER {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
@@ -9911,8 +9911,8 @@ impl ::core::fmt::Debug for WS_LISTENER_PROPERTIES {
         f.debug_struct("WS_LISTENER_PROPERTIES").field("properties", &self.properties).field("propertyCount", &self.propertyCount).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_LISTENER_PROPERTIES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_LISTENER_PROPERTIES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_LISTENER_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
@@ -9943,8 +9943,8 @@ impl ::core::fmt::Debug for WS_LISTENER_PROPERTY {
         f.debug_struct("WS_LISTENER_PROPERTY").field("id", &self.id).field("value", &self.value).field("valueSize", &self.valueSize).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_LISTENER_PROPERTY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_LISTENER_PROPERTY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_LISTENER_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
@@ -9965,8 +9965,8 @@ impl ::core::clone::Clone for WS_MESSAGE {
         *self
     }
 }
-impl ::windows::core::TypeKind for WS_MESSAGE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_MESSAGE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
@@ -9990,8 +9990,8 @@ impl ::core::fmt::Debug for WS_MESSAGE_DESCRIPTION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WS_MESSAGE_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_MESSAGE_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_MESSAGE_DESCRIPTION {
@@ -10024,8 +10024,8 @@ impl ::core::fmt::Debug for WS_MESSAGE_PROPERTIES {
         f.debug_struct("WS_MESSAGE_PROPERTIES").field("properties", &self.properties).field("propertyCount", &self.propertyCount).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_MESSAGE_PROPERTIES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_MESSAGE_PROPERTIES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_MESSAGE_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
@@ -10056,8 +10056,8 @@ impl ::core::fmt::Debug for WS_MESSAGE_PROPERTY {
         f.debug_struct("WS_MESSAGE_PROPERTY").field("id", &self.id).field("value", &self.value).field("valueSize", &self.valueSize).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_MESSAGE_PROPERTY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_MESSAGE_PROPERTY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_MESSAGE_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
@@ -10078,8 +10078,8 @@ impl ::core::clone::Clone for WS_METADATA {
         *self
     }
 }
-impl ::windows::core::TypeKind for WS_METADATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_METADATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
@@ -10110,8 +10110,8 @@ impl ::core::fmt::Debug for WS_METADATA_ENDPOINT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WS_METADATA_ENDPOINT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_METADATA_ENDPOINT {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_METADATA_ENDPOINT {
@@ -10149,8 +10149,8 @@ impl ::core::fmt::Debug for WS_METADATA_ENDPOINTS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WS_METADATA_ENDPOINTS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_METADATA_ENDPOINTS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_METADATA_ENDPOINTS {
@@ -10184,8 +10184,8 @@ impl ::core::fmt::Debug for WS_METADATA_PROPERTY {
         f.debug_struct("WS_METADATA_PROPERTY").field("id", &self.id).field("value", &self.value).field("valueSize", &self.valueSize).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_METADATA_PROPERTY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_METADATA_PROPERTY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_METADATA_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
@@ -10215,8 +10215,8 @@ impl ::core::fmt::Debug for WS_NAMEDPIPE_SSPI_TRANSPORT_SECURITY_BINDING {
         f.debug_struct("WS_NAMEDPIPE_SSPI_TRANSPORT_SECURITY_BINDING").field("binding", &self.binding).field("clientCredential", &self.clientCredential).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_NAMEDPIPE_SSPI_TRANSPORT_SECURITY_BINDING {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_NAMEDPIPE_SSPI_TRANSPORT_SECURITY_BINDING {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_NAMEDPIPE_SSPI_TRANSPORT_SECURITY_BINDING {
     fn eq(&self, other: &Self) -> bool {
@@ -10251,8 +10251,8 @@ impl ::core::fmt::Debug for WS_NCRYPT_ASYMMETRIC_SECURITY_KEY_HANDLE {
     }
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
-impl ::windows::core::TypeKind for WS_NCRYPT_ASYMMETRIC_SECURITY_KEY_HANDLE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_NCRYPT_ASYMMETRIC_SECURITY_KEY_HANDLE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::PartialEq for WS_NCRYPT_ASYMMETRIC_SECURITY_KEY_HANDLE {
@@ -10290,8 +10290,8 @@ impl ::core::fmt::Debug for WS_NETPIPE_URL {
         f.debug_struct("WS_NETPIPE_URL").field("url", &self.url).field("host", &self.host).field("port", &self.port).field("portAsString", &self.portAsString).field("path", &self.path).field("query", &self.query).field("fragment", &self.fragment).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_NETPIPE_URL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_NETPIPE_URL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_NETPIPE_URL {
     fn eq(&self, other: &Self) -> bool {
@@ -10326,8 +10326,8 @@ impl ::core::fmt::Debug for WS_NETTCP_URL {
         f.debug_struct("WS_NETTCP_URL").field("url", &self.url).field("host", &self.host).field("port", &self.port).field("portAsString", &self.portAsString).field("path", &self.path).field("query", &self.query).field("fragment", &self.fragment).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_NETTCP_URL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_NETTCP_URL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_NETTCP_URL {
     fn eq(&self, other: &Self) -> bool {
@@ -10357,8 +10357,8 @@ impl ::core::fmt::Debug for WS_OPAQUE_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
         f.debug_struct("WS_OPAQUE_WINDOWS_INTEGRATED_AUTH_CREDENTIAL").field("credential", &self.credential).field("opaqueAuthIdentity", &self.opaqueAuthIdentity).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_OPAQUE_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_OPAQUE_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_OPAQUE_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
     fn eq(&self, other: &Self) -> bool {
@@ -10379,8 +10379,8 @@ impl ::core::clone::Clone for WS_OPERATION_CONTEXT {
         *self
     }
 }
-impl ::windows::core::TypeKind for WS_OPERATION_CONTEXT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_OPERATION_CONTEXT {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
@@ -10411,8 +10411,8 @@ impl ::core::fmt::Debug for WS_OPERATION_DESCRIPTION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WS_OPERATION_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_OPERATION_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WS_OPERATION_DESCRIPTION {
@@ -10438,8 +10438,8 @@ impl ::core::fmt::Debug for WS_PARAMETER_DESCRIPTION {
         f.debug_struct("WS_PARAMETER_DESCRIPTION").field("parameterType", &self.parameterType).field("inputMessageIndex", &self.inputMessageIndex).field("outputMessageIndex", &self.outputMessageIndex).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_PARAMETER_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_PARAMETER_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_PARAMETER_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
@@ -10460,8 +10460,8 @@ impl ::core::clone::Clone for WS_POLICY {
         *self
     }
 }
-impl ::windows::core::TypeKind for WS_POLICY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_POLICY {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
@@ -10484,8 +10484,8 @@ impl ::core::fmt::Debug for WS_POLICY_CONSTRAINTS {
         f.debug_struct("WS_POLICY_CONSTRAINTS").field("channelBinding", &self.channelBinding).field("channelPropertyConstraints", &self.channelPropertyConstraints).field("channelPropertyConstraintCount", &self.channelPropertyConstraintCount).field("securityConstraints", &self.securityConstraints).field("policyExtensions", &self.policyExtensions).field("policyExtensionCount", &self.policyExtensionCount).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_POLICY_CONSTRAINTS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_POLICY_CONSTRAINTS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_POLICY_CONSTRAINTS {
     fn eq(&self, other: &Self) -> bool {
@@ -10514,8 +10514,8 @@ impl ::core::fmt::Debug for WS_POLICY_EXTENSION {
         f.debug_struct("WS_POLICY_EXTENSION").field("type", &self.r#type).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_POLICY_EXTENSION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_POLICY_EXTENSION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_POLICY_EXTENSION {
     fn eq(&self, other: &Self) -> bool {
@@ -10545,8 +10545,8 @@ impl ::core::fmt::Debug for WS_POLICY_PROPERTIES {
         f.debug_struct("WS_POLICY_PROPERTIES").field("properties", &self.properties).field("propertyCount", &self.propertyCount).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_POLICY_PROPERTIES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_POLICY_PROPERTIES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_POLICY_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
@@ -10577,8 +10577,8 @@ impl ::core::fmt::Debug for WS_POLICY_PROPERTY {
         f.debug_struct("WS_POLICY_PROPERTY").field("id", &self.id).field("value", &self.value).field("valueSize", &self.valueSize).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_POLICY_PROPERTY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_POLICY_PROPERTY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_POLICY_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
@@ -10608,8 +10608,8 @@ impl ::core::fmt::Debug for WS_PROXY_MESSAGE_CALLBACK_CONTEXT {
         f.debug_struct("WS_PROXY_MESSAGE_CALLBACK_CONTEXT").field("state", &self.state).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_PROXY_MESSAGE_CALLBACK_CONTEXT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_PROXY_MESSAGE_CALLBACK_CONTEXT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WS_PROXY_MESSAGE_CALLBACK_CONTEXT {
     fn default() -> Self {
@@ -10634,8 +10634,8 @@ impl ::core::fmt::Debug for WS_PROXY_PROPERTY {
         f.debug_struct("WS_PROXY_PROPERTY").field("id", &self.id).field("value", &self.value).field("valueSize", &self.valueSize).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_PROXY_PROPERTY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_PROXY_PROPERTY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_PROXY_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
@@ -10665,8 +10665,8 @@ impl ::core::fmt::Debug for WS_RAW_SYMMETRIC_SECURITY_KEY_HANDLE {
         f.debug_struct("WS_RAW_SYMMETRIC_SECURITY_KEY_HANDLE").field("keyHandle", &self.keyHandle).field("rawKeyBytes", &self.rawKeyBytes).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_RAW_SYMMETRIC_SECURITY_KEY_HANDLE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_RAW_SYMMETRIC_SECURITY_KEY_HANDLE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_RAW_SYMMETRIC_SECURITY_KEY_HANDLE {
     fn eq(&self, other: &Self) -> bool {
@@ -10697,8 +10697,8 @@ impl ::core::fmt::Debug for WS_REQUEST_SECURITY_TOKEN_PROPERTY {
         f.debug_struct("WS_REQUEST_SECURITY_TOKEN_PROPERTY").field("id", &self.id).field("value", &self.value).field("valueSize", &self.valueSize).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_REQUEST_SECURITY_TOKEN_PROPERTY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_REQUEST_SECURITY_TOKEN_PROPERTY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_REQUEST_SECURITY_TOKEN_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
@@ -10730,8 +10730,8 @@ impl ::core::fmt::Debug for WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT {
         f.debug_struct("WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT").field("id", &self.id).field("allowedValues", &self.allowedValues).field("allowedValuesSize", &self.allowedValuesSize).field("out", &self.out).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT {
     fn eq(&self, other: &Self) -> bool {
@@ -10760,8 +10760,8 @@ impl ::core::fmt::Debug for WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT_0 {
         f.debug_struct("WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT_0").field("requestSecurityTokenProperty", &self.requestSecurityTokenProperty).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -10792,8 +10792,8 @@ impl ::core::fmt::Debug for WS_RSA_ENDPOINT_IDENTITY {
         f.debug_struct("WS_RSA_ENDPOINT_IDENTITY").field("identity", &self.identity).field("modulus", &self.modulus).field("exponent", &self.exponent).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_RSA_ENDPOINT_IDENTITY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_RSA_ENDPOINT_IDENTITY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_RSA_ENDPOINT_IDENTITY {
     fn eq(&self, other: &Self) -> bool {
@@ -10822,8 +10822,8 @@ impl ::core::fmt::Debug for WS_SAML_AUTHENTICATOR {
         f.debug_struct("WS_SAML_AUTHENTICATOR").field("authenticatorType", &self.authenticatorType).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_SAML_AUTHENTICATOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SAML_AUTHENTICATOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_SAML_AUTHENTICATOR {
     fn eq(&self, other: &Self) -> bool {
@@ -10854,8 +10854,8 @@ impl ::core::fmt::Debug for WS_SAML_MESSAGE_SECURITY_BINDING {
         f.debug_struct("WS_SAML_MESSAGE_SECURITY_BINDING").field("binding", &self.binding).field("bindingUsage", &self.bindingUsage).field("authenticator", &self.authenticator).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_SAML_MESSAGE_SECURITY_BINDING {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SAML_MESSAGE_SECURITY_BINDING {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_SAML_MESSAGE_SECURITY_BINDING {
     fn eq(&self, other: &Self) -> bool {
@@ -10886,8 +10886,8 @@ impl ::core::fmt::Debug for WS_SECURITY_ALGORITHM_PROPERTY {
         f.debug_struct("WS_SECURITY_ALGORITHM_PROPERTY").field("id", &self.id).field("value", &self.value).field("valueSize", &self.valueSize).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_SECURITY_ALGORITHM_PROPERTY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SECURITY_ALGORITHM_PROPERTY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_SECURITY_ALGORITHM_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
@@ -10944,8 +10944,8 @@ impl ::core::fmt::Debug for WS_SECURITY_ALGORITHM_SUITE {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for WS_SECURITY_ALGORITHM_SUITE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SECURITY_ALGORITHM_SUITE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_SECURITY_ALGORITHM_SUITE {
     fn eq(&self, other: &Self) -> bool {
@@ -10989,8 +10989,8 @@ impl ::core::fmt::Debug for WS_SECURITY_BINDING {
         f.debug_struct("WS_SECURITY_BINDING").field("bindingType", &self.bindingType).field("properties", &self.properties).field("propertyCount", &self.propertyCount).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_SECURITY_BINDING {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SECURITY_BINDING {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_SECURITY_BINDING {
     fn eq(&self, other: &Self) -> bool {
@@ -11021,8 +11021,8 @@ impl ::core::fmt::Debug for WS_SECURITY_BINDING_CONSTRAINT {
         f.debug_struct("WS_SECURITY_BINDING_CONSTRAINT").field("type", &self.r#type).field("propertyConstraints", &self.propertyConstraints).field("propertyConstraintCount", &self.propertyConstraintCount).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_SECURITY_BINDING_CONSTRAINT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SECURITY_BINDING_CONSTRAINT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_SECURITY_BINDING_CONSTRAINT {
     fn eq(&self, other: &Self) -> bool {
@@ -11052,8 +11052,8 @@ impl ::core::fmt::Debug for WS_SECURITY_BINDING_PROPERTIES {
         f.debug_struct("WS_SECURITY_BINDING_PROPERTIES").field("properties", &self.properties).field("propertyCount", &self.propertyCount).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_SECURITY_BINDING_PROPERTIES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SECURITY_BINDING_PROPERTIES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_SECURITY_BINDING_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
@@ -11084,8 +11084,8 @@ impl ::core::fmt::Debug for WS_SECURITY_BINDING_PROPERTY {
         f.debug_struct("WS_SECURITY_BINDING_PROPERTY").field("id", &self.id).field("value", &self.value).field("valueSize", &self.valueSize).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_SECURITY_BINDING_PROPERTY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SECURITY_BINDING_PROPERTY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_SECURITY_BINDING_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
@@ -11117,8 +11117,8 @@ impl ::core::fmt::Debug for WS_SECURITY_BINDING_PROPERTY_CONSTRAINT {
         f.debug_struct("WS_SECURITY_BINDING_PROPERTY_CONSTRAINT").field("id", &self.id).field("allowedValues", &self.allowedValues).field("allowedValuesSize", &self.allowedValuesSize).field("out", &self.out).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_SECURITY_BINDING_PROPERTY_CONSTRAINT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SECURITY_BINDING_PROPERTY_CONSTRAINT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_SECURITY_BINDING_PROPERTY_CONSTRAINT {
     fn eq(&self, other: &Self) -> bool {
@@ -11147,8 +11147,8 @@ impl ::core::fmt::Debug for WS_SECURITY_BINDING_PROPERTY_CONSTRAINT_0 {
         f.debug_struct("WS_SECURITY_BINDING_PROPERTY_CONSTRAINT_0").field("securityBindingProperty", &self.securityBindingProperty).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_SECURITY_BINDING_PROPERTY_CONSTRAINT_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SECURITY_BINDING_PROPERTY_CONSTRAINT_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_SECURITY_BINDING_PROPERTY_CONSTRAINT_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -11180,8 +11180,8 @@ impl ::core::fmt::Debug for WS_SECURITY_CONSTRAINTS {
         f.debug_struct("WS_SECURITY_CONSTRAINTS").field("securityPropertyConstraints", &self.securityPropertyConstraints).field("securityPropertyConstraintCount", &self.securityPropertyConstraintCount).field("securityBindingConstraints", &self.securityBindingConstraints).field("securityBindingConstraintCount", &self.securityBindingConstraintCount).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_SECURITY_CONSTRAINTS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SECURITY_CONSTRAINTS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_SECURITY_CONSTRAINTS {
     fn eq(&self, other: &Self) -> bool {
@@ -11202,8 +11202,8 @@ impl ::core::clone::Clone for WS_SECURITY_CONTEXT {
         *self
     }
 }
-impl ::windows::core::TypeKind for WS_SECURITY_CONTEXT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SECURITY_CONTEXT {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
@@ -11223,8 +11223,8 @@ impl ::core::fmt::Debug for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING {
         f.debug_struct("WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING").field("binding", &self.binding).field("bindingUsage", &self.bindingUsage).field("bootstrapSecurityDescription", &self.bootstrapSecurityDescription).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING {
     fn eq(&self, other: &Self) -> bool {
@@ -11255,8 +11255,8 @@ impl ::core::fmt::Debug for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_CONSTRA
         f.debug_struct("WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_CONSTRAINT").field("bindingConstraint", &self.bindingConstraint).field("bindingUsage", &self.bindingUsage).field("bootstrapSecurityConstraint", &self.bootstrapSecurityConstraint).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_CONSTRAINT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_CONSTRAINT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_CONSTRAINT {
     fn eq(&self, other: &Self) -> bool {
@@ -11286,8 +11286,8 @@ impl ::core::fmt::Debug for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_POLICY_
         f.debug_struct("WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION").field("securityBindingProperties", &self.securityBindingProperties).field("bindingUsage", &self.bindingUsage).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
@@ -11316,8 +11316,8 @@ impl ::core::fmt::Debug for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_TEMPLAT
         f.debug_struct("WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_TEMPLATE").field("securityBindingProperties", &self.securityBindingProperties).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_TEMPLATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_TEMPLATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_TEMPLATE {
     fn eq(&self, other: &Self) -> bool {
@@ -11348,8 +11348,8 @@ impl ::core::fmt::Debug for WS_SECURITY_CONTEXT_PROPERTY {
         f.debug_struct("WS_SECURITY_CONTEXT_PROPERTY").field("id", &self.id).field("value", &self.value).field("valueSize", &self.valueSize).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_SECURITY_CONTEXT_PROPERTY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SECURITY_CONTEXT_PROPERTY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_SECURITY_CONTEXT_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
@@ -11379,8 +11379,8 @@ impl ::core::fmt::Debug for WS_SECURITY_CONTEXT_SECURITY_BINDING_POLICY_DESCRIPT
         f.debug_struct("WS_SECURITY_CONTEXT_SECURITY_BINDING_POLICY_DESCRIPTION").field("securityContextMessageSecurityBinding", &self.securityContextMessageSecurityBinding).field("securityProperties", &self.securityProperties).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_SECURITY_CONTEXT_SECURITY_BINDING_POLICY_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SECURITY_CONTEXT_SECURITY_BINDING_POLICY_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_SECURITY_CONTEXT_SECURITY_BINDING_POLICY_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
@@ -11410,8 +11410,8 @@ impl ::core::fmt::Debug for WS_SECURITY_CONTEXT_SECURITY_BINDING_TEMPLATE {
         f.debug_struct("WS_SECURITY_CONTEXT_SECURITY_BINDING_TEMPLATE").field("securityContextMessageSecurityBinding", &self.securityContextMessageSecurityBinding).field("securityProperties", &self.securityProperties).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_SECURITY_CONTEXT_SECURITY_BINDING_TEMPLATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SECURITY_CONTEXT_SECURITY_BINDING_TEMPLATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_SECURITY_CONTEXT_SECURITY_BINDING_TEMPLATE {
     fn eq(&self, other: &Self) -> bool {
@@ -11443,8 +11443,8 @@ impl ::core::fmt::Debug for WS_SECURITY_DESCRIPTION {
         f.debug_struct("WS_SECURITY_DESCRIPTION").field("securityBindings", &self.securityBindings).field("securityBindingCount", &self.securityBindingCount).field("properties", &self.properties).field("propertyCount", &self.propertyCount).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_SECURITY_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SECURITY_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_SECURITY_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
@@ -11473,8 +11473,8 @@ impl ::core::fmt::Debug for WS_SECURITY_KEY_HANDLE {
         f.debug_struct("WS_SECURITY_KEY_HANDLE").field("keyHandleType", &self.keyHandleType).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_SECURITY_KEY_HANDLE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SECURITY_KEY_HANDLE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_SECURITY_KEY_HANDLE {
     fn eq(&self, other: &Self) -> bool {
@@ -11504,8 +11504,8 @@ impl ::core::fmt::Debug for WS_SECURITY_PROPERTIES {
         f.debug_struct("WS_SECURITY_PROPERTIES").field("properties", &self.properties).field("propertyCount", &self.propertyCount).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_SECURITY_PROPERTIES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SECURITY_PROPERTIES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_SECURITY_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
@@ -11536,8 +11536,8 @@ impl ::core::fmt::Debug for WS_SECURITY_PROPERTY {
         f.debug_struct("WS_SECURITY_PROPERTY").field("id", &self.id).field("value", &self.value).field("valueSize", &self.valueSize).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_SECURITY_PROPERTY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SECURITY_PROPERTY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_SECURITY_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
@@ -11569,8 +11569,8 @@ impl ::core::fmt::Debug for WS_SECURITY_PROPERTY_CONSTRAINT {
         f.debug_struct("WS_SECURITY_PROPERTY_CONSTRAINT").field("id", &self.id).field("allowedValues", &self.allowedValues).field("allowedValuesSize", &self.allowedValuesSize).field("out", &self.out).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_SECURITY_PROPERTY_CONSTRAINT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SECURITY_PROPERTY_CONSTRAINT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_SECURITY_PROPERTY_CONSTRAINT {
     fn eq(&self, other: &Self) -> bool {
@@ -11599,8 +11599,8 @@ impl ::core::fmt::Debug for WS_SECURITY_PROPERTY_CONSTRAINT_0 {
         f.debug_struct("WS_SECURITY_PROPERTY_CONSTRAINT_0").field("securityProperty", &self.securityProperty).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_SECURITY_PROPERTY_CONSTRAINT_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SECURITY_PROPERTY_CONSTRAINT_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_SECURITY_PROPERTY_CONSTRAINT_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -11621,8 +11621,8 @@ impl ::core::clone::Clone for WS_SECURITY_TOKEN {
         *self
     }
 }
-impl ::windows::core::TypeKind for WS_SECURITY_TOKEN {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SECURITY_TOKEN {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
@@ -11647,8 +11647,8 @@ impl ::core::fmt::Debug for WS_SERVICE_CONTRACT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WS_SERVICE_CONTRACT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SERVICE_CONTRACT {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WS_SERVICE_CONTRACT {
@@ -11685,8 +11685,8 @@ impl ::core::fmt::Debug for WS_SERVICE_ENDPOINT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WS_SERVICE_ENDPOINT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SERVICE_ENDPOINT {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WS_SERVICE_ENDPOINT {
@@ -11717,8 +11717,8 @@ impl ::core::fmt::Debug for WS_SERVICE_ENDPOINT_METADATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WS_SERVICE_ENDPOINT_METADATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SERVICE_ENDPOINT_METADATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_SERVICE_ENDPOINT_METADATA {
@@ -11752,8 +11752,8 @@ impl ::core::fmt::Debug for WS_SERVICE_ENDPOINT_PROPERTY {
         f.debug_struct("WS_SERVICE_ENDPOINT_PROPERTY").field("id", &self.id).field("value", &self.value).field("valueSize", &self.valueSize).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_SERVICE_ENDPOINT_PROPERTY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SERVICE_ENDPOINT_PROPERTY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_SERVICE_ENDPOINT_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
@@ -11774,8 +11774,8 @@ impl ::core::clone::Clone for WS_SERVICE_HOST {
         *self
     }
 }
-impl ::windows::core::TypeKind for WS_SERVICE_HOST {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SERVICE_HOST {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
@@ -11801,8 +11801,8 @@ impl ::core::fmt::Debug for WS_SERVICE_METADATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WS_SERVICE_METADATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SERVICE_METADATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_SERVICE_METADATA {
@@ -11840,8 +11840,8 @@ impl ::core::fmt::Debug for WS_SERVICE_METADATA_DOCUMENT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WS_SERVICE_METADATA_DOCUMENT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SERVICE_METADATA_DOCUMENT {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_SERVICE_METADATA_DOCUMENT {
@@ -11875,8 +11875,8 @@ impl ::core::fmt::Debug for WS_SERVICE_PROPERTY {
         f.debug_struct("WS_SERVICE_PROPERTY").field("id", &self.id).field("value", &self.value).field("valueSize", &self.valueSize).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_SERVICE_PROPERTY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SERVICE_PROPERTY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_SERVICE_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
@@ -11905,8 +11905,8 @@ impl ::core::fmt::Debug for WS_SERVICE_PROPERTY_ACCEPT_CALLBACK {
         f.debug_struct("WS_SERVICE_PROPERTY_ACCEPT_CALLBACK").finish()
     }
 }
-impl ::windows::core::TypeKind for WS_SERVICE_PROPERTY_ACCEPT_CALLBACK {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SERVICE_PROPERTY_ACCEPT_CALLBACK {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WS_SERVICE_PROPERTY_ACCEPT_CALLBACK {
     fn default() -> Self {
@@ -11929,8 +11929,8 @@ impl ::core::fmt::Debug for WS_SERVICE_PROPERTY_CLOSE_CALLBACK {
         f.debug_struct("WS_SERVICE_PROPERTY_CLOSE_CALLBACK").finish()
     }
 }
-impl ::windows::core::TypeKind for WS_SERVICE_PROPERTY_CLOSE_CALLBACK {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SERVICE_PROPERTY_CLOSE_CALLBACK {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WS_SERVICE_PROPERTY_CLOSE_CALLBACK {
     fn default() -> Self {
@@ -11945,8 +11945,8 @@ impl ::core::clone::Clone for WS_SERVICE_PROXY {
         *self
     }
 }
-impl ::windows::core::TypeKind for WS_SERVICE_PROXY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SERVICE_PROXY {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
@@ -11965,8 +11965,8 @@ impl ::core::fmt::Debug for WS_SERVICE_SECURITY_IDENTITIES {
         f.debug_struct("WS_SERVICE_SECURITY_IDENTITIES").field("serviceIdentities", &self.serviceIdentities).field("serviceIdentityCount", &self.serviceIdentityCount).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_SERVICE_SECURITY_IDENTITIES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SERVICE_SECURITY_IDENTITIES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_SERVICE_SECURITY_IDENTITIES {
     fn eq(&self, other: &Self) -> bool {
@@ -12001,8 +12001,8 @@ impl ::core::fmt::Debug for WS_SOAPUDP_URL {
         f.debug_struct("WS_SOAPUDP_URL").field("url", &self.url).field("host", &self.host).field("port", &self.port).field("portAsString", &self.portAsString).field("path", &self.path).field("query", &self.query).field("fragment", &self.fragment).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_SOAPUDP_URL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SOAPUDP_URL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_SOAPUDP_URL {
     fn eq(&self, other: &Self) -> bool {
@@ -12032,8 +12032,8 @@ impl ::core::fmt::Debug for WS_SPN_ENDPOINT_IDENTITY {
         f.debug_struct("WS_SPN_ENDPOINT_IDENTITY").field("identity", &self.identity).field("spn", &self.spn).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_SPN_ENDPOINT_IDENTITY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SPN_ENDPOINT_IDENTITY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_SPN_ENDPOINT_IDENTITY {
     fn eq(&self, other: &Self) -> bool {
@@ -12063,8 +12063,8 @@ impl ::core::fmt::Debug for WS_SSL_TRANSPORT_SECURITY_BINDING {
         f.debug_struct("WS_SSL_TRANSPORT_SECURITY_BINDING").field("binding", &self.binding).field("localCertCredential", &self.localCertCredential).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_SSL_TRANSPORT_SECURITY_BINDING {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SSL_TRANSPORT_SECURITY_BINDING {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_SSL_TRANSPORT_SECURITY_BINDING {
     fn eq(&self, other: &Self) -> bool {
@@ -12099,8 +12099,8 @@ impl ::core::fmt::Debug for WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT {
@@ -12137,8 +12137,8 @@ impl ::core::fmt::Debug for WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT_0 {
@@ -12170,8 +12170,8 @@ impl ::core::fmt::Debug for WS_SSL_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION
         f.debug_struct("WS_SSL_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION").field("securityBindingProperties", &self.securityBindingProperties).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_SSL_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SSL_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_SSL_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
@@ -12201,8 +12201,8 @@ impl ::core::fmt::Debug for WS_SSL_TRANSPORT_SECURITY_BINDING_TEMPLATE {
         f.debug_struct("WS_SSL_TRANSPORT_SECURITY_BINDING_TEMPLATE").field("securityBindingProperties", &self.securityBindingProperties).field("localCertCredential", &self.localCertCredential).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_SSL_TRANSPORT_SECURITY_BINDING_TEMPLATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SSL_TRANSPORT_SECURITY_BINDING_TEMPLATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_SSL_TRANSPORT_SECURITY_BINDING_TEMPLATE {
     fn eq(&self, other: &Self) -> bool {
@@ -12231,8 +12231,8 @@ impl ::core::fmt::Debug for WS_SSPI_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTIO
         f.debug_struct("WS_SSPI_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION").field("securityBindingProperties", &self.securityBindingProperties).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_SSPI_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SSPI_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_SSPI_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
@@ -12249,7 +12249,7 @@ impl ::core::default::Default for WS_SSPI_TRANSPORT_SECURITY_BINDING_POLICY_DESC
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub struct WS_STRING {
     pub length: u32,
-    pub chars: ::windows::core::PWSTR,
+    pub chars: ::windows_core::PWSTR,
 }
 impl ::core::marker::Copy for WS_STRING {}
 impl ::core::clone::Clone for WS_STRING {
@@ -12262,8 +12262,8 @@ impl ::core::fmt::Debug for WS_STRING {
         f.debug_struct("WS_STRING").field("length", &self.length).field("chars", &self.chars).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_STRING {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_STRING {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_STRING {
     fn eq(&self, other: &Self) -> bool {
@@ -12293,8 +12293,8 @@ impl ::core::fmt::Debug for WS_STRING_DESCRIPTION {
         f.debug_struct("WS_STRING_DESCRIPTION").field("minCharCount", &self.minCharCount).field("maxCharCount", &self.maxCharCount).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_STRING_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_STRING_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_STRING_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
@@ -12325,8 +12325,8 @@ impl ::core::fmt::Debug for WS_STRING_USERNAME_CREDENTIAL {
         f.debug_struct("WS_STRING_USERNAME_CREDENTIAL").field("credential", &self.credential).field("username", &self.username).field("password", &self.password).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_STRING_USERNAME_CREDENTIAL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_STRING_USERNAME_CREDENTIAL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_STRING_USERNAME_CREDENTIAL {
     fn eq(&self, other: &Self) -> bool {
@@ -12358,8 +12358,8 @@ impl ::core::fmt::Debug for WS_STRING_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
         f.debug_struct("WS_STRING_WINDOWS_INTEGRATED_AUTH_CREDENTIAL").field("credential", &self.credential).field("username", &self.username).field("password", &self.password).field("domain", &self.domain).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_STRING_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_STRING_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_STRING_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
     fn eq(&self, other: &Self) -> bool {
@@ -12402,8 +12402,8 @@ impl ::core::fmt::Debug for WS_STRUCT_DESCRIPTION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WS_STRUCT_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_STRUCT_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_STRUCT_DESCRIPTION {
@@ -12438,8 +12438,8 @@ impl ::core::fmt::Debug for WS_SUBJECT_NAME_CERT_CREDENTIAL {
         f.debug_struct("WS_SUBJECT_NAME_CERT_CREDENTIAL").field("credential", &self.credential).field("storeLocation", &self.storeLocation).field("storeName", &self.storeName).field("subjectName", &self.subjectName).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_SUBJECT_NAME_CERT_CREDENTIAL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_SUBJECT_NAME_CERT_CREDENTIAL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_SUBJECT_NAME_CERT_CREDENTIAL {
     fn eq(&self, other: &Self) -> bool {
@@ -12468,8 +12468,8 @@ impl ::core::fmt::Debug for WS_TCP_BINDING_TEMPLATE {
         f.debug_struct("WS_TCP_BINDING_TEMPLATE").field("channelProperties", &self.channelProperties).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_TCP_BINDING_TEMPLATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_TCP_BINDING_TEMPLATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_TCP_BINDING_TEMPLATE {
     fn eq(&self, other: &Self) -> bool {
@@ -12498,8 +12498,8 @@ impl ::core::fmt::Debug for WS_TCP_POLICY_DESCRIPTION {
         f.debug_struct("WS_TCP_POLICY_DESCRIPTION").field("channelProperties", &self.channelProperties).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_TCP_POLICY_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_TCP_POLICY_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_TCP_POLICY_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
@@ -12530,8 +12530,8 @@ impl ::core::fmt::Debug for WS_TCP_SSPI_BINDING_TEMPLATE {
         f.debug_struct("WS_TCP_SSPI_BINDING_TEMPLATE").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sspiTransportSecurityBinding", &self.sspiTransportSecurityBinding).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_TCP_SSPI_BINDING_TEMPLATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_TCP_SSPI_BINDING_TEMPLATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_TCP_SSPI_BINDING_TEMPLATE {
     fn eq(&self, other: &Self) -> bool {
@@ -12563,8 +12563,8 @@ impl ::core::fmt::Debug for WS_TCP_SSPI_KERBEROS_APREQ_BINDING_TEMPLATE {
         f.debug_struct("WS_TCP_SSPI_KERBEROS_APREQ_BINDING_TEMPLATE").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sspiTransportSecurityBinding", &self.sspiTransportSecurityBinding).field("kerberosApreqMessageSecurityBinding", &self.kerberosApreqMessageSecurityBinding).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_TCP_SSPI_KERBEROS_APREQ_BINDING_TEMPLATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_TCP_SSPI_KERBEROS_APREQ_BINDING_TEMPLATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_TCP_SSPI_KERBEROS_APREQ_BINDING_TEMPLATE {
     fn eq(&self, other: &Self) -> bool {
@@ -12596,8 +12596,8 @@ impl ::core::fmt::Debug for WS_TCP_SSPI_KERBEROS_APREQ_POLICY_DESCRIPTION {
         f.debug_struct("WS_TCP_SSPI_KERBEROS_APREQ_POLICY_DESCRIPTION").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sspiTransportSecurityBinding", &self.sspiTransportSecurityBinding).field("kerberosApreqMessageSecurityBinding", &self.kerberosApreqMessageSecurityBinding).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_TCP_SSPI_KERBEROS_APREQ_POLICY_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_TCP_SSPI_KERBEROS_APREQ_POLICY_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_TCP_SSPI_KERBEROS_APREQ_POLICY_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
@@ -12630,8 +12630,8 @@ impl ::core::fmt::Debug for WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_
         f.debug_struct("WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sspiTransportSecurityBinding", &self.sspiTransportSecurityBinding).field("kerberosApreqMessageSecurityBinding", &self.kerberosApreqMessageSecurityBinding).field("securityContextSecurityBinding", &self.securityContextSecurityBinding).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE {
     fn eq(&self, other: &Self) -> bool {
@@ -12664,8 +12664,8 @@ impl ::core::fmt::Debug for WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_D
         f.debug_struct("WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sspiTransportSecurityBinding", &self.sspiTransportSecurityBinding).field("kerberosApreqMessageSecurityBinding", &self.kerberosApreqMessageSecurityBinding).field("securityContextSecurityBinding", &self.securityContextSecurityBinding).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
@@ -12696,8 +12696,8 @@ impl ::core::fmt::Debug for WS_TCP_SSPI_POLICY_DESCRIPTION {
         f.debug_struct("WS_TCP_SSPI_POLICY_DESCRIPTION").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sspiTransportSecurityBinding", &self.sspiTransportSecurityBinding).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_TCP_SSPI_POLICY_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_TCP_SSPI_POLICY_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_TCP_SSPI_POLICY_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
@@ -12727,8 +12727,8 @@ impl ::core::fmt::Debug for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING {
         f.debug_struct("WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING").field("binding", &self.binding).field("clientCredential", &self.clientCredential).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING {
     fn eq(&self, other: &Self) -> bool {
@@ -12757,8 +12757,8 @@ impl ::core::fmt::Debug for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_CONSTRAINT {
         f.debug_struct("WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_CONSTRAINT").field("bindingConstraint", &self.bindingConstraint).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_CONSTRAINT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_CONSTRAINT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_CONSTRAINT {
     fn eq(&self, other: &Self) -> bool {
@@ -12788,8 +12788,8 @@ impl ::core::fmt::Debug for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TEMPLATE {
         f.debug_struct("WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TEMPLATE").field("securityBindingProperties", &self.securityBindingProperties).field("clientCredential", &self.clientCredential).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TEMPLATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TEMPLATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TEMPLATE {
     fn eq(&self, other: &Self) -> bool {
@@ -12821,8 +12821,8 @@ impl ::core::fmt::Debug for WS_TCP_SSPI_USERNAME_BINDING_TEMPLATE {
         f.debug_struct("WS_TCP_SSPI_USERNAME_BINDING_TEMPLATE").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sspiTransportSecurityBinding", &self.sspiTransportSecurityBinding).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_TCP_SSPI_USERNAME_BINDING_TEMPLATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_TCP_SSPI_USERNAME_BINDING_TEMPLATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WS_TCP_SSPI_USERNAME_BINDING_TEMPLATE {
     fn default() -> Self {
@@ -12848,8 +12848,8 @@ impl ::core::fmt::Debug for WS_TCP_SSPI_USERNAME_POLICY_DESCRIPTION {
         f.debug_struct("WS_TCP_SSPI_USERNAME_POLICY_DESCRIPTION").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sspiTransportSecurityBinding", &self.sspiTransportSecurityBinding).field("usernameMessageSecurityBinding", &self.usernameMessageSecurityBinding).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_TCP_SSPI_USERNAME_POLICY_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_TCP_SSPI_USERNAME_POLICY_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_TCP_SSPI_USERNAME_POLICY_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
@@ -12882,8 +12882,8 @@ impl ::core::fmt::Debug for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLA
         f.debug_struct("WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sspiTransportSecurityBinding", &self.sspiTransportSecurityBinding).field("securityContextSecurityBinding", &self.securityContextSecurityBinding).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
     fn default() -> Self {
@@ -12910,8 +12910,8 @@ impl ::core::fmt::Debug for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIP
         f.debug_struct("WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sspiTransportSecurityBinding", &self.sspiTransportSecurityBinding).field("usernameMessageSecurityBinding", &self.usernameMessageSecurityBinding).field("securityContextSecurityBinding", &self.securityContextSecurityBinding).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
@@ -12943,8 +12943,8 @@ impl ::core::fmt::Debug for WS_THUMBPRINT_CERT_CREDENTIAL {
         f.debug_struct("WS_THUMBPRINT_CERT_CREDENTIAL").field("credential", &self.credential).field("storeLocation", &self.storeLocation).field("storeName", &self.storeName).field("thumbprint", &self.thumbprint).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_THUMBPRINT_CERT_CREDENTIAL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_THUMBPRINT_CERT_CREDENTIAL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_THUMBPRINT_CERT_CREDENTIAL {
     fn eq(&self, other: &Self) -> bool {
@@ -12973,8 +12973,8 @@ impl ::core::fmt::Debug for WS_TIMESPAN {
         f.debug_struct("WS_TIMESPAN").field("ticks", &self.ticks).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_TIMESPAN {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_TIMESPAN {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_TIMESPAN {
     fn eq(&self, other: &Self) -> bool {
@@ -13004,8 +13004,8 @@ impl ::core::fmt::Debug for WS_TIMESPAN_DESCRIPTION {
         f.debug_struct("WS_TIMESPAN_DESCRIPTION").field("minValue", &self.minValue).field("maxValue", &self.maxValue).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_TIMESPAN_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_TIMESPAN_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_TIMESPAN_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
@@ -13035,8 +13035,8 @@ impl ::core::fmt::Debug for WS_UINT16_DESCRIPTION {
         f.debug_struct("WS_UINT16_DESCRIPTION").field("minValue", &self.minValue).field("maxValue", &self.maxValue).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_UINT16_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_UINT16_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_UINT16_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
@@ -13066,8 +13066,8 @@ impl ::core::fmt::Debug for WS_UINT32_DESCRIPTION {
         f.debug_struct("WS_UINT32_DESCRIPTION").field("minValue", &self.minValue).field("maxValue", &self.maxValue).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_UINT32_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_UINT32_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_UINT32_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
@@ -13097,8 +13097,8 @@ impl ::core::fmt::Debug for WS_UINT64_DESCRIPTION {
         f.debug_struct("WS_UINT64_DESCRIPTION").field("minValue", &self.minValue).field("maxValue", &self.maxValue).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_UINT64_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_UINT64_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_UINT64_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
@@ -13128,8 +13128,8 @@ impl ::core::fmt::Debug for WS_UINT8_DESCRIPTION {
         f.debug_struct("WS_UINT8_DESCRIPTION").field("minValue", &self.minValue).field("maxValue", &self.maxValue).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_UINT8_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_UINT8_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_UINT8_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
@@ -13169,8 +13169,8 @@ impl ::core::fmt::Debug for WS_UNION_DESCRIPTION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WS_UNION_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_UNION_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_UNION_DESCRIPTION {
@@ -13208,8 +13208,8 @@ impl ::core::fmt::Debug for WS_UNION_FIELD_DESCRIPTION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WS_UNION_FIELD_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_UNION_FIELD_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_UNION_FIELD_DESCRIPTION {
@@ -13229,7 +13229,7 @@ impl ::core::default::Default for WS_UNION_FIELD_DESCRIPTION {
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub struct WS_UNIQUE_ID {
     pub uri: WS_STRING,
-    pub guid: ::windows::core::GUID,
+    pub guid: ::windows_core::GUID,
 }
 impl ::core::marker::Copy for WS_UNIQUE_ID {}
 impl ::core::clone::Clone for WS_UNIQUE_ID {
@@ -13242,8 +13242,8 @@ impl ::core::fmt::Debug for WS_UNIQUE_ID {
         f.debug_struct("WS_UNIQUE_ID").field("uri", &self.uri).field("guid", &self.guid).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_UNIQUE_ID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_UNIQUE_ID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_UNIQUE_ID {
     fn eq(&self, other: &Self) -> bool {
@@ -13273,8 +13273,8 @@ impl ::core::fmt::Debug for WS_UNIQUE_ID_DESCRIPTION {
         f.debug_struct("WS_UNIQUE_ID_DESCRIPTION").field("minCharCount", &self.minCharCount).field("maxCharCount", &self.maxCharCount).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_UNIQUE_ID_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_UNIQUE_ID_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_UNIQUE_ID_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
@@ -13304,8 +13304,8 @@ impl ::core::fmt::Debug for WS_UNKNOWN_ENDPOINT_IDENTITY {
         f.debug_struct("WS_UNKNOWN_ENDPOINT_IDENTITY").field("identity", &self.identity).field("element", &self.element).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_UNKNOWN_ENDPOINT_IDENTITY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_UNKNOWN_ENDPOINT_IDENTITY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_UNKNOWN_ENDPOINT_IDENTITY {
     fn eq(&self, other: &Self) -> bool {
@@ -13335,8 +13335,8 @@ impl ::core::fmt::Debug for WS_UPN_ENDPOINT_IDENTITY {
         f.debug_struct("WS_UPN_ENDPOINT_IDENTITY").field("identity", &self.identity).field("upn", &self.upn).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_UPN_ENDPOINT_IDENTITY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_UPN_ENDPOINT_IDENTITY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_UPN_ENDPOINT_IDENTITY {
     fn eq(&self, other: &Self) -> bool {
@@ -13365,8 +13365,8 @@ impl ::core::fmt::Debug for WS_URL {
         f.debug_struct("WS_URL").field("scheme", &self.scheme).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_URL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_URL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_URL {
     fn eq(&self, other: &Self) -> bool {
@@ -13395,8 +13395,8 @@ impl ::core::fmt::Debug for WS_USERNAME_CREDENTIAL {
         f.debug_struct("WS_USERNAME_CREDENTIAL").field("credentialType", &self.credentialType).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_USERNAME_CREDENTIAL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_USERNAME_CREDENTIAL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_USERNAME_CREDENTIAL {
     fn eq(&self, other: &Self) -> bool {
@@ -13429,8 +13429,8 @@ impl ::core::fmt::Debug for WS_USERNAME_MESSAGE_SECURITY_BINDING {
         f.debug_struct("WS_USERNAME_MESSAGE_SECURITY_BINDING").field("binding", &self.binding).field("bindingUsage", &self.bindingUsage).field("clientCredential", &self.clientCredential).field("passwordValidatorCallbackState", &self.passwordValidatorCallbackState).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_USERNAME_MESSAGE_SECURITY_BINDING {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_USERNAME_MESSAGE_SECURITY_BINDING {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WS_USERNAME_MESSAGE_SECURITY_BINDING {
     fn default() -> Self {
@@ -13454,8 +13454,8 @@ impl ::core::fmt::Debug for WS_USERNAME_MESSAGE_SECURITY_BINDING_CONSTRAINT {
         f.debug_struct("WS_USERNAME_MESSAGE_SECURITY_BINDING_CONSTRAINT").field("bindingConstraint", &self.bindingConstraint).field("bindingUsage", &self.bindingUsage).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_USERNAME_MESSAGE_SECURITY_BINDING_CONSTRAINT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_USERNAME_MESSAGE_SECURITY_BINDING_CONSTRAINT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_USERNAME_MESSAGE_SECURITY_BINDING_CONSTRAINT {
     fn eq(&self, other: &Self) -> bool {
@@ -13485,8 +13485,8 @@ impl ::core::fmt::Debug for WS_USERNAME_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPT
         f.debug_struct("WS_USERNAME_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION").field("securityBindingProperties", &self.securityBindingProperties).field("bindingUsage", &self.bindingUsage).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_USERNAME_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_USERNAME_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_USERNAME_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
@@ -13518,8 +13518,8 @@ impl ::core::fmt::Debug for WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE {
         f.debug_struct("WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE").field("securityBindingProperties", &self.securityBindingProperties).field("clientCredential", &self.clientCredential).field("passwordValidatorCallbackState", &self.passwordValidatorCallbackState).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE {
     fn default() -> Self {
@@ -13543,8 +13543,8 @@ impl ::core::fmt::Debug for WS_UTF8_ARRAY_DESCRIPTION {
         f.debug_struct("WS_UTF8_ARRAY_DESCRIPTION").field("minByteCount", &self.minByteCount).field("maxByteCount", &self.maxByteCount).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_UTF8_ARRAY_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_UTF8_ARRAY_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_UTF8_ARRAY_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
@@ -13573,8 +13573,8 @@ impl ::core::fmt::Debug for WS_VOID_DESCRIPTION {
         f.debug_struct("WS_VOID_DESCRIPTION").field("size", &self.size).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_VOID_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_VOID_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_VOID_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
@@ -13603,8 +13603,8 @@ impl ::core::fmt::Debug for WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
         f.debug_struct("WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL").field("credentialType", &self.credentialType).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
     fn eq(&self, other: &Self) -> bool {
@@ -13634,8 +13634,8 @@ impl ::core::fmt::Debug for WS_WSZ_DESCRIPTION {
         f.debug_struct("WS_WSZ_DESCRIPTION").field("minCharCount", &self.minCharCount).field("maxCharCount", &self.maxCharCount).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_WSZ_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_WSZ_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_WSZ_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
@@ -13674,8 +13674,8 @@ impl ::core::fmt::Debug for WS_XML_ATTRIBUTE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WS_XML_ATTRIBUTE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_ATTRIBUTE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_XML_ATTRIBUTE {
@@ -13709,8 +13709,8 @@ impl ::core::fmt::Debug for WS_XML_BASE64_TEXT {
         f.debug_struct("WS_XML_BASE64_TEXT").field("text", &self.text).field("bytes", &self.bytes).field("length", &self.length).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_XML_BASE64_TEXT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_BASE64_TEXT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_XML_BASE64_TEXT {
     fn eq(&self, other: &Self) -> bool {
@@ -13745,8 +13745,8 @@ impl ::core::fmt::Debug for WS_XML_BOOL_TEXT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WS_XML_BOOL_TEXT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_BOOL_TEXT {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_XML_BOOL_TEXT {
@@ -13770,8 +13770,8 @@ impl ::core::clone::Clone for WS_XML_BUFFER {
         *self
     }
 }
-impl ::windows::core::TypeKind for WS_XML_BUFFER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_BUFFER {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
@@ -13791,8 +13791,8 @@ impl ::core::fmt::Debug for WS_XML_BUFFER_PROPERTY {
         f.debug_struct("WS_XML_BUFFER_PROPERTY").field("id", &self.id).field("value", &self.value).field("valueSize", &self.valueSize).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_XML_BUFFER_PROPERTY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_BUFFER_PROPERTY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_XML_BUFFER_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
@@ -13827,8 +13827,8 @@ impl ::core::fmt::Debug for WS_XML_CANONICALIZATION_INCLUSIVE_PREFIXES {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WS_XML_CANONICALIZATION_INCLUSIVE_PREFIXES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_CANONICALIZATION_INCLUSIVE_PREFIXES {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_XML_CANONICALIZATION_INCLUSIVE_PREFIXES {
@@ -13862,8 +13862,8 @@ impl ::core::fmt::Debug for WS_XML_CANONICALIZATION_PROPERTY {
         f.debug_struct("WS_XML_CANONICALIZATION_PROPERTY").field("id", &self.id).field("value", &self.value).field("valueSize", &self.valueSize).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_XML_CANONICALIZATION_PROPERTY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_CANONICALIZATION_PROPERTY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_XML_CANONICALIZATION_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
@@ -13898,8 +13898,8 @@ impl ::core::fmt::Debug for WS_XML_COMMENT_NODE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WS_XML_COMMENT_NODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_COMMENT_NODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_XML_COMMENT_NODE {
@@ -13932,8 +13932,8 @@ impl ::core::fmt::Debug for WS_XML_DATETIME_TEXT {
         f.debug_struct("WS_XML_DATETIME_TEXT").field("text", &self.text).field("value", &self.value).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_XML_DATETIME_TEXT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_DATETIME_TEXT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_XML_DATETIME_TEXT {
     fn eq(&self, other: &Self) -> bool {
@@ -13962,8 +13962,8 @@ impl ::core::clone::Clone for WS_XML_DECIMAL_TEXT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WS_XML_DECIMAL_TEXT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_DECIMAL_TEXT {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WS_XML_DECIMAL_TEXT {
@@ -13975,7 +13975,7 @@ impl ::core::default::Default for WS_XML_DECIMAL_TEXT {
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WS_XML_DICTIONARY {
-    pub guid: ::windows::core::GUID,
+    pub guid: ::windows_core::GUID,
     pub strings: *mut WS_XML_STRING,
     pub stringCount: u32,
     pub isConst: super::super::Foundation::BOOL,
@@ -13995,8 +13995,8 @@ impl ::core::fmt::Debug for WS_XML_DICTIONARY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WS_XML_DICTIONARY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_DICTIONARY {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_XML_DICTIONARY {
@@ -14029,8 +14029,8 @@ impl ::core::fmt::Debug for WS_XML_DOUBLE_TEXT {
         f.debug_struct("WS_XML_DOUBLE_TEXT").field("text", &self.text).field("value", &self.value).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_XML_DOUBLE_TEXT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_DOUBLE_TEXT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_XML_DOUBLE_TEXT {
     fn eq(&self, other: &Self) -> bool {
@@ -14070,8 +14070,8 @@ impl ::core::fmt::Debug for WS_XML_ELEMENT_NODE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WS_XML_ELEMENT_NODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_ELEMENT_NODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_XML_ELEMENT_NODE {
@@ -14104,8 +14104,8 @@ impl ::core::fmt::Debug for WS_XML_FLOAT_TEXT {
         f.debug_struct("WS_XML_FLOAT_TEXT").field("text", &self.text).field("value", &self.value).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_XML_FLOAT_TEXT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_FLOAT_TEXT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_XML_FLOAT_TEXT {
     fn eq(&self, other: &Self) -> bool {
@@ -14122,7 +14122,7 @@ impl ::core::default::Default for WS_XML_FLOAT_TEXT {
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub struct WS_XML_GUID_TEXT {
     pub text: WS_XML_TEXT,
-    pub value: ::windows::core::GUID,
+    pub value: ::windows_core::GUID,
 }
 impl ::core::marker::Copy for WS_XML_GUID_TEXT {}
 impl ::core::clone::Clone for WS_XML_GUID_TEXT {
@@ -14135,8 +14135,8 @@ impl ::core::fmt::Debug for WS_XML_GUID_TEXT {
         f.debug_struct("WS_XML_GUID_TEXT").field("text", &self.text).field("value", &self.value).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_XML_GUID_TEXT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_GUID_TEXT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_XML_GUID_TEXT {
     fn eq(&self, other: &Self) -> bool {
@@ -14166,8 +14166,8 @@ impl ::core::fmt::Debug for WS_XML_INT32_TEXT {
         f.debug_struct("WS_XML_INT32_TEXT").field("text", &self.text).field("value", &self.value).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_XML_INT32_TEXT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_INT32_TEXT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_XML_INT32_TEXT {
     fn eq(&self, other: &Self) -> bool {
@@ -14197,8 +14197,8 @@ impl ::core::fmt::Debug for WS_XML_INT64_TEXT {
         f.debug_struct("WS_XML_INT64_TEXT").field("text", &self.text).field("value", &self.value).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_XML_INT64_TEXT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_INT64_TEXT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_XML_INT64_TEXT {
     fn eq(&self, other: &Self) -> bool {
@@ -14229,8 +14229,8 @@ impl ::core::fmt::Debug for WS_XML_LIST_TEXT {
         f.debug_struct("WS_XML_LIST_TEXT").field("text", &self.text).field("itemCount", &self.itemCount).field("items", &self.items).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_XML_LIST_TEXT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_LIST_TEXT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_XML_LIST_TEXT {
     fn eq(&self, other: &Self) -> bool {
@@ -14259,8 +14259,8 @@ impl ::core::fmt::Debug for WS_XML_NODE {
         f.debug_struct("WS_XML_NODE").field("nodeType", &self.nodeType).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_XML_NODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_NODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_XML_NODE {
     fn eq(&self, other: &Self) -> bool {
@@ -14290,8 +14290,8 @@ impl ::core::fmt::Debug for WS_XML_NODE_POSITION {
         f.debug_struct("WS_XML_NODE_POSITION").field("buffer", &self.buffer).field("node", &self.node).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_XML_NODE_POSITION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_NODE_POSITION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_XML_NODE_POSITION {
     fn eq(&self, other: &Self) -> bool {
@@ -14326,8 +14326,8 @@ impl ::core::fmt::Debug for WS_XML_QNAME {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WS_XML_QNAME {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_QNAME {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_XML_QNAME {
@@ -14362,8 +14362,8 @@ impl ::core::fmt::Debug for WS_XML_QNAME_DESCRIPTION {
         f.debug_struct("WS_XML_QNAME_DESCRIPTION").field("minLocalNameByteCount", &self.minLocalNameByteCount).field("maxLocalNameByteCount", &self.maxLocalNameByteCount).field("minNsByteCount", &self.minNsByteCount).field("maxNsByteCount", &self.maxNsByteCount).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_XML_QNAME_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_QNAME_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_XML_QNAME_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
@@ -14400,8 +14400,8 @@ impl ::core::fmt::Debug for WS_XML_QNAME_TEXT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WS_XML_QNAME_TEXT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_QNAME_TEXT {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_XML_QNAME_TEXT {
@@ -14425,8 +14425,8 @@ impl ::core::clone::Clone for WS_XML_READER {
         *self
     }
 }
-impl ::windows::core::TypeKind for WS_XML_READER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_READER {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
@@ -14451,8 +14451,8 @@ impl ::core::fmt::Debug for WS_XML_READER_BINARY_ENCODING {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WS_XML_READER_BINARY_ENCODING {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_READER_BINARY_ENCODING {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_XML_READER_BINARY_ENCODING {
@@ -14486,8 +14486,8 @@ impl ::core::fmt::Debug for WS_XML_READER_BUFFER_INPUT {
         f.debug_struct("WS_XML_READER_BUFFER_INPUT").field("input", &self.input).field("encodedData", &self.encodedData).field("encodedDataSize", &self.encodedDataSize).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_XML_READER_BUFFER_INPUT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_READER_BUFFER_INPUT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_XML_READER_BUFFER_INPUT {
     fn eq(&self, other: &Self) -> bool {
@@ -14516,8 +14516,8 @@ impl ::core::fmt::Debug for WS_XML_READER_ENCODING {
         f.debug_struct("WS_XML_READER_ENCODING").field("encodingType", &self.encodingType).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_XML_READER_ENCODING {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_READER_ENCODING {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_XML_READER_ENCODING {
     fn eq(&self, other: &Self) -> bool {
@@ -14546,8 +14546,8 @@ impl ::core::fmt::Debug for WS_XML_READER_INPUT {
         f.debug_struct("WS_XML_READER_INPUT").field("inputType", &self.inputType).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_XML_READER_INPUT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_READER_INPUT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_XML_READER_INPUT {
     fn eq(&self, other: &Self) -> bool {
@@ -14586,8 +14586,8 @@ impl ::core::fmt::Debug for WS_XML_READER_MTOM_ENCODING {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WS_XML_READER_MTOM_ENCODING {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_READER_MTOM_ENCODING {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_XML_READER_MTOM_ENCODING {
@@ -14620,8 +14620,8 @@ impl ::core::fmt::Debug for WS_XML_READER_PROPERTIES {
         f.debug_struct("WS_XML_READER_PROPERTIES").field("properties", &self.properties).field("propertyCount", &self.propertyCount).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_XML_READER_PROPERTIES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_READER_PROPERTIES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_XML_READER_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
@@ -14652,8 +14652,8 @@ impl ::core::fmt::Debug for WS_XML_READER_PROPERTY {
         f.debug_struct("WS_XML_READER_PROPERTY").field("id", &self.id).field("value", &self.value).field("valueSize", &self.valueSize).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_XML_READER_PROPERTY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_READER_PROPERTY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_XML_READER_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
@@ -14682,8 +14682,8 @@ impl ::core::fmt::Debug for WS_XML_READER_RAW_ENCODING {
         f.debug_struct("WS_XML_READER_RAW_ENCODING").field("encoding", &self.encoding).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_XML_READER_RAW_ENCODING {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_READER_RAW_ENCODING {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_XML_READER_RAW_ENCODING {
     fn eq(&self, other: &Self) -> bool {
@@ -14714,8 +14714,8 @@ impl ::core::fmt::Debug for WS_XML_READER_STREAM_INPUT {
         f.debug_struct("WS_XML_READER_STREAM_INPUT").field("input", &self.input).field("readCallbackState", &self.readCallbackState).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_XML_READER_STREAM_INPUT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_READER_STREAM_INPUT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WS_XML_READER_STREAM_INPUT {
     fn default() -> Self {
@@ -14739,8 +14739,8 @@ impl ::core::fmt::Debug for WS_XML_READER_TEXT_ENCODING {
         f.debug_struct("WS_XML_READER_TEXT_ENCODING").field("encoding", &self.encoding).field("charSet", &self.charSet).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_XML_READER_TEXT_ENCODING {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_READER_TEXT_ENCODING {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_XML_READER_TEXT_ENCODING {
     fn eq(&self, other: &Self) -> bool {
@@ -14771,8 +14771,8 @@ impl ::core::fmt::Debug for WS_XML_SECURITY_TOKEN_PROPERTY {
         f.debug_struct("WS_XML_SECURITY_TOKEN_PROPERTY").field("id", &self.id).field("value", &self.value).field("valueSize", &self.valueSize).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_XML_SECURITY_TOKEN_PROPERTY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_SECURITY_TOKEN_PROPERTY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_XML_SECURITY_TOKEN_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
@@ -14809,8 +14809,8 @@ impl ::core::fmt::Debug for WS_XML_STRING {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WS_XML_STRING {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_STRING {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_XML_STRING {
@@ -14843,8 +14843,8 @@ impl ::core::fmt::Debug for WS_XML_STRING_DESCRIPTION {
         f.debug_struct("WS_XML_STRING_DESCRIPTION").field("minByteCount", &self.minByteCount).field("maxByteCount", &self.maxByteCount).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_XML_STRING_DESCRIPTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_STRING_DESCRIPTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_XML_STRING_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
@@ -14873,8 +14873,8 @@ impl ::core::fmt::Debug for WS_XML_TEXT {
         f.debug_struct("WS_XML_TEXT").field("textType", &self.textType).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_XML_TEXT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_TEXT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_XML_TEXT {
     fn eq(&self, other: &Self) -> bool {
@@ -14904,8 +14904,8 @@ impl ::core::fmt::Debug for WS_XML_TEXT_NODE {
         f.debug_struct("WS_XML_TEXT_NODE").field("node", &self.node).field("text", &self.text).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_XML_TEXT_NODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_TEXT_NODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_XML_TEXT_NODE {
     fn eq(&self, other: &Self) -> bool {
@@ -14935,8 +14935,8 @@ impl ::core::fmt::Debug for WS_XML_TIMESPAN_TEXT {
         f.debug_struct("WS_XML_TIMESPAN_TEXT").field("text", &self.text).field("value", &self.value).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_XML_TIMESPAN_TEXT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_TIMESPAN_TEXT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_XML_TIMESPAN_TEXT {
     fn eq(&self, other: &Self) -> bool {
@@ -14967,8 +14967,8 @@ impl ::core::fmt::Debug for WS_XML_TOKEN_MESSAGE_SECURITY_BINDING {
         f.debug_struct("WS_XML_TOKEN_MESSAGE_SECURITY_BINDING").field("binding", &self.binding).field("bindingUsage", &self.bindingUsage).field("xmlToken", &self.xmlToken).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_XML_TOKEN_MESSAGE_SECURITY_BINDING {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_TOKEN_MESSAGE_SECURITY_BINDING {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_XML_TOKEN_MESSAGE_SECURITY_BINDING {
     fn eq(&self, other: &Self) -> bool {
@@ -14998,8 +14998,8 @@ impl ::core::fmt::Debug for WS_XML_UINT64_TEXT {
         f.debug_struct("WS_XML_UINT64_TEXT").field("text", &self.text).field("value", &self.value).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_XML_UINT64_TEXT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_UINT64_TEXT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_XML_UINT64_TEXT {
     fn eq(&self, other: &Self) -> bool {
@@ -15016,7 +15016,7 @@ impl ::core::default::Default for WS_XML_UINT64_TEXT {
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub struct WS_XML_UNIQUE_ID_TEXT {
     pub text: WS_XML_TEXT,
-    pub value: ::windows::core::GUID,
+    pub value: ::windows_core::GUID,
 }
 impl ::core::marker::Copy for WS_XML_UNIQUE_ID_TEXT {}
 impl ::core::clone::Clone for WS_XML_UNIQUE_ID_TEXT {
@@ -15029,8 +15029,8 @@ impl ::core::fmt::Debug for WS_XML_UNIQUE_ID_TEXT {
         f.debug_struct("WS_XML_UNIQUE_ID_TEXT").field("text", &self.text).field("value", &self.value).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_XML_UNIQUE_ID_TEXT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_UNIQUE_ID_TEXT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_XML_UNIQUE_ID_TEXT {
     fn eq(&self, other: &Self) -> bool {
@@ -15061,8 +15061,8 @@ impl ::core::fmt::Debug for WS_XML_UTF16_TEXT {
         f.debug_struct("WS_XML_UTF16_TEXT").field("text", &self.text).field("bytes", &self.bytes).field("byteCount", &self.byteCount).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_XML_UTF16_TEXT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_UTF16_TEXT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_XML_UTF16_TEXT {
     fn eq(&self, other: &Self) -> bool {
@@ -15097,8 +15097,8 @@ impl ::core::fmt::Debug for WS_XML_UTF8_TEXT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WS_XML_UTF8_TEXT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_UTF8_TEXT {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_XML_UTF8_TEXT {
@@ -15122,8 +15122,8 @@ impl ::core::clone::Clone for WS_XML_WRITER {
         *self
     }
 }
-impl ::windows::core::TypeKind for WS_XML_WRITER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_WRITER {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
@@ -15149,8 +15149,8 @@ impl ::core::fmt::Debug for WS_XML_WRITER_BINARY_ENCODING {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WS_XML_WRITER_BINARY_ENCODING {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_WRITER_BINARY_ENCODING {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WS_XML_WRITER_BINARY_ENCODING {
@@ -15174,8 +15174,8 @@ impl ::core::fmt::Debug for WS_XML_WRITER_BUFFER_OUTPUT {
         f.debug_struct("WS_XML_WRITER_BUFFER_OUTPUT").field("output", &self.output).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_XML_WRITER_BUFFER_OUTPUT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_WRITER_BUFFER_OUTPUT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_XML_WRITER_BUFFER_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
@@ -15204,8 +15204,8 @@ impl ::core::fmt::Debug for WS_XML_WRITER_ENCODING {
         f.debug_struct("WS_XML_WRITER_ENCODING").field("encodingType", &self.encodingType).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_XML_WRITER_ENCODING {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_WRITER_ENCODING {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_XML_WRITER_ENCODING {
     fn eq(&self, other: &Self) -> bool {
@@ -15245,8 +15245,8 @@ impl ::core::fmt::Debug for WS_XML_WRITER_MTOM_ENCODING {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for WS_XML_WRITER_MTOM_ENCODING {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_WRITER_MTOM_ENCODING {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_XML_WRITER_MTOM_ENCODING {
@@ -15278,8 +15278,8 @@ impl ::core::fmt::Debug for WS_XML_WRITER_OUTPUT {
         f.debug_struct("WS_XML_WRITER_OUTPUT").field("outputType", &self.outputType).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_XML_WRITER_OUTPUT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_WRITER_OUTPUT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_XML_WRITER_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
@@ -15309,8 +15309,8 @@ impl ::core::fmt::Debug for WS_XML_WRITER_PROPERTIES {
         f.debug_struct("WS_XML_WRITER_PROPERTIES").field("properties", &self.properties).field("propertyCount", &self.propertyCount).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_XML_WRITER_PROPERTIES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_WRITER_PROPERTIES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_XML_WRITER_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
@@ -15341,8 +15341,8 @@ impl ::core::fmt::Debug for WS_XML_WRITER_PROPERTY {
         f.debug_struct("WS_XML_WRITER_PROPERTY").field("id", &self.id).field("value", &self.value).field("valueSize", &self.valueSize).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_XML_WRITER_PROPERTY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_WRITER_PROPERTY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_XML_WRITER_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
@@ -15371,8 +15371,8 @@ impl ::core::fmt::Debug for WS_XML_WRITER_RAW_ENCODING {
         f.debug_struct("WS_XML_WRITER_RAW_ENCODING").field("encoding", &self.encoding).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_XML_WRITER_RAW_ENCODING {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_WRITER_RAW_ENCODING {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_XML_WRITER_RAW_ENCODING {
     fn eq(&self, other: &Self) -> bool {
@@ -15403,8 +15403,8 @@ impl ::core::fmt::Debug for WS_XML_WRITER_STREAM_OUTPUT {
         f.debug_struct("WS_XML_WRITER_STREAM_OUTPUT").field("output", &self.output).field("writeCallbackState", &self.writeCallbackState).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_XML_WRITER_STREAM_OUTPUT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_WRITER_STREAM_OUTPUT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WS_XML_WRITER_STREAM_OUTPUT {
     fn default() -> Self {
@@ -15428,8 +15428,8 @@ impl ::core::fmt::Debug for WS_XML_WRITER_TEXT_ENCODING {
         f.debug_struct("WS_XML_WRITER_TEXT_ENCODING").field("encoding", &self.encoding).field("charSet", &self.charSet).finish()
     }
 }
-impl ::windows::core::TypeKind for WS_XML_WRITER_TEXT_ENCODING {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WS_XML_WRITER_TEXT_ENCODING {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WS_XML_WRITER_TEXT_ENCODING {
     fn eq(&self, other: &Self) -> bool {
@@ -15443,59 +15443,59 @@ impl ::core::default::Default for WS_XML_WRITER_TEXT_ENCODING {
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub type WS_ABANDON_MESSAGE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, message: *const WS_MESSAGE, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_ABANDON_MESSAGE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, message: *const WS_MESSAGE, error: *const WS_ERROR) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub type WS_ABORT_CHANNEL_CALLBACK = ::core::option::Option<unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_ABORT_CHANNEL_CALLBACK = ::core::option::Option<unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub type WS_ABORT_LISTENER_CALLBACK = ::core::option::Option<unsafe extern "system" fn(listenerinstance: *const ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_ABORT_LISTENER_CALLBACK = ::core::option::Option<unsafe extern "system" fn(listenerinstance: *const ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub type WS_ACCEPT_CHANNEL_CALLBACK = ::core::option::Option<unsafe extern "system" fn(listenerinstance: *const ::core::ffi::c_void, channelinstance: *const ::core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_ACCEPT_CHANNEL_CALLBACK = ::core::option::Option<unsafe extern "system" fn(listenerinstance: *const ::core::ffi::c_void, channelinstance: *const ::core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub type WS_ASYNC_CALLBACK = ::core::option::Option<unsafe extern "system" fn(errorcode: ::windows::core::HRESULT, callbackmodel: WS_CALLBACK_MODEL, callbackstate: *const ::core::ffi::c_void) -> ()>;
+pub type WS_ASYNC_CALLBACK = ::core::option::Option<unsafe extern "system" fn(errorcode: ::windows_core::HRESULT, callbackmodel: WS_CALLBACK_MODEL, callbackstate: *const ::core::ffi::c_void) -> ()>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub type WS_ASYNC_FUNCTION = ::core::option::Option<unsafe extern "system" fn(hr: ::windows::core::HRESULT, callbackmodel: WS_CALLBACK_MODEL, callbackstate: *const ::core::ffi::c_void, next: *mut WS_ASYNC_OPERATION, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_ASYNC_FUNCTION = ::core::option::Option<unsafe extern "system" fn(hr: ::windows_core::HRESULT, callbackmodel: WS_CALLBACK_MODEL, callbackstate: *const ::core::ffi::c_void, next: *mut WS_ASYNC_OPERATION, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-pub type WS_CERTIFICATE_VALIDATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(certcontext: *const super::super::Security::Cryptography::CERT_CONTEXT, state: *const ::core::ffi::c_void) -> ::windows::core::HRESULT>;
+pub type WS_CERTIFICATE_VALIDATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(certcontext: *const super::super::Security::Cryptography::CERT_CONTEXT, state: *const ::core::ffi::c_void) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Cryptography\"`*"]
 #[cfg(all(feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
-pub type WS_CERT_ISSUER_LIST_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(certissuerlistnotificationcallbackstate: *const ::core::ffi::c_void, issuerlist: *const super::super::Security::Authentication::Identity::SecPkgContext_IssuerListInfoEx, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_CERT_ISSUER_LIST_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(certissuerlistnotificationcallbackstate: *const ::core::ffi::c_void, issuerlist: *const super::super::Security::Authentication::Identity::SecPkgContext_IssuerListInfoEx, error: *const WS_ERROR) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub type WS_CLOSE_CHANNEL_CALLBACK = ::core::option::Option<unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_CLOSE_CHANNEL_CALLBACK = ::core::option::Option<unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub type WS_CLOSE_LISTENER_CALLBACK = ::core::option::Option<unsafe extern "system" fn(listenerinstance: *const ::core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_CLOSE_LISTENER_CALLBACK = ::core::option::Option<unsafe extern "system" fn(listenerinstance: *const ::core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub type WS_CREATE_CHANNEL_CALLBACK = ::core::option::Option<unsafe extern "system" fn(channeltype: WS_CHANNEL_TYPE, channelparameters: *const ::core::ffi::c_void, channelparameterssize: u32, channelinstance: *mut *mut ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_CREATE_CHANNEL_CALLBACK = ::core::option::Option<unsafe extern "system" fn(channeltype: WS_CHANNEL_TYPE, channelparameters: *const ::core::ffi::c_void, channelparameterssize: u32, channelinstance: *mut *mut ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub type WS_CREATE_CHANNEL_FOR_LISTENER_CALLBACK = ::core::option::Option<unsafe extern "system" fn(listenerinstance: *const ::core::ffi::c_void, channelparameters: *const ::core::ffi::c_void, channelparameterssize: u32, channelinstance: *mut *mut ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_CREATE_CHANNEL_FOR_LISTENER_CALLBACK = ::core::option::Option<unsafe extern "system" fn(listenerinstance: *const ::core::ffi::c_void, channelparameters: *const ::core::ffi::c_void, channelparameterssize: u32, channelinstance: *mut *mut ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub type WS_CREATE_DECODER_CALLBACK = ::core::option::Option<unsafe extern "system" fn(createcontext: *const ::core::ffi::c_void, readcallback: WS_READ_CALLBACK, readcontext: *const ::core::ffi::c_void, decodercontext: *mut *mut ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_CREATE_DECODER_CALLBACK = ::core::option::Option<unsafe extern "system" fn(createcontext: *const ::core::ffi::c_void, readcallback: WS_READ_CALLBACK, readcontext: *const ::core::ffi::c_void, decodercontext: *mut *mut ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub type WS_CREATE_ENCODER_CALLBACK = ::core::option::Option<unsafe extern "system" fn(createcontext: *const ::core::ffi::c_void, writecallback: WS_WRITE_CALLBACK, writecontext: *const ::core::ffi::c_void, encodercontext: *mut *mut ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_CREATE_ENCODER_CALLBACK = ::core::option::Option<unsafe extern "system" fn(createcontext: *const ::core::ffi::c_void, writecallback: WS_WRITE_CALLBACK, writecontext: *const ::core::ffi::c_void, encodercontext: *mut *mut ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub type WS_CREATE_LISTENER_CALLBACK = ::core::option::Option<unsafe extern "system" fn(channeltype: WS_CHANNEL_TYPE, listenerparameters: *const ::core::ffi::c_void, listenerparameterssize: u32, listenerinstance: *mut *mut ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_CREATE_LISTENER_CALLBACK = ::core::option::Option<unsafe extern "system" fn(channeltype: WS_CHANNEL_TYPE, listenerparameters: *const ::core::ffi::c_void, listenerparameterssize: u32, listenerinstance: *mut *mut ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub type WS_DECODER_DECODE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(encodercontext: *const ::core::ffi::c_void, buffer: *mut ::core::ffi::c_void, maxlength: u32, length: *mut u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_DECODER_DECODE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(encodercontext: *const ::core::ffi::c_void, buffer: *mut ::core::ffi::c_void, maxlength: u32, length: *mut u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub type WS_DECODER_END_CALLBACK = ::core::option::Option<unsafe extern "system" fn(encodercontext: *const ::core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_DECODER_END_CALLBACK = ::core::option::Option<unsafe extern "system" fn(encodercontext: *const ::core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub type WS_DECODER_GET_CONTENT_TYPE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(decodercontext: *const ::core::ffi::c_void, contenttype: *const WS_STRING, contentencoding: *const WS_STRING, newcontenttype: *mut WS_STRING, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_DECODER_GET_CONTENT_TYPE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(decodercontext: *const ::core::ffi::c_void, contenttype: *const WS_STRING, contentencoding: *const WS_STRING, newcontenttype: *mut WS_STRING, error: *const WS_ERROR) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub type WS_DECODER_START_CALLBACK = ::core::option::Option<unsafe extern "system" fn(encodercontext: *const ::core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_DECODER_START_CALLBACK = ::core::option::Option<unsafe extern "system" fn(encodercontext: *const ::core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type WS_DURATION_COMPARISON_CALLBACK = ::core::option::Option<unsafe extern "system" fn(duration1: *const WS_DURATION, duration2: *const WS_DURATION, result: *mut i32, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_DURATION_COMPARISON_CALLBACK = ::core::option::Option<unsafe extern "system" fn(duration1: *const WS_DURATION, duration2: *const WS_DURATION, result: *mut i32, error: *const WS_ERROR) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type WS_DYNAMIC_STRING_CALLBACK = ::core::option::Option<unsafe extern "system" fn(callbackstate: *const ::core::ffi::c_void, string: *const WS_XML_STRING, found: *mut super::super::Foundation::BOOL, id: *mut u32, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_DYNAMIC_STRING_CALLBACK = ::core::option::Option<unsafe extern "system" fn(callbackstate: *const ::core::ffi::c_void, string: *const WS_XML_STRING, found: *mut super::super::Foundation::BOOL, id: *mut u32, error: *const WS_ERROR) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub type WS_ENCODER_ENCODE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(encodercontext: *const ::core::ffi::c_void, buffers: *const WS_BYTES, count: u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_ENCODER_ENCODE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(encodercontext: *const ::core::ffi::c_void, buffers: *const WS_BYTES, count: u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub type WS_ENCODER_END_CALLBACK = ::core::option::Option<unsafe extern "system" fn(encodercontext: *const ::core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_ENCODER_END_CALLBACK = ::core::option::Option<unsafe extern "system" fn(encodercontext: *const ::core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub type WS_ENCODER_GET_CONTENT_TYPE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(encodercontext: *const ::core::ffi::c_void, contenttype: *const WS_STRING, newcontenttype: *mut WS_STRING, contentencoding: *mut WS_STRING, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_ENCODER_GET_CONTENT_TYPE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(encodercontext: *const ::core::ffi::c_void, contenttype: *const WS_STRING, newcontenttype: *mut WS_STRING, contentencoding: *mut WS_STRING, error: *const WS_ERROR) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub type WS_ENCODER_START_CALLBACK = ::core::option::Option<unsafe extern "system" fn(encodercontext: *const ::core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_ENCODER_START_CALLBACK = ::core::option::Option<unsafe extern "system" fn(encodercontext: *const ::core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub type WS_FREE_CHANNEL_CALLBACK = ::core::option::Option<unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void) -> ()>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
@@ -15506,72 +15506,72 @@ pub type WS_FREE_ENCODER_CALLBACK = ::core::option::Option<unsafe extern "system
 pub type WS_FREE_LISTENER_CALLBACK = ::core::option::Option<unsafe extern "system" fn(listenerinstance: *const ::core::ffi::c_void) -> ()>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-pub type WS_GET_CERT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(getcertcallbackstate: *const ::core::ffi::c_void, targetaddress: *const WS_ENDPOINT_ADDRESS, viauri: *const WS_STRING, cert: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_GET_CERT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(getcertcallbackstate: *const ::core::ffi::c_void, targetaddress: *const WS_ENDPOINT_ADDRESS, viauri: *const WS_STRING, cert: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT, error: *const WS_ERROR) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub type WS_GET_CHANNEL_PROPERTY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, id: WS_CHANNEL_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_GET_CHANNEL_PROPERTY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, id: WS_CHANNEL_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub type WS_GET_LISTENER_PROPERTY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(listenerinstance: *const ::core::ffi::c_void, id: WS_LISTENER_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_GET_LISTENER_PROPERTY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(listenerinstance: *const ::core::ffi::c_void, id: WS_LISTENER_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub type WS_HTTP_REDIRECT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(state: *const ::core::ffi::c_void, originalurl: *const WS_STRING, newurl: *const WS_STRING) -> ::windows::core::HRESULT>;
+pub type WS_HTTP_REDIRECT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(state: *const ::core::ffi::c_void, originalurl: *const WS_STRING, newurl: *const WS_STRING) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type WS_IS_DEFAULT_VALUE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(descriptiondata: *const ::core::ffi::c_void, value: *const ::core::ffi::c_void, defaultvalue: *const ::core::ffi::c_void, valuesize: u32, isdefault: *mut super::super::Foundation::BOOL, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_IS_DEFAULT_VALUE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(descriptiondata: *const ::core::ffi::c_void, value: *const ::core::ffi::c_void, defaultvalue: *const ::core::ffi::c_void, valuesize: u32, isdefault: *mut super::super::Foundation::BOOL, error: *const WS_ERROR) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub type WS_MESSAGE_DONE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(donecallbackstate: *const ::core::ffi::c_void) -> ()>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub type WS_OPEN_CHANNEL_CALLBACK = ::core::option::Option<unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, endpointaddress: *const WS_ENDPOINT_ADDRESS, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_OPEN_CHANNEL_CALLBACK = ::core::option::Option<unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, endpointaddress: *const WS_ENDPOINT_ADDRESS, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub type WS_OPEN_LISTENER_CALLBACK = ::core::option::Option<unsafe extern "system" fn(listenerinstance: *const ::core::ffi::c_void, url: *const WS_STRING, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_OPEN_LISTENER_CALLBACK = ::core::option::Option<unsafe extern "system" fn(listenerinstance: *const ::core::ffi::c_void, url: *const WS_STRING, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub type WS_OPERATION_CANCEL_CALLBACK = ::core::option::Option<unsafe extern "system" fn(reason: WS_SERVICE_CANCEL_REASON, state: *const ::core::ffi::c_void) -> ()>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub type WS_OPERATION_FREE_STATE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(state: *const ::core::ffi::c_void) -> ()>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub type WS_PROXY_MESSAGE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(message: *const WS_MESSAGE, heap: *const WS_HEAP, state: *const ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_PROXY_MESSAGE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(message: *const WS_MESSAGE, heap: *const WS_HEAP, state: *const ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub type WS_PULL_BYTES_CALLBACK = ::core::option::Option<unsafe extern "system" fn(callbackstate: *const ::core::ffi::c_void, bytes: *mut ::core::ffi::c_void, maxsize: u32, actualsize: *mut u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_PULL_BYTES_CALLBACK = ::core::option::Option<unsafe extern "system" fn(callbackstate: *const ::core::ffi::c_void, bytes: *mut ::core::ffi::c_void, maxsize: u32, actualsize: *mut u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub type WS_PUSH_BYTES_CALLBACK = ::core::option::Option<unsafe extern "system" fn(callbackstate: *const ::core::ffi::c_void, writecallback: WS_WRITE_CALLBACK, writecallbackstate: *const ::core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_PUSH_BYTES_CALLBACK = ::core::option::Option<unsafe extern "system" fn(callbackstate: *const ::core::ffi::c_void, writecallback: WS_WRITE_CALLBACK, writecallbackstate: *const ::core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub type WS_READ_CALLBACK = ::core::option::Option<unsafe extern "system" fn(callbackstate: *const ::core::ffi::c_void, bytes: *mut ::core::ffi::c_void, maxsize: u32, actualsize: *mut u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_READ_CALLBACK = ::core::option::Option<unsafe extern "system" fn(callbackstate: *const ::core::ffi::c_void, bytes: *mut ::core::ffi::c_void, maxsize: u32, actualsize: *mut u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub type WS_READ_MESSAGE_END_CALLBACK = ::core::option::Option<unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, message: *const WS_MESSAGE, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_READ_MESSAGE_END_CALLBACK = ::core::option::Option<unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, message: *const WS_MESSAGE, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub type WS_READ_MESSAGE_START_CALLBACK = ::core::option::Option<unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, message: *const WS_MESSAGE, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_READ_MESSAGE_START_CALLBACK = ::core::option::Option<unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, message: *const WS_MESSAGE, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub type WS_READ_TYPE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(reader: *const WS_XML_READER, typemapping: WS_TYPE_MAPPING, descriptiondata: *const ::core::ffi::c_void, heap: *const WS_HEAP, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_READ_TYPE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(reader: *const WS_XML_READER, typemapping: WS_TYPE_MAPPING, descriptiondata: *const ::core::ffi::c_void, heap: *const WS_HEAP, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub type WS_RESET_CHANNEL_CALLBACK = ::core::option::Option<unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_RESET_CHANNEL_CALLBACK = ::core::option::Option<unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub type WS_RESET_LISTENER_CALLBACK = ::core::option::Option<unsafe extern "system" fn(listenerinstance: *const ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_RESET_LISTENER_CALLBACK = ::core::option::Option<unsafe extern "system" fn(listenerinstance: *const ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub type WS_SERVICE_ACCEPT_CHANNEL_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, channelstate: *mut *mut ::core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_SERVICE_ACCEPT_CHANNEL_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, channelstate: *mut *mut ::core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub type WS_SERVICE_CLOSE_CHANNEL_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, asynccontext: *const WS_ASYNC_CONTEXT) -> ::windows::core::HRESULT>;
+pub type WS_SERVICE_CLOSE_CHANNEL_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, asynccontext: *const WS_ASYNC_CONTEXT) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub type WS_SERVICE_MESSAGE_RECEIVE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_SERVICE_MESSAGE_RECEIVE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type WS_SERVICE_SECURITY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, authorized: *mut super::super::Foundation::BOOL, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_SERVICE_SECURITY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, authorized: *mut super::super::Foundation::BOOL, error: *const WS_ERROR) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub type WS_SERVICE_STUB_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, frame: *const ::core::ffi::c_void, callback: *const ::core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_SERVICE_STUB_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, frame: *const ::core::ffi::c_void, callback: *const ::core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub type WS_SET_CHANNEL_PROPERTY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, id: WS_CHANNEL_PROPERTY_ID, value: *const ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_SET_CHANNEL_PROPERTY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, id: WS_CHANNEL_PROPERTY_ID, value: *const ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub type WS_SET_LISTENER_PROPERTY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(listenerinstance: *const ::core::ffi::c_void, id: WS_LISTENER_PROPERTY_ID, value: *const ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_SET_LISTENER_PROPERTY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(listenerinstance: *const ::core::ffi::c_void, id: WS_LISTENER_PROPERTY_ID, value: *const ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub type WS_SHUTDOWN_SESSION_CHANNEL_CALLBACK = ::core::option::Option<unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_SHUTDOWN_SESSION_CHANNEL_CALLBACK = ::core::option::Option<unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub type WS_VALIDATE_PASSWORD_CALLBACK = ::core::option::Option<unsafe extern "system" fn(passwordvalidatorcallbackstate: *const ::core::ffi::c_void, username: *const WS_STRING, password: *const WS_STRING, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_VALIDATE_PASSWORD_CALLBACK = ::core::option::Option<unsafe extern "system" fn(passwordvalidatorcallbackstate: *const ::core::ffi::c_void, username: *const WS_STRING, password: *const WS_STRING, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub type WS_VALIDATE_SAML_CALLBACK = ::core::option::Option<unsafe extern "system" fn(samlvalidatorcallbackstate: *const ::core::ffi::c_void, samlassertion: *const WS_XML_BUFFER, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_VALIDATE_SAML_CALLBACK = ::core::option::Option<unsafe extern "system" fn(samlvalidatorcallbackstate: *const ::core::ffi::c_void, samlassertion: *const WS_XML_BUFFER, error: *const WS_ERROR) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub type WS_WRITE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(callbackstate: *const ::core::ffi::c_void, buffers: *const WS_BYTES, count: u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_WRITE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(callbackstate: *const ::core::ffi::c_void, buffers: *const WS_BYTES, count: u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub type WS_WRITE_MESSAGE_END_CALLBACK = ::core::option::Option<unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, message: *const WS_MESSAGE, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_WRITE_MESSAGE_END_CALLBACK = ::core::option::Option<unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, message: *const WS_MESSAGE, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub type WS_WRITE_MESSAGE_START_CALLBACK = ::core::option::Option<unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, message: *const WS_MESSAGE, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_WRITE_MESSAGE_START_CALLBACK = ::core::option::Option<unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, message: *const WS_MESSAGE, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub type WS_WRITE_TYPE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(writer: *const WS_XML_WRITER, typemapping: WS_TYPE_MAPPING, descriptiondata: *const ::core::ffi::c_void, value: *const ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
+pub type WS_WRITE_TYPE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(writer: *const WS_XML_WRITER, typemapping: WS_TYPE_MAPPING, descriptiondata: *const ::core::ffi::c_void, value: *const ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows_core::HRESULT>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

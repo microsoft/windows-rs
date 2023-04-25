@@ -21,16 +21,16 @@ impl ::core::default::Default for DirectXAlphaMode {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for DirectXAlphaMode {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DirectXAlphaMode {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for DirectXAlphaMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DirectXAlphaMode").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for DirectXAlphaMode {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXAlphaMode;i4)");
+impl ::windows_core::RuntimeType for DirectXAlphaMode {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXAlphaMode;i4)");
 }
 #[doc = "*Required features: `\"Graphics_DirectX\"`*"]
 #[repr(transparent)]
@@ -74,16 +74,16 @@ impl ::core::default::Default for DirectXColorSpace {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for DirectXColorSpace {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DirectXColorSpace {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for DirectXColorSpace {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DirectXColorSpace").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for DirectXColorSpace {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXColorSpace;i4)");
+impl ::windows_core::RuntimeType for DirectXColorSpace {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXColorSpace;i4)");
 }
 #[doc = "*Required features: `\"Graphics_DirectX\"`*"]
 #[repr(transparent)]
@@ -223,16 +223,16 @@ impl ::core::default::Default for DirectXPixelFormat {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for DirectXPixelFormat {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DirectXPixelFormat {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for DirectXPixelFormat {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DirectXPixelFormat").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for DirectXPixelFormat {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXPixelFormat;i4)");
+impl ::windows_core::RuntimeType for DirectXPixelFormat {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXPixelFormat;i4)");
 }
 #[doc = "*Required features: `\"Graphics_DirectX\"`*"]
 #[repr(transparent)]
@@ -257,16 +257,16 @@ impl ::core::default::Default for DirectXPrimitiveTopology {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for DirectXPrimitiveTopology {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DirectXPrimitiveTopology {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for DirectXPrimitiveTopology {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DirectXPrimitiveTopology").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for DirectXPrimitiveTopology {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXPrimitiveTopology;i4)");
+impl ::windows_core::RuntimeType for DirectXPrimitiveTopology {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXPrimitiveTopology;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -12,8 +12,8 @@ pub unsafe fn RtlIncrementCorrelationVector(correlationvector: *mut CORRELATION_
 }
 #[doc = "*Required features: `\"Win32_System_CorrelationVector\"`*"]
 #[inline]
-pub unsafe fn RtlInitializeCorrelationVector(correlationvector: *mut CORRELATION_VECTOR, version: i32, guid: ::core::option::Option<*const ::windows::core::GUID>) -> u32 {
-    ::windows_targets::link!("ntdll.dll" "system" fn RtlInitializeCorrelationVector(correlationvector : *mut CORRELATION_VECTOR, version : i32, guid : *const ::windows::core::GUID) -> u32);
+pub unsafe fn RtlInitializeCorrelationVector(correlationvector: *mut CORRELATION_VECTOR, version: i32, guid: ::core::option::Option<*const ::windows_core::GUID>) -> u32 {
+    ::windows_targets::link!("ntdll.dll" "system" fn RtlInitializeCorrelationVector(correlationvector : *mut CORRELATION_VECTOR, version : i32, guid : *const ::windows_core::GUID) -> u32);
     RtlInitializeCorrelationVector(correlationvector, version, ::core::mem::transmute(guid.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_CorrelationVector\"`*"]
@@ -49,8 +49,8 @@ impl ::core::fmt::Debug for CORRELATION_VECTOR {
         f.debug_struct("CORRELATION_VECTOR").field("Version", &self.Version).field("Vector", &self.Vector).finish()
     }
 }
-impl ::windows::core::TypeKind for CORRELATION_VECTOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CORRELATION_VECTOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for CORRELATION_VECTOR {
     fn eq(&self, other: &Self) -> bool {

@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
-pub struct IAudioRoutingManager(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAudioRoutingManager {
+pub struct IAudioRoutingManager(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for IAudioRoutingManager {
     type Vtable = IAudioRoutingManager_Vtbl;
 }
 impl ::core::clone::Clone for IAudioRoutingManager {
@@ -9,29 +9,29 @@ impl ::core::clone::Clone for IAudioRoutingManager {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IAudioRoutingManager {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79340d20_71cc_4526_9f29_fc8d2486418b);
+unsafe impl ::windows_core::ComInterface for IAudioRoutingManager {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x79340d20_71cc_4526_9f29_fc8d2486418b);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioRoutingManager_Vtbl {
-    pub base__: ::windows::core::IInspectable_Vtbl,
-    pub GetAudioEndpoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AudioRoutingEndpoint) -> ::windows::core::HRESULT,
-    pub SetAudioEndpoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, endpoint: AudioRoutingEndpoint) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub GetAudioEndpoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AudioRoutingEndpoint) -> ::windows_core::HRESULT,
+    pub SetAudioEndpoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, endpoint: AudioRoutingEndpoint) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub AudioEndpointChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, endpointchangehandler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub AudioEndpointChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, endpointchangehandler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     AudioEndpointChanged: usize,
     #[cfg(feature = "Foundation")]
-    pub RemoveAudioEndpointChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub RemoveAudioEndpointChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     RemoveAudioEndpointChanged: usize,
-    pub AvailableAudioEndpoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AvailableAudioRoutingEndpoints) -> ::windows::core::HRESULT,
+    pub AvailableAudioEndpoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AvailableAudioRoutingEndpoints) -> ::windows_core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
-pub struct IAudioRoutingManagerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAudioRoutingManagerStatics {
+pub struct IAudioRoutingManagerStatics(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for IAudioRoutingManagerStatics {
     type Vtable = IAudioRoutingManagerStatics_Vtbl;
 }
 impl ::core::clone::Clone for IAudioRoutingManagerStatics {
@@ -39,61 +39,61 @@ impl ::core::clone::Clone for IAudioRoutingManagerStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IAudioRoutingManagerStatics {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x977fb2a4_5590_4a6f_adde_6a3d0ad58250);
+unsafe impl ::windows_core::ComInterface for IAudioRoutingManagerStatics {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x977fb2a4_5590_4a6f_adde_6a3d0ad58250);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioRoutingManagerStatics_Vtbl {
-    pub base__: ::windows::core::IInspectable_Vtbl,
-    pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Phone_Media_Devices\"`*"]
 #[repr(transparent)]
-pub struct AudioRoutingManager(::windows::core::IUnknown);
+pub struct AudioRoutingManager(::windows_core::IUnknown);
 impl AudioRoutingManager {
-    pub fn GetAudioEndpoint(&self) -> ::windows::core::Result<AudioRoutingEndpoint> {
+    pub fn GetAudioEndpoint(&self) -> ::windows_core::Result<AudioRoutingEndpoint> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<AudioRoutingEndpoint>();
-            (::windows::core::Interface::vtable(this).GetAudioEndpoint)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<AudioRoutingEndpoint>();
+            (::windows_core::Interface::vtable(this).GetAudioEndpoint)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn SetAudioEndpoint(&self, endpoint: AudioRoutingEndpoint) -> ::windows::core::Result<()> {
+    pub fn SetAudioEndpoint(&self, endpoint: AudioRoutingEndpoint) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAudioEndpoint)(::windows::core::Interface::as_raw(this), endpoint).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetAudioEndpoint)(::windows_core::Interface::as_raw(this), endpoint).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AudioEndpointChanged(&self, endpointchangehandler: &super::super::super::Foundation::TypedEventHandler<AudioRoutingManager, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn AudioEndpointChanged(&self, endpointchangehandler: &super::super::super::Foundation::TypedEventHandler<AudioRoutingManager, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Interface::vtable(this).AudioEndpointChanged)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(endpointchangehandler), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            (::windows_core::Interface::vtable(this).AudioEndpointChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(endpointchangehandler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveAudioEndpointChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+    pub fn RemoveAudioEndpointChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveAudioEndpointChanged)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).RemoveAudioEndpointChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn AvailableAudioEndpoints(&self) -> ::windows::core::Result<AvailableAudioRoutingEndpoints> {
+    pub fn AvailableAudioEndpoints(&self) -> ::windows_core::Result<AvailableAudioRoutingEndpoints> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<AvailableAudioRoutingEndpoints>();
-            (::windows::core::Interface::vtable(this).AvailableAudioEndpoints)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<AvailableAudioRoutingEndpoints>();
+            (::windows_core::Interface::vtable(this).AvailableAudioEndpoints)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn GetDefault() -> ::windows::core::Result<AudioRoutingManager> {
+    pub fn GetDefault() -> ::windows_core::Result<AudioRoutingManager> {
         Self::IAudioRoutingManagerStatics(|this| unsafe {
-            let mut result__ = ::windows::core::zeroed::<AudioRoutingManager>();
-            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<AudioRoutingManager>();
+            (::windows_core::Interface::vtable(this).GetDefault)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
-    pub fn IAudioRoutingManagerStatics<R, F: FnOnce(&IAudioRoutingManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::imp::FactoryCache<AudioRoutingManager, IAudioRoutingManagerStatics> = ::windows::imp::FactoryCache::new();
+    pub fn IAudioRoutingManagerStatics<R, F: FnOnce(&IAudioRoutingManagerStatics) -> ::windows_core::Result<R>>(callback: F) -> ::windows_core::Result<R> {
+        static SHARED: ::windows_core::imp::FactoryCache<AudioRoutingManager, IAudioRoutingManagerStatics> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -108,24 +108,24 @@ impl ::core::fmt::Debug for AudioRoutingManager {
         f.debug_tuple("AudioRoutingManager").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for AudioRoutingManager {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Phone.Media.Devices.AudioRoutingManager;{79340d20-71cc-4526-9f29-fc8d2486418b})");
+impl ::windows_core::RuntimeType for AudioRoutingManager {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Phone.Media.Devices.AudioRoutingManager;{79340d20-71cc-4526-9f29-fc8d2486418b})");
 }
 impl ::core::clone::Clone for AudioRoutingManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for AudioRoutingManager {
+unsafe impl ::windows_core::Interface for AudioRoutingManager {
     type Vtable = IAudioRoutingManager_Vtbl;
 }
-unsafe impl ::windows::core::ComInterface for AudioRoutingManager {
-    const IID: ::windows::core::GUID = <IAudioRoutingManager as ::windows::core::ComInterface>::IID;
+unsafe impl ::windows_core::ComInterface for AudioRoutingManager {
+    const IID: ::windows_core::GUID = <IAudioRoutingManager as ::windows_core::ComInterface>::IID;
 }
-impl ::windows::core::RuntimeName for AudioRoutingManager {
+impl ::windows_core::RuntimeName for AudioRoutingManager {
     const NAME: &'static str = "Windows.Phone.Media.Devices.AudioRoutingManager";
 }
-::windows::imp::interface_hierarchy!(AudioRoutingManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows_core::imp::interface_hierarchy!(AudioRoutingManager, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AudioRoutingManager {}
 unsafe impl ::core::marker::Sync for AudioRoutingManager {}
 #[doc = "*Required features: `\"Phone_Media_Devices\"`*"]
@@ -153,16 +153,16 @@ impl ::core::default::Default for AudioRoutingEndpoint {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for AudioRoutingEndpoint {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for AudioRoutingEndpoint {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for AudioRoutingEndpoint {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AudioRoutingEndpoint").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for AudioRoutingEndpoint {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.Media.Devices.AudioRoutingEndpoint;i4)");
+impl ::windows_core::RuntimeType for AudioRoutingEndpoint {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.Media.Devices.AudioRoutingEndpoint;i4)");
 }
 #[doc = "*Required features: `\"Phone_Media_Devices\"`*"]
 #[repr(transparent)]
@@ -185,8 +185,8 @@ impl ::core::default::Default for AvailableAudioRoutingEndpoints {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for AvailableAudioRoutingEndpoints {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for AvailableAudioRoutingEndpoints {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for AvailableAudioRoutingEndpoints {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -226,8 +226,8 @@ impl ::core::ops::Not for AvailableAudioRoutingEndpoints {
         Self(self.0.not())
     }
 }
-impl ::windows::core::RuntimeType for AvailableAudioRoutingEndpoints {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.Media.Devices.AvailableAudioRoutingEndpoints;u4)");
+impl ::windows_core::RuntimeType for AvailableAudioRoutingEndpoints {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.Media.Devices.AvailableAudioRoutingEndpoints;u4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

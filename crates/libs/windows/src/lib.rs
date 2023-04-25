@@ -9,12 +9,17 @@ Learn more about Rust for Windows here: <https://github.com/microsoft/windows-rs
 #![cfg_attr(windows_debugger_visualizer, feature(debugger_visualizer), debugger_visualizer(natvis_file = "../windows.natvis"))]
 #![cfg_attr(windows_raw_dylib, feature(raw_dylib))]
 
-extern crate self as windows;
-
 pub use Windows::*;
-pub mod core;
-
 mod Windows;
 
-#[doc(hidden)]
-pub mod imp;
+pub mod core {
+    pub use windows_core::*;
+
+    #[doc(hidden)]
+    #[cfg(feature = "implement")]
+    pub use windows_implement::implement;
+
+    #[doc(hidden)]
+    #[cfg(feature = "implement")]
+    pub use windows_interface::interface;
+}

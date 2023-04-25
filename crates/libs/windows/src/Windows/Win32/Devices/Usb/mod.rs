@@ -3,7 +3,7 @@
 #[inline]
 pub unsafe fn WinUsb_AbortPipe<P0>(interfacehandle: P0, pipeid: u8) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<WINUSB_INTERFACE_HANDLE>,
+    P0: ::windows_core::IntoParam<WINUSB_INTERFACE_HANDLE>,
 {
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_AbortPipe(interfacehandle : WINUSB_INTERFACE_HANDLE, pipeid : u8) -> super::super::Foundation:: BOOL);
     WinUsb_AbortPipe(interfacehandle.into_param().abi(), pipeid)
@@ -13,7 +13,7 @@ where
 #[inline]
 pub unsafe fn WinUsb_ControlTransfer<P0>(interfacehandle: P0, setuppacket: WINUSB_SETUP_PACKET, buffer: ::core::option::Option<&mut [u8]>, lengthtransferred: ::core::option::Option<*mut u32>, overlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<WINUSB_INTERFACE_HANDLE>,
+    P0: ::windows_core::IntoParam<WINUSB_INTERFACE_HANDLE>,
 {
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_ControlTransfer(interfacehandle : WINUSB_INTERFACE_HANDLE, setuppacket : WINUSB_SETUP_PACKET, buffer : *mut u8, bufferlength : u32, lengthtransferred : *mut u32, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
     WinUsb_ControlTransfer(interfacehandle.into_param().abi(), ::core::mem::transmute(setuppacket), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lengthtransferred.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null())))
@@ -23,7 +23,7 @@ where
 #[inline]
 pub unsafe fn WinUsb_FlushPipe<P0>(interfacehandle: P0, pipeid: u8) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<WINUSB_INTERFACE_HANDLE>,
+    P0: ::windows_core::IntoParam<WINUSB_INTERFACE_HANDLE>,
 {
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_FlushPipe(interfacehandle : WINUSB_INTERFACE_HANDLE, pipeid : u8) -> super::super::Foundation:: BOOL);
     WinUsb_FlushPipe(interfacehandle.into_param().abi(), pipeid)
@@ -33,7 +33,7 @@ where
 #[inline]
 pub unsafe fn WinUsb_Free<P0>(interfacehandle: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<WINUSB_INTERFACE_HANDLE>,
+    P0: ::windows_core::IntoParam<WINUSB_INTERFACE_HANDLE>,
 {
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_Free(interfacehandle : WINUSB_INTERFACE_HANDLE) -> super::super::Foundation:: BOOL);
     WinUsb_Free(interfacehandle.into_param().abi())
@@ -50,7 +50,7 @@ pub unsafe fn WinUsb_GetAdjustedFrameNumber(currentframenumber: *mut u32, timest
 #[inline]
 pub unsafe fn WinUsb_GetAssociatedInterface<P0>(interfacehandle: P0, associatedinterfaceindex: u8, associatedinterfacehandle: *mut WINUSB_INTERFACE_HANDLE) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<WINUSB_INTERFACE_HANDLE>,
+    P0: ::windows_core::IntoParam<WINUSB_INTERFACE_HANDLE>,
 {
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_GetAssociatedInterface(interfacehandle : WINUSB_INTERFACE_HANDLE, associatedinterfaceindex : u8, associatedinterfacehandle : *mut WINUSB_INTERFACE_HANDLE) -> super::super::Foundation:: BOOL);
     WinUsb_GetAssociatedInterface(interfacehandle.into_param().abi(), associatedinterfaceindex, associatedinterfacehandle)
@@ -60,7 +60,7 @@ where
 #[inline]
 pub unsafe fn WinUsb_GetCurrentAlternateSetting<P0>(interfacehandle: P0, settingnumber: *mut u8) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<WINUSB_INTERFACE_HANDLE>,
+    P0: ::windows_core::IntoParam<WINUSB_INTERFACE_HANDLE>,
 {
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_GetCurrentAlternateSetting(interfacehandle : WINUSB_INTERFACE_HANDLE, settingnumber : *mut u8) -> super::super::Foundation:: BOOL);
     WinUsb_GetCurrentAlternateSetting(interfacehandle.into_param().abi(), settingnumber)
@@ -70,7 +70,7 @@ where
 #[inline]
 pub unsafe fn WinUsb_GetCurrentFrameNumber<P0>(interfacehandle: P0, currentframenumber: *mut u32, timestamp: *mut i64) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<WINUSB_INTERFACE_HANDLE>,
+    P0: ::windows_core::IntoParam<WINUSB_INTERFACE_HANDLE>,
 {
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_GetCurrentFrameNumber(interfacehandle : WINUSB_INTERFACE_HANDLE, currentframenumber : *mut u32, timestamp : *mut i64) -> super::super::Foundation:: BOOL);
     WinUsb_GetCurrentFrameNumber(interfacehandle.into_param().abi(), currentframenumber, timestamp)
@@ -80,7 +80,7 @@ where
 #[inline]
 pub unsafe fn WinUsb_GetCurrentFrameNumberAndQpc<P0>(interfacehandle: P0, frameqpcinfo: *const USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<WINUSB_INTERFACE_HANDLE>,
+    P0: ::windows_core::IntoParam<WINUSB_INTERFACE_HANDLE>,
 {
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_GetCurrentFrameNumberAndQpc(interfacehandle : WINUSB_INTERFACE_HANDLE, frameqpcinfo : *const USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION) -> super::super::Foundation:: BOOL);
     WinUsb_GetCurrentFrameNumberAndQpc(interfacehandle.into_param().abi(), frameqpcinfo)
@@ -90,7 +90,7 @@ where
 #[inline]
 pub unsafe fn WinUsb_GetDescriptor<P0>(interfacehandle: P0, descriptortype: u8, index: u8, languageid: u16, buffer: ::core::option::Option<&mut [u8]>, lengthtransferred: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<WINUSB_INTERFACE_HANDLE>,
+    P0: ::windows_core::IntoParam<WINUSB_INTERFACE_HANDLE>,
 {
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_GetDescriptor(interfacehandle : WINUSB_INTERFACE_HANDLE, descriptortype : u8, index : u8, languageid : u16, buffer : *mut u8, bufferlength : u32, lengthtransferred : *mut u32) -> super::super::Foundation:: BOOL);
     WinUsb_GetDescriptor(interfacehandle.into_param().abi(), descriptortype, index, languageid, ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), lengthtransferred)
@@ -100,8 +100,8 @@ where
 #[inline]
 pub unsafe fn WinUsb_GetOverlappedResult<P0, P1>(interfacehandle: P0, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpnumberofbytestransferred: *mut u32, bwait: P1) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<WINUSB_INTERFACE_HANDLE>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<WINUSB_INTERFACE_HANDLE>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_GetOverlappedResult(interfacehandle : WINUSB_INTERFACE_HANDLE, lpoverlapped : *const super::super::System::IO:: OVERLAPPED, lpnumberofbytestransferred : *mut u32, bwait : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     WinUsb_GetOverlappedResult(interfacehandle.into_param().abi(), lpoverlapped, lpnumberofbytestransferred, bwait.into_param().abi())
@@ -111,7 +111,7 @@ where
 #[inline]
 pub unsafe fn WinUsb_GetPipePolicy<P0>(interfacehandle: P0, pipeid: u8, policytype: WINUSB_PIPE_POLICY, valuelength: *mut u32, value: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<WINUSB_INTERFACE_HANDLE>,
+    P0: ::windows_core::IntoParam<WINUSB_INTERFACE_HANDLE>,
 {
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_GetPipePolicy(interfacehandle : WINUSB_INTERFACE_HANDLE, pipeid : u8, policytype : WINUSB_PIPE_POLICY, valuelength : *mut u32, value : *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     WinUsb_GetPipePolicy(interfacehandle.into_param().abi(), pipeid, policytype, valuelength, value)
@@ -121,7 +121,7 @@ where
 #[inline]
 pub unsafe fn WinUsb_GetPowerPolicy<P0>(interfacehandle: P0, policytype: WINUSB_POWER_POLICY, valuelength: *mut u32, value: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<WINUSB_INTERFACE_HANDLE>,
+    P0: ::windows_core::IntoParam<WINUSB_INTERFACE_HANDLE>,
 {
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_GetPowerPolicy(interfacehandle : WINUSB_INTERFACE_HANDLE, policytype : WINUSB_POWER_POLICY, valuelength : *mut u32, value : *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     WinUsb_GetPowerPolicy(interfacehandle.into_param().abi(), policytype, valuelength, value)
@@ -131,7 +131,7 @@ where
 #[inline]
 pub unsafe fn WinUsb_Initialize<P0>(devicehandle: P0, interfacehandle: *mut WINUSB_INTERFACE_HANDLE) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_Initialize(devicehandle : super::super::Foundation:: HANDLE, interfacehandle : *mut WINUSB_INTERFACE_HANDLE) -> super::super::Foundation:: BOOL);
     WinUsb_Initialize(devicehandle.into_param().abi(), interfacehandle)
@@ -153,7 +153,7 @@ pub unsafe fn WinUsb_ParseDescriptors(descriptorbuffer: *const ::core::ffi::c_vo
 #[inline]
 pub unsafe fn WinUsb_QueryDeviceInformation<P0>(interfacehandle: P0, informationtype: u32, bufferlength: *mut u32, buffer: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<WINUSB_INTERFACE_HANDLE>,
+    P0: ::windows_core::IntoParam<WINUSB_INTERFACE_HANDLE>,
 {
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_QueryDeviceInformation(interfacehandle : WINUSB_INTERFACE_HANDLE, informationtype : u32, bufferlength : *mut u32, buffer : *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     WinUsb_QueryDeviceInformation(interfacehandle.into_param().abi(), informationtype, bufferlength, buffer)
@@ -163,7 +163,7 @@ where
 #[inline]
 pub unsafe fn WinUsb_QueryInterfaceSettings<P0>(interfacehandle: P0, alternateinterfacenumber: u8, usbaltinterfacedescriptor: *mut USB_INTERFACE_DESCRIPTOR) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<WINUSB_INTERFACE_HANDLE>,
+    P0: ::windows_core::IntoParam<WINUSB_INTERFACE_HANDLE>,
 {
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_QueryInterfaceSettings(interfacehandle : WINUSB_INTERFACE_HANDLE, alternateinterfacenumber : u8, usbaltinterfacedescriptor : *mut USB_INTERFACE_DESCRIPTOR) -> super::super::Foundation:: BOOL);
     WinUsb_QueryInterfaceSettings(interfacehandle.into_param().abi(), alternateinterfacenumber, usbaltinterfacedescriptor)
@@ -173,7 +173,7 @@ where
 #[inline]
 pub unsafe fn WinUsb_QueryPipe<P0>(interfacehandle: P0, alternateinterfacenumber: u8, pipeindex: u8, pipeinformation: *mut WINUSB_PIPE_INFORMATION) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<WINUSB_INTERFACE_HANDLE>,
+    P0: ::windows_core::IntoParam<WINUSB_INTERFACE_HANDLE>,
 {
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_QueryPipe(interfacehandle : WINUSB_INTERFACE_HANDLE, alternateinterfacenumber : u8, pipeindex : u8, pipeinformation : *mut WINUSB_PIPE_INFORMATION) -> super::super::Foundation:: BOOL);
     WinUsb_QueryPipe(interfacehandle.into_param().abi(), alternateinterfacenumber, pipeindex, pipeinformation)
@@ -183,7 +183,7 @@ where
 #[inline]
 pub unsafe fn WinUsb_QueryPipeEx<P0>(interfacehandle: P0, alternatesettingnumber: u8, pipeindex: u8, pipeinformationex: *mut WINUSB_PIPE_INFORMATION_EX) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<WINUSB_INTERFACE_HANDLE>,
+    P0: ::windows_core::IntoParam<WINUSB_INTERFACE_HANDLE>,
 {
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_QueryPipeEx(interfacehandle : WINUSB_INTERFACE_HANDLE, alternatesettingnumber : u8, pipeindex : u8, pipeinformationex : *mut WINUSB_PIPE_INFORMATION_EX) -> super::super::Foundation:: BOOL);
     WinUsb_QueryPipeEx(interfacehandle.into_param().abi(), alternatesettingnumber, pipeindex, pipeinformationex)
@@ -200,7 +200,7 @@ pub unsafe fn WinUsb_ReadIsochPipe(bufferhandle: *const ::core::ffi::c_void, off
 #[inline]
 pub unsafe fn WinUsb_ReadIsochPipeAsap<P0>(bufferhandle: *const ::core::ffi::c_void, offset: u32, length: u32, continuestream: P0, isopacketdescriptors: &mut [USBD_ISO_PACKET_DESCRIPTOR], overlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_ReadIsochPipeAsap(bufferhandle : *const ::core::ffi::c_void, offset : u32, length : u32, continuestream : super::super::Foundation:: BOOL, numberofpackets : u32, isopacketdescriptors : *mut USBD_ISO_PACKET_DESCRIPTOR, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
     WinUsb_ReadIsochPipeAsap(bufferhandle, offset, length, continuestream.into_param().abi(), isopacketdescriptors.len() as _, ::core::mem::transmute(isopacketdescriptors.as_ptr()), ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null())))
@@ -210,7 +210,7 @@ where
 #[inline]
 pub unsafe fn WinUsb_ReadPipe<P0>(interfacehandle: P0, pipeid: u8, buffer: ::core::option::Option<&mut [u8]>, lengthtransferred: ::core::option::Option<*mut u32>, overlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<WINUSB_INTERFACE_HANDLE>,
+    P0: ::windows_core::IntoParam<WINUSB_INTERFACE_HANDLE>,
 {
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_ReadPipe(interfacehandle : WINUSB_INTERFACE_HANDLE, pipeid : u8, buffer : *mut u8, bufferlength : u32, lengthtransferred : *mut u32, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
     WinUsb_ReadPipe(interfacehandle.into_param().abi(), pipeid, ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lengthtransferred.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null())))
@@ -220,7 +220,7 @@ where
 #[inline]
 pub unsafe fn WinUsb_RegisterIsochBuffer<P0>(interfacehandle: P0, pipeid: u8, buffer: &mut [u8], isochbufferhandle: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<WINUSB_INTERFACE_HANDLE>,
+    P0: ::windows_core::IntoParam<WINUSB_INTERFACE_HANDLE>,
 {
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_RegisterIsochBuffer(interfacehandle : WINUSB_INTERFACE_HANDLE, pipeid : u8, buffer : *mut u8, bufferlength : u32, isochbufferhandle : *mut *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     WinUsb_RegisterIsochBuffer(interfacehandle.into_param().abi(), pipeid, ::core::mem::transmute(buffer.as_ptr()), buffer.len() as _, isochbufferhandle)
@@ -230,7 +230,7 @@ where
 #[inline]
 pub unsafe fn WinUsb_ResetPipe<P0>(interfacehandle: P0, pipeid: u8) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<WINUSB_INTERFACE_HANDLE>,
+    P0: ::windows_core::IntoParam<WINUSB_INTERFACE_HANDLE>,
 {
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_ResetPipe(interfacehandle : WINUSB_INTERFACE_HANDLE, pipeid : u8) -> super::super::Foundation:: BOOL);
     WinUsb_ResetPipe(interfacehandle.into_param().abi(), pipeid)
@@ -240,7 +240,7 @@ where
 #[inline]
 pub unsafe fn WinUsb_SetCurrentAlternateSetting<P0>(interfacehandle: P0, settingnumber: u8) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<WINUSB_INTERFACE_HANDLE>,
+    P0: ::windows_core::IntoParam<WINUSB_INTERFACE_HANDLE>,
 {
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_SetCurrentAlternateSetting(interfacehandle : WINUSB_INTERFACE_HANDLE, settingnumber : u8) -> super::super::Foundation:: BOOL);
     WinUsb_SetCurrentAlternateSetting(interfacehandle.into_param().abi(), settingnumber)
@@ -250,7 +250,7 @@ where
 #[inline]
 pub unsafe fn WinUsb_SetPipePolicy<P0>(interfacehandle: P0, pipeid: u8, policytype: WINUSB_PIPE_POLICY, valuelength: u32, value: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<WINUSB_INTERFACE_HANDLE>,
+    P0: ::windows_core::IntoParam<WINUSB_INTERFACE_HANDLE>,
 {
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_SetPipePolicy(interfacehandle : WINUSB_INTERFACE_HANDLE, pipeid : u8, policytype : WINUSB_PIPE_POLICY, valuelength : u32, value : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     WinUsb_SetPipePolicy(interfacehandle.into_param().abi(), pipeid, policytype, valuelength, value)
@@ -260,7 +260,7 @@ where
 #[inline]
 pub unsafe fn WinUsb_SetPowerPolicy<P0>(interfacehandle: P0, policytype: WINUSB_POWER_POLICY, valuelength: u32, value: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<WINUSB_INTERFACE_HANDLE>,
+    P0: ::windows_core::IntoParam<WINUSB_INTERFACE_HANDLE>,
 {
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_SetPowerPolicy(interfacehandle : WINUSB_INTERFACE_HANDLE, policytype : WINUSB_POWER_POLICY, valuelength : u32, value : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     WinUsb_SetPowerPolicy(interfacehandle.into_param().abi(), policytype, valuelength, value)
@@ -270,7 +270,7 @@ where
 #[inline]
 pub unsafe fn WinUsb_StartTrackingForTimeSync<P0>(interfacehandle: P0, starttrackinginfo: *const USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<WINUSB_INTERFACE_HANDLE>,
+    P0: ::windows_core::IntoParam<WINUSB_INTERFACE_HANDLE>,
 {
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_StartTrackingForTimeSync(interfacehandle : WINUSB_INTERFACE_HANDLE, starttrackinginfo : *const USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION) -> super::super::Foundation:: BOOL);
     WinUsb_StartTrackingForTimeSync(interfacehandle.into_param().abi(), starttrackinginfo)
@@ -280,7 +280,7 @@ where
 #[inline]
 pub unsafe fn WinUsb_StopTrackingForTimeSync<P0>(interfacehandle: P0, stoptrackinginfo: *const USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<WINUSB_INTERFACE_HANDLE>,
+    P0: ::windows_core::IntoParam<WINUSB_INTERFACE_HANDLE>,
 {
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_StopTrackingForTimeSync(interfacehandle : WINUSB_INTERFACE_HANDLE, stoptrackinginfo : *const USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION) -> super::super::Foundation:: BOOL);
     WinUsb_StopTrackingForTimeSync(interfacehandle.into_param().abi(), stoptrackinginfo)
@@ -304,7 +304,7 @@ pub unsafe fn WinUsb_WriteIsochPipe(bufferhandle: *const ::core::ffi::c_void, of
 #[inline]
 pub unsafe fn WinUsb_WriteIsochPipeAsap<P0>(bufferhandle: *const ::core::ffi::c_void, offset: u32, length: u32, continuestream: P0, overlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_WriteIsochPipeAsap(bufferhandle : *const ::core::ffi::c_void, offset : u32, length : u32, continuestream : super::super::Foundation:: BOOL, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
     WinUsb_WriteIsochPipeAsap(bufferhandle, offset, length, continuestream.into_param().abi(), ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null())))
@@ -314,7 +314,7 @@ where
 #[inline]
 pub unsafe fn WinUsb_WritePipe<P0>(interfacehandle: P0, pipeid: u8, buffer: &[u8], lengthtransferred: ::core::option::Option<*mut u32>, overlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<WINUSB_INTERFACE_HANDLE>,
+    P0: ::windows_core::IntoParam<WINUSB_INTERFACE_HANDLE>,
 {
     ::windows_targets::link!("winusb.dll" "system" fn WinUsb_WritePipe(interfacehandle : WINUSB_INTERFACE_HANDLE, pipeid : u8, buffer : *const u8, bufferlength : u32, lengthtransferred : *mut u32, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
     WinUsb_WritePipe(interfacehandle.into_param().abi(), pipeid, ::core::mem::transmute(buffer.as_ptr()), buffer.len() as _, ::core::mem::transmute(lengthtransferred.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null())))
@@ -348,31 +348,31 @@ pub const FILE_DEVICE_USB_SCAN: u32 = 32768u32;
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub const FullSpeed: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const GUID_DEVINTERFACE_USB_BILLBOARD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e9adaef_f879_473f_b807_4e5ea77d1b1c);
+pub const GUID_DEVINTERFACE_USB_BILLBOARD: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5e9adaef_f879_473f_b807_4e5ea77d1b1c);
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const GUID_DEVINTERFACE_USB_DEVICE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5dcbf10_6530_11d2_901f_00c04fb951ed);
+pub const GUID_DEVINTERFACE_USB_DEVICE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa5dcbf10_6530_11d2_901f_00c04fb951ed);
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const GUID_DEVINTERFACE_USB_HOST_CONTROLLER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3abf6f2d_71c4_462a_8a92_1e6861e6af27);
+pub const GUID_DEVINTERFACE_USB_HOST_CONTROLLER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3abf6f2d_71c4_462a_8a92_1e6861e6af27);
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const GUID_DEVINTERFACE_USB_HUB: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf18a0e88_c30c_11d0_8815_00a0c906bed8);
+pub const GUID_DEVINTERFACE_USB_HUB: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf18a0e88_c30c_11d0_8815_00a0c906bed8);
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const GUID_USB_MSOS20_PLATFORM_CAPABILITY_ID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8dd60df_4589_4cc7_9cd2_659d9e648a9f);
+pub const GUID_USB_MSOS20_PLATFORM_CAPABILITY_ID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd8dd60df_4589_4cc7_9cd2_659d9e648a9f);
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const GUID_USB_PERFORMANCE_TRACING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5de77a6_6ae9_425c_b1e2_f5615fd348a9);
+pub const GUID_USB_PERFORMANCE_TRACING: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd5de77a6_6ae9_425c_b1e2_f5615fd348a9);
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const GUID_USB_TRANSFER_TRACING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x681eb8aa_403d_452c_9f8a_f0616fac9540);
+pub const GUID_USB_TRANSFER_TRACING: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x681eb8aa_403d_452c_9f8a_f0616fac9540);
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const GUID_USB_WMI_DEVICE_PERF_INFO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66c1aa3c_499f_49a0_a9a5_61e2359f6407);
+pub const GUID_USB_WMI_DEVICE_PERF_INFO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x66c1aa3c_499f_49a0_a9a5_61e2359f6407);
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const GUID_USB_WMI_NODE_INFO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c179357_dc7a_4f41_b66b_323b9ddcb5b1);
+pub const GUID_USB_WMI_NODE_INFO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9c179357_dc7a_4f41_b66b_323b9ddcb5b1);
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const GUID_USB_WMI_STD_DATA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e623b20_cb14_11d1_b331_00a0c959bbd2);
+pub const GUID_USB_WMI_STD_DATA: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4e623b20_cb14_11d1_b331_00a0c959bbd2);
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const GUID_USB_WMI_STD_NOTIFICATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e623b20_cb14_11d1_b331_00a0c959bbd2);
+pub const GUID_USB_WMI_STD_NOTIFICATION: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4e623b20_cb14_11d1_b331_00a0c959bbd2);
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const GUID_USB_WMI_SURPRISE_REMOVAL_NOTIFICATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9bbbf831_a2f2_43b4_96d1_86944b5914b3);
+pub const GUID_USB_WMI_SURPRISE_REMOVAL_NOTIFICATION: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9bbbf831_a2f2_43b4_96d1_86944b5914b3);
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const GUID_USB_WMI_TRACING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a61881b_b4e6_4bf9_ae0f_3cd8f394e52f);
+pub const GUID_USB_WMI_TRACING: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3a61881b_b4e6_4bf9_ae0f_3cd8f394e52f);
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub const HCD_DIAGNOSTIC_MODE_OFF: u32 = 257u32;
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
@@ -568,9 +568,9 @@ pub const IOCTL_WAIT_ON_DEVICE_EVENT: u32 = 2147491848u32;
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub const IOCTL_WRITE_REGISTERS: u32 = 2147491856u32;
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const KREGMANUSBFNENUMPATH: ::windows::core::PCWSTR = ::windows::core::w!("\\Registry\\Machine\\SYSTEM\\CurrentControlSet\\Control\\ManufacturingMode\\Current\\USBFN\\");
+pub const KREGMANUSBFNENUMPATH: ::windows_core::PCWSTR = ::windows_core::w!("\\Registry\\Machine\\SYSTEM\\CurrentControlSet\\Control\\ManufacturingMode\\Current\\USBFN\\");
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const KREGUSBFNENUMPATH: ::windows::core::PCWSTR = ::windows::core::w!("\\Registry\\Machine\\SYSTEM\\CurrentControlSet\\Control\\USBFN\\");
+pub const KREGUSBFNENUMPATH: ::windows_core::PCWSTR = ::windows_core::w!("\\Registry\\Machine\\SYSTEM\\CurrentControlSet\\Control\\USBFN\\");
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub const LowSpeed: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
@@ -596,7 +596,7 @@ pub const MS_GENRE_DESCRIPTOR_INDEX: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub const MS_OS_FLAGS_CONTAINERID: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const MS_OS_STRING_SIGNATURE: ::windows::core::PCWSTR = ::windows::core::w!("MSFT100");
+pub const MS_OS_STRING_SIGNATURE: ::windows_core::PCWSTR = ::windows_core::w!("MSFT100");
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub const MS_POWER_DESCRIPTOR_INDEX: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
@@ -748,9 +748,9 @@ pub const URB_FUNCTION_VENDOR_OTHER: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub const URB_OPEN_STATIC_STREAMS_VERSION_100: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UREGMANUSBFNENUMPATH: ::windows::core::PCWSTR = ::windows::core::w!("HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\ManufacturingMode\\Current\\USBFN\\");
+pub const UREGMANUSBFNENUMPATH: ::windows_core::PCWSTR = ::windows_core::w!("HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\ManufacturingMode\\Current\\USBFN\\");
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UREGUSBFNENUMPATH: ::windows::core::PCWSTR = ::windows::core::w!("HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\USBFN\\");
+pub const UREGUSBFNENUMPATH: ::windows_core::PCWSTR = ::windows_core::w!("HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\USBFN\\");
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub const USBDI_VERSION: u32 = 1536u32;
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
@@ -1394,7 +1394,7 @@ pub const WMI_USB_PERFORMANCE_INFORMATION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub const WMI_USB_POWER_DEVICE_ENABLE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const WinUSB_TestGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda812bff_12c3_46a2_8e2b_dbd3b7834c43);
+pub const WinUSB_TestGuid: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xda812bff_12c3_46a2_8e2b_dbd3b7834c43);
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -1418,8 +1418,8 @@ impl ::core::default::Default for PIPE_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for PIPE_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PIPE_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for PIPE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1449,8 +1449,8 @@ impl ::core::default::Default for RAW_PIPE_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for RAW_PIPE_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RAW_PIPE_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for RAW_PIPE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1478,8 +1478,8 @@ impl ::core::default::Default for USBD_ENDPOINT_OFFLOAD_MODE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for USBD_ENDPOINT_OFFLOAD_MODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USBD_ENDPOINT_OFFLOAD_MODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for USBD_ENDPOINT_OFFLOAD_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1509,8 +1509,8 @@ impl ::core::default::Default for USBD_PIPE_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for USBD_PIPE_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USBD_PIPE_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for USBD_PIPE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1542,8 +1542,8 @@ impl ::core::default::Default for USBFN_BUS_SPEED {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for USBFN_BUS_SPEED {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USBFN_BUS_SPEED {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for USBFN_BUS_SPEED {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1581,8 +1581,8 @@ impl ::core::default::Default for USBFN_DEVICE_STATE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for USBFN_DEVICE_STATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USBFN_DEVICE_STATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for USBFN_DEVICE_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1616,8 +1616,8 @@ impl ::core::default::Default for USBFN_DIRECTION {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for USBFN_DIRECTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USBFN_DIRECTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for USBFN_DIRECTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1665,8 +1665,8 @@ impl ::core::default::Default for USBFN_EVENT {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for USBFN_EVENT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USBFN_EVENT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for USBFN_EVENT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1702,8 +1702,8 @@ impl ::core::default::Default for USBFN_PORT_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for USBFN_PORT_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USBFN_PORT_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for USBFN_PORT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1747,8 +1747,8 @@ impl ::core::default::Default for USB_CONNECTION_STATUS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for USB_CONNECTION_STATUS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_CONNECTION_STATUS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for USB_CONNECTION_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1824,8 +1824,8 @@ impl ::core::default::Default for USB_CONTROLLER_FLAVOR {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for USB_CONTROLLER_FLAVOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_CONTROLLER_FLAVOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for USB_CONTROLLER_FLAVOR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1855,8 +1855,8 @@ impl ::core::default::Default for USB_DEVICE_SPEED {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for USB_DEVICE_SPEED {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_DEVICE_SPEED {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for USB_DEVICE_SPEED {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1882,8 +1882,8 @@ impl ::core::default::Default for USB_DEVICE_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for USB_DEVICE_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_DEVICE_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for USB_DEVICE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1909,8 +1909,8 @@ impl ::core::default::Default for USB_HUB_NODE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for USB_HUB_NODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_HUB_NODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for USB_HUB_NODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1938,8 +1938,8 @@ impl ::core::default::Default for USB_HUB_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for USB_HUB_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_HUB_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for USB_HUB_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1985,8 +1985,8 @@ impl ::core::default::Default for USB_NOTIFICATION_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for USB_NOTIFICATION_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_NOTIFICATION_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for USB_NOTIFICATION_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2030,8 +2030,8 @@ impl ::core::default::Default for USB_USER_ERROR_CODE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for USB_USER_ERROR_CODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_USER_ERROR_CODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for USB_USER_ERROR_CODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2061,8 +2061,8 @@ impl ::core::default::Default for USB_WMI_DEVICE_NODE_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for USB_WMI_DEVICE_NODE_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_WMI_DEVICE_NODE_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for USB_WMI_DEVICE_NODE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2110,8 +2110,8 @@ impl ::core::default::Default for WDMUSB_POWER_STATE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WDMUSB_POWER_STATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WDMUSB_POWER_STATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WDMUSB_POWER_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2151,8 +2151,8 @@ impl ::core::default::Default for WINUSB_PIPE_POLICY {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WINUSB_PIPE_POLICY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WINUSB_PIPE_POLICY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WINUSB_PIPE_POLICY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2178,8 +2178,8 @@ impl ::core::default::Default for WINUSB_POWER_POLICY {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WINUSB_POWER_POLICY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WINUSB_POWER_POLICY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WINUSB_POWER_POLICY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2203,8 +2203,8 @@ impl ::core::fmt::Debug for ALTERNATE_INTERFACE {
         f.debug_struct("ALTERNATE_INTERFACE").field("InterfaceNumber", &self.InterfaceNumber).field("AlternateInterfaceNumber", &self.AlternateInterfaceNumber).finish()
     }
 }
-impl ::windows::core::TypeKind for ALTERNATE_INTERFACE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for ALTERNATE_INTERFACE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for ALTERNATE_INTERFACE {
     fn eq(&self, other: &Self) -> bool {
@@ -2229,8 +2229,8 @@ impl ::core::clone::Clone for BM_REQUEST_TYPE {
         *self
     }
 }
-impl ::windows::core::TypeKind for BM_REQUEST_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for BM_REQUEST_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for BM_REQUEST_TYPE {
     fn default() -> Self {
@@ -2253,8 +2253,8 @@ impl ::core::fmt::Debug for BM_REQUEST_TYPE_0 {
         f.debug_struct("BM_REQUEST_TYPE_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows::core::TypeKind for BM_REQUEST_TYPE_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for BM_REQUEST_TYPE_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for BM_REQUEST_TYPE_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -2285,8 +2285,8 @@ impl ::core::fmt::Debug for CHANNEL_INFO {
         f.debug_struct("CHANNEL_INFO").field("EventChannelSize", &self.EventChannelSize).field("uReadDataAlignment", &self.uReadDataAlignment).field("uWriteDataAlignment", &self.uWriteDataAlignment).finish()
     }
 }
-impl ::windows::core::TypeKind for CHANNEL_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CHANNEL_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for CHANNEL_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -2318,8 +2318,8 @@ impl ::core::fmt::Debug for DEVICE_DESCRIPTOR {
         f.debug_struct("DEVICE_DESCRIPTOR").field("usVendorId", &self.usVendorId).field("usProductId", &self.usProductId).field("usBcdDevice", &self.usBcdDevice).field("usLanguageId", &self.usLanguageId).finish()
     }
 }
-impl ::windows::core::TypeKind for DEVICE_DESCRIPTOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DEVICE_DESCRIPTOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DEVICE_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
@@ -2350,8 +2350,8 @@ impl ::core::fmt::Debug for DRV_VERSION {
         f.debug_struct("DRV_VERSION").field("major", &self.major).field("minor", &self.minor).field("internal", &self.internal).finish()
     }
 }
-impl ::windows::core::TypeKind for DRV_VERSION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DRV_VERSION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DRV_VERSION {
     fn eq(&self, other: &Self) -> bool {
@@ -2394,8 +2394,8 @@ impl ::core::clone::Clone for HCD_ISO_STAT_COUNTERS {
         *self
     }
 }
-impl ::windows::core::TypeKind for HCD_ISO_STAT_COUNTERS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HCD_ISO_STAT_COUNTERS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for HCD_ISO_STAT_COUNTERS {
     fn default() -> Self {
@@ -2423,8 +2423,8 @@ impl ::core::clone::Clone for HCD_STAT_COUNTERS {
         *self
     }
 }
-impl ::windows::core::TypeKind for HCD_STAT_COUNTERS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HCD_STAT_COUNTERS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for HCD_STAT_COUNTERS {
     fn default() -> Self {
@@ -2446,8 +2446,8 @@ impl ::core::clone::Clone for HCD_STAT_INFORMATION_1 {
         *self
     }
 }
-impl ::windows::core::TypeKind for HCD_STAT_INFORMATION_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HCD_STAT_INFORMATION_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for HCD_STAT_INFORMATION_1 {
     fn default() -> Self {
@@ -2471,8 +2471,8 @@ impl ::core::clone::Clone for HCD_STAT_INFORMATION_2 {
         *self
     }
 }
-impl ::windows::core::TypeKind for HCD_STAT_INFORMATION_2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HCD_STAT_INFORMATION_2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for HCD_STAT_INFORMATION_2 {
     fn default() -> Self {
@@ -2497,8 +2497,8 @@ impl ::core::clone::Clone for HUB_DEVICE_CONFIG_INFO {
         *self
     }
 }
-impl ::windows::core::TypeKind for HUB_DEVICE_CONFIG_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HUB_DEVICE_CONFIG_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for HUB_DEVICE_CONFIG_INFO {
     fn default() -> Self {
@@ -2524,8 +2524,8 @@ impl ::core::fmt::Debug for IO_BLOCK {
         f.debug_struct("IO_BLOCK").field("uOffset", &self.uOffset).field("uLength", &self.uLength).field("pbyData", &self.pbyData).field("uIndex", &self.uIndex).finish()
     }
 }
-impl ::windows::core::TypeKind for IO_BLOCK {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IO_BLOCK {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for IO_BLOCK {
     fn eq(&self, other: &Self) -> bool {
@@ -2560,8 +2560,8 @@ impl ::core::fmt::Debug for IO_BLOCK_EX {
         f.debug_struct("IO_BLOCK_EX").field("uOffset", &self.uOffset).field("uLength", &self.uLength).field("pbyData", &self.pbyData).field("uIndex", &self.uIndex).field("bRequest", &self.bRequest).field("bmRequestType", &self.bmRequestType).field("fTransferDirectionIn", &self.fTransferDirectionIn).finish()
     }
 }
-impl ::windows::core::TypeKind for IO_BLOCK_EX {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IO_BLOCK_EX {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for IO_BLOCK_EX {
     fn eq(&self, other: &Self) -> bool {
@@ -2589,8 +2589,8 @@ impl ::core::clone::Clone for OS_STRING {
         *self
     }
 }
-impl ::windows::core::TypeKind for OS_STRING {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for OS_STRING {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for OS_STRING {
     fn default() -> Self {
@@ -2609,8 +2609,8 @@ impl ::core::clone::Clone for OS_STRING_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for OS_STRING_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for OS_STRING_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for OS_STRING_0 {
     fn default() -> Self {
@@ -2639,8 +2639,8 @@ impl ::core::clone::Clone for PACKET_PARAMETERS {
         *self
     }
 }
-impl ::windows::core::TypeKind for PACKET_PARAMETERS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PACKET_PARAMETERS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for PACKET_PARAMETERS {
     fn default() -> Self {
@@ -2659,8 +2659,8 @@ impl ::core::clone::Clone for RAW_RESET_PORT_PARAMETERS {
         *self
     }
 }
-impl ::windows::core::TypeKind for RAW_RESET_PORT_PARAMETERS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RAW_RESET_PORT_PARAMETERS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for RAW_RESET_PORT_PARAMETERS {
     fn default() -> Self {
@@ -2680,8 +2680,8 @@ impl ::core::clone::Clone for RAW_ROOTPORT_FEATURE {
         *self
     }
 }
-impl ::windows::core::TypeKind for RAW_ROOTPORT_FEATURE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RAW_ROOTPORT_FEATURE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for RAW_ROOTPORT_FEATURE {
     fn default() -> Self {
@@ -2700,8 +2700,8 @@ impl ::core::clone::Clone for RAW_ROOTPORT_PARAMETERS {
         *self
     }
 }
-impl ::windows::core::TypeKind for RAW_ROOTPORT_PARAMETERS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RAW_ROOTPORT_PARAMETERS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for RAW_ROOTPORT_PARAMETERS {
     fn default() -> Self {
@@ -2719,8 +2719,8 @@ impl ::core::clone::Clone for URB {
         *self
     }
 }
-impl ::windows::core::TypeKind for URB {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for URB {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for URB {
     fn default() -> Self {
@@ -2758,8 +2758,8 @@ impl ::core::clone::Clone for URB_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for URB_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for URB_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for URB_0 {
     fn default() -> Self {
@@ -2779,8 +2779,8 @@ impl ::core::clone::Clone for USBD_DEVICE_INFORMATION {
         *self
     }
 }
-impl ::windows::core::TypeKind for USBD_DEVICE_INFORMATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USBD_DEVICE_INFORMATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USBD_DEVICE_INFORMATION {
     fn default() -> Self {
@@ -2812,8 +2812,8 @@ impl ::core::clone::Clone for USBD_ENDPOINT_OFFLOAD_INFORMATION {
         *self
     }
 }
-impl ::windows::core::TypeKind for USBD_ENDPOINT_OFFLOAD_INFORMATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USBD_ENDPOINT_OFFLOAD_INFORMATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USBD_ENDPOINT_OFFLOAD_INFORMATION {
     fn default() -> Self {
@@ -2845,8 +2845,8 @@ impl ::core::fmt::Debug for USBD_INTERFACE_INFORMATION {
         f.debug_struct("USBD_INTERFACE_INFORMATION").field("Length", &self.Length).field("InterfaceNumber", &self.InterfaceNumber).field("AlternateSetting", &self.AlternateSetting).field("Class", &self.Class).field("SubClass", &self.SubClass).field("Protocol", &self.Protocol).field("Reserved", &self.Reserved).field("InterfaceHandle", &self.InterfaceHandle).field("NumberOfPipes", &self.NumberOfPipes).field("Pipes", &self.Pipes).finish()
     }
 }
-impl ::windows::core::TypeKind for USBD_INTERFACE_INFORMATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USBD_INTERFACE_INFORMATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for USBD_INTERFACE_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -2877,8 +2877,8 @@ impl ::core::fmt::Debug for USBD_ISO_PACKET_DESCRIPTOR {
         f.debug_struct("USBD_ISO_PACKET_DESCRIPTOR").field("Offset", &self.Offset).field("Length", &self.Length).field("Status", &self.Status).finish()
     }
 }
-impl ::windows::core::TypeKind for USBD_ISO_PACKET_DESCRIPTOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USBD_ISO_PACKET_DESCRIPTOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for USBD_ISO_PACKET_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
@@ -2913,8 +2913,8 @@ impl ::core::fmt::Debug for USBD_PIPE_INFORMATION {
         f.debug_struct("USBD_PIPE_INFORMATION").field("MaximumPacketSize", &self.MaximumPacketSize).field("EndpointAddress", &self.EndpointAddress).field("Interval", &self.Interval).field("PipeType", &self.PipeType).field("PipeHandle", &self.PipeHandle).field("MaximumTransferSize", &self.MaximumTransferSize).field("PipeFlags", &self.PipeFlags).finish()
     }
 }
-impl ::windows::core::TypeKind for USBD_PIPE_INFORMATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USBD_PIPE_INFORMATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for USBD_PIPE_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -2946,8 +2946,8 @@ impl ::core::fmt::Debug for USBD_STREAM_INFORMATION {
         f.debug_struct("USBD_STREAM_INFORMATION").field("PipeHandle", &self.PipeHandle).field("StreamID", &self.StreamID).field("MaximumTransferSize", &self.MaximumTransferSize).field("PipeFlags", &self.PipeFlags).finish()
     }
 }
-impl ::windows::core::TypeKind for USBD_STREAM_INFORMATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USBD_STREAM_INFORMATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for USBD_STREAM_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -2977,8 +2977,8 @@ impl ::core::fmt::Debug for USBD_VERSION_INFORMATION {
         f.debug_struct("USBD_VERSION_INFORMATION").field("USBDI_Version", &self.USBDI_Version).field("Supported_USB_Version", &self.Supported_USB_Version).finish()
     }
 }
-impl ::windows::core::TypeKind for USBD_VERSION_INFORMATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USBD_VERSION_INFORMATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for USBD_VERSION_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -3014,8 +3014,8 @@ impl ::core::fmt::Debug for USBFN_BUS_CONFIGURATION_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for USBFN_BUS_CONFIGURATION_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USBFN_BUS_CONFIGURATION_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for USBFN_BUS_CONFIGURATION_INFO {
@@ -3051,8 +3051,8 @@ impl ::core::clone::Clone for USBFN_CLASS_INFORMATION_PACKET {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for USBFN_CLASS_INFORMATION_PACKET {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USBFN_CLASS_INFORMATION_PACKET {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for USBFN_CLASS_INFORMATION_PACKET {
@@ -3080,8 +3080,8 @@ impl ::core::clone::Clone for USBFN_CLASS_INFORMATION_PACKET_EX {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for USBFN_CLASS_INFORMATION_PACKET_EX {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USBFN_CLASS_INFORMATION_PACKET_EX {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for USBFN_CLASS_INFORMATION_PACKET_EX {
@@ -3102,8 +3102,8 @@ impl ::core::clone::Clone for USBFN_CLASS_INTERFACE {
         *self
     }
 }
-impl ::windows::core::TypeKind for USBFN_CLASS_INTERFACE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USBFN_CLASS_INTERFACE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USBFN_CLASS_INTERFACE {
     fn default() -> Self {
@@ -3124,8 +3124,8 @@ impl ::core::clone::Clone for USBFN_CLASS_INTERFACE_EX {
         *self
     }
 }
-impl ::windows::core::TypeKind for USBFN_CLASS_INTERFACE_EX {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USBFN_CLASS_INTERFACE_EX {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USBFN_CLASS_INTERFACE_EX {
     fn default() -> Self {
@@ -3151,8 +3151,8 @@ impl ::core::fmt::Debug for USBFN_INTERFACE_INFO {
         f.debug_struct("USBFN_INTERFACE_INFO").field("InterfaceNumber", &self.InterfaceNumber).field("Speed", &self.Speed).field("Size", &self.Size).field("InterfaceDescriptorSet", &self.InterfaceDescriptorSet).finish()
     }
 }
-impl ::windows::core::TypeKind for USBFN_INTERFACE_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USBFN_INTERFACE_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for USBFN_INTERFACE_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -3177,8 +3177,8 @@ impl ::core::clone::Clone for USBFN_NOTIFICATION {
         *self
     }
 }
-impl ::windows::core::TypeKind for USBFN_NOTIFICATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USBFN_NOTIFICATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USBFN_NOTIFICATION {
     fn default() -> Self {
@@ -3200,8 +3200,8 @@ impl ::core::clone::Clone for USBFN_NOTIFICATION_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for USBFN_NOTIFICATION_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USBFN_NOTIFICATION_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USBFN_NOTIFICATION_0 {
     fn default() -> Self {
@@ -3220,8 +3220,8 @@ impl ::core::clone::Clone for USBFN_PIPE_INFORMATION {
         *self
     }
 }
-impl ::windows::core::TypeKind for USBFN_PIPE_INFORMATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USBFN_PIPE_INFORMATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USBFN_PIPE_INFORMATION {
     fn default() -> Self {
@@ -3245,8 +3245,8 @@ impl ::core::fmt::Debug for USBFN_USB_STRING {
         f.debug_struct("USBFN_USB_STRING").field("StringIndex", &self.StringIndex).field("UsbString", &self.UsbString).finish()
     }
 }
-impl ::windows::core::TypeKind for USBFN_USB_STRING {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USBFN_USB_STRING {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for USBFN_USB_STRING {
     fn eq(&self, other: &Self) -> bool {
@@ -3277,8 +3277,8 @@ impl ::core::fmt::Debug for USBSCAN_GET_DESCRIPTOR {
         f.debug_struct("USBSCAN_GET_DESCRIPTOR").field("DescriptorType", &self.DescriptorType).field("Index", &self.Index).field("LanguageId", &self.LanguageId).finish()
     }
 }
-impl ::windows::core::TypeKind for USBSCAN_GET_DESCRIPTOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USBSCAN_GET_DESCRIPTOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for USBSCAN_GET_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
@@ -3308,8 +3308,8 @@ impl ::core::fmt::Debug for USBSCAN_PIPE_CONFIGURATION {
         f.debug_struct("USBSCAN_PIPE_CONFIGURATION").field("NumberOfPipes", &self.NumberOfPipes).field("PipeInfo", &self.PipeInfo).finish()
     }
 }
-impl ::windows::core::TypeKind for USBSCAN_PIPE_CONFIGURATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USBSCAN_PIPE_CONFIGURATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for USBSCAN_PIPE_CONFIGURATION {
     fn eq(&self, other: &Self) -> bool {
@@ -3341,8 +3341,8 @@ impl ::core::fmt::Debug for USBSCAN_PIPE_INFORMATION {
         f.debug_struct("USBSCAN_PIPE_INFORMATION").field("MaximumPacketSize", &self.MaximumPacketSize).field("EndpointAddress", &self.EndpointAddress).field("Interval", &self.Interval).field("PipeType", &self.PipeType).finish()
     }
 }
-impl ::windows::core::TypeKind for USBSCAN_PIPE_INFORMATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USBSCAN_PIPE_INFORMATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for USBSCAN_PIPE_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -3373,8 +3373,8 @@ impl ::core::fmt::Debug for USBSCAN_TIMEOUT {
         f.debug_struct("USBSCAN_TIMEOUT").field("TimeoutRead", &self.TimeoutRead).field("TimeoutWrite", &self.TimeoutWrite).field("TimeoutEvent", &self.TimeoutEvent).finish()
     }
 }
-impl ::windows::core::TypeKind for USBSCAN_TIMEOUT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USBSCAN_TIMEOUT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for USBSCAN_TIMEOUT {
     fn eq(&self, other: &Self) -> bool {
@@ -3399,8 +3399,8 @@ impl ::core::clone::Clone for USBUSER_BANDWIDTH_INFO_REQUEST {
         *self
     }
 }
-impl ::windows::core::TypeKind for USBUSER_BANDWIDTH_INFO_REQUEST {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USBUSER_BANDWIDTH_INFO_REQUEST {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USBUSER_BANDWIDTH_INFO_REQUEST {
     fn default() -> Self {
@@ -3423,8 +3423,8 @@ impl ::core::clone::Clone for USBUSER_BUS_STATISTICS_0_REQUEST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for USBUSER_BUS_STATISTICS_0_REQUEST {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USBUSER_BUS_STATISTICS_0_REQUEST {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for USBUSER_BUS_STATISTICS_0_REQUEST {
@@ -3444,8 +3444,8 @@ impl ::core::clone::Clone for USBUSER_CLOSE_RAW_DEVICE {
         *self
     }
 }
-impl ::windows::core::TypeKind for USBUSER_CLOSE_RAW_DEVICE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USBUSER_CLOSE_RAW_DEVICE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USBUSER_CLOSE_RAW_DEVICE {
     fn default() -> Self {
@@ -3464,8 +3464,8 @@ impl ::core::clone::Clone for USBUSER_CONTROLLER_INFO_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for USBUSER_CONTROLLER_INFO_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USBUSER_CONTROLLER_INFO_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USBUSER_CONTROLLER_INFO_0 {
     fn default() -> Self {
@@ -3484,8 +3484,8 @@ impl ::core::clone::Clone for USBUSER_CONTROLLER_UNICODE_NAME {
         *self
     }
 }
-impl ::windows::core::TypeKind for USBUSER_CONTROLLER_UNICODE_NAME {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USBUSER_CONTROLLER_UNICODE_NAME {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USBUSER_CONTROLLER_UNICODE_NAME {
     fn default() -> Self {
@@ -3508,8 +3508,8 @@ impl ::core::clone::Clone for USBUSER_GET_DRIVER_VERSION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for USBUSER_GET_DRIVER_VERSION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USBUSER_GET_DRIVER_VERSION {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for USBUSER_GET_DRIVER_VERSION {
@@ -3529,8 +3529,8 @@ impl ::core::clone::Clone for USBUSER_GET_USB2HW_VERSION {
         *self
     }
 }
-impl ::windows::core::TypeKind for USBUSER_GET_USB2HW_VERSION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USBUSER_GET_USB2HW_VERSION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USBUSER_GET_USB2HW_VERSION {
     fn default() -> Self {
@@ -3549,8 +3549,8 @@ impl ::core::clone::Clone for USBUSER_OPEN_RAW_DEVICE {
         *self
     }
 }
-impl ::windows::core::TypeKind for USBUSER_OPEN_RAW_DEVICE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USBUSER_OPEN_RAW_DEVICE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USBUSER_OPEN_RAW_DEVICE {
     fn default() -> Self {
@@ -3569,8 +3569,8 @@ impl ::core::clone::Clone for USBUSER_PASS_THRU_REQUEST {
         *self
     }
 }
-impl ::windows::core::TypeKind for USBUSER_PASS_THRU_REQUEST {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USBUSER_PASS_THRU_REQUEST {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USBUSER_PASS_THRU_REQUEST {
     fn default() -> Self {
@@ -3593,8 +3593,8 @@ impl ::core::clone::Clone for USBUSER_POWER_INFO_REQUEST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for USBUSER_POWER_INFO_REQUEST {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USBUSER_POWER_INFO_REQUEST {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for USBUSER_POWER_INFO_REQUEST {
@@ -3614,8 +3614,8 @@ impl ::core::clone::Clone for USBUSER_RAW_RESET_ROOT_PORT {
         *self
     }
 }
-impl ::windows::core::TypeKind for USBUSER_RAW_RESET_ROOT_PORT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USBUSER_RAW_RESET_ROOT_PORT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USBUSER_RAW_RESET_ROOT_PORT {
     fn default() -> Self {
@@ -3634,8 +3634,8 @@ impl ::core::clone::Clone for USBUSER_REFRESH_HCT_REG {
         *self
     }
 }
-impl ::windows::core::TypeKind for USBUSER_REFRESH_HCT_REG {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USBUSER_REFRESH_HCT_REG {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USBUSER_REFRESH_HCT_REG {
     fn default() -> Self {
@@ -3656,8 +3656,8 @@ impl ::core::clone::Clone for USBUSER_REQUEST_HEADER {
         *self
     }
 }
-impl ::windows::core::TypeKind for USBUSER_REQUEST_HEADER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USBUSER_REQUEST_HEADER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USBUSER_REQUEST_HEADER {
     fn default() -> Self {
@@ -3676,8 +3676,8 @@ impl ::core::clone::Clone for USBUSER_ROOTPORT_FEATURE_REQUEST {
         *self
     }
 }
-impl ::windows::core::TypeKind for USBUSER_ROOTPORT_FEATURE_REQUEST {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USBUSER_ROOTPORT_FEATURE_REQUEST {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USBUSER_ROOTPORT_FEATURE_REQUEST {
     fn default() -> Self {
@@ -3696,8 +3696,8 @@ impl ::core::clone::Clone for USBUSER_ROOTPORT_PARAMETERS {
         *self
     }
 }
-impl ::windows::core::TypeKind for USBUSER_ROOTPORT_PARAMETERS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USBUSER_ROOTPORT_PARAMETERS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USBUSER_ROOTPORT_PARAMETERS {
     fn default() -> Self {
@@ -3716,8 +3716,8 @@ impl ::core::clone::Clone for USBUSER_SEND_ONE_PACKET {
         *self
     }
 }
-impl ::windows::core::TypeKind for USBUSER_SEND_ONE_PACKET {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USBUSER_SEND_ONE_PACKET {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USBUSER_SEND_ONE_PACKET {
     fn default() -> Self {
@@ -3736,8 +3736,8 @@ impl ::core::clone::Clone for USBUSER_SEND_RAW_COMMAND {
         *self
     }
 }
-impl ::windows::core::TypeKind for USBUSER_SEND_RAW_COMMAND {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USBUSER_SEND_RAW_COMMAND {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USBUSER_SEND_RAW_COMMAND {
     fn default() -> Self {
@@ -3756,8 +3756,8 @@ impl ::core::clone::Clone for USB_20_PORT_CHANGE {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_20_PORT_CHANGE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_20_PORT_CHANGE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_20_PORT_CHANGE {
     fn default() -> Self {
@@ -3775,8 +3775,8 @@ impl ::core::clone::Clone for USB_20_PORT_CHANGE_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_20_PORT_CHANGE_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_20_PORT_CHANGE_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_20_PORT_CHANGE_0 {
     fn default() -> Self {
@@ -3795,8 +3795,8 @@ impl ::core::clone::Clone for USB_20_PORT_STATUS {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_20_PORT_STATUS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_20_PORT_STATUS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_20_PORT_STATUS {
     fn default() -> Self {
@@ -3814,8 +3814,8 @@ impl ::core::clone::Clone for USB_20_PORT_STATUS_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_20_PORT_STATUS_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_20_PORT_STATUS_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_20_PORT_STATUS_0 {
     fn default() -> Self {
@@ -3841,8 +3841,8 @@ impl ::core::clone::Clone for USB_30_HUB_DESCRIPTOR {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_30_HUB_DESCRIPTOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_30_HUB_DESCRIPTOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_30_HUB_DESCRIPTOR {
     fn default() -> Self {
@@ -3861,8 +3861,8 @@ impl ::core::clone::Clone for USB_30_PORT_CHANGE {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_30_PORT_CHANGE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_30_PORT_CHANGE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_30_PORT_CHANGE {
     fn default() -> Self {
@@ -3880,8 +3880,8 @@ impl ::core::clone::Clone for USB_30_PORT_CHANGE_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_30_PORT_CHANGE_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_30_PORT_CHANGE_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_30_PORT_CHANGE_0 {
     fn default() -> Self {
@@ -3900,8 +3900,8 @@ impl ::core::clone::Clone for USB_30_PORT_STATUS {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_30_PORT_STATUS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_30_PORT_STATUS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_30_PORT_STATUS {
     fn default() -> Self {
@@ -3919,8 +3919,8 @@ impl ::core::clone::Clone for USB_30_PORT_STATUS_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_30_PORT_STATUS_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_30_PORT_STATUS_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_30_PORT_STATUS_0 {
     fn default() -> Self {
@@ -3940,8 +3940,8 @@ impl ::core::clone::Clone for USB_ACQUIRE_INFO {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_ACQUIRE_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_ACQUIRE_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_ACQUIRE_INFO {
     fn default() -> Self {
@@ -3969,8 +3969,8 @@ impl ::core::clone::Clone for USB_BANDWIDTH_INFO {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_BANDWIDTH_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_BANDWIDTH_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_BANDWIDTH_INFO {
     fn default() -> Self {
@@ -3991,8 +3991,8 @@ impl ::core::clone::Clone for USB_BOS_DESCRIPTOR {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_BOS_DESCRIPTOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_BOS_DESCRIPTOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_BOS_DESCRIPTOR {
     fn default() -> Self {
@@ -4013,8 +4013,8 @@ impl ::core::clone::Clone for USB_BUS_NOTIFICATION {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_BUS_NOTIFICATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_BUS_NOTIFICATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_BUS_NOTIFICATION {
     fn default() -> Self {
@@ -4051,8 +4051,8 @@ impl ::core::clone::Clone for USB_BUS_STATISTICS_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for USB_BUS_STATISTICS_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_BUS_STATISTICS_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for USB_BUS_STATISTICS_0 {
@@ -4079,8 +4079,8 @@ impl ::core::fmt::Debug for USB_CHANGE_REGISTRATION_HANDLE {
         f.debug_tuple("USB_CHANGE_REGISTRATION_HANDLE").field(&self.0).finish()
     }
 }
-impl ::windows::core::TypeKind for USB_CHANGE_REGISTRATION_HANDLE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_CHANGE_REGISTRATION_HANDLE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
@@ -4093,8 +4093,8 @@ impl ::core::clone::Clone for USB_CLOSE_RAW_DEVICE_PARAMETERS {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_CLOSE_RAW_DEVICE_PARAMETERS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_CLOSE_RAW_DEVICE_PARAMETERS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_CLOSE_RAW_DEVICE_PARAMETERS {
     fn default() -> Self {
@@ -4118,8 +4118,8 @@ impl ::core::fmt::Debug for USB_COMMON_DESCRIPTOR {
         f.debug_struct("USB_COMMON_DESCRIPTOR").field("bLength", &self.bLength).field("bDescriptorType", &self.bDescriptorType).finish()
     }
 }
-impl ::windows::core::TypeKind for USB_COMMON_DESCRIPTOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_COMMON_DESCRIPTOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for USB_COMMON_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
@@ -4151,8 +4151,8 @@ impl ::core::clone::Clone for USB_COMPOSITE_DEVICE_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for USB_COMPOSITE_DEVICE_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_COMPOSITE_DEVICE_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for USB_COMPOSITE_DEVICE_INFO {
@@ -4184,8 +4184,8 @@ impl ::core::fmt::Debug for USB_COMPOSITE_FUNCTION_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for USB_COMPOSITE_FUNCTION_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_COMPOSITE_FUNCTION_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for USB_COMPOSITE_FUNCTION_INFO {
@@ -4219,8 +4219,8 @@ impl ::core::clone::Clone for USB_CONFIGURATION_DESCRIPTOR {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_CONFIGURATION_DESCRIPTOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_CONFIGURATION_DESCRIPTOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_CONFIGURATION_DESCRIPTOR {
     fn default() -> Self {
@@ -4250,8 +4250,8 @@ impl ::core::clone::Clone for USB_CONFIGURATION_POWER_DESCRIPTOR {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_CONFIGURATION_POWER_DESCRIPTOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_CONFIGURATION_POWER_DESCRIPTOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_CONFIGURATION_POWER_DESCRIPTOR {
     fn default() -> Self {
@@ -4274,8 +4274,8 @@ impl ::core::clone::Clone for USB_CONNECTION_NOTIFICATION {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_CONNECTION_NOTIFICATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_CONNECTION_NOTIFICATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_CONNECTION_NOTIFICATION {
     fn default() -> Self {
@@ -4297,8 +4297,8 @@ impl ::core::clone::Clone for USB_CONTROLLER_DEVICE_INFO {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_CONTROLLER_DEVICE_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_CONTROLLER_DEVICE_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_CONTROLLER_DEVICE_INFO {
     fn default() -> Self {
@@ -4321,8 +4321,8 @@ impl ::core::clone::Clone for USB_CONTROLLER_INFO_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_CONTROLLER_INFO_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_CONTROLLER_INFO_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_CONTROLLER_INFO_0 {
     fn default() -> Self {
@@ -4341,8 +4341,8 @@ impl ::core::clone::Clone for USB_CYCLE_PORT_PARAMS {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_CYCLE_PORT_PARAMS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_CYCLE_PORT_PARAMS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_CYCLE_PORT_PARAMS {
     fn default() -> Self {
@@ -4364,8 +4364,8 @@ impl ::core::clone::Clone for USB_DEFAULT_PIPE_SETUP_PACKET {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_DEFAULT_PIPE_SETUP_PACKET {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_DEFAULT_PIPE_SETUP_PACKET {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_DEFAULT_PIPE_SETUP_PACKET {
     fn default() -> Self {
@@ -4384,8 +4384,8 @@ impl ::core::clone::Clone for USB_DEFAULT_PIPE_SETUP_PACKET_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_DEFAULT_PIPE_SETUP_PACKET_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_DEFAULT_PIPE_SETUP_PACKET_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_DEFAULT_PIPE_SETUP_PACKET_0 {
     fn default() -> Self {
@@ -4409,8 +4409,8 @@ impl ::core::fmt::Debug for USB_DEFAULT_PIPE_SETUP_PACKET_0_0 {
         f.debug_struct("USB_DEFAULT_PIPE_SETUP_PACKET_0_0").field("LowByte", &self.LowByte).field("HiByte", &self.HiByte).finish()
     }
 }
-impl ::windows::core::TypeKind for USB_DEFAULT_PIPE_SETUP_PACKET_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_DEFAULT_PIPE_SETUP_PACKET_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for USB_DEFAULT_PIPE_SETUP_PACKET_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -4435,8 +4435,8 @@ impl ::core::clone::Clone for USB_DEFAULT_PIPE_SETUP_PACKET_1 {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_DEFAULT_PIPE_SETUP_PACKET_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_DEFAULT_PIPE_SETUP_PACKET_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_DEFAULT_PIPE_SETUP_PACKET_1 {
     fn default() -> Self {
@@ -4460,8 +4460,8 @@ impl ::core::fmt::Debug for USB_DEFAULT_PIPE_SETUP_PACKET_1_0 {
         f.debug_struct("USB_DEFAULT_PIPE_SETUP_PACKET_1_0").field("LowByte", &self.LowByte).field("HiByte", &self.HiByte).finish()
     }
 }
-impl ::windows::core::TypeKind for USB_DEFAULT_PIPE_SETUP_PACKET_1_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_DEFAULT_PIPE_SETUP_PACKET_1_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for USB_DEFAULT_PIPE_SETUP_PACKET_1_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -4487,8 +4487,8 @@ impl ::core::clone::Clone for USB_DESCRIPTOR_REQUEST {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_DESCRIPTOR_REQUEST {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_DESCRIPTOR_REQUEST {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_DESCRIPTOR_REQUEST {
     fn default() -> Self {
@@ -4510,8 +4510,8 @@ impl ::core::clone::Clone for USB_DESCRIPTOR_REQUEST_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_DESCRIPTOR_REQUEST_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_DESCRIPTOR_REQUEST_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_DESCRIPTOR_REQUEST_0 {
     fn default() -> Self {
@@ -4538,8 +4538,8 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR {
     fn default() -> Self {
@@ -4559,8 +4559,8 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0 {
     fn default() -> Self {
@@ -4579,8 +4579,8 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1 {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1 {
     fn default() -> Self {
@@ -4598,8 +4598,8 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1_0 {
     fn default() -> Self {
@@ -4626,8 +4626,8 @@ impl ::core::fmt::Debug for USB_DEVICE_CAPABILITY_CONTAINER_ID_DESCRIPTOR {
         f.debug_struct("USB_DEVICE_CAPABILITY_CONTAINER_ID_DESCRIPTOR").field("bLength", &self.bLength).field("bDescriptorType", &self.bDescriptorType).field("bDevCapabilityType", &self.bDevCapabilityType).field("bReserved", &self.bReserved).field("ContainerID", &self.ContainerID).finish()
     }
 }
-impl ::windows::core::TypeKind for USB_DEVICE_CAPABILITY_CONTAINER_ID_DESCRIPTOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_DEVICE_CAPABILITY_CONTAINER_ID_DESCRIPTOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_CONTAINER_ID_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
@@ -4658,8 +4658,8 @@ impl ::core::fmt::Debug for USB_DEVICE_CAPABILITY_DESCRIPTOR {
         f.debug_struct("USB_DEVICE_CAPABILITY_DESCRIPTOR").field("bLength", &self.bLength).field("bDescriptorType", &self.bDescriptorType).field("bDevCapabilityType", &self.bDevCapabilityType).finish()
     }
 }
-impl ::windows::core::TypeKind for USB_DEVICE_CAPABILITY_DESCRIPTOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_DEVICE_CAPABILITY_DESCRIPTOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for USB_DEVICE_CAPABILITY_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
@@ -4687,8 +4687,8 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR {
     fn default() -> Self {
@@ -4707,8 +4707,8 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0 {
     fn default() -> Self {
@@ -4726,8 +4726,8 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0_0 {
     fn default() -> Self {
@@ -4755,8 +4755,8 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR 
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR {
     fn default() -> Self {
@@ -4775,8 +4775,8 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0 {
     fn default() -> Self {
@@ -4794,8 +4794,8 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0_0 {
     fn default() -> Self {
@@ -4809,7 +4809,7 @@ pub struct USB_DEVICE_CAPABILITY_PLATFORM_DESCRIPTOR {
     pub bDescriptorType: u8,
     pub bDevCapabilityType: u8,
     pub bReserved: u8,
-    pub PlatformCapabilityUuid: ::windows::core::GUID,
+    pub PlatformCapabilityUuid: ::windows_core::GUID,
     pub CapabililityData: [u8; 1],
 }
 impl ::core::marker::Copy for USB_DEVICE_CAPABILITY_PLATFORM_DESCRIPTOR {}
@@ -4818,8 +4818,8 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_PLATFORM_DESCRIPTOR {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_DEVICE_CAPABILITY_PLATFORM_DESCRIPTOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_DEVICE_CAPABILITY_PLATFORM_DESCRIPTOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_DEVICE_CAPABILITY_PLATFORM_DESCRIPTOR {
     fn default() -> Self {
@@ -4846,8 +4846,8 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR {
     fn default() -> Self {
@@ -4866,8 +4866,8 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0 
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0 {
     fn default() -> Self {
@@ -4885,8 +4885,8 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0_
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0_0 {
     fn default() -> Self {
@@ -4905,8 +4905,8 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED {
     fn default() -> Self {
@@ -4924,8 +4924,8 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_0 {
     fn default() -> Self {
@@ -4950,8 +4950,8 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTO
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR {
     fn default() -> Self {
@@ -4970,8 +4970,8 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTO
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_0 {
     fn default() -> Self {
@@ -4989,8 +4989,8 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTO
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_0_0 {
     fn default() -> Self {
@@ -5009,8 +5009,8 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTO
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1 {
     fn default() -> Self {
@@ -5028,8 +5028,8 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTO
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1_0 {
     fn default() -> Self {
@@ -5054,8 +5054,8 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_SUPERSPEED_USB_DESCRIPTOR {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_DEVICE_CAPABILITY_SUPERSPEED_USB_DESCRIPTOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_DEVICE_CAPABILITY_SUPERSPEED_USB_DESCRIPTOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_DEVICE_CAPABILITY_SUPERSPEED_USB_DESCRIPTOR {
     fn default() -> Self {
@@ -5076,8 +5076,8 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR {
     fn default() -> Self {
@@ -5096,8 +5096,8 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0 {
     fn default() -> Self {
@@ -5115,8 +5115,8 @@ impl ::core::clone::Clone for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0_0 {
     fn default() -> Self {
@@ -5138,8 +5138,8 @@ impl ::core::clone::Clone for USB_DEVICE_CHARACTERISTICS {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_DEVICE_CHARACTERISTICS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_DEVICE_CHARACTERISTICS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_DEVICE_CHARACTERISTICS {
     fn default() -> Self {
@@ -5170,8 +5170,8 @@ impl ::core::clone::Clone for USB_DEVICE_DESCRIPTOR {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_DEVICE_DESCRIPTOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_DEVICE_DESCRIPTOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_DEVICE_DESCRIPTOR {
     fn default() -> Self {
@@ -5202,8 +5202,8 @@ impl ::core::clone::Clone for USB_DEVICE_INFO {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_DEVICE_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_DEVICE_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_DEVICE_INFO {
     fn default() -> Self {
@@ -5230,8 +5230,8 @@ impl ::core::clone::Clone for USB_DEVICE_NODE_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for USB_DEVICE_NODE_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_DEVICE_NODE_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for USB_DEVICE_NODE_INFO {
@@ -5258,8 +5258,8 @@ impl ::core::clone::Clone for USB_DEVICE_NODE_INFO_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for USB_DEVICE_NODE_INFO_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_DEVICE_NODE_INFO_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for USB_DEVICE_NODE_INFO_0 {
@@ -5300,8 +5300,8 @@ impl ::core::clone::Clone for USB_DEVICE_PERFORMANCE_INFO {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_DEVICE_PERFORMANCE_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_DEVICE_PERFORMANCE_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_DEVICE_PERFORMANCE_INFO {
     fn default() -> Self {
@@ -5327,8 +5327,8 @@ impl ::core::clone::Clone for USB_DEVICE_QUALIFIER_DESCRIPTOR {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_DEVICE_QUALIFIER_DESCRIPTOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_DEVICE_QUALIFIER_DESCRIPTOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_DEVICE_QUALIFIER_DESCRIPTOR {
     fn default() -> Self {
@@ -5346,8 +5346,8 @@ impl ::core::clone::Clone for USB_DEVICE_STATE {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_DEVICE_STATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_DEVICE_STATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_DEVICE_STATE {
     fn default() -> Self {
@@ -5366,8 +5366,8 @@ impl ::core::clone::Clone for USB_DEVICE_STATUS {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_DEVICE_STATUS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_DEVICE_STATUS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_DEVICE_STATUS {
     fn default() -> Self {
@@ -5385,8 +5385,8 @@ impl ::core::clone::Clone for USB_DEVICE_STATUS_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_DEVICE_STATUS_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_DEVICE_STATUS_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_DEVICE_STATUS_0 {
     fn default() -> Self {
@@ -5413,8 +5413,8 @@ impl ::core::clone::Clone for USB_DRIVER_VERSION_PARAMETERS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for USB_DRIVER_VERSION_PARAMETERS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_DRIVER_VERSION_PARAMETERS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for USB_DRIVER_VERSION_PARAMETERS {
@@ -5438,8 +5438,8 @@ impl ::core::clone::Clone for USB_ENDPOINT_DESCRIPTOR {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_ENDPOINT_DESCRIPTOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_ENDPOINT_DESCRIPTOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_ENDPOINT_DESCRIPTOR {
     fn default() -> Self {
@@ -5458,8 +5458,8 @@ impl ::core::clone::Clone for USB_ENDPOINT_STATUS {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_ENDPOINT_STATUS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_ENDPOINT_STATUS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_ENDPOINT_STATUS {
     fn default() -> Self {
@@ -5477,8 +5477,8 @@ impl ::core::clone::Clone for USB_ENDPOINT_STATUS_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_ENDPOINT_STATUS_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_ENDPOINT_STATUS_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_ENDPOINT_STATUS_0 {
     fn default() -> Self {
@@ -5510,8 +5510,8 @@ impl ::core::clone::Clone for USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION {
@@ -5531,8 +5531,8 @@ impl ::core::clone::Clone for USB_FUNCTION_SUSPEND_OPTIONS {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_FUNCTION_SUSPEND_OPTIONS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_FUNCTION_SUSPEND_OPTIONS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_FUNCTION_SUSPEND_OPTIONS {
     fn default() -> Self {
@@ -5555,8 +5555,8 @@ impl ::core::fmt::Debug for USB_FUNCTION_SUSPEND_OPTIONS_0 {
         f.debug_struct("USB_FUNCTION_SUSPEND_OPTIONS_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows::core::TypeKind for USB_FUNCTION_SUSPEND_OPTIONS_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_FUNCTION_SUSPEND_OPTIONS_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for USB_FUNCTION_SUSPEND_OPTIONS_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -5581,8 +5581,8 @@ impl ::core::clone::Clone for USB_HCD_DRIVERKEY_NAME {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_HCD_DRIVERKEY_NAME {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_HCD_DRIVERKEY_NAME {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_HCD_DRIVERKEY_NAME {
     fn default() -> Self {
@@ -5600,8 +5600,8 @@ impl ::core::clone::Clone for USB_HIGH_SPEED_MAXPACKET {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_HIGH_SPEED_MAXPACKET {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_HIGH_SPEED_MAXPACKET {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_HIGH_SPEED_MAXPACKET {
     fn default() -> Self {
@@ -5619,8 +5619,8 @@ impl ::core::clone::Clone for USB_HIGH_SPEED_MAXPACKET_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_HIGH_SPEED_MAXPACKET_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_HIGH_SPEED_MAXPACKET_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_HIGH_SPEED_MAXPACKET_0 {
     fn default() -> Self {
@@ -5639,8 +5639,8 @@ impl ::core::clone::Clone for USB_HUB_30_PORT_REMOTE_WAKE_MASK {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_HUB_30_PORT_REMOTE_WAKE_MASK {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_HUB_30_PORT_REMOTE_WAKE_MASK {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_HUB_30_PORT_REMOTE_WAKE_MASK {
     fn default() -> Self {
@@ -5663,8 +5663,8 @@ impl ::core::fmt::Debug for USB_HUB_30_PORT_REMOTE_WAKE_MASK_0 {
         f.debug_struct("USB_HUB_30_PORT_REMOTE_WAKE_MASK_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows::core::TypeKind for USB_HUB_30_PORT_REMOTE_WAKE_MASK_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_HUB_30_PORT_REMOTE_WAKE_MASK_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for USB_HUB_30_PORT_REMOTE_WAKE_MASK_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -5688,8 +5688,8 @@ impl ::core::clone::Clone for USB_HUB_CAPABILITIES {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_HUB_CAPABILITIES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_HUB_CAPABILITIES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_HUB_CAPABILITIES {
     fn default() -> Self {
@@ -5707,8 +5707,8 @@ impl ::core::clone::Clone for USB_HUB_CAPABILITIES_EX {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_HUB_CAPABILITIES_EX {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_HUB_CAPABILITIES_EX {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_HUB_CAPABILITIES_EX {
     fn default() -> Self {
@@ -5727,8 +5727,8 @@ impl ::core::clone::Clone for USB_HUB_CAP_FLAGS {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_HUB_CAP_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_HUB_CAP_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_HUB_CAP_FLAGS {
     fn default() -> Self {
@@ -5746,8 +5746,8 @@ impl ::core::clone::Clone for USB_HUB_CAP_FLAGS_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_HUB_CAP_FLAGS_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_HUB_CAP_FLAGS_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_HUB_CAP_FLAGS_0 {
     fn default() -> Self {
@@ -5766,8 +5766,8 @@ impl ::core::clone::Clone for USB_HUB_CHANGE {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_HUB_CHANGE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_HUB_CHANGE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_HUB_CHANGE {
     fn default() -> Self {
@@ -5785,8 +5785,8 @@ impl ::core::clone::Clone for USB_HUB_CHANGE_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_HUB_CHANGE_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_HUB_CHANGE_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_HUB_CHANGE_0 {
     fn default() -> Self {
@@ -5810,8 +5810,8 @@ impl ::core::clone::Clone for USB_HUB_DESCRIPTOR {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_HUB_DESCRIPTOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_HUB_DESCRIPTOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_HUB_DESCRIPTOR {
     fn default() -> Self {
@@ -5840,8 +5840,8 @@ impl ::core::clone::Clone for USB_HUB_DEVICE_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for USB_HUB_DEVICE_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_HUB_DEVICE_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for USB_HUB_DEVICE_INFO {
@@ -5853,8 +5853,8 @@ impl ::core::default::Default for USB_HUB_DEVICE_INFO {
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub struct USB_HUB_DEVICE_UXD_SETTINGS {
     pub Version: u32,
-    pub PnpGuid: ::windows::core::GUID,
-    pub OwnerGuid: ::windows::core::GUID,
+    pub PnpGuid: ::windows_core::GUID,
+    pub OwnerGuid: ::windows_core::GUID,
     pub DeleteOnShutdown: u32,
     pub DeleteOnReload: u32,
     pub DeleteOnDisconnect: u32,
@@ -5866,8 +5866,8 @@ impl ::core::clone::Clone for USB_HUB_DEVICE_UXD_SETTINGS {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_HUB_DEVICE_UXD_SETTINGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_HUB_DEVICE_UXD_SETTINGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_HUB_DEVICE_UXD_SETTINGS {
     fn default() -> Self {
@@ -5890,8 +5890,8 @@ impl ::core::clone::Clone for USB_HUB_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for USB_HUB_INFORMATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_HUB_INFORMATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for USB_HUB_INFORMATION {
@@ -5912,8 +5912,8 @@ impl ::core::clone::Clone for USB_HUB_INFORMATION_EX {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_HUB_INFORMATION_EX {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_HUB_INFORMATION_EX {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_HUB_INFORMATION_EX {
     fn default() -> Self {
@@ -5932,8 +5932,8 @@ impl ::core::clone::Clone for USB_HUB_INFORMATION_EX_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_HUB_INFORMATION_EX_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_HUB_INFORMATION_EX_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_HUB_INFORMATION_EX_0 {
     fn default() -> Self {
@@ -5952,8 +5952,8 @@ impl ::core::clone::Clone for USB_HUB_NAME {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_HUB_NAME {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_HUB_NAME {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_HUB_NAME {
     fn default() -> Self {
@@ -5975,8 +5975,8 @@ impl ::core::clone::Clone for USB_HUB_PORT_INFORMATION {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_HUB_PORT_INFORMATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_HUB_PORT_INFORMATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_HUB_PORT_INFORMATION {
     fn default() -> Self {
@@ -5995,8 +5995,8 @@ impl ::core::clone::Clone for USB_HUB_STATUS {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_HUB_STATUS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_HUB_STATUS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_HUB_STATUS {
     fn default() -> Self {
@@ -6014,8 +6014,8 @@ impl ::core::clone::Clone for USB_HUB_STATUS_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_HUB_STATUS_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_HUB_STATUS_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_HUB_STATUS_0 {
     fn default() -> Self {
@@ -6034,8 +6034,8 @@ impl ::core::clone::Clone for USB_HUB_STATUS_AND_CHANGE {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_HUB_STATUS_AND_CHANGE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_HUB_STATUS_AND_CHANGE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_HUB_STATUS_AND_CHANGE {
     fn default() -> Self {
@@ -6054,8 +6054,8 @@ impl ::core::clone::Clone for USB_HUB_STATUS_AND_CHANGE_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_HUB_STATUS_AND_CHANGE_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_HUB_STATUS_AND_CHANGE_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_HUB_STATUS_AND_CHANGE_0 {
     fn default() -> Self {
@@ -6079,8 +6079,8 @@ impl ::core::fmt::Debug for USB_IDLE_CALLBACK_INFO {
         f.debug_struct("USB_IDLE_CALLBACK_INFO").field("IdleContext", &self.IdleContext).finish()
     }
 }
-impl ::windows::core::TypeKind for USB_IDLE_CALLBACK_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_IDLE_CALLBACK_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_IDLE_CALLBACK_INFO {
     fn default() -> Self {
@@ -6093,7 +6093,7 @@ pub struct USB_ID_STRING {
     pub LanguageId: u16,
     pub Pad: u16,
     pub LengthInBytes: u32,
-    pub Buffer: ::windows::core::PWSTR,
+    pub Buffer: ::windows_core::PWSTR,
 }
 impl ::core::marker::Copy for USB_ID_STRING {}
 impl ::core::clone::Clone for USB_ID_STRING {
@@ -6101,8 +6101,8 @@ impl ::core::clone::Clone for USB_ID_STRING {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_ID_STRING {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_ID_STRING {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_ID_STRING {
     fn default() -> Self {
@@ -6132,8 +6132,8 @@ impl ::core::fmt::Debug for USB_INTERFACE_ASSOCIATION_DESCRIPTOR {
         f.debug_struct("USB_INTERFACE_ASSOCIATION_DESCRIPTOR").field("bLength", &self.bLength).field("bDescriptorType", &self.bDescriptorType).field("bFirstInterface", &self.bFirstInterface).field("bInterfaceCount", &self.bInterfaceCount).field("bFunctionClass", &self.bFunctionClass).field("bFunctionSubClass", &self.bFunctionSubClass).field("bFunctionProtocol", &self.bFunctionProtocol).field("iFunction", &self.iFunction).finish()
     }
 }
-impl ::windows::core::TypeKind for USB_INTERFACE_ASSOCIATION_DESCRIPTOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_INTERFACE_ASSOCIATION_DESCRIPTOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for USB_INTERFACE_ASSOCIATION_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
@@ -6170,8 +6170,8 @@ impl ::core::fmt::Debug for USB_INTERFACE_DESCRIPTOR {
         f.debug_struct("USB_INTERFACE_DESCRIPTOR").field("bLength", &self.bLength).field("bDescriptorType", &self.bDescriptorType).field("bInterfaceNumber", &self.bInterfaceNumber).field("bAlternateSetting", &self.bAlternateSetting).field("bNumEndpoints", &self.bNumEndpoints).field("bInterfaceClass", &self.bInterfaceClass).field("bInterfaceSubClass", &self.bInterfaceSubClass).field("bInterfaceProtocol", &self.bInterfaceProtocol).field("iInterface", &self.iInterface).finish()
     }
 }
-impl ::windows::core::TypeKind for USB_INTERFACE_DESCRIPTOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_INTERFACE_DESCRIPTOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for USB_INTERFACE_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
@@ -6206,8 +6206,8 @@ impl ::core::clone::Clone for USB_INTERFACE_POWER_DESCRIPTOR {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_INTERFACE_POWER_DESCRIPTOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_INTERFACE_POWER_DESCRIPTOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_INTERFACE_POWER_DESCRIPTOR {
     fn default() -> Self {
@@ -6226,8 +6226,8 @@ impl ::core::clone::Clone for USB_INTERFACE_STATUS {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_INTERFACE_STATUS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_INTERFACE_STATUS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_INTERFACE_STATUS {
     fn default() -> Self {
@@ -6245,8 +6245,8 @@ impl ::core::clone::Clone for USB_INTERFACE_STATUS_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_INTERFACE_STATUS_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_INTERFACE_STATUS_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_INTERFACE_STATUS_0 {
     fn default() -> Self {
@@ -6264,8 +6264,8 @@ impl ::core::clone::Clone for USB_MI_PARENT_INFORMATION {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_MI_PARENT_INFORMATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_MI_PARENT_INFORMATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_MI_PARENT_INFORMATION {
     fn default() -> Self {
@@ -6285,8 +6285,8 @@ impl ::core::clone::Clone for USB_NODE_CONNECTION_ATTRIBUTES {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_NODE_CONNECTION_ATTRIBUTES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_NODE_CONNECTION_ATTRIBUTES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_NODE_CONNECTION_ATTRIBUTES {
     fn default() -> Self {
@@ -6306,8 +6306,8 @@ impl ::core::clone::Clone for USB_NODE_CONNECTION_DRIVERKEY_NAME {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_NODE_CONNECTION_DRIVERKEY_NAME {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_NODE_CONNECTION_DRIVERKEY_NAME {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_NODE_CONNECTION_DRIVERKEY_NAME {
     fn default() -> Self {
@@ -6337,8 +6337,8 @@ impl ::core::clone::Clone for USB_NODE_CONNECTION_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for USB_NODE_CONNECTION_INFORMATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_NODE_CONNECTION_INFORMATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for USB_NODE_CONNECTION_INFORMATION {
@@ -6369,8 +6369,8 @@ impl ::core::clone::Clone for USB_NODE_CONNECTION_INFORMATION_EX {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for USB_NODE_CONNECTION_INFORMATION_EX {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_NODE_CONNECTION_INFORMATION_EX {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for USB_NODE_CONNECTION_INFORMATION_EX {
@@ -6392,8 +6392,8 @@ impl ::core::clone::Clone for USB_NODE_CONNECTION_INFORMATION_EX_V2 {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_NODE_CONNECTION_INFORMATION_EX_V2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_NODE_CONNECTION_INFORMATION_EX_V2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_NODE_CONNECTION_INFORMATION_EX_V2 {
     fn default() -> Self {
@@ -6412,8 +6412,8 @@ impl ::core::clone::Clone for USB_NODE_CONNECTION_INFORMATION_EX_V2_FLAGS {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_NODE_CONNECTION_INFORMATION_EX_V2_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_NODE_CONNECTION_INFORMATION_EX_V2_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_NODE_CONNECTION_INFORMATION_EX_V2_FLAGS {
     fn default() -> Self {
@@ -6431,8 +6431,8 @@ impl ::core::clone::Clone for USB_NODE_CONNECTION_INFORMATION_EX_V2_FLAGS_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_NODE_CONNECTION_INFORMATION_EX_V2_FLAGS_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_NODE_CONNECTION_INFORMATION_EX_V2_FLAGS_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_NODE_CONNECTION_INFORMATION_EX_V2_FLAGS_0 {
     fn default() -> Self {
@@ -6452,8 +6452,8 @@ impl ::core::clone::Clone for USB_NODE_CONNECTION_NAME {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_NODE_CONNECTION_NAME {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_NODE_CONNECTION_NAME {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_NODE_CONNECTION_NAME {
     fn default() -> Self {
@@ -6476,8 +6476,8 @@ impl ::core::clone::Clone for USB_NODE_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for USB_NODE_INFORMATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_NODE_INFORMATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for USB_NODE_INFORMATION {
@@ -6501,8 +6501,8 @@ impl ::core::clone::Clone for USB_NODE_INFORMATION_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for USB_NODE_INFORMATION_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_NODE_INFORMATION_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for USB_NODE_INFORMATION_0 {
@@ -6521,8 +6521,8 @@ impl ::core::clone::Clone for USB_NOTIFICATION {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_NOTIFICATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_NOTIFICATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_NOTIFICATION {
     fn default() -> Self {
@@ -6541,8 +6541,8 @@ impl ::core::clone::Clone for USB_OPEN_RAW_DEVICE_PARAMETERS {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_OPEN_RAW_DEVICE_PARAMETERS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_OPEN_RAW_DEVICE_PARAMETERS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_OPEN_RAW_DEVICE_PARAMETERS {
     fn default() -> Self {
@@ -6552,7 +6552,7 @@ impl ::core::default::Default for USB_OPEN_RAW_DEVICE_PARAMETERS {
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub struct USB_PASS_THRU_PARAMETERS {
-    pub FunctionGUID: ::windows::core::GUID,
+    pub FunctionGUID: ::windows_core::GUID,
     pub ParameterLength: u32,
     pub Parameters: [u8; 4],
 }
@@ -6562,8 +6562,8 @@ impl ::core::clone::Clone for USB_PASS_THRU_PARAMETERS {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_PASS_THRU_PARAMETERS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_PASS_THRU_PARAMETERS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_PASS_THRU_PARAMETERS {
     fn default() -> Self {
@@ -6582,8 +6582,8 @@ impl ::core::clone::Clone for USB_PIPE_INFO {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_PIPE_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_PIPE_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_PIPE_INFO {
     fn default() -> Self {
@@ -6603,8 +6603,8 @@ impl ::core::clone::Clone for USB_PORT_CHANGE {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_PORT_CHANGE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_PORT_CHANGE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_PORT_CHANGE {
     fn default() -> Self {
@@ -6627,8 +6627,8 @@ impl ::core::clone::Clone for USB_PORT_CONNECTOR_PROPERTIES {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_PORT_CONNECTOR_PROPERTIES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_PORT_CONNECTOR_PROPERTIES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_PORT_CONNECTOR_PROPERTIES {
     fn default() -> Self {
@@ -6647,8 +6647,8 @@ impl ::core::clone::Clone for USB_PORT_EXT_STATUS {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_PORT_EXT_STATUS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_PORT_EXT_STATUS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_PORT_EXT_STATUS {
     fn default() -> Self {
@@ -6666,8 +6666,8 @@ impl ::core::clone::Clone for USB_PORT_EXT_STATUS_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_PORT_EXT_STATUS_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_PORT_EXT_STATUS_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_PORT_EXT_STATUS_0 {
     fn default() -> Self {
@@ -6686,8 +6686,8 @@ impl ::core::clone::Clone for USB_PORT_EXT_STATUS_AND_CHANGE {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_PORT_EXT_STATUS_AND_CHANGE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_PORT_EXT_STATUS_AND_CHANGE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_PORT_EXT_STATUS_AND_CHANGE {
     fn default() -> Self {
@@ -6706,8 +6706,8 @@ impl ::core::clone::Clone for USB_PORT_EXT_STATUS_AND_CHANGE_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_PORT_EXT_STATUS_AND_CHANGE_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_PORT_EXT_STATUS_AND_CHANGE_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_PORT_EXT_STATUS_AND_CHANGE_0 {
     fn default() -> Self {
@@ -6726,8 +6726,8 @@ impl ::core::clone::Clone for USB_PORT_PROPERTIES {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_PORT_PROPERTIES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_PORT_PROPERTIES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_PORT_PROPERTIES {
     fn default() -> Self {
@@ -6745,8 +6745,8 @@ impl ::core::clone::Clone for USB_PORT_PROPERTIES_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_PORT_PROPERTIES_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_PORT_PROPERTIES_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_PORT_PROPERTIES_0 {
     fn default() -> Self {
@@ -6766,8 +6766,8 @@ impl ::core::clone::Clone for USB_PORT_STATUS {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_PORT_STATUS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_PORT_STATUS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_PORT_STATUS {
     fn default() -> Self {
@@ -6786,8 +6786,8 @@ impl ::core::clone::Clone for USB_PORT_STATUS_AND_CHANGE {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_PORT_STATUS_AND_CHANGE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_PORT_STATUS_AND_CHANGE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_PORT_STATUS_AND_CHANGE {
     fn default() -> Self {
@@ -6806,8 +6806,8 @@ impl ::core::clone::Clone for USB_PORT_STATUS_AND_CHANGE_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_PORT_STATUS_AND_CHANGE_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_PORT_STATUS_AND_CHANGE_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_PORT_STATUS_AND_CHANGE_0 {
     fn default() -> Self {
@@ -6838,8 +6838,8 @@ impl ::core::clone::Clone for USB_POWER_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for USB_POWER_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_POWER_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for USB_POWER_INFO {
@@ -6859,8 +6859,8 @@ impl ::core::clone::Clone for USB_PROTOCOLS {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_PROTOCOLS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_PROTOCOLS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_PROTOCOLS {
     fn default() -> Self {
@@ -6878,8 +6878,8 @@ impl ::core::clone::Clone for USB_PROTOCOLS_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_PROTOCOLS_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_PROTOCOLS_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_PROTOCOLS_0 {
     fn default() -> Self {
@@ -6898,8 +6898,8 @@ impl ::core::clone::Clone for USB_ROOT_HUB_NAME {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_ROOT_HUB_NAME {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_ROOT_HUB_NAME {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_ROOT_HUB_NAME {
     fn default() -> Self {
@@ -6927,8 +6927,8 @@ impl ::core::clone::Clone for USB_SEND_RAW_COMMAND_PARAMETERS {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_SEND_RAW_COMMAND_PARAMETERS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_SEND_RAW_COMMAND_PARAMETERS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_SEND_RAW_COMMAND_PARAMETERS {
     fn default() -> Self {
@@ -6951,8 +6951,8 @@ impl ::core::clone::Clone for USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION {
@@ -6975,8 +6975,8 @@ impl ::core::clone::Clone for USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION {
@@ -6997,8 +6997,8 @@ impl ::core::clone::Clone for USB_STRING_DESCRIPTOR {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_STRING_DESCRIPTOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_STRING_DESCRIPTOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_STRING_DESCRIPTOR {
     fn default() -> Self {
@@ -7019,8 +7019,8 @@ impl ::core::clone::Clone for USB_SUPERSPEEDPLUS_ISOCH_ENDPOINT_COMPANION_DESCRI
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_SUPERSPEEDPLUS_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_SUPERSPEEDPLUS_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_SUPERSPEEDPLUS_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR {
     fn default() -> Self {
@@ -7042,8 +7042,8 @@ impl ::core::clone::Clone for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR {
     fn default() -> Self {
@@ -7063,8 +7063,8 @@ impl ::core::clone::Clone for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0 {
     fn default() -> Self {
@@ -7087,8 +7087,8 @@ impl ::core::fmt::Debug for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_0 {
         f.debug_struct("USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows::core::TypeKind for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -7117,8 +7117,8 @@ impl ::core::fmt::Debug for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_1 {
         f.debug_struct("USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_1").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows::core::TypeKind for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -7153,8 +7153,8 @@ impl ::core::fmt::Debug for USB_TOPOLOGY_ADDRESS {
         f.debug_struct("USB_TOPOLOGY_ADDRESS").field("PciBusNumber", &self.PciBusNumber).field("PciDeviceNumber", &self.PciDeviceNumber).field("PciFunctionNumber", &self.PciFunctionNumber).field("Reserved", &self.Reserved).field("RootHubPortNumber", &self.RootHubPortNumber).field("HubPortNumber", &self.HubPortNumber).field("Reserved2", &self.Reserved2).finish()
     }
 }
-impl ::windows::core::TypeKind for USB_TOPOLOGY_ADDRESS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_TOPOLOGY_ADDRESS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for USB_TOPOLOGY_ADDRESS {
     fn eq(&self, other: &Self) -> bool {
@@ -7181,8 +7181,8 @@ impl ::core::clone::Clone for USB_TRANSPORT_CHARACTERISTICS {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_TRANSPORT_CHARACTERISTICS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_TRANSPORT_CHARACTERISTICS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_TRANSPORT_CHARACTERISTICS {
     fn default() -> Self {
@@ -7201,8 +7201,8 @@ impl ::core::clone::Clone for USB_TRANSPORT_CHARACTERISTICS_CHANGE_NOTIFICATION 
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_TRANSPORT_CHARACTERISTICS_CHANGE_NOTIFICATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_TRANSPORT_CHARACTERISTICS_CHANGE_NOTIFICATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_TRANSPORT_CHARACTERISTICS_CHANGE_NOTIFICATION {
     fn default() -> Self {
@@ -7222,8 +7222,8 @@ impl ::core::clone::Clone for USB_TRANSPORT_CHARACTERISTICS_CHANGE_REGISTRATION 
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_TRANSPORT_CHARACTERISTICS_CHANGE_REGISTRATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_TRANSPORT_CHARACTERISTICS_CHANGE_REGISTRATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_TRANSPORT_CHARACTERISTICS_CHANGE_REGISTRATION {
     fn default() -> Self {
@@ -7241,8 +7241,8 @@ impl ::core::clone::Clone for USB_TRANSPORT_CHARACTERISTICS_CHANGE_UNREGISTRATIO
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_TRANSPORT_CHARACTERISTICS_CHANGE_UNREGISTRATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_TRANSPORT_CHARACTERISTICS_CHANGE_UNREGISTRATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_TRANSPORT_CHARACTERISTICS_CHANGE_UNREGISTRATION {
     fn default() -> Self {
@@ -7261,8 +7261,8 @@ impl ::core::clone::Clone for USB_UNICODE_NAME {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_UNICODE_NAME {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_UNICODE_NAME {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_UNICODE_NAME {
     fn default() -> Self {
@@ -7280,8 +7280,8 @@ impl ::core::clone::Clone for USB_USB2HW_VERSION_PARAMETERS {
         *self
     }
 }
-impl ::windows::core::TypeKind for USB_USB2HW_VERSION_PARAMETERS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USB_USB2HW_VERSION_PARAMETERS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for USB_USB2HW_VERSION_PARAMETERS {
     fn default() -> Self {
@@ -7312,8 +7312,8 @@ impl ::core::fmt::Debug for WINUSB_INTERFACE_HANDLE {
         f.debug_tuple("WINUSB_INTERFACE_HANDLE").field(&self.0).finish()
     }
 }
-impl ::windows::core::TypeKind for WINUSB_INTERFACE_HANDLE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WINUSB_INTERFACE_HANDLE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
@@ -7334,8 +7334,8 @@ impl ::core::fmt::Debug for WINUSB_PIPE_INFORMATION {
         f.debug_struct("WINUSB_PIPE_INFORMATION").field("PipeType", &self.PipeType).field("PipeId", &self.PipeId).field("MaximumPacketSize", &self.MaximumPacketSize).field("Interval", &self.Interval).finish()
     }
 }
-impl ::windows::core::TypeKind for WINUSB_PIPE_INFORMATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WINUSB_PIPE_INFORMATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WINUSB_PIPE_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -7368,8 +7368,8 @@ impl ::core::fmt::Debug for WINUSB_PIPE_INFORMATION_EX {
         f.debug_struct("WINUSB_PIPE_INFORMATION_EX").field("PipeType", &self.PipeType).field("PipeId", &self.PipeId).field("MaximumPacketSize", &self.MaximumPacketSize).field("Interval", &self.Interval).field("MaximumBytesPerInterval", &self.MaximumBytesPerInterval).finish()
     }
 }
-impl ::windows::core::TypeKind for WINUSB_PIPE_INFORMATION_EX {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WINUSB_PIPE_INFORMATION_EX {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WINUSB_PIPE_INFORMATION_EX {
     fn eq(&self, other: &Self) -> bool {
@@ -7397,8 +7397,8 @@ impl ::core::clone::Clone for WINUSB_SETUP_PACKET {
         *self
     }
 }
-impl ::windows::core::TypeKind for WINUSB_SETUP_PACKET {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WINUSB_SETUP_PACKET {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for WINUSB_SETUP_PACKET {
     fn default() -> Self {
@@ -7428,8 +7428,8 @@ impl ::core::fmt::Debug for _URB_BULK_OR_INTERRUPT_TRANSFER {
         f.debug_struct("_URB_BULK_OR_INTERRUPT_TRANSFER").field("Hdr", &self.Hdr).field("PipeHandle", &self.PipeHandle).field("TransferFlags", &self.TransferFlags).field("TransferBufferLength", &self.TransferBufferLength).field("TransferBuffer", &self.TransferBuffer).field("TransferBufferMDL", &self.TransferBufferMDL).field("UrbLink", &self.UrbLink).field("hca", &self.hca).finish()
     }
 }
-impl ::windows::core::TypeKind for _URB_BULK_OR_INTERRUPT_TRANSFER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for _URB_BULK_OR_INTERRUPT_TRANSFER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for _URB_BULK_OR_INTERRUPT_TRANSFER {
     fn eq(&self, other: &Self) -> bool {
@@ -7484,8 +7484,8 @@ impl ::core::fmt::Debug for _URB_CONTROL_DESCRIPTOR_REQUEST {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for _URB_CONTROL_DESCRIPTOR_REQUEST {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for _URB_CONTROL_DESCRIPTOR_REQUEST {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for _URB_CONTROL_DESCRIPTOR_REQUEST {
     fn eq(&self, other: &Self) -> bool {
@@ -7525,8 +7525,8 @@ impl ::core::fmt::Debug for _URB_CONTROL_FEATURE_REQUEST {
         f.debug_struct("_URB_CONTROL_FEATURE_REQUEST").field("Hdr", &self.Hdr).field("Reserved", &self.Reserved).field("Reserved2", &self.Reserved2).field("Reserved3", &self.Reserved3).field("Reserved4", &self.Reserved4).field("Reserved5", &self.Reserved5).field("UrbLink", &self.UrbLink).field("hca", &self.hca).field("Reserved0", &self.Reserved0).field("FeatureSelector", &self.FeatureSelector).field("Index", &self.Index).field("Reserved1", &self.Reserved1).finish()
     }
 }
-impl ::windows::core::TypeKind for _URB_CONTROL_FEATURE_REQUEST {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for _URB_CONTROL_FEATURE_REQUEST {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for _URB_CONTROL_FEATURE_REQUEST {
     fn eq(&self, other: &Self) -> bool {
@@ -7563,8 +7563,8 @@ impl ::core::fmt::Debug for _URB_CONTROL_GET_CONFIGURATION_REQUEST {
         f.debug_struct("_URB_CONTROL_GET_CONFIGURATION_REQUEST").field("Hdr", &self.Hdr).field("Reserved", &self.Reserved).field("Reserved0", &self.Reserved0).field("TransferBufferLength", &self.TransferBufferLength).field("TransferBuffer", &self.TransferBuffer).field("TransferBufferMDL", &self.TransferBufferMDL).field("UrbLink", &self.UrbLink).field("hca", &self.hca).field("Reserved1", &self.Reserved1).finish()
     }
 }
-impl ::windows::core::TypeKind for _URB_CONTROL_GET_CONFIGURATION_REQUEST {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for _URB_CONTROL_GET_CONFIGURATION_REQUEST {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for _URB_CONTROL_GET_CONFIGURATION_REQUEST {
     fn eq(&self, other: &Self) -> bool {
@@ -7603,8 +7603,8 @@ impl ::core::fmt::Debug for _URB_CONTROL_GET_INTERFACE_REQUEST {
         f.debug_struct("_URB_CONTROL_GET_INTERFACE_REQUEST").field("Hdr", &self.Hdr).field("Reserved", &self.Reserved).field("Reserved0", &self.Reserved0).field("TransferBufferLength", &self.TransferBufferLength).field("TransferBuffer", &self.TransferBuffer).field("TransferBufferMDL", &self.TransferBufferMDL).field("UrbLink", &self.UrbLink).field("hca", &self.hca).field("Reserved1", &self.Reserved1).field("Interface", &self.Interface).field("Reserved2", &self.Reserved2).finish()
     }
 }
-impl ::windows::core::TypeKind for _URB_CONTROL_GET_INTERFACE_REQUEST {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for _URB_CONTROL_GET_INTERFACE_REQUEST {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for _URB_CONTROL_GET_INTERFACE_REQUEST {
     fn eq(&self, other: &Self) -> bool {
@@ -7643,8 +7643,8 @@ impl ::core::fmt::Debug for _URB_CONTROL_GET_STATUS_REQUEST {
         f.debug_struct("_URB_CONTROL_GET_STATUS_REQUEST").field("Hdr", &self.Hdr).field("Reserved", &self.Reserved).field("Reserved0", &self.Reserved0).field("TransferBufferLength", &self.TransferBufferLength).field("TransferBuffer", &self.TransferBuffer).field("TransferBufferMDL", &self.TransferBufferMDL).field("UrbLink", &self.UrbLink).field("hca", &self.hca).field("Reserved1", &self.Reserved1).field("Index", &self.Index).field("Reserved2", &self.Reserved2).finish()
     }
 }
-impl ::windows::core::TypeKind for _URB_CONTROL_GET_STATUS_REQUEST {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for _URB_CONTROL_GET_STATUS_REQUEST {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for _URB_CONTROL_GET_STATUS_REQUEST {
     fn eq(&self, other: &Self) -> bool {
@@ -7681,8 +7681,8 @@ impl ::core::fmt::Debug for _URB_CONTROL_TRANSFER {
         f.debug_struct("_URB_CONTROL_TRANSFER").field("Hdr", &self.Hdr).field("PipeHandle", &self.PipeHandle).field("TransferFlags", &self.TransferFlags).field("TransferBufferLength", &self.TransferBufferLength).field("TransferBuffer", &self.TransferBuffer).field("TransferBufferMDL", &self.TransferBufferMDL).field("UrbLink", &self.UrbLink).field("hca", &self.hca).field("SetupPacket", &self.SetupPacket).finish()
     }
 }
-impl ::windows::core::TypeKind for _URB_CONTROL_TRANSFER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for _URB_CONTROL_TRANSFER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for _URB_CONTROL_TRANSFER {
     fn eq(&self, other: &Self) -> bool {
@@ -7719,8 +7719,8 @@ impl ::core::fmt::Debug for _URB_CONTROL_TRANSFER_EX {
         f.debug_struct("_URB_CONTROL_TRANSFER_EX").field("Hdr", &self.Hdr).field("PipeHandle", &self.PipeHandle).field("TransferFlags", &self.TransferFlags).field("TransferBufferLength", &self.TransferBufferLength).field("TransferBuffer", &self.TransferBuffer).field("TransferBufferMDL", &self.TransferBufferMDL).field("Timeout", &self.Timeout).field("hca", &self.hca).field("SetupPacket", &self.SetupPacket).finish()
     }
 }
-impl ::windows::core::TypeKind for _URB_CONTROL_TRANSFER_EX {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for _URB_CONTROL_TRANSFER_EX {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for _URB_CONTROL_TRANSFER_EX {
     fn eq(&self, other: &Self) -> bool {
@@ -7775,8 +7775,8 @@ impl ::core::fmt::Debug for _URB_CONTROL_VENDOR_OR_CLASS_REQUEST {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for _URB_CONTROL_VENDOR_OR_CLASS_REQUEST {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for _URB_CONTROL_VENDOR_OR_CLASS_REQUEST {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for _URB_CONTROL_VENDOR_OR_CLASS_REQUEST {
     fn eq(&self, other: &Self) -> bool {
@@ -7805,8 +7805,8 @@ impl ::core::fmt::Debug for _URB_FRAME_LENGTH_CONTROL {
         f.debug_struct("_URB_FRAME_LENGTH_CONTROL").field("Hdr", &self.Hdr).finish()
     }
 }
-impl ::windows::core::TypeKind for _URB_FRAME_LENGTH_CONTROL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for _URB_FRAME_LENGTH_CONTROL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for _URB_FRAME_LENGTH_CONTROL {
     fn eq(&self, other: &Self) -> bool {
@@ -7836,8 +7836,8 @@ impl ::core::fmt::Debug for _URB_GET_CURRENT_FRAME_NUMBER {
         f.debug_struct("_URB_GET_CURRENT_FRAME_NUMBER").field("Hdr", &self.Hdr).field("FrameNumber", &self.FrameNumber).finish()
     }
 }
-impl ::windows::core::TypeKind for _URB_GET_CURRENT_FRAME_NUMBER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for _URB_GET_CURRENT_FRAME_NUMBER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for _URB_GET_CURRENT_FRAME_NUMBER {
     fn eq(&self, other: &Self) -> bool {
@@ -7868,8 +7868,8 @@ impl ::core::fmt::Debug for _URB_GET_FRAME_LENGTH {
         f.debug_struct("_URB_GET_FRAME_LENGTH").field("Hdr", &self.Hdr).field("FrameLength", &self.FrameLength).field("FrameNumber", &self.FrameNumber).finish()
     }
 }
-impl ::windows::core::TypeKind for _URB_GET_FRAME_LENGTH {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for _URB_GET_FRAME_LENGTH {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for _URB_GET_FRAME_LENGTH {
     fn eq(&self, other: &Self) -> bool {
@@ -7901,8 +7901,8 @@ impl ::core::fmt::Debug for _URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS {
         f.debug_struct("_URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS").field("Hdr", &self.Hdr).field("PipeHandle", &self.PipeHandle).field("MaximumSendPathDelayInMilliSeconds", &self.MaximumSendPathDelayInMilliSeconds).field("MaximumCompletionPathDelayInMilliSeconds", &self.MaximumCompletionPathDelayInMilliSeconds).finish()
     }
 }
-impl ::windows::core::TypeKind for _URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for _URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for _URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS {
     fn eq(&self, other: &Self) -> bool {
@@ -7931,8 +7931,8 @@ impl ::core::fmt::Debug for _URB_HCD_AREA {
         f.debug_struct("_URB_HCD_AREA").field("Reserved8", &self.Reserved8).finish()
     }
 }
-impl ::windows::core::TypeKind for _URB_HCD_AREA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for _URB_HCD_AREA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for _URB_HCD_AREA {
     fn eq(&self, other: &Self) -> bool {
@@ -7965,8 +7965,8 @@ impl ::core::fmt::Debug for _URB_HEADER {
         f.debug_struct("_URB_HEADER").field("Length", &self.Length).field("Function", &self.Function).field("Status", &self.Status).field("UsbdDeviceHandle", &self.UsbdDeviceHandle).field("UsbdFlags", &self.UsbdFlags).finish()
     }
 }
-impl ::windows::core::TypeKind for _URB_HEADER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for _URB_HEADER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for _URB_HEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -8019,8 +8019,8 @@ impl ::core::fmt::Debug for _URB_ISOCH_TRANSFER {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for _URB_ISOCH_TRANSFER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for _URB_ISOCH_TRANSFER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for _URB_ISOCH_TRANSFER {
     fn eq(&self, other: &Self) -> bool {
@@ -8054,8 +8054,8 @@ impl ::core::fmt::Debug for _URB_OPEN_STATIC_STREAMS {
         f.debug_struct("_URB_OPEN_STATIC_STREAMS").field("Hdr", &self.Hdr).field("PipeHandle", &self.PipeHandle).field("NumberOfStreams", &self.NumberOfStreams).field("StreamInfoVersion", &self.StreamInfoVersion).field("StreamInfoSize", &self.StreamInfoSize).field("Streams", &self.Streams).finish()
     }
 }
-impl ::windows::core::TypeKind for _URB_OPEN_STATIC_STREAMS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for _URB_OPEN_STATIC_STREAMS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for _URB_OPEN_STATIC_STREAMS {
     fn eq(&self, other: &Self) -> bool {
@@ -8112,8 +8112,8 @@ impl ::core::fmt::Debug for _URB_OS_FEATURE_DESCRIPTOR_REQUEST {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for _URB_OS_FEATURE_DESCRIPTOR_REQUEST {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for _URB_OS_FEATURE_DESCRIPTOR_REQUEST {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for _URB_OS_FEATURE_DESCRIPTOR_REQUEST {
     fn eq(&self, other: &Self) -> bool {
@@ -8144,8 +8144,8 @@ impl ::core::fmt::Debug for _URB_PIPE_REQUEST {
         f.debug_struct("_URB_PIPE_REQUEST").field("Hdr", &self.Hdr).field("PipeHandle", &self.PipeHandle).field("Reserved", &self.Reserved).finish()
     }
 }
-impl ::windows::core::TypeKind for _URB_PIPE_REQUEST {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for _URB_PIPE_REQUEST {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for _URB_PIPE_REQUEST {
     fn eq(&self, other: &Self) -> bool {
@@ -8177,8 +8177,8 @@ impl ::core::fmt::Debug for _URB_SELECT_CONFIGURATION {
         f.debug_struct("_URB_SELECT_CONFIGURATION").field("Hdr", &self.Hdr).field("ConfigurationDescriptor", &self.ConfigurationDescriptor).field("ConfigurationHandle", &self.ConfigurationHandle).field("Interface", &self.Interface).finish()
     }
 }
-impl ::windows::core::TypeKind for _URB_SELECT_CONFIGURATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for _URB_SELECT_CONFIGURATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for _URB_SELECT_CONFIGURATION {
     fn eq(&self, other: &Self) -> bool {
@@ -8209,8 +8209,8 @@ impl ::core::fmt::Debug for _URB_SELECT_INTERFACE {
         f.debug_struct("_URB_SELECT_INTERFACE").field("Hdr", &self.Hdr).field("ConfigurationHandle", &self.ConfigurationHandle).field("Interface", &self.Interface).finish()
     }
 }
-impl ::windows::core::TypeKind for _URB_SELECT_INTERFACE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for _URB_SELECT_INTERFACE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for _URB_SELECT_INTERFACE {
     fn eq(&self, other: &Self) -> bool {
@@ -8240,8 +8240,8 @@ impl ::core::fmt::Debug for _URB_SET_FRAME_LENGTH {
         f.debug_struct("_URB_SET_FRAME_LENGTH").field("Hdr", &self.Hdr).field("FrameLengthDelta", &self.FrameLengthDelta).finish()
     }
 }
-impl ::windows::core::TypeKind for _URB_SET_FRAME_LENGTH {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for _URB_SET_FRAME_LENGTH {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for _URB_SET_FRAME_LENGTH {
     fn eq(&self, other: &Self) -> bool {

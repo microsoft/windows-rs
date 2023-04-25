@@ -1,81 +1,81 @@
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[inline]
-pub unsafe fn DirectDrawCreate<P0>(lpguid: *mut ::windows::core::GUID, lplpdd: *mut ::core::option::Option<IDirectDraw>, punkouter: P0) -> ::windows::core::Result<()>
+pub unsafe fn DirectDrawCreate<P0>(lpguid: *mut ::windows_core::GUID, lplpdd: *mut ::core::option::Option<IDirectDraw>, punkouter: P0) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
+    P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
 {
-    ::windows_targets::link!("ddraw.dll" "system" fn DirectDrawCreate(lpguid : *mut ::windows::core::GUID, lplpdd : *mut * mut::core::ffi::c_void, punkouter : * mut::core::ffi::c_void) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("ddraw.dll" "system" fn DirectDrawCreate(lpguid : *mut ::windows_core::GUID, lplpdd : *mut * mut::core::ffi::c_void, punkouter : * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
     DirectDrawCreate(lpguid, ::core::mem::transmute(lplpdd), punkouter.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[inline]
-pub unsafe fn DirectDrawCreateClipper<P0>(dwflags: u32, lplpddclipper: *mut ::core::option::Option<IDirectDrawClipper>, punkouter: P0) -> ::windows::core::Result<()>
+pub unsafe fn DirectDrawCreateClipper<P0>(dwflags: u32, lplpddclipper: *mut ::core::option::Option<IDirectDrawClipper>, punkouter: P0) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
+    P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
 {
-    ::windows_targets::link!("ddraw.dll" "system" fn DirectDrawCreateClipper(dwflags : u32, lplpddclipper : *mut * mut::core::ffi::c_void, punkouter : * mut::core::ffi::c_void) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("ddraw.dll" "system" fn DirectDrawCreateClipper(dwflags : u32, lplpddclipper : *mut * mut::core::ffi::c_void, punkouter : * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
     DirectDrawCreateClipper(dwflags, ::core::mem::transmute(lplpddclipper), punkouter.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[inline]
-pub unsafe fn DirectDrawCreateEx<P0>(lpguid: *mut ::windows::core::GUID, lplpdd: *mut *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, punkouter: P0) -> ::windows::core::Result<()>
+pub unsafe fn DirectDrawCreateEx<P0>(lpguid: *mut ::windows_core::GUID, lplpdd: *mut *mut ::core::ffi::c_void, iid: *const ::windows_core::GUID, punkouter: P0) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
+    P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
 {
-    ::windows_targets::link!("ddraw.dll" "system" fn DirectDrawCreateEx(lpguid : *mut ::windows::core::GUID, lplpdd : *mut *mut ::core::ffi::c_void, iid : *const ::windows::core::GUID, punkouter : * mut::core::ffi::c_void) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("ddraw.dll" "system" fn DirectDrawCreateEx(lpguid : *mut ::windows_core::GUID, lplpdd : *mut *mut ::core::ffi::c_void, iid : *const ::windows_core::GUID, punkouter : * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
     DirectDrawCreateEx(lpguid, lplpdd, iid, punkouter.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DirectDrawEnumerateA(lpcallback: LPDDENUMCALLBACKA, lpcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("ddraw.dll" "system" fn DirectDrawEnumerateA(lpcallback : LPDDENUMCALLBACKA, lpcontext : *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+pub unsafe fn DirectDrawEnumerateA(lpcallback: LPDDENUMCALLBACKA, lpcontext: *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("ddraw.dll" "system" fn DirectDrawEnumerateA(lpcallback : LPDDENUMCALLBACKA, lpcontext : *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     DirectDrawEnumerateA(lpcallback, lpcontext).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn DirectDrawEnumerateExA(lpcallback: LPDDENUMCALLBACKEXA, lpcontext: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("ddraw.dll" "system" fn DirectDrawEnumerateExA(lpcallback : LPDDENUMCALLBACKEXA, lpcontext : *mut ::core::ffi::c_void, dwflags : u32) -> ::windows::core::HRESULT);
+pub unsafe fn DirectDrawEnumerateExA(lpcallback: LPDDENUMCALLBACKEXA, lpcontext: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("ddraw.dll" "system" fn DirectDrawEnumerateExA(lpcallback : LPDDENUMCALLBACKEXA, lpcontext : *mut ::core::ffi::c_void, dwflags : u32) -> ::windows_core::HRESULT);
     DirectDrawEnumerateExA(lpcallback, lpcontext, dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn DirectDrawEnumerateExW(lpcallback: LPDDENUMCALLBACKEXW, lpcontext: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("ddraw.dll" "system" fn DirectDrawEnumerateExW(lpcallback : LPDDENUMCALLBACKEXW, lpcontext : *mut ::core::ffi::c_void, dwflags : u32) -> ::windows::core::HRESULT);
+pub unsafe fn DirectDrawEnumerateExW(lpcallback: LPDDENUMCALLBACKEXW, lpcontext: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("ddraw.dll" "system" fn DirectDrawEnumerateExW(lpcallback : LPDDENUMCALLBACKEXW, lpcontext : *mut ::core::ffi::c_void, dwflags : u32) -> ::windows_core::HRESULT);
     DirectDrawEnumerateExW(lpcallback, lpcontext, dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DirectDrawEnumerateW(lpcallback: LPDDENUMCALLBACKW, lpcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("ddraw.dll" "system" fn DirectDrawEnumerateW(lpcallback : LPDDENUMCALLBACKW, lpcontext : *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+pub unsafe fn DirectDrawEnumerateW(lpcallback: LPDDENUMCALLBACKW, lpcontext: *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("ddraw.dll" "system" fn DirectDrawEnumerateW(lpcallback : LPDDENUMCALLBACKW, lpcontext : *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     DirectDrawEnumerateW(lpcallback, lpcontext).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
-pub struct IDDVideoPortContainer(::windows::core::IUnknown);
+pub struct IDDVideoPortContainer(::windows_core::IUnknown);
 impl IDDVideoPortContainer {
-    pub unsafe fn CreateVideoPort<P0>(&self, param0: u32, param1: *mut DDVIDEOPORTDESC, param2: *mut ::core::option::Option<IDirectDrawVideoPort>, param3: P0) -> ::windows::core::Result<()>
+    pub unsafe fn CreateVideoPort<P0>(&self, param0: u32, param1: *mut DDVIDEOPORTDESC, param2: *mut ::core::option::Option<IDirectDrawVideoPort>, param3: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        (::windows::core::Interface::vtable(self).CreateVideoPort)(::windows::core::Interface::as_raw(self), param0, param1, ::core::mem::transmute(param2), param3.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).CreateVideoPort)(::windows_core::Interface::as_raw(self), param0, param1, ::core::mem::transmute(param2), param3.into_param().abi()).ok()
     }
-    pub unsafe fn EnumVideoPorts(&self, param0: u32, param1: *mut DDVIDEOPORTCAPS, param2: *mut ::core::ffi::c_void, param3: LPDDENUMVIDEOCALLBACK) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnumVideoPorts)(::windows::core::Interface::as_raw(self), param0, param1, param2, param3).ok()
+    pub unsafe fn EnumVideoPorts(&self, param0: u32, param1: *mut DDVIDEOPORTCAPS, param2: *mut ::core::ffi::c_void, param3: LPDDENUMVIDEOCALLBACK) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).EnumVideoPorts)(::windows_core::Interface::as_raw(self), param0, param1, param2, param3).ok()
     }
-    pub unsafe fn GetVideoPortConnectInfo(&self, param0: u32, pcinfo: *mut u32, param2: ::core::option::Option<*mut DDVIDEOPORTCONNECT>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetVideoPortConnectInfo)(::windows::core::Interface::as_raw(self), param0, pcinfo, ::core::mem::transmute(param2.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetVideoPortConnectInfo(&self, param0: u32, pcinfo: *mut u32, param2: ::core::option::Option<*mut DDVIDEOPORTCONNECT>) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetVideoPortConnectInfo)(::windows_core::Interface::as_raw(self), param0, pcinfo, ::core::mem::transmute(param2.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn QueryVideoPortStatus(&self, param0: u32, param1: *mut DDVIDEOPORTSTATUS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).QueryVideoPortStatus)(::windows::core::Interface::as_raw(self), param0, param1).ok()
+    pub unsafe fn QueryVideoPortStatus(&self, param0: u32, param1: *mut DDVIDEOPORTSTATUS) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).QueryVideoPortStatus)(::windows_core::Interface::as_raw(self), param0, param1).ok()
     }
 }
-::windows::imp::interface_hierarchy!(IDDVideoPortContainer, ::windows::core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IDDVideoPortContainer, ::windows_core::IUnknown);
 impl ::core::cmp::PartialEq for IDDVideoPortContainer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -87,7 +87,7 @@ impl ::core::fmt::Debug for IDDVideoPortContainer {
         f.debug_tuple("IDDVideoPortContainer").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IDDVideoPortContainer {
+unsafe impl ::windows_core::Interface for IDDVideoPortContainer {
     type Vtable = IDDVideoPortContainer_Vtbl;
 }
 impl ::core::clone::Clone for IDDVideoPortContainer {
@@ -95,113 +95,113 @@ impl ::core::clone::Clone for IDDVideoPortContainer {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IDDVideoPortContainer {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c142760_a733_11ce_a521_0020af0be560);
+unsafe impl ::windows_core::ComInterface for IDDVideoPortContainer {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6c142760_a733_11ce_a521_0020af0be560);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDDVideoPortContainer_Vtbl {
-    pub base__: ::windows::core::IUnknown_Vtbl,
-    pub CreateVideoPort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DDVIDEOPORTDESC, param2: *mut *mut ::core::ffi::c_void, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub EnumVideoPorts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DDVIDEOPORTCAPS, param2: *mut ::core::ffi::c_void, param3: LPDDENUMVIDEOCALLBACK) -> ::windows::core::HRESULT,
-    pub GetVideoPortConnectInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, pcinfo: *mut u32, param2: *mut DDVIDEOPORTCONNECT) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub CreateVideoPort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DDVIDEOPORTDESC, param2: *mut *mut ::core::ffi::c_void, param3: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EnumVideoPorts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DDVIDEOPORTCAPS, param2: *mut ::core::ffi::c_void, param3: LPDDENUMVIDEOCALLBACK) -> ::windows_core::HRESULT,
+    pub GetVideoPortConnectInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, pcinfo: *mut u32, param2: *mut DDVIDEOPORTCONNECT) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub QueryVideoPortStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DDVIDEOPORTSTATUS) -> ::windows::core::HRESULT,
+    pub QueryVideoPortStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DDVIDEOPORTSTATUS) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     QueryVideoPortStatus: usize,
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
-pub struct IDirectDraw(::windows::core::IUnknown);
+pub struct IDirectDraw(::windows_core::IUnknown);
 impl IDirectDraw {
-    pub unsafe fn Compact(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Compact)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn Compact(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Compact)(::windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn CreateClipper<P0>(&self, param0: u32, param1: *mut ::core::option::Option<IDirectDrawClipper>, param2: P0) -> ::windows::core::Result<()>
+    pub unsafe fn CreateClipper<P0>(&self, param0: u32, param1: *mut ::core::option::Option<IDirectDrawClipper>, param2: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        (::windows::core::Interface::vtable(self).CreateClipper)(::windows::core::Interface::as_raw(self), param0, ::core::mem::transmute(param1), param2.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).CreateClipper)(::windows_core::Interface::as_raw(self), param0, ::core::mem::transmute(param1), param2.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn CreatePalette<P0>(&self, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: *mut ::core::option::Option<IDirectDrawPalette>, param3: P0) -> ::windows::core::Result<()>
+    pub unsafe fn CreatePalette<P0>(&self, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: *mut ::core::option::Option<IDirectDrawPalette>, param3: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        (::windows::core::Interface::vtable(self).CreatePalette)(::windows::core::Interface::as_raw(self), param0, param1, ::core::mem::transmute(param2), param3.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).CreatePalette)(::windows_core::Interface::as_raw(self), param0, param1, ::core::mem::transmute(param2), param3.into_param().abi()).ok()
     }
-    pub unsafe fn CreateSurface<P0>(&self, param0: *mut DDSURFACEDESC, param1: *mut ::core::option::Option<IDirectDrawSurface>, param2: P0) -> ::windows::core::Result<()>
+    pub unsafe fn CreateSurface<P0>(&self, param0: *mut DDSURFACEDESC, param1: *mut ::core::option::Option<IDirectDrawSurface>, param2: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        (::windows::core::Interface::vtable(self).CreateSurface)(::windows::core::Interface::as_raw(self), param0, ::core::mem::transmute(param1), param2.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).CreateSurface)(::windows_core::Interface::as_raw(self), param0, ::core::mem::transmute(param1), param2.into_param().abi()).ok()
     }
-    pub unsafe fn DuplicateSurface<P0>(&self, param0: P0) -> ::windows::core::Result<IDirectDrawSurface>
+    pub unsafe fn DuplicateSurface<P0>(&self, param0: P0) -> ::windows_core::Result<IDirectDrawSurface>
     where
-        P0: ::windows::core::IntoParam<IDirectDrawSurface>,
+        P0: ::windows_core::IntoParam<IDirectDrawSurface>,
     {
-        let mut result__ = ::windows::core::zeroed::<IDirectDrawSurface>();
-        (::windows::core::Interface::vtable(self).DuplicateSurface)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), &mut result__).from_abi(result__)
+        let mut result__ = ::windows_core::zeroed::<IDirectDrawSurface>();
+        (::windows_core::Interface::vtable(self).DuplicateSurface)(::windows_core::Interface::as_raw(self), param0.into_param().abi(), &mut result__).from_abi(result__)
     }
-    pub unsafe fn EnumDisplayModes(&self, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut ::core::ffi::c_void, param3: LPDDENUMMODESCALLBACK) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnumDisplayModes)(::windows::core::Interface::as_raw(self), param0, param1, param2, param3).ok()
+    pub unsafe fn EnumDisplayModes(&self, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut ::core::ffi::c_void, param3: LPDDENUMMODESCALLBACK) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).EnumDisplayModes)(::windows_core::Interface::as_raw(self), param0, param1, param2, param3).ok()
     }
-    pub unsafe fn EnumSurfaces(&self, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut ::core::ffi::c_void, param3: LPDDENUMSURFACESCALLBACK) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnumSurfaces)(::windows::core::Interface::as_raw(self), param0, param1, param2, param3).ok()
+    pub unsafe fn EnumSurfaces(&self, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut ::core::ffi::c_void, param3: LPDDENUMSURFACESCALLBACK) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).EnumSurfaces)(::windows_core::Interface::as_raw(self), param0, param1, param2, param3).ok()
     }
-    pub unsafe fn FlipToGDISurface(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FlipToGDISurface)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn FlipToGDISurface(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).FlipToGDISurface)(::windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn GetCaps(&self, param0: *mut DDCAPS_DX7, param1: *mut DDCAPS_DX7) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetCaps)(::windows::core::Interface::as_raw(self), param0, param1).ok()
+    pub unsafe fn GetCaps(&self, param0: *mut DDCAPS_DX7, param1: *mut DDCAPS_DX7) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetCaps)(::windows_core::Interface::as_raw(self), param0, param1).ok()
     }
-    pub unsafe fn GetDisplayMode(&self, param0: *mut DDSURFACEDESC) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDisplayMode)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetDisplayMode(&self, param0: *mut DDSURFACEDESC) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetDisplayMode)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn GetFourCCCodes(&self, param0: *mut u32, param1: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetFourCCCodes)(::windows::core::Interface::as_raw(self), param0, param1).ok()
+    pub unsafe fn GetFourCCCodes(&self, param0: *mut u32, param1: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetFourCCCodes)(::windows_core::Interface::as_raw(self), param0, param1).ok()
     }
-    pub unsafe fn GetGDISurface(&self) -> ::windows::core::Result<IDirectDrawSurface> {
-        let mut result__ = ::windows::core::zeroed::<IDirectDrawSurface>();
-        (::windows::core::Interface::vtable(self).GetGDISurface)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn GetGDISurface(&self) -> ::windows_core::Result<IDirectDrawSurface> {
+        let mut result__ = ::windows_core::zeroed::<IDirectDrawSurface>();
+        (::windows_core::Interface::vtable(self).GetGDISurface)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetMonitorFrequency(&self, param0: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetMonitorFrequency)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetMonitorFrequency(&self, param0: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetMonitorFrequency)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn GetScanLine(&self, param0: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetScanLine)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetScanLine(&self, param0: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetScanLine)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn GetVerticalBlankStatus(&self, param0: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetVerticalBlankStatus)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetVerticalBlankStatus(&self, param0: *mut i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetVerticalBlankStatus)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn Initialize(&self, param0: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn Initialize(&self, param0: *mut ::windows_core::GUID) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn RestoreDisplayMode(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RestoreDisplayMode)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn RestoreDisplayMode(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).RestoreDisplayMode)(::windows_core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCooperativeLevel<P0>(&self, param0: P0, param1: u32) -> ::windows::core::Result<()>
+    pub unsafe fn SetCooperativeLevel<P0>(&self, param0: P0, param1: u32) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
     {
-        (::windows::core::Interface::vtable(self).SetCooperativeLevel)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
+        (::windows_core::Interface::vtable(self).SetCooperativeLevel)(::windows_core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
     }
-    pub unsafe fn SetDisplayMode(&self, param0: u32, param1: u32, param2: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDisplayMode)(::windows::core::Interface::as_raw(self), param0, param1, param2).ok()
+    pub unsafe fn SetDisplayMode(&self, param0: u32, param1: u32, param2: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetDisplayMode)(::windows_core::Interface::as_raw(self), param0, param1, param2).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn WaitForVerticalBlank<P0>(&self, param0: u32, param1: P0) -> ::windows::core::Result<()>
+    pub unsafe fn WaitForVerticalBlank<P0>(&self, param0: u32, param1: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
     {
-        (::windows::core::Interface::vtable(self).WaitForVerticalBlank)(::windows::core::Interface::as_raw(self), param0, param1.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).WaitForVerticalBlank)(::windows_core::Interface::as_raw(self), param0, param1.into_param().abi()).ok()
     }
 }
-::windows::imp::interface_hierarchy!(IDirectDraw, ::windows::core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IDirectDraw, ::windows_core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectDraw {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -213,7 +213,7 @@ impl ::core::fmt::Debug for IDirectDraw {
         f.debug_tuple("IDirectDraw").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IDirectDraw {
+unsafe impl ::windows_core::Interface for IDirectDraw {
     type Vtable = IDirectDraw_Vtbl;
 }
 impl ::core::clone::Clone for IDirectDraw {
@@ -221,138 +221,138 @@ impl ::core::clone::Clone for IDirectDraw {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IDirectDraw {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c14db80_a733_11ce_a521_0020af0be560);
+unsafe impl ::windows_core::ComInterface for IDirectDraw {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6c14db80_a733_11ce_a521_0020af0be560);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDraw_Vtbl {
-    pub base__: ::windows::core::IUnknown_Vtbl,
-    pub Compact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub CreateClipper: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut *mut ::core::ffi::c_void, param2: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub Compact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateClipper: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut *mut ::core::ffi::c_void, param2: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub CreatePalette: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: *mut *mut ::core::ffi::c_void, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreatePalette: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: *mut *mut ::core::ffi::c_void, param3: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     CreatePalette: usize,
-    pub CreateSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSURFACEDESC, param1: *mut *mut ::core::ffi::c_void, param2: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub DuplicateSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub EnumDisplayModes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut ::core::ffi::c_void, param3: LPDDENUMMODESCALLBACK) -> ::windows::core::HRESULT,
-    pub EnumSurfaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut ::core::ffi::c_void, param3: LPDDENUMSURFACESCALLBACK) -> ::windows::core::HRESULT,
-    pub FlipToGDISurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetCaps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDCAPS_DX7, param1: *mut DDCAPS_DX7) -> ::windows::core::HRESULT,
-    pub GetDisplayMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSURFACEDESC) -> ::windows::core::HRESULT,
-    pub GetFourCCCodes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32, param1: *mut u32) -> ::windows::core::HRESULT,
-    pub GetGDISurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetMonitorFrequency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows::core::HRESULT,
-    pub GetScanLine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows::core::HRESULT,
-    pub GetVerticalBlankStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut i32) -> ::windows::core::HRESULT,
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub RestoreDisplayMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSURFACEDESC, param1: *mut *mut ::core::ffi::c_void, param2: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DuplicateSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EnumDisplayModes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut ::core::ffi::c_void, param3: LPDDENUMMODESCALLBACK) -> ::windows_core::HRESULT,
+    pub EnumSurfaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut ::core::ffi::c_void, param3: LPDDENUMSURFACESCALLBACK) -> ::windows_core::HRESULT,
+    pub FlipToGDISurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetCaps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDCAPS_DX7, param1: *mut DDCAPS_DX7) -> ::windows_core::HRESULT,
+    pub GetDisplayMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSURFACEDESC) -> ::windows_core::HRESULT,
+    pub GetFourCCCodes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32, param1: *mut u32) -> ::windows_core::HRESULT,
+    pub GetGDISurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetMonitorFrequency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows_core::HRESULT,
+    pub GetScanLine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows_core::HRESULT,
+    pub GetVerticalBlankStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut i32) -> ::windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub RestoreDisplayMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub SetCooperativeLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
+    pub SetCooperativeLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     SetCooperativeLevel: usize,
-    pub SetDisplayMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: u32, param2: u32) -> ::windows::core::HRESULT,
+    pub SetDisplayMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: u32, param2: u32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub WaitForVerticalBlank: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
+    pub WaitForVerticalBlank: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     WaitForVerticalBlank: usize,
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
-pub struct IDirectDraw2(::windows::core::IUnknown);
+pub struct IDirectDraw2(::windows_core::IUnknown);
 impl IDirectDraw2 {
-    pub unsafe fn Compact(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Compact)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn Compact(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Compact)(::windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn CreateClipper<P0>(&self, param0: u32, param1: *mut ::core::option::Option<IDirectDrawClipper>, param2: P0) -> ::windows::core::Result<()>
+    pub unsafe fn CreateClipper<P0>(&self, param0: u32, param1: *mut ::core::option::Option<IDirectDrawClipper>, param2: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        (::windows::core::Interface::vtable(self).CreateClipper)(::windows::core::Interface::as_raw(self), param0, ::core::mem::transmute(param1), param2.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).CreateClipper)(::windows_core::Interface::as_raw(self), param0, ::core::mem::transmute(param1), param2.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn CreatePalette<P0>(&self, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: *mut ::core::option::Option<IDirectDrawPalette>, param3: P0) -> ::windows::core::Result<()>
+    pub unsafe fn CreatePalette<P0>(&self, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: *mut ::core::option::Option<IDirectDrawPalette>, param3: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        (::windows::core::Interface::vtable(self).CreatePalette)(::windows::core::Interface::as_raw(self), param0, param1, ::core::mem::transmute(param2), param3.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).CreatePalette)(::windows_core::Interface::as_raw(self), param0, param1, ::core::mem::transmute(param2), param3.into_param().abi()).ok()
     }
-    pub unsafe fn CreateSurface<P0>(&self, param0: *mut DDSURFACEDESC, param1: *mut ::core::option::Option<IDirectDrawSurface>, param2: P0) -> ::windows::core::Result<()>
+    pub unsafe fn CreateSurface<P0>(&self, param0: *mut DDSURFACEDESC, param1: *mut ::core::option::Option<IDirectDrawSurface>, param2: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        (::windows::core::Interface::vtable(self).CreateSurface)(::windows::core::Interface::as_raw(self), param0, ::core::mem::transmute(param1), param2.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).CreateSurface)(::windows_core::Interface::as_raw(self), param0, ::core::mem::transmute(param1), param2.into_param().abi()).ok()
     }
-    pub unsafe fn DuplicateSurface<P0>(&self, param0: P0) -> ::windows::core::Result<IDirectDrawSurface>
+    pub unsafe fn DuplicateSurface<P0>(&self, param0: P0) -> ::windows_core::Result<IDirectDrawSurface>
     where
-        P0: ::windows::core::IntoParam<IDirectDrawSurface>,
+        P0: ::windows_core::IntoParam<IDirectDrawSurface>,
     {
-        let mut result__ = ::windows::core::zeroed::<IDirectDrawSurface>();
-        (::windows::core::Interface::vtable(self).DuplicateSurface)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), &mut result__).from_abi(result__)
+        let mut result__ = ::windows_core::zeroed::<IDirectDrawSurface>();
+        (::windows_core::Interface::vtable(self).DuplicateSurface)(::windows_core::Interface::as_raw(self), param0.into_param().abi(), &mut result__).from_abi(result__)
     }
-    pub unsafe fn EnumDisplayModes(&self, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut ::core::ffi::c_void, param3: LPDDENUMMODESCALLBACK) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnumDisplayModes)(::windows::core::Interface::as_raw(self), param0, param1, param2, param3).ok()
+    pub unsafe fn EnumDisplayModes(&self, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut ::core::ffi::c_void, param3: LPDDENUMMODESCALLBACK) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).EnumDisplayModes)(::windows_core::Interface::as_raw(self), param0, param1, param2, param3).ok()
     }
-    pub unsafe fn EnumSurfaces(&self, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut ::core::ffi::c_void, param3: LPDDENUMSURFACESCALLBACK) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnumSurfaces)(::windows::core::Interface::as_raw(self), param0, param1, param2, param3).ok()
+    pub unsafe fn EnumSurfaces(&self, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut ::core::ffi::c_void, param3: LPDDENUMSURFACESCALLBACK) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).EnumSurfaces)(::windows_core::Interface::as_raw(self), param0, param1, param2, param3).ok()
     }
-    pub unsafe fn FlipToGDISurface(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FlipToGDISurface)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn FlipToGDISurface(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).FlipToGDISurface)(::windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn GetCaps(&self, param0: *mut DDCAPS_DX7, param1: *mut DDCAPS_DX7) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetCaps)(::windows::core::Interface::as_raw(self), param0, param1).ok()
+    pub unsafe fn GetCaps(&self, param0: *mut DDCAPS_DX7, param1: *mut DDCAPS_DX7) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetCaps)(::windows_core::Interface::as_raw(self), param0, param1).ok()
     }
-    pub unsafe fn GetDisplayMode(&self, param0: *mut DDSURFACEDESC) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDisplayMode)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetDisplayMode(&self, param0: *mut DDSURFACEDESC) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetDisplayMode)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn GetFourCCCodes(&self, param0: *mut u32, param1: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetFourCCCodes)(::windows::core::Interface::as_raw(self), param0, param1).ok()
+    pub unsafe fn GetFourCCCodes(&self, param0: *mut u32, param1: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetFourCCCodes)(::windows_core::Interface::as_raw(self), param0, param1).ok()
     }
-    pub unsafe fn GetGDISurface(&self) -> ::windows::core::Result<IDirectDrawSurface> {
-        let mut result__ = ::windows::core::zeroed::<IDirectDrawSurface>();
-        (::windows::core::Interface::vtable(self).GetGDISurface)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn GetGDISurface(&self) -> ::windows_core::Result<IDirectDrawSurface> {
+        let mut result__ = ::windows_core::zeroed::<IDirectDrawSurface>();
+        (::windows_core::Interface::vtable(self).GetGDISurface)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetMonitorFrequency(&self, param0: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetMonitorFrequency)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetMonitorFrequency(&self, param0: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetMonitorFrequency)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn GetScanLine(&self, param0: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetScanLine)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetScanLine(&self, param0: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetScanLine)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn GetVerticalBlankStatus(&self, param0: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetVerticalBlankStatus)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetVerticalBlankStatus(&self, param0: *mut i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetVerticalBlankStatus)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn Initialize(&self, param0: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn Initialize(&self, param0: *mut ::windows_core::GUID) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn RestoreDisplayMode(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RestoreDisplayMode)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn RestoreDisplayMode(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).RestoreDisplayMode)(::windows_core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCooperativeLevel<P0>(&self, param0: P0, param1: u32) -> ::windows::core::Result<()>
+    pub unsafe fn SetCooperativeLevel<P0>(&self, param0: P0, param1: u32) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
     {
-        (::windows::core::Interface::vtable(self).SetCooperativeLevel)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
+        (::windows_core::Interface::vtable(self).SetCooperativeLevel)(::windows_core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
     }
-    pub unsafe fn SetDisplayMode(&self, param0: u32, param1: u32, param2: u32, param3: u32, param4: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDisplayMode)(::windows::core::Interface::as_raw(self), param0, param1, param2, param3, param4).ok()
+    pub unsafe fn SetDisplayMode(&self, param0: u32, param1: u32, param2: u32, param3: u32, param4: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetDisplayMode)(::windows_core::Interface::as_raw(self), param0, param1, param2, param3, param4).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn WaitForVerticalBlank<P0>(&self, param0: u32, param1: P0) -> ::windows::core::Result<()>
+    pub unsafe fn WaitForVerticalBlank<P0>(&self, param0: u32, param1: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
     {
-        (::windows::core::Interface::vtable(self).WaitForVerticalBlank)(::windows::core::Interface::as_raw(self), param0, param1.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).WaitForVerticalBlank)(::windows_core::Interface::as_raw(self), param0, param1.into_param().abi()).ok()
     }
-    pub unsafe fn GetAvailableVidMem(&self, param0: *mut DDSCAPS, param1: *mut u32, param2: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetAvailableVidMem)(::windows::core::Interface::as_raw(self), param0, param1, param2).ok()
+    pub unsafe fn GetAvailableVidMem(&self, param0: *mut DDSCAPS, param1: *mut u32, param2: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetAvailableVidMem)(::windows_core::Interface::as_raw(self), param0, param1, param2).ok()
     }
 }
-::windows::imp::interface_hierarchy!(IDirectDraw2, ::windows::core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IDirectDraw2, ::windows_core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectDraw2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -364,7 +364,7 @@ impl ::core::fmt::Debug for IDirectDraw2 {
         f.debug_tuple("IDirectDraw2").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IDirectDraw2 {
+unsafe impl ::windows_core::Interface for IDirectDraw2 {
     type Vtable = IDirectDraw2_Vtbl;
 }
 impl ::core::clone::Clone for IDirectDraw2 {
@@ -372,157 +372,157 @@ impl ::core::clone::Clone for IDirectDraw2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IDirectDraw2 {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3a6f3e0_2b43_11cf_a2de_00aa00b93356);
+unsafe impl ::windows_core::ComInterface for IDirectDraw2 {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb3a6f3e0_2b43_11cf_a2de_00aa00b93356);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDraw2_Vtbl {
-    pub base__: ::windows::core::IUnknown_Vtbl,
-    pub Compact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub CreateClipper: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut *mut ::core::ffi::c_void, param2: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub Compact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateClipper: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut *mut ::core::ffi::c_void, param2: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub CreatePalette: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: *mut *mut ::core::ffi::c_void, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreatePalette: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: *mut *mut ::core::ffi::c_void, param3: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     CreatePalette: usize,
-    pub CreateSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSURFACEDESC, param1: *mut *mut ::core::ffi::c_void, param2: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub DuplicateSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub EnumDisplayModes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut ::core::ffi::c_void, param3: LPDDENUMMODESCALLBACK) -> ::windows::core::HRESULT,
-    pub EnumSurfaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut ::core::ffi::c_void, param3: LPDDENUMSURFACESCALLBACK) -> ::windows::core::HRESULT,
-    pub FlipToGDISurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetCaps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDCAPS_DX7, param1: *mut DDCAPS_DX7) -> ::windows::core::HRESULT,
-    pub GetDisplayMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSURFACEDESC) -> ::windows::core::HRESULT,
-    pub GetFourCCCodes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32, param1: *mut u32) -> ::windows::core::HRESULT,
-    pub GetGDISurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetMonitorFrequency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows::core::HRESULT,
-    pub GetScanLine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows::core::HRESULT,
-    pub GetVerticalBlankStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut i32) -> ::windows::core::HRESULT,
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub RestoreDisplayMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSURFACEDESC, param1: *mut *mut ::core::ffi::c_void, param2: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DuplicateSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EnumDisplayModes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut ::core::ffi::c_void, param3: LPDDENUMMODESCALLBACK) -> ::windows_core::HRESULT,
+    pub EnumSurfaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut ::core::ffi::c_void, param3: LPDDENUMSURFACESCALLBACK) -> ::windows_core::HRESULT,
+    pub FlipToGDISurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetCaps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDCAPS_DX7, param1: *mut DDCAPS_DX7) -> ::windows_core::HRESULT,
+    pub GetDisplayMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSURFACEDESC) -> ::windows_core::HRESULT,
+    pub GetFourCCCodes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32, param1: *mut u32) -> ::windows_core::HRESULT,
+    pub GetGDISurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetMonitorFrequency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows_core::HRESULT,
+    pub GetScanLine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows_core::HRESULT,
+    pub GetVerticalBlankStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut i32) -> ::windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub RestoreDisplayMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub SetCooperativeLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
+    pub SetCooperativeLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     SetCooperativeLevel: usize,
-    pub SetDisplayMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: u32, param2: u32, param3: u32, param4: u32) -> ::windows::core::HRESULT,
+    pub SetDisplayMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: u32, param2: u32, param3: u32, param4: u32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub WaitForVerticalBlank: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
+    pub WaitForVerticalBlank: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     WaitForVerticalBlank: usize,
-    pub GetAvailableVidMem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSCAPS, param1: *mut u32, param2: *mut u32) -> ::windows::core::HRESULT,
+    pub GetAvailableVidMem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSCAPS, param1: *mut u32, param2: *mut u32) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
-pub struct IDirectDraw4(::windows::core::IUnknown);
+pub struct IDirectDraw4(::windows_core::IUnknown);
 impl IDirectDraw4 {
-    pub unsafe fn Compact(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Compact)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn Compact(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Compact)(::windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn CreateClipper<P0>(&self, param0: u32, param1: *mut ::core::option::Option<IDirectDrawClipper>, param2: P0) -> ::windows::core::Result<()>
+    pub unsafe fn CreateClipper<P0>(&self, param0: u32, param1: *mut ::core::option::Option<IDirectDrawClipper>, param2: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        (::windows::core::Interface::vtable(self).CreateClipper)(::windows::core::Interface::as_raw(self), param0, ::core::mem::transmute(param1), param2.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).CreateClipper)(::windows_core::Interface::as_raw(self), param0, ::core::mem::transmute(param1), param2.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn CreatePalette<P0>(&self, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: *mut ::core::option::Option<IDirectDrawPalette>, param3: P0) -> ::windows::core::Result<()>
+    pub unsafe fn CreatePalette<P0>(&self, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: *mut ::core::option::Option<IDirectDrawPalette>, param3: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        (::windows::core::Interface::vtable(self).CreatePalette)(::windows::core::Interface::as_raw(self), param0, param1, ::core::mem::transmute(param2), param3.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).CreatePalette)(::windows_core::Interface::as_raw(self), param0, param1, ::core::mem::transmute(param2), param3.into_param().abi()).ok()
     }
-    pub unsafe fn CreateSurface<P0>(&self, param0: *mut DDSURFACEDESC2, param1: *mut ::core::option::Option<IDirectDrawSurface4>, param2: P0) -> ::windows::core::Result<()>
+    pub unsafe fn CreateSurface<P0>(&self, param0: *mut DDSURFACEDESC2, param1: *mut ::core::option::Option<IDirectDrawSurface4>, param2: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        (::windows::core::Interface::vtable(self).CreateSurface)(::windows::core::Interface::as_raw(self), param0, ::core::mem::transmute(param1), param2.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).CreateSurface)(::windows_core::Interface::as_raw(self), param0, ::core::mem::transmute(param1), param2.into_param().abi()).ok()
     }
-    pub unsafe fn DuplicateSurface<P0>(&self, param0: P0) -> ::windows::core::Result<IDirectDrawSurface4>
+    pub unsafe fn DuplicateSurface<P0>(&self, param0: P0) -> ::windows_core::Result<IDirectDrawSurface4>
     where
-        P0: ::windows::core::IntoParam<IDirectDrawSurface4>,
+        P0: ::windows_core::IntoParam<IDirectDrawSurface4>,
     {
-        let mut result__ = ::windows::core::zeroed::<IDirectDrawSurface4>();
-        (::windows::core::Interface::vtable(self).DuplicateSurface)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), &mut result__).from_abi(result__)
+        let mut result__ = ::windows_core::zeroed::<IDirectDrawSurface4>();
+        (::windows_core::Interface::vtable(self).DuplicateSurface)(::windows_core::Interface::as_raw(self), param0.into_param().abi(), &mut result__).from_abi(result__)
     }
-    pub unsafe fn EnumDisplayModes(&self, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut ::core::ffi::c_void, param3: LPDDENUMMODESCALLBACK2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnumDisplayModes)(::windows::core::Interface::as_raw(self), param0, param1, param2, param3).ok()
+    pub unsafe fn EnumDisplayModes(&self, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut ::core::ffi::c_void, param3: LPDDENUMMODESCALLBACK2) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).EnumDisplayModes)(::windows_core::Interface::as_raw(self), param0, param1, param2, param3).ok()
     }
-    pub unsafe fn EnumSurfaces(&self, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut ::core::ffi::c_void, param3: LPDDENUMSURFACESCALLBACK2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnumSurfaces)(::windows::core::Interface::as_raw(self), param0, param1, param2, param3).ok()
+    pub unsafe fn EnumSurfaces(&self, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut ::core::ffi::c_void, param3: LPDDENUMSURFACESCALLBACK2) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).EnumSurfaces)(::windows_core::Interface::as_raw(self), param0, param1, param2, param3).ok()
     }
-    pub unsafe fn FlipToGDISurface(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FlipToGDISurface)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn FlipToGDISurface(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).FlipToGDISurface)(::windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn GetCaps(&self, param0: *mut DDCAPS_DX7, param1: *mut DDCAPS_DX7) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetCaps)(::windows::core::Interface::as_raw(self), param0, param1).ok()
+    pub unsafe fn GetCaps(&self, param0: *mut DDCAPS_DX7, param1: *mut DDCAPS_DX7) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetCaps)(::windows_core::Interface::as_raw(self), param0, param1).ok()
     }
-    pub unsafe fn GetDisplayMode(&self, param0: *mut DDSURFACEDESC2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDisplayMode)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetDisplayMode(&self, param0: *mut DDSURFACEDESC2) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetDisplayMode)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn GetFourCCCodes(&self, param0: *mut u32, param1: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetFourCCCodes)(::windows::core::Interface::as_raw(self), param0, param1).ok()
+    pub unsafe fn GetFourCCCodes(&self, param0: *mut u32, param1: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetFourCCCodes)(::windows_core::Interface::as_raw(self), param0, param1).ok()
     }
-    pub unsafe fn GetGDISurface(&self) -> ::windows::core::Result<IDirectDrawSurface4> {
-        let mut result__ = ::windows::core::zeroed::<IDirectDrawSurface4>();
-        (::windows::core::Interface::vtable(self).GetGDISurface)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn GetGDISurface(&self) -> ::windows_core::Result<IDirectDrawSurface4> {
+        let mut result__ = ::windows_core::zeroed::<IDirectDrawSurface4>();
+        (::windows_core::Interface::vtable(self).GetGDISurface)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetMonitorFrequency(&self, param0: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetMonitorFrequency)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetMonitorFrequency(&self, param0: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetMonitorFrequency)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn GetScanLine(&self, param0: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetScanLine)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetScanLine(&self, param0: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetScanLine)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn GetVerticalBlankStatus(&self, param0: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetVerticalBlankStatus)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetVerticalBlankStatus(&self, param0: *mut i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetVerticalBlankStatus)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn Initialize(&self, param0: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn Initialize(&self, param0: *mut ::windows_core::GUID) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn RestoreDisplayMode(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RestoreDisplayMode)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn RestoreDisplayMode(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).RestoreDisplayMode)(::windows_core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCooperativeLevel<P0>(&self, param0: P0, param1: u32) -> ::windows::core::Result<()>
+    pub unsafe fn SetCooperativeLevel<P0>(&self, param0: P0, param1: u32) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
     {
-        (::windows::core::Interface::vtable(self).SetCooperativeLevel)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
+        (::windows_core::Interface::vtable(self).SetCooperativeLevel)(::windows_core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
     }
-    pub unsafe fn SetDisplayMode(&self, param0: u32, param1: u32, param2: u32, param3: u32, param4: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDisplayMode)(::windows::core::Interface::as_raw(self), param0, param1, param2, param3, param4).ok()
+    pub unsafe fn SetDisplayMode(&self, param0: u32, param1: u32, param2: u32, param3: u32, param4: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetDisplayMode)(::windows_core::Interface::as_raw(self), param0, param1, param2, param3, param4).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn WaitForVerticalBlank<P0>(&self, param0: u32, param1: P0) -> ::windows::core::Result<()>
+    pub unsafe fn WaitForVerticalBlank<P0>(&self, param0: u32, param1: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
     {
-        (::windows::core::Interface::vtable(self).WaitForVerticalBlank)(::windows::core::Interface::as_raw(self), param0, param1.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).WaitForVerticalBlank)(::windows_core::Interface::as_raw(self), param0, param1.into_param().abi()).ok()
     }
-    pub unsafe fn GetAvailableVidMem(&self, param0: *mut DDSCAPS2, param1: *mut u32, param2: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetAvailableVidMem)(::windows::core::Interface::as_raw(self), param0, param1, param2).ok()
+    pub unsafe fn GetAvailableVidMem(&self, param0: *mut DDSCAPS2, param1: *mut u32, param2: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetAvailableVidMem)(::windows_core::Interface::as_raw(self), param0, param1, param2).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn GetSurfaceFromDC<P0>(&self, param0: P0) -> ::windows::core::Result<IDirectDrawSurface4>
+    pub unsafe fn GetSurfaceFromDC<P0>(&self, param0: P0) -> ::windows_core::Result<IDirectDrawSurface4>
     where
-        P0: ::windows::core::IntoParam<super::Gdi::HDC>,
+        P0: ::windows_core::IntoParam<super::Gdi::HDC>,
     {
-        let mut result__ = ::windows::core::zeroed::<IDirectDrawSurface4>();
-        (::windows::core::Interface::vtable(self).GetSurfaceFromDC)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), &mut result__).from_abi(result__)
+        let mut result__ = ::windows_core::zeroed::<IDirectDrawSurface4>();
+        (::windows_core::Interface::vtable(self).GetSurfaceFromDC)(::windows_core::Interface::as_raw(self), param0.into_param().abi(), &mut result__).from_abi(result__)
     }
-    pub unsafe fn RestoreAllSurfaces(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RestoreAllSurfaces)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn RestoreAllSurfaces(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).RestoreAllSurfaces)(::windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn TestCooperativeLevel(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).TestCooperativeLevel)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn TestCooperativeLevel(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).TestCooperativeLevel)(::windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn GetDeviceIdentifier(&self, param0: *mut DDDEVICEIDENTIFIER, param1: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDeviceIdentifier)(::windows::core::Interface::as_raw(self), param0, param1).ok()
+    pub unsafe fn GetDeviceIdentifier(&self, param0: *mut DDDEVICEIDENTIFIER, param1: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetDeviceIdentifier)(::windows_core::Interface::as_raw(self), param0, param1).ok()
     }
 }
-::windows::imp::interface_hierarchy!(IDirectDraw4, ::windows::core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IDirectDraw4, ::windows_core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectDraw4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -534,7 +534,7 @@ impl ::core::fmt::Debug for IDirectDraw4 {
         f.debug_tuple("IDirectDraw4").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IDirectDraw4 {
+unsafe impl ::windows_core::Interface for IDirectDraw4 {
     type Vtable = IDirectDraw4_Vtbl;
 }
 impl ::core::clone::Clone for IDirectDraw4 {
@@ -542,172 +542,172 @@ impl ::core::clone::Clone for IDirectDraw4 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IDirectDraw4 {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c59509a_39bd_11d1_8c4a_00c04fd930c5);
+unsafe impl ::windows_core::ComInterface for IDirectDraw4 {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9c59509a_39bd_11d1_8c4a_00c04fd930c5);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDraw4_Vtbl {
-    pub base__: ::windows::core::IUnknown_Vtbl,
-    pub Compact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub CreateClipper: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut *mut ::core::ffi::c_void, param2: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub Compact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateClipper: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut *mut ::core::ffi::c_void, param2: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub CreatePalette: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: *mut *mut ::core::ffi::c_void, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreatePalette: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: *mut *mut ::core::ffi::c_void, param3: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     CreatePalette: usize,
-    pub CreateSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSURFACEDESC2, param1: *mut *mut ::core::ffi::c_void, param2: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub DuplicateSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub EnumDisplayModes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut ::core::ffi::c_void, param3: LPDDENUMMODESCALLBACK2) -> ::windows::core::HRESULT,
-    pub EnumSurfaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut ::core::ffi::c_void, param3: LPDDENUMSURFACESCALLBACK2) -> ::windows::core::HRESULT,
-    pub FlipToGDISurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetCaps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDCAPS_DX7, param1: *mut DDCAPS_DX7) -> ::windows::core::HRESULT,
-    pub GetDisplayMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSURFACEDESC2) -> ::windows::core::HRESULT,
-    pub GetFourCCCodes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32, param1: *mut u32) -> ::windows::core::HRESULT,
-    pub GetGDISurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetMonitorFrequency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows::core::HRESULT,
-    pub GetScanLine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows::core::HRESULT,
-    pub GetVerticalBlankStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut i32) -> ::windows::core::HRESULT,
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub RestoreDisplayMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSURFACEDESC2, param1: *mut *mut ::core::ffi::c_void, param2: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DuplicateSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EnumDisplayModes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut ::core::ffi::c_void, param3: LPDDENUMMODESCALLBACK2) -> ::windows_core::HRESULT,
+    pub EnumSurfaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut ::core::ffi::c_void, param3: LPDDENUMSURFACESCALLBACK2) -> ::windows_core::HRESULT,
+    pub FlipToGDISurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetCaps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDCAPS_DX7, param1: *mut DDCAPS_DX7) -> ::windows_core::HRESULT,
+    pub GetDisplayMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSURFACEDESC2) -> ::windows_core::HRESULT,
+    pub GetFourCCCodes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32, param1: *mut u32) -> ::windows_core::HRESULT,
+    pub GetGDISurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetMonitorFrequency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows_core::HRESULT,
+    pub GetScanLine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows_core::HRESULT,
+    pub GetVerticalBlankStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut i32) -> ::windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub RestoreDisplayMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub SetCooperativeLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
+    pub SetCooperativeLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     SetCooperativeLevel: usize,
-    pub SetDisplayMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: u32, param2: u32, param3: u32, param4: u32) -> ::windows::core::HRESULT,
+    pub SetDisplayMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: u32, param2: u32, param3: u32, param4: u32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub WaitForVerticalBlank: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
+    pub WaitForVerticalBlank: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     WaitForVerticalBlank: usize,
-    pub GetAvailableVidMem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSCAPS2, param1: *mut u32, param2: *mut u32) -> ::windows::core::HRESULT,
+    pub GetAvailableVidMem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSCAPS2, param1: *mut u32, param2: *mut u32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub GetSurfaceFromDC: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::Gdi::HDC, param1: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetSurfaceFromDC: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::Gdi::HDC, param1: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     GetSurfaceFromDC: usize,
-    pub RestoreAllSurfaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub TestCooperativeLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetDeviceIdentifier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDDEVICEIDENTIFIER, param1: u32) -> ::windows::core::HRESULT,
+    pub RestoreAllSurfaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub TestCooperativeLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetDeviceIdentifier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDDEVICEIDENTIFIER, param1: u32) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
-pub struct IDirectDraw7(::windows::core::IUnknown);
+pub struct IDirectDraw7(::windows_core::IUnknown);
 impl IDirectDraw7 {
-    pub unsafe fn Compact(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Compact)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn Compact(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Compact)(::windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn CreateClipper<P0>(&self, param0: u32, param1: *mut ::core::option::Option<IDirectDrawClipper>, param2: P0) -> ::windows::core::Result<()>
+    pub unsafe fn CreateClipper<P0>(&self, param0: u32, param1: *mut ::core::option::Option<IDirectDrawClipper>, param2: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        (::windows::core::Interface::vtable(self).CreateClipper)(::windows::core::Interface::as_raw(self), param0, ::core::mem::transmute(param1), param2.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).CreateClipper)(::windows_core::Interface::as_raw(self), param0, ::core::mem::transmute(param1), param2.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn CreatePalette<P0>(&self, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: *mut ::core::option::Option<IDirectDrawPalette>, param3: P0) -> ::windows::core::Result<()>
+    pub unsafe fn CreatePalette<P0>(&self, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: *mut ::core::option::Option<IDirectDrawPalette>, param3: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        (::windows::core::Interface::vtable(self).CreatePalette)(::windows::core::Interface::as_raw(self), param0, param1, ::core::mem::transmute(param2), param3.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).CreatePalette)(::windows_core::Interface::as_raw(self), param0, param1, ::core::mem::transmute(param2), param3.into_param().abi()).ok()
     }
-    pub unsafe fn CreateSurface<P0>(&self, param0: *mut DDSURFACEDESC2, param1: *mut ::core::option::Option<IDirectDrawSurface7>, param2: P0) -> ::windows::core::Result<()>
+    pub unsafe fn CreateSurface<P0>(&self, param0: *mut DDSURFACEDESC2, param1: *mut ::core::option::Option<IDirectDrawSurface7>, param2: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        (::windows::core::Interface::vtable(self).CreateSurface)(::windows::core::Interface::as_raw(self), param0, ::core::mem::transmute(param1), param2.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).CreateSurface)(::windows_core::Interface::as_raw(self), param0, ::core::mem::transmute(param1), param2.into_param().abi()).ok()
     }
-    pub unsafe fn DuplicateSurface<P0>(&self, param0: P0) -> ::windows::core::Result<IDirectDrawSurface7>
+    pub unsafe fn DuplicateSurface<P0>(&self, param0: P0) -> ::windows_core::Result<IDirectDrawSurface7>
     where
-        P0: ::windows::core::IntoParam<IDirectDrawSurface7>,
+        P0: ::windows_core::IntoParam<IDirectDrawSurface7>,
     {
-        let mut result__ = ::windows::core::zeroed::<IDirectDrawSurface7>();
-        (::windows::core::Interface::vtable(self).DuplicateSurface)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), &mut result__).from_abi(result__)
+        let mut result__ = ::windows_core::zeroed::<IDirectDrawSurface7>();
+        (::windows_core::Interface::vtable(self).DuplicateSurface)(::windows_core::Interface::as_raw(self), param0.into_param().abi(), &mut result__).from_abi(result__)
     }
-    pub unsafe fn EnumDisplayModes(&self, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut ::core::ffi::c_void, param3: LPDDENUMMODESCALLBACK2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnumDisplayModes)(::windows::core::Interface::as_raw(self), param0, param1, param2, param3).ok()
+    pub unsafe fn EnumDisplayModes(&self, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut ::core::ffi::c_void, param3: LPDDENUMMODESCALLBACK2) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).EnumDisplayModes)(::windows_core::Interface::as_raw(self), param0, param1, param2, param3).ok()
     }
-    pub unsafe fn EnumSurfaces(&self, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut ::core::ffi::c_void, param3: LPDDENUMSURFACESCALLBACK7) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnumSurfaces)(::windows::core::Interface::as_raw(self), param0, param1, param2, param3).ok()
+    pub unsafe fn EnumSurfaces(&self, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut ::core::ffi::c_void, param3: LPDDENUMSURFACESCALLBACK7) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).EnumSurfaces)(::windows_core::Interface::as_raw(self), param0, param1, param2, param3).ok()
     }
-    pub unsafe fn FlipToGDISurface(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FlipToGDISurface)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn FlipToGDISurface(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).FlipToGDISurface)(::windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn GetCaps(&self, param0: *mut DDCAPS_DX7, param1: *mut DDCAPS_DX7) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetCaps)(::windows::core::Interface::as_raw(self), param0, param1).ok()
+    pub unsafe fn GetCaps(&self, param0: *mut DDCAPS_DX7, param1: *mut DDCAPS_DX7) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetCaps)(::windows_core::Interface::as_raw(self), param0, param1).ok()
     }
-    pub unsafe fn GetDisplayMode(&self, param0: *mut DDSURFACEDESC2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDisplayMode)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetDisplayMode(&self, param0: *mut DDSURFACEDESC2) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetDisplayMode)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn GetFourCCCodes(&self, param0: *mut u32, param1: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetFourCCCodes)(::windows::core::Interface::as_raw(self), param0, param1).ok()
+    pub unsafe fn GetFourCCCodes(&self, param0: *mut u32, param1: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetFourCCCodes)(::windows_core::Interface::as_raw(self), param0, param1).ok()
     }
-    pub unsafe fn GetGDISurface(&self) -> ::windows::core::Result<IDirectDrawSurface7> {
-        let mut result__ = ::windows::core::zeroed::<IDirectDrawSurface7>();
-        (::windows::core::Interface::vtable(self).GetGDISurface)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn GetGDISurface(&self) -> ::windows_core::Result<IDirectDrawSurface7> {
+        let mut result__ = ::windows_core::zeroed::<IDirectDrawSurface7>();
+        (::windows_core::Interface::vtable(self).GetGDISurface)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetMonitorFrequency(&self, param0: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetMonitorFrequency)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetMonitorFrequency(&self, param0: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetMonitorFrequency)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn GetScanLine(&self, param0: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetScanLine)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetScanLine(&self, param0: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetScanLine)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn GetVerticalBlankStatus(&self, param0: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetVerticalBlankStatus)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetVerticalBlankStatus(&self, param0: *mut i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetVerticalBlankStatus)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn Initialize(&self, param0: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn Initialize(&self, param0: *mut ::windows_core::GUID) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn RestoreDisplayMode(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RestoreDisplayMode)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn RestoreDisplayMode(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).RestoreDisplayMode)(::windows_core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCooperativeLevel<P0>(&self, param0: P0, param1: u32) -> ::windows::core::Result<()>
+    pub unsafe fn SetCooperativeLevel<P0>(&self, param0: P0, param1: u32) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
     {
-        (::windows::core::Interface::vtable(self).SetCooperativeLevel)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
+        (::windows_core::Interface::vtable(self).SetCooperativeLevel)(::windows_core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
     }
-    pub unsafe fn SetDisplayMode(&self, param0: u32, param1: u32, param2: u32, param3: u32, param4: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDisplayMode)(::windows::core::Interface::as_raw(self), param0, param1, param2, param3, param4).ok()
+    pub unsafe fn SetDisplayMode(&self, param0: u32, param1: u32, param2: u32, param3: u32, param4: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetDisplayMode)(::windows_core::Interface::as_raw(self), param0, param1, param2, param3, param4).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn WaitForVerticalBlank<P0>(&self, param0: u32, param1: P0) -> ::windows::core::Result<()>
+    pub unsafe fn WaitForVerticalBlank<P0>(&self, param0: u32, param1: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
     {
-        (::windows::core::Interface::vtable(self).WaitForVerticalBlank)(::windows::core::Interface::as_raw(self), param0, param1.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).WaitForVerticalBlank)(::windows_core::Interface::as_raw(self), param0, param1.into_param().abi()).ok()
     }
-    pub unsafe fn GetAvailableVidMem(&self, param0: *mut DDSCAPS2, param1: *mut u32, param2: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetAvailableVidMem)(::windows::core::Interface::as_raw(self), param0, param1, param2).ok()
+    pub unsafe fn GetAvailableVidMem(&self, param0: *mut DDSCAPS2, param1: *mut u32, param2: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetAvailableVidMem)(::windows_core::Interface::as_raw(self), param0, param1, param2).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn GetSurfaceFromDC<P0>(&self, param0: P0) -> ::windows::core::Result<IDirectDrawSurface7>
+    pub unsafe fn GetSurfaceFromDC<P0>(&self, param0: P0) -> ::windows_core::Result<IDirectDrawSurface7>
     where
-        P0: ::windows::core::IntoParam<super::Gdi::HDC>,
+        P0: ::windows_core::IntoParam<super::Gdi::HDC>,
     {
-        let mut result__ = ::windows::core::zeroed::<IDirectDrawSurface7>();
-        (::windows::core::Interface::vtable(self).GetSurfaceFromDC)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), &mut result__).from_abi(result__)
+        let mut result__ = ::windows_core::zeroed::<IDirectDrawSurface7>();
+        (::windows_core::Interface::vtable(self).GetSurfaceFromDC)(::windows_core::Interface::as_raw(self), param0.into_param().abi(), &mut result__).from_abi(result__)
     }
-    pub unsafe fn RestoreAllSurfaces(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RestoreAllSurfaces)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn RestoreAllSurfaces(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).RestoreAllSurfaces)(::windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn TestCooperativeLevel(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).TestCooperativeLevel)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn TestCooperativeLevel(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).TestCooperativeLevel)(::windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn GetDeviceIdentifier(&self, param0: *mut DDDEVICEIDENTIFIER2, param1: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDeviceIdentifier)(::windows::core::Interface::as_raw(self), param0, param1).ok()
+    pub unsafe fn GetDeviceIdentifier(&self, param0: *mut DDDEVICEIDENTIFIER2, param1: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetDeviceIdentifier)(::windows_core::Interface::as_raw(self), param0, param1).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn StartModeTest(&self, param0: *mut super::super::Foundation::SIZE, param1: u32, param2: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).StartModeTest)(::windows::core::Interface::as_raw(self), param0, param1, param2).ok()
+    pub unsafe fn StartModeTest(&self, param0: *mut super::super::Foundation::SIZE, param1: u32, param2: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).StartModeTest)(::windows_core::Interface::as_raw(self), param0, param1, param2).ok()
     }
-    pub unsafe fn EvaluateMode(&self, param0: u32, param1: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EvaluateMode)(::windows::core::Interface::as_raw(self), param0, param1).ok()
+    pub unsafe fn EvaluateMode(&self, param0: u32, param1: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).EvaluateMode)(::windows_core::Interface::as_raw(self), param0, param1).ok()
     }
 }
-::windows::imp::interface_hierarchy!(IDirectDraw7, ::windows::core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IDirectDraw7, ::windows_core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectDraw7 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -719,7 +719,7 @@ impl ::core::fmt::Debug for IDirectDraw7 {
         f.debug_tuple("IDirectDraw7").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IDirectDraw7 {
+unsafe impl ::windows_core::Interface for IDirectDraw7 {
     type Vtable = IDirectDraw7_Vtbl;
 }
 impl ::core::clone::Clone for IDirectDraw7 {
@@ -727,96 +727,96 @@ impl ::core::clone::Clone for IDirectDraw7 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IDirectDraw7 {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15e65ec0_3b9c_11d2_b92f_00609797ea5b);
+unsafe impl ::windows_core::ComInterface for IDirectDraw7 {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x15e65ec0_3b9c_11d2_b92f_00609797ea5b);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDraw7_Vtbl {
-    pub base__: ::windows::core::IUnknown_Vtbl,
-    pub Compact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub CreateClipper: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut *mut ::core::ffi::c_void, param2: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub Compact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateClipper: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut *mut ::core::ffi::c_void, param2: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub CreatePalette: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: *mut *mut ::core::ffi::c_void, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreatePalette: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: *mut *mut ::core::ffi::c_void, param3: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     CreatePalette: usize,
-    pub CreateSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSURFACEDESC2, param1: *mut *mut ::core::ffi::c_void, param2: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub DuplicateSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub EnumDisplayModes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut ::core::ffi::c_void, param3: LPDDENUMMODESCALLBACK2) -> ::windows::core::HRESULT,
-    pub EnumSurfaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut ::core::ffi::c_void, param3: LPDDENUMSURFACESCALLBACK7) -> ::windows::core::HRESULT,
-    pub FlipToGDISurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetCaps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDCAPS_DX7, param1: *mut DDCAPS_DX7) -> ::windows::core::HRESULT,
-    pub GetDisplayMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSURFACEDESC2) -> ::windows::core::HRESULT,
-    pub GetFourCCCodes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32, param1: *mut u32) -> ::windows::core::HRESULT,
-    pub GetGDISurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetMonitorFrequency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows::core::HRESULT,
-    pub GetScanLine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows::core::HRESULT,
-    pub GetVerticalBlankStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut i32) -> ::windows::core::HRESULT,
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub RestoreDisplayMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSURFACEDESC2, param1: *mut *mut ::core::ffi::c_void, param2: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DuplicateSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EnumDisplayModes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut ::core::ffi::c_void, param3: LPDDENUMMODESCALLBACK2) -> ::windows_core::HRESULT,
+    pub EnumSurfaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut ::core::ffi::c_void, param3: LPDDENUMSURFACESCALLBACK7) -> ::windows_core::HRESULT,
+    pub FlipToGDISurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetCaps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDCAPS_DX7, param1: *mut DDCAPS_DX7) -> ::windows_core::HRESULT,
+    pub GetDisplayMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSURFACEDESC2) -> ::windows_core::HRESULT,
+    pub GetFourCCCodes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32, param1: *mut u32) -> ::windows_core::HRESULT,
+    pub GetGDISurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetMonitorFrequency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows_core::HRESULT,
+    pub GetScanLine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows_core::HRESULT,
+    pub GetVerticalBlankStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut i32) -> ::windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub RestoreDisplayMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub SetCooperativeLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::HRESULT,
+    pub SetCooperativeLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     SetCooperativeLevel: usize,
-    pub SetDisplayMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: u32, param2: u32, param3: u32, param4: u32) -> ::windows::core::HRESULT,
+    pub SetDisplayMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: u32, param2: u32, param3: u32, param4: u32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub WaitForVerticalBlank: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
+    pub WaitForVerticalBlank: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     WaitForVerticalBlank: usize,
-    pub GetAvailableVidMem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSCAPS2, param1: *mut u32, param2: *mut u32) -> ::windows::core::HRESULT,
+    pub GetAvailableVidMem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSCAPS2, param1: *mut u32, param2: *mut u32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub GetSurfaceFromDC: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::Gdi::HDC, param1: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetSurfaceFromDC: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::Gdi::HDC, param1: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     GetSurfaceFromDC: usize,
-    pub RestoreAllSurfaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub TestCooperativeLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetDeviceIdentifier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDDEVICEIDENTIFIER2, param1: u32) -> ::windows::core::HRESULT,
+    pub RestoreAllSurfaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub TestCooperativeLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetDeviceIdentifier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDDEVICEIDENTIFIER2, param1: u32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub StartModeTest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::SIZE, param1: u32, param2: u32) -> ::windows::core::HRESULT,
+    pub StartModeTest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::SIZE, param1: u32, param2: u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     StartModeTest: usize,
-    pub EvaluateMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut u32) -> ::windows::core::HRESULT,
+    pub EvaluateMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut u32) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
-pub struct IDirectDrawClipper(::windows::core::IUnknown);
+pub struct IDirectDrawClipper(::windows_core::IUnknown);
 impl IDirectDrawClipper {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn GetClipList(&self, param0: *mut super::super::Foundation::RECT, param1: *mut super::Gdi::RGNDATA, param2: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetClipList)(::windows::core::Interface::as_raw(self), param0, param1, param2).ok()
+    pub unsafe fn GetClipList(&self, param0: *mut super::super::Foundation::RECT, param1: *mut super::Gdi::RGNDATA, param2: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetClipList)(::windows_core::Interface::as_raw(self), param0, param1, param2).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetHWnd(&self, param0: *mut super::super::Foundation::HWND) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetHWnd)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetHWnd(&self, param0: *mut super::super::Foundation::HWND) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetHWnd)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn Initialize<P0>(&self, param0: P0, param1: u32) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, param0: P0, param1: u32) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDirectDraw>,
+        P0: ::windows_core::IntoParam<IDirectDraw>,
     {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
+        (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsClipListChanged(&self, param0: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).IsClipListChanged)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn IsClipListChanged(&self, param0: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).IsClipListChanged)(::windows_core::Interface::as_raw(self), param0).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn SetClipList(&self, param0: *mut super::Gdi::RGNDATA, param1: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetClipList)(::windows::core::Interface::as_raw(self), param0, param1).ok()
+    pub unsafe fn SetClipList(&self, param0: *mut super::Gdi::RGNDATA, param1: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetClipList)(::windows_core::Interface::as_raw(self), param0, param1).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetHWnd<P0>(&self, param0: u32, param1: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetHWnd<P0>(&self, param0: u32, param1: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
     {
-        (::windows::core::Interface::vtable(self).SetHWnd)(::windows::core::Interface::as_raw(self), param0, param1.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).SetHWnd)(::windows_core::Interface::as_raw(self), param0, param1.into_param().abi()).ok()
     }
 }
-::windows::imp::interface_hierarchy!(IDirectDrawClipper, ::windows::core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IDirectDrawClipper, ::windows_core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectDrawClipper {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -828,7 +828,7 @@ impl ::core::fmt::Debug for IDirectDrawClipper {
         f.debug_tuple("IDirectDrawClipper").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IDirectDrawClipper {
+unsafe impl ::windows_core::Interface for IDirectDrawClipper {
     type Vtable = IDirectDrawClipper_Vtbl;
 }
 impl ::core::clone::Clone for IDirectDrawClipper {
@@ -836,47 +836,47 @@ impl ::core::clone::Clone for IDirectDrawClipper {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IDirectDrawClipper {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c14db85_a733_11ce_a521_0020af0be560);
+unsafe impl ::windows_core::ComInterface for IDirectDrawClipper {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6c14db85_a733_11ce_a521_0020af0be560);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDrawClipper_Vtbl {
-    pub base__: ::windows::core::IUnknown_Vtbl,
+    pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub GetClipList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut super::Gdi::RGNDATA, param2: *mut u32) -> ::windows::core::HRESULT,
+    pub GetClipList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut super::Gdi::RGNDATA, param2: *mut u32) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))]
     GetClipList: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub GetHWnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::HWND) -> ::windows::core::HRESULT,
+    pub GetHWnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::HWND) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     GetHWnd: usize,
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: u32) -> ::windows::core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: u32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub IsClipListChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    pub IsClipListChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     IsClipListChanged: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub SetClipList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::Gdi::RGNDATA, param1: u32) -> ::windows::core::HRESULT,
+    pub SetClipList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::Gdi::RGNDATA, param1: u32) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))]
     SetClipList: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub SetHWnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: super::super::Foundation::HWND) -> ::windows::core::HRESULT,
+    pub SetHWnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: super::super::Foundation::HWND) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     SetHWnd: usize,
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
-pub struct IDirectDrawColorControl(::windows::core::IUnknown);
+pub struct IDirectDrawColorControl(::windows_core::IUnknown);
 impl IDirectDrawColorControl {
-    pub unsafe fn GetColorControls(&self, param0: *mut DDCOLORCONTROL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetColorControls)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetColorControls(&self, param0: *mut DDCOLORCONTROL) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetColorControls)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn SetColorControls(&self, param0: *mut DDCOLORCONTROL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetColorControls)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn SetColorControls(&self, param0: *mut DDCOLORCONTROL) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetColorControls)(::windows_core::Interface::as_raw(self), param0).ok()
     }
 }
-::windows::imp::interface_hierarchy!(IDirectDrawColorControl, ::windows::core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IDirectDrawColorControl, ::windows_core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectDrawColorControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -888,7 +888,7 @@ impl ::core::fmt::Debug for IDirectDrawColorControl {
         f.debug_tuple("IDirectDrawColorControl").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IDirectDrawColorControl {
+unsafe impl ::windows_core::Interface for IDirectDrawColorControl {
     type Vtable = IDirectDrawColorControl_Vtbl;
 }
 impl ::core::clone::Clone for IDirectDrawColorControl {
@@ -896,28 +896,28 @@ impl ::core::clone::Clone for IDirectDrawColorControl {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IDirectDrawColorControl {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b9f0ee0_0d7e_11d0_9b06_00a0c903a3b8);
+unsafe impl ::windows_core::ComInterface for IDirectDrawColorControl {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4b9f0ee0_0d7e_11d0_9b06_00a0c903a3b8);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDrawColorControl_Vtbl {
-    pub base__: ::windows::core::IUnknown_Vtbl,
-    pub GetColorControls: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDCOLORCONTROL) -> ::windows::core::HRESULT,
-    pub SetColorControls: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDCOLORCONTROL) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub GetColorControls: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDCOLORCONTROL) -> ::windows_core::HRESULT,
+    pub SetColorControls: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDCOLORCONTROL) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
-pub struct IDirectDrawGammaControl(::windows::core::IUnknown);
+pub struct IDirectDrawGammaControl(::windows_core::IUnknown);
 impl IDirectDrawGammaControl {
-    pub unsafe fn GetGammaRamp(&self, param0: u32, param1: *mut DDGAMMARAMP) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetGammaRamp)(::windows::core::Interface::as_raw(self), param0, param1).ok()
+    pub unsafe fn GetGammaRamp(&self, param0: u32, param1: *mut DDGAMMARAMP) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetGammaRamp)(::windows_core::Interface::as_raw(self), param0, param1).ok()
     }
-    pub unsafe fn SetGammaRamp(&self, param0: u32, param1: *mut DDGAMMARAMP) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetGammaRamp)(::windows::core::Interface::as_raw(self), param0, param1).ok()
+    pub unsafe fn SetGammaRamp(&self, param0: u32, param1: *mut DDGAMMARAMP) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetGammaRamp)(::windows_core::Interface::as_raw(self), param0, param1).ok()
     }
 }
-::windows::imp::interface_hierarchy!(IDirectDrawGammaControl, ::windows::core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IDirectDrawGammaControl, ::windows_core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectDrawGammaControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -929,7 +929,7 @@ impl ::core::fmt::Debug for IDirectDrawGammaControl {
         f.debug_tuple("IDirectDrawGammaControl").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IDirectDrawGammaControl {
+unsafe impl ::windows_core::Interface for IDirectDrawGammaControl {
     type Vtable = IDirectDrawGammaControl_Vtbl;
 }
 impl ::core::clone::Clone for IDirectDrawGammaControl {
@@ -937,31 +937,31 @@ impl ::core::clone::Clone for IDirectDrawGammaControl {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IDirectDrawGammaControl {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69c11c3e_b46b_11d1_ad7a_00c04fc29b4e);
+unsafe impl ::windows_core::ComInterface for IDirectDrawGammaControl {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x69c11c3e_b46b_11d1_ad7a_00c04fc29b4e);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDrawGammaControl_Vtbl {
-    pub base__: ::windows::core::IUnknown_Vtbl,
-    pub GetGammaRamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DDGAMMARAMP) -> ::windows::core::HRESULT,
-    pub SetGammaRamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DDGAMMARAMP) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub GetGammaRamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DDGAMMARAMP) -> ::windows_core::HRESULT,
+    pub SetGammaRamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DDGAMMARAMP) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
-pub struct IDirectDrawKernel(::windows::core::IUnknown);
+pub struct IDirectDrawKernel(::windows_core::IUnknown);
 impl IDirectDrawKernel {
-    pub unsafe fn GetCaps(&self, param0: *mut DDKERNELCAPS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetCaps)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetCaps(&self, param0: *mut DDKERNELCAPS) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetCaps)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn GetKernelHandle(&self, param0: *mut usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetKernelHandle)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetKernelHandle(&self, param0: *mut usize) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetKernelHandle)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn ReleaseKernelHandle(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReleaseKernelHandle)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn ReleaseKernelHandle(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).ReleaseKernelHandle)(::windows_core::Interface::as_raw(self)).ok()
     }
 }
-::windows::imp::interface_hierarchy!(IDirectDrawKernel, ::windows::core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IDirectDrawKernel, ::windows_core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectDrawKernel {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -973,7 +973,7 @@ impl ::core::fmt::Debug for IDirectDrawKernel {
         f.debug_tuple("IDirectDrawKernel").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IDirectDrawKernel {
+unsafe impl ::windows_core::Interface for IDirectDrawKernel {
     type Vtable = IDirectDrawKernel_Vtbl;
 }
 impl ::core::clone::Clone for IDirectDrawKernel {
@@ -981,44 +981,44 @@ impl ::core::clone::Clone for IDirectDrawKernel {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IDirectDrawKernel {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d56c120_6a08_11d0_9b06_00a0c903a3b8);
+unsafe impl ::windows_core::ComInterface for IDirectDrawKernel {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8d56c120_6a08_11d0_9b06_00a0c903a3b8);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDrawKernel_Vtbl {
-    pub base__: ::windows::core::IUnknown_Vtbl,
-    pub GetCaps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDKERNELCAPS) -> ::windows::core::HRESULT,
-    pub GetKernelHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut usize) -> ::windows::core::HRESULT,
-    pub ReleaseKernelHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub GetCaps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDKERNELCAPS) -> ::windows_core::HRESULT,
+    pub GetKernelHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut usize) -> ::windows_core::HRESULT,
+    pub ReleaseKernelHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
-pub struct IDirectDrawPalette(::windows::core::IUnknown);
+pub struct IDirectDrawPalette(::windows_core::IUnknown);
 impl IDirectDrawPalette {
-    pub unsafe fn GetCaps(&self, param0: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetCaps)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetCaps(&self, param0: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetCaps)(::windows_core::Interface::as_raw(self), param0).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn GetEntries(&self, param0: u32, param1: u32, param2: u32, param3: *mut super::Gdi::PALETTEENTRY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetEntries)(::windows::core::Interface::as_raw(self), param0, param1, param2, param3).ok()
+    pub unsafe fn GetEntries(&self, param0: u32, param1: u32, param2: u32, param3: *mut super::Gdi::PALETTEENTRY) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetEntries)(::windows_core::Interface::as_raw(self), param0, param1, param2, param3).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn Initialize<P0>(&self, param0: P0, param1: u32, param2: *mut super::Gdi::PALETTEENTRY) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, param0: P0, param1: u32, param2: *mut super::Gdi::PALETTEENTRY) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDirectDraw>,
+        P0: ::windows_core::IntoParam<IDirectDraw>,
     {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1, param2).ok()
+        (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), param0.into_param().abi(), param1, param2).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn SetEntries(&self, param0: u32, param1: u32, param2: u32, param3: *mut super::Gdi::PALETTEENTRY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEntries)(::windows::core::Interface::as_raw(self), param0, param1, param2, param3).ok()
+    pub unsafe fn SetEntries(&self, param0: u32, param1: u32, param2: u32, param3: *mut super::Gdi::PALETTEENTRY) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetEntries)(::windows_core::Interface::as_raw(self), param0, param1, param2, param3).ok()
     }
 }
-::windows::imp::interface_hierarchy!(IDirectDrawPalette, ::windows::core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IDirectDrawPalette, ::windows_core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectDrawPalette {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1030,7 +1030,7 @@ impl ::core::fmt::Debug for IDirectDrawPalette {
         f.debug_tuple("IDirectDrawPalette").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IDirectDrawPalette {
+unsafe impl ::windows_core::Interface for IDirectDrawPalette {
     type Vtable = IDirectDrawPalette_Vtbl;
 }
 impl ::core::clone::Clone for IDirectDrawPalette {
@@ -1038,186 +1038,186 @@ impl ::core::clone::Clone for IDirectDrawPalette {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IDirectDrawPalette {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c14db84_a733_11ce_a521_0020af0be560);
+unsafe impl ::windows_core::ComInterface for IDirectDrawPalette {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6c14db84_a733_11ce_a521_0020af0be560);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDrawPalette_Vtbl {
-    pub base__: ::windows::core::IUnknown_Vtbl,
-    pub GetCaps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub GetCaps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub GetEntries: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: u32, param2: u32, param3: *mut super::Gdi::PALETTEENTRY) -> ::windows::core::HRESULT,
+    pub GetEntries: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: u32, param2: u32, param3: *mut super::Gdi::PALETTEENTRY) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     GetEntries: usize,
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: u32, param2: *mut super::Gdi::PALETTEENTRY) -> ::windows::core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: u32, param2: *mut super::Gdi::PALETTEENTRY) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     Initialize: usize,
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub SetEntries: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: u32, param2: u32, param3: *mut super::Gdi::PALETTEENTRY) -> ::windows::core::HRESULT,
+    pub SetEntries: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: u32, param2: u32, param3: *mut super::Gdi::PALETTEENTRY) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     SetEntries: usize,
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
-pub struct IDirectDrawSurface(::windows::core::IUnknown);
+pub struct IDirectDrawSurface(::windows_core::IUnknown);
 impl IDirectDrawSurface {
-    pub unsafe fn AddAttachedSurface<P0>(&self, param0: P0) -> ::windows::core::Result<()>
+    pub unsafe fn AddAttachedSurface<P0>(&self, param0: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDirectDrawSurface>,
+        P0: ::windows_core::IntoParam<IDirectDrawSurface>,
     {
-        (::windows::core::Interface::vtable(self).AddAttachedSurface)(::windows::core::Interface::as_raw(self), param0.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).AddAttachedSurface)(::windows_core::Interface::as_raw(self), param0.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddOverlayDirtyRect(&self, param0: *mut super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddOverlayDirtyRect)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn AddOverlayDirtyRect(&self, param0: *mut super::super::Foundation::RECT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).AddOverlayDirtyRect)(::windows_core::Interface::as_raw(self), param0).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Blt<P0>(&self, param0: *mut super::super::Foundation::RECT, param1: P0, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> ::windows::core::Result<()>
+    pub unsafe fn Blt<P0>(&self, param0: *mut super::super::Foundation::RECT, param1: P0, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDirectDrawSurface>,
+        P0: ::windows_core::IntoParam<IDirectDrawSurface>,
     {
-        (::windows::core::Interface::vtable(self).Blt)(::windows::core::Interface::as_raw(self), param0, param1.into_param().abi(), param2, param3, param4).ok()
+        (::windows_core::Interface::vtable(self).Blt)(::windows_core::Interface::as_raw(self), param0, param1.into_param().abi(), param2, param3, param4).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BltBatch)(::windows::core::Interface::as_raw(self), param0, param1, param2).ok()
+    pub unsafe fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).BltBatch)(::windows_core::Interface::as_raw(self), param0, param1, param2).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn BltFast<P0>(&self, param0: u32, param1: u32, param2: P0, param3: *mut super::super::Foundation::RECT, param4: u32) -> ::windows::core::Result<()>
+    pub unsafe fn BltFast<P0>(&self, param0: u32, param1: u32, param2: P0, param3: *mut super::super::Foundation::RECT, param4: u32) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDirectDrawSurface>,
+        P0: ::windows_core::IntoParam<IDirectDrawSurface>,
     {
-        (::windows::core::Interface::vtable(self).BltFast)(::windows::core::Interface::as_raw(self), param0, param1, param2.into_param().abi(), param3, param4).ok()
+        (::windows_core::Interface::vtable(self).BltFast)(::windows_core::Interface::as_raw(self), param0, param1, param2.into_param().abi(), param3, param4).ok()
     }
-    pub unsafe fn DeleteAttachedSurface<P0>(&self, param0: u32, param1: P0) -> ::windows::core::Result<()>
+    pub unsafe fn DeleteAttachedSurface<P0>(&self, param0: u32, param1: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDirectDrawSurface>,
+        P0: ::windows_core::IntoParam<IDirectDrawSurface>,
     {
-        (::windows::core::Interface::vtable(self).DeleteAttachedSurface)(::windows::core::Interface::as_raw(self), param0, param1.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).DeleteAttachedSurface)(::windows_core::Interface::as_raw(self), param0, param1.into_param().abi()).ok()
     }
-    pub unsafe fn EnumAttachedSurfaces(&self, param0: *mut ::core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnumAttachedSurfaces)(::windows::core::Interface::as_raw(self), param0, param1).ok()
+    pub unsafe fn EnumAttachedSurfaces(&self, param0: *mut ::core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).EnumAttachedSurfaces)(::windows_core::Interface::as_raw(self), param0, param1).ok()
     }
-    pub unsafe fn EnumOverlayZOrders(&self, param0: u32, param1: *mut ::core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnumOverlayZOrders)(::windows::core::Interface::as_raw(self), param0, param1, param2).ok()
+    pub unsafe fn EnumOverlayZOrders(&self, param0: u32, param1: *mut ::core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).EnumOverlayZOrders)(::windows_core::Interface::as_raw(self), param0, param1, param2).ok()
     }
-    pub unsafe fn Flip<P0>(&self, param0: P0, param1: u32) -> ::windows::core::Result<()>
+    pub unsafe fn Flip<P0>(&self, param0: P0, param1: u32) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDirectDrawSurface>,
+        P0: ::windows_core::IntoParam<IDirectDrawSurface>,
     {
-        (::windows::core::Interface::vtable(self).Flip)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
+        (::windows_core::Interface::vtable(self).Flip)(::windows_core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
     }
-    pub unsafe fn GetAttachedSurface(&self, param0: *mut DDSCAPS, param1: *mut ::core::option::Option<IDirectDrawSurface>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetAttachedSurface)(::windows::core::Interface::as_raw(self), param0, ::core::mem::transmute(param1)).ok()
+    pub unsafe fn GetAttachedSurface(&self, param0: *mut DDSCAPS, param1: *mut ::core::option::Option<IDirectDrawSurface>) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetAttachedSurface)(::windows_core::Interface::as_raw(self), param0, ::core::mem::transmute(param1)).ok()
     }
-    pub unsafe fn GetBltStatus(&self, param0: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetBltStatus)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetBltStatus(&self, param0: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetBltStatus)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn GetCaps(&self, param0: *mut DDSCAPS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetCaps)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetCaps(&self, param0: *mut DDSCAPS) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetCaps)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn GetClipper(&self) -> ::windows::core::Result<IDirectDrawClipper> {
-        let mut result__ = ::windows::core::zeroed::<IDirectDrawClipper>();
-        (::windows::core::Interface::vtable(self).GetClipper)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn GetClipper(&self) -> ::windows_core::Result<IDirectDrawClipper> {
+        let mut result__ = ::windows_core::zeroed::<IDirectDrawClipper>();
+        (::windows_core::Interface::vtable(self).GetClipper)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetColorKey)(::windows::core::Interface::as_raw(self), param0, param1).ok()
+    pub unsafe fn GetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetColorKey)(::windows_core::Interface::as_raw(self), param0, param1).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn GetDC(&self, param0: *mut super::Gdi::HDC) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDC)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetDC(&self, param0: *mut super::Gdi::HDC) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetDC)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn GetFlipStatus(&self, param0: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetFlipStatus)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetFlipStatus(&self, param0: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetFlipStatus)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn GetOverlayPosition(&self, param0: *mut i32, param1: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetOverlayPosition)(::windows::core::Interface::as_raw(self), param0, param1).ok()
+    pub unsafe fn GetOverlayPosition(&self, param0: *mut i32, param1: *mut i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetOverlayPosition)(::windows_core::Interface::as_raw(self), param0, param1).ok()
     }
-    pub unsafe fn GetPalette(&self) -> ::windows::core::Result<IDirectDrawPalette> {
-        let mut result__ = ::windows::core::zeroed::<IDirectDrawPalette>();
-        (::windows::core::Interface::vtable(self).GetPalette)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn GetPalette(&self) -> ::windows_core::Result<IDirectDrawPalette> {
+        let mut result__ = ::windows_core::zeroed::<IDirectDrawPalette>();
+        (::windows_core::Interface::vtable(self).GetPalette)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetPixelFormat(&self, param0: *mut DDPIXELFORMAT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPixelFormat)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetPixelFormat(&self, param0: *mut DDPIXELFORMAT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetPixelFormat)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn GetSurfaceDesc(&self, param0: *mut DDSURFACEDESC) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetSurfaceDesc)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetSurfaceDesc(&self, param0: *mut DDSURFACEDESC) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetSurfaceDesc)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn Initialize<P0>(&self, param0: P0, param1: *mut DDSURFACEDESC) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, param0: P0, param1: *mut DDSURFACEDESC) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDirectDraw>,
+        P0: ::windows_core::IntoParam<IDirectDraw>,
     {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
+        (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
     }
-    pub unsafe fn IsLost(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).IsLost)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn IsLost(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).IsLost)(::windows_core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Lock<P0>(&self, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC, param2: u32, param3: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Lock<P0>(&self, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC, param2: u32, param3: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
     {
-        (::windows::core::Interface::vtable(self).Lock)(::windows::core::Interface::as_raw(self), param0, param1, param2, param3.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).Lock)(::windows_core::Interface::as_raw(self), param0, param1, param2, param3.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn ReleaseDC<P0>(&self, param0: P0) -> ::windows::core::Result<()>
+    pub unsafe fn ReleaseDC<P0>(&self, param0: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::Gdi::HDC>,
+        P0: ::windows_core::IntoParam<super::Gdi::HDC>,
     {
-        (::windows::core::Interface::vtable(self).ReleaseDC)(::windows::core::Interface::as_raw(self), param0.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).ReleaseDC)(::windows_core::Interface::as_raw(self), param0.into_param().abi()).ok()
     }
-    pub unsafe fn Restore(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Restore)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn Restore(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Restore)(::windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn SetClipper<P0>(&self, param0: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetClipper<P0>(&self, param0: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDirectDrawClipper>,
+        P0: ::windows_core::IntoParam<IDirectDrawClipper>,
     {
-        (::windows::core::Interface::vtable(self).SetClipper)(::windows::core::Interface::as_raw(self), param0.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).SetClipper)(::windows_core::Interface::as_raw(self), param0.into_param().abi()).ok()
     }
-    pub unsafe fn SetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetColorKey)(::windows::core::Interface::as_raw(self), param0, param1).ok()
+    pub unsafe fn SetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetColorKey)(::windows_core::Interface::as_raw(self), param0, param1).ok()
     }
-    pub unsafe fn SetOverlayPosition(&self, param0: i32, param1: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOverlayPosition)(::windows::core::Interface::as_raw(self), param0, param1).ok()
+    pub unsafe fn SetOverlayPosition(&self, param0: i32, param1: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetOverlayPosition)(::windows_core::Interface::as_raw(self), param0, param1).ok()
     }
-    pub unsafe fn SetPalette<P0>(&self, param0: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPalette<P0>(&self, param0: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDirectDrawPalette>,
+        P0: ::windows_core::IntoParam<IDirectDrawPalette>,
     {
-        (::windows::core::Interface::vtable(self).SetPalette)(::windows::core::Interface::as_raw(self), param0.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).SetPalette)(::windows_core::Interface::as_raw(self), param0.into_param().abi()).ok()
     }
-    pub unsafe fn Unlock(&self, param0: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Unlock)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn Unlock(&self, param0: *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Unlock)(::windows_core::Interface::as_raw(self), param0).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn UpdateOverlay<P0>(&self, param0: *mut super::super::Foundation::RECT, param1: P0, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> ::windows::core::Result<()>
+    pub unsafe fn UpdateOverlay<P0>(&self, param0: *mut super::super::Foundation::RECT, param1: P0, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDirectDrawSurface>,
+        P0: ::windows_core::IntoParam<IDirectDrawSurface>,
     {
-        (::windows::core::Interface::vtable(self).UpdateOverlay)(::windows::core::Interface::as_raw(self), param0, param1.into_param().abi(), param2, param3, param4).ok()
+        (::windows_core::Interface::vtable(self).UpdateOverlay)(::windows_core::Interface::as_raw(self), param0, param1.into_param().abi(), param2, param3, param4).ok()
     }
-    pub unsafe fn UpdateOverlayDisplay(&self, param0: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UpdateOverlayDisplay)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn UpdateOverlayDisplay(&self, param0: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).UpdateOverlayDisplay)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn UpdateOverlayZOrder<P0>(&self, param0: u32, param1: P0) -> ::windows::core::Result<()>
+    pub unsafe fn UpdateOverlayZOrder<P0>(&self, param0: u32, param1: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDirectDrawSurface>,
+        P0: ::windows_core::IntoParam<IDirectDrawSurface>,
     {
-        (::windows::core::Interface::vtable(self).UpdateOverlayZOrder)(::windows::core::Interface::as_raw(self), param0, param1.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).UpdateOverlayZOrder)(::windows_core::Interface::as_raw(self), param0, param1.into_param().abi()).ok()
     }
 }
-::windows::imp::interface_hierarchy!(IDirectDrawSurface, ::windows::core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IDirectDrawSurface, ::windows_core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectDrawSurface {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1229,7 +1229,7 @@ impl ::core::fmt::Debug for IDirectDrawSurface {
         f.debug_tuple("IDirectDrawSurface").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IDirectDrawSurface {
+unsafe impl ::windows_core::Interface for IDirectDrawSurface {
     type Vtable = IDirectDrawSurface_Vtbl;
 }
 impl ::core::clone::Clone for IDirectDrawSurface {
@@ -1237,239 +1237,239 @@ impl ::core::clone::Clone for IDirectDrawSurface {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IDirectDrawSurface {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c14db81_a733_11ce_a521_0020af0be560);
+unsafe impl ::windows_core::ComInterface for IDirectDrawSurface {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6c14db81_a733_11ce_a521_0020af0be560);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDrawSurface_Vtbl {
-    pub base__: ::windows::core::IUnknown_Vtbl,
-    pub AddAttachedSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub AddAttachedSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub AddOverlayDirtyRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT,
+    pub AddOverlayDirtyRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     AddOverlayDirtyRect: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub Blt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> ::windows::core::HRESULT,
+    pub Blt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Blt: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub BltBatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows::core::HRESULT,
+    pub BltBatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     BltBatch: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub BltFast: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: u32, param2: *mut ::core::ffi::c_void, param3: *mut super::super::Foundation::RECT, param4: u32) -> ::windows::core::HRESULT,
+    pub BltFast: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: u32, param2: *mut ::core::ffi::c_void, param3: *mut super::super::Foundation::RECT, param4: u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     BltFast: usize,
-    pub DeleteAttachedSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub EnumAttachedSurfaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK) -> ::windows::core::HRESULT,
-    pub EnumOverlayZOrders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut ::core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK) -> ::windows::core::HRESULT,
-    pub Flip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: u32) -> ::windows::core::HRESULT,
-    pub GetAttachedSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSCAPS, param1: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetBltStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows::core::HRESULT,
-    pub GetCaps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSCAPS) -> ::windows::core::HRESULT,
-    pub GetClipper: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetColorKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DDCOLORKEY) -> ::windows::core::HRESULT,
+    pub DeleteAttachedSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EnumAttachedSurfaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK) -> ::windows_core::HRESULT,
+    pub EnumOverlayZOrders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut ::core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK) -> ::windows_core::HRESULT,
+    pub Flip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: u32) -> ::windows_core::HRESULT,
+    pub GetAttachedSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSCAPS, param1: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetBltStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows_core::HRESULT,
+    pub GetCaps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSCAPS) -> ::windows_core::HRESULT,
+    pub GetClipper: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetColorKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DDCOLORKEY) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub GetDC: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::Gdi::HDC) -> ::windows::core::HRESULT,
+    pub GetDC: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::Gdi::HDC) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     GetDC: usize,
-    pub GetFlipStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows::core::HRESULT,
-    pub GetOverlayPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut i32, param1: *mut i32) -> ::windows::core::HRESULT,
-    pub GetPalette: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetPixelFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDPIXELFORMAT) -> ::windows::core::HRESULT,
-    pub GetSurfaceDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSURFACEDESC) -> ::windows::core::HRESULT,
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: *mut DDSURFACEDESC) -> ::windows::core::HRESULT,
-    pub IsLost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetFlipStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows_core::HRESULT,
+    pub GetOverlayPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut i32, param1: *mut i32) -> ::windows_core::HRESULT,
+    pub GetPalette: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetPixelFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDPIXELFORMAT) -> ::windows_core::HRESULT,
+    pub GetSurfaceDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSURFACEDESC) -> ::windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: *mut DDSURFACEDESC) -> ::windows_core::HRESULT,
+    pub IsLost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub Lock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC, param2: u32, param3: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
+    pub Lock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC, param2: u32, param3: super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Lock: usize,
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub ReleaseDC: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::Gdi::HDC) -> ::windows::core::HRESULT,
+    pub ReleaseDC: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::Gdi::HDC) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     ReleaseDC: usize,
-    pub Restore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetClipper: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetColorKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DDCOLORKEY) -> ::windows::core::HRESULT,
-    pub SetOverlayPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: i32, param1: i32) -> ::windows::core::HRESULT,
-    pub SetPalette: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Unlock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Restore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetClipper: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetColorKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DDCOLORKEY) -> ::windows_core::HRESULT,
+    pub SetOverlayPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: i32, param1: i32) -> ::windows_core::HRESULT,
+    pub SetPalette: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Unlock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub UpdateOverlay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> ::windows::core::HRESULT,
+    pub UpdateOverlay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     UpdateOverlay: usize,
-    pub UpdateOverlayDisplay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows::core::HRESULT,
-    pub UpdateOverlayZOrder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub UpdateOverlayDisplay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows_core::HRESULT,
+    pub UpdateOverlayZOrder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
-pub struct IDirectDrawSurface2(::windows::core::IUnknown);
+pub struct IDirectDrawSurface2(::windows_core::IUnknown);
 impl IDirectDrawSurface2 {
-    pub unsafe fn AddAttachedSurface<P0>(&self, param0: P0) -> ::windows::core::Result<()>
+    pub unsafe fn AddAttachedSurface<P0>(&self, param0: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDirectDrawSurface2>,
+        P0: ::windows_core::IntoParam<IDirectDrawSurface2>,
     {
-        (::windows::core::Interface::vtable(self).AddAttachedSurface)(::windows::core::Interface::as_raw(self), param0.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).AddAttachedSurface)(::windows_core::Interface::as_raw(self), param0.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddOverlayDirtyRect(&self, param0: *mut super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddOverlayDirtyRect)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn AddOverlayDirtyRect(&self, param0: *mut super::super::Foundation::RECT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).AddOverlayDirtyRect)(::windows_core::Interface::as_raw(self), param0).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Blt<P0>(&self, param0: *mut super::super::Foundation::RECT, param1: P0, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> ::windows::core::Result<()>
+    pub unsafe fn Blt<P0>(&self, param0: *mut super::super::Foundation::RECT, param1: P0, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDirectDrawSurface2>,
+        P0: ::windows_core::IntoParam<IDirectDrawSurface2>,
     {
-        (::windows::core::Interface::vtable(self).Blt)(::windows::core::Interface::as_raw(self), param0, param1.into_param().abi(), param2, param3, param4).ok()
+        (::windows_core::Interface::vtable(self).Blt)(::windows_core::Interface::as_raw(self), param0, param1.into_param().abi(), param2, param3, param4).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BltBatch)(::windows::core::Interface::as_raw(self), param0, param1, param2).ok()
+    pub unsafe fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).BltBatch)(::windows_core::Interface::as_raw(self), param0, param1, param2).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn BltFast<P0>(&self, param0: u32, param1: u32, param2: P0, param3: *mut super::super::Foundation::RECT, param4: u32) -> ::windows::core::Result<()>
+    pub unsafe fn BltFast<P0>(&self, param0: u32, param1: u32, param2: P0, param3: *mut super::super::Foundation::RECT, param4: u32) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDirectDrawSurface2>,
+        P0: ::windows_core::IntoParam<IDirectDrawSurface2>,
     {
-        (::windows::core::Interface::vtable(self).BltFast)(::windows::core::Interface::as_raw(self), param0, param1, param2.into_param().abi(), param3, param4).ok()
+        (::windows_core::Interface::vtable(self).BltFast)(::windows_core::Interface::as_raw(self), param0, param1, param2.into_param().abi(), param3, param4).ok()
     }
-    pub unsafe fn DeleteAttachedSurface<P0>(&self, param0: u32, param1: P0) -> ::windows::core::Result<()>
+    pub unsafe fn DeleteAttachedSurface<P0>(&self, param0: u32, param1: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDirectDrawSurface2>,
+        P0: ::windows_core::IntoParam<IDirectDrawSurface2>,
     {
-        (::windows::core::Interface::vtable(self).DeleteAttachedSurface)(::windows::core::Interface::as_raw(self), param0, param1.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).DeleteAttachedSurface)(::windows_core::Interface::as_raw(self), param0, param1.into_param().abi()).ok()
     }
-    pub unsafe fn EnumAttachedSurfaces(&self, param0: *mut ::core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnumAttachedSurfaces)(::windows::core::Interface::as_raw(self), param0, param1).ok()
+    pub unsafe fn EnumAttachedSurfaces(&self, param0: *mut ::core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).EnumAttachedSurfaces)(::windows_core::Interface::as_raw(self), param0, param1).ok()
     }
-    pub unsafe fn EnumOverlayZOrders(&self, param0: u32, param1: *mut ::core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnumOverlayZOrders)(::windows::core::Interface::as_raw(self), param0, param1, param2).ok()
+    pub unsafe fn EnumOverlayZOrders(&self, param0: u32, param1: *mut ::core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).EnumOverlayZOrders)(::windows_core::Interface::as_raw(self), param0, param1, param2).ok()
     }
-    pub unsafe fn Flip<P0>(&self, param0: P0, param1: u32) -> ::windows::core::Result<()>
+    pub unsafe fn Flip<P0>(&self, param0: P0, param1: u32) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDirectDrawSurface2>,
+        P0: ::windows_core::IntoParam<IDirectDrawSurface2>,
     {
-        (::windows::core::Interface::vtable(self).Flip)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
+        (::windows_core::Interface::vtable(self).Flip)(::windows_core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
     }
-    pub unsafe fn GetAttachedSurface(&self, param0: *mut DDSCAPS, param1: *mut ::core::option::Option<IDirectDrawSurface2>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetAttachedSurface)(::windows::core::Interface::as_raw(self), param0, ::core::mem::transmute(param1)).ok()
+    pub unsafe fn GetAttachedSurface(&self, param0: *mut DDSCAPS, param1: *mut ::core::option::Option<IDirectDrawSurface2>) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetAttachedSurface)(::windows_core::Interface::as_raw(self), param0, ::core::mem::transmute(param1)).ok()
     }
-    pub unsafe fn GetBltStatus(&self, param0: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetBltStatus)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetBltStatus(&self, param0: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetBltStatus)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn GetCaps(&self, param0: *mut DDSCAPS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetCaps)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetCaps(&self, param0: *mut DDSCAPS) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetCaps)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn GetClipper(&self) -> ::windows::core::Result<IDirectDrawClipper> {
-        let mut result__ = ::windows::core::zeroed::<IDirectDrawClipper>();
-        (::windows::core::Interface::vtable(self).GetClipper)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn GetClipper(&self) -> ::windows_core::Result<IDirectDrawClipper> {
+        let mut result__ = ::windows_core::zeroed::<IDirectDrawClipper>();
+        (::windows_core::Interface::vtable(self).GetClipper)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetColorKey)(::windows::core::Interface::as_raw(self), param0, param1).ok()
+    pub unsafe fn GetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetColorKey)(::windows_core::Interface::as_raw(self), param0, param1).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn GetDC(&self, param0: *mut super::Gdi::HDC) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDC)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetDC(&self, param0: *mut super::Gdi::HDC) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetDC)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn GetFlipStatus(&self, param0: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetFlipStatus)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetFlipStatus(&self, param0: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetFlipStatus)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn GetOverlayPosition(&self, param0: *mut i32, param1: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetOverlayPosition)(::windows::core::Interface::as_raw(self), param0, param1).ok()
+    pub unsafe fn GetOverlayPosition(&self, param0: *mut i32, param1: *mut i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetOverlayPosition)(::windows_core::Interface::as_raw(self), param0, param1).ok()
     }
-    pub unsafe fn GetPalette(&self) -> ::windows::core::Result<IDirectDrawPalette> {
-        let mut result__ = ::windows::core::zeroed::<IDirectDrawPalette>();
-        (::windows::core::Interface::vtable(self).GetPalette)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn GetPalette(&self) -> ::windows_core::Result<IDirectDrawPalette> {
+        let mut result__ = ::windows_core::zeroed::<IDirectDrawPalette>();
+        (::windows_core::Interface::vtable(self).GetPalette)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetPixelFormat(&self, param0: *mut DDPIXELFORMAT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPixelFormat)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetPixelFormat(&self, param0: *mut DDPIXELFORMAT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetPixelFormat)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn GetSurfaceDesc(&self, param0: *mut DDSURFACEDESC) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetSurfaceDesc)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetSurfaceDesc(&self, param0: *mut DDSURFACEDESC) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetSurfaceDesc)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn Initialize<P0>(&self, param0: P0, param1: *mut DDSURFACEDESC) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, param0: P0, param1: *mut DDSURFACEDESC) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDirectDraw>,
+        P0: ::windows_core::IntoParam<IDirectDraw>,
     {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
+        (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
     }
-    pub unsafe fn IsLost(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).IsLost)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn IsLost(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).IsLost)(::windows_core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Lock<P0>(&self, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC, param2: u32, param3: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Lock<P0>(&self, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC, param2: u32, param3: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
     {
-        (::windows::core::Interface::vtable(self).Lock)(::windows::core::Interface::as_raw(self), param0, param1, param2, param3.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).Lock)(::windows_core::Interface::as_raw(self), param0, param1, param2, param3.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn ReleaseDC<P0>(&self, param0: P0) -> ::windows::core::Result<()>
+    pub unsafe fn ReleaseDC<P0>(&self, param0: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::Gdi::HDC>,
+        P0: ::windows_core::IntoParam<super::Gdi::HDC>,
     {
-        (::windows::core::Interface::vtable(self).ReleaseDC)(::windows::core::Interface::as_raw(self), param0.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).ReleaseDC)(::windows_core::Interface::as_raw(self), param0.into_param().abi()).ok()
     }
-    pub unsafe fn Restore(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Restore)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn Restore(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Restore)(::windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn SetClipper<P0>(&self, param0: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetClipper<P0>(&self, param0: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDirectDrawClipper>,
+        P0: ::windows_core::IntoParam<IDirectDrawClipper>,
     {
-        (::windows::core::Interface::vtable(self).SetClipper)(::windows::core::Interface::as_raw(self), param0.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).SetClipper)(::windows_core::Interface::as_raw(self), param0.into_param().abi()).ok()
     }
-    pub unsafe fn SetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetColorKey)(::windows::core::Interface::as_raw(self), param0, param1).ok()
+    pub unsafe fn SetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetColorKey)(::windows_core::Interface::as_raw(self), param0, param1).ok()
     }
-    pub unsafe fn SetOverlayPosition(&self, param0: i32, param1: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOverlayPosition)(::windows::core::Interface::as_raw(self), param0, param1).ok()
+    pub unsafe fn SetOverlayPosition(&self, param0: i32, param1: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetOverlayPosition)(::windows_core::Interface::as_raw(self), param0, param1).ok()
     }
-    pub unsafe fn SetPalette<P0>(&self, param0: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPalette<P0>(&self, param0: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDirectDrawPalette>,
+        P0: ::windows_core::IntoParam<IDirectDrawPalette>,
     {
-        (::windows::core::Interface::vtable(self).SetPalette)(::windows::core::Interface::as_raw(self), param0.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).SetPalette)(::windows_core::Interface::as_raw(self), param0.into_param().abi()).ok()
     }
-    pub unsafe fn Unlock(&self, param0: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Unlock)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn Unlock(&self, param0: *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Unlock)(::windows_core::Interface::as_raw(self), param0).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn UpdateOverlay<P0>(&self, param0: *mut super::super::Foundation::RECT, param1: P0, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> ::windows::core::Result<()>
+    pub unsafe fn UpdateOverlay<P0>(&self, param0: *mut super::super::Foundation::RECT, param1: P0, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDirectDrawSurface2>,
+        P0: ::windows_core::IntoParam<IDirectDrawSurface2>,
     {
-        (::windows::core::Interface::vtable(self).UpdateOverlay)(::windows::core::Interface::as_raw(self), param0, param1.into_param().abi(), param2, param3, param4).ok()
+        (::windows_core::Interface::vtable(self).UpdateOverlay)(::windows_core::Interface::as_raw(self), param0, param1.into_param().abi(), param2, param3, param4).ok()
     }
-    pub unsafe fn UpdateOverlayDisplay(&self, param0: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UpdateOverlayDisplay)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn UpdateOverlayDisplay(&self, param0: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).UpdateOverlayDisplay)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn UpdateOverlayZOrder<P0>(&self, param0: u32, param1: P0) -> ::windows::core::Result<()>
+    pub unsafe fn UpdateOverlayZOrder<P0>(&self, param0: u32, param1: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDirectDrawSurface2>,
+        P0: ::windows_core::IntoParam<IDirectDrawSurface2>,
     {
-        (::windows::core::Interface::vtable(self).UpdateOverlayZOrder)(::windows::core::Interface::as_raw(self), param0, param1.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).UpdateOverlayZOrder)(::windows_core::Interface::as_raw(self), param0, param1.into_param().abi()).ok()
     }
-    pub unsafe fn GetDDInterface(&self, param0: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDDInterface)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetDDInterface(&self, param0: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetDDInterface)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn PageLock(&self, param0: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PageLock)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn PageLock(&self, param0: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).PageLock)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn PageUnlock(&self, param0: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PageUnlock)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn PageUnlock(&self, param0: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).PageUnlock)(::windows_core::Interface::as_raw(self), param0).ok()
     }
 }
-::windows::imp::interface_hierarchy!(IDirectDrawSurface2, ::windows::core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IDirectDrawSurface2, ::windows_core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectDrawSurface2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1481,7 +1481,7 @@ impl ::core::fmt::Debug for IDirectDrawSurface2 {
         f.debug_tuple("IDirectDrawSurface2").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IDirectDrawSurface2 {
+unsafe impl ::windows_core::Interface for IDirectDrawSurface2 {
     type Vtable = IDirectDrawSurface2_Vtbl;
 }
 impl ::core::clone::Clone for IDirectDrawSurface2 {
@@ -1489,245 +1489,245 @@ impl ::core::clone::Clone for IDirectDrawSurface2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IDirectDrawSurface2 {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57805885_6eec_11cf_9441_a82303c10e27);
+unsafe impl ::windows_core::ComInterface for IDirectDrawSurface2 {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x57805885_6eec_11cf_9441_a82303c10e27);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDrawSurface2_Vtbl {
-    pub base__: ::windows::core::IUnknown_Vtbl,
-    pub AddAttachedSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub AddAttachedSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub AddOverlayDirtyRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT,
+    pub AddOverlayDirtyRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     AddOverlayDirtyRect: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub Blt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> ::windows::core::HRESULT,
+    pub Blt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Blt: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub BltBatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows::core::HRESULT,
+    pub BltBatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     BltBatch: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub BltFast: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: u32, param2: *mut ::core::ffi::c_void, param3: *mut super::super::Foundation::RECT, param4: u32) -> ::windows::core::HRESULT,
+    pub BltFast: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: u32, param2: *mut ::core::ffi::c_void, param3: *mut super::super::Foundation::RECT, param4: u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     BltFast: usize,
-    pub DeleteAttachedSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub EnumAttachedSurfaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK) -> ::windows::core::HRESULT,
-    pub EnumOverlayZOrders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut ::core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK) -> ::windows::core::HRESULT,
-    pub Flip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: u32) -> ::windows::core::HRESULT,
-    pub GetAttachedSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSCAPS, param1: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetBltStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows::core::HRESULT,
-    pub GetCaps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSCAPS) -> ::windows::core::HRESULT,
-    pub GetClipper: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetColorKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DDCOLORKEY) -> ::windows::core::HRESULT,
+    pub DeleteAttachedSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EnumAttachedSurfaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK) -> ::windows_core::HRESULT,
+    pub EnumOverlayZOrders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut ::core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK) -> ::windows_core::HRESULT,
+    pub Flip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: u32) -> ::windows_core::HRESULT,
+    pub GetAttachedSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSCAPS, param1: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetBltStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows_core::HRESULT,
+    pub GetCaps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSCAPS) -> ::windows_core::HRESULT,
+    pub GetClipper: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetColorKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DDCOLORKEY) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub GetDC: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::Gdi::HDC) -> ::windows::core::HRESULT,
+    pub GetDC: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::Gdi::HDC) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     GetDC: usize,
-    pub GetFlipStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows::core::HRESULT,
-    pub GetOverlayPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut i32, param1: *mut i32) -> ::windows::core::HRESULT,
-    pub GetPalette: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetPixelFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDPIXELFORMAT) -> ::windows::core::HRESULT,
-    pub GetSurfaceDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSURFACEDESC) -> ::windows::core::HRESULT,
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: *mut DDSURFACEDESC) -> ::windows::core::HRESULT,
-    pub IsLost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetFlipStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows_core::HRESULT,
+    pub GetOverlayPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut i32, param1: *mut i32) -> ::windows_core::HRESULT,
+    pub GetPalette: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetPixelFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDPIXELFORMAT) -> ::windows_core::HRESULT,
+    pub GetSurfaceDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSURFACEDESC) -> ::windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: *mut DDSURFACEDESC) -> ::windows_core::HRESULT,
+    pub IsLost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub Lock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC, param2: u32, param3: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
+    pub Lock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC, param2: u32, param3: super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Lock: usize,
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub ReleaseDC: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::Gdi::HDC) -> ::windows::core::HRESULT,
+    pub ReleaseDC: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::Gdi::HDC) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     ReleaseDC: usize,
-    pub Restore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetClipper: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetColorKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DDCOLORKEY) -> ::windows::core::HRESULT,
-    pub SetOverlayPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: i32, param1: i32) -> ::windows::core::HRESULT,
-    pub SetPalette: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Unlock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Restore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetClipper: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetColorKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DDCOLORKEY) -> ::windows_core::HRESULT,
+    pub SetOverlayPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: i32, param1: i32) -> ::windows_core::HRESULT,
+    pub SetPalette: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Unlock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub UpdateOverlay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> ::windows::core::HRESULT,
+    pub UpdateOverlay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     UpdateOverlay: usize,
-    pub UpdateOverlayDisplay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows::core::HRESULT,
-    pub UpdateOverlayZOrder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetDDInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub PageLock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows::core::HRESULT,
-    pub PageUnlock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows::core::HRESULT,
+    pub UpdateOverlayDisplay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows_core::HRESULT,
+    pub UpdateOverlayZOrder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetDDInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub PageLock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows_core::HRESULT,
+    pub PageUnlock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
-pub struct IDirectDrawSurface3(::windows::core::IUnknown);
+pub struct IDirectDrawSurface3(::windows_core::IUnknown);
 impl IDirectDrawSurface3 {
-    pub unsafe fn AddAttachedSurface<P0>(&self, param0: P0) -> ::windows::core::Result<()>
+    pub unsafe fn AddAttachedSurface<P0>(&self, param0: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDirectDrawSurface3>,
+        P0: ::windows_core::IntoParam<IDirectDrawSurface3>,
     {
-        (::windows::core::Interface::vtable(self).AddAttachedSurface)(::windows::core::Interface::as_raw(self), param0.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).AddAttachedSurface)(::windows_core::Interface::as_raw(self), param0.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddOverlayDirtyRect(&self, param0: *mut super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddOverlayDirtyRect)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn AddOverlayDirtyRect(&self, param0: *mut super::super::Foundation::RECT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).AddOverlayDirtyRect)(::windows_core::Interface::as_raw(self), param0).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Blt<P0>(&self, param0: *mut super::super::Foundation::RECT, param1: P0, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> ::windows::core::Result<()>
+    pub unsafe fn Blt<P0>(&self, param0: *mut super::super::Foundation::RECT, param1: P0, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDirectDrawSurface3>,
+        P0: ::windows_core::IntoParam<IDirectDrawSurface3>,
     {
-        (::windows::core::Interface::vtable(self).Blt)(::windows::core::Interface::as_raw(self), param0, param1.into_param().abi(), param2, param3, param4).ok()
+        (::windows_core::Interface::vtable(self).Blt)(::windows_core::Interface::as_raw(self), param0, param1.into_param().abi(), param2, param3, param4).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BltBatch)(::windows::core::Interface::as_raw(self), param0, param1, param2).ok()
+    pub unsafe fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).BltBatch)(::windows_core::Interface::as_raw(self), param0, param1, param2).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn BltFast<P0>(&self, param0: u32, param1: u32, param2: P0, param3: *mut super::super::Foundation::RECT, param4: u32) -> ::windows::core::Result<()>
+    pub unsafe fn BltFast<P0>(&self, param0: u32, param1: u32, param2: P0, param3: *mut super::super::Foundation::RECT, param4: u32) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDirectDrawSurface3>,
+        P0: ::windows_core::IntoParam<IDirectDrawSurface3>,
     {
-        (::windows::core::Interface::vtable(self).BltFast)(::windows::core::Interface::as_raw(self), param0, param1, param2.into_param().abi(), param3, param4).ok()
+        (::windows_core::Interface::vtable(self).BltFast)(::windows_core::Interface::as_raw(self), param0, param1, param2.into_param().abi(), param3, param4).ok()
     }
-    pub unsafe fn DeleteAttachedSurface<P0>(&self, param0: u32, param1: P0) -> ::windows::core::Result<()>
+    pub unsafe fn DeleteAttachedSurface<P0>(&self, param0: u32, param1: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDirectDrawSurface3>,
+        P0: ::windows_core::IntoParam<IDirectDrawSurface3>,
     {
-        (::windows::core::Interface::vtable(self).DeleteAttachedSurface)(::windows::core::Interface::as_raw(self), param0, param1.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).DeleteAttachedSurface)(::windows_core::Interface::as_raw(self), param0, param1.into_param().abi()).ok()
     }
-    pub unsafe fn EnumAttachedSurfaces(&self, param0: *mut ::core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnumAttachedSurfaces)(::windows::core::Interface::as_raw(self), param0, param1).ok()
+    pub unsafe fn EnumAttachedSurfaces(&self, param0: *mut ::core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).EnumAttachedSurfaces)(::windows_core::Interface::as_raw(self), param0, param1).ok()
     }
-    pub unsafe fn EnumOverlayZOrders(&self, param0: u32, param1: *mut ::core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnumOverlayZOrders)(::windows::core::Interface::as_raw(self), param0, param1, param2).ok()
+    pub unsafe fn EnumOverlayZOrders(&self, param0: u32, param1: *mut ::core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).EnumOverlayZOrders)(::windows_core::Interface::as_raw(self), param0, param1, param2).ok()
     }
-    pub unsafe fn Flip<P0>(&self, param0: P0, param1: u32) -> ::windows::core::Result<()>
+    pub unsafe fn Flip<P0>(&self, param0: P0, param1: u32) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDirectDrawSurface3>,
+        P0: ::windows_core::IntoParam<IDirectDrawSurface3>,
     {
-        (::windows::core::Interface::vtable(self).Flip)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
+        (::windows_core::Interface::vtable(self).Flip)(::windows_core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
     }
-    pub unsafe fn GetAttachedSurface(&self, param0: *mut DDSCAPS, param1: *mut ::core::option::Option<IDirectDrawSurface3>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetAttachedSurface)(::windows::core::Interface::as_raw(self), param0, ::core::mem::transmute(param1)).ok()
+    pub unsafe fn GetAttachedSurface(&self, param0: *mut DDSCAPS, param1: *mut ::core::option::Option<IDirectDrawSurface3>) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetAttachedSurface)(::windows_core::Interface::as_raw(self), param0, ::core::mem::transmute(param1)).ok()
     }
-    pub unsafe fn GetBltStatus(&self, param0: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetBltStatus)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetBltStatus(&self, param0: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetBltStatus)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn GetCaps(&self, param0: *mut DDSCAPS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetCaps)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetCaps(&self, param0: *mut DDSCAPS) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetCaps)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn GetClipper(&self) -> ::windows::core::Result<IDirectDrawClipper> {
-        let mut result__ = ::windows::core::zeroed::<IDirectDrawClipper>();
-        (::windows::core::Interface::vtable(self).GetClipper)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn GetClipper(&self) -> ::windows_core::Result<IDirectDrawClipper> {
+        let mut result__ = ::windows_core::zeroed::<IDirectDrawClipper>();
+        (::windows_core::Interface::vtable(self).GetClipper)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetColorKey)(::windows::core::Interface::as_raw(self), param0, param1).ok()
+    pub unsafe fn GetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetColorKey)(::windows_core::Interface::as_raw(self), param0, param1).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn GetDC(&self, param0: *mut super::Gdi::HDC) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDC)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetDC(&self, param0: *mut super::Gdi::HDC) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetDC)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn GetFlipStatus(&self, param0: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetFlipStatus)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetFlipStatus(&self, param0: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetFlipStatus)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn GetOverlayPosition(&self, param0: *mut i32, param1: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetOverlayPosition)(::windows::core::Interface::as_raw(self), param0, param1).ok()
+    pub unsafe fn GetOverlayPosition(&self, param0: *mut i32, param1: *mut i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetOverlayPosition)(::windows_core::Interface::as_raw(self), param0, param1).ok()
     }
-    pub unsafe fn GetPalette(&self) -> ::windows::core::Result<IDirectDrawPalette> {
-        let mut result__ = ::windows::core::zeroed::<IDirectDrawPalette>();
-        (::windows::core::Interface::vtable(self).GetPalette)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn GetPalette(&self) -> ::windows_core::Result<IDirectDrawPalette> {
+        let mut result__ = ::windows_core::zeroed::<IDirectDrawPalette>();
+        (::windows_core::Interface::vtable(self).GetPalette)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetPixelFormat(&self, param0: *mut DDPIXELFORMAT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPixelFormat)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetPixelFormat(&self, param0: *mut DDPIXELFORMAT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetPixelFormat)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn GetSurfaceDesc(&self, param0: *mut DDSURFACEDESC) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetSurfaceDesc)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetSurfaceDesc(&self, param0: *mut DDSURFACEDESC) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetSurfaceDesc)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn Initialize<P0>(&self, param0: P0, param1: *mut DDSURFACEDESC) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, param0: P0, param1: *mut DDSURFACEDESC) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDirectDraw>,
+        P0: ::windows_core::IntoParam<IDirectDraw>,
     {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
+        (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
     }
-    pub unsafe fn IsLost(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).IsLost)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn IsLost(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).IsLost)(::windows_core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Lock<P0>(&self, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC, param2: u32, param3: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Lock<P0>(&self, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC, param2: u32, param3: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
     {
-        (::windows::core::Interface::vtable(self).Lock)(::windows::core::Interface::as_raw(self), param0, param1, param2, param3.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).Lock)(::windows_core::Interface::as_raw(self), param0, param1, param2, param3.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn ReleaseDC<P0>(&self, param0: P0) -> ::windows::core::Result<()>
+    pub unsafe fn ReleaseDC<P0>(&self, param0: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::Gdi::HDC>,
+        P0: ::windows_core::IntoParam<super::Gdi::HDC>,
     {
-        (::windows::core::Interface::vtable(self).ReleaseDC)(::windows::core::Interface::as_raw(self), param0.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).ReleaseDC)(::windows_core::Interface::as_raw(self), param0.into_param().abi()).ok()
     }
-    pub unsafe fn Restore(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Restore)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn Restore(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Restore)(::windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn SetClipper<P0>(&self, param0: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetClipper<P0>(&self, param0: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDirectDrawClipper>,
+        P0: ::windows_core::IntoParam<IDirectDrawClipper>,
     {
-        (::windows::core::Interface::vtable(self).SetClipper)(::windows::core::Interface::as_raw(self), param0.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).SetClipper)(::windows_core::Interface::as_raw(self), param0.into_param().abi()).ok()
     }
-    pub unsafe fn SetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetColorKey)(::windows::core::Interface::as_raw(self), param0, param1).ok()
+    pub unsafe fn SetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetColorKey)(::windows_core::Interface::as_raw(self), param0, param1).ok()
     }
-    pub unsafe fn SetOverlayPosition(&self, param0: i32, param1: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOverlayPosition)(::windows::core::Interface::as_raw(self), param0, param1).ok()
+    pub unsafe fn SetOverlayPosition(&self, param0: i32, param1: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetOverlayPosition)(::windows_core::Interface::as_raw(self), param0, param1).ok()
     }
-    pub unsafe fn SetPalette<P0>(&self, param0: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPalette<P0>(&self, param0: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDirectDrawPalette>,
+        P0: ::windows_core::IntoParam<IDirectDrawPalette>,
     {
-        (::windows::core::Interface::vtable(self).SetPalette)(::windows::core::Interface::as_raw(self), param0.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).SetPalette)(::windows_core::Interface::as_raw(self), param0.into_param().abi()).ok()
     }
-    pub unsafe fn Unlock(&self, param0: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Unlock)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn Unlock(&self, param0: *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Unlock)(::windows_core::Interface::as_raw(self), param0).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn UpdateOverlay<P0>(&self, param0: *mut super::super::Foundation::RECT, param1: P0, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> ::windows::core::Result<()>
+    pub unsafe fn UpdateOverlay<P0>(&self, param0: *mut super::super::Foundation::RECT, param1: P0, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDirectDrawSurface3>,
+        P0: ::windows_core::IntoParam<IDirectDrawSurface3>,
     {
-        (::windows::core::Interface::vtable(self).UpdateOverlay)(::windows::core::Interface::as_raw(self), param0, param1.into_param().abi(), param2, param3, param4).ok()
+        (::windows_core::Interface::vtable(self).UpdateOverlay)(::windows_core::Interface::as_raw(self), param0, param1.into_param().abi(), param2, param3, param4).ok()
     }
-    pub unsafe fn UpdateOverlayDisplay(&self, param0: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UpdateOverlayDisplay)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn UpdateOverlayDisplay(&self, param0: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).UpdateOverlayDisplay)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn UpdateOverlayZOrder<P0>(&self, param0: u32, param1: P0) -> ::windows::core::Result<()>
+    pub unsafe fn UpdateOverlayZOrder<P0>(&self, param0: u32, param1: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDirectDrawSurface3>,
+        P0: ::windows_core::IntoParam<IDirectDrawSurface3>,
     {
-        (::windows::core::Interface::vtable(self).UpdateOverlayZOrder)(::windows::core::Interface::as_raw(self), param0, param1.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).UpdateOverlayZOrder)(::windows_core::Interface::as_raw(self), param0, param1.into_param().abi()).ok()
     }
-    pub unsafe fn GetDDInterface(&self, param0: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDDInterface)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetDDInterface(&self, param0: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetDDInterface)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn PageLock(&self, param0: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PageLock)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn PageLock(&self, param0: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).PageLock)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn PageUnlock(&self, param0: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PageUnlock)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn PageUnlock(&self, param0: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).PageUnlock)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn SetSurfaceDesc(&self, param0: *mut DDSURFACEDESC, param1: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSurfaceDesc)(::windows::core::Interface::as_raw(self), param0, param1).ok()
+    pub unsafe fn SetSurfaceDesc(&self, param0: *mut DDSURFACEDESC, param1: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetSurfaceDesc)(::windows_core::Interface::as_raw(self), param0, param1).ok()
     }
 }
-::windows::imp::interface_hierarchy!(IDirectDrawSurface3, ::windows::core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IDirectDrawSurface3, ::windows_core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectDrawSurface3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1739,7 +1739,7 @@ impl ::core::fmt::Debug for IDirectDrawSurface3 {
         f.debug_tuple("IDirectDrawSurface3").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IDirectDrawSurface3 {
+unsafe impl ::windows_core::Interface for IDirectDrawSurface3 {
     type Vtable = IDirectDrawSurface3_Vtbl;
 }
 impl ::core::clone::Clone for IDirectDrawSurface3 {
@@ -1747,263 +1747,263 @@ impl ::core::clone::Clone for IDirectDrawSurface3 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IDirectDrawSurface3 {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda044e00_69b2_11d0_a1d5_00aa00b8dfbb);
+unsafe impl ::windows_core::ComInterface for IDirectDrawSurface3 {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xda044e00_69b2_11d0_a1d5_00aa00b8dfbb);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDrawSurface3_Vtbl {
-    pub base__: ::windows::core::IUnknown_Vtbl,
-    pub AddAttachedSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub AddAttachedSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub AddOverlayDirtyRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT,
+    pub AddOverlayDirtyRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     AddOverlayDirtyRect: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub Blt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> ::windows::core::HRESULT,
+    pub Blt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Blt: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub BltBatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows::core::HRESULT,
+    pub BltBatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     BltBatch: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub BltFast: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: u32, param2: *mut ::core::ffi::c_void, param3: *mut super::super::Foundation::RECT, param4: u32) -> ::windows::core::HRESULT,
+    pub BltFast: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: u32, param2: *mut ::core::ffi::c_void, param3: *mut super::super::Foundation::RECT, param4: u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     BltFast: usize,
-    pub DeleteAttachedSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub EnumAttachedSurfaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK) -> ::windows::core::HRESULT,
-    pub EnumOverlayZOrders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut ::core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK) -> ::windows::core::HRESULT,
-    pub Flip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: u32) -> ::windows::core::HRESULT,
-    pub GetAttachedSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSCAPS, param1: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetBltStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows::core::HRESULT,
-    pub GetCaps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSCAPS) -> ::windows::core::HRESULT,
-    pub GetClipper: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetColorKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DDCOLORKEY) -> ::windows::core::HRESULT,
+    pub DeleteAttachedSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EnumAttachedSurfaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK) -> ::windows_core::HRESULT,
+    pub EnumOverlayZOrders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut ::core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK) -> ::windows_core::HRESULT,
+    pub Flip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: u32) -> ::windows_core::HRESULT,
+    pub GetAttachedSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSCAPS, param1: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetBltStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows_core::HRESULT,
+    pub GetCaps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSCAPS) -> ::windows_core::HRESULT,
+    pub GetClipper: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetColorKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DDCOLORKEY) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub GetDC: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::Gdi::HDC) -> ::windows::core::HRESULT,
+    pub GetDC: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::Gdi::HDC) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     GetDC: usize,
-    pub GetFlipStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows::core::HRESULT,
-    pub GetOverlayPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut i32, param1: *mut i32) -> ::windows::core::HRESULT,
-    pub GetPalette: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetPixelFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDPIXELFORMAT) -> ::windows::core::HRESULT,
-    pub GetSurfaceDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSURFACEDESC) -> ::windows::core::HRESULT,
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: *mut DDSURFACEDESC) -> ::windows::core::HRESULT,
-    pub IsLost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetFlipStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows_core::HRESULT,
+    pub GetOverlayPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut i32, param1: *mut i32) -> ::windows_core::HRESULT,
+    pub GetPalette: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetPixelFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDPIXELFORMAT) -> ::windows_core::HRESULT,
+    pub GetSurfaceDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSURFACEDESC) -> ::windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: *mut DDSURFACEDESC) -> ::windows_core::HRESULT,
+    pub IsLost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub Lock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC, param2: u32, param3: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
+    pub Lock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC, param2: u32, param3: super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Lock: usize,
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub ReleaseDC: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::Gdi::HDC) -> ::windows::core::HRESULT,
+    pub ReleaseDC: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::Gdi::HDC) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     ReleaseDC: usize,
-    pub Restore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetClipper: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetColorKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DDCOLORKEY) -> ::windows::core::HRESULT,
-    pub SetOverlayPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: i32, param1: i32) -> ::windows::core::HRESULT,
-    pub SetPalette: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Unlock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Restore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetClipper: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetColorKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DDCOLORKEY) -> ::windows_core::HRESULT,
+    pub SetOverlayPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: i32, param1: i32) -> ::windows_core::HRESULT,
+    pub SetPalette: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Unlock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub UpdateOverlay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> ::windows::core::HRESULT,
+    pub UpdateOverlay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     UpdateOverlay: usize,
-    pub UpdateOverlayDisplay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows::core::HRESULT,
-    pub UpdateOverlayZOrder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetDDInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub PageLock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows::core::HRESULT,
-    pub PageUnlock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows::core::HRESULT,
-    pub SetSurfaceDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSURFACEDESC, param1: u32) -> ::windows::core::HRESULT,
+    pub UpdateOverlayDisplay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows_core::HRESULT,
+    pub UpdateOverlayZOrder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetDDInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub PageLock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows_core::HRESULT,
+    pub PageUnlock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows_core::HRESULT,
+    pub SetSurfaceDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSURFACEDESC, param1: u32) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
-pub struct IDirectDrawSurface4(::windows::core::IUnknown);
+pub struct IDirectDrawSurface4(::windows_core::IUnknown);
 impl IDirectDrawSurface4 {
-    pub unsafe fn AddAttachedSurface<P0>(&self, param0: P0) -> ::windows::core::Result<()>
+    pub unsafe fn AddAttachedSurface<P0>(&self, param0: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDirectDrawSurface4>,
+        P0: ::windows_core::IntoParam<IDirectDrawSurface4>,
     {
-        (::windows::core::Interface::vtable(self).AddAttachedSurface)(::windows::core::Interface::as_raw(self), param0.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).AddAttachedSurface)(::windows_core::Interface::as_raw(self), param0.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddOverlayDirtyRect(&self, param0: *mut super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddOverlayDirtyRect)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn AddOverlayDirtyRect(&self, param0: *mut super::super::Foundation::RECT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).AddOverlayDirtyRect)(::windows_core::Interface::as_raw(self), param0).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Blt<P0>(&self, param0: *mut super::super::Foundation::RECT, param1: P0, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> ::windows::core::Result<()>
+    pub unsafe fn Blt<P0>(&self, param0: *mut super::super::Foundation::RECT, param1: P0, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDirectDrawSurface4>,
+        P0: ::windows_core::IntoParam<IDirectDrawSurface4>,
     {
-        (::windows::core::Interface::vtable(self).Blt)(::windows::core::Interface::as_raw(self), param0, param1.into_param().abi(), param2, param3, param4).ok()
+        (::windows_core::Interface::vtable(self).Blt)(::windows_core::Interface::as_raw(self), param0, param1.into_param().abi(), param2, param3, param4).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BltBatch)(::windows::core::Interface::as_raw(self), param0, param1, param2).ok()
+    pub unsafe fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).BltBatch)(::windows_core::Interface::as_raw(self), param0, param1, param2).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn BltFast<P0>(&self, param0: u32, param1: u32, param2: P0, param3: *mut super::super::Foundation::RECT, param4: u32) -> ::windows::core::Result<()>
+    pub unsafe fn BltFast<P0>(&self, param0: u32, param1: u32, param2: P0, param3: *mut super::super::Foundation::RECT, param4: u32) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDirectDrawSurface4>,
+        P0: ::windows_core::IntoParam<IDirectDrawSurface4>,
     {
-        (::windows::core::Interface::vtable(self).BltFast)(::windows::core::Interface::as_raw(self), param0, param1, param2.into_param().abi(), param3, param4).ok()
+        (::windows_core::Interface::vtable(self).BltFast)(::windows_core::Interface::as_raw(self), param0, param1, param2.into_param().abi(), param3, param4).ok()
     }
-    pub unsafe fn DeleteAttachedSurface<P0>(&self, param0: u32, param1: P0) -> ::windows::core::Result<()>
+    pub unsafe fn DeleteAttachedSurface<P0>(&self, param0: u32, param1: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDirectDrawSurface4>,
+        P0: ::windows_core::IntoParam<IDirectDrawSurface4>,
     {
-        (::windows::core::Interface::vtable(self).DeleteAttachedSurface)(::windows::core::Interface::as_raw(self), param0, param1.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).DeleteAttachedSurface)(::windows_core::Interface::as_raw(self), param0, param1.into_param().abi()).ok()
     }
-    pub unsafe fn EnumAttachedSurfaces(&self, param0: *mut ::core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnumAttachedSurfaces)(::windows::core::Interface::as_raw(self), param0, param1).ok()
+    pub unsafe fn EnumAttachedSurfaces(&self, param0: *mut ::core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK2) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).EnumAttachedSurfaces)(::windows_core::Interface::as_raw(self), param0, param1).ok()
     }
-    pub unsafe fn EnumOverlayZOrders(&self, param0: u32, param1: *mut ::core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnumOverlayZOrders)(::windows::core::Interface::as_raw(self), param0, param1, param2).ok()
+    pub unsafe fn EnumOverlayZOrders(&self, param0: u32, param1: *mut ::core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK2) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).EnumOverlayZOrders)(::windows_core::Interface::as_raw(self), param0, param1, param2).ok()
     }
-    pub unsafe fn Flip<P0>(&self, param0: P0, param1: u32) -> ::windows::core::Result<()>
+    pub unsafe fn Flip<P0>(&self, param0: P0, param1: u32) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDirectDrawSurface4>,
+        P0: ::windows_core::IntoParam<IDirectDrawSurface4>,
     {
-        (::windows::core::Interface::vtable(self).Flip)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
+        (::windows_core::Interface::vtable(self).Flip)(::windows_core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
     }
-    pub unsafe fn GetAttachedSurface(&self, param0: *mut DDSCAPS2, param1: *mut ::core::option::Option<IDirectDrawSurface4>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetAttachedSurface)(::windows::core::Interface::as_raw(self), param0, ::core::mem::transmute(param1)).ok()
+    pub unsafe fn GetAttachedSurface(&self, param0: *mut DDSCAPS2, param1: *mut ::core::option::Option<IDirectDrawSurface4>) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetAttachedSurface)(::windows_core::Interface::as_raw(self), param0, ::core::mem::transmute(param1)).ok()
     }
-    pub unsafe fn GetBltStatus(&self, param0: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetBltStatus)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetBltStatus(&self, param0: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetBltStatus)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn GetCaps(&self, param0: *mut DDSCAPS2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetCaps)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetCaps(&self, param0: *mut DDSCAPS2) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetCaps)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn GetClipper(&self) -> ::windows::core::Result<IDirectDrawClipper> {
-        let mut result__ = ::windows::core::zeroed::<IDirectDrawClipper>();
-        (::windows::core::Interface::vtable(self).GetClipper)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn GetClipper(&self) -> ::windows_core::Result<IDirectDrawClipper> {
+        let mut result__ = ::windows_core::zeroed::<IDirectDrawClipper>();
+        (::windows_core::Interface::vtable(self).GetClipper)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetColorKey)(::windows::core::Interface::as_raw(self), param0, param1).ok()
+    pub unsafe fn GetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetColorKey)(::windows_core::Interface::as_raw(self), param0, param1).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn GetDC(&self, param0: *mut super::Gdi::HDC) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDC)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetDC(&self, param0: *mut super::Gdi::HDC) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetDC)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn GetFlipStatus(&self, param0: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetFlipStatus)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetFlipStatus(&self, param0: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetFlipStatus)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn GetOverlayPosition(&self, param0: *mut i32, param1: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetOverlayPosition)(::windows::core::Interface::as_raw(self), param0, param1).ok()
+    pub unsafe fn GetOverlayPosition(&self, param0: *mut i32, param1: *mut i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetOverlayPosition)(::windows_core::Interface::as_raw(self), param0, param1).ok()
     }
-    pub unsafe fn GetPalette(&self) -> ::windows::core::Result<IDirectDrawPalette> {
-        let mut result__ = ::windows::core::zeroed::<IDirectDrawPalette>();
-        (::windows::core::Interface::vtable(self).GetPalette)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn GetPalette(&self) -> ::windows_core::Result<IDirectDrawPalette> {
+        let mut result__ = ::windows_core::zeroed::<IDirectDrawPalette>();
+        (::windows_core::Interface::vtable(self).GetPalette)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetPixelFormat(&self, param0: *mut DDPIXELFORMAT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPixelFormat)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetPixelFormat(&self, param0: *mut DDPIXELFORMAT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetPixelFormat)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn GetSurfaceDesc(&self, param0: *mut DDSURFACEDESC2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetSurfaceDesc)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetSurfaceDesc(&self, param0: *mut DDSURFACEDESC2) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetSurfaceDesc)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn Initialize<P0>(&self, param0: P0, param1: *mut DDSURFACEDESC2) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, param0: P0, param1: *mut DDSURFACEDESC2) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDirectDraw>,
+        P0: ::windows_core::IntoParam<IDirectDraw>,
     {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
+        (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
     }
-    pub unsafe fn IsLost(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).IsLost)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn IsLost(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).IsLost)(::windows_core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Lock<P0>(&self, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC2, param2: u32, param3: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Lock<P0>(&self, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC2, param2: u32, param3: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
     {
-        (::windows::core::Interface::vtable(self).Lock)(::windows::core::Interface::as_raw(self), param0, param1, param2, param3.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).Lock)(::windows_core::Interface::as_raw(self), param0, param1, param2, param3.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn ReleaseDC<P0>(&self, param0: P0) -> ::windows::core::Result<()>
+    pub unsafe fn ReleaseDC<P0>(&self, param0: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::Gdi::HDC>,
+        P0: ::windows_core::IntoParam<super::Gdi::HDC>,
     {
-        (::windows::core::Interface::vtable(self).ReleaseDC)(::windows::core::Interface::as_raw(self), param0.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).ReleaseDC)(::windows_core::Interface::as_raw(self), param0.into_param().abi()).ok()
     }
-    pub unsafe fn Restore(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Restore)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn Restore(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Restore)(::windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn SetClipper<P0>(&self, param0: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetClipper<P0>(&self, param0: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDirectDrawClipper>,
+        P0: ::windows_core::IntoParam<IDirectDrawClipper>,
     {
-        (::windows::core::Interface::vtable(self).SetClipper)(::windows::core::Interface::as_raw(self), param0.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).SetClipper)(::windows_core::Interface::as_raw(self), param0.into_param().abi()).ok()
     }
-    pub unsafe fn SetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetColorKey)(::windows::core::Interface::as_raw(self), param0, param1).ok()
+    pub unsafe fn SetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetColorKey)(::windows_core::Interface::as_raw(self), param0, param1).ok()
     }
-    pub unsafe fn SetOverlayPosition(&self, param0: i32, param1: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOverlayPosition)(::windows::core::Interface::as_raw(self), param0, param1).ok()
+    pub unsafe fn SetOverlayPosition(&self, param0: i32, param1: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetOverlayPosition)(::windows_core::Interface::as_raw(self), param0, param1).ok()
     }
-    pub unsafe fn SetPalette<P0>(&self, param0: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPalette<P0>(&self, param0: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDirectDrawPalette>,
+        P0: ::windows_core::IntoParam<IDirectDrawPalette>,
     {
-        (::windows::core::Interface::vtable(self).SetPalette)(::windows::core::Interface::as_raw(self), param0.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).SetPalette)(::windows_core::Interface::as_raw(self), param0.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Unlock(&self, param0: *mut super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Unlock)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn Unlock(&self, param0: *mut super::super::Foundation::RECT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Unlock)(::windows_core::Interface::as_raw(self), param0).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn UpdateOverlay<P0>(&self, param0: *mut super::super::Foundation::RECT, param1: P0, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> ::windows::core::Result<()>
+    pub unsafe fn UpdateOverlay<P0>(&self, param0: *mut super::super::Foundation::RECT, param1: P0, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDirectDrawSurface4>,
+        P0: ::windows_core::IntoParam<IDirectDrawSurface4>,
     {
-        (::windows::core::Interface::vtable(self).UpdateOverlay)(::windows::core::Interface::as_raw(self), param0, param1.into_param().abi(), param2, param3, param4).ok()
+        (::windows_core::Interface::vtable(self).UpdateOverlay)(::windows_core::Interface::as_raw(self), param0, param1.into_param().abi(), param2, param3, param4).ok()
     }
-    pub unsafe fn UpdateOverlayDisplay(&self, param0: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UpdateOverlayDisplay)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn UpdateOverlayDisplay(&self, param0: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).UpdateOverlayDisplay)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn UpdateOverlayZOrder<P0>(&self, param0: u32, param1: P0) -> ::windows::core::Result<()>
+    pub unsafe fn UpdateOverlayZOrder<P0>(&self, param0: u32, param1: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDirectDrawSurface4>,
+        P0: ::windows_core::IntoParam<IDirectDrawSurface4>,
     {
-        (::windows::core::Interface::vtable(self).UpdateOverlayZOrder)(::windows::core::Interface::as_raw(self), param0, param1.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).UpdateOverlayZOrder)(::windows_core::Interface::as_raw(self), param0, param1.into_param().abi()).ok()
     }
-    pub unsafe fn GetDDInterface(&self, param0: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDDInterface)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetDDInterface(&self, param0: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetDDInterface)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn PageLock(&self, param0: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PageLock)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn PageLock(&self, param0: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).PageLock)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn PageUnlock(&self, param0: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PageUnlock)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn PageUnlock(&self, param0: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).PageUnlock)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn SetSurfaceDesc(&self, param0: *mut DDSURFACEDESC2, param1: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSurfaceDesc)(::windows::core::Interface::as_raw(self), param0, param1).ok()
+    pub unsafe fn SetSurfaceDesc(&self, param0: *mut DDSURFACEDESC2, param1: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetSurfaceDesc)(::windows_core::Interface::as_raw(self), param0, param1).ok()
     }
-    pub unsafe fn SetPrivateData(&self, param0: *const ::windows::core::GUID, param1: *mut ::core::ffi::c_void, param2: u32, param3: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateData)(::windows::core::Interface::as_raw(self), param0, param1, param2, param3).ok()
+    pub unsafe fn SetPrivateData(&self, param0: *const ::windows_core::GUID, param1: *mut ::core::ffi::c_void, param2: u32, param3: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetPrivateData)(::windows_core::Interface::as_raw(self), param0, param1, param2, param3).ok()
     }
-    pub unsafe fn GetPrivateData(&self, param0: *const ::windows::core::GUID, param1: *mut ::core::ffi::c_void, param2: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPrivateData)(::windows::core::Interface::as_raw(self), param0, param1, param2).ok()
+    pub unsafe fn GetPrivateData(&self, param0: *const ::windows_core::GUID, param1: *mut ::core::ffi::c_void, param2: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetPrivateData)(::windows_core::Interface::as_raw(self), param0, param1, param2).ok()
     }
-    pub unsafe fn FreePrivateData(&self, param0: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FreePrivateData)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn FreePrivateData(&self, param0: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).FreePrivateData)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn GetUniquenessValue(&self, param0: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetUniquenessValue)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetUniquenessValue(&self, param0: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetUniquenessValue)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn ChangeUniquenessValue(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ChangeUniquenessValue)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn ChangeUniquenessValue(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).ChangeUniquenessValue)(::windows_core::Interface::as_raw(self)).ok()
     }
 }
-::windows::imp::interface_hierarchy!(IDirectDrawSurface4, ::windows::core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IDirectDrawSurface4, ::windows_core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectDrawSurface4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2015,7 +2015,7 @@ impl ::core::fmt::Debug for IDirectDrawSurface4 {
         f.debug_tuple("IDirectDrawSurface4").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IDirectDrawSurface4 {
+unsafe impl ::windows_core::Interface for IDirectDrawSurface4 {
     type Vtable = IDirectDrawSurface4_Vtbl;
 }
 impl ::core::clone::Clone for IDirectDrawSurface4 {
@@ -2023,283 +2023,283 @@ impl ::core::clone::Clone for IDirectDrawSurface4 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IDirectDrawSurface4 {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b2b8630_ad35_11d0_8ea6_00609797ea5b);
+unsafe impl ::windows_core::ComInterface for IDirectDrawSurface4 {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0b2b8630_ad35_11d0_8ea6_00609797ea5b);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDrawSurface4_Vtbl {
-    pub base__: ::windows::core::IUnknown_Vtbl,
-    pub AddAttachedSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub AddAttachedSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub AddOverlayDirtyRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT,
+    pub AddOverlayDirtyRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     AddOverlayDirtyRect: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub Blt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> ::windows::core::HRESULT,
+    pub Blt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Blt: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub BltBatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows::core::HRESULT,
+    pub BltBatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     BltBatch: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub BltFast: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: u32, param2: *mut ::core::ffi::c_void, param3: *mut super::super::Foundation::RECT, param4: u32) -> ::windows::core::HRESULT,
+    pub BltFast: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: u32, param2: *mut ::core::ffi::c_void, param3: *mut super::super::Foundation::RECT, param4: u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     BltFast: usize,
-    pub DeleteAttachedSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub EnumAttachedSurfaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK2) -> ::windows::core::HRESULT,
-    pub EnumOverlayZOrders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut ::core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK2) -> ::windows::core::HRESULT,
-    pub Flip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: u32) -> ::windows::core::HRESULT,
-    pub GetAttachedSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSCAPS2, param1: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetBltStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows::core::HRESULT,
-    pub GetCaps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSCAPS2) -> ::windows::core::HRESULT,
-    pub GetClipper: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetColorKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DDCOLORKEY) -> ::windows::core::HRESULT,
+    pub DeleteAttachedSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EnumAttachedSurfaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK2) -> ::windows_core::HRESULT,
+    pub EnumOverlayZOrders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut ::core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK2) -> ::windows_core::HRESULT,
+    pub Flip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: u32) -> ::windows_core::HRESULT,
+    pub GetAttachedSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSCAPS2, param1: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetBltStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows_core::HRESULT,
+    pub GetCaps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSCAPS2) -> ::windows_core::HRESULT,
+    pub GetClipper: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetColorKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DDCOLORKEY) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub GetDC: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::Gdi::HDC) -> ::windows::core::HRESULT,
+    pub GetDC: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::Gdi::HDC) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     GetDC: usize,
-    pub GetFlipStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows::core::HRESULT,
-    pub GetOverlayPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut i32, param1: *mut i32) -> ::windows::core::HRESULT,
-    pub GetPalette: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetPixelFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDPIXELFORMAT) -> ::windows::core::HRESULT,
-    pub GetSurfaceDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSURFACEDESC2) -> ::windows::core::HRESULT,
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: *mut DDSURFACEDESC2) -> ::windows::core::HRESULT,
-    pub IsLost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetFlipStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows_core::HRESULT,
+    pub GetOverlayPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut i32, param1: *mut i32) -> ::windows_core::HRESULT,
+    pub GetPalette: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetPixelFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDPIXELFORMAT) -> ::windows_core::HRESULT,
+    pub GetSurfaceDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSURFACEDESC2) -> ::windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: *mut DDSURFACEDESC2) -> ::windows_core::HRESULT,
+    pub IsLost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub Lock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC2, param2: u32, param3: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
+    pub Lock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC2, param2: u32, param3: super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Lock: usize,
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub ReleaseDC: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::Gdi::HDC) -> ::windows::core::HRESULT,
+    pub ReleaseDC: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::Gdi::HDC) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     ReleaseDC: usize,
-    pub Restore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetClipper: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetColorKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DDCOLORKEY) -> ::windows::core::HRESULT,
-    pub SetOverlayPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: i32, param1: i32) -> ::windows::core::HRESULT,
-    pub SetPalette: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Restore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetClipper: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetColorKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DDCOLORKEY) -> ::windows_core::HRESULT,
+    pub SetOverlayPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: i32, param1: i32) -> ::windows_core::HRESULT,
+    pub SetPalette: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub Unlock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT,
+    pub Unlock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Unlock: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub UpdateOverlay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> ::windows::core::HRESULT,
+    pub UpdateOverlay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     UpdateOverlay: usize,
-    pub UpdateOverlayDisplay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows::core::HRESULT,
-    pub UpdateOverlayZOrder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetDDInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub PageLock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows::core::HRESULT,
-    pub PageUnlock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows::core::HRESULT,
-    pub SetSurfaceDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSURFACEDESC2, param1: u32) -> ::windows::core::HRESULT,
-    pub SetPrivateData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut ::core::ffi::c_void, param2: u32, param3: u32) -> ::windows::core::HRESULT,
-    pub GetPrivateData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut ::core::ffi::c_void, param2: *mut u32) -> ::windows::core::HRESULT,
-    pub FreePrivateData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub GetUniquenessValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows::core::HRESULT,
-    pub ChangeUniquenessValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub UpdateOverlayDisplay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows_core::HRESULT,
+    pub UpdateOverlayZOrder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetDDInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub PageLock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows_core::HRESULT,
+    pub PageUnlock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows_core::HRESULT,
+    pub SetSurfaceDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSURFACEDESC2, param1: u32) -> ::windows_core::HRESULT,
+    pub SetPrivateData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows_core::GUID, param1: *mut ::core::ffi::c_void, param2: u32, param3: u32) -> ::windows_core::HRESULT,
+    pub GetPrivateData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows_core::GUID, param1: *mut ::core::ffi::c_void, param2: *mut u32) -> ::windows_core::HRESULT,
+    pub FreePrivateData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetUniquenessValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows_core::HRESULT,
+    pub ChangeUniquenessValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
-pub struct IDirectDrawSurface7(::windows::core::IUnknown);
+pub struct IDirectDrawSurface7(::windows_core::IUnknown);
 impl IDirectDrawSurface7 {
-    pub unsafe fn AddAttachedSurface<P0>(&self, param0: P0) -> ::windows::core::Result<()>
+    pub unsafe fn AddAttachedSurface<P0>(&self, param0: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDirectDrawSurface7>,
+        P0: ::windows_core::IntoParam<IDirectDrawSurface7>,
     {
-        (::windows::core::Interface::vtable(self).AddAttachedSurface)(::windows::core::Interface::as_raw(self), param0.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).AddAttachedSurface)(::windows_core::Interface::as_raw(self), param0.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddOverlayDirtyRect(&self, param0: *mut super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddOverlayDirtyRect)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn AddOverlayDirtyRect(&self, param0: *mut super::super::Foundation::RECT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).AddOverlayDirtyRect)(::windows_core::Interface::as_raw(self), param0).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Blt<P0>(&self, param0: *mut super::super::Foundation::RECT, param1: P0, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> ::windows::core::Result<()>
+    pub unsafe fn Blt<P0>(&self, param0: *mut super::super::Foundation::RECT, param1: P0, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDirectDrawSurface7>,
+        P0: ::windows_core::IntoParam<IDirectDrawSurface7>,
     {
-        (::windows::core::Interface::vtable(self).Blt)(::windows::core::Interface::as_raw(self), param0, param1.into_param().abi(), param2, param3, param4).ok()
+        (::windows_core::Interface::vtable(self).Blt)(::windows_core::Interface::as_raw(self), param0, param1.into_param().abi(), param2, param3, param4).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BltBatch)(::windows::core::Interface::as_raw(self), param0, param1, param2).ok()
+    pub unsafe fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).BltBatch)(::windows_core::Interface::as_raw(self), param0, param1, param2).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn BltFast<P0>(&self, param0: u32, param1: u32, param2: P0, param3: *mut super::super::Foundation::RECT, param4: u32) -> ::windows::core::Result<()>
+    pub unsafe fn BltFast<P0>(&self, param0: u32, param1: u32, param2: P0, param3: *mut super::super::Foundation::RECT, param4: u32) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDirectDrawSurface7>,
+        P0: ::windows_core::IntoParam<IDirectDrawSurface7>,
     {
-        (::windows::core::Interface::vtable(self).BltFast)(::windows::core::Interface::as_raw(self), param0, param1, param2.into_param().abi(), param3, param4).ok()
+        (::windows_core::Interface::vtable(self).BltFast)(::windows_core::Interface::as_raw(self), param0, param1, param2.into_param().abi(), param3, param4).ok()
     }
-    pub unsafe fn DeleteAttachedSurface<P0>(&self, param0: u32, param1: P0) -> ::windows::core::Result<()>
+    pub unsafe fn DeleteAttachedSurface<P0>(&self, param0: u32, param1: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDirectDrawSurface7>,
+        P0: ::windows_core::IntoParam<IDirectDrawSurface7>,
     {
-        (::windows::core::Interface::vtable(self).DeleteAttachedSurface)(::windows::core::Interface::as_raw(self), param0, param1.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).DeleteAttachedSurface)(::windows_core::Interface::as_raw(self), param0, param1.into_param().abi()).ok()
     }
-    pub unsafe fn EnumAttachedSurfaces(&self, param0: *mut ::core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK7) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnumAttachedSurfaces)(::windows::core::Interface::as_raw(self), param0, param1).ok()
+    pub unsafe fn EnumAttachedSurfaces(&self, param0: *mut ::core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK7) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).EnumAttachedSurfaces)(::windows_core::Interface::as_raw(self), param0, param1).ok()
     }
-    pub unsafe fn EnumOverlayZOrders(&self, param0: u32, param1: *mut ::core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK7) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnumOverlayZOrders)(::windows::core::Interface::as_raw(self), param0, param1, param2).ok()
+    pub unsafe fn EnumOverlayZOrders(&self, param0: u32, param1: *mut ::core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK7) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).EnumOverlayZOrders)(::windows_core::Interface::as_raw(self), param0, param1, param2).ok()
     }
-    pub unsafe fn Flip<P0>(&self, param0: P0, param1: u32) -> ::windows::core::Result<()>
+    pub unsafe fn Flip<P0>(&self, param0: P0, param1: u32) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDirectDrawSurface7>,
+        P0: ::windows_core::IntoParam<IDirectDrawSurface7>,
     {
-        (::windows::core::Interface::vtable(self).Flip)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
+        (::windows_core::Interface::vtable(self).Flip)(::windows_core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
     }
-    pub unsafe fn GetAttachedSurface(&self, param0: *mut DDSCAPS2, param1: *mut ::core::option::Option<IDirectDrawSurface7>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetAttachedSurface)(::windows::core::Interface::as_raw(self), param0, ::core::mem::transmute(param1)).ok()
+    pub unsafe fn GetAttachedSurface(&self, param0: *mut DDSCAPS2, param1: *mut ::core::option::Option<IDirectDrawSurface7>) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetAttachedSurface)(::windows_core::Interface::as_raw(self), param0, ::core::mem::transmute(param1)).ok()
     }
-    pub unsafe fn GetBltStatus(&self, param0: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetBltStatus)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetBltStatus(&self, param0: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetBltStatus)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn GetCaps(&self, param0: *mut DDSCAPS2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetCaps)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetCaps(&self, param0: *mut DDSCAPS2) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetCaps)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn GetClipper(&self) -> ::windows::core::Result<IDirectDrawClipper> {
-        let mut result__ = ::windows::core::zeroed::<IDirectDrawClipper>();
-        (::windows::core::Interface::vtable(self).GetClipper)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn GetClipper(&self) -> ::windows_core::Result<IDirectDrawClipper> {
+        let mut result__ = ::windows_core::zeroed::<IDirectDrawClipper>();
+        (::windows_core::Interface::vtable(self).GetClipper)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetColorKey)(::windows::core::Interface::as_raw(self), param0, param1).ok()
+    pub unsafe fn GetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetColorKey)(::windows_core::Interface::as_raw(self), param0, param1).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn GetDC(&self, param0: *mut super::Gdi::HDC) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDC)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetDC(&self, param0: *mut super::Gdi::HDC) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetDC)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn GetFlipStatus(&self, param0: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetFlipStatus)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetFlipStatus(&self, param0: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetFlipStatus)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn GetOverlayPosition(&self, param0: *mut i32, param1: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetOverlayPosition)(::windows::core::Interface::as_raw(self), param0, param1).ok()
+    pub unsafe fn GetOverlayPosition(&self, param0: *mut i32, param1: *mut i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetOverlayPosition)(::windows_core::Interface::as_raw(self), param0, param1).ok()
     }
-    pub unsafe fn GetPalette(&self) -> ::windows::core::Result<IDirectDrawPalette> {
-        let mut result__ = ::windows::core::zeroed::<IDirectDrawPalette>();
-        (::windows::core::Interface::vtable(self).GetPalette)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn GetPalette(&self) -> ::windows_core::Result<IDirectDrawPalette> {
+        let mut result__ = ::windows_core::zeroed::<IDirectDrawPalette>();
+        (::windows_core::Interface::vtable(self).GetPalette)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetPixelFormat(&self, param0: *mut DDPIXELFORMAT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPixelFormat)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetPixelFormat(&self, param0: *mut DDPIXELFORMAT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetPixelFormat)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn GetSurfaceDesc(&self, param0: *mut DDSURFACEDESC2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetSurfaceDesc)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetSurfaceDesc(&self, param0: *mut DDSURFACEDESC2) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetSurfaceDesc)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn Initialize<P0>(&self, param0: P0, param1: *mut DDSURFACEDESC2) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, param0: P0, param1: *mut DDSURFACEDESC2) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDirectDraw>,
+        P0: ::windows_core::IntoParam<IDirectDraw>,
     {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
+        (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
     }
-    pub unsafe fn IsLost(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).IsLost)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn IsLost(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).IsLost)(::windows_core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Lock<P0>(&self, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC2, param2: u32, param3: P0) -> ::windows::core::Result<()>
+    pub unsafe fn Lock<P0>(&self, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC2, param2: u32, param3: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
     {
-        (::windows::core::Interface::vtable(self).Lock)(::windows::core::Interface::as_raw(self), param0, param1, param2, param3.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).Lock)(::windows_core::Interface::as_raw(self), param0, param1, param2, param3.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn ReleaseDC<P0>(&self, param0: P0) -> ::windows::core::Result<()>
+    pub unsafe fn ReleaseDC<P0>(&self, param0: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::Gdi::HDC>,
+        P0: ::windows_core::IntoParam<super::Gdi::HDC>,
     {
-        (::windows::core::Interface::vtable(self).ReleaseDC)(::windows::core::Interface::as_raw(self), param0.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).ReleaseDC)(::windows_core::Interface::as_raw(self), param0.into_param().abi()).ok()
     }
-    pub unsafe fn Restore(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Restore)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn Restore(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Restore)(::windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn SetClipper<P0>(&self, param0: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetClipper<P0>(&self, param0: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDirectDrawClipper>,
+        P0: ::windows_core::IntoParam<IDirectDrawClipper>,
     {
-        (::windows::core::Interface::vtable(self).SetClipper)(::windows::core::Interface::as_raw(self), param0.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).SetClipper)(::windows_core::Interface::as_raw(self), param0.into_param().abi()).ok()
     }
-    pub unsafe fn SetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetColorKey)(::windows::core::Interface::as_raw(self), param0, param1).ok()
+    pub unsafe fn SetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetColorKey)(::windows_core::Interface::as_raw(self), param0, param1).ok()
     }
-    pub unsafe fn SetOverlayPosition(&self, param0: i32, param1: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOverlayPosition)(::windows::core::Interface::as_raw(self), param0, param1).ok()
+    pub unsafe fn SetOverlayPosition(&self, param0: i32, param1: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetOverlayPosition)(::windows_core::Interface::as_raw(self), param0, param1).ok()
     }
-    pub unsafe fn SetPalette<P0>(&self, param0: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPalette<P0>(&self, param0: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDirectDrawPalette>,
+        P0: ::windows_core::IntoParam<IDirectDrawPalette>,
     {
-        (::windows::core::Interface::vtable(self).SetPalette)(::windows::core::Interface::as_raw(self), param0.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).SetPalette)(::windows_core::Interface::as_raw(self), param0.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Unlock(&self, param0: *mut super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Unlock)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn Unlock(&self, param0: *mut super::super::Foundation::RECT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Unlock)(::windows_core::Interface::as_raw(self), param0).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn UpdateOverlay<P0>(&self, param0: *mut super::super::Foundation::RECT, param1: P0, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> ::windows::core::Result<()>
+    pub unsafe fn UpdateOverlay<P0>(&self, param0: *mut super::super::Foundation::RECT, param1: P0, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDirectDrawSurface7>,
+        P0: ::windows_core::IntoParam<IDirectDrawSurface7>,
     {
-        (::windows::core::Interface::vtable(self).UpdateOverlay)(::windows::core::Interface::as_raw(self), param0, param1.into_param().abi(), param2, param3, param4).ok()
+        (::windows_core::Interface::vtable(self).UpdateOverlay)(::windows_core::Interface::as_raw(self), param0, param1.into_param().abi(), param2, param3, param4).ok()
     }
-    pub unsafe fn UpdateOverlayDisplay(&self, param0: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UpdateOverlayDisplay)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn UpdateOverlayDisplay(&self, param0: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).UpdateOverlayDisplay)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn UpdateOverlayZOrder<P0>(&self, param0: u32, param1: P0) -> ::windows::core::Result<()>
+    pub unsafe fn UpdateOverlayZOrder<P0>(&self, param0: u32, param1: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDirectDrawSurface7>,
+        P0: ::windows_core::IntoParam<IDirectDrawSurface7>,
     {
-        (::windows::core::Interface::vtable(self).UpdateOverlayZOrder)(::windows::core::Interface::as_raw(self), param0, param1.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).UpdateOverlayZOrder)(::windows_core::Interface::as_raw(self), param0, param1.into_param().abi()).ok()
     }
-    pub unsafe fn GetDDInterface(&self, param0: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDDInterface)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetDDInterface(&self, param0: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetDDInterface)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn PageLock(&self, param0: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PageLock)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn PageLock(&self, param0: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).PageLock)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn PageUnlock(&self, param0: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PageUnlock)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn PageUnlock(&self, param0: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).PageUnlock)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn SetSurfaceDesc(&self, param0: *mut DDSURFACEDESC2, param1: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSurfaceDesc)(::windows::core::Interface::as_raw(self), param0, param1).ok()
+    pub unsafe fn SetSurfaceDesc(&self, param0: *mut DDSURFACEDESC2, param1: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetSurfaceDesc)(::windows_core::Interface::as_raw(self), param0, param1).ok()
     }
-    pub unsafe fn SetPrivateData(&self, param0: *const ::windows::core::GUID, param1: *mut ::core::ffi::c_void, param2: u32, param3: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateData)(::windows::core::Interface::as_raw(self), param0, param1, param2, param3).ok()
+    pub unsafe fn SetPrivateData(&self, param0: *const ::windows_core::GUID, param1: *mut ::core::ffi::c_void, param2: u32, param3: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetPrivateData)(::windows_core::Interface::as_raw(self), param0, param1, param2, param3).ok()
     }
-    pub unsafe fn GetPrivateData(&self, param0: *const ::windows::core::GUID, param1: *mut ::core::ffi::c_void, param2: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPrivateData)(::windows::core::Interface::as_raw(self), param0, param1, param2).ok()
+    pub unsafe fn GetPrivateData(&self, param0: *const ::windows_core::GUID, param1: *mut ::core::ffi::c_void, param2: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetPrivateData)(::windows_core::Interface::as_raw(self), param0, param1, param2).ok()
     }
-    pub unsafe fn FreePrivateData(&self, param0: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FreePrivateData)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn FreePrivateData(&self, param0: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).FreePrivateData)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn GetUniquenessValue(&self, param0: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetUniquenessValue)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetUniquenessValue(&self, param0: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetUniquenessValue)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn ChangeUniquenessValue(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ChangeUniquenessValue)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn ChangeUniquenessValue(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).ChangeUniquenessValue)(::windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn SetPriority(&self, param0: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPriority)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn SetPriority(&self, param0: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetPriority)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn GetPriority(&self, param0: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPriority)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetPriority(&self, param0: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetPriority)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn SetLOD(&self, param0: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLOD)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn SetLOD(&self, param0: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetLOD)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn GetLOD(&self, param0: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetLOD)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetLOD(&self, param0: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetLOD)(::windows_core::Interface::as_raw(self), param0).ok()
     }
 }
-::windows::imp::interface_hierarchy!(IDirectDrawSurface7, ::windows::core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IDirectDrawSurface7, ::windows_core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectDrawSurface7 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2311,7 +2311,7 @@ impl ::core::fmt::Debug for IDirectDrawSurface7 {
         f.debug_tuple("IDirectDrawSurface7").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IDirectDrawSurface7 {
+unsafe impl ::windows_core::Interface for IDirectDrawSurface7 {
     type Vtable = IDirectDrawSurface7_Vtbl;
 }
 impl ::core::clone::Clone for IDirectDrawSurface7 {
@@ -2319,99 +2319,99 @@ impl ::core::clone::Clone for IDirectDrawSurface7 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IDirectDrawSurface7 {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x06675a80_3b9b_11d2_b92f_00609797ea5b);
+unsafe impl ::windows_core::ComInterface for IDirectDrawSurface7 {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x06675a80_3b9b_11d2_b92f_00609797ea5b);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDrawSurface7_Vtbl {
-    pub base__: ::windows::core::IUnknown_Vtbl,
-    pub AddAttachedSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub AddAttachedSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub AddOverlayDirtyRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT,
+    pub AddOverlayDirtyRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     AddOverlayDirtyRect: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub Blt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> ::windows::core::HRESULT,
+    pub Blt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Blt: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub BltBatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows::core::HRESULT,
+    pub BltBatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     BltBatch: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub BltFast: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: u32, param2: *mut ::core::ffi::c_void, param3: *mut super::super::Foundation::RECT, param4: u32) -> ::windows::core::HRESULT,
+    pub BltFast: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: u32, param2: *mut ::core::ffi::c_void, param3: *mut super::super::Foundation::RECT, param4: u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     BltFast: usize,
-    pub DeleteAttachedSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub EnumAttachedSurfaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK7) -> ::windows::core::HRESULT,
-    pub EnumOverlayZOrders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut ::core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK7) -> ::windows::core::HRESULT,
-    pub Flip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: u32) -> ::windows::core::HRESULT,
-    pub GetAttachedSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSCAPS2, param1: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetBltStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows::core::HRESULT,
-    pub GetCaps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSCAPS2) -> ::windows::core::HRESULT,
-    pub GetClipper: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetColorKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DDCOLORKEY) -> ::windows::core::HRESULT,
+    pub DeleteAttachedSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EnumAttachedSurfaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK7) -> ::windows_core::HRESULT,
+    pub EnumOverlayZOrders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut ::core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK7) -> ::windows_core::HRESULT,
+    pub Flip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: u32) -> ::windows_core::HRESULT,
+    pub GetAttachedSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSCAPS2, param1: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetBltStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows_core::HRESULT,
+    pub GetCaps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSCAPS2) -> ::windows_core::HRESULT,
+    pub GetClipper: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetColorKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DDCOLORKEY) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub GetDC: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::Gdi::HDC) -> ::windows::core::HRESULT,
+    pub GetDC: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::Gdi::HDC) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     GetDC: usize,
-    pub GetFlipStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows::core::HRESULT,
-    pub GetOverlayPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut i32, param1: *mut i32) -> ::windows::core::HRESULT,
-    pub GetPalette: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetPixelFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDPIXELFORMAT) -> ::windows::core::HRESULT,
-    pub GetSurfaceDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSURFACEDESC2) -> ::windows::core::HRESULT,
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: *mut DDSURFACEDESC2) -> ::windows::core::HRESULT,
-    pub IsLost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetFlipStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows_core::HRESULT,
+    pub GetOverlayPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut i32, param1: *mut i32) -> ::windows_core::HRESULT,
+    pub GetPalette: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetPixelFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDPIXELFORMAT) -> ::windows_core::HRESULT,
+    pub GetSurfaceDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSURFACEDESC2) -> ::windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: *mut DDSURFACEDESC2) -> ::windows_core::HRESULT,
+    pub IsLost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub Lock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC2, param2: u32, param3: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
+    pub Lock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC2, param2: u32, param3: super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Lock: usize,
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub ReleaseDC: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::Gdi::HDC) -> ::windows::core::HRESULT,
+    pub ReleaseDC: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::Gdi::HDC) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     ReleaseDC: usize,
-    pub Restore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetClipper: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetColorKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DDCOLORKEY) -> ::windows::core::HRESULT,
-    pub SetOverlayPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: i32, param1: i32) -> ::windows::core::HRESULT,
-    pub SetPalette: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Restore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetClipper: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetColorKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DDCOLORKEY) -> ::windows_core::HRESULT,
+    pub SetOverlayPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: i32, param1: i32) -> ::windows_core::HRESULT,
+    pub SetPalette: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub Unlock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT,
+    pub Unlock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Unlock: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub UpdateOverlay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> ::windows::core::HRESULT,
+    pub UpdateOverlay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     UpdateOverlay: usize,
-    pub UpdateOverlayDisplay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows::core::HRESULT,
-    pub UpdateOverlayZOrder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetDDInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub PageLock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows::core::HRESULT,
-    pub PageUnlock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows::core::HRESULT,
-    pub SetSurfaceDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSURFACEDESC2, param1: u32) -> ::windows::core::HRESULT,
-    pub SetPrivateData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut ::core::ffi::c_void, param2: u32, param3: u32) -> ::windows::core::HRESULT,
-    pub GetPrivateData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut ::core::ffi::c_void, param2: *mut u32) -> ::windows::core::HRESULT,
-    pub FreePrivateData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub GetUniquenessValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows::core::HRESULT,
-    pub ChangeUniquenessValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows::core::HRESULT,
-    pub GetPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows::core::HRESULT,
-    pub SetLOD: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows::core::HRESULT,
-    pub GetLOD: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows::core::HRESULT,
+    pub UpdateOverlayDisplay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows_core::HRESULT,
+    pub UpdateOverlayZOrder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetDDInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub PageLock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows_core::HRESULT,
+    pub PageUnlock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows_core::HRESULT,
+    pub SetSurfaceDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSURFACEDESC2, param1: u32) -> ::windows_core::HRESULT,
+    pub SetPrivateData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows_core::GUID, param1: *mut ::core::ffi::c_void, param2: u32, param3: u32) -> ::windows_core::HRESULT,
+    pub GetPrivateData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows_core::GUID, param1: *mut ::core::ffi::c_void, param2: *mut u32) -> ::windows_core::HRESULT,
+    pub FreePrivateData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetUniquenessValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows_core::HRESULT,
+    pub ChangeUniquenessValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows_core::HRESULT,
+    pub GetPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows_core::HRESULT,
+    pub SetLOD: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows_core::HRESULT,
+    pub GetLOD: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
-pub struct IDirectDrawSurfaceKernel(::windows::core::IUnknown);
+pub struct IDirectDrawSurfaceKernel(::windows_core::IUnknown);
 impl IDirectDrawSurfaceKernel {
-    pub unsafe fn GetKernelHandle(&self, param0: *mut usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetKernelHandle)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetKernelHandle(&self, param0: *mut usize) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetKernelHandle)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn ReleaseKernelHandle(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReleaseKernelHandle)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn ReleaseKernelHandle(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).ReleaseKernelHandle)(::windows_core::Interface::as_raw(self)).ok()
     }
 }
-::windows::imp::interface_hierarchy!(IDirectDrawSurfaceKernel, ::windows::core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IDirectDrawSurfaceKernel, ::windows_core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectDrawSurfaceKernel {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2423,7 +2423,7 @@ impl ::core::fmt::Debug for IDirectDrawSurfaceKernel {
         f.debug_tuple("IDirectDrawSurfaceKernel").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IDirectDrawSurfaceKernel {
+unsafe impl ::windows_core::Interface for IDirectDrawSurfaceKernel {
     type Vtable = IDirectDrawSurfaceKernel_Vtbl;
 }
 impl ::core::clone::Clone for IDirectDrawSurfaceKernel {
@@ -2431,74 +2431,74 @@ impl ::core::clone::Clone for IDirectDrawSurfaceKernel {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IDirectDrawSurfaceKernel {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60755da0_6a40_11d0_9b06_00a0c903a3b8);
+unsafe impl ::windows_core::ComInterface for IDirectDrawSurfaceKernel {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x60755da0_6a40_11d0_9b06_00a0c903a3b8);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDrawSurfaceKernel_Vtbl {
-    pub base__: ::windows::core::IUnknown_Vtbl,
-    pub GetKernelHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut usize) -> ::windows::core::HRESULT,
-    pub ReleaseKernelHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub GetKernelHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut usize) -> ::windows_core::HRESULT,
+    pub ReleaseKernelHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
-pub struct IDirectDrawVideoPort(::windows::core::IUnknown);
+pub struct IDirectDrawVideoPort(::windows_core::IUnknown);
 impl IDirectDrawVideoPort {
-    pub unsafe fn Flip<P0>(&self, param0: P0, param1: u32) -> ::windows::core::Result<()>
+    pub unsafe fn Flip<P0>(&self, param0: P0, param1: u32) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDirectDrawSurface>,
+        P0: ::windows_core::IntoParam<IDirectDrawSurface>,
     {
-        (::windows::core::Interface::vtable(self).Flip)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
+        (::windows_core::Interface::vtable(self).Flip)(::windows_core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
     }
-    pub unsafe fn GetBandwidthInfo(&self, param0: *mut DDPIXELFORMAT, param1: u32, param2: u32, param3: u32, param4: *mut DDVIDEOPORTBANDWIDTH) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetBandwidthInfo)(::windows::core::Interface::as_raw(self), param0, param1, param2, param3, param4).ok()
+    pub unsafe fn GetBandwidthInfo(&self, param0: *mut DDPIXELFORMAT, param1: u32, param2: u32, param3: u32, param4: *mut DDVIDEOPORTBANDWIDTH) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetBandwidthInfo)(::windows_core::Interface::as_raw(self), param0, param1, param2, param3, param4).ok()
     }
-    pub unsafe fn GetColorControls(&self, param0: *mut DDCOLORCONTROL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetColorControls)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetColorControls(&self, param0: *mut DDCOLORCONTROL) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetColorControls)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn GetInputFormats(&self, lpnumformats: *mut u32, param1: ::core::option::Option<*mut DDPIXELFORMAT>, param2: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetInputFormats)(::windows::core::Interface::as_raw(self), lpnumformats, ::core::mem::transmute(param1.unwrap_or(::std::ptr::null_mut())), param2).ok()
+    pub unsafe fn GetInputFormats(&self, lpnumformats: *mut u32, param1: ::core::option::Option<*mut DDPIXELFORMAT>, param2: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetInputFormats)(::windows_core::Interface::as_raw(self), lpnumformats, ::core::mem::transmute(param1.unwrap_or(::std::ptr::null_mut())), param2).ok()
     }
-    pub unsafe fn GetOutputFormats(&self, param0: *mut DDPIXELFORMAT, lpnumformats: *mut u32, param2: ::core::option::Option<*mut DDPIXELFORMAT>, param3: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetOutputFormats)(::windows::core::Interface::as_raw(self), param0, lpnumformats, ::core::mem::transmute(param2.unwrap_or(::std::ptr::null_mut())), param3).ok()
+    pub unsafe fn GetOutputFormats(&self, param0: *mut DDPIXELFORMAT, lpnumformats: *mut u32, param2: ::core::option::Option<*mut DDPIXELFORMAT>, param3: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetOutputFormats)(::windows_core::Interface::as_raw(self), param0, lpnumformats, ::core::mem::transmute(param2.unwrap_or(::std::ptr::null_mut())), param3).ok()
     }
-    pub unsafe fn GetFieldPolarity(&self, param0: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetFieldPolarity)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetFieldPolarity(&self, param0: *mut i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetFieldPolarity)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn GetVideoLine(&self, param0: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetVideoLine)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetVideoLine(&self, param0: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetVideoLine)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn GetVideoSignalStatus(&self, param0: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetVideoSignalStatus)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn GetVideoSignalStatus(&self, param0: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetVideoSignalStatus)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn SetColorControls(&self, param0: *mut DDCOLORCONTROL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetColorControls)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn SetColorControls(&self, param0: *mut DDCOLORCONTROL) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetColorControls)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn SetTargetSurface<P0>(&self, param0: P0, param1: u32) -> ::windows::core::Result<()>
+    pub unsafe fn SetTargetSurface<P0>(&self, param0: P0, param1: u32) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDirectDrawSurface>,
+        P0: ::windows_core::IntoParam<IDirectDrawSurface>,
     {
-        (::windows::core::Interface::vtable(self).SetTargetSurface)(::windows::core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
+        (::windows_core::Interface::vtable(self).SetTargetSurface)(::windows_core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn StartVideo(&self, param0: *mut DDVIDEOPORTINFO) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).StartVideo)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn StartVideo(&self, param0: *mut DDVIDEOPORTINFO) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).StartVideo)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn StopVideo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).StopVideo)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn StopVideo(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).StopVideo)(::windows_core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn UpdateVideo(&self, param0: *mut DDVIDEOPORTINFO) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UpdateVideo)(::windows::core::Interface::as_raw(self), param0).ok()
+    pub unsafe fn UpdateVideo(&self, param0: *mut DDVIDEOPORTINFO) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).UpdateVideo)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn WaitForSync(&self, param0: u32, param1: u32, param2: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WaitForSync)(::windows::core::Interface::as_raw(self), param0, param1, param2).ok()
+    pub unsafe fn WaitForSync(&self, param0: u32, param1: u32, param2: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).WaitForSync)(::windows_core::Interface::as_raw(self), param0, param1, param2).ok()
     }
 }
-::windows::imp::interface_hierarchy!(IDirectDrawVideoPort, ::windows::core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IDirectDrawVideoPort, ::windows_core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectDrawVideoPort {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2510,7 +2510,7 @@ impl ::core::fmt::Debug for IDirectDrawVideoPort {
         f.debug_tuple("IDirectDrawVideoPort").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IDirectDrawVideoPort {
+unsafe impl ::windows_core::Interface for IDirectDrawVideoPort {
     type Vtable = IDirectDrawVideoPort_Vtbl;
 }
 impl ::core::clone::Clone for IDirectDrawVideoPort {
@@ -2518,53 +2518,53 @@ impl ::core::clone::Clone for IDirectDrawVideoPort {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IDirectDrawVideoPort {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb36d93e0_2b43_11cf_a2de_00aa00b93356);
+unsafe impl ::windows_core::ComInterface for IDirectDrawVideoPort {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb36d93e0_2b43_11cf_a2de_00aa00b93356);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDrawVideoPort_Vtbl {
-    pub base__: ::windows::core::IUnknown_Vtbl,
-    pub Flip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: u32) -> ::windows::core::HRESULT,
-    pub GetBandwidthInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDPIXELFORMAT, param1: u32, param2: u32, param3: u32, param4: *mut DDVIDEOPORTBANDWIDTH) -> ::windows::core::HRESULT,
-    pub GetColorControls: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDCOLORCONTROL) -> ::windows::core::HRESULT,
-    pub GetInputFormats: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpnumformats: *mut u32, param1: *mut DDPIXELFORMAT, param2: u32) -> ::windows::core::HRESULT,
-    pub GetOutputFormats: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDPIXELFORMAT, lpnumformats: *mut u32, param2: *mut DDPIXELFORMAT, param3: u32) -> ::windows::core::HRESULT,
-    pub GetFieldPolarity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut i32) -> ::windows::core::HRESULT,
-    pub GetVideoLine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows::core::HRESULT,
-    pub GetVideoSignalStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows::core::HRESULT,
-    pub SetColorControls: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDCOLORCONTROL) -> ::windows::core::HRESULT,
-    pub SetTargetSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: u32) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub Flip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: u32) -> ::windows_core::HRESULT,
+    pub GetBandwidthInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDPIXELFORMAT, param1: u32, param2: u32, param3: u32, param4: *mut DDVIDEOPORTBANDWIDTH) -> ::windows_core::HRESULT,
+    pub GetColorControls: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDCOLORCONTROL) -> ::windows_core::HRESULT,
+    pub GetInputFormats: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpnumformats: *mut u32, param1: *mut DDPIXELFORMAT, param2: u32) -> ::windows_core::HRESULT,
+    pub GetOutputFormats: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDPIXELFORMAT, lpnumformats: *mut u32, param2: *mut DDPIXELFORMAT, param3: u32) -> ::windows_core::HRESULT,
+    pub GetFieldPolarity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut i32) -> ::windows_core::HRESULT,
+    pub GetVideoLine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows_core::HRESULT,
+    pub GetVideoSignalStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows_core::HRESULT,
+    pub SetColorControls: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDCOLORCONTROL) -> ::windows_core::HRESULT,
+    pub SetTargetSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: u32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub StartVideo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDVIDEOPORTINFO) -> ::windows::core::HRESULT,
+    pub StartVideo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDVIDEOPORTINFO) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     StartVideo: usize,
-    pub StopVideo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub StopVideo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub UpdateVideo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDVIDEOPORTINFO) -> ::windows::core::HRESULT,
+    pub UpdateVideo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDVIDEOPORTINFO) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     UpdateVideo: usize,
-    pub WaitForSync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: u32, param2: u32) -> ::windows::core::HRESULT,
+    pub WaitForSync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: u32, param2: u32) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
-pub struct IDirectDrawVideoPortNotify(::windows::core::IUnknown);
+pub struct IDirectDrawVideoPortNotify(::windows_core::IUnknown);
 impl IDirectDrawVideoPortNotify {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AcquireNotification(&self, param0: *mut super::super::Foundation::HANDLE, param1: *mut DDVIDEOPORTNOTIFY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AcquireNotification)(::windows::core::Interface::as_raw(self), param0, param1).ok()
+    pub unsafe fn AcquireNotification(&self, param0: *mut super::super::Foundation::HANDLE, param1: *mut DDVIDEOPORTNOTIFY) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).AcquireNotification)(::windows_core::Interface::as_raw(self), param0, param1).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ReleaseNotification<P0>(&self, param0: P0) -> ::windows::core::Result<()>
+    pub unsafe fn ReleaseNotification<P0>(&self, param0: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
     {
-        (::windows::core::Interface::vtable(self).ReleaseNotification)(::windows::core::Interface::as_raw(self), param0.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).ReleaseNotification)(::windows_core::Interface::as_raw(self), param0.into_param().abi()).ok()
     }
 }
-::windows::imp::interface_hierarchy!(IDirectDrawVideoPortNotify, ::windows::core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IDirectDrawVideoPortNotify, ::windows_core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectDrawVideoPortNotify {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2576,7 +2576,7 @@ impl ::core::fmt::Debug for IDirectDrawVideoPortNotify {
         f.debug_tuple("IDirectDrawVideoPortNotify").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IDirectDrawVideoPortNotify {
+unsafe impl ::windows_core::Interface for IDirectDrawVideoPortNotify {
     type Vtable = IDirectDrawVideoPortNotify_Vtbl;
 }
 impl ::core::clone::Clone for IDirectDrawVideoPortNotify {
@@ -2584,19 +2584,19 @@ impl ::core::clone::Clone for IDirectDrawVideoPortNotify {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IDirectDrawVideoPortNotify {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa655fb94_0589_4e57_b333_567a89468c88);
+unsafe impl ::windows_core::ComInterface for IDirectDrawVideoPortNotify {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa655fb94_0589_4e57_b333_567a89468c88);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDrawVideoPortNotify_Vtbl {
-    pub base__: ::windows::core::IUnknown_Vtbl,
+    pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
-    pub AcquireNotification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::HANDLE, param1: *mut DDVIDEOPORTNOTIFY) -> ::windows::core::HRESULT,
+    pub AcquireNotification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::HANDLE, param1: *mut DDVIDEOPORTNOTIFY) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     AcquireNotification: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub ReleaseNotification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
+    pub ReleaseNotification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     ReleaseNotification: usize,
 }
@@ -2609,11 +2609,11 @@ pub const ACCESSRECT_VRAMSTYLE: i32 = 1i32;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const CCHDEVICENAME: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub const CLSID_DirectDraw: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7b70ee0_4340_11cf_b063_0020afc2cd35);
+pub const CLSID_DirectDraw: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd7b70ee0_4340_11cf_b063_0020afc2cd35);
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub const CLSID_DirectDraw7: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c305196_50db_11d3_9cfe_00c04fd930c5);
+pub const CLSID_DirectDraw7: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3c305196_50db_11d3_9cfe_00c04fd930c5);
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub const CLSID_DirectDrawClipper: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x593817a0_7db3_11cf_a2de_00aa00b93356);
+pub const CLSID_DirectDrawClipper: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x593817a0_7db3_11cf_a2de_00aa00b93356);
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const D3DFMT_INTERNAL_D15S1: u32 = 73u32;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
@@ -3133,7 +3133,7 @@ pub const DDHALINFO_ISPRIMARYDISPLAY: i32 = 1i32;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHALINFO_MODEXILLEGAL: i32 = 2i32;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub const DDHAL_APP_DLLNAME: ::windows::core::PCSTR = ::windows::core::s!("DDRAW.DLL");
+pub const DDHAL_APP_DLLNAME: ::windows_core::PCSTR = ::windows_core::s!("DDRAW.DLL");
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_CB32_CANCREATESURFACE: i32 = 32i32;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
@@ -3171,7 +3171,7 @@ pub const DDHAL_D3DBUFCB32_LOCKD3DBUF: i32 = 8i32;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_D3DBUFCB32_UNLOCKD3DBUF: i32 = 16i32;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub const DDHAL_DRIVER_DLLNAME: ::windows::core::PCSTR = ::windows::core::s!("DDRAW16.DLL");
+pub const DDHAL_DRIVER_DLLNAME: ::windows_core::PCSTR = ::windows_core::s!("DDRAW16.DLL");
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_DRIVER_HANDLED: i32 = 1i32;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
@@ -4251,19 +4251,19 @@ pub const DDVPTARGET_VBI: i32 = 2i32;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPTARGET_VIDEO: i32 = 1i32;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub const DDVPTYPE_BROOKTREE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1352a560_da61_11cf_9b06_00a0c903a3b8);
+pub const DDVPTYPE_BROOKTREE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1352a560_da61_11cf_9b06_00a0c903a3b8);
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub const DDVPTYPE_CCIR656: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfca326a0_da60_11cf_9b06_00a0c903a3b8);
+pub const DDVPTYPE_CCIR656: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfca326a0_da60_11cf_9b06_00a0c903a3b8);
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub const DDVPTYPE_E_HREFH_VREFH: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54f39980_da60_11cf_9b06_00a0c903a3b8);
+pub const DDVPTYPE_E_HREFH_VREFH: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x54f39980_da60_11cf_9b06_00a0c903a3b8);
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub const DDVPTYPE_E_HREFH_VREFL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92783220_da60_11cf_9b06_00a0c903a3b8);
+pub const DDVPTYPE_E_HREFH_VREFL: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x92783220_da60_11cf_9b06_00a0c903a3b8);
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub const DDVPTYPE_E_HREFL_VREFH: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa07a02e0_da60_11cf_9b06_00a0c903a3b8);
+pub const DDVPTYPE_E_HREFL_VREFH: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa07a02e0_da60_11cf_9b06_00a0c903a3b8);
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub const DDVPTYPE_E_HREFL_VREFL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe09c77e0_da60_11cf_9b06_00a0c903a3b8);
+pub const DDVPTYPE_E_HREFL_VREFL: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe09c77e0_da60_11cf_9b06_00a0c903a3b8);
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub const DDVPTYPE_PHILIPS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x332cf160_da61_11cf_9b06_00a0c903a3b8);
+pub const DDVPTYPE_PHILIPS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x332cf160_da61_11cf_9b06_00a0c903a3b8);
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPWAIT_BEGIN: i32 = 1i32;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
@@ -4335,63 +4335,63 @@ pub const DXERR_UNSUPPORTED: u32 = 2147500033u32;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DX_OK: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub const GUID_ColorControlCallbacks: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefd60cc2_49e7_11d0_889d_00aa00bbb76a);
+pub const GUID_ColorControlCallbacks: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xefd60cc2_49e7_11d0_889d_00aa00bbb76a);
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub const GUID_D3DCallbacks: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7bf06990_8794_11d0_9139_080036d2ef02);
+pub const GUID_D3DCallbacks: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7bf06990_8794_11d0_9139_080036d2ef02);
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub const GUID_D3DCallbacks2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ba584e1_70b6_11d0_889d_00aa00bbb76a);
+pub const GUID_D3DCallbacks2: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0ba584e1_70b6_11d0_889d_00aa00bbb76a);
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub const GUID_D3DCallbacks3: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xddf41230_ec0a_11d0_a9b6_00aa00c0993e);
+pub const GUID_D3DCallbacks3: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xddf41230_ec0a_11d0_a9b6_00aa00c0993e);
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub const GUID_D3DCaps: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7bf06991_8794_11d0_9139_080036d2ef02);
+pub const GUID_D3DCaps: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7bf06991_8794_11d0_9139_080036d2ef02);
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub const GUID_D3DExtendedCaps: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7de41f80_9d93_11d0_89ab_00a0c9054129);
+pub const GUID_D3DExtendedCaps: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7de41f80_9d93_11d0_89ab_00a0c9054129);
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub const GUID_D3DParseUnknownCommandCallback: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e04ffa0_98e4_11d1_8ce1_00a0c90629a8);
+pub const GUID_D3DParseUnknownCommandCallback: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2e04ffa0_98e4_11d1_8ce1_00a0c90629a8);
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub const GUID_DDMoreCaps: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x880baf30_b030_11d0_8ea7_00609797ea5b);
+pub const GUID_DDMoreCaps: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x880baf30_b030_11d0_8ea7_00609797ea5b);
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub const GUID_DDMoreSurfaceCaps: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b8a0466_f269_11d1_880b_00c04fd930c5);
+pub const GUID_DDMoreSurfaceCaps: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3b8a0466_f269_11d1_880b_00c04fd930c5);
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub const GUID_DDStereoMode: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf828169c_a8e8_11d2_a1f2_00a0c983eaf6);
+pub const GUID_DDStereoMode: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf828169c_a8e8_11d2_a1f2_00a0c983eaf6);
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub const GUID_DxApi: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a79bef0_b915_11d0_9144_080036d2ef02);
+pub const GUID_DxApi: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8a79bef0_b915_11d0_9144_080036d2ef02);
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub const GUID_GetHeapAlignment: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42e02f16_7b41_11d2_8bff_00a0c983eaf6);
+pub const GUID_GetHeapAlignment: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x42e02f16_7b41_11d2_8bff_00a0c983eaf6);
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub const GUID_KernelCallbacks: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80863800_6b06_11d0_9b06_00a0c903a3b8);
+pub const GUID_KernelCallbacks: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x80863800_6b06_11d0_9b06_00a0c903a3b8);
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub const GUID_KernelCaps: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xffaa7540_7aa8_11d0_9b06_00a0c903a3b8);
+pub const GUID_KernelCaps: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xffaa7540_7aa8_11d0_9b06_00a0c903a3b8);
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub const GUID_Miscellaneous2Callbacks: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x406b2f00_3e5a_11d1_b640_00aa00a1f96a);
+pub const GUID_Miscellaneous2Callbacks: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x406b2f00_3e5a_11d1_b640_00aa00a1f96a);
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub const GUID_MiscellaneousCallbacks: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefd60cc0_49e7_11d0_889d_00aa00bbb76a);
+pub const GUID_MiscellaneousCallbacks: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xefd60cc0_49e7_11d0_889d_00aa00bbb76a);
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub const GUID_MotionCompCallbacks: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1122b40_5da5_11d1_8fcf_00c04fc29b4e);
+pub const GUID_MotionCompCallbacks: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb1122b40_5da5_11d1_8fcf_00c04fc29b4e);
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub const GUID_NTCallbacks: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6fe9ecde_df89_11d1_9db0_0060082771ba);
+pub const GUID_NTCallbacks: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6fe9ecde_df89_11d1_9db0_0060082771ba);
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub const GUID_NTPrivateDriverCaps: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfad16a23_7b66_11d2_83d7_00c04f7ce58c);
+pub const GUID_NTPrivateDriverCaps: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfad16a23_7b66_11d2_83d7_00c04f7ce58c);
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub const GUID_NonLocalVidMemCaps: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86c4fa80_8d84_11d0_94e8_00c04fc34137);
+pub const GUID_NonLocalVidMemCaps: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x86c4fa80_8d84_11d0_94e8_00c04fc34137);
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub const GUID_OptSurfaceKmodeInfo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe05c8472_51d4_11d1_8cce_00a0c90629a8);
+pub const GUID_OptSurfaceKmodeInfo: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe05c8472_51d4_11d1_8cce_00a0c90629a8);
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub const GUID_OptSurfaceUmodeInfo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d792804_5fa8_11d1_8cd0_00a0c90629a8);
+pub const GUID_OptSurfaceUmodeInfo: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9d792804_5fa8_11d1_8cd0_00a0c90629a8);
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub const GUID_UpdateNonLocalHeap: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42e02f17_7b41_11d2_8bff_00a0c983eaf6);
+pub const GUID_UpdateNonLocalHeap: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x42e02f17_7b41_11d2_8bff_00a0c983eaf6);
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub const GUID_UserModeDriverInfo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0b0e8e2_5f97_11d1_8cd0_00a0c90629a8);
+pub const GUID_UserModeDriverInfo: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf0b0e8e2_5f97_11d1_8cd0_00a0c90629a8);
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub const GUID_UserModeDriverPassword: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97f861b6_60a1_11d1_8cd0_00a0c90629a8);
+pub const GUID_UserModeDriverPassword: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x97f861b6_60a1_11d1_8cd0_00a0c90629a8);
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub const GUID_VPE2Callbacks: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52882147_2d47_469a_a0d1_03455890f6c8);
+pub const GUID_VPE2Callbacks: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x52882147_2d47_469a_a0d1_03455890f6c8);
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub const GUID_VideoPortCallbacks: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefd60cc1_49e7_11d0_889d_00aa00bbb76a);
+pub const GUID_VideoPortCallbacks: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xefd60cc1_49e7_11d0_889d_00aa00bbb76a);
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub const GUID_VideoPortCaps: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefd60cc3_49e7_11d0_889d_00aa00bbb76a);
+pub const GUID_VideoPortCaps: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xefd60cc3_49e7_11d0_889d_00aa00bbb76a);
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub const GUID_ZPixelFormats: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93869880_36cf_11d1_9b1b_00aa00bbb8ae);
+pub const GUID_ZPixelFormats: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x93869880_36cf_11d1_9b1b_00aa00bbb8ae);
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const HEAPALIASINFO_MAPPEDDUMMY: i32 = 2i32;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
@@ -4445,11 +4445,11 @@ pub const OBJECT_ISROOT: i32 = -2147483648i32;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const PFINDEX_UNINITIALIZED: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub const REGSTR_KEY_DDHW_DESCRIPTION: ::windows::core::PCSTR = ::windows::core::s!("Description");
+pub const REGSTR_KEY_DDHW_DESCRIPTION: ::windows_core::PCSTR = ::windows_core::s!("Description");
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub const REGSTR_KEY_DDHW_DRIVERNAME: ::windows::core::PCSTR = ::windows::core::s!("DriverName");
+pub const REGSTR_KEY_DDHW_DRIVERNAME: ::windows_core::PCSTR = ::windows_core::s!("DriverName");
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub const REGSTR_PATH_DDHW: ::windows::core::PCSTR = ::windows::core::s!("Hardware\\DirectDrawDrivers");
+pub const REGSTR_PATH_DDHW: ::windows_core::PCSTR = ::windows_core::s!("Hardware\\DirectDrawDrivers");
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const ROP_HAS_PATTERN: i32 = 2i32;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
@@ -4502,8 +4502,8 @@ impl ::core::fmt::Debug for ACCESSRECTLIST {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for ACCESSRECTLIST {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for ACCESSRECTLIST {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for ACCESSRECTLIST {
@@ -4543,8 +4543,8 @@ impl ::core::fmt::Debug for ATTACHLIST {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for ATTACHLIST {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for ATTACHLIST {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for ATTACHLIST {
@@ -4584,8 +4584,8 @@ impl ::core::fmt::Debug for DBLNODE {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DBLNODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DBLNODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DBLNODE {
@@ -4619,8 +4619,8 @@ impl ::core::fmt::Debug for DD32BITDRIVERDATA {
         f.debug_struct("DD32BITDRIVERDATA").field("szName", &self.szName).field("szEntryPoint", &self.szEntryPoint).field("dwContext", &self.dwContext).finish()
     }
 }
-impl ::windows::core::TypeKind for DD32BITDRIVERDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD32BITDRIVERDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DD32BITDRIVERDATA {
     fn eq(&self, other: &Self) -> bool {
@@ -4652,8 +4652,8 @@ impl ::core::fmt::Debug for DDARGB {
         f.debug_struct("DDARGB").field("blue", &self.blue).field("green", &self.green).field("red", &self.red).field("alpha", &self.alpha).finish()
     }
 }
-impl ::windows::core::TypeKind for DDARGB {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDARGB {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDARGB {
     fn eq(&self, other: &Self) -> bool {
@@ -4689,8 +4689,8 @@ impl ::core::fmt::Debug for DDBLTBATCH {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DDBLTBATCH {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDBLTBATCH {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DDBLTBATCH {
@@ -4738,8 +4738,8 @@ impl ::core::clone::Clone for DDBLTFX {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-impl ::windows::core::TypeKind for DDBLTFX {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDBLTFX {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DDBLTFX {
     fn default() -> Self {
@@ -4757,8 +4757,8 @@ impl ::core::clone::Clone for DDBLTFX_0 {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-impl ::windows::core::TypeKind for DDBLTFX_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDBLTFX_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DDBLTFX_0 {
     fn default() -> Self {
@@ -4776,8 +4776,8 @@ impl ::core::clone::Clone for DDBLTFX_1 {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-impl ::windows::core::TypeKind for DDBLTFX_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDBLTFX_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DDBLTFX_1 {
     fn default() -> Self {
@@ -4795,8 +4795,8 @@ impl ::core::clone::Clone for DDBLTFX_2 {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-impl ::windows::core::TypeKind for DDBLTFX_2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDBLTFX_2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DDBLTFX_2 {
     fn default() -> Self {
@@ -4814,8 +4814,8 @@ impl ::core::clone::Clone for DDBLTFX_3 {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-impl ::windows::core::TypeKind for DDBLTFX_3 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDBLTFX_3 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DDBLTFX_3 {
     fn default() -> Self {
@@ -4835,8 +4835,8 @@ impl ::core::clone::Clone for DDBLTFX_4 {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-impl ::windows::core::TypeKind for DDBLTFX_4 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDBLTFX_4 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DDBLTFX_4 {
     fn default() -> Self {
@@ -4859,8 +4859,8 @@ impl ::core::fmt::Debug for DDBOBNEXTFIELDINFO {
         f.debug_struct("DDBOBNEXTFIELDINFO").field("lpSurface", &self.lpSurface).finish()
     }
 }
-impl ::windows::core::TypeKind for DDBOBNEXTFIELDINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDBOBNEXTFIELDINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDBOBNEXTFIELDINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -4961,8 +4961,8 @@ impl ::core::fmt::Debug for DDCAPS_DX1 {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for DDCAPS_DX1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDCAPS_DX1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDCAPS_DX1 {
     fn eq(&self, other: &Self) -> bool {
@@ -5128,8 +5128,8 @@ impl ::core::fmt::Debug for DDCAPS_DX3 {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for DDCAPS_DX3 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDCAPS_DX3 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDCAPS_DX3 {
     fn eq(&self, other: &Self) -> bool {
@@ -5320,8 +5320,8 @@ impl ::core::fmt::Debug for DDCAPS_DX5 {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for DDCAPS_DX5 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDCAPS_DX5 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDCAPS_DX5 {
     fn eq(&self, other: &Self) -> bool {
@@ -5456,8 +5456,8 @@ impl ::core::clone::Clone for DDCAPS_DX6 {
         *self
     }
 }
-impl ::windows::core::TypeKind for DDCAPS_DX6 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDCAPS_DX6 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DDCAPS_DX6 {
     fn default() -> Self {
@@ -5531,8 +5531,8 @@ impl ::core::clone::Clone for DDCAPS_DX7 {
         *self
     }
 }
-impl ::windows::core::TypeKind for DDCAPS_DX7 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDCAPS_DX7 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DDCAPS_DX7 {
     fn default() -> Self {
@@ -5564,8 +5564,8 @@ impl ::core::fmt::Debug for DDCOLORCONTROL {
         f.debug_struct("DDCOLORCONTROL").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("lBrightness", &self.lBrightness).field("lContrast", &self.lContrast).field("lHue", &self.lHue).field("lSaturation", &self.lSaturation).field("lSharpness", &self.lSharpness).field("lGamma", &self.lGamma).field("lColorEnable", &self.lColorEnable).field("dwReserved1", &self.dwReserved1).finish()
     }
 }
-impl ::windows::core::TypeKind for DDCOLORCONTROL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDCOLORCONTROL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDCOLORCONTROL {
     fn eq(&self, other: &Self) -> bool {
@@ -5595,8 +5595,8 @@ impl ::core::fmt::Debug for DDCOLORKEY {
         f.debug_struct("DDCOLORKEY").field("dwColorSpaceLowValue", &self.dwColorSpaceLowValue).field("dwColorSpaceHighValue", &self.dwColorSpaceHighValue).finish()
     }
 }
-impl ::windows::core::TypeKind for DDCOLORKEY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDCOLORKEY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDCOLORKEY {
     fn eq(&self, other: &Self) -> bool {
@@ -5626,8 +5626,8 @@ impl ::core::clone::Clone for DDCOMPBUFFERINFO {
         *self
     }
 }
-impl ::windows::core::TypeKind for DDCOMPBUFFERINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDCOMPBUFFERINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DDCOMPBUFFERINFO {
     fn default() -> Self {
@@ -5752,8 +5752,8 @@ impl ::core::fmt::Debug for DDCORECAPS {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for DDCORECAPS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDCORECAPS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDCORECAPS {
     fn eq(&self, other: &Self) -> bool {
@@ -5826,7 +5826,7 @@ pub struct DDDEVICEIDENTIFIER {
     pub dwDeviceId: u32,
     pub dwSubSysId: u32,
     pub dwRevision: u32,
-    pub guidDeviceIdentifier: ::windows::core::GUID,
+    pub guidDeviceIdentifier: ::windows_core::GUID,
 }
 impl ::core::marker::Copy for DDDEVICEIDENTIFIER {}
 impl ::core::clone::Clone for DDDEVICEIDENTIFIER {
@@ -5839,8 +5839,8 @@ impl ::core::fmt::Debug for DDDEVICEIDENTIFIER {
         f.debug_struct("DDDEVICEIDENTIFIER").field("szDriver", &self.szDriver).field("szDescription", &self.szDescription).field("liDriverVersion", &self.liDriverVersion).field("dwVendorId", &self.dwVendorId).field("dwDeviceId", &self.dwDeviceId).field("dwSubSysId", &self.dwSubSysId).field("dwRevision", &self.dwRevision).field("guidDeviceIdentifier", &self.guidDeviceIdentifier).finish()
     }
 }
-impl ::windows::core::TypeKind for DDDEVICEIDENTIFIER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDDEVICEIDENTIFIER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDDEVICEIDENTIFIER {
     fn eq(&self, other: &Self) -> bool {
@@ -5863,7 +5863,7 @@ pub struct DDDEVICEIDENTIFIER2 {
     pub dwDeviceId: u32,
     pub dwSubSysId: u32,
     pub dwRevision: u32,
-    pub guidDeviceIdentifier: ::windows::core::GUID,
+    pub guidDeviceIdentifier: ::windows_core::GUID,
     pub dwWHQLLevel: u32,
 }
 impl ::core::marker::Copy for DDDEVICEIDENTIFIER2 {}
@@ -5877,8 +5877,8 @@ impl ::core::fmt::Debug for DDDEVICEIDENTIFIER2 {
         f.debug_struct("DDDEVICEIDENTIFIER2").field("szDriver", &self.szDriver).field("szDescription", &self.szDescription).field("liDriverVersion", &self.liDriverVersion).field("dwVendorId", &self.dwVendorId).field("dwDeviceId", &self.dwDeviceId).field("dwSubSysId", &self.dwSubSysId).field("dwRevision", &self.dwRevision).field("guidDeviceIdentifier", &self.guidDeviceIdentifier).field("dwWHQLLevel", &self.dwWHQLLevel).finish()
     }
 }
-impl ::windows::core::TypeKind for DDDEVICEIDENTIFIER2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDDEVICEIDENTIFIER2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDDEVICEIDENTIFIER2 {
     fn eq(&self, other: &Self) -> bool {
@@ -5910,8 +5910,8 @@ impl ::core::fmt::Debug for DDENABLEIRQINFO {
         f.debug_struct("DDENABLEIRQINFO").field("dwIRQSources", &self.dwIRQSources).field("dwLine", &self.dwLine).field("lpIRQData", &self.lpIRQData).finish()
     }
 }
-impl ::windows::core::TypeKind for DDENABLEIRQINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDENABLEIRQINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DDENABLEIRQINFO {
     fn default() -> Self {
@@ -5936,8 +5936,8 @@ impl ::core::fmt::Debug for DDFLIPOVERLAYINFO {
         f.debug_struct("DDFLIPOVERLAYINFO").field("lpCurrentSurface", &self.lpCurrentSurface).field("lpTargetSurface", &self.lpTargetSurface).field("dwFlags", &self.dwFlags).finish()
     }
 }
-impl ::windows::core::TypeKind for DDFLIPOVERLAYINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDFLIPOVERLAYINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDFLIPOVERLAYINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -5969,8 +5969,8 @@ impl ::core::fmt::Debug for DDFLIPVIDEOPORTINFO {
         f.debug_struct("DDFLIPVIDEOPORTINFO").field("lpVideoPortData", &self.lpVideoPortData).field("lpCurrentSurface", &self.lpCurrentSurface).field("lpTargetSurface", &self.lpTargetSurface).field("dwFlipVPFlags", &self.dwFlipVPFlags).finish()
     }
 }
-impl ::windows::core::TypeKind for DDFLIPVIDEOPORTINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDFLIPVIDEOPORTINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDFLIPVIDEOPORTINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -6001,8 +6001,8 @@ impl ::core::fmt::Debug for DDGAMMARAMP {
         f.debug_struct("DDGAMMARAMP").field("red", &self.red).field("green", &self.green).field("blue", &self.blue).finish()
     }
 }
-impl ::windows::core::TypeKind for DDGAMMARAMP {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDGAMMARAMP {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDGAMMARAMP {
     fn eq(&self, other: &Self) -> bool {
@@ -6031,8 +6031,8 @@ impl ::core::fmt::Debug for DDGETCURRENTAUTOFLIPININFO {
         f.debug_struct("DDGETCURRENTAUTOFLIPININFO").field("lpVideoPortData", &self.lpVideoPortData).finish()
     }
 }
-impl ::windows::core::TypeKind for DDGETCURRENTAUTOFLIPININFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDGETCURRENTAUTOFLIPININFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDGETCURRENTAUTOFLIPININFO {
     fn eq(&self, other: &Self) -> bool {
@@ -6062,8 +6062,8 @@ impl ::core::fmt::Debug for DDGETCURRENTAUTOFLIPOUTINFO {
         f.debug_struct("DDGETCURRENTAUTOFLIPOUTINFO").field("dwSurfaceIndex", &self.dwSurfaceIndex).field("dwVBISurfaceIndex", &self.dwVBISurfaceIndex).finish()
     }
 }
-impl ::windows::core::TypeKind for DDGETCURRENTAUTOFLIPOUTINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDGETCURRENTAUTOFLIPOUTINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDGETCURRENTAUTOFLIPOUTINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -6092,8 +6092,8 @@ impl ::core::fmt::Debug for DDGETIRQINFO {
         f.debug_struct("DDGETIRQINFO").field("dwFlags", &self.dwFlags).finish()
     }
 }
-impl ::windows::core::TypeKind for DDGETIRQINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDGETIRQINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDGETIRQINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -6122,8 +6122,8 @@ impl ::core::fmt::Debug for DDGETPOLARITYININFO {
         f.debug_struct("DDGETPOLARITYININFO").field("lpVideoPortData", &self.lpVideoPortData).finish()
     }
 }
-impl ::windows::core::TypeKind for DDGETPOLARITYININFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDGETPOLARITYININFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDGETPOLARITYININFO {
     fn eq(&self, other: &Self) -> bool {
@@ -6152,8 +6152,8 @@ impl ::core::fmt::Debug for DDGETPOLARITYOUTINFO {
         f.debug_struct("DDGETPOLARITYOUTINFO").field("bPolarity", &self.bPolarity).finish()
     }
 }
-impl ::windows::core::TypeKind for DDGETPOLARITYOUTINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDGETPOLARITYOUTINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDGETPOLARITYOUTINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -6182,8 +6182,8 @@ impl ::core::fmt::Debug for DDGETPREVIOUSAUTOFLIPININFO {
         f.debug_struct("DDGETPREVIOUSAUTOFLIPININFO").field("lpVideoPortData", &self.lpVideoPortData).finish()
     }
 }
-impl ::windows::core::TypeKind for DDGETPREVIOUSAUTOFLIPININFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDGETPREVIOUSAUTOFLIPININFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDGETPREVIOUSAUTOFLIPININFO {
     fn eq(&self, other: &Self) -> bool {
@@ -6213,8 +6213,8 @@ impl ::core::fmt::Debug for DDGETPREVIOUSAUTOFLIPOUTINFO {
         f.debug_struct("DDGETPREVIOUSAUTOFLIPOUTINFO").field("dwSurfaceIndex", &self.dwSurfaceIndex).field("dwVBISurfaceIndex", &self.dwVBISurfaceIndex).finish()
     }
 }
-impl ::windows::core::TypeKind for DDGETPREVIOUSAUTOFLIPOUTINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDGETPREVIOUSAUTOFLIPOUTINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDGETPREVIOUSAUTOFLIPOUTINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -6243,8 +6243,8 @@ impl ::core::fmt::Debug for DDGETTRANSFERSTATUSOUTINFO {
         f.debug_struct("DDGETTRANSFERSTATUSOUTINFO").field("dwTransferID", &self.dwTransferID).finish()
     }
 }
-impl ::windows::core::TypeKind for DDGETTRANSFERSTATUSOUTINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDGETTRANSFERSTATUSOUTINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDGETTRANSFERSTATUSOUTINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -6281,8 +6281,8 @@ impl ::core::fmt::Debug for DDHALDDRAWFNS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHALDDRAWFNS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHALDDRAWFNS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHALDDRAWFNS {
@@ -6322,8 +6322,8 @@ impl ::core::clone::Clone for DDHALINFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHALINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHALINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHALINFO {
@@ -6356,8 +6356,8 @@ impl ::core::fmt::Debug for DDHALMODEINFO {
         f.debug_struct("DDHALMODEINFO").field("dwWidth", &self.dwWidth).field("dwHeight", &self.dwHeight).field("lPitch", &self.lPitch).field("dwBPP", &self.dwBPP).field("wFlags", &self.wFlags).field("wRefreshRate", &self.wRefreshRate).field("dwRBitMask", &self.dwRBitMask).field("dwGBitMask", &self.dwGBitMask).field("dwBBitMask", &self.dwBBitMask).field("dwAlphaBitMask", &self.dwAlphaBitMask).finish()
     }
 }
-impl ::windows::core::TypeKind for DDHALMODEINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHALMODEINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDHALMODEINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -6377,7 +6377,7 @@ pub struct DDHAL_ADDATTACHEDSURFACEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
     pub lpDDSurface: *mut DDRAWI_DDRAWSURFACE_LCL,
     pub lpSurfAttached: *mut DDRAWI_DDRAWSURFACE_LCL,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub AddAttachedSurface: LPDDHALSURFCB_ADDATTACHEDSURFACE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -6395,8 +6395,8 @@ impl ::core::fmt::Debug for DDHAL_ADDATTACHEDSURFACEDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_ADDATTACHEDSURFACEDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_ADDATTACHEDSURFACEDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_ADDATTACHEDSURFACEDATA {
@@ -6415,7 +6415,7 @@ pub struct DDHAL_BEGINMOCOMPFRAMEDATA {
     pub lpInputData: *mut ::core::ffi::c_void,
     pub dwOutputDataSize: u32,
     pub lpOutputData: *mut ::core::ffi::c_void,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub BeginMoCompFrame: LPDDHALMOCOMPCB_BEGINFRAME,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -6433,8 +6433,8 @@ impl ::core::fmt::Debug for DDHAL_BEGINMOCOMPFRAMEDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_BEGINMOCOMPFRAMEDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_BEGINMOCOMPFRAMEDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_BEGINMOCOMPFRAMEDATA {
@@ -6454,7 +6454,7 @@ pub struct DDHAL_BLTDATA {
     pub dwFlags: u32,
     pub dwROPFlags: u32,
     pub bltFX: DDBLTFX,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub Blt: LPDDHALSURFCB_BLT,
     pub IsClipped: super::super::Foundation::BOOL,
     pub rOrigDest: super::super::Foundation::RECTL,
@@ -6469,8 +6469,8 @@ impl ::core::clone::Clone for DDHAL_BLTDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_BLTDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_BLTDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_BLTDATA {
@@ -6520,8 +6520,8 @@ impl ::core::fmt::Debug for DDHAL_CALLBACKS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_CALLBACKS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_CALLBACKS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_CALLBACKS {
@@ -6536,7 +6536,7 @@ pub struct DDHAL_CANCREATESURFACEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
     pub lpDDSurfaceDesc: *mut DDSURFACEDESC,
     pub bIsDifferentPixelFormat: u32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub CanCreateSurface: LPDDHAL_CANCREATESURFACE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -6554,8 +6554,8 @@ impl ::core::fmt::Debug for DDHAL_CANCREATESURFACEDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_CANCREATESURFACEDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_CANCREATESURFACEDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_CANCREATESURFACEDATA {
@@ -6569,7 +6569,7 @@ impl ::core::default::Default for DDHAL_CANCREATESURFACEDATA {
 pub struct DDHAL_CANCREATEVPORTDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
     pub lpDDVideoPortDesc: *mut DDVIDEOPORTDESC,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub CanCreateVideoPort: LPDDHALVPORTCB_CANCREATEVIDEOPORT,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -6587,8 +6587,8 @@ impl ::core::fmt::Debug for DDHAL_CANCREATEVPORTDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_CANCREATEVPORTDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_CANCREATEVPORTDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_CANCREATEVPORTDATA {
@@ -6604,7 +6604,7 @@ pub struct DDHAL_COLORCONTROLDATA {
     pub lpDDSurface: *mut DDRAWI_DDRAWSURFACE_LCL,
     pub lpColorData: *mut DDCOLORCONTROL,
     pub dwFlags: u32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub ColorControl: LPDDHALCOLORCB_COLORCONTROL,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -6622,8 +6622,8 @@ impl ::core::fmt::Debug for DDHAL_COLORCONTROLDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_COLORCONTROLDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_COLORCONTROLDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_COLORCONTROLDATA {
@@ -6637,13 +6637,13 @@ impl ::core::default::Default for DDHAL_COLORCONTROLDATA {
 pub struct DDHAL_CREATEMOCOMPDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
     pub lpMoComp: *mut DDRAWI_DDMOTIONCOMP_LCL,
-    pub lpGuid: *mut ::windows::core::GUID,
+    pub lpGuid: *mut ::windows_core::GUID,
     pub dwUncompWidth: u32,
     pub dwUncompHeight: u32,
     pub ddUncompPixelFormat: DDPIXELFORMAT,
     pub lpData: *mut ::core::ffi::c_void,
     pub dwDataSize: u32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub CreateMoComp: LPDDHALMOCOMPCB_CREATE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -6655,8 +6655,8 @@ impl ::core::clone::Clone for DDHAL_CREATEMOCOMPDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_CREATEMOCOMPDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_CREATEMOCOMPDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_CREATEMOCOMPDATA {
@@ -6671,7 +6671,7 @@ pub struct DDHAL_CREATEPALETTEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
     pub lpDDPalette: *mut DDRAWI_DDRAWPALETTE_GBL,
     pub lpColorTable: *mut super::Gdi::PALETTEENTRY,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub CreatePalette: LPDDHAL_CREATEPALETTE,
     pub is_excl: super::super::Foundation::BOOL,
 }
@@ -6690,8 +6690,8 @@ impl ::core::fmt::Debug for DDHAL_CREATEPALETTEDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_CREATEPALETTEDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_CREATEPALETTEDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_CREATEPALETTEDATA {
@@ -6707,7 +6707,7 @@ pub struct DDHAL_CREATESURFACEDATA {
     pub lpDDSurfaceDesc: *mut DDSURFACEDESC,
     pub lplpSList: *mut *mut DDRAWI_DDRAWSURFACE_LCL,
     pub dwSCnt: u32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub CreateSurface: LPDDHAL_CREATESURFACE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -6725,8 +6725,8 @@ impl ::core::fmt::Debug for DDHAL_CREATESURFACEDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_CREATESURFACEDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_CREATESURFACEDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_CREATESURFACEDATA {
@@ -6741,7 +6741,7 @@ pub struct DDHAL_CREATESURFACEEXDATA {
     pub dwFlags: u32,
     pub lpDDLcl: *mut DDRAWI_DIRECTDRAW_LCL,
     pub lpDDSLcl: *mut DDRAWI_DDRAWSURFACE_LCL,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_CREATESURFACEEXDATA {}
@@ -6758,8 +6758,8 @@ impl ::core::fmt::Debug for DDHAL_CREATESURFACEEXDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_CREATESURFACEEXDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_CREATESURFACEEXDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DDHAL_CREATESURFACEEXDATA {
@@ -6782,7 +6782,7 @@ pub struct DDHAL_CREATEVPORTDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
     pub lpDDVideoPortDesc: *mut DDVIDEOPORTDESC,
     pub lpVideoPort: *mut DDRAWI_DDVIDEOPORT_LCL,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub CreateVideoPort: LPDDHALVPORTCB_CREATEVIDEOPORT,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -6800,8 +6800,8 @@ impl ::core::fmt::Debug for DDHAL_CREATEVPORTDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_CREATEVPORTDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_CREATEVPORTDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_CREATEVPORTDATA {
@@ -6841,8 +6841,8 @@ impl ::core::fmt::Debug for DDHAL_DDCALLBACKS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_DDCALLBACKS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_DDCALLBACKS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_DDCALLBACKS {
@@ -6873,8 +6873,8 @@ impl ::core::fmt::Debug for DDHAL_DDCOLORCONTROLCALLBACKS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_DDCOLORCONTROLCALLBACKS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_DDCOLORCONTROLCALLBACKS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_DDCOLORCONTROLCALLBACKS {
@@ -6909,8 +6909,8 @@ impl ::core::fmt::Debug for DDHAL_DDEXEBUFCALLBACKS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_DDEXEBUFCALLBACKS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_DDEXEBUFCALLBACKS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_DDEXEBUFCALLBACKS {
@@ -6942,8 +6942,8 @@ impl ::core::fmt::Debug for DDHAL_DDKERNELCALLBACKS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_DDKERNELCALLBACKS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_DDKERNELCALLBACKS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_DDKERNELCALLBACKS {
@@ -6977,8 +6977,8 @@ impl ::core::fmt::Debug for DDHAL_DDMISCELLANEOUS2CALLBACKS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_DDMISCELLANEOUS2CALLBACKS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_DDMISCELLANEOUS2CALLBACKS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_DDMISCELLANEOUS2CALLBACKS {
@@ -7012,8 +7012,8 @@ impl ::core::fmt::Debug for DDHAL_DDMISCELLANEOUSCALLBACKS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_DDMISCELLANEOUSCALLBACKS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_DDMISCELLANEOUSCALLBACKS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_DDMISCELLANEOUSCALLBACKS {
@@ -7053,8 +7053,8 @@ impl ::core::fmt::Debug for DDHAL_DDMOTIONCOMPCALLBACKS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_DDMOTIONCOMPCALLBACKS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_DDMOTIONCOMPCALLBACKS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_DDMOTIONCOMPCALLBACKS {
@@ -7086,8 +7086,8 @@ impl ::core::fmt::Debug for DDHAL_DDPALETTECALLBACKS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_DDPALETTECALLBACKS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_DDPALETTECALLBACKS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_DDPALETTECALLBACKS {
@@ -7131,8 +7131,8 @@ impl ::core::fmt::Debug for DDHAL_DDSURFACECALLBACKS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_DDSURFACECALLBACKS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_DDSURFACECALLBACKS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_DDSURFACECALLBACKS {
@@ -7178,8 +7178,8 @@ impl ::core::fmt::Debug for DDHAL_DDVIDEOPORTCALLBACKS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_DDVIDEOPORTCALLBACKS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_DDVIDEOPORTCALLBACKS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_DDVIDEOPORTCALLBACKS {
@@ -7193,7 +7193,7 @@ impl ::core::default::Default for DDHAL_DDVIDEOPORTCALLBACKS {
 pub struct DDHAL_DESTROYDDLOCALDATA {
     pub dwFlags: u32,
     pub pDDLcl: *mut DDRAWI_DIRECTDRAW_LCL,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_DESTROYDDLOCALDATA {}
@@ -7210,8 +7210,8 @@ impl ::core::fmt::Debug for DDHAL_DESTROYDDLOCALDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_DESTROYDDLOCALDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_DESTROYDDLOCALDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DDHAL_DESTROYDDLOCALDATA {
@@ -7232,7 +7232,7 @@ impl ::core::default::Default for DDHAL_DESTROYDDLOCALDATA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_DESTROYDRIVERDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub DestroyDriver: LPDDHAL_DESTROYDRIVER,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -7250,8 +7250,8 @@ impl ::core::fmt::Debug for DDHAL_DESTROYDRIVERDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_DESTROYDRIVERDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_DESTROYDRIVERDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_DESTROYDRIVERDATA {
@@ -7265,7 +7265,7 @@ impl ::core::default::Default for DDHAL_DESTROYDRIVERDATA {
 pub struct DDHAL_DESTROYMOCOMPDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
     pub lpMoComp: *mut DDRAWI_DDMOTIONCOMP_LCL,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub DestroyMoComp: LPDDHALMOCOMPCB_DESTROY,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -7283,8 +7283,8 @@ impl ::core::fmt::Debug for DDHAL_DESTROYMOCOMPDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_DESTROYMOCOMPDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_DESTROYMOCOMPDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_DESTROYMOCOMPDATA {
@@ -7298,7 +7298,7 @@ impl ::core::default::Default for DDHAL_DESTROYMOCOMPDATA {
 pub struct DDHAL_DESTROYPALETTEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
     pub lpDDPalette: *mut DDRAWI_DDRAWPALETTE_GBL,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub DestroyPalette: LPDDHALPALCB_DESTROYPALETTE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -7316,8 +7316,8 @@ impl ::core::fmt::Debug for DDHAL_DESTROYPALETTEDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_DESTROYPALETTEDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_DESTROYPALETTEDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_DESTROYPALETTEDATA {
@@ -7331,7 +7331,7 @@ impl ::core::default::Default for DDHAL_DESTROYPALETTEDATA {
 pub struct DDHAL_DESTROYSURFACEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
     pub lpDDSurface: *mut DDRAWI_DDRAWSURFACE_LCL,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub DestroySurface: LPDDHALSURFCB_DESTROYSURFACE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -7349,8 +7349,8 @@ impl ::core::fmt::Debug for DDHAL_DESTROYSURFACEDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_DESTROYSURFACEDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_DESTROYSURFACEDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_DESTROYSURFACEDATA {
@@ -7364,7 +7364,7 @@ impl ::core::default::Default for DDHAL_DESTROYSURFACEDATA {
 pub struct DDHAL_DESTROYVPORTDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
     pub lpVideoPort: *mut DDRAWI_DDVIDEOPORT_LCL,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub DestroyVideoPort: LPDDHALVPORTCB_DESTROYVPORT,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -7382,8 +7382,8 @@ impl ::core::fmt::Debug for DDHAL_DESTROYVPORTDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_DESTROYVPORTDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_DESTROYVPORTDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_DESTROYVPORTDATA {
@@ -7398,7 +7398,7 @@ pub struct DDHAL_DRVSETCOLORKEYDATA {
     pub lpDDSurface: *mut DDRAWI_DDRAWSURFACE_LCL,
     pub dwFlags: u32,
     pub ckNew: DDCOLORKEY,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub SetColorKey: LPDDHAL_SETCOLORKEY,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -7416,8 +7416,8 @@ impl ::core::fmt::Debug for DDHAL_DRVSETCOLORKEYDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_DRVSETCOLORKEYDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_DRVSETCOLORKEYDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_DRVSETCOLORKEYDATA {
@@ -7433,7 +7433,7 @@ pub struct DDHAL_ENDMOCOMPFRAMEDATA {
     pub lpMoComp: *mut DDRAWI_DDMOTIONCOMP_LCL,
     pub lpInputData: *mut ::core::ffi::c_void,
     pub dwInputDataSize: u32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub EndMoCompFrame: LPDDHALMOCOMPCB_ENDFRAME,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -7451,8 +7451,8 @@ impl ::core::fmt::Debug for DDHAL_ENDMOCOMPFRAMEDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_ENDMOCOMPFRAMEDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_ENDMOCOMPFRAMEDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_ENDMOCOMPFRAMEDATA {
@@ -7468,7 +7468,7 @@ pub struct DDHAL_FLIPDATA {
     pub lpSurfCurr: *mut DDRAWI_DDRAWSURFACE_LCL,
     pub lpSurfTarg: *mut DDRAWI_DDRAWSURFACE_LCL,
     pub dwFlags: u32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub Flip: LPDDHALSURFCB_FLIP,
     pub lpSurfCurrLeft: *mut DDRAWI_DDRAWSURFACE_LCL,
     pub lpSurfTargLeft: *mut DDRAWI_DDRAWSURFACE_LCL,
@@ -7488,8 +7488,8 @@ impl ::core::fmt::Debug for DDHAL_FLIPDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_FLIPDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_FLIPDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_FLIPDATA {
@@ -7504,7 +7504,7 @@ pub struct DDHAL_FLIPTOGDISURFACEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
     pub dwToGDI: u32,
     pub dwReserved: u32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub FlipToGDISurface: LPDDHAL_FLIPTOGDISURFACE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -7522,8 +7522,8 @@ impl ::core::fmt::Debug for DDHAL_FLIPTOGDISURFACEDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_FLIPTOGDISURFACEDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_FLIPTOGDISURFACEDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_FLIPTOGDISURFACEDATA {
@@ -7539,7 +7539,7 @@ pub struct DDHAL_FLIPVPORTDATA {
     pub lpVideoPort: *mut DDRAWI_DDVIDEOPORT_LCL,
     pub lpSurfCurr: *mut DDRAWI_DDRAWSURFACE_LCL,
     pub lpSurfTarg: *mut DDRAWI_DDRAWSURFACE_LCL,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub FlipVideoPort: LPDDHALVPORTCB_FLIP,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -7557,8 +7557,8 @@ impl ::core::fmt::Debug for DDHAL_FLIPVPORTDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_FLIPVPORTDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_FLIPVPORTDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_FLIPVPORTDATA {
@@ -7574,7 +7574,7 @@ pub struct DDHAL_GETAVAILDRIVERMEMORYDATA {
     pub DDSCaps: DDSCAPS,
     pub dwTotal: u32,
     pub dwFree: u32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub GetAvailDriverMemory: LPDDHAL_GETAVAILDRIVERMEMORY,
     pub ddsCapsEx: DDSCAPSEX,
 }
@@ -7587,8 +7587,8 @@ impl ::core::clone::Clone for DDHAL_GETAVAILDRIVERMEMORYDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_GETAVAILDRIVERMEMORYDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_GETAVAILDRIVERMEMORYDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_GETAVAILDRIVERMEMORYDATA {
@@ -7603,7 +7603,7 @@ pub struct DDHAL_GETBLTSTATUSDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
     pub lpDDSurface: *mut DDRAWI_DDRAWSURFACE_LCL,
     pub dwFlags: u32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub GetBltStatus: LPDDHALSURFCB_GETBLTSTATUS,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -7621,8 +7621,8 @@ impl ::core::fmt::Debug for DDHAL_GETBLTSTATUSDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_GETBLTSTATUSDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_GETBLTSTATUSDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_GETBLTSTATUSDATA {
@@ -7635,11 +7635,11 @@ impl ::core::default::Default for DDHAL_GETBLTSTATUSDATA {
 pub struct DDHAL_GETDRIVERINFODATA {
     pub dwSize: u32,
     pub dwFlags: u32,
-    pub guidInfo: ::windows::core::GUID,
+    pub guidInfo: ::windows_core::GUID,
     pub dwExpectedSize: u32,
     pub lpvData: *mut ::core::ffi::c_void,
     pub dwActualSize: u32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub dwContext: usize,
 }
 impl ::core::marker::Copy for DDHAL_GETDRIVERINFODATA {}
@@ -7653,8 +7653,8 @@ impl ::core::fmt::Debug for DDHAL_GETDRIVERINFODATA {
         f.debug_struct("DDHAL_GETDRIVERINFODATA").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("guidInfo", &self.guidInfo).field("dwExpectedSize", &self.dwExpectedSize).field("lpvData", &self.lpvData).field("dwActualSize", &self.dwActualSize).field("ddRVal", &self.ddRVal).field("dwContext", &self.dwContext).finish()
     }
 }
-impl ::windows::core::TypeKind for DDHAL_GETDRIVERINFODATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_GETDRIVERINFODATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDHAL_GETDRIVERINFODATA {
     fn eq(&self, other: &Self) -> bool {
@@ -7674,7 +7674,7 @@ pub struct DDHAL_GETDRIVERSTATEDATA {
     pub Anonymous: DDHAL_GETDRIVERSTATEDATA_0,
     pub lpdwStates: *mut u32,
     pub dwLength: u32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
 }
 impl ::core::marker::Copy for DDHAL_GETDRIVERSTATEDATA {}
 impl ::core::clone::Clone for DDHAL_GETDRIVERSTATEDATA {
@@ -7682,8 +7682,8 @@ impl ::core::clone::Clone for DDHAL_GETDRIVERSTATEDATA {
         *self
     }
 }
-impl ::windows::core::TypeKind for DDHAL_GETDRIVERSTATEDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_GETDRIVERSTATEDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DDHAL_GETDRIVERSTATEDATA {
     fn default() -> Self {
@@ -7701,8 +7701,8 @@ impl ::core::clone::Clone for DDHAL_GETDRIVERSTATEDATA_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for DDHAL_GETDRIVERSTATEDATA_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_GETDRIVERSTATEDATA_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DDHAL_GETDRIVERSTATEDATA_0 {
     fn default() -> Self {
@@ -7716,7 +7716,7 @@ pub struct DDHAL_GETFLIPSTATUSDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
     pub lpDDSurface: *mut DDRAWI_DDRAWSURFACE_LCL,
     pub dwFlags: u32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub GetFlipStatus: LPDDHALSURFCB_GETFLIPSTATUS,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -7734,8 +7734,8 @@ impl ::core::fmt::Debug for DDHAL_GETFLIPSTATUSDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_GETFLIPSTATUSDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_GETFLIPSTATUSDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_GETFLIPSTATUSDATA {
@@ -7748,7 +7748,7 @@ impl ::core::default::Default for DDHAL_GETFLIPSTATUSDATA {
 pub struct DDHAL_GETHEAPALIGNMENTDATA {
     pub dwInstance: usize,
     pub dwHeap: u32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub GetHeapAlignment: LPDDHAL_GETHEAPALIGNMENT,
     pub Alignment: HEAPALIGNMENT,
 }
@@ -7758,8 +7758,8 @@ impl ::core::clone::Clone for DDHAL_GETHEAPALIGNMENTDATA {
         *self
     }
 }
-impl ::windows::core::TypeKind for DDHAL_GETHEAPALIGNMENTDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_GETHEAPALIGNMENTDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DDHAL_GETHEAPALIGNMENTDATA {
     fn default() -> Self {
@@ -7771,12 +7771,12 @@ impl ::core::default::Default for DDHAL_GETHEAPALIGNMENTDATA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_GETINTERNALMOCOMPDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
-    pub lpGuid: *mut ::windows::core::GUID,
+    pub lpGuid: *mut ::windows_core::GUID,
     pub dwWidth: u32,
     pub dwHeight: u32,
     pub ddPixelFormat: DDPIXELFORMAT,
     pub dwScratchMemAlloc: u32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub GetInternalMoCompInfo: LPDDHALMOCOMPCB_GETINTERNALINFO,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -7788,8 +7788,8 @@ impl ::core::clone::Clone for DDHAL_GETINTERNALMOCOMPDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_GETINTERNALMOCOMPDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_GETINTERNALMOCOMPDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_GETINTERNALMOCOMPDATA {
@@ -7802,13 +7802,13 @@ impl ::core::default::Default for DDHAL_GETINTERNALMOCOMPDATA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_GETMOCOMPCOMPBUFFDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
-    pub lpGuid: *mut ::windows::core::GUID,
+    pub lpGuid: *mut ::windows_core::GUID,
     pub dwWidth: u32,
     pub dwHeight: u32,
     pub ddPixelFormat: DDPIXELFORMAT,
     pub dwNumTypesCompBuffs: u32,
     pub lpCompBuffInfo: *mut DDMCCOMPBUFFERINFO,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub GetMoCompBuffInfo: LPDDHALMOCOMPCB_GETCOMPBUFFINFO,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -7820,8 +7820,8 @@ impl ::core::clone::Clone for DDHAL_GETMOCOMPCOMPBUFFDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_GETMOCOMPCOMPBUFFDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_GETMOCOMPCOMPBUFFDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_GETMOCOMPCOMPBUFFDATA {
@@ -7834,10 +7834,10 @@ impl ::core::default::Default for DDHAL_GETMOCOMPCOMPBUFFDATA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_GETMOCOMPFORMATSDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
-    pub lpGuid: *mut ::windows::core::GUID,
+    pub lpGuid: *mut ::windows_core::GUID,
     pub dwNumFormats: u32,
     pub lpFormats: *mut DDPIXELFORMAT,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub GetMoCompFormats: LPDDHALMOCOMPCB_GETFORMATS,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -7855,8 +7855,8 @@ impl ::core::fmt::Debug for DDHAL_GETMOCOMPFORMATSDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_GETMOCOMPFORMATSDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_GETMOCOMPFORMATSDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_GETMOCOMPFORMATSDATA {
@@ -7870,8 +7870,8 @@ impl ::core::default::Default for DDHAL_GETMOCOMPFORMATSDATA {
 pub struct DDHAL_GETMOCOMPGUIDSDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
     pub dwNumGuids: u32,
-    pub lpGuids: *mut ::windows::core::GUID,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub lpGuids: *mut ::windows_core::GUID,
+    pub ddRVal: ::windows_core::HRESULT,
     pub GetMoCompGuids: LPDDHALMOCOMPCB_GETGUIDS,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -7889,8 +7889,8 @@ impl ::core::fmt::Debug for DDHAL_GETMOCOMPGUIDSDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_GETMOCOMPGUIDSDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_GETMOCOMPGUIDSDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_GETMOCOMPGUIDSDATA {
@@ -7904,7 +7904,7 @@ impl ::core::default::Default for DDHAL_GETMOCOMPGUIDSDATA {
 pub struct DDHAL_GETSCANLINEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
     pub dwScanLine: u32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub GetScanLine: LPDDHAL_GETSCANLINE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -7922,8 +7922,8 @@ impl ::core::fmt::Debug for DDHAL_GETSCANLINEDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_GETSCANLINEDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_GETSCANLINEDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_GETSCANLINEDATA {
@@ -7942,7 +7942,7 @@ pub struct DDHAL_GETVPORTBANDWIDTHDATA {
     pub dwHeight: u32,
     pub dwFlags: u32,
     pub lpBandwidth: *mut DDVIDEOPORTBANDWIDTH,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub GetVideoPortBandwidth: LPDDHALVPORTCB_GETBANDWIDTH,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -7960,8 +7960,8 @@ impl ::core::fmt::Debug for DDHAL_GETVPORTBANDWIDTHDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_GETVPORTBANDWIDTHDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_GETVPORTBANDWIDTHDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_GETVPORTBANDWIDTHDATA {
@@ -7977,7 +7977,7 @@ pub struct DDHAL_GETVPORTCONNECTDATA {
     pub dwPortId: u32,
     pub lpConnect: *mut DDVIDEOPORTCONNECT,
     pub dwNumEntries: u32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub GetVideoPortConnectInfo: LPDDHALVPORTCB_GETVPORTCONNECT,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -7995,8 +7995,8 @@ impl ::core::fmt::Debug for DDHAL_GETVPORTCONNECTDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_GETVPORTCONNECTDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_GETVPORTCONNECTDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_GETVPORTCONNECTDATA {
@@ -8011,7 +8011,7 @@ pub struct DDHAL_GETVPORTFIELDDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
     pub lpVideoPort: *mut DDRAWI_DDVIDEOPORT_LCL,
     pub bField: super::super::Foundation::BOOL,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub GetVideoPortField: LPDDHALVPORTCB_GETFIELD,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -8029,8 +8029,8 @@ impl ::core::fmt::Debug for DDHAL_GETVPORTFIELDDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_GETVPORTFIELDDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_GETVPORTFIELDDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_GETVPORTFIELDDATA {
@@ -8044,7 +8044,7 @@ impl ::core::default::Default for DDHAL_GETVPORTFIELDDATA {
 pub struct DDHAL_GETVPORTFLIPSTATUSDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
     pub fpSurface: usize,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub GetVideoPortFlipStatus: LPDDHALVPORTCB_GETFLIPSTATUS,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -8062,8 +8062,8 @@ impl ::core::fmt::Debug for DDHAL_GETVPORTFLIPSTATUSDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_GETVPORTFLIPSTATUSDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_GETVPORTFLIPSTATUSDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_GETVPORTFLIPSTATUSDATA {
@@ -8080,7 +8080,7 @@ pub struct DDHAL_GETVPORTINPUTFORMATDATA {
     pub dwFlags: u32,
     pub lpddpfFormat: *mut DDPIXELFORMAT,
     pub dwNumFormats: u32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub GetVideoPortInputFormats: LPDDHALVPORTCB_GETINPUTFORMATS,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -8098,8 +8098,8 @@ impl ::core::fmt::Debug for DDHAL_GETVPORTINPUTFORMATDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_GETVPORTINPUTFORMATDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_GETVPORTINPUTFORMATDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_GETVPORTINPUTFORMATDATA {
@@ -8114,7 +8114,7 @@ pub struct DDHAL_GETVPORTLINEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
     pub lpVideoPort: *mut DDRAWI_DDVIDEOPORT_LCL,
     pub dwLine: u32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub GetVideoPortLine: LPDDHALVPORTCB_GETLINE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -8132,8 +8132,8 @@ impl ::core::fmt::Debug for DDHAL_GETVPORTLINEDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_GETVPORTLINEDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_GETVPORTLINEDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_GETVPORTLINEDATA {
@@ -8151,7 +8151,7 @@ pub struct DDHAL_GETVPORTOUTPUTFORMATDATA {
     pub lpddpfInputFormat: *mut DDPIXELFORMAT,
     pub lpddpfOutputFormats: *mut DDPIXELFORMAT,
     pub dwNumFormats: u32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub GetVideoPortOutputFormats: LPDDHALVPORTCB_GETOUTPUTFORMATS,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -8169,8 +8169,8 @@ impl ::core::fmt::Debug for DDHAL_GETVPORTOUTPUTFORMATDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_GETVPORTOUTPUTFORMATDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_GETVPORTOUTPUTFORMATDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_GETVPORTOUTPUTFORMATDATA {
@@ -8185,7 +8185,7 @@ pub struct DDHAL_GETVPORTSIGNALDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
     pub lpVideoPort: *mut DDRAWI_DDVIDEOPORT_LCL,
     pub dwStatus: u32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub GetVideoSignalStatus: LPDDHALVPORTCB_GETSIGNALSTATUS,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -8203,8 +8203,8 @@ impl ::core::fmt::Debug for DDHAL_GETVPORTSIGNALDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_GETVPORTSIGNALDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_GETVPORTSIGNALDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_GETVPORTSIGNALDATA {
@@ -8221,7 +8221,7 @@ pub struct DDHAL_LOCKDATA {
     pub bHasRect: u32,
     pub rArea: super::super::Foundation::RECTL,
     pub lpSurfData: *mut ::core::ffi::c_void,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub Lock: LPDDHALSURFCB_LOCK,
     pub dwFlags: u32,
 }
@@ -8240,8 +8240,8 @@ impl ::core::fmt::Debug for DDHAL_LOCKDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_LOCKDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_LOCKDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_LOCKDATA {
@@ -8257,7 +8257,7 @@ pub struct DDHAL_QUERYMOCOMPSTATUSDATA {
     pub lpMoComp: *mut DDRAWI_DDMOTIONCOMP_LCL,
     pub lpSurface: *mut DDRAWI_DDRAWSURFACE_LCL,
     pub dwFlags: u32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub QueryMoCompStatus: LPDDHALMOCOMPCB_QUERYSTATUS,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -8275,8 +8275,8 @@ impl ::core::fmt::Debug for DDHAL_QUERYMOCOMPSTATUSDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_QUERYMOCOMPSTATUSDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_QUERYMOCOMPSTATUSDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_QUERYMOCOMPSTATUSDATA {
@@ -8297,7 +8297,7 @@ pub struct DDHAL_RENDERMOCOMPDATA {
     pub dwInputDataSize: u32,
     pub lpOutputData: *mut ::core::ffi::c_void,
     pub dwOutputDataSize: u32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub RenderMoComp: LPDDHALMOCOMPCB_RENDER,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -8315,8 +8315,8 @@ impl ::core::fmt::Debug for DDHAL_RENDERMOCOMPDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_RENDERMOCOMPDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_RENDERMOCOMPDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_RENDERMOCOMPDATA {
@@ -8330,7 +8330,7 @@ impl ::core::default::Default for DDHAL_RENDERMOCOMPDATA {
 pub struct DDHAL_SETCLIPLISTDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
     pub lpDDSurface: *mut DDRAWI_DDRAWSURFACE_LCL,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub SetClipList: LPDDHALSURFCB_SETCLIPLIST,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -8348,8 +8348,8 @@ impl ::core::fmt::Debug for DDHAL_SETCLIPLISTDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_SETCLIPLISTDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_SETCLIPLISTDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_SETCLIPLISTDATA {
@@ -8365,7 +8365,7 @@ pub struct DDHAL_SETCOLORKEYDATA {
     pub lpDDSurface: *mut DDRAWI_DDRAWSURFACE_LCL,
     pub dwFlags: u32,
     pub ckNew: DDCOLORKEY,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub SetColorKey: LPDDHALSURFCB_SETCOLORKEY,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -8383,8 +8383,8 @@ impl ::core::fmt::Debug for DDHAL_SETCOLORKEYDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_SETCOLORKEYDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_SETCOLORKEYDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_SETCOLORKEYDATA {
@@ -8401,7 +8401,7 @@ pub struct DDHAL_SETENTRIESDATA {
     pub dwBase: u32,
     pub dwNumEntries: u32,
     pub lpEntries: *mut super::Gdi::PALETTEENTRY,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub SetEntries: LPDDHALPALCB_SETENTRIES,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -8419,8 +8419,8 @@ impl ::core::fmt::Debug for DDHAL_SETENTRIESDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_SETENTRIESDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_SETENTRIESDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_SETENTRIESDATA {
@@ -8435,7 +8435,7 @@ pub struct DDHAL_SETEXCLUSIVEMODEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
     pub dwEnterExcl: u32,
     pub dwReserved: u32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub SetExclusiveMode: LPDDHAL_SETEXCLUSIVEMODE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -8453,8 +8453,8 @@ impl ::core::fmt::Debug for DDHAL_SETEXCLUSIVEMODEDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_SETEXCLUSIVEMODEDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_SETEXCLUSIVEMODEDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_SETEXCLUSIVEMODEDATA {
@@ -8468,7 +8468,7 @@ impl ::core::default::Default for DDHAL_SETEXCLUSIVEMODEDATA {
 pub struct DDHAL_SETMODEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
     pub dwModeIndex: u32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub SetMode: LPDDHAL_SETMODE,
     pub inexcl: super::super::Foundation::BOOL,
     pub useRefreshRate: super::super::Foundation::BOOL,
@@ -8488,8 +8488,8 @@ impl ::core::fmt::Debug for DDHAL_SETMODEDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_SETMODEDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_SETMODEDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_SETMODEDATA {
@@ -8506,7 +8506,7 @@ pub struct DDHAL_SETOVERLAYPOSITIONDATA {
     pub lpDDDestSurface: *mut DDRAWI_DDRAWSURFACE_LCL,
     pub lXPos: i32,
     pub lYPos: i32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub SetOverlayPosition: LPDDHALSURFCB_SETOVERLAYPOSITION,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -8524,8 +8524,8 @@ impl ::core::fmt::Debug for DDHAL_SETOVERLAYPOSITIONDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_SETOVERLAYPOSITIONDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_SETOVERLAYPOSITIONDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_SETOVERLAYPOSITIONDATA {
@@ -8540,7 +8540,7 @@ pub struct DDHAL_SETPALETTEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
     pub lpDDSurface: *mut DDRAWI_DDRAWSURFACE_LCL,
     pub lpDDPalette: *mut DDRAWI_DDRAWPALETTE_GBL,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub SetPalette: LPDDHALSURFCB_SETPALETTE,
     pub Attach: super::super::Foundation::BOOL,
 }
@@ -8559,8 +8559,8 @@ impl ::core::fmt::Debug for DDHAL_SETPALETTEDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_SETPALETTEDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_SETPALETTEDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_SETPALETTEDATA {
@@ -8586,7 +8586,7 @@ pub struct DDHAL_SYNCSURFACEDATA {
     pub dwDriverReserved1: usize,
     pub dwDriverReserved2: usize,
     pub dwDriverReserved3: usize,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_SYNCSURFACEDATA {}
@@ -8619,8 +8619,8 @@ impl ::core::fmt::Debug for DDHAL_SYNCSURFACEDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_SYNCSURFACEDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_SYNCSURFACEDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DDHAL_SYNCSURFACEDATA {
@@ -8649,7 +8649,7 @@ pub struct DDHAL_SYNCVIDEOPORTDATA {
     pub dwDriverReserved1: usize,
     pub dwDriverReserved2: usize,
     pub dwDriverReserved3: usize,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDHAL_SYNCVIDEOPORTDATA {}
@@ -8666,8 +8666,8 @@ impl ::core::fmt::Debug for DDHAL_SYNCVIDEOPORTDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_SYNCVIDEOPORTDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_SYNCVIDEOPORTDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DDHAL_SYNCVIDEOPORTDATA {
@@ -8689,7 +8689,7 @@ impl ::core::default::Default for DDHAL_SYNCVIDEOPORTDATA {
 pub struct DDHAL_UNLOCKDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
     pub lpDDSurface: *mut DDRAWI_DDRAWSURFACE_LCL,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub Unlock: LPDDHALSURFCB_UNLOCK,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -8707,8 +8707,8 @@ impl ::core::fmt::Debug for DDHAL_UNLOCKDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_UNLOCKDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_UNLOCKDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_UNLOCKDATA {
@@ -8725,7 +8725,7 @@ pub struct DDHAL_UPDATENONLOCALHEAPDATA {
     pub fpGARTLin: usize,
     pub fpGARTDev: usize,
     pub ulPolicyMaxBytes: usize,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub UpdateNonLocalHeap: LPDDHAL_UPDATENONLOCALHEAP,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -8743,8 +8743,8 @@ impl ::core::fmt::Debug for DDHAL_UPDATENONLOCALHEAPDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_UPDATENONLOCALHEAPDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_UPDATENONLOCALHEAPDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_UPDATENONLOCALHEAPDATA {
@@ -8763,7 +8763,7 @@ pub struct DDHAL_UPDATEOVERLAYDATA {
     pub rSrc: super::super::Foundation::RECTL,
     pub dwFlags: u32,
     pub overlayFX: DDOVERLAYFX,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub UpdateOverlay: LPDDHALSURFCB_UPDATEOVERLAY,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -8773,8 +8773,8 @@ impl ::core::clone::Clone for DDHAL_UPDATEOVERLAYDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_UPDATEOVERLAYDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_UPDATEOVERLAYDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_UPDATEOVERLAYDATA {
@@ -8794,7 +8794,7 @@ pub struct DDHAL_UPDATEVPORTDATA {
     pub dwFlags: u32,
     pub dwNumAutoflip: u32,
     pub dwNumVBIAutoflip: u32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub UpdateVideoPort: LPDDHALVPORTCB_UPDATE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -8812,8 +8812,8 @@ impl ::core::fmt::Debug for DDHAL_UPDATEVPORTDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_UPDATEVPORTDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_UPDATEVPORTDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_UPDATEVPORTDATA {
@@ -8829,7 +8829,7 @@ pub struct DDHAL_VPORTCOLORDATA {
     pub lpVideoPort: *mut DDRAWI_DDVIDEOPORT_LCL,
     pub dwFlags: u32,
     pub lpColorData: *mut DDCOLORCONTROL,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub ColorControl: LPDDHALVPORTCB_COLORCONTROL,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -8847,8 +8847,8 @@ impl ::core::fmt::Debug for DDHAL_VPORTCOLORDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_VPORTCOLORDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_VPORTCOLORDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_VPORTCOLORDATA {
@@ -8864,7 +8864,7 @@ pub struct DDHAL_WAITFORVERTICALBLANKDATA {
     pub dwFlags: u32,
     pub bIsInVB: u32,
     pub hEvent: usize,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub WaitForVerticalBlank: LPDDHAL_WAITFORVERTICALBLANK,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -8882,8 +8882,8 @@ impl ::core::fmt::Debug for DDHAL_WAITFORVERTICALBLANKDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_WAITFORVERTICALBLANKDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_WAITFORVERTICALBLANKDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_WAITFORVERTICALBLANKDATA {
@@ -8900,7 +8900,7 @@ pub struct DDHAL_WAITFORVPORTSYNCDATA {
     pub dwFlags: u32,
     pub dwLine: u32,
     pub dwTimeOut: u32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub WaitForVideoPortSync: LPDDHALVPORTCB_WAITFORSYNC,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -8918,8 +8918,8 @@ impl ::core::fmt::Debug for DDHAL_WAITFORVPORTSYNCDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDHAL_WAITFORVPORTSYNCDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDHAL_WAITFORVPORTSYNCDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_WAITFORVPORTSYNCDATA {
@@ -8945,8 +8945,8 @@ impl ::core::fmt::Debug for DDKERNELCAPS {
         f.debug_struct("DDKERNELCAPS").field("dwSize", &self.dwSize).field("dwCaps", &self.dwCaps).field("dwIRQCaps", &self.dwIRQCaps).finish()
     }
 }
-impl ::windows::core::TypeKind for DDKERNELCAPS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDKERNELCAPS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDKERNELCAPS {
     fn eq(&self, other: &Self) -> bool {
@@ -8975,8 +8975,8 @@ impl ::core::fmt::Debug for DDLOCKININFO {
         f.debug_struct("DDLOCKININFO").field("lpSurfaceData", &self.lpSurfaceData).finish()
     }
 }
-impl ::windows::core::TypeKind for DDLOCKININFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDLOCKININFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDLOCKININFO {
     fn eq(&self, other: &Self) -> bool {
@@ -9005,8 +9005,8 @@ impl ::core::fmt::Debug for DDLOCKOUTINFO {
         f.debug_struct("DDLOCKOUTINFO").field("dwSurfacePtr", &self.dwSurfacePtr).finish()
     }
 }
-impl ::windows::core::TypeKind for DDLOCKOUTINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDLOCKOUTINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDLOCKOUTINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -9044,8 +9044,8 @@ impl ::core::fmt::Debug for DDMCBUFFERINFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDMCBUFFERINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDMCBUFFERINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DDMCBUFFERINFO {
@@ -9078,8 +9078,8 @@ impl ::core::clone::Clone for DDMCCOMPBUFFERINFO {
         *self
     }
 }
-impl ::windows::core::TypeKind for DDMCCOMPBUFFERINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDMCCOMPBUFFERINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DDMCCOMPBUFFERINFO {
     fn default() -> Self {
@@ -9111,8 +9111,8 @@ impl ::core::fmt::Debug for DDMOCOMPBUFFERINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DDMOCOMPBUFFERINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDMOCOMPBUFFERINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DDMOCOMPBUFFERINFO {
@@ -9134,7 +9134,7 @@ pub struct DDMONITORINFO {
     pub Manufacturer: u16,
     pub Product: u16,
     pub SerialNumber: u32,
-    pub DeviceIdentifier: ::windows::core::GUID,
+    pub DeviceIdentifier: ::windows_core::GUID,
     pub Mode640x480: i32,
     pub Mode800x600: i32,
     pub Mode1024x768: i32,
@@ -9168,8 +9168,8 @@ impl ::core::fmt::Debug for DDMONITORINFO {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for DDMONITORINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDMONITORINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDMONITORINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -9195,8 +9195,8 @@ impl ::core::clone::Clone for DDMORESURFACECAPS {
         *self
     }
 }
-impl ::windows::core::TypeKind for DDMORESURFACECAPS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDMORESURFACECAPS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DDMORESURFACECAPS {
     fn default() -> Self {
@@ -9215,8 +9215,8 @@ impl ::core::clone::Clone for DDMORESURFACECAPS_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for DDMORESURFACECAPS_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDMORESURFACECAPS_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DDMORESURFACECAPS_0 {
     fn default() -> Self {
@@ -9244,8 +9244,8 @@ impl ::core::fmt::Debug for DDNONLOCALVIDMEMCAPS {
         f.debug_struct("DDNONLOCALVIDMEMCAPS").field("dwSize", &self.dwSize).field("dwNLVBCaps", &self.dwNLVBCaps).field("dwNLVBCaps2", &self.dwNLVBCaps2).field("dwNLVBCKeyCaps", &self.dwNLVBCKeyCaps).field("dwNLVBFXCaps", &self.dwNLVBFXCaps).field("dwNLVBRops", &self.dwNLVBRops).finish()
     }
 }
-impl ::windows::core::TypeKind for DDNONLOCALVIDMEMCAPS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDNONLOCALVIDMEMCAPS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDNONLOCALVIDMEMCAPS {
     fn eq(&self, other: &Self) -> bool {
@@ -9376,8 +9376,8 @@ impl ::core::fmt::Debug for DDNTCORECAPS {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for DDNTCORECAPS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDNTCORECAPS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDNTCORECAPS {
     fn eq(&self, other: &Self) -> bool {
@@ -9447,7 +9447,7 @@ pub struct DDOPTSURFACEDESC {
     pub dwFlags: u32,
     pub ddSCaps: DDSCAPS2,
     pub ddOSCaps: DDOSCAPS,
-    pub guid: ::windows::core::GUID,
+    pub guid: ::windows_core::GUID,
     pub dwCompressionRatio: u32,
 }
 impl ::core::marker::Copy for DDOPTSURFACEDESC {}
@@ -9456,8 +9456,8 @@ impl ::core::clone::Clone for DDOPTSURFACEDESC {
         *self
     }
 }
-impl ::windows::core::TypeKind for DDOPTSURFACEDESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDOPTSURFACEDESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DDOPTSURFACEDESC {
     fn default() -> Self {
@@ -9480,8 +9480,8 @@ impl ::core::fmt::Debug for DDOSCAPS {
         f.debug_struct("DDOSCAPS").field("dwCaps", &self.dwCaps).finish()
     }
 }
-impl ::windows::core::TypeKind for DDOSCAPS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDOSCAPS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDOSCAPS {
     fn eq(&self, other: &Self) -> bool {
@@ -9515,8 +9515,8 @@ impl ::core::clone::Clone for DDOVERLAYFX {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-impl ::windows::core::TypeKind for DDOVERLAYFX {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDOVERLAYFX {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DDOVERLAYFX {
     fn default() -> Self {
@@ -9534,8 +9534,8 @@ impl ::core::clone::Clone for DDOVERLAYFX_0 {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-impl ::windows::core::TypeKind for DDOVERLAYFX_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDOVERLAYFX_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DDOVERLAYFX_0 {
     fn default() -> Self {
@@ -9553,8 +9553,8 @@ impl ::core::clone::Clone for DDOVERLAYFX_1 {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-impl ::windows::core::TypeKind for DDOVERLAYFX_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDOVERLAYFX_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DDOVERLAYFX_1 {
     fn default() -> Self {
@@ -9579,8 +9579,8 @@ impl ::core::clone::Clone for DDPIXELFORMAT {
         *self
     }
 }
-impl ::windows::core::TypeKind for DDPIXELFORMAT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDPIXELFORMAT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DDPIXELFORMAT {
     fn default() -> Self {
@@ -9604,8 +9604,8 @@ impl ::core::clone::Clone for DDPIXELFORMAT_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for DDPIXELFORMAT_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDPIXELFORMAT_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DDPIXELFORMAT_0 {
     fn default() -> Self {
@@ -9628,8 +9628,8 @@ impl ::core::clone::Clone for DDPIXELFORMAT_1 {
         *self
     }
 }
-impl ::windows::core::TypeKind for DDPIXELFORMAT_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDPIXELFORMAT_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DDPIXELFORMAT_1 {
     fn default() -> Self {
@@ -9651,8 +9651,8 @@ impl ::core::clone::Clone for DDPIXELFORMAT_2 {
         *self
     }
 }
-impl ::windows::core::TypeKind for DDPIXELFORMAT_2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDPIXELFORMAT_2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DDPIXELFORMAT_2 {
     fn default() -> Self {
@@ -9676,8 +9676,8 @@ impl ::core::fmt::Debug for DDPIXELFORMAT_2_0 {
         f.debug_struct("DDPIXELFORMAT_2_0").field("wFlipMSTypes", &self.wFlipMSTypes).field("wBltMSTypes", &self.wBltMSTypes).finish()
     }
 }
-impl ::windows::core::TypeKind for DDPIXELFORMAT_2_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDPIXELFORMAT_2_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDPIXELFORMAT_2_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -9704,8 +9704,8 @@ impl ::core::clone::Clone for DDPIXELFORMAT_3 {
         *self
     }
 }
-impl ::windows::core::TypeKind for DDPIXELFORMAT_3 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDPIXELFORMAT_3 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DDPIXELFORMAT_3 {
     fn default() -> Self {
@@ -9727,8 +9727,8 @@ impl ::core::clone::Clone for DDPIXELFORMAT_4 {
         *self
     }
 }
-impl ::windows::core::TypeKind for DDPIXELFORMAT_4 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDPIXELFORMAT_4 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DDPIXELFORMAT_4 {
     fn default() -> Self {
@@ -9759,8 +9759,8 @@ impl ::core::fmt::Debug for DDRAWI_DDMOTIONCOMP_INT {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDRAWI_DDMOTIONCOMP_INT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDRAWI_DDMOTIONCOMP_INT {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DDRAWI_DDMOTIONCOMP_INT {
@@ -9781,7 +9781,7 @@ impl ::core::default::Default for DDRAWI_DDMOTIONCOMP_INT {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDRAWI_DDMOTIONCOMP_LCL {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
-    pub guid: ::windows::core::GUID,
+    pub guid: ::windows_core::GUID,
     pub dwUncompWidth: u32,
     pub dwUncompHeight: u32,
     pub ddUncompPixelFormat: DDPIXELFORMAT,
@@ -9805,8 +9805,8 @@ impl ::core::clone::Clone for DDRAWI_DDMOTIONCOMP_LCL {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDRAWI_DDMOTIONCOMP_LCL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDRAWI_DDMOTIONCOMP_LCL {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDRAWI_DDMOTIONCOMP_LCL {
@@ -9841,8 +9841,8 @@ impl ::core::fmt::Debug for DDRAWI_DDRAWCLIPPER_GBL {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDRAWI_DDRAWCLIPPER_GBL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDRAWI_DDRAWCLIPPER_GBL {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DDRAWI_DDRAWCLIPPER_GBL {
@@ -9882,8 +9882,8 @@ impl ::core::fmt::Debug for DDRAWI_DDRAWCLIPPER_INT {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDRAWI_DDRAWCLIPPER_INT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDRAWI_DDRAWCLIPPER_INT {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DDRAWI_DDRAWCLIPPER_INT {
@@ -9907,10 +9907,10 @@ pub struct DDRAWI_DDRAWCLIPPER_LCL {
     pub lpGbl: *mut DDRAWI_DDRAWCLIPPER_GBL,
     pub lpDD_lcl: *mut DDRAWI_DIRECTDRAW_LCL,
     pub dwLocalRefCnt: u32,
-    pub pUnkOuter: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
+    pub pUnkOuter: ::std::mem::ManuallyDrop<::core::option::Option<::windows_core::IUnknown>>,
     pub lpDD_int: *mut DDRAWI_DIRECTDRAW_INT,
     pub dwReserved1: usize,
-    pub pAddrefedThisOwner: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
+    pub pAddrefedThisOwner: ::std::mem::ManuallyDrop<::core::option::Option<::windows_core::IUnknown>>,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for DDRAWI_DDRAWCLIPPER_LCL {
@@ -9925,8 +9925,8 @@ impl ::core::fmt::Debug for DDRAWI_DDRAWCLIPPER_LCL {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDRAWI_DDRAWCLIPPER_LCL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDRAWI_DDRAWCLIPPER_LCL {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DDRAWI_DDRAWCLIPPER_LCL {
@@ -9966,8 +9966,8 @@ impl ::core::clone::Clone for DDRAWI_DDRAWPALETTE_GBL {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDRAWI_DDRAWPALETTE_GBL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDRAWI_DDRAWPALETTE_GBL {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDRAWI_DDRAWPALETTE_GBL {
@@ -9991,8 +9991,8 @@ impl ::core::clone::Clone for DDRAWI_DDRAWPALETTE_GBL_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDRAWI_DDRAWPALETTE_GBL_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDRAWI_DDRAWPALETTE_GBL_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDRAWI_DDRAWPALETTE_GBL_0 {
@@ -10024,8 +10024,8 @@ impl ::core::fmt::Debug for DDRAWI_DDRAWPALETTE_INT {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDRAWI_DDRAWPALETTE_INT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDRAWI_DDRAWPALETTE_INT {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DDRAWI_DDRAWPALETTE_INT {
@@ -10049,7 +10049,7 @@ pub struct DDRAWI_DDRAWPALETTE_LCL {
     pub lpGbl: *mut DDRAWI_DDRAWPALETTE_GBL,
     pub dwUnused0: usize,
     pub dwLocalRefCnt: u32,
-    pub pUnkOuter: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
+    pub pUnkOuter: ::std::mem::ManuallyDrop<::core::option::Option<::windows_core::IUnknown>>,
     pub lpDD_lcl: *mut DDRAWI_DIRECTDRAW_LCL,
     pub dwReserved1: usize,
     pub dwDDRAWReserved1: usize,
@@ -10069,8 +10069,8 @@ impl ::core::fmt::Debug for DDRAWI_DDRAWPALETTE_LCL {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDRAWI_DDRAWPALETTE_LCL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDRAWI_DDRAWPALETTE_LCL {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DDRAWI_DDRAWPALETTE_LCL {
@@ -10112,8 +10112,8 @@ impl ::core::clone::Clone for DDRAWI_DDRAWSURFACE_GBL {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDRAWI_DDRAWSURFACE_GBL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDRAWI_DDRAWSURFACE_GBL {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDRAWI_DDRAWSURFACE_GBL {
@@ -10138,8 +10138,8 @@ impl ::core::clone::Clone for DDRAWI_DDRAWSURFACE_GBL_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDRAWI_DDRAWSURFACE_GBL_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDRAWI_DDRAWSURFACE_GBL_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDRAWI_DDRAWSURFACE_GBL_0 {
@@ -10163,8 +10163,8 @@ impl ::core::clone::Clone for DDRAWI_DDRAWSURFACE_GBL_1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDRAWI_DDRAWSURFACE_GBL_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDRAWI_DDRAWSURFACE_GBL_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDRAWI_DDRAWSURFACE_GBL_1 {
@@ -10188,8 +10188,8 @@ impl ::core::clone::Clone for DDRAWI_DDRAWSURFACE_GBL_2 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDRAWI_DDRAWSURFACE_GBL_2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDRAWI_DDRAWSURFACE_GBL_2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDRAWI_DDRAWSURFACE_GBL_2 {
@@ -10213,8 +10213,8 @@ impl ::core::clone::Clone for DDRAWI_DDRAWSURFACE_GBL_3 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDRAWI_DDRAWSURFACE_GBL_3 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDRAWI_DDRAWSURFACE_GBL_3 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDRAWI_DDRAWSURFACE_GBL_3 {
@@ -10251,8 +10251,8 @@ impl ::core::clone::Clone for DDRAWI_DDRAWSURFACE_GBL_MORE {
         *self
     }
 }
-impl ::windows::core::TypeKind for DDRAWI_DDRAWSURFACE_GBL_MORE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDRAWI_DDRAWSURFACE_GBL_MORE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DDRAWI_DDRAWSURFACE_GBL_MORE {
     fn default() -> Self {
@@ -10271,8 +10271,8 @@ impl ::core::clone::Clone for DDRAWI_DDRAWSURFACE_GBL_MORE_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for DDRAWI_DDRAWSURFACE_GBL_MORE_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDRAWI_DDRAWSURFACE_GBL_MORE_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DDRAWI_DDRAWSURFACE_GBL_MORE_0 {
     fn default() -> Self {
@@ -10303,8 +10303,8 @@ impl ::core::fmt::Debug for DDRAWI_DDRAWSURFACE_INT {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDRAWI_DDRAWSURFACE_INT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDRAWI_DDRAWSURFACE_INT {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DDRAWI_DDRAWSURFACE_INT {
@@ -10361,8 +10361,8 @@ impl ::core::clone::Clone for DDRAWI_DDRAWSURFACE_LCL {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDRAWI_DDRAWSURFACE_LCL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDRAWI_DDRAWSURFACE_LCL {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDRAWI_DDRAWSURFACE_LCL {
@@ -10386,8 +10386,8 @@ impl ::core::clone::Clone for DDRAWI_DDRAWSURFACE_LCL_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDRAWI_DDRAWSURFACE_LCL_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDRAWI_DDRAWSURFACE_LCL_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDRAWI_DDRAWSURFACE_LCL_0 {
@@ -10411,8 +10411,8 @@ impl ::core::clone::Clone for DDRAWI_DDRAWSURFACE_LCL_1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDRAWI_DDRAWSURFACE_LCL_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDRAWI_DDRAWSURFACE_LCL_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDRAWI_DDRAWSURFACE_LCL_1 {
@@ -10465,8 +10465,8 @@ impl ::core::clone::Clone for DDRAWI_DDRAWSURFACE_MORE {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDRAWI_DDRAWSURFACE_MORE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDRAWI_DDRAWSURFACE_MORE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDRAWI_DDRAWSURFACE_MORE {
@@ -10499,8 +10499,8 @@ impl ::core::fmt::Debug for DDRAWI_DDVIDEOPORT_INT {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDRAWI_DDVIDEOPORT_INT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDRAWI_DDVIDEOPORT_INT {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DDRAWI_DDVIDEOPORT_INT {
@@ -10581,8 +10581,8 @@ impl ::core::fmt::Debug for DDRAWI_DDVIDEOPORT_LCL {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDRAWI_DDVIDEOPORT_LCL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDRAWI_DDVIDEOPORT_LCL {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DDRAWI_DDVIDEOPORT_LCL {
@@ -10703,8 +10703,8 @@ impl ::core::clone::Clone for DDRAWI_DIRECTDRAW_GBL {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDRAWI_DIRECTDRAW_GBL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDRAWI_DIRECTDRAW_GBL {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDRAWI_DIRECTDRAW_GBL {
@@ -10736,8 +10736,8 @@ impl ::core::fmt::Debug for DDRAWI_DIRECTDRAW_INT {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDRAWI_DIRECTDRAW_INT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDRAWI_DIRECTDRAW_INT {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DDRAWI_DIRECTDRAW_INT {
@@ -10763,7 +10763,7 @@ pub struct DDRAWI_DIRECTDRAW_LCL {
     pub dwLocalFlags: u32,
     pub dwLocalRefCnt: u32,
     pub dwProcessId: u32,
-    pub pUnkOuter: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
+    pub pUnkOuter: ::std::mem::ManuallyDrop<::core::option::Option<::windows_core::IUnknown>>,
     pub dwObsolete1: u32,
     pub hWnd: usize,
     pub hDC: usize,
@@ -10772,7 +10772,7 @@ pub struct DDRAWI_DIRECTDRAW_LCL {
     pub lpCB: *mut DDRAWI_DDRAWSURFACE_INT,
     pub dwPreferredMode: u32,
     pub hD3DInstance: super::super::Foundation::HMODULE,
-    pub pD3DIUnknown: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
+    pub pD3DIUnknown: ::std::mem::ManuallyDrop<::core::option::Option<::windows_core::IUnknown>>,
     pub lpDDCB: *mut DDHAL_CALLBACKS,
     pub hDDVxd: usize,
     pub dwAppHackFlags: u32,
@@ -10823,8 +10823,8 @@ impl ::core::fmt::Debug for DDRAWI_DIRECTDRAW_LCL {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DDRAWI_DIRECTDRAW_LCL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDRAWI_DIRECTDRAW_LCL {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDRAWI_DIRECTDRAW_LCL {
@@ -10851,8 +10851,8 @@ impl ::core::fmt::Debug for DDRGBA {
         f.debug_struct("DDRGBA").field("red", &self.red).field("green", &self.green).field("blue", &self.blue).field("alpha", &self.alpha).finish()
     }
 }
-impl ::windows::core::TypeKind for DDRGBA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDRGBA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDRGBA {
     fn eq(&self, other: &Self) -> bool {
@@ -10881,8 +10881,8 @@ impl ::core::fmt::Debug for DDSCAPS {
         f.debug_struct("DDSCAPS").field("dwCaps", &self.dwCaps).finish()
     }
 }
-impl ::windows::core::TypeKind for DDSCAPS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDSCAPS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDSCAPS {
     fn eq(&self, other: &Self) -> bool {
@@ -10909,8 +10909,8 @@ impl ::core::clone::Clone for DDSCAPS2 {
         *self
     }
 }
-impl ::windows::core::TypeKind for DDSCAPS2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDSCAPS2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DDSCAPS2 {
     fn default() -> Self {
@@ -10929,8 +10929,8 @@ impl ::core::clone::Clone for DDSCAPS2_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for DDSCAPS2_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDSCAPS2_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DDSCAPS2_0 {
     fn default() -> Self {
@@ -10950,8 +10950,8 @@ impl ::core::clone::Clone for DDSCAPSEX {
         *self
     }
 }
-impl ::windows::core::TypeKind for DDSCAPSEX {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDSCAPSEX {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DDSCAPSEX {
     fn default() -> Self {
@@ -10970,8 +10970,8 @@ impl ::core::clone::Clone for DDSCAPSEX_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for DDSCAPSEX_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDSCAPSEX_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DDSCAPSEX_0 {
     fn default() -> Self {
@@ -10995,8 +10995,8 @@ impl ::core::fmt::Debug for DDSETSTATEININFO {
         f.debug_struct("DDSETSTATEININFO").field("lpSurfaceData", &self.lpSurfaceData).field("lpVideoPortData", &self.lpVideoPortData).finish()
     }
 }
-impl ::windows::core::TypeKind for DDSETSTATEININFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDSETSTATEININFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDSETSTATEININFO {
     fn eq(&self, other: &Self) -> bool {
@@ -11032,8 +11032,8 @@ impl ::core::fmt::Debug for DDSETSTATEOUTINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DDSETSTATEOUTINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDSETSTATEOUTINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DDSETSTATEOUTINFO {
@@ -11066,8 +11066,8 @@ impl ::core::fmt::Debug for DDSKIPNEXTFIELDINFO {
         f.debug_struct("DDSKIPNEXTFIELDINFO").field("lpVideoPortData", &self.lpVideoPortData).field("dwSkipFlags", &self.dwSkipFlags).finish()
     }
 }
-impl ::windows::core::TypeKind for DDSKIPNEXTFIELDINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDSKIPNEXTFIELDINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDSKIPNEXTFIELDINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -11106,8 +11106,8 @@ impl ::core::fmt::Debug for DDSTEREOMODE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DDSTEREOMODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDSTEREOMODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DDSTEREOMODE {
@@ -11185,8 +11185,8 @@ impl ::core::fmt::Debug for DDSURFACEDATA {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for DDSURFACEDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDSURFACEDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDSURFACEDATA {
     fn eq(&self, other: &Self) -> bool {
@@ -11247,8 +11247,8 @@ impl ::core::clone::Clone for DDSURFACEDESC {
         *self
     }
 }
-impl ::windows::core::TypeKind for DDSURFACEDESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDSURFACEDESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DDSURFACEDESC {
     fn default() -> Self {
@@ -11267,8 +11267,8 @@ impl ::core::clone::Clone for DDSURFACEDESC_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for DDSURFACEDESC_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDSURFACEDESC_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DDSURFACEDESC_0 {
     fn default() -> Self {
@@ -11288,8 +11288,8 @@ impl ::core::clone::Clone for DDSURFACEDESC_1 {
         *self
     }
 }
-impl ::windows::core::TypeKind for DDSURFACEDESC_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDSURFACEDESC_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DDSURFACEDESC_1 {
     fn default() -> Self {
@@ -11323,8 +11323,8 @@ impl ::core::clone::Clone for DDSURFACEDESC2 {
         *self
     }
 }
-impl ::windows::core::TypeKind for DDSURFACEDESC2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDSURFACEDESC2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DDSURFACEDESC2 {
     fn default() -> Self {
@@ -11343,8 +11343,8 @@ impl ::core::clone::Clone for DDSURFACEDESC2_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for DDSURFACEDESC2_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDSURFACEDESC2_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DDSURFACEDESC2_0 {
     fn default() -> Self {
@@ -11363,8 +11363,8 @@ impl ::core::clone::Clone for DDSURFACEDESC2_1 {
         *self
     }
 }
-impl ::windows::core::TypeKind for DDSURFACEDESC2_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDSURFACEDESC2_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DDSURFACEDESC2_1 {
     fn default() -> Self {
@@ -11384,8 +11384,8 @@ impl ::core::clone::Clone for DDSURFACEDESC2_2 {
         *self
     }
 }
-impl ::windows::core::TypeKind for DDSURFACEDESC2_2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDSURFACEDESC2_2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DDSURFACEDESC2_2 {
     fn default() -> Self {
@@ -11404,8 +11404,8 @@ impl ::core::clone::Clone for DDSURFACEDESC2_3 {
         *self
     }
 }
-impl ::windows::core::TypeKind for DDSURFACEDESC2_3 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDSURFACEDESC2_3 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DDSURFACEDESC2_3 {
     fn default() -> Self {
@@ -11424,8 +11424,8 @@ impl ::core::clone::Clone for DDSURFACEDESC2_4 {
         *self
     }
 }
-impl ::windows::core::TypeKind for DDSURFACEDESC2_4 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDSURFACEDESC2_4 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DDSURFACEDESC2_4 {
     fn default() -> Self {
@@ -11453,8 +11453,8 @@ impl ::core::fmt::Debug for DDTRANSFERININFO {
         f.debug_struct("DDTRANSFERININFO").field("lpSurfaceData", &self.lpSurfaceData).field("dwStartLine", &self.dwStartLine).field("dwEndLine", &self.dwEndLine).field("dwTransferID", &self.dwTransferID).field("dwTransferFlags", &self.dwTransferFlags).field("lpDestMDL", &self.lpDestMDL).finish()
     }
 }
-impl ::windows::core::TypeKind for DDTRANSFERININFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDTRANSFERININFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDTRANSFERININFO {
     fn eq(&self, other: &Self) -> bool {
@@ -11483,8 +11483,8 @@ impl ::core::fmt::Debug for DDTRANSFEROUTINFO {
         f.debug_struct("DDTRANSFEROUTINFO").field("dwBufferPolarity", &self.dwBufferPolarity).finish()
     }
 }
-impl ::windows::core::TypeKind for DDTRANSFEROUTINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDTRANSFEROUTINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDTRANSFEROUTINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -11515,8 +11515,8 @@ impl ::core::fmt::Debug for DDVERSIONDATA {
         f.debug_struct("DDVERSIONDATA").field("dwHALVersion", &self.dwHALVersion).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).finish()
     }
 }
-impl ::windows::core::TypeKind for DDVERSIONDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDVERSIONDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDVERSIONDATA {
     fn eq(&self, other: &Self) -> bool {
@@ -11552,8 +11552,8 @@ impl ::core::fmt::Debug for DDVIDEOPORTBANDWIDTH {
         f.debug_struct("DDVIDEOPORTBANDWIDTH").field("dwSize", &self.dwSize).field("dwCaps", &self.dwCaps).field("dwOverlay", &self.dwOverlay).field("dwColorkey", &self.dwColorkey).field("dwYInterpolate", &self.dwYInterpolate).field("dwYInterpAndColorkey", &self.dwYInterpAndColorkey).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).finish()
     }
 }
-impl ::windows::core::TypeKind for DDVIDEOPORTBANDWIDTH {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDVIDEOPORTBANDWIDTH {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDVIDEOPORTBANDWIDTH {
     fn eq(&self, other: &Self) -> bool {
@@ -11620,8 +11620,8 @@ impl ::core::fmt::Debug for DDVIDEOPORTCAPS {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for DDVIDEOPORTCAPS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDVIDEOPORTCAPS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDVIDEOPORTCAPS {
     fn eq(&self, other: &Self) -> bool {
@@ -11657,7 +11657,7 @@ impl ::core::default::Default for DDVIDEOPORTCAPS {
 pub struct DDVIDEOPORTCONNECT {
     pub dwSize: u32,
     pub dwPortWidth: u32,
-    pub guidTypeID: ::windows::core::GUID,
+    pub guidTypeID: ::windows_core::GUID,
     pub dwFlags: u32,
     pub dwReserved1: usize,
 }
@@ -11672,8 +11672,8 @@ impl ::core::fmt::Debug for DDVIDEOPORTCONNECT {
         f.debug_struct("DDVIDEOPORTCONNECT").field("dwSize", &self.dwSize).field("dwPortWidth", &self.dwPortWidth).field("guidTypeID", &self.guidTypeID).field("dwFlags", &self.dwFlags).field("dwReserved1", &self.dwReserved1).finish()
     }
 }
-impl ::windows::core::TypeKind for DDVIDEOPORTCONNECT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDVIDEOPORTCONNECT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDVIDEOPORTCONNECT {
     fn eq(&self, other: &Self) -> bool {
@@ -11709,8 +11709,8 @@ impl ::core::fmt::Debug for DDVIDEOPORTDATA {
         f.debug_struct("DDVIDEOPORTDATA").field("dwVideoPortId", &self.dwVideoPortId).field("dwVPFlags", &self.dwVPFlags).field("dwOriginOffset", &self.dwOriginOffset).field("dwHeight", &self.dwHeight).field("dwVBIHeight", &self.dwVBIHeight).field("dwDriverReserved1", &self.dwDriverReserved1).field("dwDriverReserved2", &self.dwDriverReserved2).field("dwDriverReserved3", &self.dwDriverReserved3).finish()
     }
 }
-impl ::windows::core::TypeKind for DDVIDEOPORTDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDVIDEOPORTDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDVIDEOPORTDATA {
     fn eq(&self, other: &Self) -> bool {
@@ -11761,8 +11761,8 @@ impl ::core::fmt::Debug for DDVIDEOPORTDESC {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for DDVIDEOPORTDESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDVIDEOPORTDESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDVIDEOPORTDESC {
     fn eq(&self, other: &Self) -> bool {
@@ -11822,8 +11822,8 @@ impl ::core::fmt::Debug for DDVIDEOPORTINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DDVIDEOPORTINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDVIDEOPORTINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DDVIDEOPORTINFO {
@@ -11858,8 +11858,8 @@ impl ::core::fmt::Debug for DDVIDEOPORTNOTIFY {
         f.debug_struct("DDVIDEOPORTNOTIFY").field("ApproximateTimeStamp", &self.ApproximateTimeStamp).field("lField", &self.lField).field("dwSurfaceIndex", &self.dwSurfaceIndex).field("lDone", &self.lDone).finish()
     }
 }
-impl ::windows::core::TypeKind for DDVIDEOPORTNOTIFY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDVIDEOPORTNOTIFY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDVIDEOPORTNOTIFY {
     fn eq(&self, other: &Self) -> bool {
@@ -11899,8 +11899,8 @@ impl ::core::fmt::Debug for DDVIDEOPORTSTATUS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DDVIDEOPORTSTATUS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DDVIDEOPORTSTATUS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DDVIDEOPORTSTATUS {
@@ -11923,7 +11923,7 @@ pub struct DD_ADDATTACHEDSURFACEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDSurface: *mut DD_SURFACE_LOCAL,
     pub lpSurfAttached: *mut DD_SURFACE_LOCAL,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub AddAttachedSurface: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11941,8 +11941,8 @@ impl ::core::fmt::Debug for DD_ADDATTACHEDSURFACEDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_ADDATTACHEDSURFACEDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_ADDATTACHEDSURFACEDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_ADDATTACHEDSURFACEDATA {
@@ -11980,8 +11980,8 @@ impl ::core::fmt::Debug for DD_ATTACHLIST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_ATTACHLIST {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_ATTACHLIST {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_ATTACHLIST {
@@ -12008,7 +12008,7 @@ pub struct DD_BEGINMOCOMPFRAMEDATA {
     pub lpInputData: *mut ::core::ffi::c_void,
     pub dwOutputDataSize: u32,
     pub lpOutputData: *mut ::core::ffi::c_void,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DD_BEGINMOCOMPFRAMEDATA {}
@@ -12025,8 +12025,8 @@ impl ::core::fmt::Debug for DD_BEGINMOCOMPFRAMEDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_BEGINMOCOMPFRAMEDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_BEGINMOCOMPFRAMEDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_BEGINMOCOMPFRAMEDATA {
@@ -12054,7 +12054,7 @@ pub struct DD_BLTDATA {
     pub dwFlags: u32,
     pub dwROPFlags: u32,
     pub bltFX: DDBLTFX,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub Blt: *mut ::core::ffi::c_void,
     pub IsClipped: super::super::Foundation::BOOL,
     pub rOrigDest: super::super::Foundation::RECTL,
@@ -12071,8 +12071,8 @@ impl ::core::clone::Clone for DD_BLTDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_BLTDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_BLTDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DD_BLTDATA {
@@ -12111,8 +12111,8 @@ impl ::core::fmt::Debug for DD_CALLBACKS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DD_CALLBACKS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_CALLBACKS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DD_CALLBACKS {
@@ -12126,7 +12126,7 @@ pub struct DD_CANCREATESURFACEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDSurfaceDesc: *mut DDSURFACEDESC,
     pub bIsDifferentPixelFormat: u32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub CanCreateSurface: *mut ::core::ffi::c_void,
 }
 impl ::core::marker::Copy for DD_CANCREATESURFACEDATA {}
@@ -12140,8 +12140,8 @@ impl ::core::fmt::Debug for DD_CANCREATESURFACEDATA {
         f.debug_struct("DD_CANCREATESURFACEDATA").field("lpDD", &self.lpDD).field("lpDDSurfaceDesc", &self.lpDDSurfaceDesc).field("bIsDifferentPixelFormat", &self.bIsDifferentPixelFormat).field("ddRVal", &self.ddRVal).field("CanCreateSurface", &self.CanCreateSurface).finish()
     }
 }
-impl ::windows::core::TypeKind for DD_CANCREATESURFACEDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_CANCREATESURFACEDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DD_CANCREATESURFACEDATA {
     fn eq(&self, other: &Self) -> bool {
@@ -12159,7 +12159,7 @@ impl ::core::default::Default for DD_CANCREATESURFACEDATA {
 pub struct DD_CANCREATEVPORTDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpDDVideoPortDesc: *mut DDVIDEOPORTDESC,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub CanCreateVideoPort: *mut ::core::ffi::c_void,
 }
 impl ::core::marker::Copy for DD_CANCREATEVPORTDATA {}
@@ -12173,8 +12173,8 @@ impl ::core::fmt::Debug for DD_CANCREATEVPORTDATA {
         f.debug_struct("DD_CANCREATEVPORTDATA").field("lpDD", &self.lpDD).field("lpDDVideoPortDesc", &self.lpDDVideoPortDesc).field("ddRVal", &self.ddRVal).field("CanCreateVideoPort", &self.CanCreateVideoPort).finish()
     }
 }
-impl ::windows::core::TypeKind for DD_CANCREATEVPORTDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_CANCREATEVPORTDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DD_CANCREATEVPORTDATA {
     fn eq(&self, other: &Self) -> bool {
@@ -12203,8 +12203,8 @@ impl ::core::fmt::Debug for DD_CLIPPER_GLOBAL {
         f.debug_struct("DD_CLIPPER_GLOBAL").field("dwReserved1", &self.dwReserved1).finish()
     }
 }
-impl ::windows::core::TypeKind for DD_CLIPPER_GLOBAL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_CLIPPER_GLOBAL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DD_CLIPPER_GLOBAL {
     fn eq(&self, other: &Self) -> bool {
@@ -12233,8 +12233,8 @@ impl ::core::fmt::Debug for DD_CLIPPER_LOCAL {
         f.debug_struct("DD_CLIPPER_LOCAL").field("dwReserved1", &self.dwReserved1).finish()
     }
 }
-impl ::windows::core::TypeKind for DD_CLIPPER_LOCAL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_CLIPPER_LOCAL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DD_CLIPPER_LOCAL {
     fn eq(&self, other: &Self) -> bool {
@@ -12270,8 +12270,8 @@ impl ::core::fmt::Debug for DD_COLORCONTROLCALLBACKS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_COLORCONTROLCALLBACKS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_COLORCONTROLCALLBACKS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DD_COLORCONTROLCALLBACKS {
@@ -12287,7 +12287,7 @@ pub struct DD_COLORCONTROLDATA {
     pub lpDDSurface: *mut DD_SURFACE_LOCAL,
     pub lpColorData: *mut DDCOLORCONTROL,
     pub dwFlags: u32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub ColorControl: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12305,8 +12305,8 @@ impl ::core::fmt::Debug for DD_COLORCONTROLDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_COLORCONTROLDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_COLORCONTROLDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_COLORCONTROLDATA {
@@ -12327,13 +12327,13 @@ impl ::core::default::Default for DD_COLORCONTROLDATA {
 pub struct DD_CREATEMOCOMPDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpMoComp: *mut DD_MOTIONCOMP_LOCAL,
-    pub lpGuid: *mut ::windows::core::GUID,
+    pub lpGuid: *mut ::windows_core::GUID,
     pub dwUncompWidth: u32,
     pub dwUncompHeight: u32,
     pub ddUncompPixelFormat: DDPIXELFORMAT,
     pub lpData: *mut ::core::ffi::c_void,
     pub dwDataSize: u32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
 }
 impl ::core::marker::Copy for DD_CREATEMOCOMPDATA {}
 impl ::core::clone::Clone for DD_CREATEMOCOMPDATA {
@@ -12341,8 +12341,8 @@ impl ::core::clone::Clone for DD_CREATEMOCOMPDATA {
         *self
     }
 }
-impl ::windows::core::TypeKind for DD_CREATEMOCOMPDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_CREATEMOCOMPDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DD_CREATEMOCOMPDATA {
     fn default() -> Self {
@@ -12356,7 +12356,7 @@ pub struct DD_CREATEPALETTEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDPalette: *mut DD_PALETTE_GLOBAL,
     pub lpColorTable: *mut super::Gdi::PALETTEENTRY,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub CreatePalette: *mut ::core::ffi::c_void,
     pub is_excl: super::super::Foundation::BOOL,
 }
@@ -12375,8 +12375,8 @@ impl ::core::fmt::Debug for DD_CREATEPALETTEDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DD_CREATEPALETTEDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_CREATEPALETTEDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DD_CREATEPALETTEDATA {
@@ -12400,7 +12400,7 @@ pub struct DD_CREATESURFACEDATA {
     pub lpDDSurfaceDesc: *mut DDSURFACEDESC,
     pub lplpSList: *mut *mut DD_SURFACE_LOCAL,
     pub dwSCnt: u32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub CreateSurface: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12418,8 +12418,8 @@ impl ::core::fmt::Debug for DD_CREATESURFACEDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_CREATESURFACEDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_CREATESURFACEDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_CREATESURFACEDATA {
@@ -12442,7 +12442,7 @@ pub struct DD_CREATESURFACEEXDATA {
     pub dwFlags: u32,
     pub lpDDLcl: *mut DD_DIRECTDRAW_LOCAL,
     pub lpDDSLcl: *mut DD_SURFACE_LOCAL,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DD_CREATESURFACEEXDATA {}
@@ -12459,8 +12459,8 @@ impl ::core::fmt::Debug for DD_CREATESURFACEEXDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_CREATESURFACEEXDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_CREATESURFACEEXDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_CREATESURFACEEXDATA {
@@ -12483,7 +12483,7 @@ pub struct DD_CREATEVPORTDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpDDVideoPortDesc: *mut DDVIDEOPORTDESC,
     pub lpVideoPort: *mut DD_VIDEOPORT_LOCAL,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub CreateVideoPort: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12501,8 +12501,8 @@ impl ::core::fmt::Debug for DD_CREATEVPORTDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_CREATEVPORTDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_CREATEVPORTDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_CREATEVPORTDATA {
@@ -12545,8 +12545,8 @@ impl ::core::fmt::Debug for DD_D3DBUFCALLBACKS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_D3DBUFCALLBACKS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_D3DBUFCALLBACKS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DD_D3DBUFCALLBACKS {
@@ -12559,7 +12559,7 @@ impl ::core::default::Default for DD_D3DBUFCALLBACKS {
 pub struct DD_DESTROYDDLOCALDATA {
     pub dwFlags: u32,
     pub pDDLcl: *mut DD_DIRECTDRAW_LOCAL,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
 }
 impl ::core::marker::Copy for DD_DESTROYDDLOCALDATA {}
 impl ::core::clone::Clone for DD_DESTROYDDLOCALDATA {
@@ -12572,8 +12572,8 @@ impl ::core::fmt::Debug for DD_DESTROYDDLOCALDATA {
         f.debug_struct("DD_DESTROYDDLOCALDATA").field("dwFlags", &self.dwFlags).field("pDDLcl", &self.pDDLcl).field("ddRVal", &self.ddRVal).finish()
     }
 }
-impl ::windows::core::TypeKind for DD_DESTROYDDLOCALDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_DESTROYDDLOCALDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DD_DESTROYDDLOCALDATA {
     fn eq(&self, other: &Self) -> bool {
@@ -12591,7 +12591,7 @@ impl ::core::default::Default for DD_DESTROYDDLOCALDATA {
 pub struct DD_DESTROYMOCOMPDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpMoComp: *mut DD_MOTIONCOMP_LOCAL,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
 }
 impl ::core::marker::Copy for DD_DESTROYMOCOMPDATA {}
 impl ::core::clone::Clone for DD_DESTROYMOCOMPDATA {
@@ -12604,8 +12604,8 @@ impl ::core::fmt::Debug for DD_DESTROYMOCOMPDATA {
         f.debug_struct("DD_DESTROYMOCOMPDATA").field("lpDD", &self.lpDD).field("lpMoComp", &self.lpMoComp).field("ddRVal", &self.ddRVal).finish()
     }
 }
-impl ::windows::core::TypeKind for DD_DESTROYMOCOMPDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_DESTROYMOCOMPDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DD_DESTROYMOCOMPDATA {
     fn eq(&self, other: &Self) -> bool {
@@ -12623,7 +12623,7 @@ impl ::core::default::Default for DD_DESTROYMOCOMPDATA {
 pub struct DD_DESTROYPALETTEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDPalette: *mut DD_PALETTE_GLOBAL,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub DestroyPalette: *mut ::core::ffi::c_void,
 }
 impl ::core::marker::Copy for DD_DESTROYPALETTEDATA {}
@@ -12637,8 +12637,8 @@ impl ::core::fmt::Debug for DD_DESTROYPALETTEDATA {
         f.debug_struct("DD_DESTROYPALETTEDATA").field("lpDD", &self.lpDD).field("lpDDPalette", &self.lpDDPalette).field("ddRVal", &self.ddRVal).field("DestroyPalette", &self.DestroyPalette).finish()
     }
 }
-impl ::windows::core::TypeKind for DD_DESTROYPALETTEDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_DESTROYPALETTEDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DD_DESTROYPALETTEDATA {
     fn eq(&self, other: &Self) -> bool {
@@ -12657,7 +12657,7 @@ impl ::core::default::Default for DD_DESTROYPALETTEDATA {
 pub struct DD_DESTROYSURFACEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDSurface: *mut DD_SURFACE_LOCAL,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub DestroySurface: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12675,8 +12675,8 @@ impl ::core::fmt::Debug for DD_DESTROYSURFACEDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_DESTROYSURFACEDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_DESTROYSURFACEDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_DESTROYSURFACEDATA {
@@ -12698,7 +12698,7 @@ impl ::core::default::Default for DD_DESTROYSURFACEDATA {
 pub struct DD_DESTROYVPORTDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpVideoPort: *mut DD_VIDEOPORT_LOCAL,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub DestroyVideoPort: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12716,8 +12716,8 @@ impl ::core::fmt::Debug for DD_DESTROYVPORTDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_DESTROYVPORTDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_DESTROYVPORTDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_DESTROYVPORTDATA {
@@ -12752,8 +12752,8 @@ impl ::core::fmt::Debug for DD_DIRECTDRAW_GLOBAL {
         f.debug_struct("DD_DIRECTDRAW_GLOBAL").field("dhpdev", &self.dhpdev).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).field("lpDDVideoPortCaps", &self.lpDDVideoPortCaps).finish()
     }
 }
-impl ::windows::core::TypeKind for DD_DIRECTDRAW_GLOBAL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_DIRECTDRAW_GLOBAL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DD_DIRECTDRAW_GLOBAL {
     fn eq(&self, other: &Self) -> bool {
@@ -12782,8 +12782,8 @@ impl ::core::fmt::Debug for DD_DIRECTDRAW_LOCAL {
         f.debug_struct("DD_DIRECTDRAW_LOCAL").field("lpGbl", &self.lpGbl).finish()
     }
 }
-impl ::windows::core::TypeKind for DD_DIRECTDRAW_LOCAL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_DIRECTDRAW_LOCAL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DD_DIRECTDRAW_LOCAL {
     fn eq(&self, other: &Self) -> bool {
@@ -12803,7 +12803,7 @@ pub struct DD_DRVSETCOLORKEYDATA {
     pub lpDDSurface: *mut DD_SURFACE_LOCAL,
     pub dwFlags: u32,
     pub ckNew: DDCOLORKEY,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub SetColorKey: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12821,8 +12821,8 @@ impl ::core::fmt::Debug for DD_DRVSETCOLORKEYDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_DRVSETCOLORKEYDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_DRVSETCOLORKEYDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_DRVSETCOLORKEYDATA {
@@ -12845,7 +12845,7 @@ pub struct DD_ENDMOCOMPFRAMEDATA {
     pub lpMoComp: *mut DD_MOTIONCOMP_LOCAL,
     pub lpInputData: *mut ::core::ffi::c_void,
     pub dwInputDataSize: u32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
 }
 impl ::core::marker::Copy for DD_ENDMOCOMPFRAMEDATA {}
 impl ::core::clone::Clone for DD_ENDMOCOMPFRAMEDATA {
@@ -12858,8 +12858,8 @@ impl ::core::fmt::Debug for DD_ENDMOCOMPFRAMEDATA {
         f.debug_struct("DD_ENDMOCOMPFRAMEDATA").field("lpDD", &self.lpDD).field("lpMoComp", &self.lpMoComp).field("lpInputData", &self.lpInputData).field("dwInputDataSize", &self.dwInputDataSize).field("ddRVal", &self.ddRVal).finish()
     }
 }
-impl ::windows::core::TypeKind for DD_ENDMOCOMPFRAMEDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_ENDMOCOMPFRAMEDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DD_ENDMOCOMPFRAMEDATA {
     fn eq(&self, other: &Self) -> bool {
@@ -12880,7 +12880,7 @@ pub struct DD_FLIPDATA {
     pub lpSurfCurr: *mut DD_SURFACE_LOCAL,
     pub lpSurfTarg: *mut DD_SURFACE_LOCAL,
     pub dwFlags: u32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub Flip: *mut ::core::ffi::c_void,
     pub lpSurfCurrLeft: *mut DD_SURFACE_LOCAL,
     pub lpSurfTargLeft: *mut DD_SURFACE_LOCAL,
@@ -12900,8 +12900,8 @@ impl ::core::fmt::Debug for DD_FLIPDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_FLIPDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_FLIPDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_FLIPDATA {
@@ -12923,7 +12923,7 @@ pub struct DD_FLIPTOGDISURFACEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub dwToGDI: u32,
     pub dwReserved: u32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub FlipToGDISurface: *mut ::core::ffi::c_void,
 }
 impl ::core::marker::Copy for DD_FLIPTOGDISURFACEDATA {}
@@ -12937,8 +12937,8 @@ impl ::core::fmt::Debug for DD_FLIPTOGDISURFACEDATA {
         f.debug_struct("DD_FLIPTOGDISURFACEDATA").field("lpDD", &self.lpDD).field("dwToGDI", &self.dwToGDI).field("dwReserved", &self.dwReserved).field("ddRVal", &self.ddRVal).field("FlipToGDISurface", &self.FlipToGDISurface).finish()
     }
 }
-impl ::windows::core::TypeKind for DD_FLIPTOGDISURFACEDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_FLIPTOGDISURFACEDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DD_FLIPTOGDISURFACEDATA {
     fn eq(&self, other: &Self) -> bool {
@@ -12959,7 +12959,7 @@ pub struct DD_FLIPVPORTDATA {
     pub lpVideoPort: *mut DD_VIDEOPORT_LOCAL,
     pub lpSurfCurr: *mut DD_SURFACE_LOCAL,
     pub lpSurfTarg: *mut DD_SURFACE_LOCAL,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub FlipVideoPort: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12977,8 +12977,8 @@ impl ::core::fmt::Debug for DD_FLIPVPORTDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_FLIPVPORTDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_FLIPVPORTDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_FLIPVPORTDATA {
@@ -13000,7 +13000,7 @@ impl ::core::default::Default for DD_FLIPVPORTDATA {
 pub struct DD_FREEDRIVERMEMORYDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDSurface: *mut DD_SURFACE_LOCAL,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub FreeDriverMemory: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13018,8 +13018,8 @@ impl ::core::fmt::Debug for DD_FREEDRIVERMEMORYDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_FREEDRIVERMEMORYDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_FREEDRIVERMEMORYDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_FREEDRIVERMEMORYDATA {
@@ -13042,7 +13042,7 @@ pub struct DD_GETAVAILDRIVERMEMORYDATA {
     pub DDSCaps: DDSCAPS,
     pub dwTotal: u32,
     pub dwFree: u32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub GetAvailDriverMemory: *mut ::core::ffi::c_void,
 }
 impl ::core::marker::Copy for DD_GETAVAILDRIVERMEMORYDATA {}
@@ -13056,8 +13056,8 @@ impl ::core::fmt::Debug for DD_GETAVAILDRIVERMEMORYDATA {
         f.debug_struct("DD_GETAVAILDRIVERMEMORYDATA").field("lpDD", &self.lpDD).field("DDSCaps", &self.DDSCaps).field("dwTotal", &self.dwTotal).field("dwFree", &self.dwFree).field("ddRVal", &self.ddRVal).field("GetAvailDriverMemory", &self.GetAvailDriverMemory).finish()
     }
 }
-impl ::windows::core::TypeKind for DD_GETAVAILDRIVERMEMORYDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_GETAVAILDRIVERMEMORYDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DD_GETAVAILDRIVERMEMORYDATA {
     fn eq(&self, other: &Self) -> bool {
@@ -13077,7 +13077,7 @@ pub struct DD_GETBLTSTATUSDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDSurface: *mut DD_SURFACE_LOCAL,
     pub dwFlags: u32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub GetBltStatus: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13095,8 +13095,8 @@ impl ::core::fmt::Debug for DD_GETBLTSTATUSDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_GETBLTSTATUSDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_GETBLTSTATUSDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_GETBLTSTATUSDATA {
@@ -13118,11 +13118,11 @@ pub struct DD_GETDRIVERINFODATA {
     pub dhpdev: *mut ::core::ffi::c_void,
     pub dwSize: u32,
     pub dwFlags: u32,
-    pub guidInfo: ::windows::core::GUID,
+    pub guidInfo: ::windows_core::GUID,
     pub dwExpectedSize: u32,
     pub lpvData: *mut ::core::ffi::c_void,
     pub dwActualSize: u32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
 }
 impl ::core::marker::Copy for DD_GETDRIVERINFODATA {}
 impl ::core::clone::Clone for DD_GETDRIVERINFODATA {
@@ -13135,8 +13135,8 @@ impl ::core::fmt::Debug for DD_GETDRIVERINFODATA {
         f.debug_struct("DD_GETDRIVERINFODATA").field("dhpdev", &self.dhpdev).field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("guidInfo", &self.guidInfo).field("dwExpectedSize", &self.dwExpectedSize).field("lpvData", &self.lpvData).field("dwActualSize", &self.dwActualSize).field("ddRVal", &self.ddRVal).finish()
     }
 }
-impl ::windows::core::TypeKind for DD_GETDRIVERINFODATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_GETDRIVERINFODATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DD_GETDRIVERINFODATA {
     fn eq(&self, other: &Self) -> bool {
@@ -13156,7 +13156,7 @@ pub struct DD_GETDRIVERSTATEDATA {
     pub Anonymous: DD_GETDRIVERSTATEDATA_0,
     pub lpdwStates: *mut u32,
     pub dwLength: u32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
 }
 impl ::core::marker::Copy for DD_GETDRIVERSTATEDATA {}
 impl ::core::clone::Clone for DD_GETDRIVERSTATEDATA {
@@ -13164,8 +13164,8 @@ impl ::core::clone::Clone for DD_GETDRIVERSTATEDATA {
         *self
     }
 }
-impl ::windows::core::TypeKind for DD_GETDRIVERSTATEDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_GETDRIVERSTATEDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DD_GETDRIVERSTATEDATA {
     fn default() -> Self {
@@ -13184,8 +13184,8 @@ impl ::core::clone::Clone for DD_GETDRIVERSTATEDATA_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for DD_GETDRIVERSTATEDATA_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_GETDRIVERSTATEDATA_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DD_GETDRIVERSTATEDATA_0 {
     fn default() -> Self {
@@ -13199,7 +13199,7 @@ pub struct DD_GETFLIPSTATUSDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDSurface: *mut DD_SURFACE_LOCAL,
     pub dwFlags: u32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub GetFlipStatus: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13217,8 +13217,8 @@ impl ::core::fmt::Debug for DD_GETFLIPSTATUSDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_GETFLIPSTATUSDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_GETFLIPSTATUSDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_GETFLIPSTATUSDATA {
@@ -13239,7 +13239,7 @@ impl ::core::default::Default for DD_GETFLIPSTATUSDATA {
 pub struct DD_GETHEAPALIGNMENTDATA {
     pub dwInstance: usize,
     pub dwHeap: u32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub GetHeapAlignment: *mut ::core::ffi::c_void,
     pub Alignment: HEAPALIGNMENT,
 }
@@ -13249,8 +13249,8 @@ impl ::core::clone::Clone for DD_GETHEAPALIGNMENTDATA {
         *self
     }
 }
-impl ::windows::core::TypeKind for DD_GETHEAPALIGNMENTDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_GETHEAPALIGNMENTDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DD_GETHEAPALIGNMENTDATA {
     fn default() -> Self {
@@ -13261,12 +13261,12 @@ impl ::core::default::Default for DD_GETHEAPALIGNMENTDATA {
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DD_GETINTERNALMOCOMPDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
-    pub lpGuid: *mut ::windows::core::GUID,
+    pub lpGuid: *mut ::windows_core::GUID,
     pub dwWidth: u32,
     pub dwHeight: u32,
     pub ddPixelFormat: DDPIXELFORMAT,
     pub dwScratchMemAlloc: u32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
 }
 impl ::core::marker::Copy for DD_GETINTERNALMOCOMPDATA {}
 impl ::core::clone::Clone for DD_GETINTERNALMOCOMPDATA {
@@ -13274,8 +13274,8 @@ impl ::core::clone::Clone for DD_GETINTERNALMOCOMPDATA {
         *self
     }
 }
-impl ::windows::core::TypeKind for DD_GETINTERNALMOCOMPDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_GETINTERNALMOCOMPDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DD_GETINTERNALMOCOMPDATA {
     fn default() -> Self {
@@ -13286,13 +13286,13 @@ impl ::core::default::Default for DD_GETINTERNALMOCOMPDATA {
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DD_GETMOCOMPCOMPBUFFDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
-    pub lpGuid: *mut ::windows::core::GUID,
+    pub lpGuid: *mut ::windows_core::GUID,
     pub dwWidth: u32,
     pub dwHeight: u32,
     pub ddPixelFormat: DDPIXELFORMAT,
     pub dwNumTypesCompBuffs: u32,
     pub lpCompBuffInfo: *mut DDCOMPBUFFERINFO,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
 }
 impl ::core::marker::Copy for DD_GETMOCOMPCOMPBUFFDATA {}
 impl ::core::clone::Clone for DD_GETMOCOMPCOMPBUFFDATA {
@@ -13300,8 +13300,8 @@ impl ::core::clone::Clone for DD_GETMOCOMPCOMPBUFFDATA {
         *self
     }
 }
-impl ::windows::core::TypeKind for DD_GETMOCOMPCOMPBUFFDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_GETMOCOMPCOMPBUFFDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DD_GETMOCOMPCOMPBUFFDATA {
     fn default() -> Self {
@@ -13312,10 +13312,10 @@ impl ::core::default::Default for DD_GETMOCOMPCOMPBUFFDATA {
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DD_GETMOCOMPFORMATSDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
-    pub lpGuid: *mut ::windows::core::GUID,
+    pub lpGuid: *mut ::windows_core::GUID,
     pub dwNumFormats: u32,
     pub lpFormats: *mut DDPIXELFORMAT,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
 }
 impl ::core::marker::Copy for DD_GETMOCOMPFORMATSDATA {}
 impl ::core::clone::Clone for DD_GETMOCOMPFORMATSDATA {
@@ -13328,8 +13328,8 @@ impl ::core::fmt::Debug for DD_GETMOCOMPFORMATSDATA {
         f.debug_struct("DD_GETMOCOMPFORMATSDATA").field("lpDD", &self.lpDD).field("lpGuid", &self.lpGuid).field("dwNumFormats", &self.dwNumFormats).field("lpFormats", &self.lpFormats).field("ddRVal", &self.ddRVal).finish()
     }
 }
-impl ::windows::core::TypeKind for DD_GETMOCOMPFORMATSDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_GETMOCOMPFORMATSDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DD_GETMOCOMPFORMATSDATA {
     fn eq(&self, other: &Self) -> bool {
@@ -13347,8 +13347,8 @@ impl ::core::default::Default for DD_GETMOCOMPFORMATSDATA {
 pub struct DD_GETMOCOMPGUIDSDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub dwNumGuids: u32,
-    pub lpGuids: *mut ::windows::core::GUID,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub lpGuids: *mut ::windows_core::GUID,
+    pub ddRVal: ::windows_core::HRESULT,
 }
 impl ::core::marker::Copy for DD_GETMOCOMPGUIDSDATA {}
 impl ::core::clone::Clone for DD_GETMOCOMPGUIDSDATA {
@@ -13361,8 +13361,8 @@ impl ::core::fmt::Debug for DD_GETMOCOMPGUIDSDATA {
         f.debug_struct("DD_GETMOCOMPGUIDSDATA").field("lpDD", &self.lpDD).field("dwNumGuids", &self.dwNumGuids).field("lpGuids", &self.lpGuids).field("ddRVal", &self.ddRVal).finish()
     }
 }
-impl ::windows::core::TypeKind for DD_GETMOCOMPGUIDSDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_GETMOCOMPGUIDSDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DD_GETMOCOMPGUIDSDATA {
     fn eq(&self, other: &Self) -> bool {
@@ -13380,7 +13380,7 @@ impl ::core::default::Default for DD_GETMOCOMPGUIDSDATA {
 pub struct DD_GETSCANLINEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub dwScanLine: u32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub GetScanLine: *mut ::core::ffi::c_void,
 }
 impl ::core::marker::Copy for DD_GETSCANLINEDATA {}
@@ -13394,8 +13394,8 @@ impl ::core::fmt::Debug for DD_GETSCANLINEDATA {
         f.debug_struct("DD_GETSCANLINEDATA").field("lpDD", &self.lpDD).field("dwScanLine", &self.dwScanLine).field("ddRVal", &self.ddRVal).field("GetScanLine", &self.GetScanLine).finish()
     }
 }
-impl ::windows::core::TypeKind for DD_GETSCANLINEDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_GETSCANLINEDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DD_GETSCANLINEDATA {
     fn eq(&self, other: &Self) -> bool {
@@ -13419,7 +13419,7 @@ pub struct DD_GETVPORTBANDWIDTHDATA {
     pub dwHeight: u32,
     pub dwFlags: u32,
     pub lpBandwidth: *mut DDVIDEOPORTBANDWIDTH,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub GetVideoPortBandwidth: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13437,8 +13437,8 @@ impl ::core::fmt::Debug for DD_GETVPORTBANDWIDTHDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_GETVPORTBANDWIDTHDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_GETVPORTBANDWIDTHDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_GETVPORTBANDWIDTHDATA {
@@ -13461,7 +13461,7 @@ pub struct DD_GETVPORTCONNECTDATA {
     pub dwPortId: u32,
     pub lpConnect: *mut DDVIDEOPORTCONNECT,
     pub dwNumEntries: u32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub GetVideoPortConnectInfo: *mut ::core::ffi::c_void,
 }
 impl ::core::marker::Copy for DD_GETVPORTCONNECTDATA {}
@@ -13475,8 +13475,8 @@ impl ::core::fmt::Debug for DD_GETVPORTCONNECTDATA {
         f.debug_struct("DD_GETVPORTCONNECTDATA").field("lpDD", &self.lpDD).field("dwPortId", &self.dwPortId).field("lpConnect", &self.lpConnect).field("dwNumEntries", &self.dwNumEntries).field("ddRVal", &self.ddRVal).field("GetVideoPortConnectInfo", &self.GetVideoPortConnectInfo).finish()
     }
 }
-impl ::windows::core::TypeKind for DD_GETVPORTCONNECTDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_GETVPORTCONNECTDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DD_GETVPORTCONNECTDATA {
     fn eq(&self, other: &Self) -> bool {
@@ -13496,7 +13496,7 @@ pub struct DD_GETVPORTFIELDDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpVideoPort: *mut DD_VIDEOPORT_LOCAL,
     pub bField: super::super::Foundation::BOOL,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub GetVideoPortField: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13514,8 +13514,8 @@ impl ::core::fmt::Debug for DD_GETVPORTFIELDDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_GETVPORTFIELDDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_GETVPORTFIELDDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_GETVPORTFIELDDATA {
@@ -13536,7 +13536,7 @@ impl ::core::default::Default for DD_GETVPORTFIELDDATA {
 pub struct DD_GETVPORTFLIPSTATUSDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub fpSurface: usize,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub GetVideoPortFlipStatus: *mut ::core::ffi::c_void,
 }
 impl ::core::marker::Copy for DD_GETVPORTFLIPSTATUSDATA {}
@@ -13550,8 +13550,8 @@ impl ::core::fmt::Debug for DD_GETVPORTFLIPSTATUSDATA {
         f.debug_struct("DD_GETVPORTFLIPSTATUSDATA").field("lpDD", &self.lpDD).field("fpSurface", &self.fpSurface).field("ddRVal", &self.ddRVal).field("GetVideoPortFlipStatus", &self.GetVideoPortFlipStatus).finish()
     }
 }
-impl ::windows::core::TypeKind for DD_GETVPORTFLIPSTATUSDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_GETVPORTFLIPSTATUSDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DD_GETVPORTFLIPSTATUSDATA {
     fn eq(&self, other: &Self) -> bool {
@@ -13573,7 +13573,7 @@ pub struct DD_GETVPORTINPUTFORMATDATA {
     pub dwFlags: u32,
     pub lpddpfFormat: *mut DDPIXELFORMAT,
     pub dwNumFormats: u32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub GetVideoPortInputFormats: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13591,8 +13591,8 @@ impl ::core::fmt::Debug for DD_GETVPORTINPUTFORMATDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_GETVPORTINPUTFORMATDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_GETVPORTINPUTFORMATDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_GETVPORTINPUTFORMATDATA {
@@ -13615,7 +13615,7 @@ pub struct DD_GETVPORTLINEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpVideoPort: *mut DD_VIDEOPORT_LOCAL,
     pub dwLine: u32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub GetVideoPortLine: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13633,8 +13633,8 @@ impl ::core::fmt::Debug for DD_GETVPORTLINEDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_GETVPORTLINEDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_GETVPORTLINEDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_GETVPORTLINEDATA {
@@ -13660,7 +13660,7 @@ pub struct DD_GETVPORTOUTPUTFORMATDATA {
     pub lpddpfInputFormat: *mut DDPIXELFORMAT,
     pub lpddpfOutputFormats: *mut DDPIXELFORMAT,
     pub dwNumFormats: u32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub GetVideoPortInputFormats: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13678,8 +13678,8 @@ impl ::core::fmt::Debug for DD_GETVPORTOUTPUTFORMATDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_GETVPORTOUTPUTFORMATDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_GETVPORTOUTPUTFORMATDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_GETVPORTOUTPUTFORMATDATA {
@@ -13702,7 +13702,7 @@ pub struct DD_GETVPORTSIGNALDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpVideoPort: *mut DD_VIDEOPORT_LOCAL,
     pub dwStatus: u32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub GetVideoSignalStatus: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13720,8 +13720,8 @@ impl ::core::fmt::Debug for DD_GETVPORTSIGNALDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_GETVPORTSIGNALDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_GETVPORTSIGNALDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_GETVPORTSIGNALDATA {
@@ -13759,8 +13759,8 @@ impl ::core::clone::Clone for DD_HALINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_HALINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_HALINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DD_HALINFO {
@@ -13783,8 +13783,8 @@ impl ::core::clone::Clone for DD_HALINFO_V4 {
         *self
     }
 }
-impl ::windows::core::TypeKind for DD_HALINFO_V4 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_HALINFO_V4 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DD_HALINFO_V4 {
     fn default() -> Self {
@@ -13815,8 +13815,8 @@ impl ::core::fmt::Debug for DD_KERNELCALLBACKS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_KERNELCALLBACKS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_KERNELCALLBACKS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DD_KERNELCALLBACKS {
@@ -13833,7 +13833,7 @@ pub struct DD_LOCKDATA {
     pub bHasRect: u32,
     pub rArea: super::super::Foundation::RECTL,
     pub lpSurfData: *mut ::core::ffi::c_void,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub Lock: *mut ::core::ffi::c_void,
     pub dwFlags: u32,
     pub fpProcess: usize,
@@ -13853,8 +13853,8 @@ impl ::core::fmt::Debug for DD_LOCKDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_LOCKDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_LOCKDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_LOCKDATA {
@@ -13878,7 +13878,7 @@ pub struct DD_MAPMEMORYDATA {
     pub bMap: super::super::Foundation::BOOL,
     pub hProcess: super::super::Foundation::HANDLE,
     pub fpProcess: usize,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DD_MAPMEMORYDATA {}
@@ -13895,8 +13895,8 @@ impl ::core::fmt::Debug for DD_MAPMEMORYDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_MAPMEMORYDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_MAPMEMORYDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_MAPMEMORYDATA {
@@ -13938,8 +13938,8 @@ impl ::core::fmt::Debug for DD_MISCELLANEOUS2CALLBACKS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_MISCELLANEOUS2CALLBACKS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_MISCELLANEOUS2CALLBACKS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DD_MISCELLANEOUS2CALLBACKS {
@@ -13965,8 +13965,8 @@ impl ::core::fmt::Debug for DD_MISCELLANEOUSCALLBACKS {
         f.debug_struct("DD_MISCELLANEOUSCALLBACKS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).finish()
     }
 }
-impl ::windows::core::TypeKind for DD_MISCELLANEOUSCALLBACKS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_MISCELLANEOUSCALLBACKS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DD_MISCELLANEOUSCALLBACKS {
     fn default() -> Self {
@@ -13997,8 +13997,8 @@ impl ::core::fmt::Debug for DD_MORECAPS {
         f.debug_struct("DD_MORECAPS").field("dwSize", &self.dwSize).field("dwAlphaCaps", &self.dwAlphaCaps).field("dwSVBAlphaCaps", &self.dwSVBAlphaCaps).field("dwVSBAlphaCaps", &self.dwVSBAlphaCaps).field("dwSSBAlphaCaps", &self.dwSSBAlphaCaps).field("dwFilterCaps", &self.dwFilterCaps).field("dwSVBFilterCaps", &self.dwSVBFilterCaps).field("dwVSBFilterCaps", &self.dwVSBFilterCaps).field("dwSSBFilterCaps", &self.dwSSBFilterCaps).finish()
     }
 }
-impl ::windows::core::TypeKind for DD_MORECAPS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_MORECAPS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DD_MORECAPS {
     fn eq(&self, other: &Self) -> bool {
@@ -14024,8 +14024,8 @@ impl ::core::clone::Clone for DD_MORESURFACECAPS {
         *self
     }
 }
-impl ::windows::core::TypeKind for DD_MORESURFACECAPS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_MORESURFACECAPS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DD_MORESURFACECAPS {
     fn default() -> Self {
@@ -14044,8 +14044,8 @@ impl ::core::clone::Clone for DD_MORESURFACECAPS_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for DD_MORESURFACECAPS_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_MORESURFACECAPS_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DD_MORESURFACECAPS_0 {
     fn default() -> Self {
@@ -14084,8 +14084,8 @@ impl ::core::fmt::Debug for DD_MOTIONCOMPCALLBACKS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_MOTIONCOMPCALLBACKS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_MOTIONCOMPCALLBACKS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DD_MOTIONCOMPCALLBACKS {
@@ -14097,7 +14097,7 @@ impl ::core::default::Default for DD_MOTIONCOMPCALLBACKS {
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DD_MOTIONCOMP_LOCAL {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
-    pub guid: ::windows::core::GUID,
+    pub guid: ::windows_core::GUID,
     pub dwUncompWidth: u32,
     pub dwUncompHeight: u32,
     pub ddUncompPixelFormat: DDPIXELFORMAT,
@@ -14114,8 +14114,8 @@ impl ::core::clone::Clone for DD_MOTIONCOMP_LOCAL {
         *self
     }
 }
-impl ::windows::core::TypeKind for DD_MOTIONCOMP_LOCAL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_MOTIONCOMP_LOCAL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DD_MOTIONCOMP_LOCAL {
     fn default() -> Self {
@@ -14143,8 +14143,8 @@ impl ::core::fmt::Debug for DD_NONLOCALVIDMEMCAPS {
         f.debug_struct("DD_NONLOCALVIDMEMCAPS").field("dwSize", &self.dwSize).field("dwNLVBCaps", &self.dwNLVBCaps).field("dwNLVBCaps2", &self.dwNLVBCaps2).field("dwNLVBCKeyCaps", &self.dwNLVBCKeyCaps).field("dwNLVBFXCaps", &self.dwNLVBFXCaps).field("dwNLVBRops", &self.dwNLVBRops).finish()
     }
 }
-impl ::windows::core::TypeKind for DD_NONLOCALVIDMEMCAPS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_NONLOCALVIDMEMCAPS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DD_NONLOCALVIDMEMCAPS {
     fn eq(&self, other: &Self) -> bool {
@@ -14182,8 +14182,8 @@ impl ::core::fmt::Debug for DD_NTCALLBACKS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_NTCALLBACKS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_NTCALLBACKS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DD_NTCALLBACKS {
@@ -14208,8 +14208,8 @@ impl ::core::fmt::Debug for DD_NTPRIVATEDRIVERCAPS {
         f.debug_struct("DD_NTPRIVATEDRIVERCAPS").field("dwSize", &self.dwSize).field("dwPrivateCaps", &self.dwPrivateCaps).finish()
     }
 }
-impl ::windows::core::TypeKind for DD_NTPRIVATEDRIVERCAPS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_NTPRIVATEDRIVERCAPS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DD_NTPRIVATEDRIVERCAPS {
     fn eq(&self, other: &Self) -> bool {
@@ -14246,8 +14246,8 @@ impl ::core::fmt::Debug for DD_PALETTECALLBACKS {
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::windows::core::TypeKind for DD_PALETTECALLBACKS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_PALETTECALLBACKS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::default::Default for DD_PALETTECALLBACKS {
@@ -14271,8 +14271,8 @@ impl ::core::fmt::Debug for DD_PALETTE_GLOBAL {
         f.debug_struct("DD_PALETTE_GLOBAL").field("dwReserved1", &self.dwReserved1).finish()
     }
 }
-impl ::windows::core::TypeKind for DD_PALETTE_GLOBAL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_PALETTE_GLOBAL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DD_PALETTE_GLOBAL {
     fn eq(&self, other: &Self) -> bool {
@@ -14302,8 +14302,8 @@ impl ::core::fmt::Debug for DD_PALETTE_LOCAL {
         f.debug_struct("DD_PALETTE_LOCAL").field("dwReserved0", &self.dwReserved0).field("dwReserved1", &self.dwReserved1).finish()
     }
 }
-impl ::windows::core::TypeKind for DD_PALETTE_LOCAL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_PALETTE_LOCAL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DD_PALETTE_LOCAL {
     fn eq(&self, other: &Self) -> bool {
@@ -14324,7 +14324,7 @@ pub struct DD_QUERYMOCOMPSTATUSDATA {
     pub lpMoComp: *mut DD_MOTIONCOMP_LOCAL,
     pub lpSurface: *mut DD_SURFACE_LOCAL,
     pub dwFlags: u32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DD_QUERYMOCOMPSTATUSDATA {}
@@ -14341,8 +14341,8 @@ impl ::core::fmt::Debug for DD_QUERYMOCOMPSTATUSDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_QUERYMOCOMPSTATUSDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_QUERYMOCOMPSTATUSDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_QUERYMOCOMPSTATUSDATA {
@@ -14371,7 +14371,7 @@ pub struct DD_RENDERMOCOMPDATA {
     pub dwInputDataSize: u32,
     pub lpOutputData: *mut ::core::ffi::c_void,
     pub dwOutputDataSize: u32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DD_RENDERMOCOMPDATA {}
@@ -14388,8 +14388,8 @@ impl ::core::fmt::Debug for DD_RENDERMOCOMPDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_RENDERMOCOMPDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_RENDERMOCOMPDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_RENDERMOCOMPDATA {
@@ -14411,7 +14411,7 @@ impl ::core::default::Default for DD_RENDERMOCOMPDATA {
 pub struct DD_SETCLIPLISTDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDSurface: *mut DD_SURFACE_LOCAL,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub SetClipList: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14429,8 +14429,8 @@ impl ::core::fmt::Debug for DD_SETCLIPLISTDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_SETCLIPLISTDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_SETCLIPLISTDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_SETCLIPLISTDATA {
@@ -14454,7 +14454,7 @@ pub struct DD_SETCOLORKEYDATA {
     pub lpDDSurface: *mut DD_SURFACE_LOCAL,
     pub dwFlags: u32,
     pub ckNew: DDCOLORKEY,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub SetColorKey: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14472,8 +14472,8 @@ impl ::core::fmt::Debug for DD_SETCOLORKEYDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_SETCOLORKEYDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_SETCOLORKEYDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_SETCOLORKEYDATA {
@@ -14498,7 +14498,7 @@ pub struct DD_SETENTRIESDATA {
     pub dwBase: u32,
     pub dwNumEntries: u32,
     pub lpEntries: *mut super::Gdi::PALETTEENTRY,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub SetEntries: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -14516,8 +14516,8 @@ impl ::core::fmt::Debug for DD_SETENTRIESDATA {
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::windows::core::TypeKind for DD_SETENTRIESDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_SETENTRIESDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for DD_SETENTRIESDATA {
@@ -14539,7 +14539,7 @@ pub struct DD_SETEXCLUSIVEMODEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub dwEnterExcl: u32,
     pub dwReserved: u32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub SetExclusiveMode: *mut ::core::ffi::c_void,
 }
 impl ::core::marker::Copy for DD_SETEXCLUSIVEMODEDATA {}
@@ -14553,8 +14553,8 @@ impl ::core::fmt::Debug for DD_SETEXCLUSIVEMODEDATA {
         f.debug_struct("DD_SETEXCLUSIVEMODEDATA").field("lpDD", &self.lpDD).field("dwEnterExcl", &self.dwEnterExcl).field("dwReserved", &self.dwReserved).field("ddRVal", &self.ddRVal).field("SetExclusiveMode", &self.SetExclusiveMode).finish()
     }
 }
-impl ::windows::core::TypeKind for DD_SETEXCLUSIVEMODEDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_SETEXCLUSIVEMODEDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DD_SETEXCLUSIVEMODEDATA {
     fn eq(&self, other: &Self) -> bool {
@@ -14576,7 +14576,7 @@ pub struct DD_SETOVERLAYPOSITIONDATA {
     pub lpDDDestSurface: *mut DD_SURFACE_LOCAL,
     pub lXPos: i32,
     pub lYPos: i32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub SetOverlayPosition: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14594,8 +14594,8 @@ impl ::core::fmt::Debug for DD_SETOVERLAYPOSITIONDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_SETOVERLAYPOSITIONDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_SETOVERLAYPOSITIONDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_SETOVERLAYPOSITIONDATA {
@@ -14618,7 +14618,7 @@ pub struct DD_SETPALETTEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDSurface: *mut DD_SURFACE_LOCAL,
     pub lpDDPalette: *mut DD_PALETTE_GLOBAL,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub SetPalette: *mut ::core::ffi::c_void,
     pub Attach: super::super::Foundation::BOOL,
 }
@@ -14637,8 +14637,8 @@ impl ::core::fmt::Debug for DD_SETPALETTEDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_SETPALETTEDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_SETPALETTEDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_SETPALETTEDATA {
@@ -14680,8 +14680,8 @@ impl ::core::fmt::Debug for DD_STEREOMODE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_STEREOMODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_STEREOMODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_STEREOMODE {
@@ -14733,8 +14733,8 @@ impl ::core::fmt::Debug for DD_SURFACECALLBACKS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_SURFACECALLBACKS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_SURFACECALLBACKS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DD_SURFACECALLBACKS {
@@ -14768,8 +14768,8 @@ impl ::core::clone::Clone for DD_SURFACE_GLOBAL {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_SURFACE_GLOBAL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_SURFACE_GLOBAL {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DD_SURFACE_GLOBAL {
@@ -14793,8 +14793,8 @@ impl ::core::clone::Clone for DD_SURFACE_GLOBAL_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_SURFACE_GLOBAL_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_SURFACE_GLOBAL_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DD_SURFACE_GLOBAL_0 {
@@ -14819,8 +14819,8 @@ impl ::core::clone::Clone for DD_SURFACE_GLOBAL_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_SURFACE_GLOBAL_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_SURFACE_GLOBAL_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DD_SURFACE_GLOBAL_1 {
@@ -14844,8 +14844,8 @@ impl ::core::clone::Clone for DD_SURFACE_GLOBAL_2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_SURFACE_GLOBAL_2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_SURFACE_GLOBAL_2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DD_SURFACE_GLOBAL_2 {
@@ -14874,8 +14874,8 @@ impl ::core::fmt::Debug for DD_SURFACE_INT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_SURFACE_INT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_SURFACE_INT {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_SURFACE_INT {
@@ -14915,8 +14915,8 @@ impl ::core::clone::Clone for DD_SURFACE_LOCAL {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_SURFACE_LOCAL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_SURFACE_LOCAL {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DD_SURFACE_LOCAL {
@@ -14940,8 +14940,8 @@ impl ::core::clone::Clone for DD_SURFACE_LOCAL_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_SURFACE_LOCAL_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_SURFACE_LOCAL_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DD_SURFACE_LOCAL_0 {
@@ -14965,8 +14965,8 @@ impl ::core::clone::Clone for DD_SURFACE_LOCAL_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_SURFACE_LOCAL_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_SURFACE_LOCAL_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DD_SURFACE_LOCAL_1 {
@@ -14993,8 +14993,8 @@ impl ::core::clone::Clone for DD_SURFACE_MORE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_SURFACE_MORE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_SURFACE_MORE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DD_SURFACE_MORE {
@@ -15016,7 +15016,7 @@ pub struct DD_SYNCSURFACEDATA {
     pub dwDriverReserved2: u32,
     pub dwDriverReserved3: u32,
     pub dwDriverReserved4: u32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DD_SYNCSURFACEDATA {}
@@ -15045,8 +15045,8 @@ impl ::core::fmt::Debug for DD_SYNCSURFACEDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_SYNCSURFACEDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_SYNCSURFACEDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_SYNCSURFACEDATA {
@@ -15074,7 +15074,7 @@ pub struct DD_SYNCVIDEOPORTDATA {
     pub dwDriverReserved1: u32,
     pub dwDriverReserved2: u32,
     pub dwDriverReserved3: u32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DD_SYNCVIDEOPORTDATA {}
@@ -15091,8 +15091,8 @@ impl ::core::fmt::Debug for DD_SYNCVIDEOPORTDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_SYNCVIDEOPORTDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_SYNCVIDEOPORTDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_SYNCVIDEOPORTDATA {
@@ -15114,7 +15114,7 @@ impl ::core::default::Default for DD_SYNCVIDEOPORTDATA {
 pub struct DD_UNLOCKDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDSurface: *mut DD_SURFACE_LOCAL,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub Unlock: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15132,8 +15132,8 @@ impl ::core::fmt::Debug for DD_UNLOCKDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_UNLOCKDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_UNLOCKDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_UNLOCKDATA {
@@ -15157,7 +15157,7 @@ pub struct DD_UPDATENONLOCALHEAPDATA {
     pub fpGARTLin: usize,
     pub fpGARTDev: usize,
     pub ulPolicyMaxBytes: usize,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub UpdateNonLocalHeap: *mut ::core::ffi::c_void,
 }
 impl ::core::marker::Copy for DD_UPDATENONLOCALHEAPDATA {}
@@ -15171,8 +15171,8 @@ impl ::core::fmt::Debug for DD_UPDATENONLOCALHEAPDATA {
         f.debug_struct("DD_UPDATENONLOCALHEAPDATA").field("lpDD", &self.lpDD).field("dwHeap", &self.dwHeap).field("fpGARTLin", &self.fpGARTLin).field("fpGARTDev", &self.fpGARTDev).field("ulPolicyMaxBytes", &self.ulPolicyMaxBytes).field("ddRVal", &self.ddRVal).field("UpdateNonLocalHeap", &self.UpdateNonLocalHeap).finish()
     }
 }
-impl ::windows::core::TypeKind for DD_UPDATENONLOCALHEAPDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_UPDATENONLOCALHEAPDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DD_UPDATENONLOCALHEAPDATA {
     fn eq(&self, other: &Self) -> bool {
@@ -15196,7 +15196,7 @@ pub struct DD_UPDATEOVERLAYDATA {
     pub rSrc: super::super::Foundation::RECTL,
     pub dwFlags: u32,
     pub overlayFX: DDOVERLAYFX,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub UpdateOverlay: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15206,8 +15206,8 @@ impl ::core::clone::Clone for DD_UPDATEOVERLAYDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_UPDATEOVERLAYDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_UPDATEOVERLAYDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DD_UPDATEOVERLAYDATA {
@@ -15227,7 +15227,7 @@ pub struct DD_UPDATEVPORTDATA {
     pub dwFlags: u32,
     pub dwNumAutoflip: u32,
     pub dwNumVBIAutoflip: u32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub UpdateVideoPort: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15245,8 +15245,8 @@ impl ::core::fmt::Debug for DD_UPDATEVPORTDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_UPDATEVPORTDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_UPDATEVPORTDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_UPDATEVPORTDATA {
@@ -15300,8 +15300,8 @@ impl ::core::fmt::Debug for DD_VIDEOPORTCALLBACKS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_VIDEOPORTCALLBACKS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_VIDEOPORTCALLBACKS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DD_VIDEOPORTCALLBACKS {
@@ -15339,8 +15339,8 @@ impl ::core::fmt::Debug for DD_VIDEOPORT_LOCAL {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_VIDEOPORT_LOCAL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_VIDEOPORT_LOCAL {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_VIDEOPORT_LOCAL {
@@ -15364,7 +15364,7 @@ pub struct DD_VPORTCOLORDATA {
     pub lpVideoPort: *mut DD_VIDEOPORT_LOCAL,
     pub dwFlags: u32,
     pub lpColorData: *mut DDCOLORCONTROL,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub ColorControl: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15382,8 +15382,8 @@ impl ::core::fmt::Debug for DD_VPORTCOLORDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_VPORTCOLORDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_VPORTCOLORDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_VPORTCOLORDATA {
@@ -15406,7 +15406,7 @@ pub struct DD_WAITFORVERTICALBLANKDATA {
     pub dwFlags: u32,
     pub bIsInVB: u32,
     pub hEvent: usize,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub WaitForVerticalBlank: *mut ::core::ffi::c_void,
 }
 impl ::core::marker::Copy for DD_WAITFORVERTICALBLANKDATA {}
@@ -15420,8 +15420,8 @@ impl ::core::fmt::Debug for DD_WAITFORVERTICALBLANKDATA {
         f.debug_struct("DD_WAITFORVERTICALBLANKDATA").field("lpDD", &self.lpDD).field("dwFlags", &self.dwFlags).field("bIsInVB", &self.bIsInVB).field("hEvent", &self.hEvent).field("ddRVal", &self.ddRVal).field("WaitForVerticalBlank", &self.WaitForVerticalBlank).finish()
     }
 }
-impl ::windows::core::TypeKind for DD_WAITFORVERTICALBLANKDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_WAITFORVERTICALBLANKDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DD_WAITFORVERTICALBLANKDATA {
     fn eq(&self, other: &Self) -> bool {
@@ -15443,7 +15443,7 @@ pub struct DD_WAITFORVPORTSYNCDATA {
     pub dwFlags: u32,
     pub dwLine: u32,
     pub dwTimeOut: u32,
-    pub ddRVal: ::windows::core::HRESULT,
+    pub ddRVal: ::windows_core::HRESULT,
     pub UpdateVideoPort: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15461,8 +15461,8 @@ impl ::core::fmt::Debug for DD_WAITFORVPORTSYNCDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DD_WAITFORVPORTSYNCDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DD_WAITFORVPORTSYNCDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_WAITFORVPORTSYNCDATA {
@@ -15516,8 +15516,8 @@ impl ::core::fmt::Debug for DXAPI_INTERFACE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DXAPI_INTERFACE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DXAPI_INTERFACE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DXAPI_INTERFACE {
@@ -15541,8 +15541,8 @@ impl ::core::fmt::Debug for DX_IRQDATA {
         f.debug_struct("DX_IRQDATA").field("dwIrqFlags", &self.dwIrqFlags).finish()
     }
 }
-impl ::windows::core::TypeKind for DX_IRQDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DX_IRQDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DX_IRQDATA {
     fn eq(&self, other: &Self) -> bool {
@@ -15573,8 +15573,8 @@ impl ::core::fmt::Debug for HEAPALIAS {
         f.debug_struct("HEAPALIAS").field("fpVidMem", &self.fpVidMem).field("lpAlias", &self.lpAlias).field("dwAliasSize", &self.dwAliasSize).finish()
     }
 }
-impl ::windows::core::TypeKind for HEAPALIAS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HEAPALIAS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for HEAPALIAS {
     fn eq(&self, other: &Self) -> bool {
@@ -15606,8 +15606,8 @@ impl ::core::fmt::Debug for HEAPALIASINFO {
         f.debug_struct("HEAPALIASINFO").field("dwRefCnt", &self.dwRefCnt).field("dwFlags", &self.dwFlags).field("dwNumHeaps", &self.dwNumHeaps).field("lpAliases", &self.lpAliases).finish()
     }
 }
-impl ::windows::core::TypeKind for HEAPALIASINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HEAPALIASINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for HEAPALIASINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -15640,8 +15640,8 @@ impl ::core::clone::Clone for HEAPALIGNMENT {
         *self
     }
 }
-impl ::windows::core::TypeKind for HEAPALIGNMENT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HEAPALIGNMENT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for HEAPALIGNMENT {
     fn default() -> Self {
@@ -15652,8 +15652,8 @@ impl ::core::default::Default for HEAPALIGNMENT {
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct IUNKNOWN_LIST {
     pub lpLink: *mut IUNKNOWN_LIST,
-    pub lpGuid: *mut ::windows::core::GUID,
-    pub lpIUnknown: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
+    pub lpGuid: *mut ::windows_core::GUID,
+    pub lpIUnknown: ::std::mem::ManuallyDrop<::core::option::Option<::windows_core::IUnknown>>,
 }
 impl ::core::clone::Clone for IUNKNOWN_LIST {
     fn clone(&self) -> Self {
@@ -15665,8 +15665,8 @@ impl ::core::fmt::Debug for IUNKNOWN_LIST {
         f.debug_struct("IUNKNOWN_LIST").field("lpLink", &self.lpLink).field("lpGuid", &self.lpGuid).field("lpIUnknown", &self.lpIUnknown).finish()
     }
 }
-impl ::windows::core::TypeKind for IUNKNOWN_LIST {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IUNKNOWN_LIST {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for IUNKNOWN_LIST {
     fn eq(&self, other: &Self) -> bool {
@@ -15702,8 +15702,8 @@ impl ::core::fmt::Debug for MDL {
         f.debug_struct("MDL").field("MdlNext", &self.MdlNext).field("MdlSize", &self.MdlSize).field("MdlFlags", &self.MdlFlags).field("Process", &self.Process).field("lpMappedSystemVa", &self.lpMappedSystemVa).field("lpStartVa", &self.lpStartVa).field("ByteCount", &self.ByteCount).field("ByteOffset", &self.ByteOffset).finish()
     }
 }
-impl ::windows::core::TypeKind for MDL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MDL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for MDL {
     fn eq(&self, other: &Self) -> bool {
@@ -15724,8 +15724,8 @@ impl ::core::clone::Clone for MDL_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for MDL_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MDL_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
@@ -15747,8 +15747,8 @@ impl ::core::fmt::Debug for PROCESS_LIST {
         f.debug_struct("PROCESS_LIST").field("lpLink", &self.lpLink).field("dwProcessId", &self.dwProcessId).field("dwRefCnt", &self.dwRefCnt).field("dwAlphaDepth", &self.dwAlphaDepth).field("dwZDepth", &self.dwZDepth).finish()
     }
 }
-impl ::windows::core::TypeKind for PROCESS_LIST {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROCESS_LIST {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for PROCESS_LIST {
     fn eq(&self, other: &Self) -> bool {
@@ -15772,8 +15772,8 @@ impl ::core::clone::Clone for SURFACEALIGNMENT {
         *self
     }
 }
-impl ::windows::core::TypeKind for SURFACEALIGNMENT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SURFACEALIGNMENT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for SURFACEALIGNMENT {
     fn default() -> Self {
@@ -15792,8 +15792,8 @@ impl ::core::clone::Clone for SURFACEALIGNMENT_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for SURFACEALIGNMENT_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SURFACEALIGNMENT_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for SURFACEALIGNMENT_0 {
     fn default() -> Self {
@@ -15819,8 +15819,8 @@ impl ::core::fmt::Debug for SURFACEALIGNMENT_0_0 {
         f.debug_struct("SURFACEALIGNMENT_0_0").field("dwStartAlignment", &self.dwStartAlignment).field("dwPitchAlignment", &self.dwPitchAlignment).field("dwFlags", &self.dwFlags).field("dwReserved2", &self.dwReserved2).finish()
     }
 }
-impl ::windows::core::TypeKind for SURFACEALIGNMENT_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SURFACEALIGNMENT_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for SURFACEALIGNMENT_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -15852,8 +15852,8 @@ impl ::core::fmt::Debug for SURFACEALIGNMENT_0_1 {
         f.debug_struct("SURFACEALIGNMENT_0_1").field("dwXAlignment", &self.dwXAlignment).field("dwYAlignment", &self.dwYAlignment).field("dwFlags", &self.dwFlags).field("dwReserved2", &self.dwReserved2).finish()
     }
 }
-impl ::windows::core::TypeKind for SURFACEALIGNMENT_0_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SURFACEALIGNMENT_0_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for SURFACEALIGNMENT_0_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -15886,8 +15886,8 @@ impl ::core::clone::Clone for VIDEOMEMORY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for VIDEOMEMORY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VIDEOMEMORY {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for VIDEOMEMORY {
@@ -15911,8 +15911,8 @@ impl ::core::clone::Clone for VIDEOMEMORY_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for VIDEOMEMORY_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VIDEOMEMORY_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for VIDEOMEMORY_0 {
@@ -15936,8 +15936,8 @@ impl ::core::clone::Clone for VIDEOMEMORY_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for VIDEOMEMORY_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VIDEOMEMORY_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for VIDEOMEMORY_1 {
@@ -15967,8 +15967,8 @@ impl ::core::clone::Clone for VIDEOMEMORYINFO {
         *self
     }
 }
-impl ::windows::core::TypeKind for VIDEOMEMORYINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VIDEOMEMORYINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for VIDEOMEMORYINFO {
     fn default() -> Self {
@@ -15995,8 +15995,8 @@ impl ::core::clone::Clone for VIDMEM {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for VIDMEM {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VIDMEM {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for VIDMEM {
@@ -16020,8 +16020,8 @@ impl ::core::clone::Clone for VIDMEM_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for VIDMEM_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VIDMEM_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for VIDMEM_0 {
@@ -16045,8 +16045,8 @@ impl ::core::clone::Clone for VIDMEM_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for VIDMEM_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VIDMEM_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for VIDMEM_1 {
@@ -16081,8 +16081,8 @@ impl ::core::clone::Clone for VIDMEMINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for VIDMEMINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VIDMEMINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for VIDMEMINFO {
@@ -16121,8 +16121,8 @@ impl ::core::clone::Clone for VMEMHEAP {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for VMEMHEAP {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VMEMHEAP {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for VMEMHEAP {
@@ -16154,8 +16154,8 @@ impl ::core::fmt::Debug for VMEML {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for VMEML {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VMEML {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for VMEML {
@@ -16206,8 +16206,8 @@ impl ::core::fmt::Debug for VMEMR {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for VMEMR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VMEMR {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for VMEMR {
@@ -16231,8 +16231,8 @@ impl ::core::clone::Clone for _DDFXROP {
         *self
     }
 }
-impl ::windows::core::TypeKind for _DDFXROP {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for _DDFXROP {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 pub struct _DD_DESTROYDRIVERDATA(pub u8);
@@ -16242,8 +16242,8 @@ impl ::core::clone::Clone for _DD_DESTROYDRIVERDATA {
         *self
     }
 }
-impl ::windows::core::TypeKind for _DD_DESTROYDRIVERDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for _DD_DESTROYDRIVERDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 pub struct _DD_GETVPORTAUTOFLIPSURFACEDATA(pub u8);
@@ -16253,8 +16253,8 @@ impl ::core::clone::Clone for _DD_GETVPORTAUTOFLIPSURFACEDATA {
         *self
     }
 }
-impl ::windows::core::TypeKind for _DD_GETVPORTAUTOFLIPSURFACEDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for _DD_GETVPORTAUTOFLIPSURFACEDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 pub struct _DD_SETMODEDATA(pub u8);
@@ -16264,8 +16264,8 @@ impl ::core::clone::Clone for _DD_SETMODEDATA {
         *self
     }
 }
-impl ::windows::core::TypeKind for _DD_SETMODEDATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for _DD_SETMODEDATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16274,30 +16274,30 @@ pub type LPCLIPPERCALLBACK = ::core::option::Option<unsafe extern "system" fn(lp
 pub type LPDD32BITDRIVERINIT = ::core::option::Option<unsafe extern "system" fn(dwcontext: u32) -> u32>;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDDENUMCALLBACKA = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::windows::core::GUID, param1: ::windows::core::PCSTR, param2: ::windows::core::PCSTR, param3: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type LPDDENUMCALLBACKA = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::windows_core::GUID, param1: ::windows_core::PCSTR, param2: ::windows_core::PCSTR, param3: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-pub type LPDDENUMCALLBACKEXA = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::windows::core::GUID, param1: ::windows::core::PCSTR, param2: ::windows::core::PCSTR, param3: *mut ::core::ffi::c_void, param4: super::Gdi::HMONITOR) -> super::super::Foundation::BOOL>;
+pub type LPDDENUMCALLBACKEXA = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::windows_core::GUID, param1: ::windows_core::PCSTR, param2: ::windows_core::PCSTR, param3: *mut ::core::ffi::c_void, param4: super::Gdi::HMONITOR) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-pub type LPDDENUMCALLBACKEXW = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::windows::core::GUID, param1: ::windows::core::PCWSTR, param2: ::windows::core::PCWSTR, param3: *mut ::core::ffi::c_void, param4: super::Gdi::HMONITOR) -> super::super::Foundation::BOOL>;
+pub type LPDDENUMCALLBACKEXW = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::windows_core::GUID, param1: ::windows_core::PCWSTR, param2: ::windows_core::PCWSTR, param3: *mut ::core::ffi::c_void, param4: super::Gdi::HMONITOR) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDDENUMCALLBACKW = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::windows::core::GUID, param1: ::windows::core::PCWSTR, param2: ::windows::core::PCWSTR, param3: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type LPDDENUMCALLBACKW = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::windows_core::GUID, param1: ::windows_core::PCWSTR, param2: ::windows_core::PCWSTR, param3: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub type LPDDENUMMODESCALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDSURFACEDESC, param1: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
+pub type LPDDENUMMODESCALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDSURFACEDESC, param1: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub type LPDDENUMMODESCALLBACK2 = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDSURFACEDESC2, param1: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
+pub type LPDDENUMMODESCALLBACK2 = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDSURFACEDESC2, param1: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub type LPDDENUMSURFACESCALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: ::core::option::Option<IDirectDrawSurface>, param1: *mut DDSURFACEDESC, param2: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
+pub type LPDDENUMSURFACESCALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: ::core::option::Option<IDirectDrawSurface>, param1: *mut DDSURFACEDESC, param2: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub type LPDDENUMSURFACESCALLBACK2 = ::core::option::Option<unsafe extern "system" fn(param0: ::core::option::Option<IDirectDrawSurface4>, param1: *mut DDSURFACEDESC2, param2: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
+pub type LPDDENUMSURFACESCALLBACK2 = ::core::option::Option<unsafe extern "system" fn(param0: ::core::option::Option<IDirectDrawSurface4>, param1: *mut DDSURFACEDESC2, param2: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub type LPDDENUMSURFACESCALLBACK7 = ::core::option::Option<unsafe extern "system" fn(param0: ::core::option::Option<IDirectDrawSurface7>, param1: *mut DDSURFACEDESC2, param2: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
+pub type LPDDENUMSURFACESCALLBACK7 = ::core::option::Option<unsafe extern "system" fn(param0: ::core::option::Option<IDirectDrawSurface7>, param1: *mut DDSURFACEDESC2, param2: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub type LPDDENUMVIDEOCALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDVIDEOPORTCAPS, param1: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
+pub type LPDDENUMVIDEOCALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDVIDEOPORTCAPS, param1: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub type LPDDGAMMACALIBRATORPROC = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDGAMMARAMP, param1: *mut u8) -> ::windows::core::HRESULT>;
+pub type LPDDGAMMACALIBRATORPROC = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDGAMMARAMP, param1: *mut u8) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALCOLORCB_COLORCONTROL = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_COLORCONTROLDATA) -> u32>;
@@ -16504,10 +16504,10 @@ pub type LPDDHAL_WAITFORVERTICALBLANK = ::core::option::Option<unsafe extern "sy
 pub type LPDDHEL_INIT = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDRAWI_DIRECTDRAW_GBL, param1: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-pub type LPDIRECTDRAWENUMERATEEXA = ::core::option::Option<unsafe extern "system" fn(lpcallback: LPDDENUMCALLBACKEXA, lpcontext: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT>;
+pub type LPDIRECTDRAWENUMERATEEXA = ::core::option::Option<unsafe extern "system" fn(lpcallback: LPDDENUMCALLBACKEXA, lpcontext: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-pub type LPDIRECTDRAWENUMERATEEXW = ::core::option::Option<unsafe extern "system" fn(lpcallback: LPDDENUMCALLBACKEXW, lpcontext: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT>;
+pub type LPDIRECTDRAWENUMERATEEXW = ::core::option::Option<unsafe extern "system" fn(lpcallback: LPDDENUMCALLBACKEXW, lpcontext: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_ALPHABLT = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_BLTDATA) -> u32>;

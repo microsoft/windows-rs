@@ -22,8 +22,8 @@ impl ::core::fmt::Debug for JET_API_PTR {
         f.debug_tuple("JET_API_PTR").field(&self.0).finish()
     }
 }
-impl ::windows::core::TypeKind for JET_API_PTR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for JET_API_PTR {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -49,8 +49,8 @@ impl ::core::fmt::Debug for JET_HANDLE {
         f.debug_tuple("JET_HANDLE").field(&self.0).finish()
     }
 }
-impl ::windows::core::TypeKind for JET_HANDLE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for JET_HANDLE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -76,8 +76,8 @@ impl ::core::fmt::Debug for JET_INSTANCE {
         f.debug_tuple("JET_INSTANCE").field(&self.0).finish()
     }
 }
-impl ::windows::core::TypeKind for JET_INSTANCE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for JET_INSTANCE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -103,8 +103,8 @@ impl ::core::fmt::Debug for JET_SESID {
         f.debug_tuple("JET_SESID").field(&self.0).finish()
     }
 }
-impl ::windows::core::TypeKind for JET_SESID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for JET_SESID {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -130,8 +130,8 @@ impl ::core::fmt::Debug for JET_TABLEID {
         f.debug_tuple("JET_TABLEID").field(&self.0).finish()
     }
 }
-impl ::windows::core::TypeKind for JET_TABLEID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for JET_TABLEID {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

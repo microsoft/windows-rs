@@ -1,70 +1,70 @@
 #[doc = "*Required features: `\"Devices_Adc_Provider\"`*"]
 #[repr(transparent)]
-pub struct IAdcControllerProvider(::windows::core::IUnknown);
+pub struct IAdcControllerProvider(::windows_core::IUnknown);
 impl IAdcControllerProvider {
-    pub fn ChannelCount(&self) -> ::windows::core::Result<i32> {
+    pub fn ChannelCount(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Interface::vtable(this).ChannelCount)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<i32>();
+            (::windows_core::Interface::vtable(this).ChannelCount)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn ResolutionInBits(&self) -> ::windows::core::Result<i32> {
+    pub fn ResolutionInBits(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Interface::vtable(this).ResolutionInBits)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<i32>();
+            (::windows_core::Interface::vtable(this).ResolutionInBits)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn MinValue(&self) -> ::windows::core::Result<i32> {
+    pub fn MinValue(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Interface::vtable(this).MinValue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<i32>();
+            (::windows_core::Interface::vtable(this).MinValue)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn MaxValue(&self) -> ::windows::core::Result<i32> {
+    pub fn MaxValue(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Interface::vtable(this).MaxValue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<i32>();
+            (::windows_core::Interface::vtable(this).MaxValue)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn ChannelMode(&self) -> ::windows::core::Result<ProviderAdcChannelMode> {
+    pub fn ChannelMode(&self) -> ::windows_core::Result<ProviderAdcChannelMode> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<ProviderAdcChannelMode>();
-            (::windows::core::Interface::vtable(this).ChannelMode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<ProviderAdcChannelMode>();
+            (::windows_core::Interface::vtable(this).ChannelMode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn SetChannelMode(&self, value: ProviderAdcChannelMode) -> ::windows::core::Result<()> {
+    pub fn SetChannelMode(&self, value: ProviderAdcChannelMode) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetChannelMode)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetChannelMode)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn IsChannelModeSupported(&self, channelmode: ProviderAdcChannelMode) -> ::windows::core::Result<bool> {
+    pub fn IsChannelModeSupported(&self, channelmode: ProviderAdcChannelMode) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Interface::vtable(this).IsChannelModeSupported)(::windows::core::Interface::as_raw(this), channelmode, &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<bool>();
+            (::windows_core::Interface::vtable(this).IsChannelModeSupported)(::windows_core::Interface::as_raw(this), channelmode, &mut result__).from_abi(result__)
         }
     }
-    pub fn AcquireChannel(&self, channel: i32) -> ::windows::core::Result<()> {
+    pub fn AcquireChannel(&self, channel: i32) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AcquireChannel)(::windows::core::Interface::as_raw(this), channel).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).AcquireChannel)(::windows_core::Interface::as_raw(this), channel).ok() }
     }
-    pub fn ReleaseChannel(&self, channel: i32) -> ::windows::core::Result<()> {
+    pub fn ReleaseChannel(&self, channel: i32) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ReleaseChannel)(::windows::core::Interface::as_raw(this), channel).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).ReleaseChannel)(::windows_core::Interface::as_raw(this), channel).ok() }
     }
-    pub fn ReadValue(&self, channelnumber: i32) -> ::windows::core::Result<i32> {
+    pub fn ReadValue(&self, channelnumber: i32) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Interface::vtable(this).ReadValue)(::windows::core::Interface::as_raw(this), channelnumber, &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<i32>();
+            (::windows_core::Interface::vtable(this).ReadValue)(::windows_core::Interface::as_raw(this), channelnumber, &mut result__).from_abi(result__)
         }
     }
 }
-::windows::imp::interface_hierarchy!(IAdcControllerProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows_core::imp::interface_hierarchy!(IAdcControllerProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::core::cmp::PartialEq for IAdcControllerProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -76,10 +76,10 @@ impl ::core::fmt::Debug for IAdcControllerProvider {
         f.debug_tuple("IAdcControllerProvider").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for IAdcControllerProvider {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{be545828-816d-4de5-a048-aba06958aaa8}");
+impl ::windows_core::RuntimeType for IAdcControllerProvider {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{be545828-816d-4de5-a048-aba06958aaa8}");
 }
-unsafe impl ::windows::core::Interface for IAdcControllerProvider {
+unsafe impl ::windows_core::Interface for IAdcControllerProvider {
     type Vtable = IAdcControllerProvider_Vtbl;
 }
 impl ::core::clone::Clone for IAdcControllerProvider {
@@ -87,39 +87,39 @@ impl ::core::clone::Clone for IAdcControllerProvider {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IAdcControllerProvider {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe545828_816d_4de5_a048_aba06958aaa8);
+unsafe impl ::windows_core::ComInterface for IAdcControllerProvider {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbe545828_816d_4de5_a048_aba06958aaa8);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdcControllerProvider_Vtbl {
-    pub base__: ::windows::core::IInspectable_Vtbl,
-    pub ChannelCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
-    pub ResolutionInBits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
-    pub MinValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
-    pub MaxValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
-    pub ChannelMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ProviderAdcChannelMode) -> ::windows::core::HRESULT,
-    pub SetChannelMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ProviderAdcChannelMode) -> ::windows::core::HRESULT,
-    pub IsChannelModeSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, channelmode: ProviderAdcChannelMode, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub AcquireChannel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, channel: i32) -> ::windows::core::HRESULT,
-    pub ReleaseChannel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, channel: i32) -> ::windows::core::HRESULT,
-    pub ReadValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, channelnumber: i32, result__: *mut i32) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub ChannelCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
+    pub ResolutionInBits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
+    pub MinValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
+    pub MaxValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
+    pub ChannelMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ProviderAdcChannelMode) -> ::windows_core::HRESULT,
+    pub SetChannelMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ProviderAdcChannelMode) -> ::windows_core::HRESULT,
+    pub IsChannelModeSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, channelmode: ProviderAdcChannelMode, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub AcquireChannel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, channel: i32) -> ::windows_core::HRESULT,
+    pub ReleaseChannel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, channel: i32) -> ::windows_core::HRESULT,
+    pub ReadValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, channelnumber: i32, result__: *mut i32) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Devices_Adc_Provider\"`*"]
 #[repr(transparent)]
-pub struct IAdcProvider(::windows::core::IUnknown);
+pub struct IAdcProvider(::windows_core::IUnknown);
 impl IAdcProvider {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetControllers(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<IAdcControllerProvider>> {
+    pub fn GetControllers(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<IAdcControllerProvider>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Collections::IVectorView<IAdcControllerProvider>>();
-            (::windows::core::Interface::vtable(this).GetControllers)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Collections::IVectorView<IAdcControllerProvider>>();
+            (::windows_core::Interface::vtable(this).GetControllers)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows::imp::interface_hierarchy!(IAdcProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows_core::imp::interface_hierarchy!(IAdcProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::core::cmp::PartialEq for IAdcProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -131,10 +131,10 @@ impl ::core::fmt::Debug for IAdcProvider {
         f.debug_tuple("IAdcProvider").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for IAdcProvider {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{28953668-9359-4c57-bc88-e275e81638c9}");
+impl ::windows_core::RuntimeType for IAdcProvider {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{28953668-9359-4c57-bc88-e275e81638c9}");
 }
-unsafe impl ::windows::core::Interface for IAdcProvider {
+unsafe impl ::windows_core::Interface for IAdcProvider {
     type Vtable = IAdcProvider_Vtbl;
 }
 impl ::core::clone::Clone for IAdcProvider {
@@ -142,15 +142,15 @@ impl ::core::clone::Clone for IAdcProvider {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IAdcProvider {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28953668_9359_4c57_bc88_e275e81638c9);
+unsafe impl ::windows_core::ComInterface for IAdcProvider {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x28953668_9359_4c57_bc88_e275e81638c9);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdcProvider_Vtbl {
-    pub base__: ::windows::core::IInspectable_Vtbl,
+    pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
-    pub GetControllers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetControllers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     GetControllers: usize,
 }
@@ -173,16 +173,16 @@ impl ::core::default::Default for ProviderAdcChannelMode {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for ProviderAdcChannelMode {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for ProviderAdcChannelMode {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for ProviderAdcChannelMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ProviderAdcChannelMode").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for ProviderAdcChannelMode {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Adc.Provider.ProviderAdcChannelMode;i4)");
+impl ::windows_core::RuntimeType for ProviderAdcChannelMode {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Adc.Provider.ProviderAdcChannelMode;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

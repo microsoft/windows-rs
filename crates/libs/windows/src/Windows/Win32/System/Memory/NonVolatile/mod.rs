@@ -64,8 +64,8 @@ impl ::core::fmt::Debug for NV_MEMORY_RANGE {
         f.debug_struct("NV_MEMORY_RANGE").field("BaseAddress", &self.BaseAddress).field("Length", &self.Length).finish()
     }
 }
-impl ::windows::core::TypeKind for NV_MEMORY_RANGE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NV_MEMORY_RANGE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NV_MEMORY_RANGE {
     fn eq(&self, other: &Self) -> bool {

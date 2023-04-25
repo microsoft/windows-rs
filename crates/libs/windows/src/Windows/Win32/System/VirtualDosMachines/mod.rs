@@ -215,8 +215,8 @@ impl ::core::clone::Clone for GLOBALENTRY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for GLOBALENTRY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for GLOBALENTRY {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GLOBALENTRY {
@@ -243,8 +243,8 @@ impl ::core::fmt::Debug for IMAGE_NOTE {
         f.debug_struct("IMAGE_NOTE").field("Module", &self.Module).field("FileName", &self.FileName).field("hModule", &self.hModule).field("hTask", &self.hTask).finish()
     }
 }
-impl ::windows::core::TypeKind for IMAGE_NOTE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IMAGE_NOTE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for IMAGE_NOTE {
     fn eq(&self, other: &Self) -> bool {
@@ -277,8 +277,8 @@ impl ::core::clone::Clone for MODULEENTRY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for MODULEENTRY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MODULEENTRY {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MODULEENTRY {
@@ -308,8 +308,8 @@ impl ::core::fmt::Debug for SEGMENT_NOTE {
         f.debug_struct("SEGMENT_NOTE").field("Selector1", &self.Selector1).field("Selector2", &self.Selector2).field("Segment", &self.Segment).field("Module", &self.Module).field("FileName", &self.FileName).field("Type", &self.Type).field("Length", &self.Length).finish()
     }
 }
-impl ::windows::core::TypeKind for SEGMENT_NOTE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SEGMENT_NOTE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for SEGMENT_NOTE {
     fn eq(&self, other: &Self) -> bool {
@@ -345,8 +345,8 @@ impl ::core::fmt::Debug for TEMP_BP_NOTE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for TEMP_BP_NOTE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TEMP_BP_NOTE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TEMP_BP_NOTE {
@@ -438,8 +438,8 @@ impl ::core::fmt::Debug for VDMCONTEXT {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
-impl ::windows::core::TypeKind for VDMCONTEXT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VDMCONTEXT {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
@@ -527,8 +527,8 @@ impl ::core::fmt::Debug for VDMCONTEXT_WITHOUT_XSAVE {
     }
 }
 #[cfg(feature = "Win32_System_Kernel")]
-impl ::windows::core::TypeKind for VDMCONTEXT_WITHOUT_XSAVE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VDMCONTEXT_WITHOUT_XSAVE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::cmp::PartialEq for VDMCONTEXT_WITHOUT_XSAVE {
@@ -561,8 +561,8 @@ impl ::core::clone::Clone for VDMLDT_ENTRY {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::windows::core::TypeKind for VDMLDT_ENTRY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VDMLDT_ENTRY {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for VDMLDT_ENTRY {
@@ -586,8 +586,8 @@ impl ::core::clone::Clone for VDMLDT_ENTRY_0 {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::windows::core::TypeKind for VDMLDT_ENTRY_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VDMLDT_ENTRY_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for VDMLDT_ENTRY_0 {
@@ -616,8 +616,8 @@ impl ::core::fmt::Debug for VDMLDT_ENTRY_0_0 {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::windows::core::TypeKind for VDMLDT_ENTRY_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VDMLDT_ENTRY_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for VDMLDT_ENTRY_0_0 {
@@ -657,8 +657,8 @@ impl ::core::fmt::Debug for VDMLDT_ENTRY_0_1 {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::windows::core::TypeKind for VDMLDT_ENTRY_0_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VDMLDT_ENTRY_0_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for VDMLDT_ENTRY_0_1 {
@@ -695,8 +695,8 @@ impl ::core::fmt::Debug for VDM_SEGINFO {
         f.debug_struct("VDM_SEGINFO").field("Selector", &self.Selector).field("SegNumber", &self.SegNumber).field("Length", &self.Length).field("Type", &self.Type).field("ModuleName", &self.ModuleName).field("FileName", &self.FileName).finish()
     }
 }
-impl ::windows::core::TypeKind for VDM_SEGINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VDM_SEGINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for VDM_SEGINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -738,7 +738,7 @@ pub type VDMENUMTASKWOWEXPROC = ::core::option::Option<unsafe extern "system" fn
 pub type VDMENUMTASKWOWPROC = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: TASKENUMPROC, param2: super::super::Foundation::LPARAM) -> i32>;
 #[doc = "*Required features: `\"Win32_System_VirtualDosMachines\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type VDMGETADDREXPRESSIONPROC = ::core::option::Option<unsafe extern "system" fn(param0: ::windows::core::PCSTR, param1: ::windows::core::PCSTR, param2: *mut u16, param3: *mut u32, param4: *mut u16) -> super::super::Foundation::BOOL>;
+pub type VDMGETADDREXPRESSIONPROC = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_core::PCSTR, param1: ::windows_core::PCSTR, param2: *mut u16, param3: *mut u32, param4: *mut u16) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_System_VirtualDosMachines\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -752,7 +752,7 @@ pub type VDMGETCONTEXTPROC = ::core::option::Option<unsafe extern "system" fn(pa
 pub type VDMGETDBGFLAGSPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE) -> u32>;
 #[doc = "*Required features: `\"Win32_System_VirtualDosMachines\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type VDMGETMODULESELECTORPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: u32, param3: ::windows::core::PCSTR, param4: *mut u16) -> super::super::Foundation::BOOL>;
+pub type VDMGETMODULESELECTORPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: u32, param3: ::windows_core::PCSTR, param4: *mut u16) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_System_VirtualDosMachines\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type VDMGETPOINTERPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: u16, param3: u32, param4: super::super::Foundation::BOOL) -> u32>;
@@ -761,10 +761,10 @@ pub type VDMGETPOINTERPROC = ::core::option::Option<unsafe extern "system" fn(pa
 pub type VDMGETSEGMENTINFOPROC = ::core::option::Option<unsafe extern "system" fn(param0: u16, param1: u32, param2: super::super::Foundation::BOOL, param3: VDM_SEGINFO) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_System_VirtualDosMachines\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type VDMGETSELECTORMODULEPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: u16, param3: *mut u32, param4: ::windows::core::PCSTR, param5: u32, param6: ::windows::core::PCSTR, param7: u32) -> super::super::Foundation::BOOL>;
+pub type VDMGETSELECTORMODULEPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: u16, param3: *mut u32, param4: ::windows_core::PCSTR, param5: u32, param6: ::windows_core::PCSTR, param7: u32) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_System_VirtualDosMachines\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type VDMGETSYMBOLPROC = ::core::option::Option<unsafe extern "system" fn(param0: ::windows::core::PCSTR, param1: u16, param2: u32, param3: super::super::Foundation::BOOL, param4: super::super::Foundation::BOOL, param5: ::windows::core::PSTR, param6: *mut u32) -> super::super::Foundation::BOOL>;
+pub type VDMGETSYMBOLPROC = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_core::PCSTR, param1: u16, param2: u32, param3: super::super::Foundation::BOOL, param4: super::super::Foundation::BOOL, param5: ::windows_core::PSTR, param6: *mut u32) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_System_VirtualDosMachines\"`, `\"Win32_Foundation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
@@ -781,7 +781,7 @@ pub type VDMGLOBALFIRSTPROC = ::core::option::Option<unsafe extern "system" fn(p
 pub type VDMGLOBALNEXTPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut GLOBALENTRY, param3: u16, param4: DEBUGEVENTPROC, param5: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_System_VirtualDosMachines\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type VDMISMODULELOADEDPROC = ::core::option::Option<unsafe extern "system" fn(param0: ::windows::core::PCSTR) -> super::super::Foundation::BOOL>;
+pub type VDMISMODULELOADEDPROC = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_core::PCSTR) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_System_VirtualDosMachines\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type VDMKILLWOWPROC = ::core::option::Option<unsafe extern "system" fn() -> super::super::Foundation::BOOL>;
@@ -807,7 +807,7 @@ pub type VDMSETCONTEXTPROC = ::core::option::Option<unsafe extern "system" fn(pa
 pub type VDMSETDBGFLAGSPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: u32) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_System_VirtualDosMachines\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type VDMSTARTTASKINWOWPROC = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: ::windows::core::PCSTR, param2: u16) -> super::super::Foundation::BOOL>;
+pub type VDMSTARTTASKINWOWPROC = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: ::windows_core::PCSTR, param2: u16) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_System_VirtualDosMachines\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type VDMTERMINATETASKINWOWPROC = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: u16) -> super::super::Foundation::BOOL>;

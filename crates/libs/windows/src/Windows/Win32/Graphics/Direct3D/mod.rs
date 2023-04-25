@@ -4,16 +4,16 @@ pub mod Dxc;
 pub mod Fxc;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 #[repr(transparent)]
-pub struct ID3DBlob(::windows::core::IUnknown);
+pub struct ID3DBlob(::windows_core::IUnknown);
 impl ID3DBlob {
     pub unsafe fn GetBufferPointer(&self) -> *mut ::core::ffi::c_void {
-        (::windows::core::Interface::vtable(self).GetBufferPointer)(::windows::core::Interface::as_raw(self))
+        (::windows_core::Interface::vtable(self).GetBufferPointer)(::windows_core::Interface::as_raw(self))
     }
     pub unsafe fn GetBufferSize(&self) -> usize {
-        (::windows::core::Interface::vtable(self).GetBufferSize)(::windows::core::Interface::as_raw(self))
+        (::windows_core::Interface::vtable(self).GetBufferSize)(::windows_core::Interface::as_raw(self))
     }
 }
-::windows::imp::interface_hierarchy!(ID3DBlob, ::windows::core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ID3DBlob, ::windows_core::IUnknown);
 impl ::core::cmp::PartialEq for ID3DBlob {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -27,7 +27,7 @@ impl ::core::fmt::Debug for ID3DBlob {
 }
 unsafe impl ::core::marker::Send for ID3DBlob {}
 unsafe impl ::core::marker::Sync for ID3DBlob {}
-unsafe impl ::windows::core::Interface for ID3DBlob {
+unsafe impl ::windows_core::Interface for ID3DBlob {
     type Vtable = ID3DBlob_Vtbl;
 }
 impl ::core::clone::Clone for ID3DBlob {
@@ -35,29 +35,29 @@ impl ::core::clone::Clone for ID3DBlob {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for ID3DBlob {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ba5fb08_5195_40e2_ac58_0d989c3a0102);
+unsafe impl ::windows_core::ComInterface for ID3DBlob {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8ba5fb08_5195_40e2_ac58_0d989c3a0102);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3DBlob_Vtbl {
-    pub base__: ::windows::core::IUnknown_Vtbl,
+    pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetBufferPointer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void,
     pub GetBufferSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> usize,
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 #[repr(transparent)]
-pub struct ID3DDestructionNotifier(::windows::core::IUnknown);
+pub struct ID3DDestructionNotifier(::windows_core::IUnknown);
 impl ID3DDestructionNotifier {
-    pub unsafe fn RegisterDestructionCallback(&self, callbackfn: PFN_DESTRUCTION_CALLBACK, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<u32> {
-        let mut result__ = ::windows::core::zeroed::<u32>();
-        (::windows::core::Interface::vtable(self).RegisterDestructionCallback)(::windows::core::Interface::as_raw(self), callbackfn, pdata, &mut result__).from_abi(result__)
+    pub unsafe fn RegisterDestructionCallback(&self, callbackfn: PFN_DESTRUCTION_CALLBACK, pdata: *const ::core::ffi::c_void) -> ::windows_core::Result<u32> {
+        let mut result__ = ::windows_core::zeroed::<u32>();
+        (::windows_core::Interface::vtable(self).RegisterDestructionCallback)(::windows_core::Interface::as_raw(self), callbackfn, pdata, &mut result__).from_abi(result__)
     }
-    pub unsafe fn UnregisterDestructionCallback(&self, callbackid: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UnregisterDestructionCallback)(::windows::core::Interface::as_raw(self), callbackid).ok()
+    pub unsafe fn UnregisterDestructionCallback(&self, callbackid: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).UnregisterDestructionCallback)(::windows_core::Interface::as_raw(self), callbackid).ok()
     }
 }
-::windows::imp::interface_hierarchy!(ID3DDestructionNotifier, ::windows::core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ID3DDestructionNotifier, ::windows_core::IUnknown);
 impl ::core::cmp::PartialEq for ID3DDestructionNotifier {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -71,7 +71,7 @@ impl ::core::fmt::Debug for ID3DDestructionNotifier {
 }
 unsafe impl ::core::marker::Send for ID3DDestructionNotifier {}
 unsafe impl ::core::marker::Sync for ID3DDestructionNotifier {}
-unsafe impl ::windows::core::Interface for ID3DDestructionNotifier {
+unsafe impl ::windows_core::Interface for ID3DDestructionNotifier {
     type Vtable = ID3DDestructionNotifier_Vtbl;
 }
 impl ::core::clone::Clone for ID3DDestructionNotifier {
@@ -79,28 +79,28 @@ impl ::core::clone::Clone for ID3DDestructionNotifier {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for ID3DDestructionNotifier {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa06eb39a_50da_425b_8c31_4eecd6c270f3);
+unsafe impl ::windows_core::ComInterface for ID3DDestructionNotifier {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa06eb39a_50da_425b_8c31_4eecd6c270f3);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3DDestructionNotifier_Vtbl {
-    pub base__: ::windows::core::IUnknown_Vtbl,
-    pub RegisterDestructionCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, callbackfn: PFN_DESTRUCTION_CALLBACK, pdata: *const ::core::ffi::c_void, pcallbackid: *mut u32) -> ::windows::core::HRESULT,
-    pub UnregisterDestructionCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, callbackid: u32) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub RegisterDestructionCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, callbackfn: PFN_DESTRUCTION_CALLBACK, pdata: *const ::core::ffi::c_void, pcallbackid: *mut u32) -> ::windows_core::HRESULT,
+    pub UnregisterDestructionCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, callbackid: u32) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 #[repr(transparent)]
 pub struct ID3DInclude(::std::ptr::NonNull<::std::ffi::c_void>);
 impl ID3DInclude {
-    pub unsafe fn Open<P0>(&self, includetype: D3D_INCLUDE_TYPE, pfilename: P0, pparentdata: *const ::core::ffi::c_void, ppdata: *mut *mut ::core::ffi::c_void, pbytes: *mut u32) -> ::windows::core::Result<()>
+    pub unsafe fn Open<P0>(&self, includetype: D3D_INCLUDE_TYPE, pfilename: P0, pparentdata: *const ::core::ffi::c_void, ppdata: *mut *mut ::core::ffi::c_void, pbytes: *mut u32) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        (::windows::core::Interface::vtable(self).Open)(::windows::core::Interface::as_raw(self), includetype, pfilename.into_param().abi(), pparentdata, ppdata, pbytes).ok()
+        (::windows_core::Interface::vtable(self).Open)(::windows_core::Interface::as_raw(self), includetype, pfilename.into_param().abi(), pparentdata, ppdata, pbytes).ok()
     }
-    pub unsafe fn Close(&self, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Close)(::windows::core::Interface::as_raw(self), pdata).ok()
+    pub unsafe fn Close(&self, pdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Close)(::windows_core::Interface::as_raw(self), pdata).ok()
     }
 }
 impl ::core::cmp::PartialEq for ID3DInclude {
@@ -116,7 +116,7 @@ impl ::core::fmt::Debug for ID3DInclude {
 }
 unsafe impl ::core::marker::Send for ID3DInclude {}
 unsafe impl ::core::marker::Sync for ID3DInclude {}
-unsafe impl ::windows::core::Interface for ID3DInclude {
+unsafe impl ::windows_core::Interface for ID3DInclude {
     type Vtable = ID3DInclude_Vtbl;
 }
 impl ::core::clone::Clone for ID3DInclude {
@@ -127,8 +127,8 @@ impl ::core::clone::Clone for ID3DInclude {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3DInclude_Vtbl {
-    pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, includetype: D3D_INCLUDE_TYPE, pfilename: ::windows::core::PCSTR, pparentdata: *const ::core::ffi::c_void, ppdata: *mut *mut ::core::ffi::c_void, pbytes: *mut u32) -> ::windows::core::HRESULT,
-    pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, includetype: D3D_INCLUDE_TYPE, pfilename: ::windows_core::PCSTR, pparentdata: *const ::core::ffi::c_void, ppdata: *mut *mut ::core::ffi::c_void, pbytes: *mut u32) -> ::windows_core::HRESULT,
+    pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdata: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 pub const D3D_COMPONENT_MASK_W: u32 = 8u32;
@@ -227,17 +227,17 @@ pub const D3D_SHADER_FEATURE_WAVE_MMA: u32 = 134217728u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 pub const D3D_SHADER_FEATURE_WAVE_OPS: u32 = 16384u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
-pub const D3D_TEXTURE_LAYOUT_64KB_STANDARD_SWIZZLE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c0f29e3_3f5f_4d35_84c9_bc0983b62c28);
+pub const D3D_TEXTURE_LAYOUT_64KB_STANDARD_SWIZZLE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4c0f29e3_3f5f_4d35_84c9_bc0983b62c28);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
-pub const D3D_TEXTURE_LAYOUT_ROW_MAJOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5dc234f_72bb_4bec_9705_8cf258df6b6c);
+pub const D3D_TEXTURE_LAYOUT_ROW_MAJOR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb5dc234f_72bb_4bec_9705_8cf258df6b6c);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
-pub const WKPDID_CommentStringW: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0149dc0_90e8_4ec8_8144_e900ad266bb2);
+pub const WKPDID_CommentStringW: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd0149dc0_90e8_4ec8_8144_e900ad266bb2);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
-pub const WKPDID_D3D12UniqueObjectId: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b39de15_ec04_4bae_ba4d_8cef79fc04c1);
+pub const WKPDID_D3D12UniqueObjectId: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1b39de15_ec04_4bae_ba4d_8cef79fc04c1);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
-pub const WKPDID_D3DDebugObjectName: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x429b8c22_9188_4b0c_8742_acb0bf85c200);
+pub const WKPDID_D3DDebugObjectName: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x429b8c22_9188_4b0c_8742_acb0bf85c200);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
-pub const WKPDID_D3DDebugObjectNameW: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4cca5fd8_921f_42c8_8566_70caf2a9b741);
+pub const WKPDID_D3DDebugObjectNameW: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4cca5fd8_921f_42c8_8566_70caf2a9b741);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -273,8 +273,8 @@ impl ::core::default::Default for D3D_CBUFFER_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for D3D_CBUFFER_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for D3D_CBUFFER_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for D3D_CBUFFER_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -308,8 +308,8 @@ impl ::core::default::Default for D3D_DRIVER_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for D3D_DRIVER_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for D3D_DRIVER_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for D3D_DRIVER_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -353,8 +353,8 @@ impl ::core::default::Default for D3D_FEATURE_LEVEL {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for D3D_FEATURE_LEVEL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for D3D_FEATURE_LEVEL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for D3D_FEATURE_LEVEL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -392,8 +392,8 @@ impl ::core::default::Default for D3D_FORMAT_COMPONENT_INTERPRETATION {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for D3D_FORMAT_COMPONENT_INTERPRETATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for D3D_FORMAT_COMPONENT_INTERPRETATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for D3D_FORMAT_COMPONENT_INTERPRETATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -429,8 +429,8 @@ impl ::core::default::Default for D3D_FORMAT_COMPONENT_NAME {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for D3D_FORMAT_COMPONENT_NAME {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for D3D_FORMAT_COMPONENT_NAME {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for D3D_FORMAT_COMPONENT_NAME {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -456,8 +456,8 @@ impl ::core::default::Default for D3D_FORMAT_LAYOUT {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for D3D_FORMAT_LAYOUT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for D3D_FORMAT_LAYOUT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for D3D_FORMAT_LAYOUT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -485,8 +485,8 @@ impl ::core::default::Default for D3D_FORMAT_TYPE_LEVEL {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for D3D_FORMAT_TYPE_LEVEL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for D3D_FORMAT_TYPE_LEVEL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for D3D_FORMAT_TYPE_LEVEL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -518,8 +518,8 @@ impl ::core::default::Default for D3D_INCLUDE_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for D3D_INCLUDE_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for D3D_INCLUDE_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for D3D_INCLUDE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -557,8 +557,8 @@ impl ::core::default::Default for D3D_INTERPOLATION_MODE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for D3D_INTERPOLATION_MODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for D3D_INTERPOLATION_MODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for D3D_INTERPOLATION_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -596,8 +596,8 @@ impl ::core::default::Default for D3D_MIN_PRECISION {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for D3D_MIN_PRECISION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for D3D_MIN_PRECISION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for D3D_MIN_PRECISION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -727,8 +727,8 @@ impl ::core::default::Default for D3D_NAME {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for D3D_NAME {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for D3D_NAME {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for D3D_NAME {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -758,8 +758,8 @@ impl ::core::default::Default for D3D_PARAMETER_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for D3D_PARAMETER_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for D3D_PARAMETER_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for D3D_PARAMETER_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -945,8 +945,8 @@ impl ::core::default::Default for D3D_PRIMITIVE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for D3D_PRIMITIVE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for D3D_PRIMITIVE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for D3D_PRIMITIVE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1158,8 +1158,8 @@ impl ::core::default::Default for D3D_PRIMITIVE_TOPOLOGY {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for D3D_PRIMITIVE_TOPOLOGY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for D3D_PRIMITIVE_TOPOLOGY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for D3D_PRIMITIVE_TOPOLOGY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1197,8 +1197,8 @@ impl ::core::default::Default for D3D_REGISTER_COMPONENT_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for D3D_REGISTER_COMPONENT_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for D3D_REGISTER_COMPONENT_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for D3D_REGISTER_COMPONENT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1264,8 +1264,8 @@ impl ::core::default::Default for D3D_RESOURCE_RETURN_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for D3D_RESOURCE_RETURN_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for D3D_RESOURCE_RETURN_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for D3D_RESOURCE_RETURN_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1293,8 +1293,8 @@ impl ::core::default::Default for D3D_SHADER_CBUFFER_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for D3D_SHADER_CBUFFER_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for D3D_SHADER_CBUFFER_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for D3D_SHADER_CBUFFER_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1340,8 +1340,8 @@ impl ::core::default::Default for D3D_SHADER_INPUT_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for D3D_SHADER_INPUT_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for D3D_SHADER_INPUT_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for D3D_SHADER_INPUT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1415,8 +1415,8 @@ impl ::core::default::Default for D3D_SHADER_INPUT_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for D3D_SHADER_INPUT_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for D3D_SHADER_INPUT_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for D3D_SHADER_INPUT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1472,8 +1472,8 @@ impl ::core::default::Default for D3D_SHADER_VARIABLE_CLASS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for D3D_SHADER_VARIABLE_CLASS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for D3D_SHADER_VARIABLE_CLASS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for D3D_SHADER_VARIABLE_CLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1513,8 +1513,8 @@ impl ::core::default::Default for D3D_SHADER_VARIABLE_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for D3D_SHADER_VARIABLE_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for D3D_SHADER_VARIABLE_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for D3D_SHADER_VARIABLE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1768,8 +1768,8 @@ impl ::core::default::Default for D3D_SHADER_VARIABLE_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for D3D_SHADER_VARIABLE_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for D3D_SHADER_VARIABLE_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for D3D_SHADER_VARIABLE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1881,8 +1881,8 @@ impl ::core::default::Default for D3D_SRV_DIMENSION {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for D3D_SRV_DIMENSION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for D3D_SRV_DIMENSION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for D3D_SRV_DIMENSION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1920,8 +1920,8 @@ impl ::core::default::Default for D3D_TESSELLATOR_DOMAIN {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for D3D_TESSELLATOR_DOMAIN {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for D3D_TESSELLATOR_DOMAIN {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for D3D_TESSELLATOR_DOMAIN {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1963,8 +1963,8 @@ impl ::core::default::Default for D3D_TESSELLATOR_OUTPUT_PRIMITIVE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for D3D_TESSELLATOR_OUTPUT_PRIMITIVE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for D3D_TESSELLATOR_OUTPUT_PRIMITIVE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for D3D_TESSELLATOR_OUTPUT_PRIMITIVE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2006,8 +2006,8 @@ impl ::core::default::Default for D3D_TESSELLATOR_PARTITIONING {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for D3D_TESSELLATOR_PARTITIONING {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for D3D_TESSELLATOR_PARTITIONING {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for D3D_TESSELLATOR_PARTITIONING {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2032,8 +2032,8 @@ impl ::core::fmt::Debug for D3DVECTOR {
         f.debug_struct("D3DVECTOR").field("x", &self.x).field("y", &self.y).field("z", &self.z).finish()
     }
 }
-impl ::windows::core::TypeKind for D3DVECTOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for D3DVECTOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3DVECTOR {
     fn eq(&self, other: &Self) -> bool {
@@ -2049,8 +2049,8 @@ impl ::core::default::Default for D3DVECTOR {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 pub struct D3D_SHADER_MACRO {
-    pub Name: ::windows::core::PCSTR,
-    pub Definition: ::windows::core::PCSTR,
+    pub Name: ::windows_core::PCSTR,
+    pub Definition: ::windows_core::PCSTR,
 }
 impl ::core::marker::Copy for D3D_SHADER_MACRO {}
 impl ::core::clone::Clone for D3D_SHADER_MACRO {
@@ -2063,8 +2063,8 @@ impl ::core::fmt::Debug for D3D_SHADER_MACRO {
         f.debug_struct("D3D_SHADER_MACRO").field("Name", &self.Name).field("Definition", &self.Definition).finish()
     }
 }
-impl ::windows::core::TypeKind for D3D_SHADER_MACRO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for D3D_SHADER_MACRO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D_SHADER_MACRO {
     fn eq(&self, other: &Self) -> bool {

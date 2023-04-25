@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
-pub struct ICoreTextCompositionCompletedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICoreTextCompositionCompletedEventArgs {
+pub struct ICoreTextCompositionCompletedEventArgs(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for ICoreTextCompositionCompletedEventArgs {
     type Vtable = ICoreTextCompositionCompletedEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for ICoreTextCompositionCompletedEventArgs {
@@ -9,27 +9,27 @@ impl ::core::clone::Clone for ICoreTextCompositionCompletedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for ICoreTextCompositionCompletedEventArgs {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f34ebb6_b79f_4121_a5e7_fda9b8616e30);
+unsafe impl ::windows_core::ComInterface for ICoreTextCompositionCompletedEventArgs {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1f34ebb6_b79f_4121_a5e7_fda9b8616e30);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextCompositionCompletedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectable_Vtbl,
-    pub IsCanceled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub IsCanceled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub CompositionSegments: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CompositionSegments: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     CompositionSegments: usize,
     #[cfg(feature = "Foundation")]
-    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     GetDeferral: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
-pub struct ICoreTextCompositionSegment(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICoreTextCompositionSegment {
+pub struct ICoreTextCompositionSegment(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for ICoreTextCompositionSegment {
     type Vtable = ICoreTextCompositionSegment_Vtbl;
 }
 impl ::core::clone::Clone for ICoreTextCompositionSegment {
@@ -37,20 +37,20 @@ impl ::core::clone::Clone for ICoreTextCompositionSegment {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for ICoreTextCompositionSegment {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x776c6bd9_4ead_4da7_8f47_3a88b523cc34);
+unsafe impl ::windows_core::ComInterface for ICoreTextCompositionSegment {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x776c6bd9_4ead_4da7_8f47_3a88b523cc34);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextCompositionSegment_Vtbl {
-    pub base__: ::windows::core::IInspectable_Vtbl,
-    pub PreconversionString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub Range: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub PreconversionString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub Range: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows_core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
-pub struct ICoreTextCompositionStartedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICoreTextCompositionStartedEventArgs {
+pub struct ICoreTextCompositionStartedEventArgs(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for ICoreTextCompositionStartedEventArgs {
     type Vtable = ICoreTextCompositionStartedEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for ICoreTextCompositionStartedEventArgs {
@@ -58,23 +58,23 @@ impl ::core::clone::Clone for ICoreTextCompositionStartedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for ICoreTextCompositionStartedEventArgs {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x276b16a9_64e7_4ab0_bc4b_a02d73835bfb);
+unsafe impl ::windows_core::ComInterface for ICoreTextCompositionStartedEventArgs {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x276b16a9_64e7_4ab0_bc4b_a02d73835bfb);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextCompositionStartedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectable_Vtbl,
-    pub IsCanceled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub IsCanceled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     GetDeferral: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
-pub struct ICoreTextEditContext(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICoreTextEditContext {
+pub struct ICoreTextEditContext(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for ICoreTextEditContext {
     type Vtable = ICoreTextEditContext_Vtbl;
 }
 impl ::core::clone::Clone for ICoreTextEditContext {
@@ -82,103 +82,103 @@ impl ::core::clone::Clone for ICoreTextEditContext {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for ICoreTextEditContext {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf6608af_4041_47c3_b263_a918eb5eaef2);
+unsafe impl ::windows_core::ComInterface for ICoreTextEditContext {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbf6608af_4041_47c3_b263_a918eb5eaef2);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextEditContext_Vtbl {
-    pub base__: ::windows::core::IInspectable_Vtbl,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub InputScope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreTextInputScope) -> ::windows::core::HRESULT,
-    pub SetInputScope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: CoreTextInputScope) -> ::windows::core::HRESULT,
-    pub IsReadOnly: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub SetIsReadOnly: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
-    pub InputPaneDisplayPolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreTextInputPaneDisplayPolicy) -> ::windows::core::HRESULT,
-    pub SetInputPaneDisplayPolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: CoreTextInputPaneDisplayPolicy) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub InputScope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreTextInputScope) -> ::windows_core::HRESULT,
+    pub SetInputScope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: CoreTextInputScope) -> ::windows_core::HRESULT,
+    pub IsReadOnly: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub SetIsReadOnly: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
+    pub InputPaneDisplayPolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreTextInputPaneDisplayPolicy) -> ::windows_core::HRESULT,
+    pub SetInputPaneDisplayPolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: CoreTextInputPaneDisplayPolicy) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub TextRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub TextRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     TextRequested: usize,
     #[cfg(feature = "Foundation")]
-    pub RemoveTextRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub RemoveTextRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     RemoveTextRequested: usize,
     #[cfg(feature = "Foundation")]
-    pub SelectionRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub SelectionRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     SelectionRequested: usize,
     #[cfg(feature = "Foundation")]
-    pub RemoveSelectionRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub RemoveSelectionRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     RemoveSelectionRequested: usize,
     #[cfg(feature = "Foundation")]
-    pub LayoutRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub LayoutRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     LayoutRequested: usize,
     #[cfg(feature = "Foundation")]
-    pub RemoveLayoutRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub RemoveLayoutRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     RemoveLayoutRequested: usize,
     #[cfg(feature = "Foundation")]
-    pub TextUpdating: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub TextUpdating: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     TextUpdating: usize,
     #[cfg(feature = "Foundation")]
-    pub RemoveTextUpdating: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub RemoveTextUpdating: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     RemoveTextUpdating: usize,
     #[cfg(feature = "Foundation")]
-    pub SelectionUpdating: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub SelectionUpdating: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     SelectionUpdating: usize,
     #[cfg(feature = "Foundation")]
-    pub RemoveSelectionUpdating: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub RemoveSelectionUpdating: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     RemoveSelectionUpdating: usize,
     #[cfg(feature = "Foundation")]
-    pub FormatUpdating: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub FormatUpdating: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     FormatUpdating: usize,
     #[cfg(feature = "Foundation")]
-    pub RemoveFormatUpdating: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub RemoveFormatUpdating: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     RemoveFormatUpdating: usize,
     #[cfg(feature = "Foundation")]
-    pub CompositionStarted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub CompositionStarted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     CompositionStarted: usize,
     #[cfg(feature = "Foundation")]
-    pub RemoveCompositionStarted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub RemoveCompositionStarted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     RemoveCompositionStarted: usize,
     #[cfg(feature = "Foundation")]
-    pub CompositionCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub CompositionCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     CompositionCompleted: usize,
     #[cfg(feature = "Foundation")]
-    pub RemoveCompositionCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub RemoveCompositionCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     RemoveCompositionCompleted: usize,
     #[cfg(feature = "Foundation")]
-    pub FocusRemoved: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub FocusRemoved: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     FocusRemoved: usize,
     #[cfg(feature = "Foundation")]
-    pub RemoveFocusRemoved: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub RemoveFocusRemoved: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     RemoveFocusRemoved: usize,
-    pub NotifyFocusEnter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub NotifyFocusLeave: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub NotifyTextChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, modifiedrange: CoreTextRange, newlength: i32, newselection: CoreTextRange) -> ::windows::core::HRESULT,
-    pub NotifySelectionChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, selection: CoreTextRange) -> ::windows::core::HRESULT,
-    pub NotifyLayoutChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub NotifyFocusEnter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub NotifyFocusLeave: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub NotifyTextChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, modifiedrange: CoreTextRange, newlength: i32, newselection: CoreTextRange) -> ::windows_core::HRESULT,
+    pub NotifySelectionChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, selection: CoreTextRange) -> ::windows_core::HRESULT,
+    pub NotifyLayoutChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
-pub struct ICoreTextEditContext2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICoreTextEditContext2 {
+pub struct ICoreTextEditContext2(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for ICoreTextEditContext2 {
     type Vtable = ICoreTextEditContext2_Vtbl;
 }
 impl ::core::clone::Clone for ICoreTextEditContext2 {
@@ -186,26 +186,26 @@ impl ::core::clone::Clone for ICoreTextEditContext2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for ICoreTextEditContext2 {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1867dbb_083b_49e1_b281_2b35d62bf466);
+unsafe impl ::windows_core::ComInterface for ICoreTextEditContext2 {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb1867dbb_083b_49e1_b281_2b35d62bf466);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextEditContext2_Vtbl {
-    pub base__: ::windows::core::IInspectable_Vtbl,
+    pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
-    pub NotifyFocusLeaveCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub NotifyFocusLeaveCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     NotifyFocusLeaveCompleted: usize,
     #[cfg(feature = "Foundation")]
-    pub RemoveNotifyFocusLeaveCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub RemoveNotifyFocusLeaveCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     RemoveNotifyFocusLeaveCompleted: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
-pub struct ICoreTextFormatUpdatingEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICoreTextFormatUpdatingEventArgs {
+pub struct ICoreTextFormatUpdatingEventArgs(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for ICoreTextFormatUpdatingEventArgs {
     type Vtable = ICoreTextFormatUpdatingEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for ICoreTextFormatUpdatingEventArgs {
@@ -213,43 +213,43 @@ impl ::core::clone::Clone for ICoreTextFormatUpdatingEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for ICoreTextFormatUpdatingEventArgs {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7310bd33_b4a8_43b1_b37b_0724d4aca7ab);
+unsafe impl ::windows_core::ComInterface for ICoreTextFormatUpdatingEventArgs {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7310bd33_b4a8_43b1_b37b_0724d4aca7ab);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextFormatUpdatingEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectable_Vtbl,
-    pub Range: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub Range: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "UI_ViewManagement"))]
-    pub TextColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub TextColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "UI_ViewManagement")))]
     TextColor: usize,
     #[cfg(all(feature = "Foundation", feature = "UI_ViewManagement"))]
-    pub BackgroundColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub BackgroundColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "UI_ViewManagement")))]
     BackgroundColor: usize,
     #[cfg(all(feature = "Foundation", feature = "UI_ViewManagement"))]
-    pub UnderlineColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub UnderlineColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "UI_ViewManagement")))]
     UnderlineColor: usize,
     #[cfg(feature = "Foundation")]
-    pub UnderlineType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub UnderlineType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     UnderlineType: usize,
-    pub Reason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreTextFormatUpdatingReason) -> ::windows::core::HRESULT,
-    pub Result: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreTextFormatUpdatingResult) -> ::windows::core::HRESULT,
-    pub SetResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: CoreTextFormatUpdatingResult) -> ::windows::core::HRESULT,
-    pub IsCanceled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub Reason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreTextFormatUpdatingReason) -> ::windows_core::HRESULT,
+    pub Result: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreTextFormatUpdatingResult) -> ::windows_core::HRESULT,
+    pub SetResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: CoreTextFormatUpdatingResult) -> ::windows_core::HRESULT,
+    pub IsCanceled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     GetDeferral: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
-pub struct ICoreTextLayoutBounds(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICoreTextLayoutBounds {
+pub struct ICoreTextLayoutBounds(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for ICoreTextLayoutBounds {
     type Vtable = ICoreTextLayoutBounds_Vtbl;
 }
 impl ::core::clone::Clone for ICoreTextLayoutBounds {
@@ -257,34 +257,34 @@ impl ::core::clone::Clone for ICoreTextLayoutBounds {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for ICoreTextLayoutBounds {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe972c974_4436_4917_80d0_a525e4ca6780);
+unsafe impl ::windows_core::ComInterface for ICoreTextLayoutBounds {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe972c974_4436_4917_80d0_a525e4ca6780);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextLayoutBounds_Vtbl {
-    pub base__: ::windows::core::IInspectable_Vtbl,
+    pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
-    pub TextBounds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Rect) -> ::windows::core::HRESULT,
+    pub TextBounds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Rect) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     TextBounds: usize,
     #[cfg(feature = "Foundation")]
-    pub SetTextBounds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::Rect) -> ::windows::core::HRESULT,
+    pub SetTextBounds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::Rect) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     SetTextBounds: usize,
     #[cfg(feature = "Foundation")]
-    pub ControlBounds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Rect) -> ::windows::core::HRESULT,
+    pub ControlBounds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Rect) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     ControlBounds: usize,
     #[cfg(feature = "Foundation")]
-    pub SetControlBounds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::Rect) -> ::windows::core::HRESULT,
+    pub SetControlBounds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::Rect) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     SetControlBounds: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
-pub struct ICoreTextLayoutRequest(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICoreTextLayoutRequest {
+pub struct ICoreTextLayoutRequest(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for ICoreTextLayoutRequest {
     type Vtable = ICoreTextLayoutRequest_Vtbl;
 }
 impl ::core::clone::Clone for ICoreTextLayoutRequest {
@@ -292,25 +292,25 @@ impl ::core::clone::Clone for ICoreTextLayoutRequest {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for ICoreTextLayoutRequest {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2555a8cc_51fd_4f03_98bf_ac78174d68e0);
+unsafe impl ::windows_core::ComInterface for ICoreTextLayoutRequest {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2555a8cc_51fd_4f03_98bf_ac78174d68e0);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextLayoutRequest_Vtbl {
-    pub base__: ::windows::core::IInspectable_Vtbl,
-    pub Range: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows::core::HRESULT,
-    pub LayoutBounds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub IsCanceled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub Range: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows_core::HRESULT,
+    pub LayoutBounds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub IsCanceled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     GetDeferral: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
-pub struct ICoreTextLayoutRequest2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICoreTextLayoutRequest2 {
+pub struct ICoreTextLayoutRequest2(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for ICoreTextLayoutRequest2 {
     type Vtable = ICoreTextLayoutRequest2_Vtbl;
 }
 impl ::core::clone::Clone for ICoreTextLayoutRequest2 {
@@ -318,19 +318,19 @@ impl ::core::clone::Clone for ICoreTextLayoutRequest2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for ICoreTextLayoutRequest2 {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x676de624_cd3d_4bcd_bf01_7f7110954511);
+unsafe impl ::windows_core::ComInterface for ICoreTextLayoutRequest2 {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x676de624_cd3d_4bcd_bf01_7f7110954511);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextLayoutRequest2_Vtbl {
-    pub base__: ::windows::core::IInspectable_Vtbl,
-    pub LayoutBoundsVisualPixels: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub LayoutBoundsVisualPixels: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
-pub struct ICoreTextLayoutRequestedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICoreTextLayoutRequestedEventArgs {
+pub struct ICoreTextLayoutRequestedEventArgs(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for ICoreTextLayoutRequestedEventArgs {
     type Vtable = ICoreTextLayoutRequestedEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for ICoreTextLayoutRequestedEventArgs {
@@ -338,19 +338,19 @@ impl ::core::clone::Clone for ICoreTextLayoutRequestedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for ICoreTextLayoutRequestedEventArgs {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1dc6ae0_9a7b_4e9e_a566_4a6b5f8ad676);
+unsafe impl ::windows_core::ComInterface for ICoreTextLayoutRequestedEventArgs {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb1dc6ae0_9a7b_4e9e_a566_4a6b5f8ad676);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextLayoutRequestedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectable_Vtbl,
-    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
-pub struct ICoreTextSelectionRequest(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICoreTextSelectionRequest {
+pub struct ICoreTextSelectionRequest(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for ICoreTextSelectionRequest {
     type Vtable = ICoreTextSelectionRequest_Vtbl;
 }
 impl ::core::clone::Clone for ICoreTextSelectionRequest {
@@ -358,25 +358,25 @@ impl ::core::clone::Clone for ICoreTextSelectionRequest {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for ICoreTextSelectionRequest {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0a70403_208b_4301_883c_74ca7485fd8d);
+unsafe impl ::windows_core::ComInterface for ICoreTextSelectionRequest {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf0a70403_208b_4301_883c_74ca7485fd8d);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextSelectionRequest_Vtbl {
-    pub base__: ::windows::core::IInspectable_Vtbl,
-    pub Selection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows::core::HRESULT,
-    pub SetSelection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: CoreTextRange) -> ::windows::core::HRESULT,
-    pub IsCanceled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub Selection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows_core::HRESULT,
+    pub SetSelection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: CoreTextRange) -> ::windows_core::HRESULT,
+    pub IsCanceled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     GetDeferral: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
-pub struct ICoreTextSelectionRequestedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICoreTextSelectionRequestedEventArgs {
+pub struct ICoreTextSelectionRequestedEventArgs(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for ICoreTextSelectionRequestedEventArgs {
     type Vtable = ICoreTextSelectionRequestedEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for ICoreTextSelectionRequestedEventArgs {
@@ -384,19 +384,19 @@ impl ::core::clone::Clone for ICoreTextSelectionRequestedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for ICoreTextSelectionRequestedEventArgs {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13c6682b_f614_421a_8f4b_9ec8a5a37fcd);
+unsafe impl ::windows_core::ComInterface for ICoreTextSelectionRequestedEventArgs {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x13c6682b_f614_421a_8f4b_9ec8a5a37fcd);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextSelectionRequestedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectable_Vtbl,
-    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
-pub struct ICoreTextSelectionUpdatingEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICoreTextSelectionUpdatingEventArgs {
+pub struct ICoreTextSelectionUpdatingEventArgs(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for ICoreTextSelectionUpdatingEventArgs {
     type Vtable = ICoreTextSelectionUpdatingEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for ICoreTextSelectionUpdatingEventArgs {
@@ -404,26 +404,26 @@ impl ::core::clone::Clone for ICoreTextSelectionUpdatingEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for ICoreTextSelectionUpdatingEventArgs {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd445839f_fe7f_4bd5_8a26_0922c1b3e639);
+unsafe impl ::windows_core::ComInterface for ICoreTextSelectionUpdatingEventArgs {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd445839f_fe7f_4bd5_8a26_0922c1b3e639);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextSelectionUpdatingEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectable_Vtbl,
-    pub Selection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows::core::HRESULT,
-    pub Result: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreTextSelectionUpdatingResult) -> ::windows::core::HRESULT,
-    pub SetResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: CoreTextSelectionUpdatingResult) -> ::windows::core::HRESULT,
-    pub IsCanceled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub Selection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows_core::HRESULT,
+    pub Result: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreTextSelectionUpdatingResult) -> ::windows_core::HRESULT,
+    pub SetResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: CoreTextSelectionUpdatingResult) -> ::windows_core::HRESULT,
+    pub IsCanceled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     GetDeferral: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
-pub struct ICoreTextServicesManager(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICoreTextServicesManager {
+pub struct ICoreTextServicesManager(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for ICoreTextServicesManager {
     type Vtable = ICoreTextServicesManager_Vtbl;
 }
 impl ::core::clone::Clone for ICoreTextServicesManager {
@@ -431,31 +431,31 @@ impl ::core::clone::Clone for ICoreTextServicesManager {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for ICoreTextServicesManager {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2507d83_6e0a_4a8a_bdf8_1948874854ba);
+unsafe impl ::windows_core::ComInterface for ICoreTextServicesManager {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc2507d83_6e0a_4a8a_bdf8_1948874854ba);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextServicesManager_Vtbl {
-    pub base__: ::windows::core::IInspectable_Vtbl,
+    pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Globalization")]
-    pub InputLanguage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub InputLanguage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Globalization"))]
     InputLanguage: usize,
     #[cfg(feature = "Foundation")]
-    pub InputLanguageChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub InputLanguageChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     InputLanguageChanged: usize,
     #[cfg(feature = "Foundation")]
-    pub RemoveInputLanguageChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub RemoveInputLanguageChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     RemoveInputLanguageChanged: usize,
-    pub CreateEditContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateEditContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
-pub struct ICoreTextServicesManagerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICoreTextServicesManagerStatics {
+pub struct ICoreTextServicesManagerStatics(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for ICoreTextServicesManagerStatics {
     type Vtable = ICoreTextServicesManagerStatics_Vtbl;
 }
 impl ::core::clone::Clone for ICoreTextServicesManagerStatics {
@@ -463,19 +463,19 @@ impl ::core::clone::Clone for ICoreTextServicesManagerStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for ICoreTextServicesManagerStatics {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1520a388_e2cf_4d65_aeb9_b32d86fe39b9);
+unsafe impl ::windows_core::ComInterface for ICoreTextServicesManagerStatics {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1520a388_e2cf_4d65_aeb9_b32d86fe39b9);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextServicesManagerStatics_Vtbl {
-    pub base__: ::windows::core::IInspectable_Vtbl,
-    pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
-pub struct ICoreTextServicesStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICoreTextServicesStatics {
+pub struct ICoreTextServicesStatics(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for ICoreTextServicesStatics {
     type Vtable = ICoreTextServicesStatics_Vtbl;
 }
 impl ::core::clone::Clone for ICoreTextServicesStatics {
@@ -483,19 +483,19 @@ impl ::core::clone::Clone for ICoreTextServicesStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for ICoreTextServicesStatics {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91859a46_eccf_47a4_8ae7_098a9c6fbb15);
+unsafe impl ::windows_core::ComInterface for ICoreTextServicesStatics {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x91859a46_eccf_47a4_8ae7_098a9c6fbb15);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextServicesStatics_Vtbl {
-    pub base__: ::windows::core::IInspectable_Vtbl,
-    pub HiddenCharacter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub HiddenCharacter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows_core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
-pub struct ICoreTextTextRequest(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICoreTextTextRequest {
+pub struct ICoreTextTextRequest(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for ICoreTextTextRequest {
     type Vtable = ICoreTextTextRequest_Vtbl;
 }
 impl ::core::clone::Clone for ICoreTextTextRequest {
@@ -503,26 +503,26 @@ impl ::core::clone::Clone for ICoreTextTextRequest {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for ICoreTextTextRequest {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50d950a9_f51e_4cc1_8ca1_e6346d1a61be);
+unsafe impl ::windows_core::ComInterface for ICoreTextTextRequest {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x50d950a9_f51e_4cc1_8ca1_e6346d1a61be);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextTextRequest_Vtbl {
-    pub base__: ::windows::core::IInspectable_Vtbl,
-    pub Range: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows::core::HRESULT,
-    pub Text: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SetText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub IsCanceled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub Range: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows_core::HRESULT,
+    pub Text: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub SetText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub IsCanceled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     GetDeferral: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
-pub struct ICoreTextTextRequestedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICoreTextTextRequestedEventArgs {
+pub struct ICoreTextTextRequestedEventArgs(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for ICoreTextTextRequestedEventArgs {
     type Vtable = ICoreTextTextRequestedEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for ICoreTextTextRequestedEventArgs {
@@ -530,19 +530,19 @@ impl ::core::clone::Clone for ICoreTextTextRequestedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for ICoreTextTextRequestedEventArgs {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf096a2d0_41c6_4c02_8b1a_d953b00cabb3);
+unsafe impl ::windows_core::ComInterface for ICoreTextTextRequestedEventArgs {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf096a2d0_41c6_4c02_8b1a_d953b00cabb3);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextTextRequestedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectable_Vtbl,
-    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
-pub struct ICoreTextTextUpdatingEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICoreTextTextUpdatingEventArgs {
+pub struct ICoreTextTextUpdatingEventArgs(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for ICoreTextTextUpdatingEventArgs {
     type Vtable = ICoreTextTextUpdatingEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for ICoreTextTextUpdatingEventArgs {
@@ -550,55 +550,55 @@ impl ::core::clone::Clone for ICoreTextTextUpdatingEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for ICoreTextTextUpdatingEventArgs {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeea7918d_cc2b_4f03_8ff6_02fd217db450);
+unsafe impl ::windows_core::ComInterface for ICoreTextTextUpdatingEventArgs {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeea7918d_cc2b_4f03_8ff6_02fd217db450);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreTextTextUpdatingEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectable_Vtbl,
-    pub Range: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows::core::HRESULT,
-    pub Text: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub NewSelection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub Range: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows_core::HRESULT,
+    pub Text: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub NewSelection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreTextRange) -> ::windows_core::HRESULT,
     #[cfg(feature = "Globalization")]
-    pub InputLanguage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub InputLanguage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Globalization"))]
     InputLanguage: usize,
-    pub Result: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreTextTextUpdatingResult) -> ::windows::core::HRESULT,
-    pub SetResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: CoreTextTextUpdatingResult) -> ::windows::core::HRESULT,
-    pub IsCanceled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub Result: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CoreTextTextUpdatingResult) -> ::windows_core::HRESULT,
+    pub SetResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: CoreTextTextUpdatingResult) -> ::windows_core::HRESULT,
+    pub IsCanceled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     GetDeferral: usize,
 }
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
 #[repr(transparent)]
-pub struct CoreTextCompositionCompletedEventArgs(::windows::core::IUnknown);
+pub struct CoreTextCompositionCompletedEventArgs(::windows_core::IUnknown);
 impl CoreTextCompositionCompletedEventArgs {
-    pub fn IsCanceled(&self) -> ::windows::core::Result<bool> {
+    pub fn IsCanceled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Interface::vtable(this).IsCanceled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<bool>();
+            (::windows_core::Interface::vtable(this).IsCanceled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CompositionSegments(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<CoreTextCompositionSegment>> {
+    pub fn CompositionSegments(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<CoreTextCompositionSegment>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Collections::IVectorView<CoreTextCompositionSegment>>();
-            (::windows::core::Interface::vtable(this).CompositionSegments)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Collections::IVectorView<CoreTextCompositionSegment>>();
+            (::windows_core::Interface::vtable(this).CompositionSegments)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
+    pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Deferral>();
-            (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Deferral>();
+            (::windows_core::Interface::vtable(this).GetDeferral)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -613,42 +613,42 @@ impl ::core::fmt::Debug for CoreTextCompositionCompletedEventArgs {
         f.debug_tuple("CoreTextCompositionCompletedEventArgs").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for CoreTextCompositionCompletedEventArgs {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextCompositionCompletedEventArgs;{1f34ebb6-b79f-4121-a5e7-fda9b8616e30})");
+impl ::windows_core::RuntimeType for CoreTextCompositionCompletedEventArgs {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextCompositionCompletedEventArgs;{1f34ebb6-b79f-4121-a5e7-fda9b8616e30})");
 }
 impl ::core::clone::Clone for CoreTextCompositionCompletedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for CoreTextCompositionCompletedEventArgs {
+unsafe impl ::windows_core::Interface for CoreTextCompositionCompletedEventArgs {
     type Vtable = ICoreTextCompositionCompletedEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::ComInterface for CoreTextCompositionCompletedEventArgs {
-    const IID: ::windows::core::GUID = <ICoreTextCompositionCompletedEventArgs as ::windows::core::ComInterface>::IID;
+unsafe impl ::windows_core::ComInterface for CoreTextCompositionCompletedEventArgs {
+    const IID: ::windows_core::GUID = <ICoreTextCompositionCompletedEventArgs as ::windows_core::ComInterface>::IID;
 }
-impl ::windows::core::RuntimeName for CoreTextCompositionCompletedEventArgs {
+impl ::windows_core::RuntimeName for CoreTextCompositionCompletedEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextCompositionCompletedEventArgs";
 }
-::windows::imp::interface_hierarchy!(CoreTextCompositionCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows_core::imp::interface_hierarchy!(CoreTextCompositionCompletedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for CoreTextCompositionCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for CoreTextCompositionCompletedEventArgs {}
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
 #[repr(transparent)]
-pub struct CoreTextCompositionSegment(::windows::core::IUnknown);
+pub struct CoreTextCompositionSegment(::windows_core::IUnknown);
 impl CoreTextCompositionSegment {
-    pub fn PreconversionString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn PreconversionString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Interface::vtable(this).PreconversionString)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            (::windows_core::Interface::vtable(this).PreconversionString)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn Range(&self) -> ::windows::core::Result<CoreTextRange> {
+    pub fn Range(&self) -> ::windows_core::Result<CoreTextRange> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<CoreTextRange>();
-            (::windows::core::Interface::vtable(this).Range)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<CoreTextRange>();
+            (::windows_core::Interface::vtable(this).Range)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -663,44 +663,44 @@ impl ::core::fmt::Debug for CoreTextCompositionSegment {
         f.debug_tuple("CoreTextCompositionSegment").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for CoreTextCompositionSegment {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextCompositionSegment;{776c6bd9-4ead-4da7-8f47-3a88b523cc34})");
+impl ::windows_core::RuntimeType for CoreTextCompositionSegment {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextCompositionSegment;{776c6bd9-4ead-4da7-8f47-3a88b523cc34})");
 }
 impl ::core::clone::Clone for CoreTextCompositionSegment {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for CoreTextCompositionSegment {
+unsafe impl ::windows_core::Interface for CoreTextCompositionSegment {
     type Vtable = ICoreTextCompositionSegment_Vtbl;
 }
-unsafe impl ::windows::core::ComInterface for CoreTextCompositionSegment {
-    const IID: ::windows::core::GUID = <ICoreTextCompositionSegment as ::windows::core::ComInterface>::IID;
+unsafe impl ::windows_core::ComInterface for CoreTextCompositionSegment {
+    const IID: ::windows_core::GUID = <ICoreTextCompositionSegment as ::windows_core::ComInterface>::IID;
 }
-impl ::windows::core::RuntimeName for CoreTextCompositionSegment {
+impl ::windows_core::RuntimeName for CoreTextCompositionSegment {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextCompositionSegment";
 }
-::windows::imp::interface_hierarchy!(CoreTextCompositionSegment, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows_core::imp::interface_hierarchy!(CoreTextCompositionSegment, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for CoreTextCompositionSegment {}
 unsafe impl ::core::marker::Sync for CoreTextCompositionSegment {}
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
 #[repr(transparent)]
-pub struct CoreTextCompositionStartedEventArgs(::windows::core::IUnknown);
+pub struct CoreTextCompositionStartedEventArgs(::windows_core::IUnknown);
 impl CoreTextCompositionStartedEventArgs {
-    pub fn IsCanceled(&self) -> ::windows::core::Result<bool> {
+    pub fn IsCanceled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Interface::vtable(this).IsCanceled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<bool>();
+            (::windows_core::Interface::vtable(this).IsCanceled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
+    pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Deferral>();
-            (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Deferral>();
+            (::windows_core::Interface::vtable(this).GetDeferral)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -715,243 +715,243 @@ impl ::core::fmt::Debug for CoreTextCompositionStartedEventArgs {
         f.debug_tuple("CoreTextCompositionStartedEventArgs").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for CoreTextCompositionStartedEventArgs {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextCompositionStartedEventArgs;{276b16a9-64e7-4ab0-bc4b-a02d73835bfb})");
+impl ::windows_core::RuntimeType for CoreTextCompositionStartedEventArgs {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextCompositionStartedEventArgs;{276b16a9-64e7-4ab0-bc4b-a02d73835bfb})");
 }
 impl ::core::clone::Clone for CoreTextCompositionStartedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for CoreTextCompositionStartedEventArgs {
+unsafe impl ::windows_core::Interface for CoreTextCompositionStartedEventArgs {
     type Vtable = ICoreTextCompositionStartedEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::ComInterface for CoreTextCompositionStartedEventArgs {
-    const IID: ::windows::core::GUID = <ICoreTextCompositionStartedEventArgs as ::windows::core::ComInterface>::IID;
+unsafe impl ::windows_core::ComInterface for CoreTextCompositionStartedEventArgs {
+    const IID: ::windows_core::GUID = <ICoreTextCompositionStartedEventArgs as ::windows_core::ComInterface>::IID;
 }
-impl ::windows::core::RuntimeName for CoreTextCompositionStartedEventArgs {
+impl ::windows_core::RuntimeName for CoreTextCompositionStartedEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextCompositionStartedEventArgs";
 }
-::windows::imp::interface_hierarchy!(CoreTextCompositionStartedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows_core::imp::interface_hierarchy!(CoreTextCompositionStartedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for CoreTextCompositionStartedEventArgs {}
 unsafe impl ::core::marker::Sync for CoreTextCompositionStartedEventArgs {}
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
 #[repr(transparent)]
-pub struct CoreTextEditContext(::windows::core::IUnknown);
+pub struct CoreTextEditContext(::windows_core::IUnknown);
 impl CoreTextEditContext {
-    pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn Name(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            (::windows_core::Interface::vtable(this).Name)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn SetName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
+    pub fn SetName(&self, value: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetName)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    pub fn InputScope(&self) -> ::windows::core::Result<CoreTextInputScope> {
+    pub fn InputScope(&self) -> ::windows_core::Result<CoreTextInputScope> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<CoreTextInputScope>();
-            (::windows::core::Interface::vtable(this).InputScope)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<CoreTextInputScope>();
+            (::windows_core::Interface::vtable(this).InputScope)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn SetInputScope(&self, value: CoreTextInputScope) -> ::windows::core::Result<()> {
+    pub fn SetInputScope(&self, value: CoreTextInputScope) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetInputScope)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetInputScope)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn IsReadOnly(&self) -> ::windows::core::Result<bool> {
+    pub fn IsReadOnly(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Interface::vtable(this).IsReadOnly)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<bool>();
+            (::windows_core::Interface::vtable(this).IsReadOnly)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn SetIsReadOnly(&self, value: bool) -> ::windows::core::Result<()> {
+    pub fn SetIsReadOnly(&self, value: bool) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetIsReadOnly)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetIsReadOnly)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn InputPaneDisplayPolicy(&self) -> ::windows::core::Result<CoreTextInputPaneDisplayPolicy> {
+    pub fn InputPaneDisplayPolicy(&self) -> ::windows_core::Result<CoreTextInputPaneDisplayPolicy> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<CoreTextInputPaneDisplayPolicy>();
-            (::windows::core::Interface::vtable(this).InputPaneDisplayPolicy)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<CoreTextInputPaneDisplayPolicy>();
+            (::windows_core::Interface::vtable(this).InputPaneDisplayPolicy)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn SetInputPaneDisplayPolicy(&self, value: CoreTextInputPaneDisplayPolicy) -> ::windows::core::Result<()> {
+    pub fn SetInputPaneDisplayPolicy(&self, value: CoreTextInputPaneDisplayPolicy) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetInputPaneDisplayPolicy)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetInputPaneDisplayPolicy)(::windows_core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TextRequested(&self, handler: &super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextTextRequestedEventArgs>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn TextRequested(&self, handler: &super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextTextRequestedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Interface::vtable(this).TextRequested)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveTextRequested(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveTextRequested)(::windows::core::Interface::as_raw(this), cookie).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn SelectionRequested(&self, handler: &super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextSelectionRequestedEventArgs>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Interface::vtable(this).SelectionRequested)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            (::windows_core::Interface::vtable(this).TextRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveSelectionRequested(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+    pub fn RemoveTextRequested(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveSelectionRequested)(::windows::core::Interface::as_raw(this), cookie).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).RemoveTextRequested)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn LayoutRequested(&self, handler: &super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextLayoutRequestedEventArgs>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn SelectionRequested(&self, handler: &super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextSelectionRequestedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Interface::vtable(this).LayoutRequested)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            (::windows_core::Interface::vtable(this).SelectionRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveLayoutRequested(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+    pub fn RemoveSelectionRequested(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveLayoutRequested)(::windows::core::Interface::as_raw(this), cookie).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).RemoveSelectionRequested)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TextUpdating(&self, handler: &super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextTextUpdatingEventArgs>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn LayoutRequested(&self, handler: &super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextLayoutRequestedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Interface::vtable(this).TextUpdating)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            (::windows_core::Interface::vtable(this).LayoutRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveTextUpdating(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+    pub fn RemoveLayoutRequested(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveTextUpdating)(::windows::core::Interface::as_raw(this), cookie).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).RemoveLayoutRequested)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SelectionUpdating(&self, handler: &super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextSelectionUpdatingEventArgs>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn TextUpdating(&self, handler: &super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextTextUpdatingEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Interface::vtable(this).SelectionUpdating)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            (::windows_core::Interface::vtable(this).TextUpdating)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveSelectionUpdating(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+    pub fn RemoveTextUpdating(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveSelectionUpdating)(::windows::core::Interface::as_raw(this), cookie).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).RemoveTextUpdating)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FormatUpdating(&self, handler: &super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextFormatUpdatingEventArgs>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn SelectionUpdating(&self, handler: &super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextSelectionUpdatingEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Interface::vtable(this).FormatUpdating)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            (::windows_core::Interface::vtable(this).SelectionUpdating)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveFormatUpdating(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+    pub fn RemoveSelectionUpdating(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveFormatUpdating)(::windows::core::Interface::as_raw(this), cookie).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).RemoveSelectionUpdating)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CompositionStarted(&self, handler: &super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextCompositionStartedEventArgs>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn FormatUpdating(&self, handler: &super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextFormatUpdatingEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Interface::vtable(this).CompositionStarted)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            (::windows_core::Interface::vtable(this).FormatUpdating)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveCompositionStarted(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+    pub fn RemoveFormatUpdating(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveCompositionStarted)(::windows::core::Interface::as_raw(this), cookie).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).RemoveFormatUpdating)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CompositionCompleted(&self, handler: &super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextCompositionCompletedEventArgs>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn CompositionStarted(&self, handler: &super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextCompositionStartedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Interface::vtable(this).CompositionCompleted)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            (::windows_core::Interface::vtable(this).CompositionStarted)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveCompositionCompleted(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+    pub fn RemoveCompositionStarted(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveCompositionCompleted)(::windows::core::Interface::as_raw(this), cookie).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).RemoveCompositionStarted)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FocusRemoved(&self, handler: &super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn CompositionCompleted(&self, handler: &super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextCompositionCompletedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Interface::vtable(this).FocusRemoved)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            (::windows_core::Interface::vtable(this).CompositionCompleted)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveFocusRemoved(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+    pub fn RemoveCompositionCompleted(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveFocusRemoved)(::windows::core::Interface::as_raw(this), cookie).ok() }
-    }
-    pub fn NotifyFocusEnter(&self) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).NotifyFocusEnter)(::windows::core::Interface::as_raw(this)).ok() }
-    }
-    pub fn NotifyFocusLeave(&self) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).NotifyFocusLeave)(::windows::core::Interface::as_raw(this)).ok() }
-    }
-    pub fn NotifyTextChanged(&self, modifiedrange: CoreTextRange, newlength: i32, newselection: CoreTextRange) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).NotifyTextChanged)(::windows::core::Interface::as_raw(this), modifiedrange, newlength, newselection).ok() }
-    }
-    pub fn NotifySelectionChanged(&self, selection: CoreTextRange) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).NotifySelectionChanged)(::windows::core::Interface::as_raw(this), selection).ok() }
-    }
-    pub fn NotifyLayoutChanged(&self) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).NotifyLayoutChanged)(::windows::core::Interface::as_raw(this)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).RemoveCompositionCompleted)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn NotifyFocusLeaveCompleted(&self, handler: &super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
-        let this = &::windows::core::ComInterface::cast::<ICoreTextEditContext2>(self)?;
+    pub fn FocusRemoved(&self, handler: &super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
+        let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Interface::vtable(this).NotifyFocusLeaveCompleted)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            (::windows_core::Interface::vtable(this).FocusRemoved)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveNotifyFocusLeaveCompleted(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        let this = &::windows::core::ComInterface::cast::<ICoreTextEditContext2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveNotifyFocusLeaveCompleted)(::windows::core::Interface::as_raw(this), cookie).ok() }
+    pub fn RemoveFocusRemoved(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
+        let this = self;
+        unsafe { (::windows_core::Interface::vtable(this).RemoveFocusRemoved)(::windows_core::Interface::as_raw(this), cookie).ok() }
+    }
+    pub fn NotifyFocusEnter(&self) -> ::windows_core::Result<()> {
+        let this = self;
+        unsafe { (::windows_core::Interface::vtable(this).NotifyFocusEnter)(::windows_core::Interface::as_raw(this)).ok() }
+    }
+    pub fn NotifyFocusLeave(&self) -> ::windows_core::Result<()> {
+        let this = self;
+        unsafe { (::windows_core::Interface::vtable(this).NotifyFocusLeave)(::windows_core::Interface::as_raw(this)).ok() }
+    }
+    pub fn NotifyTextChanged(&self, modifiedrange: CoreTextRange, newlength: i32, newselection: CoreTextRange) -> ::windows_core::Result<()> {
+        let this = self;
+        unsafe { (::windows_core::Interface::vtable(this).NotifyTextChanged)(::windows_core::Interface::as_raw(this), modifiedrange, newlength, newselection).ok() }
+    }
+    pub fn NotifySelectionChanged(&self, selection: CoreTextRange) -> ::windows_core::Result<()> {
+        let this = self;
+        unsafe { (::windows_core::Interface::vtable(this).NotifySelectionChanged)(::windows_core::Interface::as_raw(this), selection).ok() }
+    }
+    pub fn NotifyLayoutChanged(&self) -> ::windows_core::Result<()> {
+        let this = self;
+        unsafe { (::windows_core::Interface::vtable(this).NotifyLayoutChanged)(::windows_core::Interface::as_raw(this)).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn NotifyFocusLeaveCompleted(&self, handler: &super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
+        let this = &::windows_core::ComInterface::cast::<ICoreTextEditContext2>(self)?;
+        unsafe {
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            (::windows_core::Interface::vtable(this).NotifyFocusLeaveCompleted)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn RemoveNotifyFocusLeaveCompleted(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
+        let this = &::windows_core::ComInterface::cast::<ICoreTextEditContext2>(self)?;
+        unsafe { (::windows_core::Interface::vtable(this).RemoveNotifyFocusLeaveCompleted)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
 }
 impl ::core::cmp::PartialEq for CoreTextEditContext {
@@ -965,105 +965,105 @@ impl ::core::fmt::Debug for CoreTextEditContext {
         f.debug_tuple("CoreTextEditContext").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for CoreTextEditContext {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextEditContext;{bf6608af-4041-47c3-b263-a918eb5eaef2})");
+impl ::windows_core::RuntimeType for CoreTextEditContext {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextEditContext;{bf6608af-4041-47c3-b263-a918eb5eaef2})");
 }
 impl ::core::clone::Clone for CoreTextEditContext {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for CoreTextEditContext {
+unsafe impl ::windows_core::Interface for CoreTextEditContext {
     type Vtable = ICoreTextEditContext_Vtbl;
 }
-unsafe impl ::windows::core::ComInterface for CoreTextEditContext {
-    const IID: ::windows::core::GUID = <ICoreTextEditContext as ::windows::core::ComInterface>::IID;
+unsafe impl ::windows_core::ComInterface for CoreTextEditContext {
+    const IID: ::windows_core::GUID = <ICoreTextEditContext as ::windows_core::ComInterface>::IID;
 }
-impl ::windows::core::RuntimeName for CoreTextEditContext {
+impl ::windows_core::RuntimeName for CoreTextEditContext {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextEditContext";
 }
-::windows::imp::interface_hierarchy!(CoreTextEditContext, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows_core::imp::interface_hierarchy!(CoreTextEditContext, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for CoreTextEditContext {}
 unsafe impl ::core::marker::Sync for CoreTextEditContext {}
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
 #[repr(transparent)]
-pub struct CoreTextFormatUpdatingEventArgs(::windows::core::IUnknown);
+pub struct CoreTextFormatUpdatingEventArgs(::windows_core::IUnknown);
 impl CoreTextFormatUpdatingEventArgs {
-    pub fn Range(&self) -> ::windows::core::Result<CoreTextRange> {
+    pub fn Range(&self) -> ::windows_core::Result<CoreTextRange> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<CoreTextRange>();
-            (::windows::core::Interface::vtable(this).Range)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<CoreTextRange>();
+            (::windows_core::Interface::vtable(this).Range)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"UI_ViewManagement\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_ViewManagement"))]
-    pub fn TextColor(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::ViewManagement::UIElementType>> {
+    pub fn TextColor(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::ViewManagement::UIElementType>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IReference<super::super::ViewManagement::UIElementType>>();
-            (::windows::core::Interface::vtable(this).TextColor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IReference<super::super::ViewManagement::UIElementType>>();
+            (::windows_core::Interface::vtable(this).TextColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"UI_ViewManagement\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_ViewManagement"))]
-    pub fn BackgroundColor(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::ViewManagement::UIElementType>> {
+    pub fn BackgroundColor(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::ViewManagement::UIElementType>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IReference<super::super::ViewManagement::UIElementType>>();
-            (::windows::core::Interface::vtable(this).BackgroundColor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IReference<super::super::ViewManagement::UIElementType>>();
+            (::windows_core::Interface::vtable(this).BackgroundColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"UI_ViewManagement\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_ViewManagement"))]
-    pub fn UnderlineColor(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::ViewManagement::UIElementType>> {
+    pub fn UnderlineColor(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::ViewManagement::UIElementType>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IReference<super::super::ViewManagement::UIElementType>>();
-            (::windows::core::Interface::vtable(this).UnderlineColor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IReference<super::super::ViewManagement::UIElementType>>();
+            (::windows_core::Interface::vtable(this).UnderlineColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn UnderlineType(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::UnderlineType>> {
+    pub fn UnderlineType(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::UnderlineType>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IReference<super::UnderlineType>>();
-            (::windows::core::Interface::vtable(this).UnderlineType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IReference<super::UnderlineType>>();
+            (::windows_core::Interface::vtable(this).UnderlineType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn Reason(&self) -> ::windows::core::Result<CoreTextFormatUpdatingReason> {
+    pub fn Reason(&self) -> ::windows_core::Result<CoreTextFormatUpdatingReason> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<CoreTextFormatUpdatingReason>();
-            (::windows::core::Interface::vtable(this).Reason)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<CoreTextFormatUpdatingReason>();
+            (::windows_core::Interface::vtable(this).Reason)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn Result(&self) -> ::windows::core::Result<CoreTextFormatUpdatingResult> {
+    pub fn Result(&self) -> ::windows_core::Result<CoreTextFormatUpdatingResult> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<CoreTextFormatUpdatingResult>();
-            (::windows::core::Interface::vtable(this).Result)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<CoreTextFormatUpdatingResult>();
+            (::windows_core::Interface::vtable(this).Result)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn SetResult(&self, value: CoreTextFormatUpdatingResult) -> ::windows::core::Result<()> {
+    pub fn SetResult(&self, value: CoreTextFormatUpdatingResult) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetResult)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetResult)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn IsCanceled(&self) -> ::windows::core::Result<bool> {
+    pub fn IsCanceled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Interface::vtable(this).IsCanceled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<bool>();
+            (::windows_core::Interface::vtable(this).IsCanceled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
+    pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Deferral>();
-            (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Deferral>();
+            (::windows_core::Interface::vtable(this).GetDeferral)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1078,59 +1078,59 @@ impl ::core::fmt::Debug for CoreTextFormatUpdatingEventArgs {
         f.debug_tuple("CoreTextFormatUpdatingEventArgs").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for CoreTextFormatUpdatingEventArgs {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextFormatUpdatingEventArgs;{7310bd33-b4a8-43b1-b37b-0724d4aca7ab})");
+impl ::windows_core::RuntimeType for CoreTextFormatUpdatingEventArgs {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextFormatUpdatingEventArgs;{7310bd33-b4a8-43b1-b37b-0724d4aca7ab})");
 }
 impl ::core::clone::Clone for CoreTextFormatUpdatingEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for CoreTextFormatUpdatingEventArgs {
+unsafe impl ::windows_core::Interface for CoreTextFormatUpdatingEventArgs {
     type Vtable = ICoreTextFormatUpdatingEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::ComInterface for CoreTextFormatUpdatingEventArgs {
-    const IID: ::windows::core::GUID = <ICoreTextFormatUpdatingEventArgs as ::windows::core::ComInterface>::IID;
+unsafe impl ::windows_core::ComInterface for CoreTextFormatUpdatingEventArgs {
+    const IID: ::windows_core::GUID = <ICoreTextFormatUpdatingEventArgs as ::windows_core::ComInterface>::IID;
 }
-impl ::windows::core::RuntimeName for CoreTextFormatUpdatingEventArgs {
+impl ::windows_core::RuntimeName for CoreTextFormatUpdatingEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextFormatUpdatingEventArgs";
 }
-::windows::imp::interface_hierarchy!(CoreTextFormatUpdatingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows_core::imp::interface_hierarchy!(CoreTextFormatUpdatingEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for CoreTextFormatUpdatingEventArgs {}
 unsafe impl ::core::marker::Sync for CoreTextFormatUpdatingEventArgs {}
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
 #[repr(transparent)]
-pub struct CoreTextLayoutBounds(::windows::core::IUnknown);
+pub struct CoreTextLayoutBounds(::windows_core::IUnknown);
 impl CoreTextLayoutBounds {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TextBounds(&self) -> ::windows::core::Result<super::super::super::Foundation::Rect> {
+    pub fn TextBounds(&self) -> ::windows_core::Result<super::super::super::Foundation::Rect> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Rect>();
-            (::windows::core::Interface::vtable(this).TextBounds)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Rect>();
+            (::windows_core::Interface::vtable(this).TextBounds)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetTextBounds(&self, value: super::super::super::Foundation::Rect) -> ::windows::core::Result<()> {
+    pub fn SetTextBounds(&self, value: super::super::super::Foundation::Rect) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTextBounds)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetTextBounds)(::windows_core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ControlBounds(&self) -> ::windows::core::Result<super::super::super::Foundation::Rect> {
+    pub fn ControlBounds(&self) -> ::windows_core::Result<super::super::super::Foundation::Rect> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Rect>();
-            (::windows::core::Interface::vtable(this).ControlBounds)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Rect>();
+            (::windows_core::Interface::vtable(this).ControlBounds)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetControlBounds(&self, value: super::super::super::Foundation::Rect) -> ::windows::core::Result<()> {
+    pub fn SetControlBounds(&self, value: super::super::super::Foundation::Rect) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetControlBounds)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetControlBounds)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::cmp::PartialEq for CoreTextLayoutBounds {
@@ -1144,65 +1144,65 @@ impl ::core::fmt::Debug for CoreTextLayoutBounds {
         f.debug_tuple("CoreTextLayoutBounds").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for CoreTextLayoutBounds {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextLayoutBounds;{e972c974-4436-4917-80d0-a525e4ca6780})");
+impl ::windows_core::RuntimeType for CoreTextLayoutBounds {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextLayoutBounds;{e972c974-4436-4917-80d0-a525e4ca6780})");
 }
 impl ::core::clone::Clone for CoreTextLayoutBounds {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for CoreTextLayoutBounds {
+unsafe impl ::windows_core::Interface for CoreTextLayoutBounds {
     type Vtable = ICoreTextLayoutBounds_Vtbl;
 }
-unsafe impl ::windows::core::ComInterface for CoreTextLayoutBounds {
-    const IID: ::windows::core::GUID = <ICoreTextLayoutBounds as ::windows::core::ComInterface>::IID;
+unsafe impl ::windows_core::ComInterface for CoreTextLayoutBounds {
+    const IID: ::windows_core::GUID = <ICoreTextLayoutBounds as ::windows_core::ComInterface>::IID;
 }
-impl ::windows::core::RuntimeName for CoreTextLayoutBounds {
+impl ::windows_core::RuntimeName for CoreTextLayoutBounds {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextLayoutBounds";
 }
-::windows::imp::interface_hierarchy!(CoreTextLayoutBounds, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows_core::imp::interface_hierarchy!(CoreTextLayoutBounds, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for CoreTextLayoutBounds {}
 unsafe impl ::core::marker::Sync for CoreTextLayoutBounds {}
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
 #[repr(transparent)]
-pub struct CoreTextLayoutRequest(::windows::core::IUnknown);
+pub struct CoreTextLayoutRequest(::windows_core::IUnknown);
 impl CoreTextLayoutRequest {
-    pub fn Range(&self) -> ::windows::core::Result<CoreTextRange> {
+    pub fn Range(&self) -> ::windows_core::Result<CoreTextRange> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<CoreTextRange>();
-            (::windows::core::Interface::vtable(this).Range)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<CoreTextRange>();
+            (::windows_core::Interface::vtable(this).Range)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn LayoutBounds(&self) -> ::windows::core::Result<CoreTextLayoutBounds> {
+    pub fn LayoutBounds(&self) -> ::windows_core::Result<CoreTextLayoutBounds> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<CoreTextLayoutBounds>();
-            (::windows::core::Interface::vtable(this).LayoutBounds)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<CoreTextLayoutBounds>();
+            (::windows_core::Interface::vtable(this).LayoutBounds)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn IsCanceled(&self) -> ::windows::core::Result<bool> {
+    pub fn IsCanceled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Interface::vtable(this).IsCanceled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<bool>();
+            (::windows_core::Interface::vtable(this).IsCanceled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
+    pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Deferral>();
-            (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Deferral>();
+            (::windows_core::Interface::vtable(this).GetDeferral)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn LayoutBoundsVisualPixels(&self) -> ::windows::core::Result<CoreTextLayoutBounds> {
-        let this = &::windows::core::ComInterface::cast::<ICoreTextLayoutRequest2>(self)?;
+    pub fn LayoutBoundsVisualPixels(&self) -> ::windows_core::Result<CoreTextLayoutBounds> {
+        let this = &::windows_core::ComInterface::cast::<ICoreTextLayoutRequest2>(self)?;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<CoreTextLayoutBounds>();
-            (::windows::core::Interface::vtable(this).LayoutBoundsVisualPixels)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<CoreTextLayoutBounds>();
+            (::windows_core::Interface::vtable(this).LayoutBoundsVisualPixels)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1217,35 +1217,35 @@ impl ::core::fmt::Debug for CoreTextLayoutRequest {
         f.debug_tuple("CoreTextLayoutRequest").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for CoreTextLayoutRequest {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextLayoutRequest;{2555a8cc-51fd-4f03-98bf-ac78174d68e0})");
+impl ::windows_core::RuntimeType for CoreTextLayoutRequest {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextLayoutRequest;{2555a8cc-51fd-4f03-98bf-ac78174d68e0})");
 }
 impl ::core::clone::Clone for CoreTextLayoutRequest {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for CoreTextLayoutRequest {
+unsafe impl ::windows_core::Interface for CoreTextLayoutRequest {
     type Vtable = ICoreTextLayoutRequest_Vtbl;
 }
-unsafe impl ::windows::core::ComInterface for CoreTextLayoutRequest {
-    const IID: ::windows::core::GUID = <ICoreTextLayoutRequest as ::windows::core::ComInterface>::IID;
+unsafe impl ::windows_core::ComInterface for CoreTextLayoutRequest {
+    const IID: ::windows_core::GUID = <ICoreTextLayoutRequest as ::windows_core::ComInterface>::IID;
 }
-impl ::windows::core::RuntimeName for CoreTextLayoutRequest {
+impl ::windows_core::RuntimeName for CoreTextLayoutRequest {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextLayoutRequest";
 }
-::windows::imp::interface_hierarchy!(CoreTextLayoutRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows_core::imp::interface_hierarchy!(CoreTextLayoutRequest, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for CoreTextLayoutRequest {}
 unsafe impl ::core::marker::Sync for CoreTextLayoutRequest {}
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
 #[repr(transparent)]
-pub struct CoreTextLayoutRequestedEventArgs(::windows::core::IUnknown);
+pub struct CoreTextLayoutRequestedEventArgs(::windows_core::IUnknown);
 impl CoreTextLayoutRequestedEventArgs {
-    pub fn Request(&self) -> ::windows::core::Result<CoreTextLayoutRequest> {
+    pub fn Request(&self) -> ::windows_core::Result<CoreTextLayoutRequest> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<CoreTextLayoutRequest>();
-            (::windows::core::Interface::vtable(this).Request)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<CoreTextLayoutRequest>();
+            (::windows_core::Interface::vtable(this).Request)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1260,55 +1260,55 @@ impl ::core::fmt::Debug for CoreTextLayoutRequestedEventArgs {
         f.debug_tuple("CoreTextLayoutRequestedEventArgs").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for CoreTextLayoutRequestedEventArgs {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextLayoutRequestedEventArgs;{b1dc6ae0-9a7b-4e9e-a566-4a6b5f8ad676})");
+impl ::windows_core::RuntimeType for CoreTextLayoutRequestedEventArgs {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextLayoutRequestedEventArgs;{b1dc6ae0-9a7b-4e9e-a566-4a6b5f8ad676})");
 }
 impl ::core::clone::Clone for CoreTextLayoutRequestedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for CoreTextLayoutRequestedEventArgs {
+unsafe impl ::windows_core::Interface for CoreTextLayoutRequestedEventArgs {
     type Vtable = ICoreTextLayoutRequestedEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::ComInterface for CoreTextLayoutRequestedEventArgs {
-    const IID: ::windows::core::GUID = <ICoreTextLayoutRequestedEventArgs as ::windows::core::ComInterface>::IID;
+unsafe impl ::windows_core::ComInterface for CoreTextLayoutRequestedEventArgs {
+    const IID: ::windows_core::GUID = <ICoreTextLayoutRequestedEventArgs as ::windows_core::ComInterface>::IID;
 }
-impl ::windows::core::RuntimeName for CoreTextLayoutRequestedEventArgs {
+impl ::windows_core::RuntimeName for CoreTextLayoutRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextLayoutRequestedEventArgs";
 }
-::windows::imp::interface_hierarchy!(CoreTextLayoutRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows_core::imp::interface_hierarchy!(CoreTextLayoutRequestedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for CoreTextLayoutRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for CoreTextLayoutRequestedEventArgs {}
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
 #[repr(transparent)]
-pub struct CoreTextSelectionRequest(::windows::core::IUnknown);
+pub struct CoreTextSelectionRequest(::windows_core::IUnknown);
 impl CoreTextSelectionRequest {
-    pub fn Selection(&self) -> ::windows::core::Result<CoreTextRange> {
+    pub fn Selection(&self) -> ::windows_core::Result<CoreTextRange> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<CoreTextRange>();
-            (::windows::core::Interface::vtable(this).Selection)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<CoreTextRange>();
+            (::windows_core::Interface::vtable(this).Selection)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn SetSelection(&self, value: CoreTextRange) -> ::windows::core::Result<()> {
+    pub fn SetSelection(&self, value: CoreTextRange) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSelection)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetSelection)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn IsCanceled(&self) -> ::windows::core::Result<bool> {
+    pub fn IsCanceled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Interface::vtable(this).IsCanceled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<bool>();
+            (::windows_core::Interface::vtable(this).IsCanceled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
+    pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Deferral>();
-            (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Deferral>();
+            (::windows_core::Interface::vtable(this).GetDeferral)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1323,35 +1323,35 @@ impl ::core::fmt::Debug for CoreTextSelectionRequest {
         f.debug_tuple("CoreTextSelectionRequest").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for CoreTextSelectionRequest {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextSelectionRequest;{f0a70403-208b-4301-883c-74ca7485fd8d})");
+impl ::windows_core::RuntimeType for CoreTextSelectionRequest {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextSelectionRequest;{f0a70403-208b-4301-883c-74ca7485fd8d})");
 }
 impl ::core::clone::Clone for CoreTextSelectionRequest {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for CoreTextSelectionRequest {
+unsafe impl ::windows_core::Interface for CoreTextSelectionRequest {
     type Vtable = ICoreTextSelectionRequest_Vtbl;
 }
-unsafe impl ::windows::core::ComInterface for CoreTextSelectionRequest {
-    const IID: ::windows::core::GUID = <ICoreTextSelectionRequest as ::windows::core::ComInterface>::IID;
+unsafe impl ::windows_core::ComInterface for CoreTextSelectionRequest {
+    const IID: ::windows_core::GUID = <ICoreTextSelectionRequest as ::windows_core::ComInterface>::IID;
 }
-impl ::windows::core::RuntimeName for CoreTextSelectionRequest {
+impl ::windows_core::RuntimeName for CoreTextSelectionRequest {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextSelectionRequest";
 }
-::windows::imp::interface_hierarchy!(CoreTextSelectionRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows_core::imp::interface_hierarchy!(CoreTextSelectionRequest, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for CoreTextSelectionRequest {}
 unsafe impl ::core::marker::Sync for CoreTextSelectionRequest {}
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
 #[repr(transparent)]
-pub struct CoreTextSelectionRequestedEventArgs(::windows::core::IUnknown);
+pub struct CoreTextSelectionRequestedEventArgs(::windows_core::IUnknown);
 impl CoreTextSelectionRequestedEventArgs {
-    pub fn Request(&self) -> ::windows::core::Result<CoreTextSelectionRequest> {
+    pub fn Request(&self) -> ::windows_core::Result<CoreTextSelectionRequest> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<CoreTextSelectionRequest>();
-            (::windows::core::Interface::vtable(this).Request)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<CoreTextSelectionRequest>();
+            (::windows_core::Interface::vtable(this).Request)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1366,62 +1366,62 @@ impl ::core::fmt::Debug for CoreTextSelectionRequestedEventArgs {
         f.debug_tuple("CoreTextSelectionRequestedEventArgs").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for CoreTextSelectionRequestedEventArgs {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextSelectionRequestedEventArgs;{13c6682b-f614-421a-8f4b-9ec8a5a37fcd})");
+impl ::windows_core::RuntimeType for CoreTextSelectionRequestedEventArgs {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextSelectionRequestedEventArgs;{13c6682b-f614-421a-8f4b-9ec8a5a37fcd})");
 }
 impl ::core::clone::Clone for CoreTextSelectionRequestedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for CoreTextSelectionRequestedEventArgs {
+unsafe impl ::windows_core::Interface for CoreTextSelectionRequestedEventArgs {
     type Vtable = ICoreTextSelectionRequestedEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::ComInterface for CoreTextSelectionRequestedEventArgs {
-    const IID: ::windows::core::GUID = <ICoreTextSelectionRequestedEventArgs as ::windows::core::ComInterface>::IID;
+unsafe impl ::windows_core::ComInterface for CoreTextSelectionRequestedEventArgs {
+    const IID: ::windows_core::GUID = <ICoreTextSelectionRequestedEventArgs as ::windows_core::ComInterface>::IID;
 }
-impl ::windows::core::RuntimeName for CoreTextSelectionRequestedEventArgs {
+impl ::windows_core::RuntimeName for CoreTextSelectionRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextSelectionRequestedEventArgs";
 }
-::windows::imp::interface_hierarchy!(CoreTextSelectionRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows_core::imp::interface_hierarchy!(CoreTextSelectionRequestedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for CoreTextSelectionRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for CoreTextSelectionRequestedEventArgs {}
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
 #[repr(transparent)]
-pub struct CoreTextSelectionUpdatingEventArgs(::windows::core::IUnknown);
+pub struct CoreTextSelectionUpdatingEventArgs(::windows_core::IUnknown);
 impl CoreTextSelectionUpdatingEventArgs {
-    pub fn Selection(&self) -> ::windows::core::Result<CoreTextRange> {
+    pub fn Selection(&self) -> ::windows_core::Result<CoreTextRange> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<CoreTextRange>();
-            (::windows::core::Interface::vtable(this).Selection)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<CoreTextRange>();
+            (::windows_core::Interface::vtable(this).Selection)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn Result(&self) -> ::windows::core::Result<CoreTextSelectionUpdatingResult> {
+    pub fn Result(&self) -> ::windows_core::Result<CoreTextSelectionUpdatingResult> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<CoreTextSelectionUpdatingResult>();
-            (::windows::core::Interface::vtable(this).Result)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<CoreTextSelectionUpdatingResult>();
+            (::windows_core::Interface::vtable(this).Result)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn SetResult(&self, value: CoreTextSelectionUpdatingResult) -> ::windows::core::Result<()> {
+    pub fn SetResult(&self, value: CoreTextSelectionUpdatingResult) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetResult)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetResult)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn IsCanceled(&self) -> ::windows::core::Result<bool> {
+    pub fn IsCanceled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Interface::vtable(this).IsCanceled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<bool>();
+            (::windows_core::Interface::vtable(this).IsCanceled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
+    pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Deferral>();
-            (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Deferral>();
+            (::windows_core::Interface::vtable(this).GetDeferral)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1436,88 +1436,88 @@ impl ::core::fmt::Debug for CoreTextSelectionUpdatingEventArgs {
         f.debug_tuple("CoreTextSelectionUpdatingEventArgs").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for CoreTextSelectionUpdatingEventArgs {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextSelectionUpdatingEventArgs;{d445839f-fe7f-4bd5-8a26-0922c1b3e639})");
+impl ::windows_core::RuntimeType for CoreTextSelectionUpdatingEventArgs {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextSelectionUpdatingEventArgs;{d445839f-fe7f-4bd5-8a26-0922c1b3e639})");
 }
 impl ::core::clone::Clone for CoreTextSelectionUpdatingEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for CoreTextSelectionUpdatingEventArgs {
+unsafe impl ::windows_core::Interface for CoreTextSelectionUpdatingEventArgs {
     type Vtable = ICoreTextSelectionUpdatingEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::ComInterface for CoreTextSelectionUpdatingEventArgs {
-    const IID: ::windows::core::GUID = <ICoreTextSelectionUpdatingEventArgs as ::windows::core::ComInterface>::IID;
+unsafe impl ::windows_core::ComInterface for CoreTextSelectionUpdatingEventArgs {
+    const IID: ::windows_core::GUID = <ICoreTextSelectionUpdatingEventArgs as ::windows_core::ComInterface>::IID;
 }
-impl ::windows::core::RuntimeName for CoreTextSelectionUpdatingEventArgs {
+impl ::windows_core::RuntimeName for CoreTextSelectionUpdatingEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextSelectionUpdatingEventArgs";
 }
-::windows::imp::interface_hierarchy!(CoreTextSelectionUpdatingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows_core::imp::interface_hierarchy!(CoreTextSelectionUpdatingEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for CoreTextSelectionUpdatingEventArgs {}
 unsafe impl ::core::marker::Sync for CoreTextSelectionUpdatingEventArgs {}
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
 pub struct CoreTextServicesConstants;
 impl CoreTextServicesConstants {
-    pub fn HiddenCharacter() -> ::windows::core::Result<u16> {
+    pub fn HiddenCharacter() -> ::windows_core::Result<u16> {
         Self::ICoreTextServicesStatics(|this| unsafe {
-            let mut result__ = ::windows::core::zeroed::<u16>();
-            (::windows::core::Interface::vtable(this).HiddenCharacter)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<u16>();
+            (::windows_core::Interface::vtable(this).HiddenCharacter)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
-    pub fn ICoreTextServicesStatics<R, F: FnOnce(&ICoreTextServicesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::imp::FactoryCache<CoreTextServicesConstants, ICoreTextServicesStatics> = ::windows::imp::FactoryCache::new();
+    pub fn ICoreTextServicesStatics<R, F: FnOnce(&ICoreTextServicesStatics) -> ::windows_core::Result<R>>(callback: F) -> ::windows_core::Result<R> {
+        static SHARED: ::windows_core::imp::FactoryCache<CoreTextServicesConstants, ICoreTextServicesStatics> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
-impl ::windows::core::RuntimeName for CoreTextServicesConstants {
+impl ::windows_core::RuntimeName for CoreTextServicesConstants {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextServicesConstants";
 }
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
 #[repr(transparent)]
-pub struct CoreTextServicesManager(::windows::core::IUnknown);
+pub struct CoreTextServicesManager(::windows_core::IUnknown);
 impl CoreTextServicesManager {
     #[doc = "*Required features: `\"Globalization\"`*"]
     #[cfg(feature = "Globalization")]
-    pub fn InputLanguage(&self) -> ::windows::core::Result<super::super::super::Globalization::Language> {
+    pub fn InputLanguage(&self) -> ::windows_core::Result<super::super::super::Globalization::Language> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Globalization::Language>();
-            (::windows::core::Interface::vtable(this).InputLanguage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Globalization::Language>();
+            (::windows_core::Interface::vtable(this).InputLanguage)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn InputLanguageChanged(&self, handler: &super::super::super::Foundation::TypedEventHandler<CoreTextServicesManager, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn InputLanguageChanged(&self, handler: &super::super::super::Foundation::TypedEventHandler<CoreTextServicesManager, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Interface::vtable(this).InputLanguageChanged)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            (::windows_core::Interface::vtable(this).InputLanguageChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveInputLanguageChanged(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+    pub fn RemoveInputLanguageChanged(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveInputLanguageChanged)(::windows::core::Interface::as_raw(this), cookie).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).RemoveInputLanguageChanged)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    pub fn CreateEditContext(&self) -> ::windows::core::Result<CoreTextEditContext> {
+    pub fn CreateEditContext(&self) -> ::windows_core::Result<CoreTextEditContext> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<CoreTextEditContext>();
-            (::windows::core::Interface::vtable(this).CreateEditContext)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<CoreTextEditContext>();
+            (::windows_core::Interface::vtable(this).CreateEditContext)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn GetForCurrentView() -> ::windows::core::Result<CoreTextServicesManager> {
+    pub fn GetForCurrentView() -> ::windows_core::Result<CoreTextServicesManager> {
         Self::ICoreTextServicesManagerStatics(|this| unsafe {
-            let mut result__ = ::windows::core::zeroed::<CoreTextServicesManager>();
-            (::windows::core::Interface::vtable(this).GetForCurrentView)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<CoreTextServicesManager>();
+            (::windows_core::Interface::vtable(this).GetForCurrentView)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
-    pub fn ICoreTextServicesManagerStatics<R, F: FnOnce(&ICoreTextServicesManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::imp::FactoryCache<CoreTextServicesManager, ICoreTextServicesManagerStatics> = ::windows::imp::FactoryCache::new();
+    pub fn ICoreTextServicesManagerStatics<R, F: FnOnce(&ICoreTextServicesManagerStatics) -> ::windows_core::Result<R>>(callback: F) -> ::windows_core::Result<R> {
+        static SHARED: ::windows_core::imp::FactoryCache<CoreTextServicesManager, ICoreTextServicesManagerStatics> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1532,62 +1532,62 @@ impl ::core::fmt::Debug for CoreTextServicesManager {
         f.debug_tuple("CoreTextServicesManager").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for CoreTextServicesManager {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextServicesManager;{c2507d83-6e0a-4a8a-bdf8-1948874854ba})");
+impl ::windows_core::RuntimeType for CoreTextServicesManager {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextServicesManager;{c2507d83-6e0a-4a8a-bdf8-1948874854ba})");
 }
 impl ::core::clone::Clone for CoreTextServicesManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for CoreTextServicesManager {
+unsafe impl ::windows_core::Interface for CoreTextServicesManager {
     type Vtable = ICoreTextServicesManager_Vtbl;
 }
-unsafe impl ::windows::core::ComInterface for CoreTextServicesManager {
-    const IID: ::windows::core::GUID = <ICoreTextServicesManager as ::windows::core::ComInterface>::IID;
+unsafe impl ::windows_core::ComInterface for CoreTextServicesManager {
+    const IID: ::windows_core::GUID = <ICoreTextServicesManager as ::windows_core::ComInterface>::IID;
 }
-impl ::windows::core::RuntimeName for CoreTextServicesManager {
+impl ::windows_core::RuntimeName for CoreTextServicesManager {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextServicesManager";
 }
-::windows::imp::interface_hierarchy!(CoreTextServicesManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows_core::imp::interface_hierarchy!(CoreTextServicesManager, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for CoreTextServicesManager {}
 unsafe impl ::core::marker::Sync for CoreTextServicesManager {}
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
 #[repr(transparent)]
-pub struct CoreTextTextRequest(::windows::core::IUnknown);
+pub struct CoreTextTextRequest(::windows_core::IUnknown);
 impl CoreTextTextRequest {
-    pub fn Range(&self) -> ::windows::core::Result<CoreTextRange> {
+    pub fn Range(&self) -> ::windows_core::Result<CoreTextRange> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<CoreTextRange>();
-            (::windows::core::Interface::vtable(this).Range)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<CoreTextRange>();
+            (::windows_core::Interface::vtable(this).Range)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn Text(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn Text(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Interface::vtable(this).Text)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            (::windows_core::Interface::vtable(this).Text)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn SetText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
+    pub fn SetText(&self, value: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetText)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetText)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    pub fn IsCanceled(&self) -> ::windows::core::Result<bool> {
+    pub fn IsCanceled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Interface::vtable(this).IsCanceled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<bool>();
+            (::windows_core::Interface::vtable(this).IsCanceled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
+    pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Deferral>();
-            (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Deferral>();
+            (::windows_core::Interface::vtable(this).GetDeferral)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1602,35 +1602,35 @@ impl ::core::fmt::Debug for CoreTextTextRequest {
         f.debug_tuple("CoreTextTextRequest").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for CoreTextTextRequest {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextTextRequest;{50d950a9-f51e-4cc1-8ca1-e6346d1a61be})");
+impl ::windows_core::RuntimeType for CoreTextTextRequest {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextTextRequest;{50d950a9-f51e-4cc1-8ca1-e6346d1a61be})");
 }
 impl ::core::clone::Clone for CoreTextTextRequest {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for CoreTextTextRequest {
+unsafe impl ::windows_core::Interface for CoreTextTextRequest {
     type Vtable = ICoreTextTextRequest_Vtbl;
 }
-unsafe impl ::windows::core::ComInterface for CoreTextTextRequest {
-    const IID: ::windows::core::GUID = <ICoreTextTextRequest as ::windows::core::ComInterface>::IID;
+unsafe impl ::windows_core::ComInterface for CoreTextTextRequest {
+    const IID: ::windows_core::GUID = <ICoreTextTextRequest as ::windows_core::ComInterface>::IID;
 }
-impl ::windows::core::RuntimeName for CoreTextTextRequest {
+impl ::windows_core::RuntimeName for CoreTextTextRequest {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextTextRequest";
 }
-::windows::imp::interface_hierarchy!(CoreTextTextRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows_core::imp::interface_hierarchy!(CoreTextTextRequest, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for CoreTextTextRequest {}
 unsafe impl ::core::marker::Sync for CoreTextTextRequest {}
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
 #[repr(transparent)]
-pub struct CoreTextTextRequestedEventArgs(::windows::core::IUnknown);
+pub struct CoreTextTextRequestedEventArgs(::windows_core::IUnknown);
 impl CoreTextTextRequestedEventArgs {
-    pub fn Request(&self) -> ::windows::core::Result<CoreTextTextRequest> {
+    pub fn Request(&self) -> ::windows_core::Result<CoreTextTextRequest> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<CoreTextTextRequest>();
-            (::windows::core::Interface::vtable(this).Request)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<CoreTextTextRequest>();
+            (::windows_core::Interface::vtable(this).Request)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1645,85 +1645,85 @@ impl ::core::fmt::Debug for CoreTextTextRequestedEventArgs {
         f.debug_tuple("CoreTextTextRequestedEventArgs").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for CoreTextTextRequestedEventArgs {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextTextRequestedEventArgs;{f096a2d0-41c6-4c02-8b1a-d953b00cabb3})");
+impl ::windows_core::RuntimeType for CoreTextTextRequestedEventArgs {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextTextRequestedEventArgs;{f096a2d0-41c6-4c02-8b1a-d953b00cabb3})");
 }
 impl ::core::clone::Clone for CoreTextTextRequestedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for CoreTextTextRequestedEventArgs {
+unsafe impl ::windows_core::Interface for CoreTextTextRequestedEventArgs {
     type Vtable = ICoreTextTextRequestedEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::ComInterface for CoreTextTextRequestedEventArgs {
-    const IID: ::windows::core::GUID = <ICoreTextTextRequestedEventArgs as ::windows::core::ComInterface>::IID;
+unsafe impl ::windows_core::ComInterface for CoreTextTextRequestedEventArgs {
+    const IID: ::windows_core::GUID = <ICoreTextTextRequestedEventArgs as ::windows_core::ComInterface>::IID;
 }
-impl ::windows::core::RuntimeName for CoreTextTextRequestedEventArgs {
+impl ::windows_core::RuntimeName for CoreTextTextRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextTextRequestedEventArgs";
 }
-::windows::imp::interface_hierarchy!(CoreTextTextRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows_core::imp::interface_hierarchy!(CoreTextTextRequestedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for CoreTextTextRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for CoreTextTextRequestedEventArgs {}
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
 #[repr(transparent)]
-pub struct CoreTextTextUpdatingEventArgs(::windows::core::IUnknown);
+pub struct CoreTextTextUpdatingEventArgs(::windows_core::IUnknown);
 impl CoreTextTextUpdatingEventArgs {
-    pub fn Range(&self) -> ::windows::core::Result<CoreTextRange> {
+    pub fn Range(&self) -> ::windows_core::Result<CoreTextRange> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<CoreTextRange>();
-            (::windows::core::Interface::vtable(this).Range)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<CoreTextRange>();
+            (::windows_core::Interface::vtable(this).Range)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn Text(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn Text(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Interface::vtable(this).Text)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            (::windows_core::Interface::vtable(this).Text)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn NewSelection(&self) -> ::windows::core::Result<CoreTextRange> {
+    pub fn NewSelection(&self) -> ::windows_core::Result<CoreTextRange> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<CoreTextRange>();
-            (::windows::core::Interface::vtable(this).NewSelection)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<CoreTextRange>();
+            (::windows_core::Interface::vtable(this).NewSelection)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Globalization\"`*"]
     #[cfg(feature = "Globalization")]
-    pub fn InputLanguage(&self) -> ::windows::core::Result<super::super::super::Globalization::Language> {
+    pub fn InputLanguage(&self) -> ::windows_core::Result<super::super::super::Globalization::Language> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Globalization::Language>();
-            (::windows::core::Interface::vtable(this).InputLanguage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Globalization::Language>();
+            (::windows_core::Interface::vtable(this).InputLanguage)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn Result(&self) -> ::windows::core::Result<CoreTextTextUpdatingResult> {
+    pub fn Result(&self) -> ::windows_core::Result<CoreTextTextUpdatingResult> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<CoreTextTextUpdatingResult>();
-            (::windows::core::Interface::vtable(this).Result)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<CoreTextTextUpdatingResult>();
+            (::windows_core::Interface::vtable(this).Result)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn SetResult(&self, value: CoreTextTextUpdatingResult) -> ::windows::core::Result<()> {
+    pub fn SetResult(&self, value: CoreTextTextUpdatingResult) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetResult)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetResult)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn IsCanceled(&self) -> ::windows::core::Result<bool> {
+    pub fn IsCanceled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<bool>();
-            (::windows::core::Interface::vtable(this).IsCanceled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<bool>();
+            (::windows_core::Interface::vtable(this).IsCanceled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
+    pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Deferral>();
-            (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Deferral>();
+            (::windows_core::Interface::vtable(this).GetDeferral)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1738,24 +1738,24 @@ impl ::core::fmt::Debug for CoreTextTextUpdatingEventArgs {
         f.debug_tuple("CoreTextTextUpdatingEventArgs").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for CoreTextTextUpdatingEventArgs {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextTextUpdatingEventArgs;{eea7918d-cc2b-4f03-8ff6-02fd217db450})");
+impl ::windows_core::RuntimeType for CoreTextTextUpdatingEventArgs {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextTextUpdatingEventArgs;{eea7918d-cc2b-4f03-8ff6-02fd217db450})");
 }
 impl ::core::clone::Clone for CoreTextTextUpdatingEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for CoreTextTextUpdatingEventArgs {
+unsafe impl ::windows_core::Interface for CoreTextTextUpdatingEventArgs {
     type Vtable = ICoreTextTextUpdatingEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::ComInterface for CoreTextTextUpdatingEventArgs {
-    const IID: ::windows::core::GUID = <ICoreTextTextUpdatingEventArgs as ::windows::core::ComInterface>::IID;
+unsafe impl ::windows_core::ComInterface for CoreTextTextUpdatingEventArgs {
+    const IID: ::windows_core::GUID = <ICoreTextTextUpdatingEventArgs as ::windows_core::ComInterface>::IID;
 }
-impl ::windows::core::RuntimeName for CoreTextTextUpdatingEventArgs {
+impl ::windows_core::RuntimeName for CoreTextTextUpdatingEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextTextUpdatingEventArgs";
 }
-::windows::imp::interface_hierarchy!(CoreTextTextUpdatingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows_core::imp::interface_hierarchy!(CoreTextTextUpdatingEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for CoreTextTextUpdatingEventArgs {}
 unsafe impl ::core::marker::Sync for CoreTextTextUpdatingEventArgs {}
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
@@ -1780,16 +1780,16 @@ impl ::core::default::Default for CoreTextFormatUpdatingReason {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for CoreTextFormatUpdatingReason {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CoreTextFormatUpdatingReason {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for CoreTextFormatUpdatingReason {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CoreTextFormatUpdatingReason").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for CoreTextFormatUpdatingReason {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextFormatUpdatingReason;i4)");
+impl ::windows_core::RuntimeType for CoreTextFormatUpdatingReason {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextFormatUpdatingReason;i4)");
 }
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
 #[repr(transparent)]
@@ -1810,16 +1810,16 @@ impl ::core::default::Default for CoreTextFormatUpdatingResult {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for CoreTextFormatUpdatingResult {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CoreTextFormatUpdatingResult {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for CoreTextFormatUpdatingResult {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CoreTextFormatUpdatingResult").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for CoreTextFormatUpdatingResult {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextFormatUpdatingResult;i4)");
+impl ::windows_core::RuntimeType for CoreTextFormatUpdatingResult {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextFormatUpdatingResult;i4)");
 }
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
 #[repr(transparent)]
@@ -1840,16 +1840,16 @@ impl ::core::default::Default for CoreTextInputPaneDisplayPolicy {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for CoreTextInputPaneDisplayPolicy {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CoreTextInputPaneDisplayPolicy {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for CoreTextInputPaneDisplayPolicy {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CoreTextInputPaneDisplayPolicy").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for CoreTextInputPaneDisplayPolicy {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextInputPaneDisplayPolicy;i4)");
+impl ::windows_core::RuntimeType for CoreTextInputPaneDisplayPolicy {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextInputPaneDisplayPolicy;i4)");
 }
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
 #[repr(transparent)]
@@ -1935,16 +1935,16 @@ impl ::core::default::Default for CoreTextInputScope {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for CoreTextInputScope {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CoreTextInputScope {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for CoreTextInputScope {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CoreTextInputScope").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for CoreTextInputScope {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextInputScope;i4)");
+impl ::windows_core::RuntimeType for CoreTextInputScope {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextInputScope;i4)");
 }
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
 #[repr(transparent)]
@@ -1965,16 +1965,16 @@ impl ::core::default::Default for CoreTextSelectionUpdatingResult {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for CoreTextSelectionUpdatingResult {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CoreTextSelectionUpdatingResult {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for CoreTextSelectionUpdatingResult {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CoreTextSelectionUpdatingResult").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for CoreTextSelectionUpdatingResult {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextSelectionUpdatingResult;i4)");
+impl ::windows_core::RuntimeType for CoreTextSelectionUpdatingResult {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextSelectionUpdatingResult;i4)");
 }
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
 #[repr(transparent)]
@@ -1995,16 +1995,16 @@ impl ::core::default::Default for CoreTextTextUpdatingResult {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for CoreTextTextUpdatingResult {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CoreTextTextUpdatingResult {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for CoreTextTextUpdatingResult {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CoreTextTextUpdatingResult").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for CoreTextTextUpdatingResult {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextTextUpdatingResult;i4)");
+impl ::windows_core::RuntimeType for CoreTextTextUpdatingResult {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextTextUpdatingResult;i4)");
 }
 #[repr(C)]
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
@@ -2023,11 +2023,11 @@ impl ::core::fmt::Debug for CoreTextRange {
         f.debug_struct("CoreTextRange").field("StartCaretPosition", &self.StartCaretPosition).field("EndCaretPosition", &self.EndCaretPosition).finish()
     }
 }
-impl ::windows::core::TypeKind for CoreTextRange {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CoreTextRange {
+    type TypeKind = ::windows_core::CopyType;
 }
-impl ::windows::core::RuntimeType for CoreTextRange {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Text.Core.CoreTextRange;i4;i4)");
+impl ::windows_core::RuntimeType for CoreTextRange {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Text.Core.CoreTextRange;i4;i4)");
 }
 impl ::core::cmp::PartialEq for CoreTextRange {
     fn eq(&self, other: &Self) -> bool {

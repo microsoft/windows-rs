@@ -2,7 +2,7 @@
 #[inline]
 pub unsafe fn ComDBClaimNextFreePort<P0>(hcomdb: P0, comnumber: *mut u32) -> i32
 where
-    P0: ::windows::core::IntoParam<HCOMDB>,
+    P0: ::windows_core::IntoParam<HCOMDB>,
 {
     ::windows_targets::link!("msports.dll" "system" fn ComDBClaimNextFreePort(hcomdb : HCOMDB, comnumber : *mut u32) -> i32);
     ComDBClaimNextFreePort(hcomdb.into_param().abi(), comnumber)
@@ -12,8 +12,8 @@ where
 #[inline]
 pub unsafe fn ComDBClaimPort<P0, P1>(hcomdb: P0, comnumber: u32, forceclaim: P1, forced: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> i32
 where
-    P0: ::windows::core::IntoParam<HCOMDB>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<HCOMDB>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("msports.dll" "system" fn ComDBClaimPort(hcomdb : HCOMDB, comnumber : u32, forceclaim : super::super::Foundation:: BOOL, forced : *mut super::super::Foundation:: BOOL) -> i32);
     ComDBClaimPort(hcomdb.into_param().abi(), comnumber, forceclaim.into_param().abi(), ::core::mem::transmute(forced.unwrap_or(::std::ptr::null_mut())))
@@ -22,7 +22,7 @@ where
 #[inline]
 pub unsafe fn ComDBClose<P0>(hcomdb: P0) -> i32
 where
-    P0: ::windows::core::IntoParam<HCOMDB>,
+    P0: ::windows_core::IntoParam<HCOMDB>,
 {
     ::windows_targets::link!("msports.dll" "system" fn ComDBClose(hcomdb : HCOMDB) -> i32);
     ComDBClose(hcomdb.into_param().abi())
@@ -31,7 +31,7 @@ where
 #[inline]
 pub unsafe fn ComDBGetCurrentPortUsage<P0>(hcomdb: P0, buffer: ::core::option::Option<&mut [u8]>, reporttype: u32, maxportsreported: ::core::option::Option<*mut u32>) -> i32
 where
-    P0: ::windows::core::IntoParam<HCOMDB>,
+    P0: ::windows_core::IntoParam<HCOMDB>,
 {
     ::windows_targets::link!("msports.dll" "system" fn ComDBGetCurrentPortUsage(hcomdb : HCOMDB, buffer : *mut u8, buffersize : u32, reporttype : u32, maxportsreported : *mut u32) -> i32);
     ComDBGetCurrentPortUsage(hcomdb.into_param().abi(), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), reporttype, ::core::mem::transmute(maxportsreported.unwrap_or(::std::ptr::null_mut())))
@@ -46,7 +46,7 @@ pub unsafe fn ComDBOpen(phcomdb: *mut isize) -> i32 {
 #[inline]
 pub unsafe fn ComDBReleasePort<P0>(hcomdb: P0, comnumber: u32) -> i32
 where
-    P0: ::windows::core::IntoParam<HCOMDB>,
+    P0: ::windows_core::IntoParam<HCOMDB>,
 {
     ::windows_targets::link!("msports.dll" "system" fn ComDBReleasePort(hcomdb : HCOMDB, comnumber : u32) -> i32);
     ComDBReleasePort(hcomdb.into_param().abi(), comnumber)
@@ -55,7 +55,7 @@ where
 #[inline]
 pub unsafe fn ComDBResizeDatabase<P0>(hcomdb: P0, newsize: u32) -> i32
 where
-    P0: ::windows::core::IntoParam<HCOMDB>,
+    P0: ::windows_core::IntoParam<HCOMDB>,
 {
     ::windows_targets::link!("msports.dll" "system" fn ComDBResizeDatabase(hcomdb : HCOMDB, newsize : u32) -> i32);
     ComDBResizeDatabase(hcomdb.into_param().abi(), newsize)
@@ -92,8 +92,8 @@ impl ::core::fmt::Debug for HCOMDB {
         f.debug_tuple("HCOMDB").field(&self.0).finish()
     }
 }
-impl ::windows::core::TypeKind for HCOMDB {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HCOMDB {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

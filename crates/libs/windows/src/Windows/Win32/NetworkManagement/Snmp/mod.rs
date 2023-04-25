@@ -45,7 +45,7 @@ pub unsafe fn SnmpCreatePdu(session: isize, pdu_type: SNMP_PDU_TYPE, request_id:
 #[inline]
 pub unsafe fn SnmpCreateSession<P0>(hwnd: P0, wmsg: u32, fcallback: SNMPAPI_CALLBACK, lpclientdata: *mut ::core::ffi::c_void) -> isize
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpCreateSession(hwnd : super::super::Foundation:: HWND, wmsg : u32, fcallback : SNMPAPI_CALLBACK, lpclientdata : *mut ::core::ffi::c_void) -> isize);
     SnmpCreateSession(hwnd.into_param().abi(), wmsg, fcallback, lpclientdata)
@@ -89,7 +89,7 @@ pub unsafe fn SnmpEncodeMsg(session: isize, srcentity: isize, dstentity: isize, 
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 #[inline]
 pub unsafe fn SnmpEntityToStr(entity: isize, string: &mut [u8]) -> u32 {
-    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpEntityToStr(entity : isize, size : u32, string : ::windows::core::PSTR) -> u32);
+    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpEntityToStr(entity : isize, size : u32, string : ::windows_core::PSTR) -> u32);
     SnmpEntityToStr(entity, string.len() as _, ::core::mem::transmute(string.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
@@ -213,18 +213,18 @@ pub unsafe fn SnmpMgrGetTrapEx(enterprise: *mut AsnObjectIdentifier, agentaddres
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SnmpMgrOidToStr(oid: *mut AsnObjectIdentifier, string: ::core::option::Option<*mut ::windows::core::PSTR>) -> super::super::Foundation::BOOL {
-    ::windows_targets::link!("mgmtapi.dll" "system" fn SnmpMgrOidToStr(oid : *mut AsnObjectIdentifier, string : *mut ::windows::core::PSTR) -> super::super::Foundation:: BOOL);
+pub unsafe fn SnmpMgrOidToStr(oid: *mut AsnObjectIdentifier, string: ::core::option::Option<*mut ::windows_core::PSTR>) -> super::super::Foundation::BOOL {
+    ::windows_targets::link!("mgmtapi.dll" "system" fn SnmpMgrOidToStr(oid : *mut AsnObjectIdentifier, string : *mut ::windows_core::PSTR) -> super::super::Foundation:: BOOL);
     SnmpMgrOidToStr(oid, ::core::mem::transmute(string.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 #[inline]
 pub unsafe fn SnmpMgrOpen<P0, P1>(lpagentaddress: P0, lpagentcommunity: P1, ntimeout: i32, nretries: i32) -> *mut ::core::ffi::c_void
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("mgmtapi.dll" "system" fn SnmpMgrOpen(lpagentaddress : ::windows::core::PCSTR, lpagentcommunity : ::windows::core::PCSTR, ntimeout : i32, nretries : i32) -> *mut ::core::ffi::c_void);
+    ::windows_targets::link!("mgmtapi.dll" "system" fn SnmpMgrOpen(lpagentaddress : ::windows_core::PCSTR, lpagentcommunity : ::windows_core::PCSTR, ntimeout : i32, nretries : i32) -> *mut ::core::ffi::c_void);
     SnmpMgrOpen(lpagentaddress.into_param().abi(), lpagentcommunity.into_param().abi(), ntimeout, nretries)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`, `\"Win32_Foundation\"`*"]
@@ -239,9 +239,9 @@ pub unsafe fn SnmpMgrRequest(session: *mut ::core::ffi::c_void, requesttype: u8,
 #[inline]
 pub unsafe fn SnmpMgrStrToOid<P0>(string: P0, oid: *mut AsnObjectIdentifier) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("mgmtapi.dll" "system" fn SnmpMgrStrToOid(string : ::windows::core::PCSTR, oid : *mut AsnObjectIdentifier) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("mgmtapi.dll" "system" fn SnmpMgrStrToOid(string : ::windows_core::PCSTR, oid : *mut AsnObjectIdentifier) -> super::super::Foundation:: BOOL);
     SnmpMgrStrToOid(string.into_param().abi(), oid)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`, `\"Win32_Foundation\"`*"]
@@ -266,7 +266,7 @@ pub unsafe fn SnmpOidCopy(srcoid: *mut smiOID, dstoid: *mut smiOID) -> u32 {
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 #[inline]
 pub unsafe fn SnmpOidToStr(srcoid: *const smiOID, string: &mut [u8]) -> u32 {
-    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpOidToStr(srcoid : *const smiOID, size : u32, string : ::windows::core::PSTR) -> u32);
+    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpOidToStr(srcoid : *const smiOID, size : u32, string : ::windows_core::PSTR) -> u32);
     SnmpOidToStr(srcoid, string.len() as _, ::core::mem::transmute(string.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`, `\"Win32_Foundation\"`*"]
@@ -274,7 +274,7 @@ pub unsafe fn SnmpOidToStr(srcoid: *const smiOID, string: &mut [u8]) -> u32 {
 #[inline]
 pub unsafe fn SnmpOpen<P0>(hwnd: P0, wmsg: u32) -> isize
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpOpen(hwnd : super::super::Foundation:: HWND, wmsg : u32) -> isize);
     SnmpOpen(hwnd.into_param().abi(), wmsg)
@@ -361,18 +361,18 @@ pub unsafe fn SnmpStrToContext(session: isize, string: *mut smiOCTETS) -> isize 
 #[inline]
 pub unsafe fn SnmpStrToEntity<P0>(session: isize, string: P0) -> isize
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpStrToEntity(session : isize, string : ::windows::core::PCSTR) -> isize);
+    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpStrToEntity(session : isize, string : ::windows_core::PCSTR) -> isize);
     SnmpStrToEntity(session, string.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 #[inline]
 pub unsafe fn SnmpStrToOid<P0>(string: P0, dstoid: *mut smiOID) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpStrToOid(string : ::windows::core::PCSTR, dstoid : *mut smiOID) -> u32);
+    ::windows_targets::link!("wsnmp32.dll" "system" fn SnmpStrToOid(string : ::windows_core::PCSTR, dstoid : *mut smiOID) -> u32);
     SnmpStrToOid(string.into_param().abi(), dstoid)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
@@ -411,15 +411,15 @@ pub unsafe fn SnmpUtilAsnAnyFree(pany: *mut AsnAny) {
 #[inline]
 pub unsafe fn SnmpUtilDbgPrint<P0>(nloglevel: SNMP_LOG, szformat: P0)
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("snmpapi.dll" "cdecl" fn SnmpUtilDbgPrint(nloglevel : SNMP_LOG, szformat : ::windows::core::PCSTR) -> ());
+    ::windows_targets::link!("snmpapi.dll" "cdecl" fn SnmpUtilDbgPrint(nloglevel : SNMP_LOG, szformat : ::windows_core::PCSTR) -> ());
     SnmpUtilDbgPrint(nloglevel, szformat.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 #[inline]
-pub unsafe fn SnmpUtilIdsToA(ids: *mut u32, idlength: u32) -> ::windows::core::PSTR {
-    ::windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilIdsToA(ids : *mut u32, idlength : u32) -> ::windows::core::PSTR);
+pub unsafe fn SnmpUtilIdsToA(ids: *mut u32, idlength: u32) -> ::windows_core::PSTR {
+    ::windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilIdsToA(ids : *mut u32, idlength : u32) -> ::windows_core::PSTR);
     SnmpUtilIdsToA(ids, idlength)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
@@ -500,8 +500,8 @@ pub unsafe fn SnmpUtilOidNCmp(poid1: *mut AsnObjectIdentifier, poid2: *mut AsnOb
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 #[inline]
-pub unsafe fn SnmpUtilOidToA(oid: *mut AsnObjectIdentifier) -> ::windows::core::PSTR {
-    ::windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilOidToA(oid : *mut AsnObjectIdentifier) -> ::windows::core::PSTR);
+pub unsafe fn SnmpUtilOidToA(oid: *mut AsnObjectIdentifier) -> ::windows_core::PSTR {
+    ::windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilOidToA(oid : *mut AsnObjectIdentifier) -> ::windows_core::PSTR);
     SnmpUtilOidToA(oid)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`, `\"Win32_Foundation\"`*"]
@@ -750,8 +750,8 @@ impl ::core::default::Default for SNMP_API_TRANSLATE_MODE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for SNMP_API_TRANSLATE_MODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SNMP_API_TRANSLATE_MODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for SNMP_API_TRANSLATE_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -811,8 +811,8 @@ impl ::core::default::Default for SNMP_ERROR {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for SNMP_ERROR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SNMP_ERROR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for SNMP_ERROR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -872,8 +872,8 @@ impl ::core::default::Default for SNMP_ERROR_STATUS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for SNMP_ERROR_STATUS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SNMP_ERROR_STATUS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for SNMP_ERROR_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -907,8 +907,8 @@ impl ::core::default::Default for SNMP_EXTENSION_REQUEST_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for SNMP_EXTENSION_REQUEST_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SNMP_EXTENSION_REQUEST_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for SNMP_EXTENSION_REQUEST_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -944,8 +944,8 @@ impl ::core::default::Default for SNMP_GENERICTRAP {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for SNMP_GENERICTRAP {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SNMP_GENERICTRAP {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for SNMP_GENERICTRAP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -979,8 +979,8 @@ impl ::core::default::Default for SNMP_LOG {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for SNMP_LOG {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SNMP_LOG {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for SNMP_LOG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1008,8 +1008,8 @@ impl ::core::default::Default for SNMP_OUTPUT_LOG_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for SNMP_OUTPUT_LOG_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SNMP_OUTPUT_LOG_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for SNMP_OUTPUT_LOG_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1043,8 +1043,8 @@ impl ::core::default::Default for SNMP_PDU_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for SNMP_PDU_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SNMP_PDU_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for SNMP_PDU_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1070,8 +1070,8 @@ impl ::core::default::Default for SNMP_STATUS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for SNMP_STATUS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SNMP_STATUS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for SNMP_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1094,8 +1094,8 @@ impl ::core::clone::Clone for AsnAny {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for AsnAny {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for AsnAny {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for AsnAny {
@@ -1129,8 +1129,8 @@ impl ::core::clone::Clone for AsnAny_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for AsnAny_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for AsnAny_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for AsnAny_0 {
@@ -1150,8 +1150,8 @@ impl ::core::clone::Clone for AsnObjectIdentifier {
         *self
     }
 }
-impl ::windows::core::TypeKind for AsnObjectIdentifier {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for AsnObjectIdentifier {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for AsnObjectIdentifier {
     fn default() -> Self {
@@ -1175,8 +1175,8 @@ impl ::core::clone::Clone for AsnOctetString {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for AsnOctetString {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for AsnOctetString {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for AsnOctetString {
@@ -1200,8 +1200,8 @@ impl ::core::clone::Clone for SnmpVarBind {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for SnmpVarBind {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SnmpVarBind {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SnmpVarBind {
@@ -1225,8 +1225,8 @@ impl ::core::clone::Clone for SnmpVarBindList {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for SnmpVarBindList {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SnmpVarBindList {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SnmpVarBindList {
@@ -1251,8 +1251,8 @@ impl ::core::fmt::Debug for smiCNTR64 {
         f.debug_struct("smiCNTR64").field("hipart", &self.hipart).field("lopart", &self.lopart).finish()
     }
 }
-impl ::windows::core::TypeKind for smiCNTR64 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for smiCNTR64 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for smiCNTR64 {
     fn eq(&self, other: &Self) -> bool {
@@ -1282,8 +1282,8 @@ impl ::core::fmt::Debug for smiOCTETS {
         f.debug_struct("smiOCTETS").field("len", &self.len).field("ptr", &self.ptr).finish()
     }
 }
-impl ::windows::core::TypeKind for smiOCTETS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for smiOCTETS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for smiOCTETS {
     fn eq(&self, other: &Self) -> bool {
@@ -1313,8 +1313,8 @@ impl ::core::fmt::Debug for smiOID {
         f.debug_struct("smiOID").field("len", &self.len).field("ptr", &self.ptr).finish()
     }
 }
-impl ::windows::core::TypeKind for smiOID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for smiOID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for smiOID {
     fn eq(&self, other: &Self) -> bool {
@@ -1339,8 +1339,8 @@ impl ::core::clone::Clone for smiVALUE {
         *self
     }
 }
-impl ::windows::core::TypeKind for smiVALUE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for smiVALUE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for smiVALUE {
     fn default() -> Self {
@@ -1363,8 +1363,8 @@ impl ::core::clone::Clone for smiVALUE_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for smiVALUE_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for smiVALUE_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for smiVALUE_0 {
     fn default() -> Self {
@@ -1391,8 +1391,8 @@ impl ::core::fmt::Debug for smiVENDORINFO {
         f.debug_struct("smiVENDORINFO").field("vendorName", &self.vendorName).field("vendorContact", &self.vendorContact).field("vendorVersionId", &self.vendorVersionId).field("vendorVersionDate", &self.vendorVersionDate).field("vendorEnterprise", &self.vendorEnterprise).finish()
     }
 }
-impl ::windows::core::TypeKind for smiVENDORINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for smiVENDORINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for smiVENDORINFO {
     fn eq(&self, other: &Self) -> bool {

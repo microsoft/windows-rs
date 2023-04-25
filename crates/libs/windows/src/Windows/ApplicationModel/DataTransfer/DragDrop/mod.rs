@@ -24,8 +24,8 @@ impl ::core::default::Default for DragDropModifiers {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for DragDropModifiers {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DragDropModifiers {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for DragDropModifiers {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -65,8 +65,8 @@ impl ::core::ops::Not for DragDropModifiers {
         Self(self.0.not())
     }
 }
-impl ::windows::core::RuntimeType for DragDropModifiers {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.DragDrop.DragDropModifiers;u4)");
+impl ::windows_core::RuntimeType for DragDropModifiers {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.DragDrop.DragDropModifiers;u4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

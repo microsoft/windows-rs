@@ -1,20 +1,20 @@
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
-pub unsafe fn ActivateKeyboardLayout<P0>(hkl: P0, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> ::windows::core::Result<super::super::TextServices::HKL>
+pub unsafe fn ActivateKeyboardLayout<P0>(hkl: P0, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> ::windows_core::Result<super::super::TextServices::HKL>
 where
-    P0: ::windows::core::IntoParam<super::super::TextServices::HKL>,
+    P0: ::windows_core::IntoParam<super::super::TextServices::HKL>,
 {
     ::windows_targets::link!("user32.dll" "system" fn ActivateKeyboardLayout(hkl : super::super::TextServices:: HKL, flags : ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> super::super::TextServices:: HKL);
     let result__ = ActivateKeyboardLayout(hkl.into_param().abi(), flags);
-    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BlockInput<P0>(fblockit: P0) -> super::super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<super::super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("user32.dll" "system" fn BlockInput(fblockit : super::super::super::Foundation:: BOOL) -> super::super::super::Foundation:: BOOL);
     BlockInput(fblockit.into_param().abi())
@@ -24,7 +24,7 @@ where
 #[inline]
 pub unsafe fn DragDetect<P0>(hwnd: P0, pt: super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("user32.dll" "system" fn DragDetect(hwnd : super::super::super::Foundation:: HWND, pt : super::super::super::Foundation:: POINT) -> super::super::super::Foundation:: BOOL);
     DragDetect(hwnd.into_param().abi(), ::core::mem::transmute(pt))
@@ -34,8 +34,8 @@ where
 #[inline]
 pub unsafe fn EnableWindow<P0, P1>(hwnd: P0, benable: P1) -> super::super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<super::super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<super::super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<super::super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("user32.dll" "system" fn EnableWindow(hwnd : super::super::super::Foundation:: HWND, benable : super::super::super::Foundation:: BOOL) -> super::super::super::Foundation:: BOOL);
     EnableWindow(hwnd.into_param().abi(), benable.into_param().abi())
@@ -82,13 +82,13 @@ pub unsafe fn GetKBCodePage() -> u32 {
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
 #[inline]
 pub unsafe fn GetKeyNameTextA(lparam: i32, lpstring: &mut [u8]) -> i32 {
-    ::windows_targets::link!("user32.dll" "system" fn GetKeyNameTextA(lparam : i32, lpstring : ::windows::core::PSTR, cchsize : i32) -> i32);
+    ::windows_targets::link!("user32.dll" "system" fn GetKeyNameTextA(lparam : i32, lpstring : ::windows_core::PSTR, cchsize : i32) -> i32);
     GetKeyNameTextA(lparam, ::core::mem::transmute(lpstring.as_ptr()), lpstring.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
 #[inline]
 pub unsafe fn GetKeyNameTextW(lparam: i32, lpstring: &mut [u16]) -> i32 {
-    ::windows_targets::link!("user32.dll" "system" fn GetKeyNameTextW(lparam : i32, lpstring : ::windows::core::PWSTR, cchsize : i32) -> i32);
+    ::windows_targets::link!("user32.dll" "system" fn GetKeyNameTextW(lparam : i32, lpstring : ::windows_core::PWSTR, cchsize : i32) -> i32);
     GetKeyNameTextW(lparam, ::core::mem::transmute(lpstring.as_ptr()), lpstring.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
@@ -115,14 +115,14 @@ pub unsafe fn GetKeyboardLayoutList(lplist: ::core::option::Option<&mut [super::
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetKeyboardLayoutNameA(pwszklid: &mut [u8; 9]) -> super::super::super::Foundation::BOOL {
-    ::windows_targets::link!("user32.dll" "system" fn GetKeyboardLayoutNameA(pwszklid : ::windows::core::PSTR) -> super::super::super::Foundation:: BOOL);
+    ::windows_targets::link!("user32.dll" "system" fn GetKeyboardLayoutNameA(pwszklid : ::windows_core::PSTR) -> super::super::super::Foundation:: BOOL);
     GetKeyboardLayoutNameA(::core::mem::transmute(pwszklid.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetKeyboardLayoutNameW(pwszklid: &mut [u16; 9]) -> super::super::super::Foundation::BOOL {
-    ::windows_targets::link!("user32.dll" "system" fn GetKeyboardLayoutNameW(pwszklid : ::windows::core::PWSTR) -> super::super::super::Foundation:: BOOL);
+    ::windows_targets::link!("user32.dll" "system" fn GetKeyboardLayoutNameW(pwszklid : ::windows_core::PWSTR) -> super::super::super::Foundation:: BOOL);
     GetKeyboardLayoutNameW(::core::mem::transmute(pwszklid.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`*"]
@@ -156,7 +156,7 @@ pub unsafe fn GetMouseMovePointsEx(cbsize: u32, lppt: *const MOUSEMOVEPOINT, lpp
 #[inline]
 pub unsafe fn IsWindowEnabled<P0>(hwnd: P0) -> super::super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("user32.dll" "system" fn IsWindowEnabled(hwnd : super::super::super::Foundation:: HWND) -> super::super::super::Foundation:: BOOL);
     IsWindowEnabled(hwnd.into_param().abi())
@@ -164,24 +164,24 @@ where
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
-pub unsafe fn LoadKeyboardLayoutA<P0>(pwszklid: P0, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> ::windows::core::Result<super::super::TextServices::HKL>
+pub unsafe fn LoadKeyboardLayoutA<P0>(pwszklid: P0, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> ::windows_core::Result<super::super::TextServices::HKL>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("user32.dll" "system" fn LoadKeyboardLayoutA(pwszklid : ::windows::core::PCSTR, flags : ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> super::super::TextServices:: HKL);
+    ::windows_targets::link!("user32.dll" "system" fn LoadKeyboardLayoutA(pwszklid : ::windows_core::PCSTR, flags : ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> super::super::TextServices:: HKL);
     let result__ = LoadKeyboardLayoutA(pwszklid.into_param().abi(), flags);
-    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
-pub unsafe fn LoadKeyboardLayoutW<P0>(pwszklid: P0, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> ::windows::core::Result<super::super::TextServices::HKL>
+pub unsafe fn LoadKeyboardLayoutW<P0>(pwszklid: P0, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> ::windows_core::Result<super::super::TextServices::HKL>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("user32.dll" "system" fn LoadKeyboardLayoutW(pwszklid : ::windows::core::PCWSTR, flags : ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> super::super::TextServices:: HKL);
+    ::windows_targets::link!("user32.dll" "system" fn LoadKeyboardLayoutW(pwszklid : ::windows_core::PCWSTR, flags : ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> super::super::TextServices:: HKL);
     let result__ = LoadKeyboardLayoutW(pwszklid.into_param().abi(), flags);
-    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
 #[inline]
@@ -194,7 +194,7 @@ pub unsafe fn MapVirtualKeyA(ucode: u32, umaptype: MAP_VIRTUAL_KEY_TYPE) -> u32 
 #[inline]
 pub unsafe fn MapVirtualKeyExA<P0>(ucode: u32, umaptype: MAP_VIRTUAL_KEY_TYPE, dwhkl: P0) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::TextServices::HKL>,
+    P0: ::windows_core::IntoParam<super::super::TextServices::HKL>,
 {
     ::windows_targets::link!("user32.dll" "system" fn MapVirtualKeyExA(ucode : u32, umaptype : MAP_VIRTUAL_KEY_TYPE, dwhkl : super::super::TextServices:: HKL) -> u32);
     MapVirtualKeyExA(ucode, umaptype, dwhkl.into_param().abi())
@@ -204,7 +204,7 @@ where
 #[inline]
 pub unsafe fn MapVirtualKeyExW<P0>(ucode: u32, umaptype: MAP_VIRTUAL_KEY_TYPE, dwhkl: P0) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::TextServices::HKL>,
+    P0: ::windows_core::IntoParam<super::super::TextServices::HKL>,
 {
     ::windows_targets::link!("user32.dll" "system" fn MapVirtualKeyExW(ucode : u32, umaptype : MAP_VIRTUAL_KEY_TYPE, dwhkl : super::super::TextServices:: HKL) -> u32);
     MapVirtualKeyExW(ucode, umaptype, dwhkl.into_param().abi())
@@ -226,7 +226,7 @@ pub unsafe fn OemKeyScan(woemchar: u16) -> u32 {
 #[inline]
 pub unsafe fn RegisterHotKey<P0>(hwnd: P0, id: i32, fsmodifiers: HOT_KEY_MODIFIERS, vk: u32) -> super::super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("user32.dll" "system" fn RegisterHotKey(hwnd : super::super::super::Foundation:: HWND, id : i32, fsmodifiers : HOT_KEY_MODIFIERS, vk : u32) -> super::super::super::Foundation:: BOOL);
     RegisterHotKey(hwnd.into_param().abi(), id, fsmodifiers, vk)
@@ -249,7 +249,7 @@ pub unsafe fn SendInput(pinputs: &[INPUT], cbsize: i32) -> u32 {
 #[inline]
 pub unsafe fn SetActiveWindow<P0>(hwnd: P0) -> super::super::super::Foundation::HWND
 where
-    P0: ::windows::core::IntoParam<super::super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("user32.dll" "system" fn SetActiveWindow(hwnd : super::super::super::Foundation:: HWND) -> super::super::super::Foundation:: HWND);
     SetActiveWindow(hwnd.into_param().abi())
@@ -259,7 +259,7 @@ where
 #[inline]
 pub unsafe fn SetCapture<P0>(hwnd: P0) -> super::super::super::Foundation::HWND
 where
-    P0: ::windows::core::IntoParam<super::super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("user32.dll" "system" fn SetCapture(hwnd : super::super::super::Foundation:: HWND) -> super::super::super::Foundation:: HWND);
     SetCapture(hwnd.into_param().abi())
@@ -276,7 +276,7 @@ pub unsafe fn SetDoubleClickTime(param0: u32) -> super::super::super::Foundation
 #[inline]
 pub unsafe fn SetFocus<P0>(hwnd: P0) -> super::super::super::Foundation::HWND
 where
-    P0: ::windows::core::IntoParam<super::super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("user32.dll" "system" fn SetFocus(hwnd : super::super::super::Foundation:: HWND) -> super::super::super::Foundation:: HWND);
     SetFocus(hwnd.into_param().abi())
@@ -293,7 +293,7 @@ pub unsafe fn SetKeyboardState(lpkeystate: &[u8; 256]) -> super::super::super::F
 #[inline]
 pub unsafe fn SwapMouseButton<P0>(fswap: P0) -> super::super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<super::super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("user32.dll" "system" fn SwapMouseButton(fswap : super::super::super::Foundation:: BOOL) -> super::super::super::Foundation:: BOOL);
     SwapMouseButton(fswap.into_param().abi())
@@ -309,7 +309,7 @@ pub unsafe fn ToAscii(uvirtkey: u32, uscancode: u32, lpkeystate: ::core::option:
 #[inline]
 pub unsafe fn ToAsciiEx<P0>(uvirtkey: u32, uscancode: u32, lpkeystate: ::core::option::Option<&[u8; 256]>, lpchar: *mut u16, uflags: u32, dwhkl: P0) -> i32
 where
-    P0: ::windows::core::IntoParam<super::super::TextServices::HKL>,
+    P0: ::windows_core::IntoParam<super::super::TextServices::HKL>,
 {
     ::windows_targets::link!("user32.dll" "system" fn ToAsciiEx(uvirtkey : u32, uscancode : u32, lpkeystate : *const u8, lpchar : *mut u16, uflags : u32, dwhkl : super::super::TextServices:: HKL) -> i32);
     ToAsciiEx(uvirtkey, uscancode, ::core::mem::transmute(lpkeystate.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpchar, uflags, dwhkl.into_param().abi())
@@ -317,7 +317,7 @@ where
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
 #[inline]
 pub unsafe fn ToUnicode(wvirtkey: u32, wscancode: u32, lpkeystate: ::core::option::Option<&[u8; 256]>, pwszbuff: &mut [u16], wflags: u32) -> i32 {
-    ::windows_targets::link!("user32.dll" "system" fn ToUnicode(wvirtkey : u32, wscancode : u32, lpkeystate : *const u8, pwszbuff : ::windows::core::PWSTR, cchbuff : i32, wflags : u32) -> i32);
+    ::windows_targets::link!("user32.dll" "system" fn ToUnicode(wvirtkey : u32, wscancode : u32, lpkeystate : *const u8, pwszbuff : ::windows_core::PWSTR, cchbuff : i32, wflags : u32) -> i32);
     ToUnicode(wvirtkey, wscancode, ::core::mem::transmute(lpkeystate.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pwszbuff.as_ptr()), pwszbuff.len() as _, wflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_UI_TextServices\"`*"]
@@ -325,9 +325,9 @@ pub unsafe fn ToUnicode(wvirtkey: u32, wscancode: u32, lpkeystate: ::core::optio
 #[inline]
 pub unsafe fn ToUnicodeEx<P0>(wvirtkey: u32, wscancode: u32, lpkeystate: &[u8; 256], pwszbuff: &mut [u16], wflags: u32, dwhkl: P0) -> i32
 where
-    P0: ::windows::core::IntoParam<super::super::TextServices::HKL>,
+    P0: ::windows_core::IntoParam<super::super::TextServices::HKL>,
 {
-    ::windows_targets::link!("user32.dll" "system" fn ToUnicodeEx(wvirtkey : u32, wscancode : u32, lpkeystate : *const u8, pwszbuff : ::windows::core::PWSTR, cchbuff : i32, wflags : u32, dwhkl : super::super::TextServices:: HKL) -> i32);
+    ::windows_targets::link!("user32.dll" "system" fn ToUnicodeEx(wvirtkey : u32, wscancode : u32, lpkeystate : *const u8, pwszbuff : ::windows_core::PWSTR, cchbuff : i32, wflags : u32, dwhkl : super::super::TextServices:: HKL) -> i32);
     ToUnicodeEx(wvirtkey, wscancode, ::core::mem::transmute(lpkeystate.as_ptr()), ::core::mem::transmute(pwszbuff.as_ptr()), pwszbuff.len() as _, wflags, dwhkl.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`*"]
@@ -342,7 +342,7 @@ pub unsafe fn TrackMouseEvent(lpeventtrack: *mut TRACKMOUSEEVENT) -> super::supe
 #[inline]
 pub unsafe fn UnloadKeyboardLayout<P0>(hkl: P0) -> super::super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::TextServices::HKL>,
+    P0: ::windows_core::IntoParam<super::super::TextServices::HKL>,
 {
     ::windows_targets::link!("user32.dll" "system" fn UnloadKeyboardLayout(hkl : super::super::TextServices:: HKL) -> super::super::super::Foundation:: BOOL);
     UnloadKeyboardLayout(hkl.into_param().abi())
@@ -352,7 +352,7 @@ where
 #[inline]
 pub unsafe fn UnregisterHotKey<P0>(hwnd: P0, id: i32) -> super::super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("user32.dll" "system" fn UnregisterHotKey(hwnd : super::super::super::Foundation:: HWND, id : i32) -> super::super::super::Foundation:: BOOL);
     UnregisterHotKey(hwnd.into_param().abi(), id)
@@ -368,7 +368,7 @@ pub unsafe fn VkKeyScanA(ch: u8) -> i16 {
 #[inline]
 pub unsafe fn VkKeyScanExA<P0>(ch: u8, dwhkl: P0) -> i16
 where
-    P0: ::windows::core::IntoParam<super::super::TextServices::HKL>,
+    P0: ::windows_core::IntoParam<super::super::TextServices::HKL>,
 {
     ::windows_targets::link!("user32.dll" "system" fn VkKeyScanExA(ch : u8, dwhkl : super::super::TextServices:: HKL) -> i16);
     VkKeyScanExA(ch, dwhkl.into_param().abi())
@@ -378,7 +378,7 @@ where
 #[inline]
 pub unsafe fn VkKeyScanExW<P0>(ch: u16, dwhkl: P0) -> i16
 where
-    P0: ::windows::core::IntoParam<super::super::TextServices::HKL>,
+    P0: ::windows_core::IntoParam<super::super::TextServices::HKL>,
 {
     ::windows_targets::link!("user32.dll" "system" fn VkKeyScanExW(ch : u16, dwhkl : super::super::TextServices:: HKL) -> i16);
     VkKeyScanExW(ch, dwhkl.into_param().abi())
@@ -641,39 +641,39 @@ pub const WCH_LGTR: u32 = 61442u32;
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
 pub const WCH_NONE: u32 = 61440u32;
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const wszACUTE: ::windows::core::PCWSTR = ::windows::core::w!("\u{301}");
+pub const wszACUTE: ::windows_core::PCWSTR = ::windows_core::w!("\u{301}");
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const wszBREVE: ::windows::core::PCWSTR = ::windows::core::w!("\u{306}");
+pub const wszBREVE: ::windows_core::PCWSTR = ::windows_core::w!("\u{306}");
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const wszCEDILLA: ::windows::core::PCWSTR = ::windows::core::w!("\u{327}");
+pub const wszCEDILLA: ::windows_core::PCWSTR = ::windows_core::w!("\u{327}");
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const wszCIRCUMFLEX: ::windows::core::PCWSTR = ::windows::core::w!("\u{302}");
+pub const wszCIRCUMFLEX: ::windows_core::PCWSTR = ::windows_core::w!("\u{302}");
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const wszDIARESIS_TONOS: ::windows::core::PCWSTR = ::windows::core::w!("\u{385}");
+pub const wszDIARESIS_TONOS: ::windows_core::PCWSTR = ::windows_core::w!("\u{385}");
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const wszDOT_ABOVE: ::windows::core::PCWSTR = ::windows::core::w!("\u{307}");
+pub const wszDOT_ABOVE: ::windows_core::PCWSTR = ::windows_core::w!("\u{307}");
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const wszDOUBLE_ACUTE: ::windows::core::PCWSTR = ::windows::core::w!("\u{30b}");
+pub const wszDOUBLE_ACUTE: ::windows_core::PCWSTR = ::windows_core::w!("\u{30b}");
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const wszGRAVE: ::windows::core::PCWSTR = ::windows::core::w!("\u{300}");
+pub const wszGRAVE: ::windows_core::PCWSTR = ::windows_core::w!("\u{300}");
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const wszHACEK: ::windows::core::PCWSTR = ::windows::core::w!("\u{30c}");
+pub const wszHACEK: ::windows_core::PCWSTR = ::windows_core::w!("\u{30c}");
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const wszHOOK_ABOVE: ::windows::core::PCWSTR = ::windows::core::w!("\u{309}");
+pub const wszHOOK_ABOVE: ::windows_core::PCWSTR = ::windows_core::w!("\u{309}");
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const wszMACRON: ::windows::core::PCWSTR = ::windows::core::w!("\u{304}");
+pub const wszMACRON: ::windows_core::PCWSTR = ::windows_core::w!("\u{304}");
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const wszOGONEK: ::windows::core::PCWSTR = ::windows::core::w!("\u{328}");
+pub const wszOGONEK: ::windows_core::PCWSTR = ::windows_core::w!("\u{328}");
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const wszOVERSCORE: ::windows::core::PCWSTR = ::windows::core::w!("\u{305}");
+pub const wszOVERSCORE: ::windows_core::PCWSTR = ::windows_core::w!("\u{305}");
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const wszRING: ::windows::core::PCWSTR = ::windows::core::w!("\u{30a}");
+pub const wszRING: ::windows_core::PCWSTR = ::windows_core::w!("\u{30a}");
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const wszTILDE: ::windows::core::PCWSTR = ::windows::core::w!("\u{303}");
+pub const wszTILDE: ::windows_core::PCWSTR = ::windows_core::w!("\u{303}");
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const wszTONOS: ::windows::core::PCWSTR = ::windows::core::w!("\u{384}");
+pub const wszTONOS: ::windows_core::PCWSTR = ::windows_core::w!("\u{384}");
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
-pub const wszUMLAUT: ::windows::core::PCWSTR = ::windows::core::w!("\u{308}");
+pub const wszUMLAUT: ::windows_core::PCWSTR = ::windows_core::w!("\u{308}");
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -705,8 +705,8 @@ impl ::core::default::Default for ACTIVATE_KEYBOARD_LAYOUT_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for ACTIVATE_KEYBOARD_LAYOUT_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for ACTIVATE_KEYBOARD_LAYOUT_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for ACTIVATE_KEYBOARD_LAYOUT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -732,8 +732,8 @@ impl ::core::default::Default for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -765,8 +765,8 @@ impl ::core::default::Default for HOT_KEY_MODIFIERS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for HOT_KEY_MODIFIERS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HOT_KEY_MODIFIERS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for HOT_KEY_MODIFIERS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -827,8 +827,8 @@ impl ::core::default::Default for INPUT_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for INPUT_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for INPUT_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for INPUT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -858,8 +858,8 @@ impl ::core::default::Default for KEYBD_EVENT_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for KEYBD_EVENT_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KEYBD_EVENT_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for KEYBD_EVENT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -924,8 +924,8 @@ impl ::core::default::Default for MAP_VIRTUAL_KEY_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MAP_VIRTUAL_KEY_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MAP_VIRTUAL_KEY_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MAP_VIRTUAL_KEY_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -975,8 +975,8 @@ impl ::core::default::Default for MOUSE_EVENT_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MOUSE_EVENT_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MOUSE_EVENT_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MOUSE_EVENT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1041,8 +1041,8 @@ impl ::core::default::Default for TRACKMOUSEEVENT_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TRACKMOUSEEVENT_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TRACKMOUSEEVENT_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TRACKMOUSEEVENT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1591,8 +1591,8 @@ impl ::core::default::Default for VIRTUAL_KEY {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for VIRTUAL_KEY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VIRTUAL_KEY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for VIRTUAL_KEY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1617,8 +1617,8 @@ impl ::core::fmt::Debug for DEADKEY {
         f.debug_struct("DEADKEY").field("dwBoth", &self.dwBoth).field("wchComposed", &self.wchComposed).field("uFlags", &self.uFlags).finish()
     }
 }
-impl ::windows::core::TypeKind for DEADKEY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DEADKEY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DEADKEY {
     fn eq(&self, other: &Self) -> bool {
@@ -1649,8 +1649,8 @@ impl ::core::fmt::Debug for HARDWAREINPUT {
         f.debug_struct("HARDWAREINPUT").field("uMsg", &self.uMsg).field("wParamL", &self.wParamL).field("wParamH", &self.wParamH).finish()
     }
 }
-impl ::windows::core::TypeKind for HARDWAREINPUT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HARDWAREINPUT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for HARDWAREINPUT {
     fn eq(&self, other: &Self) -> bool {
@@ -1675,8 +1675,8 @@ impl ::core::clone::Clone for INPUT {
         *self
     }
 }
-impl ::windows::core::TypeKind for INPUT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for INPUT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for INPUT {
     fn default() -> Self {
@@ -1696,8 +1696,8 @@ impl ::core::clone::Clone for INPUT_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for INPUT_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for INPUT_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for INPUT_0 {
     fn default() -> Self {
@@ -1725,8 +1725,8 @@ impl ::core::fmt::Debug for KBDNLSTABLES {
         f.debug_struct("KBDNLSTABLES").field("OEMIdentifier", &self.OEMIdentifier).field("LayoutInformation", &self.LayoutInformation).field("NumOfVkToF", &self.NumOfVkToF).field("pVkToF", &self.pVkToF).field("NumOfMouseVKey", &self.NumOfMouseVKey).field("pusMouseVKey", &self.pusMouseVKey).finish()
     }
 }
-impl ::windows::core::TypeKind for KBDNLSTABLES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KBDNLSTABLES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KBDNLSTABLES {
     fn eq(&self, other: &Self) -> bool {
@@ -1787,8 +1787,8 @@ impl ::core::fmt::Debug for KBDTABLES {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for KBDTABLES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KBDTABLES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KBDTABLES {
     fn eq(&self, other: &Self) -> bool {
@@ -1819,8 +1819,8 @@ impl ::core::fmt::Debug for KBDTABLE_DESC {
         f.debug_struct("KBDTABLE_DESC").field("wszDllName", &self.wszDllName).field("dwType", &self.dwType).field("dwSubType", &self.dwSubType).finish()
     }
 }
-impl ::windows::core::TypeKind for KBDTABLE_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KBDTABLE_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KBDTABLE_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -1850,8 +1850,8 @@ impl ::core::fmt::Debug for KBDTABLE_MULTI {
         f.debug_struct("KBDTABLE_MULTI").field("nTables", &self.nTables).field("aKbdTables", &self.aKbdTables).finish()
     }
 }
-impl ::windows::core::TypeKind for KBDTABLE_MULTI {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KBDTABLE_MULTI {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KBDTABLE_MULTI {
     fn eq(&self, other: &Self) -> bool {
@@ -1882,8 +1882,8 @@ impl ::core::fmt::Debug for KBD_TYPE_INFO {
         f.debug_struct("KBD_TYPE_INFO").field("dwVersion", &self.dwVersion).field("dwType", &self.dwType).field("dwSubType", &self.dwSubType).finish()
     }
 }
-impl ::windows::core::TypeKind for KBD_TYPE_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KBD_TYPE_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KBD_TYPE_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -1916,8 +1916,8 @@ impl ::core::fmt::Debug for KEYBDINPUT {
         f.debug_struct("KEYBDINPUT").field("wVk", &self.wVk).field("wScan", &self.wScan).field("dwFlags", &self.dwFlags).field("time", &self.time).field("dwExtraInfo", &self.dwExtraInfo).finish()
     }
 }
-impl ::windows::core::TypeKind for KEYBDINPUT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for KEYBDINPUT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for KEYBDINPUT {
     fn eq(&self, other: &Self) -> bool {
@@ -1947,8 +1947,8 @@ impl ::core::fmt::Debug for LASTINPUTINFO {
         f.debug_struct("LASTINPUTINFO").field("cbSize", &self.cbSize).field("dwTime", &self.dwTime).finish()
     }
 }
-impl ::windows::core::TypeKind for LASTINPUTINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LASTINPUTINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for LASTINPUTINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -1979,8 +1979,8 @@ impl ::core::fmt::Debug for LIGATURE1 {
         f.debug_struct("LIGATURE1").field("VirtualKey", &self.VirtualKey).field("ModificationNumber", &self.ModificationNumber).field("wch", &self.wch).finish()
     }
 }
-impl ::windows::core::TypeKind for LIGATURE1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LIGATURE1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for LIGATURE1 {
     fn eq(&self, other: &Self) -> bool {
@@ -2011,8 +2011,8 @@ impl ::core::fmt::Debug for LIGATURE2 {
         f.debug_struct("LIGATURE2").field("VirtualKey", &self.VirtualKey).field("ModificationNumber", &self.ModificationNumber).field("wch", &self.wch).finish()
     }
 }
-impl ::windows::core::TypeKind for LIGATURE2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LIGATURE2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for LIGATURE2 {
     fn eq(&self, other: &Self) -> bool {
@@ -2043,8 +2043,8 @@ impl ::core::fmt::Debug for LIGATURE3 {
         f.debug_struct("LIGATURE3").field("VirtualKey", &self.VirtualKey).field("ModificationNumber", &self.ModificationNumber).field("wch", &self.wch).finish()
     }
 }
-impl ::windows::core::TypeKind for LIGATURE3 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LIGATURE3 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for LIGATURE3 {
     fn eq(&self, other: &Self) -> bool {
@@ -2075,8 +2075,8 @@ impl ::core::fmt::Debug for LIGATURE4 {
         f.debug_struct("LIGATURE4").field("VirtualKey", &self.VirtualKey).field("ModificationNumber", &self.ModificationNumber).field("wch", &self.wch).finish()
     }
 }
-impl ::windows::core::TypeKind for LIGATURE4 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LIGATURE4 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for LIGATURE4 {
     fn eq(&self, other: &Self) -> bool {
@@ -2107,8 +2107,8 @@ impl ::core::fmt::Debug for LIGATURE5 {
         f.debug_struct("LIGATURE5").field("VirtualKey", &self.VirtualKey).field("ModificationNumber", &self.ModificationNumber).field("wch", &self.wch).finish()
     }
 }
-impl ::windows::core::TypeKind for LIGATURE5 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LIGATURE5 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for LIGATURE5 {
     fn eq(&self, other: &Self) -> bool {
@@ -2139,8 +2139,8 @@ impl ::core::fmt::Debug for MODIFIERS {
         f.debug_struct("MODIFIERS").field("pVkToBit", &self.pVkToBit).field("wMaxModBits", &self.wMaxModBits).field("ModNumber", &self.ModNumber).finish()
     }
 }
-impl ::windows::core::TypeKind for MODIFIERS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MODIFIERS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for MODIFIERS {
     fn eq(&self, other: &Self) -> bool {
@@ -2174,8 +2174,8 @@ impl ::core::fmt::Debug for MOUSEINPUT {
         f.debug_struct("MOUSEINPUT").field("dx", &self.dx).field("dy", &self.dy).field("mouseData", &self.mouseData).field("dwFlags", &self.dwFlags).field("time", &self.time).field("dwExtraInfo", &self.dwExtraInfo).finish()
     }
 }
-impl ::windows::core::TypeKind for MOUSEINPUT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MOUSEINPUT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for MOUSEINPUT {
     fn eq(&self, other: &Self) -> bool {
@@ -2207,8 +2207,8 @@ impl ::core::fmt::Debug for MOUSEMOVEPOINT {
         f.debug_struct("MOUSEMOVEPOINT").field("x", &self.x).field("y", &self.y).field("time", &self.time).field("dwExtraInfo", &self.dwExtraInfo).finish()
     }
 }
-impl ::windows::core::TypeKind for MOUSEMOVEPOINT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MOUSEMOVEPOINT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for MOUSEMOVEPOINT {
     fn eq(&self, other: &Self) -> bool {
@@ -2245,8 +2245,8 @@ impl ::core::fmt::Debug for TRACKMOUSEEVENT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for TRACKMOUSEEVENT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TRACKMOUSEEVENT {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TRACKMOUSEEVENT {
@@ -2283,8 +2283,8 @@ impl ::core::fmt::Debug for VK_F {
         f.debug_struct("VK_F").field("Vk", &self.Vk).field("NLSFEProcType", &self.NLSFEProcType).field("NLSFEProcCurrent", &self.NLSFEProcCurrent).field("NLSFEProcSwitch", &self.NLSFEProcSwitch).field("NLSFEProc", &self.NLSFEProc).field("NLSFEProcAlt", &self.NLSFEProcAlt).finish()
     }
 }
-impl ::windows::core::TypeKind for VK_F {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VK_F {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for VK_F {
     fn eq(&self, other: &Self) -> bool {
@@ -2314,8 +2314,8 @@ impl ::core::fmt::Debug for VK_FPARAM {
         f.debug_struct("VK_FPARAM").field("NLSFEProcIndex", &self.NLSFEProcIndex).field("NLSFEProcParam", &self.NLSFEProcParam).finish()
     }
 }
-impl ::windows::core::TypeKind for VK_FPARAM {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VK_FPARAM {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for VK_FPARAM {
     fn eq(&self, other: &Self) -> bool {
@@ -2345,8 +2345,8 @@ impl ::core::fmt::Debug for VK_TO_BIT {
         f.debug_struct("VK_TO_BIT").field("Vk", &self.Vk).field("ModBits", &self.ModBits).finish()
     }
 }
-impl ::windows::core::TypeKind for VK_TO_BIT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VK_TO_BIT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for VK_TO_BIT {
     fn eq(&self, other: &Self) -> bool {
@@ -2377,8 +2377,8 @@ impl ::core::fmt::Debug for VK_TO_WCHARS1 {
         f.debug_struct("VK_TO_WCHARS1").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
     }
 }
-impl ::windows::core::TypeKind for VK_TO_WCHARS1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VK_TO_WCHARS1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for VK_TO_WCHARS1 {
     fn eq(&self, other: &Self) -> bool {
@@ -2409,8 +2409,8 @@ impl ::core::fmt::Debug for VK_TO_WCHARS10 {
         f.debug_struct("VK_TO_WCHARS10").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
     }
 }
-impl ::windows::core::TypeKind for VK_TO_WCHARS10 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VK_TO_WCHARS10 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for VK_TO_WCHARS10 {
     fn eq(&self, other: &Self) -> bool {
@@ -2441,8 +2441,8 @@ impl ::core::fmt::Debug for VK_TO_WCHARS2 {
         f.debug_struct("VK_TO_WCHARS2").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
     }
 }
-impl ::windows::core::TypeKind for VK_TO_WCHARS2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VK_TO_WCHARS2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for VK_TO_WCHARS2 {
     fn eq(&self, other: &Self) -> bool {
@@ -2473,8 +2473,8 @@ impl ::core::fmt::Debug for VK_TO_WCHARS3 {
         f.debug_struct("VK_TO_WCHARS3").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
     }
 }
-impl ::windows::core::TypeKind for VK_TO_WCHARS3 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VK_TO_WCHARS3 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for VK_TO_WCHARS3 {
     fn eq(&self, other: &Self) -> bool {
@@ -2505,8 +2505,8 @@ impl ::core::fmt::Debug for VK_TO_WCHARS4 {
         f.debug_struct("VK_TO_WCHARS4").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
     }
 }
-impl ::windows::core::TypeKind for VK_TO_WCHARS4 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VK_TO_WCHARS4 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for VK_TO_WCHARS4 {
     fn eq(&self, other: &Self) -> bool {
@@ -2537,8 +2537,8 @@ impl ::core::fmt::Debug for VK_TO_WCHARS5 {
         f.debug_struct("VK_TO_WCHARS5").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
     }
 }
-impl ::windows::core::TypeKind for VK_TO_WCHARS5 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VK_TO_WCHARS5 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for VK_TO_WCHARS5 {
     fn eq(&self, other: &Self) -> bool {
@@ -2569,8 +2569,8 @@ impl ::core::fmt::Debug for VK_TO_WCHARS6 {
         f.debug_struct("VK_TO_WCHARS6").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
     }
 }
-impl ::windows::core::TypeKind for VK_TO_WCHARS6 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VK_TO_WCHARS6 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for VK_TO_WCHARS6 {
     fn eq(&self, other: &Self) -> bool {
@@ -2601,8 +2601,8 @@ impl ::core::fmt::Debug for VK_TO_WCHARS7 {
         f.debug_struct("VK_TO_WCHARS7").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
     }
 }
-impl ::windows::core::TypeKind for VK_TO_WCHARS7 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VK_TO_WCHARS7 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for VK_TO_WCHARS7 {
     fn eq(&self, other: &Self) -> bool {
@@ -2633,8 +2633,8 @@ impl ::core::fmt::Debug for VK_TO_WCHARS8 {
         f.debug_struct("VK_TO_WCHARS8").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
     }
 }
-impl ::windows::core::TypeKind for VK_TO_WCHARS8 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VK_TO_WCHARS8 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for VK_TO_WCHARS8 {
     fn eq(&self, other: &Self) -> bool {
@@ -2665,8 +2665,8 @@ impl ::core::fmt::Debug for VK_TO_WCHARS9 {
         f.debug_struct("VK_TO_WCHARS9").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
     }
 }
-impl ::windows::core::TypeKind for VK_TO_WCHARS9 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VK_TO_WCHARS9 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for VK_TO_WCHARS9 {
     fn eq(&self, other: &Self) -> bool {
@@ -2697,8 +2697,8 @@ impl ::core::fmt::Debug for VK_TO_WCHAR_TABLE {
         f.debug_struct("VK_TO_WCHAR_TABLE").field("pVkToWchars", &self.pVkToWchars).field("nModifications", &self.nModifications).field("cbSize", &self.cbSize).finish()
     }
 }
-impl ::windows::core::TypeKind for VK_TO_WCHAR_TABLE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VK_TO_WCHAR_TABLE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for VK_TO_WCHAR_TABLE {
     fn eq(&self, other: &Self) -> bool {
@@ -2728,8 +2728,8 @@ impl ::core::fmt::Debug for VK_VSC {
         f.debug_struct("VK_VSC").field("Vk", &self.Vk).field("Vsc", &self.Vsc).finish()
     }
 }
-impl ::windows::core::TypeKind for VK_VSC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VK_VSC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for VK_VSC {
     fn eq(&self, other: &Self) -> bool {
@@ -2746,7 +2746,7 @@ impl ::core::default::Default for VK_VSC {
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
 pub struct VSC_LPWSTR {
     pub vsc: u8,
-    pub pwsz: ::windows::core::PWSTR,
+    pub pwsz: ::windows_core::PWSTR,
 }
 impl ::core::marker::Copy for VSC_LPWSTR {}
 impl ::core::clone::Clone for VSC_LPWSTR {
@@ -2759,8 +2759,8 @@ impl ::core::fmt::Debug for VSC_LPWSTR {
         f.debug_struct("VSC_LPWSTR").field("vsc", &self.vsc).field("pwsz", &self.pwsz).finish()
     }
 }
-impl ::windows::core::TypeKind for VSC_LPWSTR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VSC_LPWSTR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for VSC_LPWSTR {
     fn eq(&self, other: &Self) -> bool {
@@ -2790,8 +2790,8 @@ impl ::core::fmt::Debug for VSC_VK {
         f.debug_struct("VSC_VK").field("Vsc", &self.Vsc).field("Vk", &self.Vk).finish()
     }
 }
-impl ::windows::core::TypeKind for VSC_VK {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VSC_VK {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for VSC_VK {
     fn eq(&self, other: &Self) -> bool {

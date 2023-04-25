@@ -1,73 +1,73 @@
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`, `\"Win32_Graphics_Direct3D12\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[inline]
-pub unsafe fn DMLCreateDevice<P0, T>(d3d12device: P0, flags: DML_CREATE_DEVICE_FLAGS, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()>
+pub unsafe fn DMLCreateDevice<P0, T>(d3d12device: P0, flags: DML_CREATE_DEVICE_FLAGS, result__: *mut ::core::option::Option<T>) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::super::Graphics::Direct3D12::ID3D12Device>,
-    T: ::windows::core::ComInterface,
+    P0: ::windows_core::IntoParam<super::super::super::Graphics::Direct3D12::ID3D12Device>,
+    T: ::windows_core::ComInterface,
 {
-    ::windows_targets::link!("directml.dll" "system" fn DMLCreateDevice(d3d12device : * mut::core::ffi::c_void, flags : DML_CREATE_DEVICE_FLAGS, riid : *const ::windows::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
-    DMLCreateDevice(d3d12device.into_param().abi(), flags, &<T as ::windows::core::ComInterface>::IID, result__ as *mut _ as *mut _).ok()
+    ::windows_targets::link!("directml.dll" "system" fn DMLCreateDevice(d3d12device : * mut::core::ffi::c_void, flags : DML_CREATE_DEVICE_FLAGS, riid : *const ::windows_core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
+    DMLCreateDevice(d3d12device.into_param().abi(), flags, &<T as ::windows_core::ComInterface>::IID, result__ as *mut _ as *mut _).ok()
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`, `\"Win32_Graphics_Direct3D12\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[inline]
-pub unsafe fn DMLCreateDevice1<P0, T>(d3d12device: P0, flags: DML_CREATE_DEVICE_FLAGS, minimumfeaturelevel: DML_FEATURE_LEVEL, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()>
+pub unsafe fn DMLCreateDevice1<P0, T>(d3d12device: P0, flags: DML_CREATE_DEVICE_FLAGS, minimumfeaturelevel: DML_FEATURE_LEVEL, result__: *mut ::core::option::Option<T>) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::super::Graphics::Direct3D12::ID3D12Device>,
-    T: ::windows::core::ComInterface,
+    P0: ::windows_core::IntoParam<super::super::super::Graphics::Direct3D12::ID3D12Device>,
+    T: ::windows_core::ComInterface,
 {
-    ::windows_targets::link!("directml.dll" "system" fn DMLCreateDevice1(d3d12device : * mut::core::ffi::c_void, flags : DML_CREATE_DEVICE_FLAGS, minimumfeaturelevel : DML_FEATURE_LEVEL, riid : *const ::windows::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
-    DMLCreateDevice1(d3d12device.into_param().abi(), flags, minimumfeaturelevel, &<T as ::windows::core::ComInterface>::IID, result__ as *mut _ as *mut _).ok()
+    ::windows_targets::link!("directml.dll" "system" fn DMLCreateDevice1(d3d12device : * mut::core::ffi::c_void, flags : DML_CREATE_DEVICE_FLAGS, minimumfeaturelevel : DML_FEATURE_LEVEL, riid : *const ::windows_core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
+    DMLCreateDevice1(d3d12device.into_param().abi(), flags, minimumfeaturelevel, &<T as ::windows_core::ComInterface>::IID, result__ as *mut _ as *mut _).ok()
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 #[repr(transparent)]
-pub struct IDMLBindingTable(::windows::core::IUnknown);
+pub struct IDMLBindingTable(::windows_core::IUnknown);
 impl IDMLBindingTable {
-    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: *mut u32, data: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(data.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: *mut u32, data: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.base__.GetPrivateData)(::windows_core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(data.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, data: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(data.unwrap_or(::std::ptr::null()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: u32, data: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows_core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(data.unwrap_or(::std::ptr::null()))).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<P0>(&self, guid: *const ::windows::core::GUID, data: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<P0>(&self, guid: *const ::windows_core::GUID, data: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), guid, data.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.SetPrivateDataInterface)(::windows_core::Interface::as_raw(self), guid, data.into_param().abi()).ok()
     }
-    pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.SetName)(::windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
-    pub unsafe fn GetDevice<T>(&self) -> ::windows::core::Result<T>
+    pub unsafe fn GetDevice<T>(&self) -> ::windows_core::Result<T>
     where
-        T: ::windows::core::ComInterface,
+        T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows::core::Interface::vtable(self).base__.GetDevice)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetDevice)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn BindInputs(&self, bindings: ::core::option::Option<&[DML_BINDING_DESC]>) {
-        (::windows::core::Interface::vtable(self).BindInputs)(::windows::core::Interface::as_raw(self), bindings.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(bindings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
+        (::windows_core::Interface::vtable(self).BindInputs)(::windows_core::Interface::as_raw(self), bindings.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(bindings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
     }
     pub unsafe fn BindOutputs(&self, bindings: ::core::option::Option<&[DML_BINDING_DESC]>) {
-        (::windows::core::Interface::vtable(self).BindOutputs)(::windows::core::Interface::as_raw(self), bindings.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(bindings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
+        (::windows_core::Interface::vtable(self).BindOutputs)(::windows_core::Interface::as_raw(self), bindings.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(bindings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
     }
     pub unsafe fn BindTemporaryResource(&self, binding: ::core::option::Option<*const DML_BINDING_DESC>) {
-        (::windows::core::Interface::vtable(self).BindTemporaryResource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(binding.unwrap_or(::std::ptr::null())))
+        (::windows_core::Interface::vtable(self).BindTemporaryResource)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(binding.unwrap_or(::std::ptr::null())))
     }
     pub unsafe fn BindPersistentResource(&self, binding: ::core::option::Option<*const DML_BINDING_DESC>) {
-        (::windows::core::Interface::vtable(self).BindPersistentResource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(binding.unwrap_or(::std::ptr::null())))
+        (::windows_core::Interface::vtable(self).BindPersistentResource)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(binding.unwrap_or(::std::ptr::null())))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn Reset(&self, desc: ::core::option::Option<*const DML_BINDING_TABLE_DESC>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(desc.unwrap_or(::std::ptr::null()))).ok()
+    pub unsafe fn Reset(&self, desc: ::core::option::Option<*const DML_BINDING_TABLE_DESC>) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(desc.unwrap_or(::std::ptr::null()))).ok()
     }
 }
-::windows::imp::interface_hierarchy!(IDMLBindingTable, ::windows::core::IUnknown, IDMLObject, IDMLDeviceChild);
+::windows_core::imp::interface_hierarchy!(IDMLBindingTable, ::windows_core::IUnknown, IDMLObject, IDMLDeviceChild);
 impl ::core::cmp::PartialEq for IDMLBindingTable {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -79,7 +79,7 @@ impl ::core::fmt::Debug for IDMLBindingTable {
         f.debug_tuple("IDMLBindingTable").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IDMLBindingTable {
+unsafe impl ::windows_core::Interface for IDMLBindingTable {
     type Vtable = IDMLBindingTable_Vtbl;
 }
 impl ::core::clone::Clone for IDMLBindingTable {
@@ -87,8 +87,8 @@ impl ::core::clone::Clone for IDMLBindingTable {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IDMLBindingTable {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29c687dc_de74_4e3b_ab00_1168f2fc3cfc);
+unsafe impl ::windows_core::ComInterface for IDMLBindingTable {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x29c687dc_de74_4e3b_ab00_1168f2fc3cfc);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -99,51 +99,51 @@ pub struct IDMLBindingTable_Vtbl {
     pub BindTemporaryResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, binding: *const DML_BINDING_DESC),
     pub BindPersistentResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, binding: *const DML_BINDING_DESC),
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, desc: *const DML_BINDING_TABLE_DESC) -> ::windows::core::HRESULT,
+    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, desc: *const DML_BINDING_TABLE_DESC) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
     Reset: usize,
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 #[repr(transparent)]
-pub struct IDMLCommandRecorder(::windows::core::IUnknown);
+pub struct IDMLCommandRecorder(::windows_core::IUnknown);
 impl IDMLCommandRecorder {
-    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: *mut u32, data: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(data.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: *mut u32, data: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.base__.GetPrivateData)(::windows_core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(data.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, data: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(data.unwrap_or(::std::ptr::null()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: u32, data: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows_core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(data.unwrap_or(::std::ptr::null()))).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<P0>(&self, guid: *const ::windows::core::GUID, data: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<P0>(&self, guid: *const ::windows_core::GUID, data: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), guid, data.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.SetPrivateDataInterface)(::windows_core::Interface::as_raw(self), guid, data.into_param().abi()).ok()
     }
-    pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.SetName)(::windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
-    pub unsafe fn GetDevice<T>(&self) -> ::windows::core::Result<T>
+    pub unsafe fn GetDevice<T>(&self) -> ::windows_core::Result<T>
     where
-        T: ::windows::core::ComInterface,
+        T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows::core::Interface::vtable(self).base__.GetDevice)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetDevice)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn RecordDispatch<P0, P1, P2>(&self, commandlist: P0, dispatchable: P1, bindings: P2)
     where
-        P0: ::windows::core::IntoParam<super::super::super::Graphics::Direct3D12::ID3D12CommandList>,
-        P1: ::windows::core::IntoParam<IDMLDispatchable>,
-        P2: ::windows::core::IntoParam<IDMLBindingTable>,
+        P0: ::windows_core::IntoParam<super::super::super::Graphics::Direct3D12::ID3D12CommandList>,
+        P1: ::windows_core::IntoParam<IDMLDispatchable>,
+        P2: ::windows_core::IntoParam<IDMLBindingTable>,
     {
-        (::windows::core::Interface::vtable(self).RecordDispatch)(::windows::core::Interface::as_raw(self), commandlist.into_param().abi(), dispatchable.into_param().abi(), bindings.into_param().abi())
+        (::windows_core::Interface::vtable(self).RecordDispatch)(::windows_core::Interface::as_raw(self), commandlist.into_param().abi(), dispatchable.into_param().abi(), bindings.into_param().abi())
     }
 }
-::windows::imp::interface_hierarchy!(IDMLCommandRecorder, ::windows::core::IUnknown, IDMLObject, IDMLDeviceChild);
+::windows_core::imp::interface_hierarchy!(IDMLCommandRecorder, ::windows_core::IUnknown, IDMLObject, IDMLDeviceChild);
 impl ::core::cmp::PartialEq for IDMLCommandRecorder {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -155,7 +155,7 @@ impl ::core::fmt::Debug for IDMLCommandRecorder {
         f.debug_tuple("IDMLCommandRecorder").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IDMLCommandRecorder {
+unsafe impl ::windows_core::Interface for IDMLCommandRecorder {
     type Vtable = IDMLCommandRecorder_Vtbl;
 }
 impl ::core::clone::Clone for IDMLCommandRecorder {
@@ -163,8 +163,8 @@ impl ::core::clone::Clone for IDMLCommandRecorder {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IDMLCommandRecorder {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6857a76_2e3e_4fdd_bff4_5d2ba10fb453);
+unsafe impl ::windows_core::ComInterface for IDMLCommandRecorder {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe6857a76_2e3e_4fdd_bff4_5d2ba10fb453);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -177,40 +177,40 @@ pub struct IDMLCommandRecorder_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 #[repr(transparent)]
-pub struct IDMLCompiledOperator(::windows::core::IUnknown);
+pub struct IDMLCompiledOperator(::windows_core::IUnknown);
 impl IDMLCompiledOperator {
-    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: *mut u32, data: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(data.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: *mut u32, data: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetPrivateData)(::windows_core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(data.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, data: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(data.unwrap_or(::std::ptr::null()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: u32, data: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows_core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(data.unwrap_or(::std::ptr::null()))).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<P0>(&self, guid: *const ::windows::core::GUID, data: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<P0>(&self, guid: *const ::windows_core::GUID, data: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), guid, data.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateDataInterface)(::windows_core::Interface::as_raw(self), guid, data.into_param().abi()).ok()
     }
-    pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetName)(::windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
-    pub unsafe fn GetDevice<T>(&self) -> ::windows::core::Result<T>
+    pub unsafe fn GetDevice<T>(&self) -> ::windows_core::Result<T>
     where
-        T: ::windows::core::ComInterface,
+        T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.GetDevice)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.GetDevice)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetBindingProperties(&self) -> DML_BINDING_PROPERTIES {
         let mut result__: DML_BINDING_PROPERTIES = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetBindingProperties)(::windows::core::Interface::as_raw(self), &mut result__);
+        (::windows_core::Interface::vtable(self).base__.GetBindingProperties)(::windows_core::Interface::as_raw(self), &mut result__);
         result__
     }
 }
-::windows::imp::interface_hierarchy!(IDMLCompiledOperator, ::windows::core::IUnknown, IDMLObject, IDMLDeviceChild, IDMLPageable, IDMLDispatchable);
+::windows_core::imp::interface_hierarchy!(IDMLCompiledOperator, ::windows_core::IUnknown, IDMLObject, IDMLDeviceChild, IDMLPageable, IDMLDispatchable);
 impl ::core::cmp::PartialEq for IDMLCompiledOperator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -222,7 +222,7 @@ impl ::core::fmt::Debug for IDMLCompiledOperator {
         f.debug_tuple("IDMLCompiledOperator").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IDMLCompiledOperator {
+unsafe impl ::windows_core::Interface for IDMLCompiledOperator {
     type Vtable = IDMLCompiledOperator_Vtbl;
 }
 impl ::core::clone::Clone for IDMLCompiledOperator {
@@ -230,8 +230,8 @@ impl ::core::clone::Clone for IDMLCompiledOperator {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IDMLCompiledOperator {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b15e56a_bf5c_4902_92d8_da3a650afea4);
+unsafe impl ::windows_core::ComInterface for IDMLCompiledOperator {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6b15e56a_bf5c_4902_92d8_da3a650afea4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -240,18 +240,18 @@ pub struct IDMLCompiledOperator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 #[repr(transparent)]
-pub struct IDMLDebugDevice(::windows::core::IUnknown);
+pub struct IDMLDebugDevice(::windows_core::IUnknown);
 impl IDMLDebugDevice {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMuteDebugOutput<P0>(&self, mute: P0)
     where
-        P0: ::windows::core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: ::windows_core::IntoParam<super::super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).SetMuteDebugOutput)(::windows::core::Interface::as_raw(self), mute.into_param().abi())
+        (::windows_core::Interface::vtable(self).SetMuteDebugOutput)(::windows_core::Interface::as_raw(self), mute.into_param().abi())
     }
 }
-::windows::imp::interface_hierarchy!(IDMLDebugDevice, ::windows::core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IDMLDebugDevice, ::windows_core::IUnknown);
 impl ::core::cmp::PartialEq for IDMLDebugDevice {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -263,7 +263,7 @@ impl ::core::fmt::Debug for IDMLDebugDevice {
         f.debug_tuple("IDMLDebugDevice").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IDMLDebugDevice {
+unsafe impl ::windows_core::Interface for IDMLDebugDevice {
     type Vtable = IDMLDebugDevice_Vtbl;
 }
 impl ::core::clone::Clone for IDMLDebugDevice {
@@ -271,13 +271,13 @@ impl ::core::clone::Clone for IDMLDebugDevice {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IDMLDebugDevice {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d6f3ac9_394a_4ac3_92a7_390cc57a8217);
+unsafe impl ::windows_core::ComInterface for IDMLDebugDevice {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7d6f3ac9_394a_4ac3_92a7_390cc57a8217);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDMLDebugDevice_Vtbl {
-    pub base__: ::windows::core::IUnknown_Vtbl,
+    pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
     pub SetMuteDebugOutput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mute: super::super::super::Foundation::BOOL),
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -285,83 +285,83 @@ pub struct IDMLDebugDevice_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 #[repr(transparent)]
-pub struct IDMLDevice(::windows::core::IUnknown);
+pub struct IDMLDevice(::windows_core::IUnknown);
 impl IDMLDevice {
-    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: *mut u32, data: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetPrivateData)(::windows::core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(data.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: *mut u32, data: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.GetPrivateData)(::windows_core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(data.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, data: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(data.unwrap_or(::std::ptr::null()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: u32, data: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.SetPrivateData)(::windows_core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(data.unwrap_or(::std::ptr::null()))).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<P0>(&self, guid: *const ::windows::core::GUID, data: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<P0>(&self, guid: *const ::windows_core::GUID, data: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        (::windows::core::Interface::vtable(self).base__.SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), guid, data.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).base__.SetPrivateDataInterface)(::windows_core::Interface::as_raw(self), guid, data.into_param().abi()).ok()
     }
-    pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).base__.SetName)(::windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
-    pub unsafe fn CheckFeatureSupport(&self, feature: DML_FEATURE, featurequerydatasize: u32, featurequerydata: ::core::option::Option<*const ::core::ffi::c_void>, featuresupportdatasize: u32, featuresupportdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CheckFeatureSupport)(::windows::core::Interface::as_raw(self), feature, featurequerydatasize, ::core::mem::transmute(featurequerydata.unwrap_or(::std::ptr::null())), featuresupportdatasize, featuresupportdata).ok()
+    pub unsafe fn CheckFeatureSupport(&self, feature: DML_FEATURE, featurequerydatasize: u32, featurequerydata: ::core::option::Option<*const ::core::ffi::c_void>, featuresupportdatasize: u32, featuresupportdata: *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).CheckFeatureSupport)(::windows_core::Interface::as_raw(self), feature, featurequerydatasize, ::core::mem::transmute(featurequerydata.unwrap_or(::std::ptr::null())), featuresupportdatasize, featuresupportdata).ok()
     }
-    pub unsafe fn CreateOperator<T>(&self, desc: *const DML_OPERATOR_DESC, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()>
+    pub unsafe fn CreateOperator<T>(&self, desc: *const DML_OPERATOR_DESC, result__: *mut ::core::option::Option<T>) -> ::windows_core::Result<()>
     where
-        T: ::windows::core::ComInterface,
+        T: ::windows_core::ComInterface,
     {
-        (::windows::core::Interface::vtable(self).CreateOperator)(::windows::core::Interface::as_raw(self), desc, &<T as ::windows::core::ComInterface>::IID, result__ as *mut _ as *mut _).ok()
+        (::windows_core::Interface::vtable(self).CreateOperator)(::windows_core::Interface::as_raw(self), desc, &<T as ::windows_core::ComInterface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    pub unsafe fn CompileOperator<P0, T>(&self, op: P0, flags: DML_EXECUTION_FLAGS, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()>
+    pub unsafe fn CompileOperator<P0, T>(&self, op: P0, flags: DML_EXECUTION_FLAGS, result__: *mut ::core::option::Option<T>) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDMLOperator>,
-        T: ::windows::core::ComInterface,
+        P0: ::windows_core::IntoParam<IDMLOperator>,
+        T: ::windows_core::ComInterface,
     {
-        (::windows::core::Interface::vtable(self).CompileOperator)(::windows::core::Interface::as_raw(self), op.into_param().abi(), flags, &<T as ::windows::core::ComInterface>::IID, result__ as *mut _ as *mut _).ok()
+        (::windows_core::Interface::vtable(self).CompileOperator)(::windows_core::Interface::as_raw(self), op.into_param().abi(), flags, &<T as ::windows_core::ComInterface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    pub unsafe fn CreateOperatorInitializer<T>(&self, operators: ::core::option::Option<&[::core::option::Option<IDMLCompiledOperator>]>) -> ::windows::core::Result<T>
+    pub unsafe fn CreateOperatorInitializer<T>(&self, operators: ::core::option::Option<&[::core::option::Option<IDMLCompiledOperator>]>) -> ::windows_core::Result<T>
     where
-        T: ::windows::core::ComInterface,
-    {
-        let mut result__ = ::std::ptr::null_mut();
-        (::windows::core::Interface::vtable(self).CreateOperatorInitializer)(::windows::core::Interface::as_raw(self), operators.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(operators.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
-    }
-    pub unsafe fn CreateCommandRecorder<T>(&self) -> ::windows::core::Result<T>
-    where
-        T: ::windows::core::ComInterface,
+        T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows::core::Interface::vtable(self).CreateCommandRecorder)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateOperatorInitializer)(::windows_core::Interface::as_raw(self), operators.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(operators.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+    }
+    pub unsafe fn CreateCommandRecorder<T>(&self) -> ::windows_core::Result<T>
+    where
+        T: ::windows_core::ComInterface,
+    {
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows_core::Interface::vtable(self).CreateCommandRecorder)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn CreateBindingTable<T>(&self, desc: ::core::option::Option<*const DML_BINDING_TABLE_DESC>) -> ::windows::core::Result<T>
+    pub unsafe fn CreateBindingTable<T>(&self, desc: ::core::option::Option<*const DML_BINDING_TABLE_DESC>) -> ::windows_core::Result<T>
     where
-        T: ::windows::core::ComInterface,
+        T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows::core::Interface::vtable(self).CreateBindingTable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(desc.unwrap_or(::std::ptr::null())), &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateBindingTable)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(desc.unwrap_or(::std::ptr::null())), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    pub unsafe fn Evict(&self, ppobjects: &[::core::option::Option<IDMLPageable>]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Evict)(::windows::core::Interface::as_raw(self), ppobjects.len() as _, ::core::mem::transmute(ppobjects.as_ptr())).ok()
+    pub unsafe fn Evict(&self, ppobjects: &[::core::option::Option<IDMLPageable>]) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Evict)(::windows_core::Interface::as_raw(self), ppobjects.len() as _, ::core::mem::transmute(ppobjects.as_ptr())).ok()
     }
-    pub unsafe fn MakeResident(&self, ppobjects: &[::core::option::Option<IDMLPageable>]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).MakeResident)(::windows::core::Interface::as_raw(self), ppobjects.len() as _, ::core::mem::transmute(ppobjects.as_ptr())).ok()
+    pub unsafe fn MakeResident(&self, ppobjects: &[::core::option::Option<IDMLPageable>]) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).MakeResident)(::windows_core::Interface::as_raw(self), ppobjects.len() as _, ::core::mem::transmute(ppobjects.as_ptr())).ok()
     }
-    pub unsafe fn GetDeviceRemovedReason(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDeviceRemovedReason)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn GetDeviceRemovedReason(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetDeviceRemovedReason)(::windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn GetParentDevice<T>(&self) -> ::windows::core::Result<T>
+    pub unsafe fn GetParentDevice<T>(&self) -> ::windows_core::Result<T>
     where
-        T: ::windows::core::ComInterface,
+        T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows::core::Interface::vtable(self).GetParentDevice)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetParentDevice)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::imp::interface_hierarchy!(IDMLDevice, ::windows::core::IUnknown, IDMLObject);
+::windows_core::imp::interface_hierarchy!(IDMLDevice, ::windows_core::IUnknown, IDMLObject);
 impl ::core::cmp::PartialEq for IDMLDevice {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -373,7 +373,7 @@ impl ::core::fmt::Debug for IDMLDevice {
         f.debug_tuple("IDMLDevice").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IDMLDevice {
+unsafe impl ::windows_core::Interface for IDMLDevice {
     type Vtable = IDMLDevice_Vtbl;
 }
 impl ::core::clone::Clone for IDMLDevice {
@@ -381,112 +381,112 @@ impl ::core::clone::Clone for IDMLDevice {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IDMLDevice {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6dbd6437_96fd_423f_a98c_ae5e7c2a573f);
+unsafe impl ::windows_core::ComInterface for IDMLDevice {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6dbd6437_96fd_423f_a98c_ae5e7c2a573f);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDMLDevice_Vtbl {
     pub base__: IDMLObject_Vtbl,
-    pub CheckFeatureSupport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, feature: DML_FEATURE, featurequerydatasize: u32, featurequerydata: *const ::core::ffi::c_void, featuresupportdatasize: u32, featuresupportdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub CreateOperator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, desc: *const DML_OPERATOR_DESC, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub CompileOperator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, op: *mut ::core::ffi::c_void, flags: DML_EXECUTION_FLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub CreateOperatorInitializer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, operatorcount: u32, operators: *const *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub CreateCommandRecorder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CheckFeatureSupport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, feature: DML_FEATURE, featurequerydatasize: u32, featurequerydata: *const ::core::ffi::c_void, featuresupportdatasize: u32, featuresupportdata: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateOperator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, desc: *const DML_OPERATOR_DESC, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CompileOperator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, op: *mut ::core::ffi::c_void, flags: DML_EXECUTION_FLAGS, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateOperatorInitializer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, operatorcount: u32, operators: *const *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateCommandRecorder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub CreateBindingTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, desc: *const DML_BINDING_TABLE_DESC, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateBindingTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, desc: *const DML_BINDING_TABLE_DESC, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
     CreateBindingTable: usize,
-    pub Evict: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: u32, ppobjects: *const *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub MakeResident: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: u32, ppobjects: *const *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetDeviceRemovedReason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetParentDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Evict: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: u32, ppobjects: *const *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub MakeResident: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: u32, ppobjects: *const *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetDeviceRemovedReason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetParentDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 #[repr(transparent)]
-pub struct IDMLDevice1(::windows::core::IUnknown);
+pub struct IDMLDevice1(::windows_core::IUnknown);
 impl IDMLDevice1 {
-    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: *mut u32, data: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(data.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: *mut u32, data: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.base__.GetPrivateData)(::windows_core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(data.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, data: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(data.unwrap_or(::std::ptr::null()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: u32, data: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows_core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(data.unwrap_or(::std::ptr::null()))).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<P0>(&self, guid: *const ::windows::core::GUID, data: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<P0>(&self, guid: *const ::windows_core::GUID, data: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), guid, data.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.SetPrivateDataInterface)(::windows_core::Interface::as_raw(self), guid, data.into_param().abi()).ok()
     }
-    pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.SetName)(::windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
-    pub unsafe fn CheckFeatureSupport(&self, feature: DML_FEATURE, featurequerydatasize: u32, featurequerydata: ::core::option::Option<*const ::core::ffi::c_void>, featuresupportdatasize: u32, featuresupportdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.CheckFeatureSupport)(::windows::core::Interface::as_raw(self), feature, featurequerydatasize, ::core::mem::transmute(featurequerydata.unwrap_or(::std::ptr::null())), featuresupportdatasize, featuresupportdata).ok()
+    pub unsafe fn CheckFeatureSupport(&self, feature: DML_FEATURE, featurequerydatasize: u32, featurequerydata: ::core::option::Option<*const ::core::ffi::c_void>, featuresupportdatasize: u32, featuresupportdata: *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.CheckFeatureSupport)(::windows_core::Interface::as_raw(self), feature, featurequerydatasize, ::core::mem::transmute(featurequerydata.unwrap_or(::std::ptr::null())), featuresupportdatasize, featuresupportdata).ok()
     }
-    pub unsafe fn CreateOperator<T>(&self, desc: *const DML_OPERATOR_DESC, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()>
+    pub unsafe fn CreateOperator<T>(&self, desc: *const DML_OPERATOR_DESC, result__: *mut ::core::option::Option<T>) -> ::windows_core::Result<()>
     where
-        T: ::windows::core::ComInterface,
+        T: ::windows_core::ComInterface,
     {
-        (::windows::core::Interface::vtable(self).base__.CreateOperator)(::windows::core::Interface::as_raw(self), desc, &<T as ::windows::core::ComInterface>::IID, result__ as *mut _ as *mut _).ok()
+        (::windows_core::Interface::vtable(self).base__.CreateOperator)(::windows_core::Interface::as_raw(self), desc, &<T as ::windows_core::ComInterface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    pub unsafe fn CompileOperator<P0, T>(&self, op: P0, flags: DML_EXECUTION_FLAGS, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()>
+    pub unsafe fn CompileOperator<P0, T>(&self, op: P0, flags: DML_EXECUTION_FLAGS, result__: *mut ::core::option::Option<T>) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IDMLOperator>,
-        T: ::windows::core::ComInterface,
+        P0: ::windows_core::IntoParam<IDMLOperator>,
+        T: ::windows_core::ComInterface,
     {
-        (::windows::core::Interface::vtable(self).base__.CompileOperator)(::windows::core::Interface::as_raw(self), op.into_param().abi(), flags, &<T as ::windows::core::ComInterface>::IID, result__ as *mut _ as *mut _).ok()
+        (::windows_core::Interface::vtable(self).base__.CompileOperator)(::windows_core::Interface::as_raw(self), op.into_param().abi(), flags, &<T as ::windows_core::ComInterface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    pub unsafe fn CreateOperatorInitializer<T>(&self, operators: ::core::option::Option<&[::core::option::Option<IDMLCompiledOperator>]>) -> ::windows::core::Result<T>
+    pub unsafe fn CreateOperatorInitializer<T>(&self, operators: ::core::option::Option<&[::core::option::Option<IDMLCompiledOperator>]>) -> ::windows_core::Result<T>
     where
-        T: ::windows::core::ComInterface,
-    {
-        let mut result__ = ::std::ptr::null_mut();
-        (::windows::core::Interface::vtable(self).base__.CreateOperatorInitializer)(::windows::core::Interface::as_raw(self), operators.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(operators.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
-    }
-    pub unsafe fn CreateCommandRecorder<T>(&self) -> ::windows::core::Result<T>
-    where
-        T: ::windows::core::ComInterface,
+        T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows::core::Interface::vtable(self).base__.CreateCommandRecorder)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.CreateOperatorInitializer)(::windows_core::Interface::as_raw(self), operators.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(operators.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
+    }
+    pub unsafe fn CreateCommandRecorder<T>(&self) -> ::windows_core::Result<T>
+    where
+        T: ::windows_core::ComInterface,
+    {
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows_core::Interface::vtable(self).base__.CreateCommandRecorder)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn CreateBindingTable<T>(&self, desc: ::core::option::Option<*const DML_BINDING_TABLE_DESC>) -> ::windows::core::Result<T>
+    pub unsafe fn CreateBindingTable<T>(&self, desc: ::core::option::Option<*const DML_BINDING_TABLE_DESC>) -> ::windows_core::Result<T>
     where
-        T: ::windows::core::ComInterface,
+        T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows::core::Interface::vtable(self).base__.CreateBindingTable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(desc.unwrap_or(::std::ptr::null())), &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.CreateBindingTable)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(desc.unwrap_or(::std::ptr::null())), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    pub unsafe fn Evict(&self, ppobjects: &[::core::option::Option<IDMLPageable>]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Evict)(::windows::core::Interface::as_raw(self), ppobjects.len() as _, ::core::mem::transmute(ppobjects.as_ptr())).ok()
+    pub unsafe fn Evict(&self, ppobjects: &[::core::option::Option<IDMLPageable>]) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.Evict)(::windows_core::Interface::as_raw(self), ppobjects.len() as _, ::core::mem::transmute(ppobjects.as_ptr())).ok()
     }
-    pub unsafe fn MakeResident(&self, ppobjects: &[::core::option::Option<IDMLPageable>]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.MakeResident)(::windows::core::Interface::as_raw(self), ppobjects.len() as _, ::core::mem::transmute(ppobjects.as_ptr())).ok()
+    pub unsafe fn MakeResident(&self, ppobjects: &[::core::option::Option<IDMLPageable>]) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.MakeResident)(::windows_core::Interface::as_raw(self), ppobjects.len() as _, ::core::mem::transmute(ppobjects.as_ptr())).ok()
     }
-    pub unsafe fn GetDeviceRemovedReason(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetDeviceRemovedReason)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn GetDeviceRemovedReason(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.GetDeviceRemovedReason)(::windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn GetParentDevice<T>(&self) -> ::windows::core::Result<T>
+    pub unsafe fn GetParentDevice<T>(&self) -> ::windows_core::Result<T>
     where
-        T: ::windows::core::ComInterface,
+        T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows::core::Interface::vtable(self).base__.GetParentDevice)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetParentDevice)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    pub unsafe fn CompileGraph<T>(&self, desc: *const DML_GRAPH_DESC, flags: DML_EXECUTION_FLAGS, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()>
+    pub unsafe fn CompileGraph<T>(&self, desc: *const DML_GRAPH_DESC, flags: DML_EXECUTION_FLAGS, result__: *mut ::core::option::Option<T>) -> ::windows_core::Result<()>
     where
-        T: ::windows::core::ComInterface,
+        T: ::windows_core::ComInterface,
     {
-        (::windows::core::Interface::vtable(self).CompileGraph)(::windows::core::Interface::as_raw(self), desc, flags, &<T as ::windows::core::ComInterface>::IID, result__ as *mut _ as *mut _).ok()
+        (::windows_core::Interface::vtable(self).CompileGraph)(::windows_core::Interface::as_raw(self), desc, flags, &<T as ::windows_core::ComInterface>::IID, result__ as *mut _ as *mut _).ok()
     }
 }
-::windows::imp::interface_hierarchy!(IDMLDevice1, ::windows::core::IUnknown, IDMLObject, IDMLDevice);
+::windows_core::imp::interface_hierarchy!(IDMLDevice1, ::windows_core::IUnknown, IDMLObject, IDMLDevice);
 impl ::core::cmp::PartialEq for IDMLDevice1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -498,7 +498,7 @@ impl ::core::fmt::Debug for IDMLDevice1 {
         f.debug_tuple("IDMLDevice1").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IDMLDevice1 {
+unsafe impl ::windows_core::Interface for IDMLDevice1 {
     type Vtable = IDMLDevice1_Vtbl;
 }
 impl ::core::clone::Clone for IDMLDevice1 {
@@ -506,46 +506,46 @@ impl ::core::clone::Clone for IDMLDevice1 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IDMLDevice1 {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0884f9a_d2be_4355_aa5d_5901281ad1d2);
+unsafe impl ::windows_core::ComInterface for IDMLDevice1 {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa0884f9a_d2be_4355_aa5d_5901281ad1d2);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDMLDevice1_Vtbl {
     pub base__: IDMLDevice_Vtbl,
-    pub CompileGraph: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, desc: *const DML_GRAPH_DESC, flags: DML_EXECUTION_FLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CompileGraph: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, desc: *const DML_GRAPH_DESC, flags: DML_EXECUTION_FLAGS, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 #[repr(transparent)]
-pub struct IDMLDeviceChild(::windows::core::IUnknown);
+pub struct IDMLDeviceChild(::windows_core::IUnknown);
 impl IDMLDeviceChild {
-    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: *mut u32, data: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetPrivateData)(::windows::core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(data.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: *mut u32, data: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.GetPrivateData)(::windows_core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(data.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, data: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(data.unwrap_or(::std::ptr::null()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: u32, data: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.SetPrivateData)(::windows_core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(data.unwrap_or(::std::ptr::null()))).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<P0>(&self, guid: *const ::windows::core::GUID, data: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<P0>(&self, guid: *const ::windows_core::GUID, data: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        (::windows::core::Interface::vtable(self).base__.SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), guid, data.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).base__.SetPrivateDataInterface)(::windows_core::Interface::as_raw(self), guid, data.into_param().abi()).ok()
     }
-    pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).base__.SetName)(::windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
-    pub unsafe fn GetDevice<T>(&self) -> ::windows::core::Result<T>
+    pub unsafe fn GetDevice<T>(&self) -> ::windows_core::Result<T>
     where
-        T: ::windows::core::ComInterface,
+        T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows::core::Interface::vtable(self).GetDevice)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetDevice)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::imp::interface_hierarchy!(IDMLDeviceChild, ::windows::core::IUnknown, IDMLObject);
+::windows_core::imp::interface_hierarchy!(IDMLDeviceChild, ::windows_core::IUnknown, IDMLObject);
 impl ::core::cmp::PartialEq for IDMLDeviceChild {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -557,7 +557,7 @@ impl ::core::fmt::Debug for IDMLDeviceChild {
         f.debug_tuple("IDMLDeviceChild").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IDMLDeviceChild {
+unsafe impl ::windows_core::Interface for IDMLDeviceChild {
     type Vtable = IDMLDeviceChild_Vtbl;
 }
 impl ::core::clone::Clone for IDMLDeviceChild {
@@ -565,51 +565,51 @@ impl ::core::clone::Clone for IDMLDeviceChild {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IDMLDeviceChild {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27e83142_8165_49e3_974e_2fd66e4cb69d);
+unsafe impl ::windows_core::ComInterface for IDMLDeviceChild {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x27e83142_8165_49e3_974e_2fd66e4cb69d);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDMLDeviceChild_Vtbl {
     pub base__: IDMLObject_Vtbl,
-    pub GetDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 #[repr(transparent)]
-pub struct IDMLDispatchable(::windows::core::IUnknown);
+pub struct IDMLDispatchable(::windows_core::IUnknown);
 impl IDMLDispatchable {
-    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: *mut u32, data: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(data.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: *mut u32, data: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.base__.base__.GetPrivateData)(::windows_core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(data.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, data: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(data.unwrap_or(::std::ptr::null()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: u32, data: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows_core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(data.unwrap_or(::std::ptr::null()))).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<P0>(&self, guid: *const ::windows::core::GUID, data: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<P0>(&self, guid: *const ::windows_core::GUID, data: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), guid, data.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows_core::Interface::as_raw(self), guid, data.into_param().abi()).ok()
     }
-    pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.base__.SetName)(::windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
-    pub unsafe fn GetDevice<T>(&self) -> ::windows::core::Result<T>
+    pub unsafe fn GetDevice<T>(&self) -> ::windows_core::Result<T>
     where
-        T: ::windows::core::ComInterface,
+        T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows::core::Interface::vtable(self).base__.base__.GetDevice)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.GetDevice)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetBindingProperties(&self) -> DML_BINDING_PROPERTIES {
         let mut result__: DML_BINDING_PROPERTIES = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetBindingProperties)(::windows::core::Interface::as_raw(self), &mut result__);
+        (::windows_core::Interface::vtable(self).GetBindingProperties)(::windows_core::Interface::as_raw(self), &mut result__);
         result__
     }
 }
-::windows::imp::interface_hierarchy!(IDMLDispatchable, ::windows::core::IUnknown, IDMLObject, IDMLDeviceChild, IDMLPageable);
+::windows_core::imp::interface_hierarchy!(IDMLDispatchable, ::windows_core::IUnknown, IDMLObject, IDMLDeviceChild, IDMLPageable);
 impl ::core::cmp::PartialEq for IDMLDispatchable {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -621,7 +621,7 @@ impl ::core::fmt::Debug for IDMLDispatchable {
         f.debug_tuple("IDMLDispatchable").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IDMLDispatchable {
+unsafe impl ::windows_core::Interface for IDMLDispatchable {
     type Vtable = IDMLDispatchable_Vtbl;
 }
 impl ::core::clone::Clone for IDMLDispatchable {
@@ -629,8 +629,8 @@ impl ::core::clone::Clone for IDMLDispatchable {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IDMLDispatchable {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcb821a8_1039_441e_9f1c_b1759c2f3cec);
+unsafe impl ::windows_core::ComInterface for IDMLDispatchable {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdcb821a8_1039_441e_9f1c_b1759c2f3cec);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -640,28 +640,28 @@ pub struct IDMLDispatchable_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 #[repr(transparent)]
-pub struct IDMLObject(::windows::core::IUnknown);
+pub struct IDMLObject(::windows_core::IUnknown);
 impl IDMLObject {
-    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: *mut u32, data: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPrivateData)(::windows::core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(data.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: *mut u32, data: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetPrivateData)(::windows_core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(data.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, data: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateData)(::windows::core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(data.unwrap_or(::std::ptr::null()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: u32, data: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetPrivateData)(::windows_core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(data.unwrap_or(::std::ptr::null()))).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<P0>(&self, guid: *const ::windows::core::GUID, data: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<P0>(&self, guid: *const ::windows_core::GUID, data: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        (::windows::core::Interface::vtable(self).SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), guid, data.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).SetPrivateDataInterface)(::windows_core::Interface::as_raw(self), guid, data.into_param().abi()).ok()
     }
-    pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).SetName)(::windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
 }
-::windows::imp::interface_hierarchy!(IDMLObject, ::windows::core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IDMLObject, ::windows_core::IUnknown);
 impl ::core::cmp::PartialEq for IDMLObject {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -673,7 +673,7 @@ impl ::core::fmt::Debug for IDMLObject {
         f.debug_tuple("IDMLObject").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IDMLObject {
+unsafe impl ::windows_core::Interface for IDMLObject {
     type Vtable = IDMLObject_Vtbl;
 }
 impl ::core::clone::Clone for IDMLObject {
@@ -681,49 +681,49 @@ impl ::core::clone::Clone for IDMLObject {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IDMLObject {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8263aac_9e0c_4a2d_9b8e_007521a3317c);
+unsafe impl ::windows_core::ComInterface for IDMLObject {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc8263aac_9e0c_4a2d_9b8e_007521a3317c);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDMLObject_Vtbl {
-    pub base__: ::windows::core::IUnknown_Vtbl,
-    pub GetPrivateData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetPrivateData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetPrivateDataInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, data: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub GetPrivateData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows_core::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetPrivateData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows_core::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetPrivateDataInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows_core::GUID, data: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 #[repr(transparent)]
-pub struct IDMLOperator(::windows::core::IUnknown);
+pub struct IDMLOperator(::windows_core::IUnknown);
 impl IDMLOperator {
-    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: *mut u32, data: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(data.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: *mut u32, data: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.base__.GetPrivateData)(::windows_core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(data.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, data: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(data.unwrap_or(::std::ptr::null()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: u32, data: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows_core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(data.unwrap_or(::std::ptr::null()))).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<P0>(&self, guid: *const ::windows::core::GUID, data: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<P0>(&self, guid: *const ::windows_core::GUID, data: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), guid, data.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.SetPrivateDataInterface)(::windows_core::Interface::as_raw(self), guid, data.into_param().abi()).ok()
     }
-    pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.SetName)(::windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
-    pub unsafe fn GetDevice<T>(&self) -> ::windows::core::Result<T>
+    pub unsafe fn GetDevice<T>(&self) -> ::windows_core::Result<T>
     where
-        T: ::windows::core::ComInterface,
+        T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows::core::Interface::vtable(self).base__.GetDevice)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetDevice)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::imp::interface_hierarchy!(IDMLOperator, ::windows::core::IUnknown, IDMLObject, IDMLDeviceChild);
+::windows_core::imp::interface_hierarchy!(IDMLOperator, ::windows_core::IUnknown, IDMLObject, IDMLDeviceChild);
 impl ::core::cmp::PartialEq for IDMLOperator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -735,7 +735,7 @@ impl ::core::fmt::Debug for IDMLOperator {
         f.debug_tuple("IDMLOperator").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IDMLOperator {
+unsafe impl ::windows_core::Interface for IDMLOperator {
     type Vtable = IDMLOperator_Vtbl;
 }
 impl ::core::clone::Clone for IDMLOperator {
@@ -743,8 +743,8 @@ impl ::core::clone::Clone for IDMLOperator {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IDMLOperator {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26caae7a_3081_4633_9581_226fbe57695d);
+unsafe impl ::windows_core::ComInterface for IDMLOperator {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x26caae7a_3081_4633_9581_226fbe57695d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -753,43 +753,43 @@ pub struct IDMLOperator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 #[repr(transparent)]
-pub struct IDMLOperatorInitializer(::windows::core::IUnknown);
+pub struct IDMLOperatorInitializer(::windows_core::IUnknown);
 impl IDMLOperatorInitializer {
-    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: *mut u32, data: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(data.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: *mut u32, data: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetPrivateData)(::windows_core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(data.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, data: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(data.unwrap_or(::std::ptr::null()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: u32, data: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows_core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(data.unwrap_or(::std::ptr::null()))).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<P0>(&self, guid: *const ::windows::core::GUID, data: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<P0>(&self, guid: *const ::windows_core::GUID, data: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), guid, data.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateDataInterface)(::windows_core::Interface::as_raw(self), guid, data.into_param().abi()).ok()
     }
-    pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetName)(::windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
-    pub unsafe fn GetDevice<T>(&self) -> ::windows::core::Result<T>
+    pub unsafe fn GetDevice<T>(&self) -> ::windows_core::Result<T>
     where
-        T: ::windows::core::ComInterface,
+        T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.GetDevice)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.GetDevice)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetBindingProperties(&self) -> DML_BINDING_PROPERTIES {
         let mut result__: DML_BINDING_PROPERTIES = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetBindingProperties)(::windows::core::Interface::as_raw(self), &mut result__);
+        (::windows_core::Interface::vtable(self).base__.GetBindingProperties)(::windows_core::Interface::as_raw(self), &mut result__);
         result__
     }
-    pub unsafe fn Reset(&self, operators: ::core::option::Option<&[::core::option::Option<IDMLCompiledOperator>]>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self), operators.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(operators.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    pub unsafe fn Reset(&self, operators: ::core::option::Option<&[::core::option::Option<IDMLCompiledOperator>]>) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self), operators.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(operators.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
 }
-::windows::imp::interface_hierarchy!(IDMLOperatorInitializer, ::windows::core::IUnknown, IDMLObject, IDMLDeviceChild, IDMLPageable, IDMLDispatchable);
+::windows_core::imp::interface_hierarchy!(IDMLOperatorInitializer, ::windows_core::IUnknown, IDMLObject, IDMLDeviceChild, IDMLPageable, IDMLDispatchable);
 impl ::core::cmp::PartialEq for IDMLOperatorInitializer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -801,7 +801,7 @@ impl ::core::fmt::Debug for IDMLOperatorInitializer {
         f.debug_tuple("IDMLOperatorInitializer").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IDMLOperatorInitializer {
+unsafe impl ::windows_core::Interface for IDMLOperatorInitializer {
     type Vtable = IDMLOperatorInitializer_Vtbl;
 }
 impl ::core::clone::Clone for IDMLOperatorInitializer {
@@ -809,46 +809,46 @@ impl ::core::clone::Clone for IDMLOperatorInitializer {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IDMLOperatorInitializer {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x427c1113_435c_469c_8676_4d5dd072f813);
+unsafe impl ::windows_core::ComInterface for IDMLOperatorInitializer {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x427c1113_435c_469c_8676_4d5dd072f813);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDMLOperatorInitializer_Vtbl {
     pub base__: IDMLDispatchable_Vtbl,
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, operatorcount: u32, operators: *const *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, operatorcount: u32, operators: *const *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 #[repr(transparent)]
-pub struct IDMLPageable(::windows::core::IUnknown);
+pub struct IDMLPageable(::windows_core::IUnknown);
 impl IDMLPageable {
-    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: *mut u32, data: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.GetPrivateData)(::windows::core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(data.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: *mut u32, data: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.base__.GetPrivateData)(::windows_core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(data.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, data: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(data.unwrap_or(::std::ptr::null()))).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: u32, data: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows_core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(data.unwrap_or(::std::ptr::null()))).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<P0>(&self, guid: *const ::windows::core::GUID, data: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<P0>(&self, guid: *const ::windows_core::GUID, data: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateDataInterface)(::windows::core::Interface::as_raw(self), guid, data.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.SetPrivateDataInterface)(::windows_core::Interface::as_raw(self), guid, data.into_param().abi()).ok()
     }
-    pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.SetName)(::windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
-    pub unsafe fn GetDevice<T>(&self) -> ::windows::core::Result<T>
+    pub unsafe fn GetDevice<T>(&self) -> ::windows_core::Result<T>
     where
-        T: ::windows::core::ComInterface,
+        T: ::windows_core::ComInterface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows::core::Interface::vtable(self).base__.GetDevice)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetDevice)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::imp::interface_hierarchy!(IDMLPageable, ::windows::core::IUnknown, IDMLObject, IDMLDeviceChild);
+::windows_core::imp::interface_hierarchy!(IDMLPageable, ::windows_core::IUnknown, IDMLObject, IDMLDeviceChild);
 impl ::core::cmp::PartialEq for IDMLPageable {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -860,7 +860,7 @@ impl ::core::fmt::Debug for IDMLPageable {
         f.debug_tuple("IDMLPageable").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IDMLPageable {
+unsafe impl ::windows_core::Interface for IDMLPageable {
     type Vtable = IDMLPageable_Vtbl;
 }
 impl ::core::clone::Clone for IDMLPageable {
@@ -868,8 +868,8 @@ impl ::core::clone::Clone for IDMLPageable {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IDMLPageable {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1ab0825_4542_4a4b_8617_6dde6e8f6201);
+unsafe impl ::windows_core::ComInterface for IDMLPageable {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb1ab0825_4542_4a4b_8617_6dde6e8f6201);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -907,8 +907,8 @@ impl ::core::default::Default for DML_AXIS_DIRECTION {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for DML_AXIS_DIRECTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_AXIS_DIRECTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for DML_AXIS_DIRECTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -936,8 +936,8 @@ impl ::core::default::Default for DML_BINDING_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for DML_BINDING_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_BINDING_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for DML_BINDING_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -963,8 +963,8 @@ impl ::core::default::Default for DML_CONVOLUTION_DIRECTION {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for DML_CONVOLUTION_DIRECTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_CONVOLUTION_DIRECTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for DML_CONVOLUTION_DIRECTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -990,8 +990,8 @@ impl ::core::default::Default for DML_CONVOLUTION_MODE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for DML_CONVOLUTION_MODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_CONVOLUTION_MODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for DML_CONVOLUTION_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1017,8 +1017,8 @@ impl ::core::default::Default for DML_CREATE_DEVICE_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for DML_CREATE_DEVICE_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_CREATE_DEVICE_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for DML_CREATE_DEVICE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1077,8 +1077,8 @@ impl ::core::default::Default for DML_DEPTH_SPACE_ORDER {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for DML_DEPTH_SPACE_ORDER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_DEPTH_SPACE_ORDER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for DML_DEPTH_SPACE_ORDER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1108,8 +1108,8 @@ impl ::core::default::Default for DML_EXECUTION_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for DML_EXECUTION_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_EXECUTION_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for DML_EXECUTION_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1168,8 +1168,8 @@ impl ::core::default::Default for DML_FEATURE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for DML_FEATURE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_FEATURE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for DML_FEATURE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1207,8 +1207,8 @@ impl ::core::default::Default for DML_FEATURE_LEVEL {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for DML_FEATURE_LEVEL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_FEATURE_LEVEL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for DML_FEATURE_LEVEL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1238,8 +1238,8 @@ impl ::core::default::Default for DML_GRAPH_EDGE_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for DML_GRAPH_EDGE_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_GRAPH_EDGE_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for DML_GRAPH_EDGE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1265,8 +1265,8 @@ impl ::core::default::Default for DML_GRAPH_NODE_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for DML_GRAPH_NODE_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_GRAPH_NODE_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for DML_GRAPH_NODE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1292,8 +1292,8 @@ impl ::core::default::Default for DML_INTERPOLATION_MODE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for DML_INTERPOLATION_MODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_INTERPOLATION_MODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for DML_INTERPOLATION_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1321,8 +1321,8 @@ impl ::core::default::Default for DML_IS_INFINITY_MODE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for DML_IS_INFINITY_MODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_IS_INFINITY_MODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for DML_IS_INFINITY_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1348,8 +1348,8 @@ impl ::core::default::Default for DML_MATRIX_TRANSFORM {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for DML_MATRIX_TRANSFORM {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_MATRIX_TRANSFORM {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for DML_MATRIX_TRANSFORM {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1673,8 +1673,8 @@ impl ::core::default::Default for DML_OPERATOR_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for DML_OPERATOR_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_OPERATOR_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for DML_OPERATOR_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1704,8 +1704,8 @@ impl ::core::default::Default for DML_PADDING_MODE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for DML_PADDING_MODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_PADDING_MODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for DML_PADDING_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1729,8 +1729,8 @@ impl ::core::default::Default for DML_RANDOM_GENERATOR_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for DML_RANDOM_GENERATOR_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_RANDOM_GENERATOR_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for DML_RANDOM_GENERATOR_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1758,8 +1758,8 @@ impl ::core::default::Default for DML_RECURRENT_NETWORK_DIRECTION {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for DML_RECURRENT_NETWORK_DIRECTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_RECURRENT_NETWORK_DIRECTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for DML_RECURRENT_NETWORK_DIRECTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1805,8 +1805,8 @@ impl ::core::default::Default for DML_REDUCE_FUNCTION {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for DML_REDUCE_FUNCTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_REDUCE_FUNCTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for DML_REDUCE_FUNCTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1834,8 +1834,8 @@ impl ::core::default::Default for DML_ROUNDING_MODE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for DML_ROUNDING_MODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ROUNDING_MODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for DML_ROUNDING_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1881,8 +1881,8 @@ impl ::core::default::Default for DML_TENSOR_DATA_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for DML_TENSOR_DATA_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_TENSOR_DATA_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for DML_TENSOR_DATA_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1908,8 +1908,8 @@ impl ::core::default::Default for DML_TENSOR_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for DML_TENSOR_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_TENSOR_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for DML_TENSOR_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1968,8 +1968,8 @@ impl ::core::default::Default for DML_TENSOR_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for DML_TENSOR_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_TENSOR_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for DML_TENSOR_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1994,8 +1994,8 @@ impl ::core::fmt::Debug for DML_ACTIVATION_CELU_OPERATOR_DESC {
         f.debug_struct("DML_ACTIVATION_CELU_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Alpha", &self.Alpha).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ACTIVATION_CELU_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ACTIVATION_CELU_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ACTIVATION_CELU_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -2026,8 +2026,8 @@ impl ::core::fmt::Debug for DML_ACTIVATION_ELU_OPERATOR_DESC {
         f.debug_struct("DML_ACTIVATION_ELU_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Alpha", &self.Alpha).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ACTIVATION_ELU_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ACTIVATION_ELU_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ACTIVATION_ELU_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -2057,8 +2057,8 @@ impl ::core::fmt::Debug for DML_ACTIVATION_HARDMAX_OPERATOR_DESC {
         f.debug_struct("DML_ACTIVATION_HARDMAX_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ACTIVATION_HARDMAX_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ACTIVATION_HARDMAX_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ACTIVATION_HARDMAX_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -2090,8 +2090,8 @@ impl ::core::fmt::Debug for DML_ACTIVATION_HARD_SIGMOID_OPERATOR_DESC {
         f.debug_struct("DML_ACTIVATION_HARD_SIGMOID_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Alpha", &self.Alpha).field("Beta", &self.Beta).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ACTIVATION_HARD_SIGMOID_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ACTIVATION_HARD_SIGMOID_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ACTIVATION_HARD_SIGMOID_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -2121,8 +2121,8 @@ impl ::core::fmt::Debug for DML_ACTIVATION_IDENTITY_OPERATOR_DESC {
         f.debug_struct("DML_ACTIVATION_IDENTITY_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ACTIVATION_IDENTITY_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ACTIVATION_IDENTITY_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ACTIVATION_IDENTITY_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -2153,8 +2153,8 @@ impl ::core::fmt::Debug for DML_ACTIVATION_LEAKY_RELU_OPERATOR_DESC {
         f.debug_struct("DML_ACTIVATION_LEAKY_RELU_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Alpha", &self.Alpha).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ACTIVATION_LEAKY_RELU_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ACTIVATION_LEAKY_RELU_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ACTIVATION_LEAKY_RELU_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -2186,8 +2186,8 @@ impl ::core::fmt::Debug for DML_ACTIVATION_LINEAR_OPERATOR_DESC {
         f.debug_struct("DML_ACTIVATION_LINEAR_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Alpha", &self.Alpha).field("Beta", &self.Beta).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ACTIVATION_LINEAR_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ACTIVATION_LINEAR_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ACTIVATION_LINEAR_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -2217,8 +2217,8 @@ impl ::core::fmt::Debug for DML_ACTIVATION_LOG_SOFTMAX_OPERATOR_DESC {
         f.debug_struct("DML_ACTIVATION_LOG_SOFTMAX_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ACTIVATION_LOG_SOFTMAX_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ACTIVATION_LOG_SOFTMAX_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ACTIVATION_LOG_SOFTMAX_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -2249,8 +2249,8 @@ impl ::core::fmt::Debug for DML_ACTIVATION_PARAMETERIZED_RELU_OPERATOR_DESC {
         f.debug_struct("DML_ACTIVATION_PARAMETERIZED_RELU_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("SlopeTensor", &self.SlopeTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ACTIVATION_PARAMETERIZED_RELU_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ACTIVATION_PARAMETERIZED_RELU_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ACTIVATION_PARAMETERIZED_RELU_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -2282,8 +2282,8 @@ impl ::core::fmt::Debug for DML_ACTIVATION_PARAMETRIC_SOFTPLUS_OPERATOR_DESC {
         f.debug_struct("DML_ACTIVATION_PARAMETRIC_SOFTPLUS_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Alpha", &self.Alpha).field("Beta", &self.Beta).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ACTIVATION_PARAMETRIC_SOFTPLUS_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ACTIVATION_PARAMETRIC_SOFTPLUS_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ACTIVATION_PARAMETRIC_SOFTPLUS_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -2314,8 +2314,8 @@ impl ::core::fmt::Debug for DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC {
         f.debug_struct("DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("InputGradientTensor", &self.InputGradientTensor).field("OutputGradientTensor", &self.OutputGradientTensor).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -2345,8 +2345,8 @@ impl ::core::fmt::Debug for DML_ACTIVATION_RELU_OPERATOR_DESC {
         f.debug_struct("DML_ACTIVATION_RELU_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ACTIVATION_RELU_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ACTIVATION_RELU_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ACTIVATION_RELU_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -2378,8 +2378,8 @@ impl ::core::fmt::Debug for DML_ACTIVATION_SCALED_ELU_OPERATOR_DESC {
         f.debug_struct("DML_ACTIVATION_SCALED_ELU_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Alpha", &self.Alpha).field("Gamma", &self.Gamma).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ACTIVATION_SCALED_ELU_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ACTIVATION_SCALED_ELU_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ACTIVATION_SCALED_ELU_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -2411,8 +2411,8 @@ impl ::core::fmt::Debug for DML_ACTIVATION_SCALED_TANH_OPERATOR_DESC {
         f.debug_struct("DML_ACTIVATION_SCALED_TANH_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Alpha", &self.Alpha).field("Beta", &self.Beta).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ACTIVATION_SCALED_TANH_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ACTIVATION_SCALED_TANH_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ACTIVATION_SCALED_TANH_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -2444,8 +2444,8 @@ impl ::core::fmt::Debug for DML_ACTIVATION_SHRINK_OPERATOR_DESC {
         f.debug_struct("DML_ACTIVATION_SHRINK_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Bias", &self.Bias).field("Threshold", &self.Threshold).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ACTIVATION_SHRINK_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ACTIVATION_SHRINK_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ACTIVATION_SHRINK_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -2475,8 +2475,8 @@ impl ::core::fmt::Debug for DML_ACTIVATION_SIGMOID_OPERATOR_DESC {
         f.debug_struct("DML_ACTIVATION_SIGMOID_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ACTIVATION_SIGMOID_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ACTIVATION_SIGMOID_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ACTIVATION_SIGMOID_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -2506,8 +2506,8 @@ impl ::core::fmt::Debug for DML_ACTIVATION_SOFTMAX_OPERATOR_DESC {
         f.debug_struct("DML_ACTIVATION_SOFTMAX_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ACTIVATION_SOFTMAX_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ACTIVATION_SOFTMAX_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ACTIVATION_SOFTMAX_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -2538,8 +2538,8 @@ impl ::core::fmt::Debug for DML_ACTIVATION_SOFTPLUS_OPERATOR_DESC {
         f.debug_struct("DML_ACTIVATION_SOFTPLUS_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Steepness", &self.Steepness).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ACTIVATION_SOFTPLUS_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ACTIVATION_SOFTPLUS_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ACTIVATION_SOFTPLUS_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -2569,8 +2569,8 @@ impl ::core::fmt::Debug for DML_ACTIVATION_SOFTSIGN_OPERATOR_DESC {
         f.debug_struct("DML_ACTIVATION_SOFTSIGN_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ACTIVATION_SOFTSIGN_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ACTIVATION_SOFTSIGN_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ACTIVATION_SOFTSIGN_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -2600,8 +2600,8 @@ impl ::core::fmt::Debug for DML_ACTIVATION_TANH_OPERATOR_DESC {
         f.debug_struct("DML_ACTIVATION_TANH_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ACTIVATION_TANH_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ACTIVATION_TANH_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ACTIVATION_TANH_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -2632,8 +2632,8 @@ impl ::core::fmt::Debug for DML_ACTIVATION_THRESHOLDED_RELU_OPERATOR_DESC {
         f.debug_struct("DML_ACTIVATION_THRESHOLDED_RELU_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Alpha", &self.Alpha).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ACTIVATION_THRESHOLDED_RELU_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ACTIVATION_THRESHOLDED_RELU_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ACTIVATION_THRESHOLDED_RELU_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -2686,8 +2686,8 @@ impl ::core::fmt::Debug for DML_ADAM_OPTIMIZER_OPERATOR_DESC {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ADAM_OPTIMIZER_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ADAM_OPTIMIZER_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ADAM_OPTIMIZER_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -2720,8 +2720,8 @@ impl ::core::fmt::Debug for DML_ARGMAX_OPERATOR_DESC {
         f.debug_struct("DML_ARGMAX_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("AxisCount", &self.AxisCount).field("Axes", &self.Axes).field("AxisDirection", &self.AxisDirection).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ARGMAX_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ARGMAX_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ARGMAX_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -2754,8 +2754,8 @@ impl ::core::fmt::Debug for DML_ARGMIN_OPERATOR_DESC {
         f.debug_struct("DML_ARGMIN_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("AxisCount", &self.AxisCount).field("Axes", &self.Axes).field("AxisDirection", &self.AxisDirection).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ARGMIN_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ARGMIN_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ARGMIN_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -2796,8 +2796,8 @@ impl ::core::fmt::Debug for DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC {
@@ -2841,8 +2841,8 @@ impl ::core::fmt::Debug for DML_AVERAGE_POOLING_OPERATOR_DESC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DML_AVERAGE_POOLING_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_AVERAGE_POOLING_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DML_AVERAGE_POOLING_OPERATOR_DESC {
@@ -2892,8 +2892,8 @@ impl ::core::fmt::Debug for DML_BATCH_NORMALIZATION_GRAD_OPERATOR_DESC {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for DML_BATCH_NORMALIZATION_GRAD_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_BATCH_NORMALIZATION_GRAD_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_BATCH_NORMALIZATION_GRAD_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -2935,8 +2935,8 @@ impl ::core::fmt::Debug for DML_BATCH_NORMALIZATION_OPERATOR_DESC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DML_BATCH_NORMALIZATION_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_BATCH_NORMALIZATION_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DML_BATCH_NORMALIZATION_OPERATOR_DESC {
@@ -2969,8 +2969,8 @@ impl ::core::fmt::Debug for DML_BINDING_DESC {
         f.debug_struct("DML_BINDING_DESC").field("Type", &self.Type).field("Desc", &self.Desc).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_BINDING_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_BINDING_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_BINDING_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -3001,8 +3001,8 @@ impl ::core::fmt::Debug for DML_BINDING_PROPERTIES {
         f.debug_struct("DML_BINDING_PROPERTIES").field("RequiredDescriptorCount", &self.RequiredDescriptorCount).field("TemporaryResourceSize", &self.TemporaryResourceSize).field("PersistentResourceSize", &self.PersistentResourceSize).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_BINDING_PROPERTIES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_BINDING_PROPERTIES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_BINDING_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
@@ -3037,8 +3037,8 @@ impl ::core::fmt::Debug for DML_BINDING_TABLE_DESC {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::windows::core::TypeKind for DML_BINDING_TABLE_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_BINDING_TABLE_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for DML_BINDING_TABLE_DESC {
@@ -3076,8 +3076,8 @@ impl ::core::fmt::Debug for DML_BUFFER_ARRAY_BINDING {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::windows::core::TypeKind for DML_BUFFER_ARRAY_BINDING {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_BUFFER_ARRAY_BINDING {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for DML_BUFFER_ARRAY_BINDING {
@@ -3114,8 +3114,8 @@ impl ::core::fmt::Debug for DML_BUFFER_BINDING {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::windows::core::TypeKind for DML_BUFFER_BINDING {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_BUFFER_BINDING {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for DML_BUFFER_BINDING {
@@ -3153,8 +3153,8 @@ impl ::core::fmt::Debug for DML_BUFFER_TENSOR_DESC {
         f.debug_struct("DML_BUFFER_TENSOR_DESC").field("DataType", &self.DataType).field("Flags", &self.Flags).field("DimensionCount", &self.DimensionCount).field("Sizes", &self.Sizes).field("Strides", &self.Strides).field("TotalTensorSizeInBytes", &self.TotalTensorSizeInBytes).field("GuaranteedBaseOffsetAlignment", &self.GuaranteedBaseOffsetAlignment).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_BUFFER_TENSOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_BUFFER_TENSOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_BUFFER_TENSOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -3184,8 +3184,8 @@ impl ::core::fmt::Debug for DML_CAST_OPERATOR_DESC {
         f.debug_struct("DML_CAST_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_CAST_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_CAST_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_CAST_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -3236,8 +3236,8 @@ impl ::core::fmt::Debug for DML_CONVOLUTION_INTEGER_OPERATOR_DESC {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for DML_CONVOLUTION_INTEGER_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_CONVOLUTION_INTEGER_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_CONVOLUTION_INTEGER_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -3294,8 +3294,8 @@ impl ::core::fmt::Debug for DML_CONVOLUTION_OPERATOR_DESC {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for DML_CONVOLUTION_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_CONVOLUTION_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_CONVOLUTION_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -3333,8 +3333,8 @@ impl ::core::fmt::Debug for DML_CUMULATIVE_PRODUCT_OPERATOR_DESC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DML_CUMULATIVE_PRODUCT_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_CUMULATIVE_PRODUCT_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DML_CUMULATIVE_PRODUCT_OPERATOR_DESC {
@@ -3375,8 +3375,8 @@ impl ::core::fmt::Debug for DML_CUMULATIVE_SUMMATION_OPERATOR_DESC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DML_CUMULATIVE_SUMMATION_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_CUMULATIVE_SUMMATION_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DML_CUMULATIVE_SUMMATION_OPERATOR_DESC {
@@ -3411,8 +3411,8 @@ impl ::core::fmt::Debug for DML_DEPTH_TO_SPACE1_OPERATOR_DESC {
         f.debug_struct("DML_DEPTH_TO_SPACE1_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("BlockSize", &self.BlockSize).field("Order", &self.Order).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_DEPTH_TO_SPACE1_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_DEPTH_TO_SPACE1_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_DEPTH_TO_SPACE1_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -3443,8 +3443,8 @@ impl ::core::fmt::Debug for DML_DEPTH_TO_SPACE_OPERATOR_DESC {
         f.debug_struct("DML_DEPTH_TO_SPACE_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("BlockSize", &self.BlockSize).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_DEPTH_TO_SPACE_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_DEPTH_TO_SPACE_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_DEPTH_TO_SPACE_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -3475,8 +3475,8 @@ impl ::core::fmt::Debug for DML_DIAGONAL_MATRIX_OPERATOR_DESC {
         f.debug_struct("DML_DIAGONAL_MATRIX_OPERATOR_DESC").field("OutputTensor", &self.OutputTensor).field("Offset", &self.Offset).field("Value", &self.Value).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_DIAGONAL_MATRIX_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_DIAGONAL_MATRIX_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_DIAGONAL_MATRIX_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -3508,8 +3508,8 @@ impl ::core::fmt::Debug for DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC {
         f.debug_struct("DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("OutputScaleTensor", &self.OutputScaleTensor).field("OutputZeroPointTensor", &self.OutputZeroPointTensor).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -3540,8 +3540,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_ABS_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_ABS_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_ABS_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_ABS_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_ABS_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -3572,8 +3572,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -3604,8 +3604,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_ACOS_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_ACOS_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_ACOS_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_ACOS_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_ACOS_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -3637,8 +3637,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_ADD1_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_ADD1_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).field("FusedActivation", &self.FusedActivation).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_ADD1_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_ADD1_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_ADD1_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -3669,8 +3669,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_ADD_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_ADD_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_ADD_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_ADD_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_ADD_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -3701,8 +3701,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_ASINH_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_ASINH_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_ASINH_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_ASINH_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_ASINH_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -3733,8 +3733,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_ASIN_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_ASIN_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_ASIN_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_ASIN_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_ASIN_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -3765,8 +3765,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_ATANH_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_ATANH_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_ATANH_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_ATANH_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_ATANH_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -3797,8 +3797,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_ATAN_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_ATAN_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_ATAN_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_ATAN_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_ATAN_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -3829,8 +3829,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_ATAN_YX_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_ATAN_YX_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_ATAN_YX_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_ATAN_YX_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_ATAN_YX_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -3861,8 +3861,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_BIT_AND_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_BIT_AND_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_BIT_AND_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_BIT_AND_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_BIT_AND_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -3892,8 +3892,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_BIT_COUNT_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_BIT_COUNT_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_BIT_COUNT_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_BIT_COUNT_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_BIT_COUNT_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -3923,8 +3923,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_BIT_NOT_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_BIT_NOT_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_BIT_NOT_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_BIT_NOT_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_BIT_NOT_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -3955,8 +3955,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_BIT_OR_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_BIT_OR_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_BIT_OR_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_BIT_OR_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_BIT_OR_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -3987,8 +3987,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_BIT_SHIFT_LEFT_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_BIT_SHIFT_LEFT_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_BIT_SHIFT_LEFT_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_BIT_SHIFT_LEFT_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_BIT_SHIFT_LEFT_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -4019,8 +4019,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_BIT_SHIFT_RIGHT_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_BIT_SHIFT_RIGHT_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_BIT_SHIFT_RIGHT_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_BIT_SHIFT_RIGHT_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_BIT_SHIFT_RIGHT_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -4051,8 +4051,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -4083,8 +4083,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_CEIL_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_CEIL_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_CEIL_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_CEIL_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_CEIL_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -4117,8 +4117,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_CLIP_GRAD_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_CLIP_GRAD_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("InputGradientTensor", &self.InputGradientTensor).field("OutputGradientTensor", &self.OutputGradientTensor).field("Min", &self.Min).field("Max", &self.Max).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_CLIP_GRAD_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_CLIP_GRAD_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_CLIP_GRAD_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -4151,8 +4151,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_CLIP_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_CLIP_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).field("Min", &self.Min).field("Max", &self.Max).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_CLIP_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_CLIP_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_CLIP_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -4184,8 +4184,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_CONSTANT_POW_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_CONSTANT_POW_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).field("Exponent", &self.Exponent).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_CONSTANT_POW_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_CONSTANT_POW_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_CONSTANT_POW_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -4216,8 +4216,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_COSH_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_COSH_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_COSH_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_COSH_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_COSH_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -4248,8 +4248,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_COS_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_COS_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_COS_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_COS_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_COS_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -4281,8 +4281,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_DEQUANTIZE_LINEAR_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_DEQUANTIZE_LINEAR_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("ScaleTensor", &self.ScaleTensor).field("ZeroPointTensor", &self.ZeroPointTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_DEQUANTIZE_LINEAR_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_DEQUANTIZE_LINEAR_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_DEQUANTIZE_LINEAR_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -4313,8 +4313,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_DIFFERENCE_SQUARE_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_DIFFERENCE_SQUARE_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_DIFFERENCE_SQUARE_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_DIFFERENCE_SQUARE_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_DIFFERENCE_SQUARE_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -4345,8 +4345,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_DIVIDE_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_DIVIDE_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_DIVIDE_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_DIVIDE_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_DIVIDE_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -4377,8 +4377,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_ERF_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_ERF_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_ERF_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_ERF_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_ERF_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -4409,8 +4409,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_EXP_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_EXP_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_EXP_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_EXP_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_EXP_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -4441,8 +4441,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -4473,8 +4473,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -4506,8 +4506,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_IF_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_IF_OPERATOR_DESC").field("ConditionTensor", &self.ConditionTensor).field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_IF_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_IF_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_IF_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -4538,8 +4538,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_IS_INFINITY_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_IS_INFINITY_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("InfinityMode", &self.InfinityMode).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_IS_INFINITY_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_IS_INFINITY_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_IS_INFINITY_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -4569,8 +4569,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_IS_NAN_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_IS_NAN_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_IS_NAN_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_IS_NAN_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_IS_NAN_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -4601,8 +4601,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_LOGICAL_AND_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_LOGICAL_AND_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_LOGICAL_AND_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_LOGICAL_AND_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_LOGICAL_AND_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -4633,8 +4633,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_LOGICAL_EQUALS_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_LOGICAL_EQUALS_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_LOGICAL_EQUALS_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_LOGICAL_EQUALS_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_LOGICAL_EQUALS_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -4665,8 +4665,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OPERATOR_DESC 
         f.debug_struct("DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -4697,8 +4697,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL_OPERA
         f.debug_struct("DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -4729,8 +4729,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -4761,8 +4761,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL_OPERATOR
         f.debug_struct("DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -4792,8 +4792,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_LOGICAL_NOT_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_LOGICAL_NOT_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_LOGICAL_NOT_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_LOGICAL_NOT_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_LOGICAL_NOT_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -4824,8 +4824,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_LOGICAL_OR_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_LOGICAL_OR_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_LOGICAL_OR_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_LOGICAL_OR_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_LOGICAL_OR_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -4856,8 +4856,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -4888,8 +4888,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_LOG_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_LOG_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_LOG_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_LOG_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_LOG_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -4920,8 +4920,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_MAX_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_MAX_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_MAX_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_MAX_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_MAX_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -4952,8 +4952,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_MEAN_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_MEAN_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_MEAN_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_MEAN_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_MEAN_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -4984,8 +4984,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_MIN_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_MIN_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_MIN_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_MIN_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_MIN_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -5016,8 +5016,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_MODULUS_FLOOR_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_MODULUS_FLOOR_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_MODULUS_FLOOR_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_MODULUS_FLOOR_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_MODULUS_FLOOR_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -5048,8 +5048,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_MODULUS_TRUNCATE_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_MODULUS_TRUNCATE_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_MODULUS_TRUNCATE_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_MODULUS_TRUNCATE_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_MODULUS_TRUNCATE_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -5080,8 +5080,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_MULTIPLY_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_MULTIPLY_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_MULTIPLY_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_MULTIPLY_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_MULTIPLY_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -5113,8 +5113,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_POW_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_POW_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("ExponentTensor", &self.ExponentTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_POW_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_POW_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_POW_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -5151,8 +5151,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_QUANTIZED_LINEAR_ADD_OPERATOR_DESC 
         f.debug_struct("DML_ELEMENT_WISE_QUANTIZED_LINEAR_ADD_OPERATOR_DESC").field("ATensor", &self.ATensor).field("AScaleTensor", &self.AScaleTensor).field("AZeroPointTensor", &self.AZeroPointTensor).field("BTensor", &self.BTensor).field("BScaleTensor", &self.BScaleTensor).field("BZeroPointTensor", &self.BZeroPointTensor).field("OutputScaleTensor", &self.OutputScaleTensor).field("OutputZeroPointTensor", &self.OutputZeroPointTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_QUANTIZED_LINEAR_ADD_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_QUANTIZED_LINEAR_ADD_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_QUANTIZED_LINEAR_ADD_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -5184,8 +5184,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("ScaleTensor", &self.ScaleTensor).field("ZeroPointTensor", &self.ZeroPointTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -5216,8 +5216,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_RECIP_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_RECIP_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_RECIP_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_RECIP_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_RECIP_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -5248,8 +5248,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_ROUND_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_ROUND_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("RoundingMode", &self.RoundingMode).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_ROUND_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_ROUND_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_ROUND_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -5279,8 +5279,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_SIGN_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_SIGN_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_SIGN_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_SIGN_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_SIGN_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -5311,8 +5311,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_SINH_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_SINH_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_SINH_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_SINH_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_SINH_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -5343,8 +5343,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_SIN_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_SIN_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_SIN_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_SIN_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_SIN_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -5375,8 +5375,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_SQRT_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_SQRT_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_SQRT_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_SQRT_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_SQRT_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -5407,8 +5407,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -5439,8 +5439,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_TANH_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_TANH_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_TANH_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_TANH_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_TANH_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -5471,8 +5471,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_TAN_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_TAN_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_TAN_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_TAN_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_TAN_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -5504,8 +5504,8 @@ impl ::core::fmt::Debug for DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC {
         f.debug_struct("DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).field("Min", &self.Min).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -5534,8 +5534,8 @@ impl ::core::fmt::Debug for DML_FEATURE_DATA_FEATURE_LEVELS {
         f.debug_struct("DML_FEATURE_DATA_FEATURE_LEVELS").field("MaxSupportedFeatureLevel", &self.MaxSupportedFeatureLevel).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_FEATURE_DATA_FEATURE_LEVELS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_FEATURE_DATA_FEATURE_LEVELS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_FEATURE_DATA_FEATURE_LEVELS {
     fn eq(&self, other: &Self) -> bool {
@@ -5569,8 +5569,8 @@ impl ::core::fmt::Debug for DML_FEATURE_DATA_TENSOR_DATA_TYPE_SUPPORT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DML_FEATURE_DATA_TENSOR_DATA_TYPE_SUPPORT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_FEATURE_DATA_TENSOR_DATA_TYPE_SUPPORT {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DML_FEATURE_DATA_TENSOR_DATA_TYPE_SUPPORT {
@@ -5603,8 +5603,8 @@ impl ::core::fmt::Debug for DML_FEATURE_QUERY_FEATURE_LEVELS {
         f.debug_struct("DML_FEATURE_QUERY_FEATURE_LEVELS").field("RequestedFeatureLevelCount", &self.RequestedFeatureLevelCount).field("RequestedFeatureLevels", &self.RequestedFeatureLevels).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_FEATURE_QUERY_FEATURE_LEVELS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_FEATURE_QUERY_FEATURE_LEVELS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_FEATURE_QUERY_FEATURE_LEVELS {
     fn eq(&self, other: &Self) -> bool {
@@ -5633,8 +5633,8 @@ impl ::core::fmt::Debug for DML_FEATURE_QUERY_TENSOR_DATA_TYPE_SUPPORT {
         f.debug_struct("DML_FEATURE_QUERY_TENSOR_DATA_TYPE_SUPPORT").field("DataType", &self.DataType).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_FEATURE_QUERY_TENSOR_DATA_TYPE_SUPPORT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_FEATURE_QUERY_TENSOR_DATA_TYPE_SUPPORT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_FEATURE_QUERY_TENSOR_DATA_TYPE_SUPPORT {
     fn eq(&self, other: &Self) -> bool {
@@ -5660,8 +5660,8 @@ impl ::core::clone::Clone for DML_FILL_VALUE_CONSTANT_OPERATOR_DESC {
         *self
     }
 }
-impl ::windows::core::TypeKind for DML_FILL_VALUE_CONSTANT_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_FILL_VALUE_CONSTANT_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DML_FILL_VALUE_CONSTANT_OPERATOR_DESC {
     fn default() -> Self {
@@ -5682,8 +5682,8 @@ impl ::core::clone::Clone for DML_FILL_VALUE_SEQUENCE_OPERATOR_DESC {
         *self
     }
 }
-impl ::windows::core::TypeKind for DML_FILL_VALUE_SEQUENCE_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_FILL_VALUE_SEQUENCE_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DML_FILL_VALUE_SEQUENCE_OPERATOR_DESC {
     fn default() -> Self {
@@ -5709,8 +5709,8 @@ impl ::core::fmt::Debug for DML_GATHER_ELEMENTS_OPERATOR_DESC {
         f.debug_struct("DML_GATHER_ELEMENTS_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("IndicesTensor", &self.IndicesTensor).field("OutputTensor", &self.OutputTensor).field("Axis", &self.Axis).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_GATHER_ELEMENTS_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_GATHER_ELEMENTS_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_GATHER_ELEMENTS_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -5744,8 +5744,8 @@ impl ::core::fmt::Debug for DML_GATHER_ND1_OPERATOR_DESC {
         f.debug_struct("DML_GATHER_ND1_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("IndicesTensor", &self.IndicesTensor).field("OutputTensor", &self.OutputTensor).field("InputDimensionCount", &self.InputDimensionCount).field("IndicesDimensionCount", &self.IndicesDimensionCount).field("BatchDimensionCount", &self.BatchDimensionCount).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_GATHER_ND1_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_GATHER_ND1_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_GATHER_ND1_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -5778,8 +5778,8 @@ impl ::core::fmt::Debug for DML_GATHER_ND_OPERATOR_DESC {
         f.debug_struct("DML_GATHER_ND_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("IndicesTensor", &self.IndicesTensor).field("OutputTensor", &self.OutputTensor).field("InputDimensionCount", &self.InputDimensionCount).field("IndicesDimensionCount", &self.IndicesDimensionCount).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_GATHER_ND_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_GATHER_ND_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_GATHER_ND_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -5812,8 +5812,8 @@ impl ::core::fmt::Debug for DML_GATHER_OPERATOR_DESC {
         f.debug_struct("DML_GATHER_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("IndicesTensor", &self.IndicesTensor).field("OutputTensor", &self.OutputTensor).field("Axis", &self.Axis).field("IndexDimensions", &self.IndexDimensions).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_GATHER_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_GATHER_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_GATHER_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -5850,8 +5850,8 @@ impl ::core::fmt::Debug for DML_GEMM_OPERATOR_DESC {
         f.debug_struct("DML_GEMM_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("CTensor", &self.CTensor).field("OutputTensor", &self.OutputTensor).field("TransA", &self.TransA).field("TransB", &self.TransB).field("Alpha", &self.Alpha).field("Beta", &self.Beta).field("FusedActivation", &self.FusedActivation).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_GEMM_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_GEMM_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_GEMM_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -5889,8 +5889,8 @@ impl ::core::fmt::Debug for DML_GRAPH_DESC {
         f.debug_struct("DML_GRAPH_DESC").field("InputCount", &self.InputCount).field("OutputCount", &self.OutputCount).field("NodeCount", &self.NodeCount).field("Nodes", &self.Nodes).field("InputEdgeCount", &self.InputEdgeCount).field("InputEdges", &self.InputEdges).field("OutputEdgeCount", &self.OutputEdgeCount).field("OutputEdges", &self.OutputEdges).field("IntermediateEdgeCount", &self.IntermediateEdgeCount).field("IntermediateEdges", &self.IntermediateEdges).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_GRAPH_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_GRAPH_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_GRAPH_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -5920,8 +5920,8 @@ impl ::core::fmt::Debug for DML_GRAPH_EDGE_DESC {
         f.debug_struct("DML_GRAPH_EDGE_DESC").field("Type", &self.Type).field("Desc", &self.Desc).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_GRAPH_EDGE_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_GRAPH_EDGE_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_GRAPH_EDGE_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -5951,8 +5951,8 @@ impl ::core::fmt::Debug for DML_GRAPH_NODE_DESC {
         f.debug_struct("DML_GRAPH_NODE_DESC").field("Type", &self.Type).field("Desc", &self.Desc).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_GRAPH_NODE_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_GRAPH_NODE_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_GRAPH_NODE_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -6010,8 +6010,8 @@ impl ::core::fmt::Debug for DML_GRU_OPERATOR_DESC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DML_GRU_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_GRU_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DML_GRU_OPERATOR_DESC {
@@ -6033,7 +6033,7 @@ pub struct DML_INPUT_GRAPH_EDGE_DESC {
     pub GraphInputIndex: u32,
     pub ToNodeIndex: u32,
     pub ToNodeInputIndex: u32,
-    pub Name: ::windows::core::PCSTR,
+    pub Name: ::windows_core::PCSTR,
 }
 impl ::core::marker::Copy for DML_INPUT_GRAPH_EDGE_DESC {}
 impl ::core::clone::Clone for DML_INPUT_GRAPH_EDGE_DESC {
@@ -6046,8 +6046,8 @@ impl ::core::fmt::Debug for DML_INPUT_GRAPH_EDGE_DESC {
         f.debug_struct("DML_INPUT_GRAPH_EDGE_DESC").field("GraphInputIndex", &self.GraphInputIndex).field("ToNodeIndex", &self.ToNodeIndex).field("ToNodeInputIndex", &self.ToNodeInputIndex).field("Name", &self.Name).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_INPUT_GRAPH_EDGE_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_INPUT_GRAPH_EDGE_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_INPUT_GRAPH_EDGE_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -6067,7 +6067,7 @@ pub struct DML_INTERMEDIATE_GRAPH_EDGE_DESC {
     pub FromNodeOutputIndex: u32,
     pub ToNodeIndex: u32,
     pub ToNodeInputIndex: u32,
-    pub Name: ::windows::core::PCSTR,
+    pub Name: ::windows_core::PCSTR,
 }
 impl ::core::marker::Copy for DML_INTERMEDIATE_GRAPH_EDGE_DESC {}
 impl ::core::clone::Clone for DML_INTERMEDIATE_GRAPH_EDGE_DESC {
@@ -6080,8 +6080,8 @@ impl ::core::fmt::Debug for DML_INTERMEDIATE_GRAPH_EDGE_DESC {
         f.debug_struct("DML_INTERMEDIATE_GRAPH_EDGE_DESC").field("FromNodeIndex", &self.FromNodeIndex).field("FromNodeOutputIndex", &self.FromNodeOutputIndex).field("ToNodeIndex", &self.ToNodeIndex).field("ToNodeInputIndex", &self.ToNodeInputIndex).field("Name", &self.Name).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_INTERMEDIATE_GRAPH_EDGE_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_INTERMEDIATE_GRAPH_EDGE_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_INTERMEDIATE_GRAPH_EDGE_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -6113,8 +6113,8 @@ impl ::core::fmt::Debug for DML_JOIN_OPERATOR_DESC {
         f.debug_struct("DML_JOIN_OPERATOR_DESC").field("InputCount", &self.InputCount).field("InputTensors", &self.InputTensors).field("OutputTensor", &self.OutputTensor).field("Axis", &self.Axis).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_JOIN_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_JOIN_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_JOIN_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -6155,8 +6155,8 @@ impl ::core::fmt::Debug for DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OPERATOR_DESC 
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OPERATOR_DESC {
@@ -6199,8 +6199,8 @@ impl ::core::fmt::Debug for DML_LOCAL_RESPONSE_NORMALIZATION_OPERATOR_DESC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DML_LOCAL_RESPONSE_NORMALIZATION_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_LOCAL_RESPONSE_NORMALIZATION_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DML_LOCAL_RESPONSE_NORMALIZATION_OPERATOR_DESC {
@@ -6236,8 +6236,8 @@ impl ::core::fmt::Debug for DML_LP_NORMALIZATION_OPERATOR_DESC {
         f.debug_struct("DML_LP_NORMALIZATION_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Axis", &self.Axis).field("Epsilon", &self.Epsilon).field("P", &self.P).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_LP_NORMALIZATION_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_LP_NORMALIZATION_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_LP_NORMALIZATION_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -6273,8 +6273,8 @@ impl ::core::fmt::Debug for DML_LP_POOLING_OPERATOR_DESC {
         f.debug_struct("DML_LP_POOLING_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("DimensionCount", &self.DimensionCount).field("Strides", &self.Strides).field("WindowSize", &self.WindowSize).field("StartPadding", &self.StartPadding).field("EndPadding", &self.EndPadding).field("P", &self.P).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_LP_POOLING_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_LP_POOLING_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_LP_POOLING_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -6342,8 +6342,8 @@ impl ::core::fmt::Debug for DML_LSTM_OPERATOR_DESC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DML_LSTM_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_LSTM_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DML_LSTM_OPERATOR_DESC {
@@ -6395,8 +6395,8 @@ impl ::core::fmt::Debug for DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC {
         f.debug_struct("DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC").field("ATensor", &self.ATensor).field("AZeroPointTensor", &self.AZeroPointTensor).field("BTensor", &self.BTensor).field("BZeroPointTensor", &self.BZeroPointTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -6432,8 +6432,8 @@ impl ::core::fmt::Debug for DML_MAX_POOLING1_OPERATOR_DESC {
         f.debug_struct("DML_MAX_POOLING1_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("OutputIndicesTensor", &self.OutputIndicesTensor).field("DimensionCount", &self.DimensionCount).field("Strides", &self.Strides).field("WindowSize", &self.WindowSize).field("StartPadding", &self.StartPadding).field("EndPadding", &self.EndPadding).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_MAX_POOLING1_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_MAX_POOLING1_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_MAX_POOLING1_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -6470,8 +6470,8 @@ impl ::core::fmt::Debug for DML_MAX_POOLING2_OPERATOR_DESC {
         f.debug_struct("DML_MAX_POOLING2_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("OutputIndicesTensor", &self.OutputIndicesTensor).field("DimensionCount", &self.DimensionCount).field("Strides", &self.Strides).field("WindowSize", &self.WindowSize).field("StartPadding", &self.StartPadding).field("EndPadding", &self.EndPadding).field("Dilations", &self.Dilations).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_MAX_POOLING2_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_MAX_POOLING2_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_MAX_POOLING2_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -6508,8 +6508,8 @@ impl ::core::fmt::Debug for DML_MAX_POOLING_GRAD_OPERATOR_DESC {
         f.debug_struct("DML_MAX_POOLING_GRAD_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("InputGradientTensor", &self.InputGradientTensor).field("OutputGradientTensor", &self.OutputGradientTensor).field("DimensionCount", &self.DimensionCount).field("Strides", &self.Strides).field("WindowSize", &self.WindowSize).field("StartPadding", &self.StartPadding).field("EndPadding", &self.EndPadding).field("Dilations", &self.Dilations).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_MAX_POOLING_GRAD_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_MAX_POOLING_GRAD_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_MAX_POOLING_GRAD_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -6544,8 +6544,8 @@ impl ::core::fmt::Debug for DML_MAX_POOLING_OPERATOR_DESC {
         f.debug_struct("DML_MAX_POOLING_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("DimensionCount", &self.DimensionCount).field("Strides", &self.Strides).field("WindowSize", &self.WindowSize).field("StartPadding", &self.StartPadding).field("EndPadding", &self.EndPadding).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_MAX_POOLING_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_MAX_POOLING_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_MAX_POOLING_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -6576,8 +6576,8 @@ impl ::core::fmt::Debug for DML_MAX_UNPOOLING_OPERATOR_DESC {
         f.debug_struct("DML_MAX_UNPOOLING_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("IndicesTensor", &self.IndicesTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_MAX_UNPOOLING_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_MAX_UNPOOLING_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_MAX_UNPOOLING_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -6619,8 +6619,8 @@ impl ::core::fmt::Debug for DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC {
@@ -6664,8 +6664,8 @@ impl ::core::fmt::Debug for DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC {
@@ -6699,8 +6699,8 @@ impl ::core::fmt::Debug for DML_NONZERO_COORDINATES_OPERATOR_DESC {
         f.debug_struct("DML_NONZERO_COORDINATES_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputCountTensor", &self.OutputCountTensor).field("OutputCoordinatesTensor", &self.OutputCoordinatesTensor).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_NONZERO_COORDINATES_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_NONZERO_COORDINATES_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_NONZERO_COORDINATES_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -6732,8 +6732,8 @@ impl ::core::fmt::Debug for DML_ONE_HOT_OPERATOR_DESC {
         f.debug_struct("DML_ONE_HOT_OPERATOR_DESC").field("IndicesTensor", &self.IndicesTensor).field("ValuesTensor", &self.ValuesTensor).field("OutputTensor", &self.OutputTensor).field("Axis", &self.Axis).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ONE_HOT_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ONE_HOT_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ONE_HOT_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -6763,8 +6763,8 @@ impl ::core::fmt::Debug for DML_OPERATOR_DESC {
         f.debug_struct("DML_OPERATOR_DESC").field("Type", &self.Type).field("Desc", &self.Desc).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -6781,7 +6781,7 @@ impl ::core::default::Default for DML_OPERATOR_DESC {
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 pub struct DML_OPERATOR_GRAPH_NODE_DESC {
     pub Operator: ::std::mem::ManuallyDrop<::core::option::Option<IDMLOperator>>,
-    pub Name: ::windows::core::PCSTR,
+    pub Name: ::windows_core::PCSTR,
 }
 impl ::core::clone::Clone for DML_OPERATOR_GRAPH_NODE_DESC {
     fn clone(&self) -> Self {
@@ -6793,8 +6793,8 @@ impl ::core::fmt::Debug for DML_OPERATOR_GRAPH_NODE_DESC {
         f.debug_struct("DML_OPERATOR_GRAPH_NODE_DESC").field("Operator", &self.Operator).field("Name", &self.Name).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_OPERATOR_GRAPH_NODE_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_OPERATOR_GRAPH_NODE_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_OPERATOR_GRAPH_NODE_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -6813,7 +6813,7 @@ pub struct DML_OUTPUT_GRAPH_EDGE_DESC {
     pub FromNodeIndex: u32,
     pub FromNodeOutputIndex: u32,
     pub GraphOutputIndex: u32,
-    pub Name: ::windows::core::PCSTR,
+    pub Name: ::windows_core::PCSTR,
 }
 impl ::core::marker::Copy for DML_OUTPUT_GRAPH_EDGE_DESC {}
 impl ::core::clone::Clone for DML_OUTPUT_GRAPH_EDGE_DESC {
@@ -6826,8 +6826,8 @@ impl ::core::fmt::Debug for DML_OUTPUT_GRAPH_EDGE_DESC {
         f.debug_struct("DML_OUTPUT_GRAPH_EDGE_DESC").field("FromNodeIndex", &self.FromNodeIndex).field("FromNodeOutputIndex", &self.FromNodeOutputIndex).field("GraphOutputIndex", &self.GraphOutputIndex).field("Name", &self.Name).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_OUTPUT_GRAPH_EDGE_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_OUTPUT_GRAPH_EDGE_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_OUTPUT_GRAPH_EDGE_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -6862,8 +6862,8 @@ impl ::core::fmt::Debug for DML_PADDING_OPERATOR_DESC {
         f.debug_struct("DML_PADDING_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("PaddingMode", &self.PaddingMode).field("PaddingValue", &self.PaddingValue).field("DimensionCount", &self.DimensionCount).field("StartPadding", &self.StartPadding).field("EndPadding", &self.EndPadding).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_PADDING_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_PADDING_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_PADDING_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -6924,8 +6924,8 @@ impl ::core::fmt::Debug for DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATOR_DESC {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -6962,8 +6962,8 @@ impl ::core::fmt::Debug for DML_QUANTIZED_LINEAR_MATRIX_MULTIPLY_OPERATOR_DESC {
         f.debug_struct("DML_QUANTIZED_LINEAR_MATRIX_MULTIPLY_OPERATOR_DESC").field("ATensor", &self.ATensor).field("AScaleTensor", &self.AScaleTensor).field("AZeroPointTensor", &self.AZeroPointTensor).field("BTensor", &self.BTensor).field("BScaleTensor", &self.BScaleTensor).field("BZeroPointTensor", &self.BZeroPointTensor).field("OutputScaleTensor", &self.OutputScaleTensor).field("OutputZeroPointTensor", &self.OutputZeroPointTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_QUANTIZED_LINEAR_MATRIX_MULTIPLY_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_QUANTIZED_LINEAR_MATRIX_MULTIPLY_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_QUANTIZED_LINEAR_MATRIX_MULTIPLY_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -6995,8 +6995,8 @@ impl ::core::fmt::Debug for DML_RANDOM_GENERATOR_OPERATOR_DESC {
         f.debug_struct("DML_RANDOM_GENERATOR_OPERATOR_DESC").field("InputStateTensor", &self.InputStateTensor).field("OutputTensor", &self.OutputTensor).field("OutputStateTensor", &self.OutputStateTensor).field("Type", &self.Type).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_RANDOM_GENERATOR_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_RANDOM_GENERATOR_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_RANDOM_GENERATOR_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -7029,8 +7029,8 @@ impl ::core::fmt::Debug for DML_REDUCE_OPERATOR_DESC {
         f.debug_struct("DML_REDUCE_OPERATOR_DESC").field("Function", &self.Function).field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("AxisCount", &self.AxisCount).field("Axes", &self.Axes).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_REDUCE_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_REDUCE_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_REDUCE_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -7065,8 +7065,8 @@ impl ::core::fmt::Debug for DML_RESAMPLE1_OPERATOR_DESC {
         f.debug_struct("DML_RESAMPLE1_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("InterpolationMode", &self.InterpolationMode).field("DimensionCount", &self.DimensionCount).field("Scales", &self.Scales).field("InputPixelOffsets", &self.InputPixelOffsets).field("OutputPixelOffsets", &self.OutputPixelOffsets).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_RESAMPLE1_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_RESAMPLE1_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_RESAMPLE1_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -7101,8 +7101,8 @@ impl ::core::fmt::Debug for DML_RESAMPLE_GRAD_OPERATOR_DESC {
         f.debug_struct("DML_RESAMPLE_GRAD_OPERATOR_DESC").field("InputGradientTensor", &self.InputGradientTensor).field("OutputGradientTensor", &self.OutputGradientTensor).field("InterpolationMode", &self.InterpolationMode).field("DimensionCount", &self.DimensionCount).field("Scales", &self.Scales).field("InputPixelOffsets", &self.InputPixelOffsets).field("OutputPixelOffsets", &self.OutputPixelOffsets).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_RESAMPLE_GRAD_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_RESAMPLE_GRAD_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_RESAMPLE_GRAD_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -7135,8 +7135,8 @@ impl ::core::fmt::Debug for DML_RESAMPLE_OPERATOR_DESC {
         f.debug_struct("DML_RESAMPLE_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("InterpolationMode", &self.InterpolationMode).field("ScaleCount", &self.ScaleCount).field("Scales", &self.Scales).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_RESAMPLE_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_RESAMPLE_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_RESAMPLE_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -7168,8 +7168,8 @@ impl ::core::fmt::Debug for DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC {
         f.debug_struct("DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("SequenceLengthsTensor", &self.SequenceLengthsTensor).field("OutputTensor", &self.OutputTensor).field("Axis", &self.Axis).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -7220,8 +7220,8 @@ impl ::core::fmt::Debug for DML_RNN_OPERATOR_DESC {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for DML_RNN_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_RNN_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_RNN_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -7283,8 +7283,8 @@ impl ::core::fmt::Debug for DML_ROI_ALIGN1_OPERATOR_DESC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DML_ROI_ALIGN1_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ROI_ALIGN1_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DML_ROI_ALIGN1_OPERATOR_DESC {
@@ -7338,8 +7338,8 @@ impl ::core::fmt::Debug for DML_ROI_ALIGN_OPERATOR_DESC {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ROI_ALIGN_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ROI_ALIGN_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ROI_ALIGN_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -7372,8 +7372,8 @@ impl ::core::fmt::Debug for DML_ROI_POOLING_OPERATOR_DESC {
         f.debug_struct("DML_ROI_POOLING_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("ROITensor", &self.ROITensor).field("OutputTensor", &self.OutputTensor).field("SpatialScale", &self.SpatialScale).field("PooledSize", &self.PooledSize).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_ROI_POOLING_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_ROI_POOLING_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_ROI_POOLING_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -7407,8 +7407,8 @@ impl ::core::clone::Clone for DML_SCALAR_UNION {
         *self
     }
 }
-impl ::windows::core::TypeKind for DML_SCALAR_UNION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_SCALAR_UNION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for DML_SCALAR_UNION {
     fn default() -> Self {
@@ -7432,8 +7432,8 @@ impl ::core::fmt::Debug for DML_SCALE_BIAS {
         f.debug_struct("DML_SCALE_BIAS").field("Scale", &self.Scale).field("Bias", &self.Bias).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_SCALE_BIAS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_SCALE_BIAS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_SCALE_BIAS {
     fn eq(&self, other: &Self) -> bool {
@@ -7467,8 +7467,8 @@ impl ::core::fmt::Debug for DML_SCATTER_ND_OPERATOR_DESC {
         f.debug_struct("DML_SCATTER_ND_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("IndicesTensor", &self.IndicesTensor).field("UpdatesTensor", &self.UpdatesTensor).field("OutputTensor", &self.OutputTensor).field("InputDimensionCount", &self.InputDimensionCount).field("IndicesDimensionCount", &self.IndicesDimensionCount).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_SCATTER_ND_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_SCATTER_ND_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_SCATTER_ND_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -7501,8 +7501,8 @@ impl ::core::fmt::Debug for DML_SCATTER_OPERATOR_DESC {
         f.debug_struct("DML_SCATTER_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("IndicesTensor", &self.IndicesTensor).field("UpdatesTensor", &self.UpdatesTensor).field("OutputTensor", &self.OutputTensor).field("Axis", &self.Axis).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_SCATTER_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_SCATTER_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_SCATTER_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -7532,8 +7532,8 @@ impl ::core::fmt::Debug for DML_SIZE_2D {
         f.debug_struct("DML_SIZE_2D").field("Width", &self.Width).field("Height", &self.Height).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_SIZE_2D {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_SIZE_2D {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_SIZE_2D {
     fn eq(&self, other: &Self) -> bool {
@@ -7567,8 +7567,8 @@ impl ::core::fmt::Debug for DML_SLICE1_OPERATOR_DESC {
         f.debug_struct("DML_SLICE1_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("DimensionCount", &self.DimensionCount).field("InputWindowOffsets", &self.InputWindowOffsets).field("InputWindowSizes", &self.InputWindowSizes).field("InputWindowStrides", &self.InputWindowStrides).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_SLICE1_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_SLICE1_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_SLICE1_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -7602,8 +7602,8 @@ impl ::core::fmt::Debug for DML_SLICE_GRAD_OPERATOR_DESC {
         f.debug_struct("DML_SLICE_GRAD_OPERATOR_DESC").field("InputGradientTensor", &self.InputGradientTensor).field("OutputGradientTensor", &self.OutputGradientTensor).field("DimensionCount", &self.DimensionCount).field("InputWindowOffsets", &self.InputWindowOffsets).field("InputWindowSizes", &self.InputWindowSizes).field("InputWindowStrides", &self.InputWindowStrides).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_SLICE_GRAD_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_SLICE_GRAD_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_SLICE_GRAD_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -7637,8 +7637,8 @@ impl ::core::fmt::Debug for DML_SLICE_OPERATOR_DESC {
         f.debug_struct("DML_SLICE_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("DimensionCount", &self.DimensionCount).field("Offsets", &self.Offsets).field("Sizes", &self.Sizes).field("Strides", &self.Strides).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_SLICE_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_SLICE_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_SLICE_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -7670,8 +7670,8 @@ impl ::core::fmt::Debug for DML_SPACE_TO_DEPTH1_OPERATOR_DESC {
         f.debug_struct("DML_SPACE_TO_DEPTH1_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("BlockSize", &self.BlockSize).field("Order", &self.Order).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_SPACE_TO_DEPTH1_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_SPACE_TO_DEPTH1_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_SPACE_TO_DEPTH1_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -7702,8 +7702,8 @@ impl ::core::fmt::Debug for DML_SPACE_TO_DEPTH_OPERATOR_DESC {
         f.debug_struct("DML_SPACE_TO_DEPTH_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("BlockSize", &self.BlockSize).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_SPACE_TO_DEPTH_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_SPACE_TO_DEPTH_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_SPACE_TO_DEPTH_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -7735,8 +7735,8 @@ impl ::core::fmt::Debug for DML_SPLIT_OPERATOR_DESC {
         f.debug_struct("DML_SPLIT_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputCount", &self.OutputCount).field("OutputTensors", &self.OutputTensors).field("Axis", &self.Axis).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_SPLIT_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_SPLIT_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_SPLIT_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -7766,8 +7766,8 @@ impl ::core::fmt::Debug for DML_TENSOR_DESC {
         f.debug_struct("DML_TENSOR_DESC").field("Type", &self.Type).field("Desc", &self.Desc).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_TENSOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_TENSOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_TENSOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -7799,8 +7799,8 @@ impl ::core::fmt::Debug for DML_TILE_OPERATOR_DESC {
         f.debug_struct("DML_TILE_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("RepeatsCount", &self.RepeatsCount).field("Repeats", &self.Repeats).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_TILE_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_TILE_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_TILE_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -7834,8 +7834,8 @@ impl ::core::fmt::Debug for DML_TOP_K1_OPERATOR_DESC {
         f.debug_struct("DML_TOP_K1_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputValueTensor", &self.OutputValueTensor).field("OutputIndexTensor", &self.OutputIndexTensor).field("Axis", &self.Axis).field("K", &self.K).field("AxisDirection", &self.AxisDirection).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_TOP_K1_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_TOP_K1_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_TOP_K1_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -7868,8 +7868,8 @@ impl ::core::fmt::Debug for DML_TOP_K_OPERATOR_DESC {
         f.debug_struct("DML_TOP_K_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputValueTensor", &self.OutputValueTensor).field("OutputIndexTensor", &self.OutputIndexTensor).field("Axis", &self.Axis).field("K", &self.K).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_TOP_K_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_TOP_K_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_TOP_K_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -7901,8 +7901,8 @@ impl ::core::fmt::Debug for DML_UPSAMPLE_2D_OPERATOR_DESC {
         f.debug_struct("DML_UPSAMPLE_2D_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleSize", &self.ScaleSize).field("InterpolationMode", &self.InterpolationMode).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_UPSAMPLE_2D_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_UPSAMPLE_2D_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_UPSAMPLE_2D_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -7935,8 +7935,8 @@ impl ::core::fmt::Debug for DML_VALUE_SCALE_2D_OPERATOR_DESC {
         f.debug_struct("DML_VALUE_SCALE_2D_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Scale", &self.Scale).field("ChannelCount", &self.ChannelCount).field("Bias", &self.Bias).finish()
     }
 }
-impl ::windows::core::TypeKind for DML_VALUE_SCALE_2D_OPERATOR_DESC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DML_VALUE_SCALE_2D_OPERATOR_DESC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DML_VALUE_SCALE_2D_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {

@@ -17,8 +17,8 @@ impl ::core::default::Default for MF_MEDIASOURCE_STATUS_INFO {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MF_MEDIASOURCE_STATUS_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MF_MEDIASOURCE_STATUS_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MF_MEDIASOURCE_STATUS_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -46,8 +46,8 @@ impl ::core::default::Default for MF_TRANSFER_VIDEO_FRAME_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MF_TRANSFER_VIDEO_FRAME_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MF_TRANSFER_VIDEO_FRAME_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MF_TRANSFER_VIDEO_FRAME_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -71,8 +71,8 @@ impl ::core::fmt::Debug for CapturedMetadataExposureCompensation {
         f.debug_struct("CapturedMetadataExposureCompensation").field("Flags", &self.Flags).field("Value", &self.Value).finish()
     }
 }
-impl ::windows::core::TypeKind for CapturedMetadataExposureCompensation {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CapturedMetadataExposureCompensation {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for CapturedMetadataExposureCompensation {
     fn eq(&self, other: &Self) -> bool {
@@ -102,8 +102,8 @@ impl ::core::fmt::Debug for CapturedMetadataISOGains {
         f.debug_struct("CapturedMetadataISOGains").field("AnalogGain", &self.AnalogGain).field("DigitalGain", &self.DigitalGain).finish()
     }
 }
-impl ::windows::core::TypeKind for CapturedMetadataISOGains {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CapturedMetadataISOGains {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for CapturedMetadataISOGains {
     fn eq(&self, other: &Self) -> bool {
@@ -134,8 +134,8 @@ impl ::core::fmt::Debug for CapturedMetadataWhiteBalanceGains {
         f.debug_struct("CapturedMetadataWhiteBalanceGains").field("R", &self.R).field("G", &self.G).field("B", &self.B).finish()
     }
 }
-impl ::windows::core::TypeKind for CapturedMetadataWhiteBalanceGains {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CapturedMetadataWhiteBalanceGains {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for CapturedMetadataWhiteBalanceGains {
     fn eq(&self, other: &Self) -> bool {
@@ -167,8 +167,8 @@ impl ::core::fmt::Debug for FaceCharacterization {
         f.debug_struct("FaceCharacterization").field("BlinkScoreLeft", &self.BlinkScoreLeft).field("BlinkScoreRight", &self.BlinkScoreRight).field("FacialExpression", &self.FacialExpression).field("FacialExpressionScore", &self.FacialExpressionScore).finish()
     }
 }
-impl ::windows::core::TypeKind for FaceCharacterization {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for FaceCharacterization {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for FaceCharacterization {
     fn eq(&self, other: &Self) -> bool {
@@ -198,8 +198,8 @@ impl ::core::fmt::Debug for FaceCharacterizationBlobHeader {
         f.debug_struct("FaceCharacterizationBlobHeader").field("Size", &self.Size).field("Count", &self.Count).finish()
     }
 }
-impl ::windows::core::TypeKind for FaceCharacterizationBlobHeader {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for FaceCharacterizationBlobHeader {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for FaceCharacterizationBlobHeader {
     fn eq(&self, other: &Self) -> bool {
@@ -234,8 +234,8 @@ impl ::core::fmt::Debug for FaceRectInfo {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for FaceRectInfo {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for FaceRectInfo {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FaceRectInfo {
@@ -268,8 +268,8 @@ impl ::core::fmt::Debug for FaceRectInfoBlobHeader {
         f.debug_struct("FaceRectInfoBlobHeader").field("Size", &self.Size).field("Count", &self.Count).finish()
     }
 }
-impl ::windows::core::TypeKind for FaceRectInfoBlobHeader {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for FaceRectInfoBlobHeader {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for FaceRectInfoBlobHeader {
     fn eq(&self, other: &Self) -> bool {
@@ -299,8 +299,8 @@ impl ::core::fmt::Debug for HistogramBlobHeader {
         f.debug_struct("HistogramBlobHeader").field("Size", &self.Size).field("Histograms", &self.Histograms).finish()
     }
 }
-impl ::windows::core::TypeKind for HistogramBlobHeader {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HistogramBlobHeader {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for HistogramBlobHeader {
     fn eq(&self, other: &Self) -> bool {
@@ -331,8 +331,8 @@ impl ::core::fmt::Debug for HistogramDataHeader {
         f.debug_struct("HistogramDataHeader").field("Size", &self.Size).field("ChannelMask", &self.ChannelMask).field("Linear", &self.Linear).finish()
     }
 }
-impl ::windows::core::TypeKind for HistogramDataHeader {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HistogramDataHeader {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for HistogramDataHeader {
     fn eq(&self, other: &Self) -> bool {
@@ -368,8 +368,8 @@ impl ::core::fmt::Debug for HistogramGrid {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for HistogramGrid {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HistogramGrid {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HistogramGrid {
@@ -410,8 +410,8 @@ impl ::core::fmt::Debug for HistogramHeader {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for HistogramHeader {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HistogramHeader {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HistogramHeader {
@@ -445,8 +445,8 @@ impl ::core::fmt::Debug for MetadataTimeStamps {
         f.debug_struct("MetadataTimeStamps").field("Flags", &self.Flags).field("Device", &self.Device).field("Presentation", &self.Presentation).finish()
     }
 }
-impl ::windows::core::TypeKind for MetadataTimeStamps {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MetadataTimeStamps {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for MetadataTimeStamps {
     fn eq(&self, other: &Self) -> bool {

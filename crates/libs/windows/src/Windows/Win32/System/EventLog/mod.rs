@@ -3,10 +3,10 @@
 #[inline]
 pub unsafe fn BackupEventLogA<P0, P1>(heventlog: P0, lpbackupfilename: P1) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<EventLogHandle>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<EventLogHandle>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("advapi32.dll" "system" fn BackupEventLogA(heventlog : EventLogHandle, lpbackupfilename : ::windows::core::PCSTR) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("advapi32.dll" "system" fn BackupEventLogA(heventlog : EventLogHandle, lpbackupfilename : ::windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     BackupEventLogA(heventlog.into_param().abi(), lpbackupfilename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
@@ -14,10 +14,10 @@ where
 #[inline]
 pub unsafe fn BackupEventLogW<P0, P1>(heventlog: P0, lpbackupfilename: P1) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<EventLogHandle>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<EventLogHandle>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("advapi32.dll" "system" fn BackupEventLogW(heventlog : EventLogHandle, lpbackupfilename : ::windows::core::PCWSTR) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("advapi32.dll" "system" fn BackupEventLogW(heventlog : EventLogHandle, lpbackupfilename : ::windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     BackupEventLogW(heventlog.into_param().abi(), lpbackupfilename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
@@ -25,10 +25,10 @@ where
 #[inline]
 pub unsafe fn ClearEventLogA<P0, P1>(heventlog: P0, lpbackupfilename: P1) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<EventLogHandle>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<EventLogHandle>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("advapi32.dll" "system" fn ClearEventLogA(heventlog : EventLogHandle, lpbackupfilename : ::windows::core::PCSTR) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("advapi32.dll" "system" fn ClearEventLogA(heventlog : EventLogHandle, lpbackupfilename : ::windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     ClearEventLogA(heventlog.into_param().abi(), lpbackupfilename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
@@ -36,10 +36,10 @@ where
 #[inline]
 pub unsafe fn ClearEventLogW<P0, P1>(heventlog: P0, lpbackupfilename: P1) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<EventLogHandle>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<EventLogHandle>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("advapi32.dll" "system" fn ClearEventLogW(heventlog : EventLogHandle, lpbackupfilename : ::windows::core::PCWSTR) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("advapi32.dll" "system" fn ClearEventLogW(heventlog : EventLogHandle, lpbackupfilename : ::windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     ClearEventLogW(heventlog.into_param().abi(), lpbackupfilename.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
@@ -47,7 +47,7 @@ where
 #[inline]
 pub unsafe fn CloseEventLog<P0>(heventlog: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<EventLogHandle>,
+    P0: ::windows_core::IntoParam<EventLogHandle>,
 {
     ::windows_targets::link!("advapi32.dll" "system" fn CloseEventLog(heventlog : EventLogHandle) -> super::super::Foundation:: BOOL);
     CloseEventLog(heventlog.into_param().abi())
@@ -57,7 +57,7 @@ where
 #[inline]
 pub unsafe fn DeregisterEventSource<P0>(heventlog: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<EventSourceHandle>,
+    P0: ::windows_core::IntoParam<EventSourceHandle>,
 {
     ::windows_targets::link!("advapi32.dll" "system" fn DeregisterEventSource(heventlog : EventSourceHandle) -> super::super::Foundation:: BOOL);
     DeregisterEventSource(heventlog.into_param().abi())
@@ -67,10 +67,10 @@ where
 #[inline]
 pub unsafe fn EvtArchiveExportedLog<P0, P1>(session: P0, logfilepath: P1, locale: u32, flags: u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<EVT_HANDLE>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<EVT_HANDLE>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("wevtapi.dll" "system" fn EvtArchiveExportedLog(session : EVT_HANDLE, logfilepath : ::windows::core::PCWSTR, locale : u32, flags : u32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("wevtapi.dll" "system" fn EvtArchiveExportedLog(session : EVT_HANDLE, logfilepath : ::windows_core::PCWSTR, locale : u32, flags : u32) -> super::super::Foundation:: BOOL);
     EvtArchiveExportedLog(session.into_param().abi(), logfilepath.into_param().abi(), locale, flags)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
@@ -78,7 +78,7 @@ where
 #[inline]
 pub unsafe fn EvtCancel<P0>(object: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<EVT_HANDLE>,
+    P0: ::windows_core::IntoParam<EVT_HANDLE>,
 {
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtCancel(object : EVT_HANDLE) -> super::super::Foundation:: BOOL);
     EvtCancel(object.into_param().abi())
@@ -88,11 +88,11 @@ where
 #[inline]
 pub unsafe fn EvtClearLog<P0, P1, P2>(session: P0, channelpath: P1, targetfilepath: P2, flags: u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<EVT_HANDLE>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<EVT_HANDLE>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("wevtapi.dll" "system" fn EvtClearLog(session : EVT_HANDLE, channelpath : ::windows::core::PCWSTR, targetfilepath : ::windows::core::PCWSTR, flags : u32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("wevtapi.dll" "system" fn EvtClearLog(session : EVT_HANDLE, channelpath : ::windows_core::PCWSTR, targetfilepath : ::windows_core::PCWSTR, flags : u32) -> super::super::Foundation:: BOOL);
     EvtClearLog(session.into_param().abi(), channelpath.into_param().abi(), targetfilepath.into_param().abi(), flags)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
@@ -100,39 +100,39 @@ where
 #[inline]
 pub unsafe fn EvtClose<P0>(object: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<EVT_HANDLE>,
+    P0: ::windows_core::IntoParam<EVT_HANDLE>,
 {
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtClose(object : EVT_HANDLE) -> super::super::Foundation:: BOOL);
     EvtClose(object.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
-pub unsafe fn EvtCreateBookmark<P0>(bookmarkxml: P0) -> ::windows::core::Result<EVT_HANDLE>
+pub unsafe fn EvtCreateBookmark<P0>(bookmarkxml: P0) -> ::windows_core::Result<EVT_HANDLE>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("wevtapi.dll" "system" fn EvtCreateBookmark(bookmarkxml : ::windows::core::PCWSTR) -> EVT_HANDLE);
+    ::windows_targets::link!("wevtapi.dll" "system" fn EvtCreateBookmark(bookmarkxml : ::windows_core::PCWSTR) -> EVT_HANDLE);
     let result__ = EvtCreateBookmark(bookmarkxml.into_param().abi());
-    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
-pub unsafe fn EvtCreateRenderContext(valuepaths: ::core::option::Option<&[::windows::core::PCWSTR]>, flags: u32) -> ::windows::core::Result<EVT_HANDLE> {
-    ::windows_targets::link!("wevtapi.dll" "system" fn EvtCreateRenderContext(valuepathscount : u32, valuepaths : *const ::windows::core::PCWSTR, flags : u32) -> EVT_HANDLE);
+pub unsafe fn EvtCreateRenderContext(valuepaths: ::core::option::Option<&[::windows_core::PCWSTR]>, flags: u32) -> ::windows_core::Result<EVT_HANDLE> {
+    ::windows_targets::link!("wevtapi.dll" "system" fn EvtCreateRenderContext(valuepathscount : u32, valuepaths : *const ::windows_core::PCWSTR, flags : u32) -> EVT_HANDLE);
     let result__ = EvtCreateRenderContext(valuepaths.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(valuepaths.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), flags);
-    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EvtExportLog<P0, P1, P2, P3>(session: P0, path: P1, query: P2, targetfilepath: P3, flags: u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<EVT_HANDLE>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<EVT_HANDLE>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P3: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("wevtapi.dll" "system" fn EvtExportLog(session : EVT_HANDLE, path : ::windows::core::PCWSTR, query : ::windows::core::PCWSTR, targetfilepath : ::windows::core::PCWSTR, flags : u32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("wevtapi.dll" "system" fn EvtExportLog(session : EVT_HANDLE, path : ::windows_core::PCWSTR, query : ::windows_core::PCWSTR, targetfilepath : ::windows_core::PCWSTR, flags : u32) -> super::super::Foundation:: BOOL);
     EvtExportLog(session.into_param().abi(), path.into_param().abi(), query.into_param().abi(), targetfilepath.into_param().abi(), flags)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
@@ -140,10 +140,10 @@ where
 #[inline]
 pub unsafe fn EvtFormatMessage<P0, P1>(publishermetadata: P0, event: P1, messageid: u32, values: ::core::option::Option<&[EVT_VARIANT]>, flags: u32, buffer: ::core::option::Option<&mut [u16]>, bufferused: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<EVT_HANDLE>,
-    P1: ::windows::core::IntoParam<EVT_HANDLE>,
+    P0: ::windows_core::IntoParam<EVT_HANDLE>,
+    P1: ::windows_core::IntoParam<EVT_HANDLE>,
 {
-    ::windows_targets::link!("wevtapi.dll" "system" fn EvtFormatMessage(publishermetadata : EVT_HANDLE, event : EVT_HANDLE, messageid : u32, valuecount : u32, values : *const EVT_VARIANT, flags : u32, buffersize : u32, buffer : ::windows::core::PWSTR, bufferused : *mut u32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("wevtapi.dll" "system" fn EvtFormatMessage(publishermetadata : EVT_HANDLE, event : EVT_HANDLE, messageid : u32, valuecount : u32, values : *const EVT_VARIANT, flags : u32, buffersize : u32, buffer : ::windows_core::PWSTR, bufferused : *mut u32) -> super::super::Foundation:: BOOL);
     EvtFormatMessage(publishermetadata.into_param().abi(), event.into_param().abi(), messageid, values.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(values.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), flags, buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bufferused)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
@@ -151,7 +151,7 @@ where
 #[inline]
 pub unsafe fn EvtGetChannelConfigProperty<P0>(channelconfig: P0, propertyid: EVT_CHANNEL_CONFIG_PROPERTY_ID, flags: u32, propertyvaluebuffersize: u32, propertyvaluebuffer: ::core::option::Option<*mut EVT_VARIANT>, propertyvaluebufferused: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<EVT_HANDLE>,
+    P0: ::windows_core::IntoParam<EVT_HANDLE>,
 {
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtGetChannelConfigProperty(channelconfig : EVT_HANDLE, propertyid : EVT_CHANNEL_CONFIG_PROPERTY_ID, flags : u32, propertyvaluebuffersize : u32, propertyvaluebuffer : *mut EVT_VARIANT, propertyvaluebufferused : *mut u32) -> super::super::Foundation:: BOOL);
     EvtGetChannelConfigProperty(channelconfig.into_param().abi(), propertyid, flags, propertyvaluebuffersize, ::core::mem::transmute(propertyvaluebuffer.unwrap_or(::std::ptr::null_mut())), propertyvaluebufferused)
@@ -161,7 +161,7 @@ where
 #[inline]
 pub unsafe fn EvtGetEventInfo<P0>(event: P0, propertyid: EVT_EVENT_PROPERTY_ID, propertyvaluebuffersize: u32, propertyvaluebuffer: ::core::option::Option<*mut EVT_VARIANT>, propertyvaluebufferused: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<EVT_HANDLE>,
+    P0: ::windows_core::IntoParam<EVT_HANDLE>,
 {
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtGetEventInfo(event : EVT_HANDLE, propertyid : EVT_EVENT_PROPERTY_ID, propertyvaluebuffersize : u32, propertyvaluebuffer : *mut EVT_VARIANT, propertyvaluebufferused : *mut u32) -> super::super::Foundation:: BOOL);
     EvtGetEventInfo(event.into_param().abi(), propertyid, propertyvaluebuffersize, ::core::mem::transmute(propertyvaluebuffer.unwrap_or(::std::ptr::null_mut())), propertyvaluebufferused)
@@ -171,7 +171,7 @@ where
 #[inline]
 pub unsafe fn EvtGetEventMetadataProperty<P0>(eventmetadata: P0, propertyid: EVT_EVENT_METADATA_PROPERTY_ID, flags: u32, eventmetadatapropertybuffersize: u32, eventmetadatapropertybuffer: ::core::option::Option<*mut EVT_VARIANT>, eventmetadatapropertybufferused: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<EVT_HANDLE>,
+    P0: ::windows_core::IntoParam<EVT_HANDLE>,
 {
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtGetEventMetadataProperty(eventmetadata : EVT_HANDLE, propertyid : EVT_EVENT_METADATA_PROPERTY_ID, flags : u32, eventmetadatapropertybuffersize : u32, eventmetadatapropertybuffer : *mut EVT_VARIANT, eventmetadatapropertybufferused : *mut u32) -> super::super::Foundation:: BOOL);
     EvtGetEventMetadataProperty(eventmetadata.into_param().abi(), propertyid, flags, eventmetadatapropertybuffersize, ::core::mem::transmute(eventmetadatapropertybuffer.unwrap_or(::std::ptr::null_mut())), eventmetadatapropertybufferused)
@@ -179,7 +179,7 @@ where
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
 pub unsafe fn EvtGetExtendedStatus(buffer: ::core::option::Option<&mut [u16]>, bufferused: *mut u32) -> u32 {
-    ::windows_targets::link!("wevtapi.dll" "system" fn EvtGetExtendedStatus(buffersize : u32, buffer : ::windows::core::PWSTR, bufferused : *mut u32) -> u32);
+    ::windows_targets::link!("wevtapi.dll" "system" fn EvtGetExtendedStatus(buffersize : u32, buffer : ::windows_core::PWSTR, bufferused : *mut u32) -> u32);
     EvtGetExtendedStatus(buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bufferused)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
@@ -187,7 +187,7 @@ pub unsafe fn EvtGetExtendedStatus(buffer: ::core::option::Option<&mut [u16]>, b
 #[inline]
 pub unsafe fn EvtGetLogInfo<P0>(log: P0, propertyid: EVT_LOG_PROPERTY_ID, propertyvaluebuffersize: u32, propertyvaluebuffer: ::core::option::Option<*mut EVT_VARIANT>, propertyvaluebufferused: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<EVT_HANDLE>,
+    P0: ::windows_core::IntoParam<EVT_HANDLE>,
 {
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtGetLogInfo(log : EVT_HANDLE, propertyid : EVT_LOG_PROPERTY_ID, propertyvaluebuffersize : u32, propertyvaluebuffer : *mut EVT_VARIANT, propertyvaluebufferused : *mut u32) -> super::super::Foundation:: BOOL);
     EvtGetLogInfo(log.into_param().abi(), propertyid, propertyvaluebuffersize, ::core::mem::transmute(propertyvaluebuffer.unwrap_or(::std::ptr::null_mut())), propertyvaluebufferused)
@@ -211,7 +211,7 @@ pub unsafe fn EvtGetObjectArraySize(objectarray: isize, objectarraysize: *mut u3
 #[inline]
 pub unsafe fn EvtGetPublisherMetadataProperty<P0>(publishermetadata: P0, propertyid: EVT_PUBLISHER_METADATA_PROPERTY_ID, flags: u32, publishermetadatapropertybuffersize: u32, publishermetadatapropertybuffer: ::core::option::Option<*mut EVT_VARIANT>, publishermetadatapropertybufferused: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<EVT_HANDLE>,
+    P0: ::windows_core::IntoParam<EVT_HANDLE>,
 {
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtGetPublisherMetadataProperty(publishermetadata : EVT_HANDLE, propertyid : EVT_PUBLISHER_METADATA_PROPERTY_ID, flags : u32, publishermetadatapropertybuffersize : u32, publishermetadatapropertybuffer : *mut EVT_VARIANT, publishermetadatapropertybufferused : *mut u32) -> super::super::Foundation:: BOOL);
     EvtGetPublisherMetadataProperty(publishermetadata.into_param().abi(), propertyid, flags, publishermetadatapropertybuffersize, ::core::mem::transmute(publishermetadatapropertybuffer.unwrap_or(::std::ptr::null_mut())), publishermetadatapropertybufferused)
@@ -221,7 +221,7 @@ where
 #[inline]
 pub unsafe fn EvtGetQueryInfo<P0>(queryorsubscription: P0, propertyid: EVT_QUERY_PROPERTY_ID, propertyvaluebuffersize: u32, propertyvaluebuffer: ::core::option::Option<*mut EVT_VARIANT>, propertyvaluebufferused: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<EVT_HANDLE>,
+    P0: ::windows_core::IntoParam<EVT_HANDLE>,
 {
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtGetQueryInfo(queryorsubscription : EVT_HANDLE, propertyid : EVT_QUERY_PROPERTY_ID, propertyvaluebuffersize : u32, propertyvaluebuffer : *mut EVT_VARIANT, propertyvaluebufferused : *mut u32) -> super::super::Foundation:: BOOL);
     EvtGetQueryInfo(queryorsubscription.into_param().abi(), propertyid, propertyvaluebuffersize, ::core::mem::transmute(propertyvaluebuffer.unwrap_or(::std::ptr::null_mut())), propertyvaluebufferused)
@@ -231,7 +231,7 @@ where
 #[inline]
 pub unsafe fn EvtNext<P0>(resultset: P0, events: &mut [isize], timeout: u32, flags: u32, returned: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<EVT_HANDLE>,
+    P0: ::windows_core::IntoParam<EVT_HANDLE>,
 {
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtNext(resultset : EVT_HANDLE, eventssize : u32, events : *mut isize, timeout : u32, flags : u32, returned : *mut u32) -> super::super::Foundation:: BOOL);
     EvtNext(resultset.into_param().abi(), events.len() as _, ::core::mem::transmute(events.as_ptr()), timeout, flags, returned)
@@ -241,121 +241,121 @@ where
 #[inline]
 pub unsafe fn EvtNextChannelPath<P0>(channelenum: P0, channelpathbuffer: ::core::option::Option<&mut [u16]>, channelpathbufferused: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<EVT_HANDLE>,
+    P0: ::windows_core::IntoParam<EVT_HANDLE>,
 {
-    ::windows_targets::link!("wevtapi.dll" "system" fn EvtNextChannelPath(channelenum : EVT_HANDLE, channelpathbuffersize : u32, channelpathbuffer : ::windows::core::PWSTR, channelpathbufferused : *mut u32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("wevtapi.dll" "system" fn EvtNextChannelPath(channelenum : EVT_HANDLE, channelpathbuffersize : u32, channelpathbuffer : ::windows_core::PWSTR, channelpathbufferused : *mut u32) -> super::super::Foundation:: BOOL);
     EvtNextChannelPath(channelenum.into_param().abi(), channelpathbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(channelpathbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), channelpathbufferused)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
-pub unsafe fn EvtNextEventMetadata<P0>(eventmetadataenum: P0, flags: u32) -> ::windows::core::Result<EVT_HANDLE>
+pub unsafe fn EvtNextEventMetadata<P0>(eventmetadataenum: P0, flags: u32) -> ::windows_core::Result<EVT_HANDLE>
 where
-    P0: ::windows::core::IntoParam<EVT_HANDLE>,
+    P0: ::windows_core::IntoParam<EVT_HANDLE>,
 {
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtNextEventMetadata(eventmetadataenum : EVT_HANDLE, flags : u32) -> EVT_HANDLE);
     let result__ = EvtNextEventMetadata(eventmetadataenum.into_param().abi(), flags);
-    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EvtNextPublisherId<P0>(publisherenum: P0, publisheridbuffer: ::core::option::Option<&mut [u16]>, publisheridbufferused: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<EVT_HANDLE>,
+    P0: ::windows_core::IntoParam<EVT_HANDLE>,
 {
-    ::windows_targets::link!("wevtapi.dll" "system" fn EvtNextPublisherId(publisherenum : EVT_HANDLE, publisheridbuffersize : u32, publisheridbuffer : ::windows::core::PWSTR, publisheridbufferused : *mut u32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("wevtapi.dll" "system" fn EvtNextPublisherId(publisherenum : EVT_HANDLE, publisheridbuffersize : u32, publisheridbuffer : ::windows_core::PWSTR, publisheridbufferused : *mut u32) -> super::super::Foundation:: BOOL);
     EvtNextPublisherId(publisherenum.into_param().abi(), publisheridbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(publisheridbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), publisheridbufferused)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
-pub unsafe fn EvtOpenChannelConfig<P0, P1>(session: P0, channelpath: P1, flags: u32) -> ::windows::core::Result<EVT_HANDLE>
+pub unsafe fn EvtOpenChannelConfig<P0, P1>(session: P0, channelpath: P1, flags: u32) -> ::windows_core::Result<EVT_HANDLE>
 where
-    P0: ::windows::core::IntoParam<EVT_HANDLE>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<EVT_HANDLE>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("wevtapi.dll" "system" fn EvtOpenChannelConfig(session : EVT_HANDLE, channelpath : ::windows::core::PCWSTR, flags : u32) -> EVT_HANDLE);
+    ::windows_targets::link!("wevtapi.dll" "system" fn EvtOpenChannelConfig(session : EVT_HANDLE, channelpath : ::windows_core::PCWSTR, flags : u32) -> EVT_HANDLE);
     let result__ = EvtOpenChannelConfig(session.into_param().abi(), channelpath.into_param().abi(), flags);
-    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
-pub unsafe fn EvtOpenChannelEnum<P0>(session: P0, flags: u32) -> ::windows::core::Result<EVT_HANDLE>
+pub unsafe fn EvtOpenChannelEnum<P0>(session: P0, flags: u32) -> ::windows_core::Result<EVT_HANDLE>
 where
-    P0: ::windows::core::IntoParam<EVT_HANDLE>,
+    P0: ::windows_core::IntoParam<EVT_HANDLE>,
 {
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtOpenChannelEnum(session : EVT_HANDLE, flags : u32) -> EVT_HANDLE);
     let result__ = EvtOpenChannelEnum(session.into_param().abi(), flags);
-    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
-pub unsafe fn EvtOpenEventMetadataEnum<P0>(publishermetadata: P0, flags: u32) -> ::windows::core::Result<EVT_HANDLE>
+pub unsafe fn EvtOpenEventMetadataEnum<P0>(publishermetadata: P0, flags: u32) -> ::windows_core::Result<EVT_HANDLE>
 where
-    P0: ::windows::core::IntoParam<EVT_HANDLE>,
+    P0: ::windows_core::IntoParam<EVT_HANDLE>,
 {
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtOpenEventMetadataEnum(publishermetadata : EVT_HANDLE, flags : u32) -> EVT_HANDLE);
     let result__ = EvtOpenEventMetadataEnum(publishermetadata.into_param().abi(), flags);
-    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
-pub unsafe fn EvtOpenLog<P0, P1>(session: P0, path: P1, flags: u32) -> ::windows::core::Result<EVT_HANDLE>
+pub unsafe fn EvtOpenLog<P0, P1>(session: P0, path: P1, flags: u32) -> ::windows_core::Result<EVT_HANDLE>
 where
-    P0: ::windows::core::IntoParam<EVT_HANDLE>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<EVT_HANDLE>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("wevtapi.dll" "system" fn EvtOpenLog(session : EVT_HANDLE, path : ::windows::core::PCWSTR, flags : u32) -> EVT_HANDLE);
+    ::windows_targets::link!("wevtapi.dll" "system" fn EvtOpenLog(session : EVT_HANDLE, path : ::windows_core::PCWSTR, flags : u32) -> EVT_HANDLE);
     let result__ = EvtOpenLog(session.into_param().abi(), path.into_param().abi(), flags);
-    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
-pub unsafe fn EvtOpenPublisherEnum<P0>(session: P0, flags: u32) -> ::windows::core::Result<EVT_HANDLE>
+pub unsafe fn EvtOpenPublisherEnum<P0>(session: P0, flags: u32) -> ::windows_core::Result<EVT_HANDLE>
 where
-    P0: ::windows::core::IntoParam<EVT_HANDLE>,
+    P0: ::windows_core::IntoParam<EVT_HANDLE>,
 {
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtOpenPublisherEnum(session : EVT_HANDLE, flags : u32) -> EVT_HANDLE);
     let result__ = EvtOpenPublisherEnum(session.into_param().abi(), flags);
-    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
-pub unsafe fn EvtOpenPublisherMetadata<P0, P1, P2>(session: P0, publisherid: P1, logfilepath: P2, locale: u32, flags: u32) -> ::windows::core::Result<EVT_HANDLE>
+pub unsafe fn EvtOpenPublisherMetadata<P0, P1, P2>(session: P0, publisherid: P1, logfilepath: P2, locale: u32, flags: u32) -> ::windows_core::Result<EVT_HANDLE>
 where
-    P0: ::windows::core::IntoParam<EVT_HANDLE>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<EVT_HANDLE>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("wevtapi.dll" "system" fn EvtOpenPublisherMetadata(session : EVT_HANDLE, publisherid : ::windows::core::PCWSTR, logfilepath : ::windows::core::PCWSTR, locale : u32, flags : u32) -> EVT_HANDLE);
+    ::windows_targets::link!("wevtapi.dll" "system" fn EvtOpenPublisherMetadata(session : EVT_HANDLE, publisherid : ::windows_core::PCWSTR, logfilepath : ::windows_core::PCWSTR, locale : u32, flags : u32) -> EVT_HANDLE);
     let result__ = EvtOpenPublisherMetadata(session.into_param().abi(), publisherid.into_param().abi(), logfilepath.into_param().abi(), locale, flags);
-    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
-pub unsafe fn EvtOpenSession(loginclass: EVT_LOGIN_CLASS, login: *const ::core::ffi::c_void, timeout: u32, flags: u32) -> ::windows::core::Result<EVT_HANDLE> {
+pub unsafe fn EvtOpenSession(loginclass: EVT_LOGIN_CLASS, login: *const ::core::ffi::c_void, timeout: u32, flags: u32) -> ::windows_core::Result<EVT_HANDLE> {
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtOpenSession(loginclass : EVT_LOGIN_CLASS, login : *const ::core::ffi::c_void, timeout : u32, flags : u32) -> EVT_HANDLE);
     let result__ = EvtOpenSession(loginclass, login, timeout, flags);
-    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
-pub unsafe fn EvtQuery<P0, P1, P2>(session: P0, path: P1, query: P2, flags: u32) -> ::windows::core::Result<EVT_HANDLE>
+pub unsafe fn EvtQuery<P0, P1, P2>(session: P0, path: P1, query: P2, flags: u32) -> ::windows_core::Result<EVT_HANDLE>
 where
-    P0: ::windows::core::IntoParam<EVT_HANDLE>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<EVT_HANDLE>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("wevtapi.dll" "system" fn EvtQuery(session : EVT_HANDLE, path : ::windows::core::PCWSTR, query : ::windows::core::PCWSTR, flags : u32) -> EVT_HANDLE);
+    ::windows_targets::link!("wevtapi.dll" "system" fn EvtQuery(session : EVT_HANDLE, path : ::windows_core::PCWSTR, query : ::windows_core::PCWSTR, flags : u32) -> EVT_HANDLE);
     let result__ = EvtQuery(session.into_param().abi(), path.into_param().abi(), query.into_param().abi(), flags);
-    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EvtRender<P0, P1>(context: P0, fragment: P1, flags: u32, buffersize: u32, buffer: ::core::option::Option<*mut ::core::ffi::c_void>, bufferused: *mut u32, propertycount: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<EVT_HANDLE>,
-    P1: ::windows::core::IntoParam<EVT_HANDLE>,
+    P0: ::windows_core::IntoParam<EVT_HANDLE>,
+    P1: ::windows_core::IntoParam<EVT_HANDLE>,
 {
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtRender(context : EVT_HANDLE, fragment : EVT_HANDLE, flags : u32, buffersize : u32, buffer : *mut ::core::ffi::c_void, bufferused : *mut u32, propertycount : *mut u32) -> super::super::Foundation:: BOOL);
     EvtRender(context.into_param().abi(), fragment.into_param().abi(), flags, buffersize, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), bufferused, propertycount)
@@ -365,7 +365,7 @@ where
 #[inline]
 pub unsafe fn EvtSaveChannelConfig<P0>(channelconfig: P0, flags: u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<EVT_HANDLE>,
+    P0: ::windows_core::IntoParam<EVT_HANDLE>,
 {
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtSaveChannelConfig(channelconfig : EVT_HANDLE, flags : u32) -> super::super::Foundation:: BOOL);
     EvtSaveChannelConfig(channelconfig.into_param().abi(), flags)
@@ -375,8 +375,8 @@ where
 #[inline]
 pub unsafe fn EvtSeek<P0, P1>(resultset: P0, position: i64, bookmark: P1, timeout: u32, flags: u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<EVT_HANDLE>,
-    P1: ::windows::core::IntoParam<EVT_HANDLE>,
+    P0: ::windows_core::IntoParam<EVT_HANDLE>,
+    P1: ::windows_core::IntoParam<EVT_HANDLE>,
 {
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtSeek(resultset : EVT_HANDLE, position : i64, bookmark : EVT_HANDLE, timeout : u32, flags : u32) -> super::super::Foundation:: BOOL);
     EvtSeek(resultset.into_param().abi(), position, bookmark.into_param().abi(), timeout, flags)
@@ -386,7 +386,7 @@ where
 #[inline]
 pub unsafe fn EvtSetChannelConfigProperty<P0>(channelconfig: P0, propertyid: EVT_CHANNEL_CONFIG_PROPERTY_ID, flags: u32, propertyvalue: *const EVT_VARIANT) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<EVT_HANDLE>,
+    P0: ::windows_core::IntoParam<EVT_HANDLE>,
 {
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtSetChannelConfigProperty(channelconfig : EVT_HANDLE, propertyid : EVT_CHANNEL_CONFIG_PROPERTY_ID, flags : u32, propertyvalue : *const EVT_VARIANT) -> super::super::Foundation:: BOOL);
     EvtSetChannelConfigProperty(channelconfig.into_param().abi(), propertyid, flags, propertyvalue)
@@ -394,25 +394,25 @@ where
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EvtSubscribe<P0, P1, P2, P3, P4>(session: P0, signalevent: P1, channelpath: P2, query: P3, bookmark: P4, context: ::core::option::Option<*const ::core::ffi::c_void>, callback: EVT_SUBSCRIBE_CALLBACK, flags: u32) -> ::windows::core::Result<EVT_HANDLE>
+pub unsafe fn EvtSubscribe<P0, P1, P2, P3, P4>(session: P0, signalevent: P1, channelpath: P2, query: P3, bookmark: P4, context: ::core::option::Option<*const ::core::ffi::c_void>, callback: EVT_SUBSCRIBE_CALLBACK, flags: u32) -> ::windows_core::Result<EVT_HANDLE>
 where
-    P0: ::windows::core::IntoParam<EVT_HANDLE>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P4: ::windows::core::IntoParam<EVT_HANDLE>,
+    P0: ::windows_core::IntoParam<EVT_HANDLE>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P3: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P4: ::windows_core::IntoParam<EVT_HANDLE>,
 {
-    ::windows_targets::link!("wevtapi.dll" "system" fn EvtSubscribe(session : EVT_HANDLE, signalevent : super::super::Foundation:: HANDLE, channelpath : ::windows::core::PCWSTR, query : ::windows::core::PCWSTR, bookmark : EVT_HANDLE, context : *const ::core::ffi::c_void, callback : EVT_SUBSCRIBE_CALLBACK, flags : u32) -> EVT_HANDLE);
+    ::windows_targets::link!("wevtapi.dll" "system" fn EvtSubscribe(session : EVT_HANDLE, signalevent : super::super::Foundation:: HANDLE, channelpath : ::windows_core::PCWSTR, query : ::windows_core::PCWSTR, bookmark : EVT_HANDLE, context : *const ::core::ffi::c_void, callback : EVT_SUBSCRIBE_CALLBACK, flags : u32) -> EVT_HANDLE);
     let result__ = EvtSubscribe(session.into_param().abi(), signalevent.into_param().abi(), channelpath.into_param().abi(), query.into_param().abi(), bookmark.into_param().abi(), ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), callback, flags);
-    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EvtUpdateBookmark<P0, P1>(bookmark: P0, event: P1) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<EVT_HANDLE>,
-    P1: ::windows::core::IntoParam<EVT_HANDLE>,
+    P0: ::windows_core::IntoParam<EVT_HANDLE>,
+    P1: ::windows_core::IntoParam<EVT_HANDLE>,
 {
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtUpdateBookmark(bookmark : EVT_HANDLE, event : EVT_HANDLE) -> super::super::Foundation:: BOOL);
     EvtUpdateBookmark(bookmark.into_param().abi(), event.into_param().abi())
@@ -422,7 +422,7 @@ where
 #[inline]
 pub unsafe fn GetEventLogInformation<P0>(heventlog: P0, dwinfolevel: u32, lpbuffer: *mut ::core::ffi::c_void, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<EventLogHandle>,
+    P0: ::windows_core::IntoParam<EventLogHandle>,
 {
     ::windows_targets::link!("advapi32.dll" "system" fn GetEventLogInformation(heventlog : EventLogHandle, dwinfolevel : u32, lpbuffer : *mut ::core::ffi::c_void, cbbufsize : u32, pcbbytesneeded : *mut u32) -> super::super::Foundation:: BOOL);
     GetEventLogInformation(heventlog.into_param().abi(), dwinfolevel, lpbuffer, cbbufsize, pcbbytesneeded)
@@ -432,7 +432,7 @@ where
 #[inline]
 pub unsafe fn GetNumberOfEventLogRecords<P0>(heventlog: P0, numberofrecords: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<EventLogHandle>,
+    P0: ::windows_core::IntoParam<EventLogHandle>,
 {
     ::windows_targets::link!("advapi32.dll" "system" fn GetNumberOfEventLogRecords(heventlog : EventLogHandle, numberofrecords : *mut u32) -> super::super::Foundation:: BOOL);
     GetNumberOfEventLogRecords(heventlog.into_param().abi(), numberofrecords)
@@ -442,7 +442,7 @@ where
 #[inline]
 pub unsafe fn GetOldestEventLogRecord<P0>(heventlog: P0, oldestrecord: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<EventLogHandle>,
+    P0: ::windows_core::IntoParam<EventLogHandle>,
 {
     ::windows_targets::link!("advapi32.dll" "system" fn GetOldestEventLogRecord(heventlog : EventLogHandle, oldestrecord : *mut u32) -> super::super::Foundation:: BOOL);
     GetOldestEventLogRecord(heventlog.into_param().abi(), oldestrecord)
@@ -452,62 +452,62 @@ where
 #[inline]
 pub unsafe fn NotifyChangeEventLog<P0, P1>(heventlog: P0, hevent: P1) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<EventLogHandle>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<EventLogHandle>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("advapi32.dll" "system" fn NotifyChangeEventLog(heventlog : EventLogHandle, hevent : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     NotifyChangeEventLog(heventlog.into_param().abi(), hevent.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
-pub unsafe fn OpenBackupEventLogA<P0, P1>(lpuncservername: P0, lpfilename: P1) -> ::windows::core::Result<EventLogHandle>
+pub unsafe fn OpenBackupEventLogA<P0, P1>(lpuncservername: P0, lpfilename: P1) -> ::windows_core::Result<EventLogHandle>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("advapi32.dll" "system" fn OpenBackupEventLogA(lpuncservername : ::windows::core::PCSTR, lpfilename : ::windows::core::PCSTR) -> EventLogHandle);
+    ::windows_targets::link!("advapi32.dll" "system" fn OpenBackupEventLogA(lpuncservername : ::windows_core::PCSTR, lpfilename : ::windows_core::PCSTR) -> EventLogHandle);
     let result__ = OpenBackupEventLogA(lpuncservername.into_param().abi(), lpfilename.into_param().abi());
-    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
-pub unsafe fn OpenBackupEventLogW<P0, P1>(lpuncservername: P0, lpfilename: P1) -> ::windows::core::Result<EventLogHandle>
+pub unsafe fn OpenBackupEventLogW<P0, P1>(lpuncservername: P0, lpfilename: P1) -> ::windows_core::Result<EventLogHandle>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("advapi32.dll" "system" fn OpenBackupEventLogW(lpuncservername : ::windows::core::PCWSTR, lpfilename : ::windows::core::PCWSTR) -> EventLogHandle);
+    ::windows_targets::link!("advapi32.dll" "system" fn OpenBackupEventLogW(lpuncservername : ::windows_core::PCWSTR, lpfilename : ::windows_core::PCWSTR) -> EventLogHandle);
     let result__ = OpenBackupEventLogW(lpuncservername.into_param().abi(), lpfilename.into_param().abi());
-    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
-pub unsafe fn OpenEventLogA<P0, P1>(lpuncservername: P0, lpsourcename: P1) -> ::windows::core::Result<EventLogHandle>
+pub unsafe fn OpenEventLogA<P0, P1>(lpuncservername: P0, lpsourcename: P1) -> ::windows_core::Result<EventLogHandle>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("advapi32.dll" "system" fn OpenEventLogA(lpuncservername : ::windows::core::PCSTR, lpsourcename : ::windows::core::PCSTR) -> EventLogHandle);
+    ::windows_targets::link!("advapi32.dll" "system" fn OpenEventLogA(lpuncservername : ::windows_core::PCSTR, lpsourcename : ::windows_core::PCSTR) -> EventLogHandle);
     let result__ = OpenEventLogA(lpuncservername.into_param().abi(), lpsourcename.into_param().abi());
-    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
-pub unsafe fn OpenEventLogW<P0, P1>(lpuncservername: P0, lpsourcename: P1) -> ::windows::core::Result<EventLogHandle>
+pub unsafe fn OpenEventLogW<P0, P1>(lpuncservername: P0, lpsourcename: P1) -> ::windows_core::Result<EventLogHandle>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("advapi32.dll" "system" fn OpenEventLogW(lpuncservername : ::windows::core::PCWSTR, lpsourcename : ::windows::core::PCWSTR) -> EventLogHandle);
+    ::windows_targets::link!("advapi32.dll" "system" fn OpenEventLogW(lpuncservername : ::windows_core::PCWSTR, lpsourcename : ::windows_core::PCWSTR) -> EventLogHandle);
     let result__ = OpenEventLogW(lpuncservername.into_param().abi(), lpsourcename.into_param().abi());
-    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReadEventLogA<P0>(heventlog: P0, dwreadflags: READ_EVENT_LOG_READ_FLAGS, dwrecordoffset: u32, lpbuffer: *mut ::core::ffi::c_void, nnumberofbytestoread: u32, pnbytesread: *mut u32, pnminnumberofbytesneeded: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<EventLogHandle>,
+    P0: ::windows_core::IntoParam<EventLogHandle>,
 {
     ::windows_targets::link!("advapi32.dll" "system" fn ReadEventLogA(heventlog : EventLogHandle, dwreadflags : READ_EVENT_LOG_READ_FLAGS, dwrecordoffset : u32, lpbuffer : *mut ::core::ffi::c_void, nnumberofbytestoread : u32, pnbytesread : *mut u32, pnminnumberofbytesneeded : *mut u32) -> super::super::Foundation:: BOOL);
     ReadEventLogA(heventlog.into_param().abi(), dwreadflags, dwrecordoffset, lpbuffer, nnumberofbytestoread, pnbytesread, pnminnumberofbytesneeded)
@@ -517,53 +517,53 @@ where
 #[inline]
 pub unsafe fn ReadEventLogW<P0>(heventlog: P0, dwreadflags: READ_EVENT_LOG_READ_FLAGS, dwrecordoffset: u32, lpbuffer: *mut ::core::ffi::c_void, nnumberofbytestoread: u32, pnbytesread: *mut u32, pnminnumberofbytesneeded: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<EventLogHandle>,
+    P0: ::windows_core::IntoParam<EventLogHandle>,
 {
     ::windows_targets::link!("advapi32.dll" "system" fn ReadEventLogW(heventlog : EventLogHandle, dwreadflags : READ_EVENT_LOG_READ_FLAGS, dwrecordoffset : u32, lpbuffer : *mut ::core::ffi::c_void, nnumberofbytestoread : u32, pnbytesread : *mut u32, pnminnumberofbytesneeded : *mut u32) -> super::super::Foundation:: BOOL);
     ReadEventLogW(heventlog.into_param().abi(), dwreadflags, dwrecordoffset, lpbuffer, nnumberofbytestoread, pnbytesread, pnminnumberofbytesneeded)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
-pub unsafe fn RegisterEventSourceA<P0, P1>(lpuncservername: P0, lpsourcename: P1) -> ::windows::core::Result<EventSourceHandle>
+pub unsafe fn RegisterEventSourceA<P0, P1>(lpuncservername: P0, lpsourcename: P1) -> ::windows_core::Result<EventSourceHandle>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("advapi32.dll" "system" fn RegisterEventSourceA(lpuncservername : ::windows::core::PCSTR, lpsourcename : ::windows::core::PCSTR) -> EventSourceHandle);
+    ::windows_targets::link!("advapi32.dll" "system" fn RegisterEventSourceA(lpuncservername : ::windows_core::PCSTR, lpsourcename : ::windows_core::PCSTR) -> EventSourceHandle);
     let result__ = RegisterEventSourceA(lpuncservername.into_param().abi(), lpsourcename.into_param().abi());
-    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
-pub unsafe fn RegisterEventSourceW<P0, P1>(lpuncservername: P0, lpsourcename: P1) -> ::windows::core::Result<EventSourceHandle>
+pub unsafe fn RegisterEventSourceW<P0, P1>(lpuncservername: P0, lpsourcename: P1) -> ::windows_core::Result<EventSourceHandle>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("advapi32.dll" "system" fn RegisterEventSourceW(lpuncservername : ::windows::core::PCWSTR, lpsourcename : ::windows::core::PCWSTR) -> EventSourceHandle);
+    ::windows_targets::link!("advapi32.dll" "system" fn RegisterEventSourceW(lpuncservername : ::windows_core::PCWSTR, lpsourcename : ::windows_core::PCWSTR) -> EventSourceHandle);
     let result__ = RegisterEventSourceW(lpuncservername.into_param().abi(), lpsourcename.into_param().abi());
-    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReportEventA<P0, P1>(heventlog: P0, wtype: REPORT_EVENT_TYPE, wcategory: u16, dweventid: u32, lpusersid: P1, dwdatasize: u32, lpstrings: ::core::option::Option<&[::windows::core::PCSTR]>, lprawdata: ::core::option::Option<*const ::core::ffi::c_void>) -> super::super::Foundation::BOOL
+pub unsafe fn ReportEventA<P0, P1>(heventlog: P0, wtype: REPORT_EVENT_TYPE, wcategory: u16, dweventid: u32, lpusersid: P1, dwdatasize: u32, lpstrings: ::core::option::Option<&[::windows_core::PCSTR]>, lprawdata: ::core::option::Option<*const ::core::ffi::c_void>) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<EventSourceHandle>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::PSID>,
+    P0: ::windows_core::IntoParam<EventSourceHandle>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::PSID>,
 {
-    ::windows_targets::link!("advapi32.dll" "system" fn ReportEventA(heventlog : EventSourceHandle, wtype : REPORT_EVENT_TYPE, wcategory : u16, dweventid : u32, lpusersid : super::super::Foundation:: PSID, wnumstrings : u16, dwdatasize : u32, lpstrings : *const ::windows::core::PCSTR, lprawdata : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("advapi32.dll" "system" fn ReportEventA(heventlog : EventSourceHandle, wtype : REPORT_EVENT_TYPE, wcategory : u16, dweventid : u32, lpusersid : super::super::Foundation:: PSID, wnumstrings : u16, dwdatasize : u32, lpstrings : *const ::windows_core::PCSTR, lprawdata : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     ReportEventA(heventlog.into_param().abi(), wtype, wcategory, dweventid, lpusersid.into_param().abi(), lpstrings.as_deref().map_or(0, |slice| slice.len() as _), dwdatasize, ::core::mem::transmute(lpstrings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(lprawdata.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReportEventW<P0, P1>(heventlog: P0, wtype: REPORT_EVENT_TYPE, wcategory: u16, dweventid: u32, lpusersid: P1, dwdatasize: u32, lpstrings: ::core::option::Option<&[::windows::core::PCWSTR]>, lprawdata: ::core::option::Option<*const ::core::ffi::c_void>) -> super::super::Foundation::BOOL
+pub unsafe fn ReportEventW<P0, P1>(heventlog: P0, wtype: REPORT_EVENT_TYPE, wcategory: u16, dweventid: u32, lpusersid: P1, dwdatasize: u32, lpstrings: ::core::option::Option<&[::windows_core::PCWSTR]>, lprawdata: ::core::option::Option<*const ::core::ffi::c_void>) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<EventSourceHandle>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::PSID>,
+    P0: ::windows_core::IntoParam<EventSourceHandle>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::PSID>,
 {
-    ::windows_targets::link!("advapi32.dll" "system" fn ReportEventW(heventlog : EventSourceHandle, wtype : REPORT_EVENT_TYPE, wcategory : u16, dweventid : u32, lpusersid : super::super::Foundation:: PSID, wnumstrings : u16, dwdatasize : u32, lpstrings : *const ::windows::core::PCWSTR, lprawdata : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("advapi32.dll" "system" fn ReportEventW(heventlog : EventSourceHandle, wtype : REPORT_EVENT_TYPE, wcategory : u16, dweventid : u32, lpusersid : super::super::Foundation:: PSID, wnumstrings : u16, dwdatasize : u32, lpstrings : *const ::windows_core::PCWSTR, lprawdata : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     ReportEventW(heventlog.into_param().abi(), wtype, wcategory, dweventid, lpusersid.into_param().abi(), lpstrings.as_deref().map_or(0, |slice| slice.len() as _), dwdatasize, ::core::mem::transmute(lpstrings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(lprawdata.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
@@ -597,8 +597,8 @@ impl ::core::default::Default for EVT_CHANNEL_CLOCK_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for EVT_CHANNEL_CLOCK_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EVT_CHANNEL_CLOCK_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for EVT_CHANNEL_CLOCK_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -664,8 +664,8 @@ impl ::core::default::Default for EVT_CHANNEL_CONFIG_PROPERTY_ID {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for EVT_CHANNEL_CONFIG_PROPERTY_ID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EVT_CHANNEL_CONFIG_PROPERTY_ID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for EVT_CHANNEL_CONFIG_PROPERTY_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -693,8 +693,8 @@ impl ::core::default::Default for EVT_CHANNEL_ISOLATION_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for EVT_CHANNEL_ISOLATION_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EVT_CHANNEL_ISOLATION_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for EVT_CHANNEL_ISOLATION_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -718,8 +718,8 @@ impl ::core::default::Default for EVT_CHANNEL_REFERENCE_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for EVT_CHANNEL_REFERENCE_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EVT_CHANNEL_REFERENCE_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for EVT_CHANNEL_REFERENCE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -745,8 +745,8 @@ impl ::core::default::Default for EVT_CHANNEL_SID_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for EVT_CHANNEL_SID_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EVT_CHANNEL_SID_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for EVT_CHANNEL_SID_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -776,8 +776,8 @@ impl ::core::default::Default for EVT_CHANNEL_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for EVT_CHANNEL_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EVT_CHANNEL_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for EVT_CHANNEL_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -819,8 +819,8 @@ impl ::core::default::Default for EVT_EVENT_METADATA_PROPERTY_ID {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for EVT_EVENT_METADATA_PROPERTY_ID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EVT_EVENT_METADATA_PROPERTY_ID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for EVT_EVENT_METADATA_PROPERTY_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -848,8 +848,8 @@ impl ::core::default::Default for EVT_EVENT_PROPERTY_ID {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for EVT_EVENT_PROPERTY_ID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EVT_EVENT_PROPERTY_ID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for EVT_EVENT_PROPERTY_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -879,8 +879,8 @@ impl ::core::default::Default for EVT_EXPORTLOG_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for EVT_EXPORTLOG_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EVT_EXPORTLOG_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for EVT_EXPORTLOG_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -920,8 +920,8 @@ impl ::core::default::Default for EVT_FORMAT_MESSAGE_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for EVT_FORMAT_MESSAGE_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EVT_FORMAT_MESSAGE_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for EVT_FORMAT_MESSAGE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -945,8 +945,8 @@ impl ::core::default::Default for EVT_LOGIN_CLASS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for EVT_LOGIN_CLASS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EVT_LOGIN_CLASS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for EVT_LOGIN_CLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -984,8 +984,8 @@ impl ::core::default::Default for EVT_LOG_PROPERTY_ID {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for EVT_LOG_PROPERTY_ID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EVT_LOG_PROPERTY_ID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for EVT_LOG_PROPERTY_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1011,8 +1011,8 @@ impl ::core::default::Default for EVT_OPEN_LOG_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for EVT_OPEN_LOG_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EVT_OPEN_LOG_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for EVT_OPEN_LOG_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1094,8 +1094,8 @@ impl ::core::default::Default for EVT_PUBLISHER_METADATA_PROPERTY_ID {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for EVT_PUBLISHER_METADATA_PROPERTY_ID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EVT_PUBLISHER_METADATA_PROPERTY_ID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for EVT_PUBLISHER_METADATA_PROPERTY_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1127,8 +1127,8 @@ impl ::core::default::Default for EVT_QUERY_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for EVT_QUERY_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EVT_QUERY_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for EVT_QUERY_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1156,8 +1156,8 @@ impl ::core::default::Default for EVT_QUERY_PROPERTY_ID {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for EVT_QUERY_PROPERTY_ID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EVT_QUERY_PROPERTY_ID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for EVT_QUERY_PROPERTY_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1185,8 +1185,8 @@ impl ::core::default::Default for EVT_RENDER_CONTEXT_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for EVT_RENDER_CONTEXT_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EVT_RENDER_CONTEXT_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for EVT_RENDER_CONTEXT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1214,8 +1214,8 @@ impl ::core::default::Default for EVT_RENDER_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for EVT_RENDER_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EVT_RENDER_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for EVT_RENDER_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1245,8 +1245,8 @@ impl ::core::default::Default for EVT_RPC_LOGIN_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for EVT_RPC_LOGIN_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EVT_RPC_LOGIN_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for EVT_RPC_LOGIN_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1280,8 +1280,8 @@ impl ::core::default::Default for EVT_SEEK_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for EVT_SEEK_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EVT_SEEK_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for EVT_SEEK_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1315,8 +1315,8 @@ impl ::core::default::Default for EVT_SUBSCRIBE_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for EVT_SUBSCRIBE_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EVT_SUBSCRIBE_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for EVT_SUBSCRIBE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1342,8 +1342,8 @@ impl ::core::default::Default for EVT_SUBSCRIBE_NOTIFY_ACTION {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for EVT_SUBSCRIBE_NOTIFY_ACTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EVT_SUBSCRIBE_NOTIFY_ACTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for EVT_SUBSCRIBE_NOTIFY_ACTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1403,8 +1403,8 @@ impl ::core::default::Default for EVT_SYSTEM_PROPERTY_ID {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for EVT_SYSTEM_PROPERTY_ID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EVT_SYSTEM_PROPERTY_ID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for EVT_SYSTEM_PROPERTY_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1474,8 +1474,8 @@ impl ::core::default::Default for EVT_VARIANT_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for EVT_VARIANT_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EVT_VARIANT_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for EVT_VARIANT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1501,8 +1501,8 @@ impl ::core::default::Default for READ_EVENT_LOG_READ_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for READ_EVENT_LOG_READ_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for READ_EVENT_LOG_READ_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for READ_EVENT_LOG_READ_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1536,8 +1536,8 @@ impl ::core::default::Default for REPORT_EVENT_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for REPORT_EVENT_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for REPORT_EVENT_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for REPORT_EVENT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1592,8 +1592,8 @@ impl ::core::fmt::Debug for EVENTLOGRECORD {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for EVENTLOGRECORD {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EVENTLOGRECORD {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for EVENTLOGRECORD {
     fn eq(&self, other: &Self) -> bool {
@@ -1622,8 +1622,8 @@ impl ::core::fmt::Debug for EVENTLOG_FULL_INFORMATION {
         f.debug_struct("EVENTLOG_FULL_INFORMATION").field("dwFull", &self.dwFull).finish()
     }
 }
-impl ::windows::core::TypeKind for EVENTLOG_FULL_INFORMATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EVENTLOG_FULL_INFORMATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for EVENTLOG_FULL_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -1655,8 +1655,8 @@ impl ::core::fmt::Debug for EVENTSFORLOGFILE {
         f.debug_struct("EVENTSFORLOGFILE").field("ulSize", &self.ulSize).field("szLogicalLogFile", &self.szLogicalLogFile).field("ulNumRecords", &self.ulNumRecords).field("pEventLogRecords", &self.pEventLogRecords).finish()
     }
 }
-impl ::windows::core::TypeKind for EVENTSFORLOGFILE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EVENTSFORLOGFILE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for EVENTSFORLOGFILE {
     fn eq(&self, other: &Self) -> bool {
@@ -1693,16 +1693,16 @@ impl ::core::fmt::Debug for EVT_HANDLE {
         f.debug_tuple("EVT_HANDLE").field(&self.0).finish()
     }
 }
-impl ::windows::core::TypeKind for EVT_HANDLE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EVT_HANDLE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub struct EVT_RPC_LOGIN {
-    pub Server: ::windows::core::PWSTR,
-    pub User: ::windows::core::PWSTR,
-    pub Domain: ::windows::core::PWSTR,
-    pub Password: ::windows::core::PWSTR,
+    pub Server: ::windows_core::PWSTR,
+    pub User: ::windows_core::PWSTR,
+    pub Domain: ::windows_core::PWSTR,
+    pub Password: ::windows_core::PWSTR,
     pub Flags: u32,
 }
 impl ::core::marker::Copy for EVT_RPC_LOGIN {}
@@ -1716,8 +1716,8 @@ impl ::core::fmt::Debug for EVT_RPC_LOGIN {
         f.debug_struct("EVT_RPC_LOGIN").field("Server", &self.Server).field("User", &self.User).field("Domain", &self.Domain).field("Password", &self.Password).field("Flags", &self.Flags).finish()
     }
 }
-impl ::windows::core::TypeKind for EVT_RPC_LOGIN {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EVT_RPC_LOGIN {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for EVT_RPC_LOGIN {
     fn eq(&self, other: &Self) -> bool {
@@ -1747,8 +1747,8 @@ impl ::core::clone::Clone for EVT_VARIANT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for EVT_VARIANT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EVT_VARIANT {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for EVT_VARIANT {
@@ -1773,9 +1773,9 @@ pub union EVT_VARIANT_0 {
     pub DoubleVal: f64,
     pub FileTimeVal: u64,
     pub SysTimeVal: *mut super::super::Foundation::SYSTEMTIME,
-    pub GuidVal: *mut ::windows::core::GUID,
-    pub StringVal: ::windows::core::PCWSTR,
-    pub AnsiStringVal: ::windows::core::PCSTR,
+    pub GuidVal: *mut ::windows_core::GUID,
+    pub StringVal: ::windows_core::PCWSTR,
+    pub AnsiStringVal: ::windows_core::PCSTR,
     pub BinaryVal: *mut u8,
     pub SidVal: super::super::Foundation::PSID,
     pub SizeTVal: usize,
@@ -1792,14 +1792,14 @@ pub union EVT_VARIANT_0 {
     pub DoubleArr: *mut f64,
     pub FileTimeArr: *mut super::super::Foundation::FILETIME,
     pub SysTimeArr: *mut super::super::Foundation::SYSTEMTIME,
-    pub GuidArr: *mut ::windows::core::GUID,
-    pub StringArr: *mut ::windows::core::PWSTR,
-    pub AnsiStringArr: *mut ::windows::core::PSTR,
+    pub GuidArr: *mut ::windows_core::GUID,
+    pub StringArr: *mut ::windows_core::PWSTR,
+    pub AnsiStringArr: *mut ::windows_core::PSTR,
     pub SidArr: *mut super::super::Foundation::PSID,
     pub SizeTArr: *mut usize,
     pub EvtHandleVal: EVT_HANDLE,
-    pub XmlVal: ::windows::core::PCWSTR,
-    pub XmlValArr: *const ::windows::core::PCWSTR,
+    pub XmlVal: ::windows_core::PCWSTR,
+    pub XmlValArr: *const ::windows_core::PCWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for EVT_VARIANT_0 {}
@@ -1810,8 +1810,8 @@ impl ::core::clone::Clone for EVT_VARIANT_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for EVT_VARIANT_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EVT_VARIANT_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for EVT_VARIANT_0 {
@@ -1843,8 +1843,8 @@ impl ::core::fmt::Debug for EventLogHandle {
         f.debug_tuple("EventLogHandle").field(&self.0).finish()
     }
 }
-impl ::windows::core::TypeKind for EventLogHandle {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EventLogHandle {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -1870,8 +1870,8 @@ impl ::core::fmt::Debug for EventSourceHandle {
         f.debug_tuple("EventSourceHandle").field(&self.0).finish()
     }
 }
-impl ::windows::core::TypeKind for EventSourceHandle {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EventSourceHandle {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub type EVT_SUBSCRIBE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(action: EVT_SUBSCRIBE_NOTIFY_ACTION, usercontext: *const ::core::ffi::c_void, event: EVT_HANDLE) -> u32>;

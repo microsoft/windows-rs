@@ -3,11 +3,11 @@
 #[inline]
 pub unsafe fn DavAddConnection<P0, P1, P2>(connectionhandle: *mut super::super::Foundation::HANDLE, remotename: P0, username: P1, password: P2, clientcert: &[u8]) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("netapi32.dll" "system" fn DavAddConnection(connectionhandle : *mut super::super::Foundation:: HANDLE, remotename : ::windows::core::PCWSTR, username : ::windows::core::PCWSTR, password : ::windows::core::PCWSTR, clientcert : *const u8, certsize : u32) -> u32);
+    ::windows_targets::link!("netapi32.dll" "system" fn DavAddConnection(connectionhandle : *mut super::super::Foundation:: HANDLE, remotename : ::windows_core::PCWSTR, username : ::windows_core::PCWSTR, password : ::windows_core::PCWSTR, clientcert : *const u8, certsize : u32) -> u32);
     DavAddConnection(connectionhandle, remotename.into_param().abi(), username.into_param().abi(), password.into_param().abi(), ::core::mem::transmute(clientcert.as_ptr()), clientcert.len() as _)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`, `\"Win32_Foundation\"`*"]
@@ -15,10 +15,10 @@ where
 #[inline]
 pub unsafe fn DavCancelConnectionsToServer<P0, P1>(lpname: P0, fforce: P1) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("davclnt.dll" "system" fn DavCancelConnectionsToServer(lpname : ::windows::core::PCWSTR, fforce : super::super::Foundation:: BOOL) -> u32);
+    ::windows_targets::link!("davclnt.dll" "system" fn DavCancelConnectionsToServer(lpname : ::windows_core::PCWSTR, fforce : super::super::Foundation:: BOOL) -> u32);
     DavCancelConnectionsToServer(lpname.into_param().abi(), fforce.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`, `\"Win32_Foundation\"`*"]
@@ -26,7 +26,7 @@ where
 #[inline]
 pub unsafe fn DavDeleteConnection<P0>(connectionhandle: P0) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("netapi32.dll" "system" fn DavDeleteConnection(connectionhandle : super::super::Foundation:: HANDLE) -> u32);
     DavDeleteConnection(connectionhandle.into_param().abi())
@@ -36,7 +36,7 @@ where
 #[inline]
 pub unsafe fn DavFlushFile<P0>(hfile: P0) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("netapi32.dll" "system" fn DavFlushFile(hfile : super::super::Foundation:: HANDLE) -> u32);
     DavFlushFile(hfile.into_param().abi())
@@ -44,47 +44,47 @@ where
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DavGetExtendedError<P0>(hfile: P0, exterror: *mut u32, exterrorstring: ::windows::core::PWSTR, cchsize: *mut u32) -> u32
+pub unsafe fn DavGetExtendedError<P0>(hfile: P0, exterror: *mut u32, exterrorstring: ::windows_core::PWSTR, cchsize: *mut u32) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("netapi32.dll" "system" fn DavGetExtendedError(hfile : super::super::Foundation:: HANDLE, exterror : *mut u32, exterrorstring : ::windows::core::PWSTR, cchsize : *mut u32) -> u32);
+    ::windows_targets::link!("netapi32.dll" "system" fn DavGetExtendedError(hfile : super::super::Foundation:: HANDLE, exterror : *mut u32, exterrorstring : ::windows_core::PWSTR, cchsize : *mut u32) -> u32);
     DavGetExtendedError(hfile.into_param().abi(), exterror, ::core::mem::transmute(exterrorstring), cchsize)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
 #[inline]
-pub unsafe fn DavGetHTTPFromUNCPath<P0>(uncpath: P0, url: ::windows::core::PWSTR, lpsize: *mut u32) -> u32
+pub unsafe fn DavGetHTTPFromUNCPath<P0>(uncpath: P0, url: ::windows_core::PWSTR, lpsize: *mut u32) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("netapi32.dll" "system" fn DavGetHTTPFromUNCPath(uncpath : ::windows::core::PCWSTR, url : ::windows::core::PWSTR, lpsize : *mut u32) -> u32);
+    ::windows_targets::link!("netapi32.dll" "system" fn DavGetHTTPFromUNCPath(uncpath : ::windows_core::PCWSTR, url : ::windows_core::PWSTR, lpsize : *mut u32) -> u32);
     DavGetHTTPFromUNCPath(uncpath.into_param().abi(), ::core::mem::transmute(url), lpsize)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
 #[inline]
-pub unsafe fn DavGetTheLockOwnerOfTheFile<P0>(filename: P0, lockownername: ::windows::core::PWSTR, lockownernamelengthinbytes: *mut u32) -> u32
+pub unsafe fn DavGetTheLockOwnerOfTheFile<P0>(filename: P0, lockownername: ::windows_core::PWSTR, lockownernamelengthinbytes: *mut u32) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("davclnt.dll" "system" fn DavGetTheLockOwnerOfTheFile(filename : ::windows::core::PCWSTR, lockownername : ::windows::core::PWSTR, lockownernamelengthinbytes : *mut u32) -> u32);
+    ::windows_targets::link!("davclnt.dll" "system" fn DavGetTheLockOwnerOfTheFile(filename : ::windows_core::PCWSTR, lockownername : ::windows_core::PWSTR, lockownernamelengthinbytes : *mut u32) -> u32);
     DavGetTheLockOwnerOfTheFile(filename.into_param().abi(), ::core::mem::transmute(lockownername), lockownernamelengthinbytes)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
 #[inline]
-pub unsafe fn DavGetUNCFromHTTPPath<P0>(url: P0, uncpath: ::windows::core::PWSTR, lpsize: *mut u32) -> u32
+pub unsafe fn DavGetUNCFromHTTPPath<P0>(url: P0, uncpath: ::windows_core::PWSTR, lpsize: *mut u32) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("netapi32.dll" "system" fn DavGetUNCFromHTTPPath(url : ::windows::core::PCWSTR, uncpath : ::windows::core::PWSTR, lpsize : *mut u32) -> u32);
+    ::windows_targets::link!("netapi32.dll" "system" fn DavGetUNCFromHTTPPath(url : ::windows_core::PCWSTR, uncpath : ::windows_core::PWSTR, lpsize : *mut u32) -> u32);
     DavGetUNCFromHTTPPath(url.into_param().abi(), ::core::mem::transmute(uncpath), lpsize)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
 #[inline]
 pub unsafe fn DavInvalidateCache<P0>(urlname: P0) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("davclnt.dll" "system" fn DavInvalidateCache(urlname : ::windows::core::PCWSTR) -> u32);
+    ::windows_targets::link!("davclnt.dll" "system" fn DavInvalidateCache(urlname : ::windows_core::PCWSTR) -> u32);
     DavInvalidateCache(urlname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`, `\"Win32_Foundation\"`*"]
@@ -135,8 +135,8 @@ impl ::core::default::Default for AUTHNEXTSTEP {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for AUTHNEXTSTEP {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for AUTHNEXTSTEP {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for AUTHNEXTSTEP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -161,8 +161,8 @@ impl ::core::fmt::Debug for DAV_CALLBACK_AUTH_BLOB {
         f.debug_struct("DAV_CALLBACK_AUTH_BLOB").field("pBuffer", &self.pBuffer).field("ulSize", &self.ulSize).field("ulType", &self.ulType).finish()
     }
 }
-impl ::windows::core::TypeKind for DAV_CALLBACK_AUTH_BLOB {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DAV_CALLBACK_AUTH_BLOB {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DAV_CALLBACK_AUTH_BLOB {
     fn eq(&self, other: &Self) -> bool {
@@ -178,9 +178,9 @@ impl ::core::default::Default for DAV_CALLBACK_AUTH_BLOB {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
 pub struct DAV_CALLBACK_AUTH_UNP {
-    pub pszUserName: ::windows::core::PWSTR,
+    pub pszUserName: ::windows_core::PWSTR,
     pub ulUserNameLength: u32,
-    pub pszPassword: ::windows::core::PWSTR,
+    pub pszPassword: ::windows_core::PWSTR,
     pub ulPasswordLength: u32,
 }
 impl ::core::marker::Copy for DAV_CALLBACK_AUTH_UNP {}
@@ -194,8 +194,8 @@ impl ::core::fmt::Debug for DAV_CALLBACK_AUTH_UNP {
         f.debug_struct("DAV_CALLBACK_AUTH_UNP").field("pszUserName", &self.pszUserName).field("ulUserNameLength", &self.ulUserNameLength).field("pszPassword", &self.pszPassword).field("ulPasswordLength", &self.ulPasswordLength).finish()
     }
 }
-impl ::windows::core::TypeKind for DAV_CALLBACK_AUTH_UNP {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DAV_CALLBACK_AUTH_UNP {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DAV_CALLBACK_AUTH_UNP {
     fn eq(&self, other: &Self) -> bool {
@@ -232,8 +232,8 @@ impl ::core::fmt::Debug for DAV_CALLBACK_CRED {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DAV_CALLBACK_CRED {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DAV_CALLBACK_CRED {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DAV_CALLBACK_CRED {
@@ -251,7 +251,7 @@ impl ::core::default::Default for DAV_CALLBACK_CRED {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFNDAVAUTHCALLBACK = ::core::option::Option<unsafe extern "system" fn(lpwzservername: ::windows::core::PCWSTR, lpwzremotename: ::windows::core::PCWSTR, dwauthscheme: u32, dwflags: u32, pcallbackcred: *mut DAV_CALLBACK_CRED, nextstep: *mut AUTHNEXTSTEP, pfreecred: *mut PFNDAVAUTHCALLBACK_FREECRED) -> u32>;
+pub type PFNDAVAUTHCALLBACK = ::core::option::Option<unsafe extern "system" fn(lpwzservername: ::windows_core::PCWSTR, lpwzremotename: ::windows_core::PCWSTR, dwauthscheme: u32, dwflags: u32, pcallbackcred: *mut DAV_CALLBACK_CRED, nextstep: *mut AUTHNEXTSTEP, pfreecred: *mut PFNDAVAUTHCALLBACK_FREECRED) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
 pub type PFNDAVAUTHCALLBACK_FREECRED = ::core::option::Option<unsafe extern "system" fn(pbuffer: *const ::core::ffi::c_void) -> u32>;
 #[cfg(feature = "implement")]

@@ -1,33 +1,33 @@
 #[doc = "*Required features: `\"Win32_System_UserAccessLogging\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn UalInstrument(data: *const UAL_DATA_BLOB) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("ualapi.dll" "system" fn UalInstrument(data : *const UAL_DATA_BLOB) -> ::windows::core::HRESULT);
+pub unsafe fn UalInstrument(data: *const UAL_DATA_BLOB) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("ualapi.dll" "system" fn UalInstrument(data : *const UAL_DATA_BLOB) -> ::windows_core::HRESULT);
     UalInstrument(data).ok()
 }
 #[doc = "*Required features: `\"Win32_System_UserAccessLogging\"`*"]
 #[inline]
-pub unsafe fn UalRegisterProduct<P0, P1, P2>(wszproductname: P0, wszrolename: P1, wszguid: P2) -> ::windows::core::Result<()>
+pub unsafe fn UalRegisterProduct<P0, P1, P2>(wszproductname: P0, wszrolename: P1, wszguid: P2) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("ualapi.dll" "system" fn UalRegisterProduct(wszproductname : ::windows::core::PCWSTR, wszrolename : ::windows::core::PCWSTR, wszguid : ::windows::core::PCWSTR) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("ualapi.dll" "system" fn UalRegisterProduct(wszproductname : ::windows_core::PCWSTR, wszrolename : ::windows_core::PCWSTR, wszguid : ::windows_core::PCWSTR) -> ::windows_core::HRESULT);
     UalRegisterProduct(wszproductname.into_param().abi(), wszrolename.into_param().abi(), wszguid.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_UserAccessLogging\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn UalStart(data: *const UAL_DATA_BLOB) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("ualapi.dll" "system" fn UalStart(data : *const UAL_DATA_BLOB) -> ::windows::core::HRESULT);
+pub unsafe fn UalStart(data: *const UAL_DATA_BLOB) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("ualapi.dll" "system" fn UalStart(data : *const UAL_DATA_BLOB) -> ::windows_core::HRESULT);
     UalStart(data).ok()
 }
 #[doc = "*Required features: `\"Win32_System_UserAccessLogging\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn UalStop(data: *const UAL_DATA_BLOB) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("ualapi.dll" "system" fn UalStop(data : *const UAL_DATA_BLOB) -> ::windows::core::HRESULT);
+pub unsafe fn UalStop(data: *const UAL_DATA_BLOB) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("ualapi.dll" "system" fn UalStop(data : *const UAL_DATA_BLOB) -> ::windows_core::HRESULT);
     UalStop(data).ok()
 }
 #[repr(C)]
@@ -35,8 +35,8 @@ pub unsafe fn UalStop(data: *const UAL_DATA_BLOB) -> ::windows::core::Result<()>
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct UAL_DATA_BLOB {
     pub Size: u32,
-    pub RoleGuid: ::windows::core::GUID,
-    pub TenantId: ::windows::core::GUID,
+    pub RoleGuid: ::windows_core::GUID,
+    pub TenantId: ::windows_core::GUID,
     pub Address: super::super::Networking::WinSock::SOCKADDR_STORAGE,
     pub UserName: [u16; 260],
 }
@@ -55,8 +55,8 @@ impl ::core::fmt::Debug for UAL_DATA_BLOB {
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl ::windows::core::TypeKind for UAL_DATA_BLOB {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for UAL_DATA_BLOB {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::PartialEq for UAL_DATA_BLOB {

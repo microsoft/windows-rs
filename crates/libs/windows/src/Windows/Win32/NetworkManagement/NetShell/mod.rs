@@ -3,10 +3,10 @@
 #[inline]
 pub unsafe fn MatchEnumTag<P0, P1>(hmodule: P0, pwcarg: P1, dwnumarg: u32, penumtable: *const TOKEN_VALUE, pdwvalue: *mut u32) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("netsh.dll" "system" fn MatchEnumTag(hmodule : super::super::Foundation:: HANDLE, pwcarg : ::windows::core::PCWSTR, dwnumarg : u32, penumtable : *const TOKEN_VALUE, pdwvalue : *mut u32) -> u32);
+    ::windows_targets::link!("netsh.dll" "system" fn MatchEnumTag(hmodule : super::super::Foundation:: HANDLE, pwcarg : ::windows_core::PCWSTR, dwnumarg : u32, penumtable : *const TOKEN_VALUE, pdwvalue : *mut u32) -> u32);
     MatchEnumTag(hmodule.into_param().abi(), pwcarg.into_param().abi(), dwnumarg, penumtable, pdwvalue)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
@@ -14,20 +14,20 @@ where
 #[inline]
 pub unsafe fn MatchToken<P0, P1>(pwszusertoken: P0, pwszcmdtoken: P1) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("netsh.dll" "system" fn MatchToken(pwszusertoken : ::windows::core::PCWSTR, pwszcmdtoken : ::windows::core::PCWSTR) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("netsh.dll" "system" fn MatchToken(pwszusertoken : ::windows_core::PCWSTR, pwszcmdtoken : ::windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     MatchToken(pwszusertoken.into_param().abi(), pwszcmdtoken.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PreprocessCommand<P0>(hmodule: P0, ppwcarguments: &mut [::windows::core::PWSTR], dwcurrentindex: u32, ptttags: ::core::option::Option<&mut [TAG_TYPE]>, dwminargs: u32, dwmaxargs: u32, pdwtagtype: ::core::option::Option<*mut u32>) -> u32
+pub unsafe fn PreprocessCommand<P0>(hmodule: P0, ppwcarguments: &mut [::windows_core::PWSTR], dwcurrentindex: u32, ptttags: ::core::option::Option<&mut [TAG_TYPE]>, dwminargs: u32, dwmaxargs: u32, pdwtagtype: ::core::option::Option<*mut u32>) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("netsh.dll" "system" fn PreprocessCommand(hmodule : super::super::Foundation:: HANDLE, ppwcarguments : *mut ::windows::core::PWSTR, dwcurrentindex : u32, dwargcount : u32, ptttags : *mut TAG_TYPE, dwtagcount : u32, dwminargs : u32, dwmaxargs : u32, pdwtagtype : *mut u32) -> u32);
+    ::windows_targets::link!("netsh.dll" "system" fn PreprocessCommand(hmodule : super::super::Foundation:: HANDLE, ppwcarguments : *mut ::windows_core::PWSTR, dwcurrentindex : u32, dwargcount : u32, ptttags : *mut TAG_TYPE, dwtagcount : u32, dwminargs : u32, dwmaxargs : u32, pdwtagtype : *mut u32) -> u32);
     PreprocessCommand(hmodule.into_param().abi(), ::core::mem::transmute(ppwcarguments.as_ptr()), dwcurrentindex, ppwcarguments.len() as _, ::core::mem::transmute(ptttags.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ptttags.as_deref().map_or(0, |slice| slice.len() as _), dwminargs, dwmaxargs, ::core::mem::transmute(pdwtagtype.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
@@ -35,7 +35,7 @@ where
 #[inline]
 pub unsafe fn PrintError<P0>(hmodule: P0, dwerrid: u32) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("netsh.dll" "cdecl" fn PrintError(hmodule : super::super::Foundation:: HANDLE, dwerrid : u32) -> u32);
     PrintError(hmodule.into_param().abi(), dwerrid)
@@ -44,9 +44,9 @@ where
 #[inline]
 pub unsafe fn PrintMessage<P0>(pwszformat: P0) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("netsh.dll" "cdecl" fn PrintMessage(pwszformat : ::windows::core::PCWSTR) -> u32);
+    ::windows_targets::link!("netsh.dll" "cdecl" fn PrintMessage(pwszformat : ::windows_core::PCWSTR) -> u32);
     PrintMessage(pwszformat.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
@@ -54,7 +54,7 @@ where
 #[inline]
 pub unsafe fn PrintMessageFromModule<P0>(hmodule: P0, dwmsgid: u32) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("netsh.dll" "cdecl" fn PrintMessageFromModule(hmodule : super::super::Foundation:: HANDLE, dwmsgid : u32) -> u32);
     PrintMessageFromModule(hmodule.into_param().abi(), dwmsgid)
@@ -68,8 +68,8 @@ pub unsafe fn RegisterContext(pchildcontext: *const NS_CONTEXT_ATTRIBUTES) -> u3
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 #[inline]
-pub unsafe fn RegisterHelper(pguidparentcontext: *const ::windows::core::GUID, pfnregistersubcontext: *const NS_HELPER_ATTRIBUTES) -> u32 {
-    ::windows_targets::link!("netsh.dll" "system" fn RegisterHelper(pguidparentcontext : *const ::windows::core::GUID, pfnregistersubcontext : *const NS_HELPER_ATTRIBUTES) -> u32);
+pub unsafe fn RegisterHelper(pguidparentcontext: *const ::windows_core::GUID, pfnregistersubcontext: *const NS_HELPER_ATTRIBUTES) -> u32 {
+    ::windows_targets::link!("netsh.dll" "system" fn RegisterHelper(pguidparentcontext : *const ::windows_core::GUID, pfnregistersubcontext : *const NS_HELPER_ATTRIBUTES) -> u32);
     RegisterHelper(pguidparentcontext, pfnregistersubcontext)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
@@ -117,13 +117,13 @@ pub const ERROR_TAG_ALREADY_PRESENT: u32 = 15008u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 pub const ERROR_TRANSPORT_NOT_PRESENT: u32 = 15012u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
-pub const GET_RESOURCE_STRING_FN_NAME: ::windows::core::PCSTR = ::windows::core::s!("GetResourceString");
+pub const GET_RESOURCE_STRING_FN_NAME: ::windows_core::PCSTR = ::windows_core::s!("GetResourceString");
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 pub const MAX_NAME_LEN: u32 = 48u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
-pub const NETSH_ARG_DELIMITER: ::windows::core::PCWSTR = ::windows::core::w!("=");
+pub const NETSH_ARG_DELIMITER: ::windows_core::PCWSTR = ::windows_core::w!("=");
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
-pub const NETSH_CMD_DELIMITER: ::windows::core::PCWSTR = ::windows::core::w!(" ");
+pub const NETSH_CMD_DELIMITER: ::windows_core::PCWSTR = ::windows_core::w!(" ");
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 pub const NETSH_ERROR_BASE: u32 = 15000u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
@@ -135,7 +135,7 @@ pub const NETSH_MAX_TOKEN_LENGTH: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 pub const NETSH_VERSION_50: u32 = 20480u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
-pub const NS_GET_EVENT_IDS_FN_NAME: ::windows::core::PCSTR = ::windows::core::s!("GetEventIds");
+pub const NS_GET_EVENT_IDS_FN_NAME: ::windows_core::PCSTR = ::windows_core::s!("GetEventIds");
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -165,8 +165,8 @@ impl ::core::default::Default for NS_CMD_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NS_CMD_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NS_CMD_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NS_CMD_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -198,8 +198,8 @@ impl ::core::default::Default for NS_EVENTS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NS_EVENTS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NS_EVENTS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NS_EVENTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -231,8 +231,8 @@ impl ::core::default::Default for NS_MODE_CHANGE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NS_MODE_CHANGE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NS_MODE_CHANGE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NS_MODE_CHANGE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -262,8 +262,8 @@ impl ::core::default::Default for NS_REQS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NS_REQS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NS_REQS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NS_REQS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -274,7 +274,7 @@ impl ::core::fmt::Debug for NS_REQS {
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CMD_ENTRY {
-    pub pwszCmdToken: ::windows::core::PCWSTR,
+    pub pwszCmdToken: ::windows_core::PCWSTR,
     pub pfnCmdHandler: PFN_HANDLE_CMD,
     pub dwShortCmdHelpToken: u32,
     pub dwCmdHlpToken: u32,
@@ -297,8 +297,8 @@ impl ::core::fmt::Debug for CMD_ENTRY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for CMD_ENTRY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CMD_ENTRY {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CMD_ENTRY {
@@ -310,7 +310,7 @@ impl ::core::default::Default for CMD_ENTRY {
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CMD_GROUP_ENTRY {
-    pub pwszCmdGroupToken: ::windows::core::PCWSTR,
+    pub pwszCmdGroupToken: ::windows_core::PCWSTR,
     pub dwShortCmdHelpToken: u32,
     pub ulCmdGroupSize: u32,
     pub dwFlags: u32,
@@ -332,8 +332,8 @@ impl ::core::fmt::Debug for CMD_GROUP_ENTRY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for CMD_GROUP_ENTRY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CMD_GROUP_ENTRY {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CMD_GROUP_ENTRY {
@@ -346,8 +346,8 @@ impl ::core::default::Default for CMD_GROUP_ENTRY {
 #[cfg(feature = "Win32_Foundation")]
 pub struct NS_CONTEXT_ATTRIBUTES {
     pub Anonymous: NS_CONTEXT_ATTRIBUTES_0,
-    pub pwszContext: ::windows::core::PWSTR,
-    pub guidHelper: ::windows::core::GUID,
+    pub pwszContext: ::windows_core::PWSTR,
+    pub guidHelper: ::windows_core::GUID,
     pub dwFlags: u32,
     pub ulPriority: u32,
     pub ulNumTopCmds: u32,
@@ -369,8 +369,8 @@ impl ::core::clone::Clone for NS_CONTEXT_ATTRIBUTES {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NS_CONTEXT_ATTRIBUTES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NS_CONTEXT_ATTRIBUTES {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NS_CONTEXT_ATTRIBUTES {
@@ -394,8 +394,8 @@ impl ::core::clone::Clone for NS_CONTEXT_ATTRIBUTES_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NS_CONTEXT_ATTRIBUTES_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NS_CONTEXT_ATTRIBUTES_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NS_CONTEXT_ATTRIBUTES_0 {
@@ -425,8 +425,8 @@ impl ::core::fmt::Debug for NS_CONTEXT_ATTRIBUTES_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NS_CONTEXT_ATTRIBUTES_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NS_CONTEXT_ATTRIBUTES_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NS_CONTEXT_ATTRIBUTES_0_0 {
@@ -446,7 +446,7 @@ impl ::core::default::Default for NS_CONTEXT_ATTRIBUTES_0_0 {
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 pub struct NS_HELPER_ATTRIBUTES {
     pub Anonymous: NS_HELPER_ATTRIBUTES_0,
-    pub guidHelper: ::windows::core::GUID,
+    pub guidHelper: ::windows_core::GUID,
     pub pfnStart: PNS_HELPER_START_FN,
     pub pfnStop: PNS_HELPER_STOP_FN,
 }
@@ -456,8 +456,8 @@ impl ::core::clone::Clone for NS_HELPER_ATTRIBUTES {
         *self
     }
 }
-impl ::windows::core::TypeKind for NS_HELPER_ATTRIBUTES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NS_HELPER_ATTRIBUTES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for NS_HELPER_ATTRIBUTES {
     fn default() -> Self {
@@ -476,8 +476,8 @@ impl ::core::clone::Clone for NS_HELPER_ATTRIBUTES_0 {
         *self
     }
 }
-impl ::windows::core::TypeKind for NS_HELPER_ATTRIBUTES_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NS_HELPER_ATTRIBUTES_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for NS_HELPER_ATTRIBUTES_0 {
     fn default() -> Self {
@@ -501,8 +501,8 @@ impl ::core::fmt::Debug for NS_HELPER_ATTRIBUTES_0_0 {
         f.debug_struct("NS_HELPER_ATTRIBUTES_0_0").field("dwVersion", &self.dwVersion).field("dwReserved", &self.dwReserved).finish()
     }
 }
-impl ::windows::core::TypeKind for NS_HELPER_ATTRIBUTES_0_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NS_HELPER_ATTRIBUTES_0_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NS_HELPER_ATTRIBUTES_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -519,7 +519,7 @@ impl ::core::default::Default for NS_HELPER_ATTRIBUTES_0_0 {
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TAG_TYPE {
-    pub pwszTag: ::windows::core::PCWSTR,
+    pub pwszTag: ::windows_core::PCWSTR,
     pub dwRequired: u32,
     pub bPresent: super::super::Foundation::BOOL,
 }
@@ -538,8 +538,8 @@ impl ::core::fmt::Debug for TAG_TYPE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for TAG_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TAG_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TAG_TYPE {
@@ -558,7 +558,7 @@ impl ::core::default::Default for TAG_TYPE {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 pub struct TOKEN_VALUE {
-    pub pwszToken: ::windows::core::PCWSTR,
+    pub pwszToken: ::windows_core::PCWSTR,
     pub dwValue: u32,
 }
 impl ::core::marker::Copy for TOKEN_VALUE {}
@@ -572,8 +572,8 @@ impl ::core::fmt::Debug for TOKEN_VALUE {
         f.debug_struct("TOKEN_VALUE").field("pwszToken", &self.pwszToken).field("dwValue", &self.dwValue).finish()
     }
 }
-impl ::windows::core::TypeKind for TOKEN_VALUE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TOKEN_VALUE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for TOKEN_VALUE {
     fn eq(&self, other: &Self) -> bool {
@@ -588,28 +588,28 @@ impl ::core::default::Default for TOKEN_VALUE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_CUSTOM_HELP = ::core::option::Option<unsafe extern "system" fn(hmodule: super::super::Foundation::HANDLE, pwszcmdtoken: ::windows::core::PCWSTR) -> ()>;
+pub type PFN_CUSTOM_HELP = ::core::option::Option<unsafe extern "system" fn(hmodule: super::super::Foundation::HANDLE, pwszcmdtoken: ::windows_core::PCWSTR) -> ()>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_HANDLE_CMD = ::core::option::Option<unsafe extern "system" fn(pwszmachine: ::windows::core::PCWSTR, ppwcarguments: *mut ::windows::core::PWSTR, dwcurrentindex: u32, dwargcount: u32, dwflags: u32, pvdata: *const ::core::ffi::c_void, pbdone: *mut super::super::Foundation::BOOL) -> u32>;
+pub type PFN_HANDLE_CMD = ::core::option::Option<unsafe extern "system" fn(pwszmachine: ::windows_core::PCWSTR, ppwcarguments: *mut ::windows_core::PWSTR, dwcurrentindex: u32, dwargcount: u32, dwflags: u32, pvdata: *const ::core::ffi::c_void, pbdone: *mut super::super::Foundation::BOOL) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
-pub type PGET_RESOURCE_STRING_FN = ::core::option::Option<unsafe extern "system" fn(dwmsgid: u32, lpbuffer: ::windows::core::PCWSTR, nbuffermax: u32) -> u32>;
+pub type PGET_RESOURCE_STRING_FN = ::core::option::Option<unsafe extern "system" fn(dwmsgid: u32, lpbuffer: ::windows_core::PCWSTR, nbuffermax: u32) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 pub type PNS_CONTEXT_COMMIT_FN = ::core::option::Option<unsafe extern "system" fn(dwaction: u32) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
-pub type PNS_CONTEXT_CONNECT_FN = ::core::option::Option<unsafe extern "system" fn(pwszmachine: ::windows::core::PCWSTR) -> u32>;
+pub type PNS_CONTEXT_CONNECT_FN = ::core::option::Option<unsafe extern "system" fn(pwszmachine: ::windows_core::PCWSTR) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
-pub type PNS_CONTEXT_DUMP_FN = ::core::option::Option<unsafe extern "system" fn(pwszrouter: ::windows::core::PCWSTR, ppwcarguments: *const ::windows::core::PCWSTR, dwargcount: u32, pvdata: *const ::core::ffi::c_void) -> u32>;
+pub type PNS_CONTEXT_DUMP_FN = ::core::option::Option<unsafe extern "system" fn(pwszrouter: ::windows_core::PCWSTR, ppwcarguments: *const ::windows_core::PCWSTR, dwargcount: u32, pvdata: *const ::core::ffi::c_void) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 pub type PNS_DLL_INIT_FN = ::core::option::Option<unsafe extern "system" fn(dwnetshversion: u32, preserved: *mut ::core::ffi::c_void) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 pub type PNS_DLL_STOP_FN = ::core::option::Option<unsafe extern "system" fn(dwreserved: u32) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
-pub type PNS_HELPER_START_FN = ::core::option::Option<unsafe extern "system" fn(pguidparent: *const ::windows::core::GUID, dwversion: u32) -> u32>;
+pub type PNS_HELPER_START_FN = ::core::option::Option<unsafe extern "system" fn(pguidparent: *const ::windows_core::GUID, dwversion: u32) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 pub type PNS_HELPER_STOP_FN = ::core::option::Option<unsafe extern "system" fn(dwreserved: u32) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PNS_OSVERSIONCHECK = ::core::option::Option<unsafe extern "system" fn(cimostype: u32, cimosproductsuite: u32, cimosversion: ::windows::core::PCWSTR, cimosbuildnumber: ::windows::core::PCWSTR, cimservicepackmajorversion: ::windows::core::PCWSTR, cimservicepackminorversion: ::windows::core::PCWSTR, uireserved: u32, dwreserved: u32) -> super::super::Foundation::BOOL>;
+pub type PNS_OSVERSIONCHECK = ::core::option::Option<unsafe extern "system" fn(cimostype: u32, cimosproductsuite: u32, cimosversion: ::windows_core::PCWSTR, cimosbuildnumber: ::windows_core::PCWSTR, cimservicepackmajorversion: ::windows_core::PCWSTR, cimservicepackminorversion: ::windows_core::PCWSTR, uireserved: u32, dwreserved: u32) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

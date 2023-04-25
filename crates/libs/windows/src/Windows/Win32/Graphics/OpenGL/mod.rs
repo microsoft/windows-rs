@@ -3,7 +3,7 @@
 #[inline]
 pub unsafe fn ChoosePixelFormat<P0>(hdc: P0, ppfd: *const PIXELFORMATDESCRIPTOR) -> i32
 where
-    P0: ::windows::core::IntoParam<super::Gdi::HDC>,
+    P0: ::windows_core::IntoParam<super::Gdi::HDC>,
 {
     ::windows_targets::link!("gdi32.dll" "system" fn ChoosePixelFormat(hdc : super::Gdi:: HDC, ppfd : *const PIXELFORMATDESCRIPTOR) -> i32);
     ChoosePixelFormat(hdc.into_param().abi(), ppfd)
@@ -13,7 +13,7 @@ where
 #[inline]
 pub unsafe fn DescribePixelFormat<P0>(hdc: P0, ipixelformat: i32, nbytes: u32, ppfd: ::core::option::Option<*mut PIXELFORMATDESCRIPTOR>) -> i32
 where
-    P0: ::windows::core::IntoParam<super::Gdi::HDC>,
+    P0: ::windows_core::IntoParam<super::Gdi::HDC>,
 {
     ::windows_targets::link!("gdi32.dll" "system" fn DescribePixelFormat(hdc : super::Gdi:: HDC, ipixelformat : i32, nbytes : u32, ppfd : *mut PIXELFORMATDESCRIPTOR) -> i32);
     DescribePixelFormat(hdc.into_param().abi(), ipixelformat, nbytes, ::core::mem::transmute(ppfd.unwrap_or(::std::ptr::null_mut())))
@@ -23,7 +23,7 @@ where
 #[inline]
 pub unsafe fn GetEnhMetaFilePixelFormat<P0>(hemf: P0, cbbuffer: u32, ppfd: ::core::option::Option<*mut PIXELFORMATDESCRIPTOR>) -> u32
 where
-    P0: ::windows::core::IntoParam<super::Gdi::HENHMETAFILE>,
+    P0: ::windows_core::IntoParam<super::Gdi::HENHMETAFILE>,
 {
     ::windows_targets::link!("gdi32.dll" "system" fn GetEnhMetaFilePixelFormat(hemf : super::Gdi:: HENHMETAFILE, cbbuffer : u32, ppfd : *mut PIXELFORMATDESCRIPTOR) -> u32);
     GetEnhMetaFilePixelFormat(hemf.into_param().abi(), cbbuffer, ::core::mem::transmute(ppfd.unwrap_or(::std::ptr::null_mut())))
@@ -33,7 +33,7 @@ where
 #[inline]
 pub unsafe fn GetPixelFormat<P0>(hdc: P0) -> i32
 where
-    P0: ::windows::core::IntoParam<super::Gdi::HDC>,
+    P0: ::windows_core::IntoParam<super::Gdi::HDC>,
 {
     ::windows_targets::link!("gdi32.dll" "system" fn GetPixelFormat(hdc : super::Gdi:: HDC) -> i32);
     GetPixelFormat(hdc.into_param().abi())
@@ -43,7 +43,7 @@ where
 #[inline]
 pub unsafe fn SetPixelFormat<P0>(hdc: P0, format: i32, ppfd: *const PIXELFORMATDESCRIPTOR) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::Gdi::HDC>,
+    P0: ::windows_core::IntoParam<super::Gdi::HDC>,
 {
     ::windows_targets::link!("gdi32.dll" "system" fn SetPixelFormat(hdc : super::Gdi:: HDC, format : i32, ppfd : *const PIXELFORMATDESCRIPTOR) -> super::super::Foundation:: BOOL);
     SetPixelFormat(hdc.into_param().abi(), format, ppfd)
@@ -53,7 +53,7 @@ where
 #[inline]
 pub unsafe fn SwapBuffers<P0>(param0: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::Gdi::HDC>,
+    P0: ::windows_core::IntoParam<super::Gdi::HDC>,
 {
     ::windows_targets::link!("gdi32.dll" "system" fn SwapBuffers(param0 : super::Gdi:: HDC) -> super::super::Foundation:: BOOL);
     SwapBuffers(param0.into_param().abi())
@@ -2172,8 +2172,8 @@ pub unsafe fn gluErrorString(errcode: u32) -> *mut u8 {
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
-pub unsafe fn gluErrorUnicodeStringEXT(errcode: u32) -> ::windows::core::PCWSTR {
-    ::windows_targets::link!("glu32.dll" "system" fn gluErrorUnicodeStringEXT(errcode : u32) -> ::windows::core::PCWSTR);
+pub unsafe fn gluErrorUnicodeStringEXT(errcode: u32) -> ::windows_core::PCWSTR {
+    ::windows_targets::link!("glu32.dll" "system" fn gluErrorUnicodeStringEXT(errcode : u32) -> ::windows_core::PCWSTR);
     gluErrorUnicodeStringEXT(errcode)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
@@ -2391,8 +2391,8 @@ pub unsafe fn gluUnProject(winx: f64, winy: f64, winz: f64, modelmatrix: *const 
 #[inline]
 pub unsafe fn wglCopyContext<P0, P1>(param0: P0, param1: P1, param2: u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<HGLRC>,
-    P1: ::windows::core::IntoParam<HGLRC>,
+    P0: ::windows_core::IntoParam<HGLRC>,
+    P1: ::windows_core::IntoParam<HGLRC>,
 {
     ::windows_targets::link!("opengl32.dll" "system" fn wglCopyContext(param0 : HGLRC, param1 : HGLRC, param2 : u32) -> super::super::Foundation:: BOOL);
     wglCopyContext(param0.into_param().abi(), param1.into_param().abi(), param2)
@@ -2400,31 +2400,31 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn wglCreateContext<P0>(param0: P0) -> ::windows::core::Result<HGLRC>
+pub unsafe fn wglCreateContext<P0>(param0: P0) -> ::windows_core::Result<HGLRC>
 where
-    P0: ::windows::core::IntoParam<super::Gdi::HDC>,
+    P0: ::windows_core::IntoParam<super::Gdi::HDC>,
 {
     ::windows_targets::link!("opengl32.dll" "system" fn wglCreateContext(param0 : super::Gdi:: HDC) -> HGLRC);
     let result__ = wglCreateContext(param0.into_param().abi());
-    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn wglCreateLayerContext<P0>(param0: P0, param1: i32) -> ::windows::core::Result<HGLRC>
+pub unsafe fn wglCreateLayerContext<P0>(param0: P0, param1: i32) -> ::windows_core::Result<HGLRC>
 where
-    P0: ::windows::core::IntoParam<super::Gdi::HDC>,
+    P0: ::windows_core::IntoParam<super::Gdi::HDC>,
 {
     ::windows_targets::link!("opengl32.dll" "system" fn wglCreateLayerContext(param0 : super::Gdi:: HDC, param1 : i32) -> HGLRC);
     let result__ = wglCreateLayerContext(param0.into_param().abi(), param1);
-    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn wglDeleteContext<P0>(param0: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<HGLRC>,
+    P0: ::windows_core::IntoParam<HGLRC>,
 {
     ::windows_targets::link!("opengl32.dll" "system" fn wglDeleteContext(param0 : HGLRC) -> super::super::Foundation:: BOOL);
     wglDeleteContext(param0.into_param().abi())
@@ -2434,7 +2434,7 @@ where
 #[inline]
 pub unsafe fn wglDescribeLayerPlane<P0>(param0: P0, param1: i32, param2: i32, param3: u32, param4: *mut LAYERPLANEDESCRIPTOR) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::Gdi::HDC>,
+    P0: ::windows_core::IntoParam<super::Gdi::HDC>,
 {
     ::windows_targets::link!("opengl32.dll" "system" fn wglDescribeLayerPlane(param0 : super::Gdi:: HDC, param1 : i32, param2 : i32, param3 : u32, param4 : *mut LAYERPLANEDESCRIPTOR) -> super::super::Foundation:: BOOL);
     wglDescribeLayerPlane(param0.into_param().abi(), param1, param2, param3, param4)
@@ -2457,7 +2457,7 @@ pub unsafe fn wglGetCurrentDC() -> super::Gdi::HDC {
 #[inline]
 pub unsafe fn wglGetLayerPaletteEntries<P0>(param0: P0, param1: i32, param2: i32, param3: i32, param4: *mut super::super::Foundation::COLORREF) -> i32
 where
-    P0: ::windows::core::IntoParam<super::Gdi::HDC>,
+    P0: ::windows_core::IntoParam<super::Gdi::HDC>,
 {
     ::windows_targets::link!("opengl32.dll" "system" fn wglGetLayerPaletteEntries(param0 : super::Gdi:: HDC, param1 : i32, param2 : i32, param3 : i32, param4 : *mut super::super::Foundation:: COLORREF) -> i32);
     wglGetLayerPaletteEntries(param0.into_param().abi(), param1, param2, param3, param4)
@@ -2467,9 +2467,9 @@ where
 #[inline]
 pub unsafe fn wglGetProcAddress<P0>(param0: P0) -> super::super::Foundation::PROC
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("opengl32.dll" "system" fn wglGetProcAddress(param0 : ::windows::core::PCSTR) -> super::super::Foundation:: PROC);
+    ::windows_targets::link!("opengl32.dll" "system" fn wglGetProcAddress(param0 : ::windows_core::PCSTR) -> super::super::Foundation:: PROC);
     wglGetProcAddress(param0.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -2477,8 +2477,8 @@ where
 #[inline]
 pub unsafe fn wglMakeCurrent<P0, P1>(param0: P0, param1: P1) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::Gdi::HDC>,
-    P1: ::windows::core::IntoParam<HGLRC>,
+    P0: ::windows_core::IntoParam<super::Gdi::HDC>,
+    P1: ::windows_core::IntoParam<HGLRC>,
 {
     ::windows_targets::link!("opengl32.dll" "system" fn wglMakeCurrent(param0 : super::Gdi:: HDC, param1 : HGLRC) -> super::super::Foundation:: BOOL);
     wglMakeCurrent(param0.into_param().abi(), param1.into_param().abi())
@@ -2488,8 +2488,8 @@ where
 #[inline]
 pub unsafe fn wglRealizeLayerPalette<P0, P1>(param0: P0, param1: i32, param2: P1) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::Gdi::HDC>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<super::Gdi::HDC>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("opengl32.dll" "system" fn wglRealizeLayerPalette(param0 : super::Gdi:: HDC, param1 : i32, param2 : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     wglRealizeLayerPalette(param0.into_param().abi(), param1, param2.into_param().abi())
@@ -2499,7 +2499,7 @@ where
 #[inline]
 pub unsafe fn wglSetLayerPaletteEntries<P0>(param0: P0, param1: i32, param2: i32, param3: i32, param4: *const super::super::Foundation::COLORREF) -> i32
 where
-    P0: ::windows::core::IntoParam<super::Gdi::HDC>,
+    P0: ::windows_core::IntoParam<super::Gdi::HDC>,
 {
     ::windows_targets::link!("opengl32.dll" "system" fn wglSetLayerPaletteEntries(param0 : super::Gdi:: HDC, param1 : i32, param2 : i32, param3 : i32, param4 : *const super::super::Foundation:: COLORREF) -> i32);
     wglSetLayerPaletteEntries(param0.into_param().abi(), param1, param2, param3, param4)
@@ -2509,8 +2509,8 @@ where
 #[inline]
 pub unsafe fn wglShareLists<P0, P1>(param0: P0, param1: P1) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<HGLRC>,
-    P1: ::windows::core::IntoParam<HGLRC>,
+    P0: ::windows_core::IntoParam<HGLRC>,
+    P1: ::windows_core::IntoParam<HGLRC>,
 {
     ::windows_targets::link!("opengl32.dll" "system" fn wglShareLists(param0 : HGLRC, param1 : HGLRC) -> super::super::Foundation:: BOOL);
     wglShareLists(param0.into_param().abi(), param1.into_param().abi())
@@ -2520,7 +2520,7 @@ where
 #[inline]
 pub unsafe fn wglSwapLayerBuffers<P0>(param0: P0, param1: u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::Gdi::HDC>,
+    P0: ::windows_core::IntoParam<super::Gdi::HDC>,
 {
     ::windows_targets::link!("opengl32.dll" "system" fn wglSwapLayerBuffers(param0 : super::Gdi:: HDC, param1 : u32) -> super::super::Foundation:: BOOL);
     wglSwapLayerBuffers(param0.into_param().abi(), param1)
@@ -2530,7 +2530,7 @@ where
 #[inline]
 pub unsafe fn wglUseFontBitmapsA<P0>(param0: P0, param1: u32, param2: u32, param3: u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::Gdi::HDC>,
+    P0: ::windows_core::IntoParam<super::Gdi::HDC>,
 {
     ::windows_targets::link!("opengl32.dll" "system" fn wglUseFontBitmapsA(param0 : super::Gdi:: HDC, param1 : u32, param2 : u32, param3 : u32) -> super::super::Foundation:: BOOL);
     wglUseFontBitmapsA(param0.into_param().abi(), param1, param2, param3)
@@ -2540,7 +2540,7 @@ where
 #[inline]
 pub unsafe fn wglUseFontBitmapsW<P0>(param0: P0, param1: u32, param2: u32, param3: u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::Gdi::HDC>,
+    P0: ::windows_core::IntoParam<super::Gdi::HDC>,
 {
     ::windows_targets::link!("opengl32.dll" "system" fn wglUseFontBitmapsW(param0 : super::Gdi:: HDC, param1 : u32, param2 : u32, param3 : u32) -> super::super::Foundation:: BOOL);
     wglUseFontBitmapsW(param0.into_param().abi(), param1, param2, param3)
@@ -2550,7 +2550,7 @@ where
 #[inline]
 pub unsafe fn wglUseFontOutlinesA<P0>(param0: P0, param1: u32, param2: u32, param3: u32, param4: f32, param5: f32, param6: i32, param7: *mut GLYPHMETRICSFLOAT) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::Gdi::HDC>,
+    P0: ::windows_core::IntoParam<super::Gdi::HDC>,
 {
     ::windows_targets::link!("opengl32.dll" "system" fn wglUseFontOutlinesA(param0 : super::Gdi:: HDC, param1 : u32, param2 : u32, param3 : u32, param4 : f32, param5 : f32, param6 : i32, param7 : *mut GLYPHMETRICSFLOAT) -> super::super::Foundation:: BOOL);
     wglUseFontOutlinesA(param0.into_param().abi(), param1, param2, param3, param4, param5, param6, param7)
@@ -2560,7 +2560,7 @@ where
 #[inline]
 pub unsafe fn wglUseFontOutlinesW<P0>(param0: P0, param1: u32, param2: u32, param3: u32, param4: f32, param5: f32, param6: i32, param7: *mut GLYPHMETRICSFLOAT) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::Gdi::HDC>,
+    P0: ::windows_core::IntoParam<super::Gdi::HDC>,
 {
     ::windows_targets::link!("opengl32.dll" "system" fn wglUseFontOutlinesW(param0 : super::Gdi:: HDC, param1 : u32, param2 : u32, param3 : u32, param4 : f32, param5 : f32, param6 : i32, param7 : *mut GLYPHMETRICSFLOAT) -> super::super::Foundation:: BOOL);
     wglUseFontOutlinesW(param0.into_param().abi(), param1, param2, param3, param4, param5, param6, param7)
@@ -4024,8 +4024,8 @@ impl ::core::default::Default for PFD_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for PFD_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PFD_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for PFD_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4086,8 +4086,8 @@ impl ::core::default::Default for PFD_LAYER_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for PFD_LAYER_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PFD_LAYER_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for PFD_LAYER_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4113,8 +4113,8 @@ impl ::core::default::Default for PFD_PIXEL_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for PFD_PIXEL_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PFD_PIXEL_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for PFD_PIXEL_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4143,8 +4143,8 @@ impl ::core::fmt::Debug for EMRPIXELFORMAT {
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::windows::core::TypeKind for EMRPIXELFORMAT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EMRPIXELFORMAT {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for EMRPIXELFORMAT {
@@ -4168,8 +4168,8 @@ impl ::core::clone::Clone for GLUnurbs {
         *self
     }
 }
-impl ::windows::core::TypeKind for GLUnurbs {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for GLUnurbs {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 pub struct GLUquadric(pub u8);
@@ -4179,8 +4179,8 @@ impl ::core::clone::Clone for GLUquadric {
         *self
     }
 }
-impl ::windows::core::TypeKind for GLUquadric {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for GLUquadric {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 pub struct GLUtesselator(pub u8);
@@ -4190,8 +4190,8 @@ impl ::core::clone::Clone for GLUtesselator {
         *self
     }
 }
-impl ::windows::core::TypeKind for GLUtesselator {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for GLUtesselator {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
@@ -4213,8 +4213,8 @@ impl ::core::fmt::Debug for GLYPHMETRICSFLOAT {
         f.debug_struct("GLYPHMETRICSFLOAT").field("gmfBlackBoxX", &self.gmfBlackBoxX).field("gmfBlackBoxY", &self.gmfBlackBoxY).field("gmfptGlyphOrigin", &self.gmfptGlyphOrigin).field("gmfCellIncX", &self.gmfCellIncX).field("gmfCellIncY", &self.gmfCellIncY).finish()
     }
 }
-impl ::windows::core::TypeKind for GLYPHMETRICSFLOAT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for GLYPHMETRICSFLOAT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for GLYPHMETRICSFLOAT {
     fn eq(&self, other: &Self) -> bool {
@@ -4251,8 +4251,8 @@ impl ::core::fmt::Debug for HGLRC {
         f.debug_tuple("HGLRC").field(&self.0).finish()
     }
 }
-impl ::windows::core::TypeKind for HGLRC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HGLRC {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`*"]
@@ -4323,8 +4323,8 @@ impl ::core::fmt::Debug for LAYERPLANEDESCRIPTOR {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for LAYERPLANEDESCRIPTOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LAYERPLANEDESCRIPTOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LAYERPLANEDESCRIPTOR {
@@ -4431,8 +4431,8 @@ impl ::core::fmt::Debug for PIXELFORMATDESCRIPTOR {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for PIXELFORMATDESCRIPTOR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PIXELFORMATDESCRIPTOR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for PIXELFORMATDESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
@@ -4487,8 +4487,8 @@ impl ::core::fmt::Debug for POINTFLOAT {
         f.debug_struct("POINTFLOAT").field("x", &self.x).field("y", &self.y).finish()
     }
 }
-impl ::windows::core::TypeKind for POINTFLOAT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for POINTFLOAT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for POINTFLOAT {
     fn eq(&self, other: &Self) -> bool {

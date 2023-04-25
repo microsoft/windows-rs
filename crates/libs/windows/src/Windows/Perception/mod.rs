@@ -6,8 +6,8 @@ pub mod People;
 pub mod Spatial;
 #[doc(hidden)]
 #[repr(transparent)]
-pub struct IPerceptionTimestamp(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IPerceptionTimestamp {
+pub struct IPerceptionTimestamp(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for IPerceptionTimestamp {
     type Vtable = IPerceptionTimestamp_Vtbl;
 }
 impl ::core::clone::Clone for IPerceptionTimestamp {
@@ -15,26 +15,26 @@ impl ::core::clone::Clone for IPerceptionTimestamp {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IPerceptionTimestamp {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87c24804_a22e_4adb_ba26_d78ef639bcf4);
+unsafe impl ::windows_core::ComInterface for IPerceptionTimestamp {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x87c24804_a22e_4adb_ba26_d78ef639bcf4);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionTimestamp_Vtbl {
-    pub base__: ::windows::core::IInspectable_Vtbl,
+    pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
-    pub TargetTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::Foundation::DateTime) -> ::windows::core::HRESULT,
+    pub TargetTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::Foundation::DateTime) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     TargetTime: usize,
     #[cfg(feature = "Foundation")]
-    pub PredictionAmount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
+    pub PredictionAmount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     PredictionAmount: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
-pub struct IPerceptionTimestamp2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IPerceptionTimestamp2 {
+pub struct IPerceptionTimestamp2(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for IPerceptionTimestamp2 {
     type Vtable = IPerceptionTimestamp2_Vtbl;
 }
 impl ::core::clone::Clone for IPerceptionTimestamp2 {
@@ -42,22 +42,22 @@ impl ::core::clone::Clone for IPerceptionTimestamp2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IPerceptionTimestamp2 {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe354b7ed_2bd1_41b7_9ed0_74a15c354537);
+unsafe impl ::windows_core::ComInterface for IPerceptionTimestamp2 {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe354b7ed_2bd1_41b7_9ed0_74a15c354537);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionTimestamp2_Vtbl {
-    pub base__: ::windows::core::IInspectable_Vtbl,
+    pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
-    pub SystemRelativeTargetTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
+    pub SystemRelativeTargetTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     SystemRelativeTargetTime: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
-pub struct IPerceptionTimestampHelperStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IPerceptionTimestampHelperStatics {
+pub struct IPerceptionTimestampHelperStatics(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for IPerceptionTimestampHelperStatics {
     type Vtable = IPerceptionTimestampHelperStatics_Vtbl;
 }
 impl ::core::clone::Clone for IPerceptionTimestampHelperStatics {
@@ -65,22 +65,22 @@ impl ::core::clone::Clone for IPerceptionTimestampHelperStatics {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IPerceptionTimestampHelperStatics {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47a611d4_a9df_4edc_855d_f4d339d967ac);
+unsafe impl ::windows_core::ComInterface for IPerceptionTimestampHelperStatics {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x47a611d4_a9df_4edc_855d_f4d339d967ac);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionTimestampHelperStatics_Vtbl {
-    pub base__: ::windows::core::IInspectable_Vtbl,
+    pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
-    pub FromHistoricalTargetTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targettime: super::Foundation::DateTime, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub FromHistoricalTargetTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targettime: super::Foundation::DateTime, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     FromHistoricalTargetTime: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
-pub struct IPerceptionTimestampHelperStatics2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IPerceptionTimestampHelperStatics2 {
+pub struct IPerceptionTimestampHelperStatics2(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for IPerceptionTimestampHelperStatics2 {
     type Vtable = IPerceptionTimestampHelperStatics2_Vtbl;
 }
 impl ::core::clone::Clone for IPerceptionTimestampHelperStatics2 {
@@ -88,47 +88,47 @@ impl ::core::clone::Clone for IPerceptionTimestampHelperStatics2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IPerceptionTimestampHelperStatics2 {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73d1a7fe_3fb9_4571_87d4_3c920a5e86eb);
+unsafe impl ::windows_core::ComInterface for IPerceptionTimestampHelperStatics2 {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x73d1a7fe_3fb9_4571_87d4_3c920a5e86eb);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerceptionTimestampHelperStatics2_Vtbl {
-    pub base__: ::windows::core::IInspectable_Vtbl,
+    pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
-    pub FromSystemRelativeTargetTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targettime: super::Foundation::TimeSpan, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub FromSystemRelativeTargetTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targettime: super::Foundation::TimeSpan, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     FromSystemRelativeTargetTime: usize,
 }
 #[doc = "*Required features: `\"Perception\"`*"]
 #[repr(transparent)]
-pub struct PerceptionTimestamp(::windows::core::IUnknown);
+pub struct PerceptionTimestamp(::windows_core::IUnknown);
 impl PerceptionTimestamp {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TargetTime(&self) -> ::windows::core::Result<super::Foundation::DateTime> {
+    pub fn TargetTime(&self) -> ::windows_core::Result<super::Foundation::DateTime> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::Foundation::DateTime>();
-            (::windows::core::Interface::vtable(this).TargetTime)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::Foundation::DateTime>();
+            (::windows_core::Interface::vtable(this).TargetTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PredictionAmount(&self) -> ::windows::core::Result<super::Foundation::TimeSpan> {
+    pub fn PredictionAmount(&self) -> ::windows_core::Result<super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::Foundation::TimeSpan>();
-            (::windows::core::Interface::vtable(this).PredictionAmount)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::Foundation::TimeSpan>();
+            (::windows_core::Interface::vtable(this).PredictionAmount)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SystemRelativeTargetTime(&self) -> ::windows::core::Result<super::Foundation::TimeSpan> {
-        let this = &::windows::core::ComInterface::cast::<IPerceptionTimestamp2>(self)?;
+    pub fn SystemRelativeTargetTime(&self) -> ::windows_core::Result<super::Foundation::TimeSpan> {
+        let this = &::windows_core::ComInterface::cast::<IPerceptionTimestamp2>(self)?;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::Foundation::TimeSpan>();
-            (::windows::core::Interface::vtable(this).SystemRelativeTargetTime)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::Foundation::TimeSpan>();
+            (::windows_core::Interface::vtable(this).SystemRelativeTargetTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -143,24 +143,24 @@ impl ::core::fmt::Debug for PerceptionTimestamp {
         f.debug_tuple("PerceptionTimestamp").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for PerceptionTimestamp {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Perception.PerceptionTimestamp;{87c24804-a22e-4adb-ba26-d78ef639bcf4})");
+impl ::windows_core::RuntimeType for PerceptionTimestamp {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Perception.PerceptionTimestamp;{87c24804-a22e-4adb-ba26-d78ef639bcf4})");
 }
 impl ::core::clone::Clone for PerceptionTimestamp {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for PerceptionTimestamp {
+unsafe impl ::windows_core::Interface for PerceptionTimestamp {
     type Vtable = IPerceptionTimestamp_Vtbl;
 }
-unsafe impl ::windows::core::ComInterface for PerceptionTimestamp {
-    const IID: ::windows::core::GUID = <IPerceptionTimestamp as ::windows::core::ComInterface>::IID;
+unsafe impl ::windows_core::ComInterface for PerceptionTimestamp {
+    const IID: ::windows_core::GUID = <IPerceptionTimestamp as ::windows_core::ComInterface>::IID;
 }
-impl ::windows::core::RuntimeName for PerceptionTimestamp {
+impl ::windows_core::RuntimeName for PerceptionTimestamp {
     const NAME: &'static str = "Windows.Perception.PerceptionTimestamp";
 }
-::windows::imp::interface_hierarchy!(PerceptionTimestamp, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows_core::imp::interface_hierarchy!(PerceptionTimestamp, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PerceptionTimestamp {}
 unsafe impl ::core::marker::Sync for PerceptionTimestamp {}
 #[doc = "*Required features: `\"Perception\"`*"]
@@ -168,32 +168,32 @@ pub struct PerceptionTimestampHelper;
 impl PerceptionTimestampHelper {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromHistoricalTargetTime(targettime: super::Foundation::DateTime) -> ::windows::core::Result<PerceptionTimestamp> {
+    pub fn FromHistoricalTargetTime(targettime: super::Foundation::DateTime) -> ::windows_core::Result<PerceptionTimestamp> {
         Self::IPerceptionTimestampHelperStatics(|this| unsafe {
-            let mut result__ = ::windows::core::zeroed::<PerceptionTimestamp>();
-            (::windows::core::Interface::vtable(this).FromHistoricalTargetTime)(::windows::core::Interface::as_raw(this), targettime, &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<PerceptionTimestamp>();
+            (::windows_core::Interface::vtable(this).FromHistoricalTargetTime)(::windows_core::Interface::as_raw(this), targettime, &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromSystemRelativeTargetTime(targettime: super::Foundation::TimeSpan) -> ::windows::core::Result<PerceptionTimestamp> {
+    pub fn FromSystemRelativeTargetTime(targettime: super::Foundation::TimeSpan) -> ::windows_core::Result<PerceptionTimestamp> {
         Self::IPerceptionTimestampHelperStatics2(|this| unsafe {
-            let mut result__ = ::windows::core::zeroed::<PerceptionTimestamp>();
-            (::windows::core::Interface::vtable(this).FromSystemRelativeTargetTime)(::windows::core::Interface::as_raw(this), targettime, &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<PerceptionTimestamp>();
+            (::windows_core::Interface::vtable(this).FromSystemRelativeTargetTime)(::windows_core::Interface::as_raw(this), targettime, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
-    pub fn IPerceptionTimestampHelperStatics<R, F: FnOnce(&IPerceptionTimestampHelperStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::imp::FactoryCache<PerceptionTimestampHelper, IPerceptionTimestampHelperStatics> = ::windows::imp::FactoryCache::new();
+    pub fn IPerceptionTimestampHelperStatics<R, F: FnOnce(&IPerceptionTimestampHelperStatics) -> ::windows_core::Result<R>>(callback: F) -> ::windows_core::Result<R> {
+        static SHARED: ::windows_core::imp::FactoryCache<PerceptionTimestampHelper, IPerceptionTimestampHelperStatics> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
-    pub fn IPerceptionTimestampHelperStatics2<R, F: FnOnce(&IPerceptionTimestampHelperStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::imp::FactoryCache<PerceptionTimestampHelper, IPerceptionTimestampHelperStatics2> = ::windows::imp::FactoryCache::new();
+    pub fn IPerceptionTimestampHelperStatics2<R, F: FnOnce(&IPerceptionTimestampHelperStatics2) -> ::windows_core::Result<R>>(callback: F) -> ::windows_core::Result<R> {
+        static SHARED: ::windows_core::imp::FactoryCache<PerceptionTimestampHelper, IPerceptionTimestampHelperStatics2> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
-impl ::windows::core::RuntimeName for PerceptionTimestampHelper {
+impl ::windows_core::RuntimeName for PerceptionTimestampHelper {
     const NAME: &'static str = "Windows.Perception.PerceptionTimestampHelper";
 }
 #[cfg(feature = "implement")]

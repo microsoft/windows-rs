@@ -14,10 +14,10 @@ pub unsafe fn MultinetGetConnectionPerformanceW(lpnetresource: *const NETRESOURC
 #[inline]
 pub unsafe fn NPAddConnection<P0, P1>(lpnetresource: *const NETRESOURCEW, lppassword: P0, lpusername: P1) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("davclnt.dll" "system" fn NPAddConnection(lpnetresource : *const NETRESOURCEW, lppassword : ::windows::core::PCWSTR, lpusername : ::windows::core::PCWSTR) -> u32);
+    ::windows_targets::link!("davclnt.dll" "system" fn NPAddConnection(lpnetresource : *const NETRESOURCEW, lppassword : ::windows_core::PCWSTR, lpusername : ::windows_core::PCWSTR) -> u32);
     NPAddConnection(lpnetresource, lppassword.into_param().abi(), lpusername.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
@@ -25,11 +25,11 @@ where
 #[inline]
 pub unsafe fn NPAddConnection3<P0, P1, P2>(hwndowner: P0, lpnetresource: *const NETRESOURCEW, lppassword: P1, lpusername: P2, dwflags: NET_USE_CONNECT_FLAGS) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("davclnt.dll" "system" fn NPAddConnection3(hwndowner : super::super::Foundation:: HWND, lpnetresource : *const NETRESOURCEW, lppassword : ::windows::core::PCWSTR, lpusername : ::windows::core::PCWSTR, dwflags : NET_USE_CONNECT_FLAGS) -> u32);
+    ::windows_targets::link!("davclnt.dll" "system" fn NPAddConnection3(hwndowner : super::super::Foundation:: HWND, lpnetresource : *const NETRESOURCEW, lppassword : ::windows_core::PCWSTR, lpusername : ::windows_core::PCWSTR, dwflags : NET_USE_CONNECT_FLAGS) -> u32);
     NPAddConnection3(hwndowner.into_param().abi(), lpnetresource, lppassword.into_param().abi(), lpusername.into_param().abi(), dwflags)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
@@ -37,7 +37,7 @@ where
 #[inline]
 pub unsafe fn NPAddConnection4<P0>(hwndowner: P0, lpnetresource: *const NETRESOURCEW, lpauthbuffer: ::core::option::Option<*const ::core::ffi::c_void>, cbauthbuffer: u32, dwflags: u32, lpuseoptions: ::core::option::Option<&[u8]>) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("ntlanman.dll" "system" fn NPAddConnection4(hwndowner : super::super::Foundation:: HWND, lpnetresource : *const NETRESOURCEW, lpauthbuffer : *const ::core::ffi::c_void, cbauthbuffer : u32, dwflags : u32, lpuseoptions : *const u8, cbuseoptions : u32) -> u32);
     NPAddConnection4(hwndowner.into_param().abi(), lpnetresource, ::core::mem::transmute(lpauthbuffer.unwrap_or(::std::ptr::null())), cbauthbuffer, dwflags, ::core::mem::transmute(lpuseoptions.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpuseoptions.as_deref().map_or(0, |slice| slice.len() as _))
@@ -47,10 +47,10 @@ where
 #[inline]
 pub unsafe fn NPCancelConnection<P0, P1>(lpname: P0, fforce: P1) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("davclnt.dll" "system" fn NPCancelConnection(lpname : ::windows::core::PCWSTR, fforce : super::super::Foundation:: BOOL) -> u32);
+    ::windows_targets::link!("davclnt.dll" "system" fn NPCancelConnection(lpname : ::windows_core::PCWSTR, fforce : super::super::Foundation:: BOOL) -> u32);
     NPCancelConnection(lpname.into_param().abi(), fforce.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
@@ -58,10 +58,10 @@ where
 #[inline]
 pub unsafe fn NPCancelConnection2<P0, P1>(lpname: P0, fforce: P1, dwflags: u32) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("ntlanman.dll" "system" fn NPCancelConnection2(lpname : ::windows::core::PCWSTR, fforce : super::super::Foundation:: BOOL, dwflags : u32) -> u32);
+    ::windows_targets::link!("ntlanman.dll" "system" fn NPCancelConnection2(lpname : ::windows_core::PCWSTR, fforce : super::super::Foundation:: BOOL, dwflags : u32) -> u32);
     NPCancelConnection2(lpname.into_param().abi(), fforce.into_param().abi(), dwflags)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
@@ -69,7 +69,7 @@ where
 #[inline]
 pub unsafe fn NPCloseEnum<P0>(henum: P0) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("davclnt.dll" "system" fn NPCloseEnum(henum : super::super::Foundation:: HANDLE) -> u32);
     NPCloseEnum(henum.into_param().abi())
@@ -79,18 +79,18 @@ where
 #[inline]
 pub unsafe fn NPEnumResource<P0>(henum: P0, lpccount: *mut u32, lpbuffer: *mut ::core::ffi::c_void, lpbuffersize: *mut u32) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("davclnt.dll" "system" fn NPEnumResource(henum : super::super::Foundation:: HANDLE, lpccount : *mut u32, lpbuffer : *mut ::core::ffi::c_void, lpbuffersize : *mut u32) -> u32);
     NPEnumResource(henum.into_param().abi(), lpccount, lpbuffer, lpbuffersize)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[inline]
-pub unsafe fn NPFormatNetworkName<P0>(lpremotename: P0, lpformattedname: ::windows::core::PWSTR, lpnlength: *mut u32, dwflags: NETWORK_NAME_FORMAT_FLAGS, dwavecharperline: u32) -> u32
+pub unsafe fn NPFormatNetworkName<P0>(lpremotename: P0, lpformattedname: ::windows_core::PWSTR, lpnlength: *mut u32, dwflags: NETWORK_NAME_FORMAT_FLAGS, dwavecharperline: u32) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("davclnt.dll" "system" fn NPFormatNetworkName(lpremotename : ::windows::core::PCWSTR, lpformattedname : ::windows::core::PWSTR, lpnlength : *mut u32, dwflags : NETWORK_NAME_FORMAT_FLAGS, dwavecharperline : u32) -> u32);
+    ::windows_targets::link!("davclnt.dll" "system" fn NPFormatNetworkName(lpremotename : ::windows_core::PCWSTR, lpformattedname : ::windows_core::PWSTR, lpnlength : *mut u32, dwflags : NETWORK_NAME_FORMAT_FLAGS, dwavecharperline : u32) -> u32);
     NPFormatNetworkName(lpremotename.into_param().abi(), ::core::mem::transmute(lpformattedname), lpnlength, dwflags, dwavecharperline)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
@@ -101,44 +101,44 @@ pub unsafe fn NPGetCaps(ndex: u32) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[inline]
-pub unsafe fn NPGetConnection<P0>(lplocalname: P0, lpremotename: ::windows::core::PWSTR, lpnbufferlen: *mut u32) -> u32
+pub unsafe fn NPGetConnection<P0>(lplocalname: P0, lpremotename: ::windows_core::PWSTR, lpnbufferlen: *mut u32) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("davclnt.dll" "system" fn NPGetConnection(lplocalname : ::windows::core::PCWSTR, lpremotename : ::windows::core::PWSTR, lpnbufferlen : *mut u32) -> u32);
+    ::windows_targets::link!("davclnt.dll" "system" fn NPGetConnection(lplocalname : ::windows_core::PCWSTR, lpremotename : ::windows_core::PWSTR, lpnbufferlen : *mut u32) -> u32);
     NPGetConnection(lplocalname.into_param().abi(), ::core::mem::transmute(lpremotename), lpnbufferlen)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[inline]
 pub unsafe fn NPGetConnection3<P0>(lplocalname: P0, dwlevel: u32, lpbuffer: *mut ::core::ffi::c_void, lpbuffersize: *mut u32) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("ntlanman.dll" "system" fn NPGetConnection3(lplocalname : ::windows::core::PCWSTR, dwlevel : u32, lpbuffer : *mut ::core::ffi::c_void, lpbuffersize : *mut u32) -> u32);
+    ::windows_targets::link!("ntlanman.dll" "system" fn NPGetConnection3(lplocalname : ::windows_core::PCWSTR, dwlevel : u32, lpbuffer : *mut ::core::ffi::c_void, lpbuffersize : *mut u32) -> u32);
     NPGetConnection3(lplocalname.into_param().abi(), dwlevel, lpbuffer, lpbuffersize)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[inline]
 pub unsafe fn NPGetConnectionPerformance<P0>(lpremotename: P0, lpnetconnectinfo: *mut NETCONNECTINFOSTRUCT) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("ntlanman.dll" "system" fn NPGetConnectionPerformance(lpremotename : ::windows::core::PCWSTR, lpnetconnectinfo : *mut NETCONNECTINFOSTRUCT) -> u32);
+    ::windows_targets::link!("ntlanman.dll" "system" fn NPGetConnectionPerformance(lpremotename : ::windows_core::PCWSTR, lpnetconnectinfo : *mut NETCONNECTINFOSTRUCT) -> u32);
     NPGetConnectionPerformance(lpremotename.into_param().abi(), lpnetconnectinfo)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[inline]
 pub unsafe fn NPGetPersistentUseOptionsForConnection<P0>(lpremotepath: P0, lpreaduseoptions: ::core::option::Option<&[u8]>, lpwriteuseoptions: *mut u8, lpsizewriteuseoptions: *mut u32) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("ntlanman.dll" "system" fn NPGetPersistentUseOptionsForConnection(lpremotepath : ::windows::core::PCWSTR, lpreaduseoptions : *const u8, cbreaduseoptions : u32, lpwriteuseoptions : *mut u8, lpsizewriteuseoptions : *mut u32) -> u32);
+    ::windows_targets::link!("ntlanman.dll" "system" fn NPGetPersistentUseOptionsForConnection(lpremotepath : ::windows_core::PCWSTR, lpreaduseoptions : *const u8, cbreaduseoptions : u32, lpwriteuseoptions : *mut u8, lpsizewriteuseoptions : *mut u32) -> u32);
     NPGetPersistentUseOptionsForConnection(lpremotepath.into_param().abi(), ::core::mem::transmute(lpreaduseoptions.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpreaduseoptions.as_deref().map_or(0, |slice| slice.len() as _), lpwriteuseoptions, lpsizewriteuseoptions)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[inline]
-pub unsafe fn NPGetResourceInformation(lpnetresource: *const NETRESOURCEW, lpbuffer: *mut ::core::ffi::c_void, lpbuffersize: *mut u32, lplpsystem: *mut ::windows::core::PWSTR) -> u32 {
-    ::windows_targets::link!("davclnt.dll" "system" fn NPGetResourceInformation(lpnetresource : *const NETRESOURCEW, lpbuffer : *mut ::core::ffi::c_void, lpbuffersize : *mut u32, lplpsystem : *mut ::windows::core::PWSTR) -> u32);
+pub unsafe fn NPGetResourceInformation(lpnetresource: *const NETRESOURCEW, lpbuffer: *mut ::core::ffi::c_void, lpbuffersize: *mut u32, lplpsystem: *mut ::windows_core::PWSTR) -> u32 {
+    ::windows_targets::link!("davclnt.dll" "system" fn NPGetResourceInformation(lpnetresource : *const NETRESOURCEW, lpbuffer : *mut ::core::ffi::c_void, lpbuffersize : *mut u32, lplpsystem : *mut ::windows_core::PWSTR) -> u32);
     NPGetResourceInformation(lpnetresource, lpbuffer, lpbuffersize, lplpsystem)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
@@ -151,18 +151,18 @@ pub unsafe fn NPGetResourceParent(lpnetresource: *const NETRESOURCEW, lpbuffer: 
 #[inline]
 pub unsafe fn NPGetUniversalName<P0>(lplocalpath: P0, dwinfolevel: UNC_INFO_LEVEL, lpbuffer: *mut ::core::ffi::c_void, lpbuffersize: *mut u32) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("davclnt.dll" "system" fn NPGetUniversalName(lplocalpath : ::windows::core::PCWSTR, dwinfolevel : UNC_INFO_LEVEL, lpbuffer : *mut ::core::ffi::c_void, lpbuffersize : *mut u32) -> u32);
+    ::windows_targets::link!("davclnt.dll" "system" fn NPGetUniversalName(lplocalpath : ::windows_core::PCWSTR, dwinfolevel : UNC_INFO_LEVEL, lpbuffer : *mut ::core::ffi::c_void, lpbuffersize : *mut u32) -> u32);
     NPGetUniversalName(lplocalpath.into_param().abi(), dwinfolevel, lpbuffer, lpbuffersize)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[inline]
-pub unsafe fn NPGetUser<P0>(lpname: P0, lpusername: ::windows::core::PWSTR, lpnbufferlen: *mut u32) -> u32
+pub unsafe fn NPGetUser<P0>(lpname: P0, lpusername: ::windows_core::PWSTR, lpnbufferlen: *mut u32) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("davclnt.dll" "system" fn NPGetUser(lpname : ::windows::core::PCWSTR, lpusername : ::windows::core::PWSTR, lpnbufferlen : *mut u32) -> u32);
+    ::windows_targets::link!("davclnt.dll" "system" fn NPGetUser(lpname : ::windows_core::PCWSTR, lpusername : ::windows_core::PWSTR, lpnbufferlen : *mut u32) -> u32);
     NPGetUser(lpname.into_param().abi(), ::core::mem::transmute(lpusername), lpnbufferlen)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
@@ -176,20 +176,20 @@ pub unsafe fn NPOpenEnum(dwscope: u32, dwtype: u32, dwusage: u32, lpnetresource:
 #[inline]
 pub unsafe fn WNetAddConnection2A<P0, P1>(lpnetresource: *const NETRESOURCEA, lppassword: P0, lpusername: P1, dwflags: u32) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("mpr.dll" "system" fn WNetAddConnection2A(lpnetresource : *const NETRESOURCEA, lppassword : ::windows::core::PCSTR, lpusername : ::windows::core::PCSTR, dwflags : u32) -> u32);
+    ::windows_targets::link!("mpr.dll" "system" fn WNetAddConnection2A(lpnetresource : *const NETRESOURCEA, lppassword : ::windows_core::PCSTR, lpusername : ::windows_core::PCSTR, dwflags : u32) -> u32);
     WNetAddConnection2A(lpnetresource, lppassword.into_param().abi(), lpusername.into_param().abi(), dwflags)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[inline]
 pub unsafe fn WNetAddConnection2W<P0, P1>(lpnetresource: *const NETRESOURCEW, lppassword: P0, lpusername: P1, dwflags: u32) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mpr.dll" "system" fn WNetAddConnection2W(lpnetresource : *const NETRESOURCEW, lppassword : ::windows::core::PCWSTR, lpusername : ::windows::core::PCWSTR, dwflags : u32) -> u32);
+    ::windows_targets::link!("mpr.dll" "system" fn WNetAddConnection2W(lpnetresource : *const NETRESOURCEW, lppassword : ::windows_core::PCWSTR, lpusername : ::windows_core::PCWSTR, dwflags : u32) -> u32);
     WNetAddConnection2W(lpnetresource, lppassword.into_param().abi(), lpusername.into_param().abi(), dwflags)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
@@ -197,11 +197,11 @@ where
 #[inline]
 pub unsafe fn WNetAddConnection3A<P0, P1, P2>(hwndowner: P0, lpnetresource: *const NETRESOURCEA, lppassword: P1, lpusername: P2, dwflags: u32) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("mpr.dll" "system" fn WNetAddConnection3A(hwndowner : super::super::Foundation:: HWND, lpnetresource : *const NETRESOURCEA, lppassword : ::windows::core::PCSTR, lpusername : ::windows::core::PCSTR, dwflags : u32) -> u32);
+    ::windows_targets::link!("mpr.dll" "system" fn WNetAddConnection3A(hwndowner : super::super::Foundation:: HWND, lpnetresource : *const NETRESOURCEA, lppassword : ::windows_core::PCSTR, lpusername : ::windows_core::PCSTR, dwflags : u32) -> u32);
     WNetAddConnection3A(hwndowner.into_param().abi(), lpnetresource, lppassword.into_param().abi(), lpusername.into_param().abi(), dwflags)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
@@ -209,11 +209,11 @@ where
 #[inline]
 pub unsafe fn WNetAddConnection3W<P0, P1, P2>(hwndowner: P0, lpnetresource: *const NETRESOURCEW, lppassword: P1, lpusername: P2, dwflags: u32) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mpr.dll" "system" fn WNetAddConnection3W(hwndowner : super::super::Foundation:: HWND, lpnetresource : *const NETRESOURCEW, lppassword : ::windows::core::PCWSTR, lpusername : ::windows::core::PCWSTR, dwflags : u32) -> u32);
+    ::windows_targets::link!("mpr.dll" "system" fn WNetAddConnection3W(hwndowner : super::super::Foundation:: HWND, lpnetresource : *const NETRESOURCEW, lppassword : ::windows_core::PCWSTR, lpusername : ::windows_core::PCWSTR, dwflags : u32) -> u32);
     WNetAddConnection3W(hwndowner.into_param().abi(), lpnetresource, lppassword.into_param().abi(), lpusername.into_param().abi(), dwflags)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
@@ -221,7 +221,7 @@ where
 #[inline]
 pub unsafe fn WNetAddConnection4A<P0>(hwndowner: P0, lpnetresource: *const NETRESOURCEA, pauthbuffer: *const ::core::ffi::c_void, cbauthbuffer: u32, dwflags: u32, lpuseoptions: &[u8]) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("mpr.dll" "system" fn WNetAddConnection4A(hwndowner : super::super::Foundation:: HWND, lpnetresource : *const NETRESOURCEA, pauthbuffer : *const ::core::ffi::c_void, cbauthbuffer : u32, dwflags : u32, lpuseoptions : *const u8, cbuseoptions : u32) -> u32);
     WNetAddConnection4A(hwndowner.into_param().abi(), lpnetresource, pauthbuffer, cbauthbuffer, dwflags, ::core::mem::transmute(lpuseoptions.as_ptr()), lpuseoptions.len() as _)
@@ -231,7 +231,7 @@ where
 #[inline]
 pub unsafe fn WNetAddConnection4W<P0>(hwndowner: P0, lpnetresource: *const NETRESOURCEW, pauthbuffer: *const ::core::ffi::c_void, cbauthbuffer: u32, dwflags: u32, lpuseoptions: &[u8]) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("mpr.dll" "system" fn WNetAddConnection4W(hwndowner : super::super::Foundation:: HWND, lpnetresource : *const NETRESOURCEW, pauthbuffer : *const ::core::ffi::c_void, cbauthbuffer : u32, dwflags : u32, lpuseoptions : *const u8, cbuseoptions : u32) -> u32);
     WNetAddConnection4W(hwndowner.into_param().abi(), lpnetresource, pauthbuffer, cbauthbuffer, dwflags, ::core::mem::transmute(lpuseoptions.as_ptr()), lpuseoptions.len() as _)
@@ -240,22 +240,22 @@ where
 #[inline]
 pub unsafe fn WNetAddConnectionA<P0, P1, P2>(lpremotename: P0, lppassword: P1, lplocalname: P2) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("mpr.dll" "system" fn WNetAddConnectionA(lpremotename : ::windows::core::PCSTR, lppassword : ::windows::core::PCSTR, lplocalname : ::windows::core::PCSTR) -> u32);
+    ::windows_targets::link!("mpr.dll" "system" fn WNetAddConnectionA(lpremotename : ::windows_core::PCSTR, lppassword : ::windows_core::PCSTR, lplocalname : ::windows_core::PCSTR) -> u32);
     WNetAddConnectionA(lpremotename.into_param().abi(), lppassword.into_param().abi(), lplocalname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[inline]
 pub unsafe fn WNetAddConnectionW<P0, P1, P2>(lpremotename: P0, lppassword: P1, lplocalname: P2) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mpr.dll" "system" fn WNetAddConnectionW(lpremotename : ::windows::core::PCWSTR, lppassword : ::windows::core::PCWSTR, lplocalname : ::windows::core::PCWSTR) -> u32);
+    ::windows_targets::link!("mpr.dll" "system" fn WNetAddConnectionW(lpremotename : ::windows_core::PCWSTR, lppassword : ::windows_core::PCWSTR, lplocalname : ::windows_core::PCWSTR) -> u32);
     WNetAddConnectionW(lpremotename.into_param().abi(), lppassword.into_param().abi(), lplocalname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
@@ -263,10 +263,10 @@ where
 #[inline]
 pub unsafe fn WNetCancelConnection2A<P0, P1>(lpname: P0, dwflags: u32, fforce: P1) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("mpr.dll" "system" fn WNetCancelConnection2A(lpname : ::windows::core::PCSTR, dwflags : u32, fforce : super::super::Foundation:: BOOL) -> u32);
+    ::windows_targets::link!("mpr.dll" "system" fn WNetCancelConnection2A(lpname : ::windows_core::PCSTR, dwflags : u32, fforce : super::super::Foundation:: BOOL) -> u32);
     WNetCancelConnection2A(lpname.into_param().abi(), dwflags, fforce.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
@@ -274,10 +274,10 @@ where
 #[inline]
 pub unsafe fn WNetCancelConnection2W<P0, P1>(lpname: P0, dwflags: u32, fforce: P1) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("mpr.dll" "system" fn WNetCancelConnection2W(lpname : ::windows::core::PCWSTR, dwflags : u32, fforce : super::super::Foundation:: BOOL) -> u32);
+    ::windows_targets::link!("mpr.dll" "system" fn WNetCancelConnection2W(lpname : ::windows_core::PCWSTR, dwflags : u32, fforce : super::super::Foundation:: BOOL) -> u32);
     WNetCancelConnection2W(lpname.into_param().abi(), dwflags, fforce.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
@@ -285,10 +285,10 @@ where
 #[inline]
 pub unsafe fn WNetCancelConnectionA<P0, P1>(lpname: P0, fforce: P1) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("mpr.dll" "system" fn WNetCancelConnectionA(lpname : ::windows::core::PCSTR, fforce : super::super::Foundation:: BOOL) -> u32);
+    ::windows_targets::link!("mpr.dll" "system" fn WNetCancelConnectionA(lpname : ::windows_core::PCSTR, fforce : super::super::Foundation:: BOOL) -> u32);
     WNetCancelConnectionA(lpname.into_param().abi(), fforce.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
@@ -296,10 +296,10 @@ where
 #[inline]
 pub unsafe fn WNetCancelConnectionW<P0, P1>(lpname: P0, fforce: P1) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("mpr.dll" "system" fn WNetCancelConnectionW(lpname : ::windows::core::PCWSTR, fforce : super::super::Foundation:: BOOL) -> u32);
+    ::windows_targets::link!("mpr.dll" "system" fn WNetCancelConnectionW(lpname : ::windows_core::PCWSTR, fforce : super::super::Foundation:: BOOL) -> u32);
     WNetCancelConnectionW(lpname.into_param().abi(), fforce.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
@@ -307,7 +307,7 @@ where
 #[inline]
 pub unsafe fn WNetCloseEnum<P0>(henum: P0) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mpr.dll" "system" fn WNetCloseEnum(henum : super::super::Foundation:: HANDLE) -> u32);
     WNetCloseEnum(henum.into_param().abi())
@@ -317,7 +317,7 @@ where
 #[inline]
 pub unsafe fn WNetConnectionDialog<P0>(hwnd: P0, dwtype: u32) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("mpr.dll" "system" fn WNetConnectionDialog(hwnd : super::super::Foundation:: HWND, dwtype : u32) -> u32);
     WNetConnectionDialog(hwnd.into_param().abi(), dwtype)
@@ -341,7 +341,7 @@ pub unsafe fn WNetConnectionDialog1W(lpconndlgstruct: *mut CONNECTDLGSTRUCTW) ->
 #[inline]
 pub unsafe fn WNetDisconnectDialog<P0>(hwnd: P0, dwtype: u32) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("mpr.dll" "system" fn WNetDisconnectDialog(hwnd : super::super::Foundation:: HWND, dwtype : u32) -> u32);
     WNetDisconnectDialog(hwnd.into_param().abi(), dwtype)
@@ -365,7 +365,7 @@ pub unsafe fn WNetDisconnectDialog1W(lpconndlgstruct: *const DISCDLGSTRUCTW) -> 
 #[inline]
 pub unsafe fn WNetEnumResourceA<P0>(henum: P0, lpccount: *mut u32, lpbuffer: *mut ::core::ffi::c_void, lpbuffersize: *mut u32) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mpr.dll" "system" fn WNetEnumResourceA(henum : super::super::Foundation:: HANDLE, lpccount : *mut u32, lpbuffer : *mut ::core::ffi::c_void, lpbuffersize : *mut u32) -> u32);
     WNetEnumResourceA(henum.into_param().abi(), lpccount, lpbuffer, lpbuffersize)
@@ -375,39 +375,39 @@ where
 #[inline]
 pub unsafe fn WNetEnumResourceW<P0>(henum: P0, lpccount: *mut u32, lpbuffer: *mut ::core::ffi::c_void, lpbuffersize: *mut u32) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("mpr.dll" "system" fn WNetEnumResourceW(henum : super::super::Foundation:: HANDLE, lpccount : *mut u32, lpbuffer : *mut ::core::ffi::c_void, lpbuffersize : *mut u32) -> u32);
     WNetEnumResourceW(henum.into_param().abi(), lpccount, lpbuffer, lpbuffersize)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[inline]
-pub unsafe fn WNetGetConnectionA<P0>(lplocalname: P0, lpremotename: ::windows::core::PSTR, lpnlength: *mut u32) -> u32
+pub unsafe fn WNetGetConnectionA<P0>(lplocalname: P0, lpremotename: ::windows_core::PSTR, lpnlength: *mut u32) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("mpr.dll" "system" fn WNetGetConnectionA(lplocalname : ::windows::core::PCSTR, lpremotename : ::windows::core::PSTR, lpnlength : *mut u32) -> u32);
+    ::windows_targets::link!("mpr.dll" "system" fn WNetGetConnectionA(lplocalname : ::windows_core::PCSTR, lpremotename : ::windows_core::PSTR, lpnlength : *mut u32) -> u32);
     WNetGetConnectionA(lplocalname.into_param().abi(), ::core::mem::transmute(lpremotename), lpnlength)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[inline]
-pub unsafe fn WNetGetConnectionW<P0>(lplocalname: P0, lpremotename: ::windows::core::PWSTR, lpnlength: *mut u32) -> u32
+pub unsafe fn WNetGetConnectionW<P0>(lplocalname: P0, lpremotename: ::windows_core::PWSTR, lpnlength: *mut u32) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mpr.dll" "system" fn WNetGetConnectionW(lplocalname : ::windows::core::PCWSTR, lpremotename : ::windows::core::PWSTR, lpnlength : *mut u32) -> u32);
+    ::windows_targets::link!("mpr.dll" "system" fn WNetGetConnectionW(lplocalname : ::windows_core::PCWSTR, lpremotename : ::windows_core::PWSTR, lpnlength : *mut u32) -> u32);
     WNetGetConnectionW(lplocalname.into_param().abi(), ::core::mem::transmute(lpremotename), lpnlength)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[inline]
 pub unsafe fn WNetGetLastErrorA(lperror: *mut u32, lperrorbuf: &mut [u8], lpnamebuf: &mut [u8]) -> u32 {
-    ::windows_targets::link!("mpr.dll" "system" fn WNetGetLastErrorA(lperror : *mut u32, lperrorbuf : ::windows::core::PSTR, nerrorbufsize : u32, lpnamebuf : ::windows::core::PSTR, nnamebufsize : u32) -> u32);
+    ::windows_targets::link!("mpr.dll" "system" fn WNetGetLastErrorA(lperror : *mut u32, lperrorbuf : ::windows_core::PSTR, nerrorbufsize : u32, lpnamebuf : ::windows_core::PSTR, nnamebufsize : u32) -> u32);
     WNetGetLastErrorA(lperror, ::core::mem::transmute(lperrorbuf.as_ptr()), lperrorbuf.len() as _, ::core::mem::transmute(lpnamebuf.as_ptr()), lpnamebuf.len() as _)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[inline]
 pub unsafe fn WNetGetLastErrorW(lperror: *mut u32, lperrorbuf: &mut [u16], lpnamebuf: &mut [u16]) -> u32 {
-    ::windows_targets::link!("mpr.dll" "system" fn WNetGetLastErrorW(lperror : *mut u32, lperrorbuf : ::windows::core::PWSTR, nerrorbufsize : u32, lpnamebuf : ::windows::core::PWSTR, nnamebufsize : u32) -> u32);
+    ::windows_targets::link!("mpr.dll" "system" fn WNetGetLastErrorW(lperror : *mut u32, lperrorbuf : ::windows_core::PWSTR, nerrorbufsize : u32, lpnamebuf : ::windows_core::PWSTR, nnamebufsize : u32) -> u32);
     WNetGetLastErrorW(lperror, ::core::mem::transmute(lperrorbuf.as_ptr()), lperrorbuf.len() as _, ::core::mem::transmute(lpnamebuf.as_ptr()), lpnamebuf.len() as _)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
@@ -415,9 +415,9 @@ pub unsafe fn WNetGetLastErrorW(lperror: *mut u32, lperrorbuf: &mut [u16], lpnam
 #[inline]
 pub unsafe fn WNetGetNetworkInformationA<P0>(lpprovider: P0, lpnetinfostruct: *mut NETINFOSTRUCT) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("mpr.dll" "system" fn WNetGetNetworkInformationA(lpprovider : ::windows::core::PCSTR, lpnetinfostruct : *mut NETINFOSTRUCT) -> u32);
+    ::windows_targets::link!("mpr.dll" "system" fn WNetGetNetworkInformationA(lpprovider : ::windows_core::PCSTR, lpnetinfostruct : *mut NETINFOSTRUCT) -> u32);
     WNetGetNetworkInformationA(lpprovider.into_param().abi(), lpnetinfostruct)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
@@ -425,33 +425,33 @@ where
 #[inline]
 pub unsafe fn WNetGetNetworkInformationW<P0>(lpprovider: P0, lpnetinfostruct: *mut NETINFOSTRUCT) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mpr.dll" "system" fn WNetGetNetworkInformationW(lpprovider : ::windows::core::PCWSTR, lpnetinfostruct : *mut NETINFOSTRUCT) -> u32);
+    ::windows_targets::link!("mpr.dll" "system" fn WNetGetNetworkInformationW(lpprovider : ::windows_core::PCWSTR, lpnetinfostruct : *mut NETINFOSTRUCT) -> u32);
     WNetGetNetworkInformationW(lpprovider.into_param().abi(), lpnetinfostruct)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[inline]
-pub unsafe fn WNetGetProviderNameA(dwnettype: u32, lpprovidername: ::windows::core::PSTR, lpbuffersize: *mut u32) -> u32 {
-    ::windows_targets::link!("mpr.dll" "system" fn WNetGetProviderNameA(dwnettype : u32, lpprovidername : ::windows::core::PSTR, lpbuffersize : *mut u32) -> u32);
+pub unsafe fn WNetGetProviderNameA(dwnettype: u32, lpprovidername: ::windows_core::PSTR, lpbuffersize: *mut u32) -> u32 {
+    ::windows_targets::link!("mpr.dll" "system" fn WNetGetProviderNameA(dwnettype : u32, lpprovidername : ::windows_core::PSTR, lpbuffersize : *mut u32) -> u32);
     WNetGetProviderNameA(dwnettype, ::core::mem::transmute(lpprovidername), lpbuffersize)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[inline]
-pub unsafe fn WNetGetProviderNameW(dwnettype: u32, lpprovidername: ::windows::core::PWSTR, lpbuffersize: *mut u32) -> u32 {
-    ::windows_targets::link!("mpr.dll" "system" fn WNetGetProviderNameW(dwnettype : u32, lpprovidername : ::windows::core::PWSTR, lpbuffersize : *mut u32) -> u32);
+pub unsafe fn WNetGetProviderNameW(dwnettype: u32, lpprovidername: ::windows_core::PWSTR, lpbuffersize: *mut u32) -> u32 {
+    ::windows_targets::link!("mpr.dll" "system" fn WNetGetProviderNameW(dwnettype : u32, lpprovidername : ::windows_core::PWSTR, lpbuffersize : *mut u32) -> u32);
     WNetGetProviderNameW(dwnettype, ::core::mem::transmute(lpprovidername), lpbuffersize)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[inline]
-pub unsafe fn WNetGetResourceInformationA(lpnetresource: *const NETRESOURCEA, lpbuffer: *mut ::core::ffi::c_void, lpcbbuffer: *mut u32, lplpsystem: *mut ::windows::core::PSTR) -> u32 {
-    ::windows_targets::link!("mpr.dll" "system" fn WNetGetResourceInformationA(lpnetresource : *const NETRESOURCEA, lpbuffer : *mut ::core::ffi::c_void, lpcbbuffer : *mut u32, lplpsystem : *mut ::windows::core::PSTR) -> u32);
+pub unsafe fn WNetGetResourceInformationA(lpnetresource: *const NETRESOURCEA, lpbuffer: *mut ::core::ffi::c_void, lpcbbuffer: *mut u32, lplpsystem: *mut ::windows_core::PSTR) -> u32 {
+    ::windows_targets::link!("mpr.dll" "system" fn WNetGetResourceInformationA(lpnetresource : *const NETRESOURCEA, lpbuffer : *mut ::core::ffi::c_void, lpcbbuffer : *mut u32, lplpsystem : *mut ::windows_core::PSTR) -> u32);
     WNetGetResourceInformationA(lpnetresource, lpbuffer, lpcbbuffer, lplpsystem)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[inline]
-pub unsafe fn WNetGetResourceInformationW(lpnetresource: *const NETRESOURCEW, lpbuffer: *mut ::core::ffi::c_void, lpcbbuffer: *mut u32, lplpsystem: *mut ::windows::core::PWSTR) -> u32 {
-    ::windows_targets::link!("mpr.dll" "system" fn WNetGetResourceInformationW(lpnetresource : *const NETRESOURCEW, lpbuffer : *mut ::core::ffi::c_void, lpcbbuffer : *mut u32, lplpsystem : *mut ::windows::core::PWSTR) -> u32);
+pub unsafe fn WNetGetResourceInformationW(lpnetresource: *const NETRESOURCEW, lpbuffer: *mut ::core::ffi::c_void, lpcbbuffer: *mut u32, lplpsystem: *mut ::windows_core::PWSTR) -> u32 {
+    ::windows_targets::link!("mpr.dll" "system" fn WNetGetResourceInformationW(lpnetresource : *const NETRESOURCEW, lpbuffer : *mut ::core::ffi::c_void, lpcbbuffer : *mut u32, lplpsystem : *mut ::windows_core::PWSTR) -> u32);
     WNetGetResourceInformationW(lpnetresource, lpbuffer, lpcbbuffer, lplpsystem)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
@@ -470,36 +470,36 @@ pub unsafe fn WNetGetResourceParentW(lpnetresource: *const NETRESOURCEW, lpbuffe
 #[inline]
 pub unsafe fn WNetGetUniversalNameA<P0>(lplocalpath: P0, dwinfolevel: UNC_INFO_LEVEL, lpbuffer: *mut ::core::ffi::c_void, lpbuffersize: *mut u32) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("mpr.dll" "system" fn WNetGetUniversalNameA(lplocalpath : ::windows::core::PCSTR, dwinfolevel : UNC_INFO_LEVEL, lpbuffer : *mut ::core::ffi::c_void, lpbuffersize : *mut u32) -> u32);
+    ::windows_targets::link!("mpr.dll" "system" fn WNetGetUniversalNameA(lplocalpath : ::windows_core::PCSTR, dwinfolevel : UNC_INFO_LEVEL, lpbuffer : *mut ::core::ffi::c_void, lpbuffersize : *mut u32) -> u32);
     WNetGetUniversalNameA(lplocalpath.into_param().abi(), dwinfolevel, lpbuffer, lpbuffersize)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[inline]
 pub unsafe fn WNetGetUniversalNameW<P0>(lplocalpath: P0, dwinfolevel: UNC_INFO_LEVEL, lpbuffer: *mut ::core::ffi::c_void, lpbuffersize: *mut u32) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mpr.dll" "system" fn WNetGetUniversalNameW(lplocalpath : ::windows::core::PCWSTR, dwinfolevel : UNC_INFO_LEVEL, lpbuffer : *mut ::core::ffi::c_void, lpbuffersize : *mut u32) -> u32);
+    ::windows_targets::link!("mpr.dll" "system" fn WNetGetUniversalNameW(lplocalpath : ::windows_core::PCWSTR, dwinfolevel : UNC_INFO_LEVEL, lpbuffer : *mut ::core::ffi::c_void, lpbuffersize : *mut u32) -> u32);
     WNetGetUniversalNameW(lplocalpath.into_param().abi(), dwinfolevel, lpbuffer, lpbuffersize)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[inline]
-pub unsafe fn WNetGetUserA<P0>(lpname: P0, lpusername: ::windows::core::PSTR, lpnlength: *mut u32) -> u32
+pub unsafe fn WNetGetUserA<P0>(lpname: P0, lpusername: ::windows_core::PSTR, lpnlength: *mut u32) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("mpr.dll" "system" fn WNetGetUserA(lpname : ::windows::core::PCSTR, lpusername : ::windows::core::PSTR, lpnlength : *mut u32) -> u32);
+    ::windows_targets::link!("mpr.dll" "system" fn WNetGetUserA(lpname : ::windows_core::PCSTR, lpusername : ::windows_core::PSTR, lpnlength : *mut u32) -> u32);
     WNetGetUserA(lpname.into_param().abi(), ::core::mem::transmute(lpusername), lpnlength)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[inline]
-pub unsafe fn WNetGetUserW<P0>(lpname: P0, lpusername: ::windows::core::PWSTR, lpnlength: *mut u32) -> u32
+pub unsafe fn WNetGetUserW<P0>(lpname: P0, lpusername: ::windows_core::PWSTR, lpnlength: *mut u32) -> u32
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mpr.dll" "system" fn WNetGetUserW(lpname : ::windows::core::PCWSTR, lpusername : ::windows::core::PWSTR, lpnlength : *mut u32) -> u32);
+    ::windows_targets::link!("mpr.dll" "system" fn WNetGetUserW(lpname : ::windows_core::PCWSTR, lpusername : ::windows_core::PWSTR, lpnlength : *mut u32) -> u32);
     WNetGetUserW(lpname.into_param().abi(), ::core::mem::transmute(lpusername), lpnlength)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
@@ -518,64 +518,64 @@ pub unsafe fn WNetOpenEnumW(dwscope: NET_RESOURCE_SCOPE, dwtype: NET_RESOURCE_TY
 #[inline]
 pub unsafe fn WNetSetLastErrorA<P0, P1>(err: u32, lperror: P0, lpproviders: P1)
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("mpr.dll" "system" fn WNetSetLastErrorA(err : u32, lperror : ::windows::core::PCSTR, lpproviders : ::windows::core::PCSTR) -> ());
+    ::windows_targets::link!("mpr.dll" "system" fn WNetSetLastErrorA(err : u32, lperror : ::windows_core::PCSTR, lpproviders : ::windows_core::PCSTR) -> ());
     WNetSetLastErrorA(err, lperror.into_param().abi(), lpproviders.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[inline]
 pub unsafe fn WNetSetLastErrorW<P0, P1>(err: u32, lperror: P0, lpproviders: P1)
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mpr.dll" "system" fn WNetSetLastErrorW(err : u32, lperror : ::windows::core::PCWSTR, lpproviders : ::windows::core::PCWSTR) -> ());
+    ::windows_targets::link!("mpr.dll" "system" fn WNetSetLastErrorW(err : u32, lperror : ::windows_core::PCWSTR, lpproviders : ::windows_core::PCWSTR) -> ());
     WNetSetLastErrorW(err, lperror.into_param().abi(), lpproviders.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WNetUseConnection4A<P0>(hwndowner: P0, lpnetresource: *const NETRESOURCEA, pauthbuffer: ::core::option::Option<*const ::core::ffi::c_void>, cbauthbuffer: u32, dwflags: u32, lpuseoptions: ::core::option::Option<&[u8]>, lpaccessname: ::windows::core::PSTR, lpbuffersize: ::core::option::Option<*mut u32>, lpresult: ::core::option::Option<*mut u32>) -> u32
+pub unsafe fn WNetUseConnection4A<P0>(hwndowner: P0, lpnetresource: *const NETRESOURCEA, pauthbuffer: ::core::option::Option<*const ::core::ffi::c_void>, cbauthbuffer: u32, dwflags: u32, lpuseoptions: ::core::option::Option<&[u8]>, lpaccessname: ::windows_core::PSTR, lpbuffersize: ::core::option::Option<*mut u32>, lpresult: ::core::option::Option<*mut u32>) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("mpr.dll" "system" fn WNetUseConnection4A(hwndowner : super::super::Foundation:: HWND, lpnetresource : *const NETRESOURCEA, pauthbuffer : *const ::core::ffi::c_void, cbauthbuffer : u32, dwflags : u32, lpuseoptions : *const u8, cbuseoptions : u32, lpaccessname : ::windows::core::PSTR, lpbuffersize : *mut u32, lpresult : *mut u32) -> u32);
+    ::windows_targets::link!("mpr.dll" "system" fn WNetUseConnection4A(hwndowner : super::super::Foundation:: HWND, lpnetresource : *const NETRESOURCEA, pauthbuffer : *const ::core::ffi::c_void, cbauthbuffer : u32, dwflags : u32, lpuseoptions : *const u8, cbuseoptions : u32, lpaccessname : ::windows_core::PSTR, lpbuffersize : *mut u32, lpresult : *mut u32) -> u32);
     WNetUseConnection4A(hwndowner.into_param().abi(), lpnetresource, ::core::mem::transmute(pauthbuffer.unwrap_or(::std::ptr::null())), cbauthbuffer, dwflags, ::core::mem::transmute(lpuseoptions.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpuseoptions.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpaccessname), ::core::mem::transmute(lpbuffersize.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpresult.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WNetUseConnection4W<P0>(hwndowner: P0, lpnetresource: *const NETRESOURCEW, pauthbuffer: ::core::option::Option<*const ::core::ffi::c_void>, cbauthbuffer: u32, dwflags: u32, lpuseoptions: ::core::option::Option<&[u8]>, lpaccessname: ::windows::core::PWSTR, lpbuffersize: ::core::option::Option<*mut u32>, lpresult: ::core::option::Option<*mut u32>) -> u32
+pub unsafe fn WNetUseConnection4W<P0>(hwndowner: P0, lpnetresource: *const NETRESOURCEW, pauthbuffer: ::core::option::Option<*const ::core::ffi::c_void>, cbauthbuffer: u32, dwflags: u32, lpuseoptions: ::core::option::Option<&[u8]>, lpaccessname: ::windows_core::PWSTR, lpbuffersize: ::core::option::Option<*mut u32>, lpresult: ::core::option::Option<*mut u32>) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("mpr.dll" "system" fn WNetUseConnection4W(hwndowner : super::super::Foundation:: HWND, lpnetresource : *const NETRESOURCEW, pauthbuffer : *const ::core::ffi::c_void, cbauthbuffer : u32, dwflags : u32, lpuseoptions : *const u8, cbuseoptions : u32, lpaccessname : ::windows::core::PWSTR, lpbuffersize : *mut u32, lpresult : *mut u32) -> u32);
+    ::windows_targets::link!("mpr.dll" "system" fn WNetUseConnection4W(hwndowner : super::super::Foundation:: HWND, lpnetresource : *const NETRESOURCEW, pauthbuffer : *const ::core::ffi::c_void, cbauthbuffer : u32, dwflags : u32, lpuseoptions : *const u8, cbuseoptions : u32, lpaccessname : ::windows_core::PWSTR, lpbuffersize : *mut u32, lpresult : *mut u32) -> u32);
     WNetUseConnection4W(hwndowner.into_param().abi(), lpnetresource, ::core::mem::transmute(pauthbuffer.unwrap_or(::std::ptr::null())), cbauthbuffer, dwflags, ::core::mem::transmute(lpuseoptions.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpuseoptions.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpaccessname), ::core::mem::transmute(lpbuffersize.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpresult.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WNetUseConnectionA<P0, P1, P2>(hwndowner: P0, lpnetresource: *const NETRESOURCEA, lppassword: P1, lpuserid: P2, dwflags: NET_USE_CONNECT_FLAGS, lpaccessname: ::windows::core::PSTR, lpbuffersize: ::core::option::Option<*mut u32>, lpresult: ::core::option::Option<*mut u32>) -> u32
+pub unsafe fn WNetUseConnectionA<P0, P1, P2>(hwndowner: P0, lpnetresource: *const NETRESOURCEA, lppassword: P1, lpuserid: P2, dwflags: NET_USE_CONNECT_FLAGS, lpaccessname: ::windows_core::PSTR, lpbuffersize: ::core::option::Option<*mut u32>, lpresult: ::core::option::Option<*mut u32>) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("mpr.dll" "system" fn WNetUseConnectionA(hwndowner : super::super::Foundation:: HWND, lpnetresource : *const NETRESOURCEA, lppassword : ::windows::core::PCSTR, lpuserid : ::windows::core::PCSTR, dwflags : NET_USE_CONNECT_FLAGS, lpaccessname : ::windows::core::PSTR, lpbuffersize : *mut u32, lpresult : *mut u32) -> u32);
+    ::windows_targets::link!("mpr.dll" "system" fn WNetUseConnectionA(hwndowner : super::super::Foundation:: HWND, lpnetresource : *const NETRESOURCEA, lppassword : ::windows_core::PCSTR, lpuserid : ::windows_core::PCSTR, dwflags : NET_USE_CONNECT_FLAGS, lpaccessname : ::windows_core::PSTR, lpbuffersize : *mut u32, lpresult : *mut u32) -> u32);
     WNetUseConnectionA(hwndowner.into_param().abi(), lpnetresource, lppassword.into_param().abi(), lpuserid.into_param().abi(), dwflags, ::core::mem::transmute(lpaccessname), ::core::mem::transmute(lpbuffersize.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpresult.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WNetUseConnectionW<P0, P1, P2>(hwndowner: P0, lpnetresource: *const NETRESOURCEW, lppassword: P1, lpuserid: P2, dwflags: NET_USE_CONNECT_FLAGS, lpaccessname: ::windows::core::PWSTR, lpbuffersize: ::core::option::Option<*mut u32>, lpresult: ::core::option::Option<*mut u32>) -> u32
+pub unsafe fn WNetUseConnectionW<P0, P1, P2>(hwndowner: P0, lpnetresource: *const NETRESOURCEW, lppassword: P1, lpuserid: P2, dwflags: NET_USE_CONNECT_FLAGS, lpaccessname: ::windows_core::PWSTR, lpbuffersize: ::core::option::Option<*mut u32>, lpresult: ::core::option::Option<*mut u32>) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mpr.dll" "system" fn WNetUseConnectionW(hwndowner : super::super::Foundation:: HWND, lpnetresource : *const NETRESOURCEW, lppassword : ::windows::core::PCWSTR, lpuserid : ::windows::core::PCWSTR, dwflags : NET_USE_CONNECT_FLAGS, lpaccessname : ::windows::core::PWSTR, lpbuffersize : *mut u32, lpresult : *mut u32) -> u32);
+    ::windows_targets::link!("mpr.dll" "system" fn WNetUseConnectionW(hwndowner : super::super::Foundation:: HWND, lpnetresource : *const NETRESOURCEW, lppassword : ::windows_core::PCWSTR, lpuserid : ::windows_core::PCWSTR, dwflags : NET_USE_CONNECT_FLAGS, lpaccessname : ::windows_core::PWSTR, lpbuffersize : *mut u32, lpresult : *mut u32) -> u32);
     WNetUseConnectionW(hwndowner.into_param().abi(), lpnetresource, lppassword.into_param().abi(), lpuserid.into_param().abi(), dwflags, ::core::mem::transmute(lpaccessname), ::core::mem::transmute(lpbuffersize.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpresult.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
@@ -771,8 +771,8 @@ impl ::core::default::Default for CONNECTDLGSTRUCT_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for CONNECTDLGSTRUCT_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CONNECTDLGSTRUCT_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for CONNECTDLGSTRUCT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -831,8 +831,8 @@ impl ::core::default::Default for DISCDLGSTRUCT_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for DISCDLGSTRUCT_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DISCDLGSTRUCT_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for DISCDLGSTRUCT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -893,8 +893,8 @@ impl ::core::default::Default for NETINFOSTRUCT_CHARACTERISTICS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NETINFOSTRUCT_CHARACTERISTICS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NETINFOSTRUCT_CHARACTERISTICS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NETINFOSTRUCT_CHARACTERISTICS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -953,8 +953,8 @@ impl ::core::default::Default for NETWORK_NAME_FORMAT_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NETWORK_NAME_FORMAT_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NETWORK_NAME_FORMAT_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NETWORK_NAME_FORMAT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -984,8 +984,8 @@ impl ::core::default::Default for NET_RESOURCE_SCOPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NET_RESOURCE_SCOPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NET_RESOURCE_SCOPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NET_RESOURCE_SCOPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1013,8 +1013,8 @@ impl ::core::default::Default for NET_RESOURCE_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NET_RESOURCE_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NET_RESOURCE_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NET_RESOURCE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1087,8 +1087,8 @@ impl ::core::default::Default for NET_USE_CONNECT_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NET_USE_CONNECT_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NET_USE_CONNECT_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NET_USE_CONNECT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1149,8 +1149,8 @@ impl ::core::default::Default for NPDIRECTORY_NOTIFY_OPERATION {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NPDIRECTORY_NOTIFY_OPERATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NPDIRECTORY_NOTIFY_OPERATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NPDIRECTORY_NOTIFY_OPERATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1178,8 +1178,8 @@ impl ::core::default::Default for NP_PROPERTY_DIALOG_SELECTION {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NP_PROPERTY_DIALOG_SELECTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NP_PROPERTY_DIALOG_SELECTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NP_PROPERTY_DIALOG_SELECTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1205,8 +1205,8 @@ impl ::core::default::Default for UNC_INFO_LEVEL {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for UNC_INFO_LEVEL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for UNC_INFO_LEVEL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for UNC_INFO_LEVEL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1238,8 +1238,8 @@ impl ::core::default::Default for WNET_OPEN_ENUM_USAGE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WNET_OPEN_ENUM_USAGE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WNET_OPEN_ENUM_USAGE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WNET_OPEN_ENUM_USAGE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1300,8 +1300,8 @@ impl ::core::default::Default for WNPERM_DLG {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WNPERM_DLG {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WNPERM_DLG {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WNPERM_DLG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1333,8 +1333,8 @@ impl ::core::fmt::Debug for CONNECTDLGSTRUCTA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for CONNECTDLGSTRUCTA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CONNECTDLGSTRUCTA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CONNECTDLGSTRUCTA {
@@ -1375,8 +1375,8 @@ impl ::core::fmt::Debug for CONNECTDLGSTRUCTW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for CONNECTDLGSTRUCTW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CONNECTDLGSTRUCTW {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CONNECTDLGSTRUCTW {
@@ -1398,8 +1398,8 @@ impl ::core::default::Default for CONNECTDLGSTRUCTW {
 pub struct DISCDLGSTRUCTA {
     pub cbStructure: u32,
     pub hwndOwner: super::super::Foundation::HWND,
-    pub lpLocalName: ::windows::core::PSTR,
-    pub lpRemoteName: ::windows::core::PSTR,
+    pub lpLocalName: ::windows_core::PSTR,
+    pub lpRemoteName: ::windows_core::PSTR,
     pub dwFlags: DISCDLGSTRUCT_FLAGS,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1417,8 +1417,8 @@ impl ::core::fmt::Debug for DISCDLGSTRUCTA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DISCDLGSTRUCTA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DISCDLGSTRUCTA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DISCDLGSTRUCTA {
@@ -1440,8 +1440,8 @@ impl ::core::default::Default for DISCDLGSTRUCTA {
 pub struct DISCDLGSTRUCTW {
     pub cbStructure: u32,
     pub hwndOwner: super::super::Foundation::HWND,
-    pub lpLocalName: ::windows::core::PWSTR,
-    pub lpRemoteName: ::windows::core::PWSTR,
+    pub lpLocalName: ::windows_core::PWSTR,
+    pub lpRemoteName: ::windows_core::PWSTR,
     pub dwFlags: DISCDLGSTRUCT_FLAGS,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1459,8 +1459,8 @@ impl ::core::fmt::Debug for DISCDLGSTRUCTW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DISCDLGSTRUCTW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DISCDLGSTRUCTW {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DISCDLGSTRUCTW {
@@ -1496,8 +1496,8 @@ impl ::core::fmt::Debug for NETCONNECTINFOSTRUCT {
         f.debug_struct("NETCONNECTINFOSTRUCT").field("cbStructure", &self.cbStructure).field("dwFlags", &self.dwFlags).field("dwSpeed", &self.dwSpeed).field("dwDelay", &self.dwDelay).field("dwOptDataSize", &self.dwOptDataSize).finish()
     }
 }
-impl ::windows::core::TypeKind for NETCONNECTINFOSTRUCT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NETCONNECTINFOSTRUCT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NETCONNECTINFOSTRUCT {
     fn eq(&self, other: &Self) -> bool {
@@ -1538,8 +1538,8 @@ impl ::core::fmt::Debug for NETINFOSTRUCT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NETINFOSTRUCT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NETINFOSTRUCT {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NETINFOSTRUCT {
@@ -1562,10 +1562,10 @@ pub struct NETRESOURCEA {
     pub dwType: NET_RESOURCE_TYPE,
     pub dwDisplayType: u32,
     pub dwUsage: u32,
-    pub lpLocalName: ::windows::core::PSTR,
-    pub lpRemoteName: ::windows::core::PSTR,
-    pub lpComment: ::windows::core::PSTR,
-    pub lpProvider: ::windows::core::PSTR,
+    pub lpLocalName: ::windows_core::PSTR,
+    pub lpRemoteName: ::windows_core::PSTR,
+    pub lpComment: ::windows_core::PSTR,
+    pub lpProvider: ::windows_core::PSTR,
 }
 impl ::core::marker::Copy for NETRESOURCEA {}
 impl ::core::clone::Clone for NETRESOURCEA {
@@ -1578,8 +1578,8 @@ impl ::core::fmt::Debug for NETRESOURCEA {
         f.debug_struct("NETRESOURCEA").field("dwScope", &self.dwScope).field("dwType", &self.dwType).field("dwDisplayType", &self.dwDisplayType).field("dwUsage", &self.dwUsage).field("lpLocalName", &self.lpLocalName).field("lpRemoteName", &self.lpRemoteName).field("lpComment", &self.lpComment).field("lpProvider", &self.lpProvider).finish()
     }
 }
-impl ::windows::core::TypeKind for NETRESOURCEA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NETRESOURCEA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NETRESOURCEA {
     fn eq(&self, other: &Self) -> bool {
@@ -1599,10 +1599,10 @@ pub struct NETRESOURCEW {
     pub dwType: NET_RESOURCE_TYPE,
     pub dwDisplayType: u32,
     pub dwUsage: u32,
-    pub lpLocalName: ::windows::core::PWSTR,
-    pub lpRemoteName: ::windows::core::PWSTR,
-    pub lpComment: ::windows::core::PWSTR,
-    pub lpProvider: ::windows::core::PWSTR,
+    pub lpLocalName: ::windows_core::PWSTR,
+    pub lpRemoteName: ::windows_core::PWSTR,
+    pub lpComment: ::windows_core::PWSTR,
+    pub lpProvider: ::windows_core::PWSTR,
 }
 impl ::core::marker::Copy for NETRESOURCEW {}
 impl ::core::clone::Clone for NETRESOURCEW {
@@ -1615,8 +1615,8 @@ impl ::core::fmt::Debug for NETRESOURCEW {
         f.debug_struct("NETRESOURCEW").field("dwScope", &self.dwScope).field("dwType", &self.dwType).field("dwDisplayType", &self.dwDisplayType).field("dwUsage", &self.dwUsage).field("lpLocalName", &self.lpLocalName).field("lpRemoteName", &self.lpRemoteName).field("lpComment", &self.lpComment).field("lpProvider", &self.lpProvider).finish()
     }
 }
-impl ::windows::core::TypeKind for NETRESOURCEW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NETRESOURCEW {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NETRESOURCEW {
     fn eq(&self, other: &Self) -> bool {
@@ -1652,8 +1652,8 @@ impl ::core::fmt::Debug for NOTIFYADD {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NOTIFYADD {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NOTIFYADD {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NOTIFYADD {
@@ -1673,8 +1673,8 @@ impl ::core::default::Default for NOTIFYADD {
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NOTIFYCANCEL {
-    pub lpName: ::windows::core::PWSTR,
-    pub lpProvider: ::windows::core::PWSTR,
+    pub lpName: ::windows_core::PWSTR,
+    pub lpProvider: ::windows_core::PWSTR,
     pub dwFlags: u32,
     pub fForce: super::super::Foundation::BOOL,
 }
@@ -1693,8 +1693,8 @@ impl ::core::fmt::Debug for NOTIFYCANCEL {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NOTIFYCANCEL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NOTIFYCANCEL {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NOTIFYCANCEL {
@@ -1728,8 +1728,8 @@ impl ::core::fmt::Debug for NOTIFYINFO {
         f.debug_struct("NOTIFYINFO").field("dwNotifyStatus", &self.dwNotifyStatus).field("dwOperationStatus", &self.dwOperationStatus).field("lpContext", &self.lpContext).finish()
     }
 }
-impl ::windows::core::TypeKind for NOTIFYINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NOTIFYINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for NOTIFYINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -1766,15 +1766,15 @@ impl ::core::fmt::Debug for NetEnumHandle {
         f.debug_tuple("NetEnumHandle").field(&self.0).finish()
     }
 }
-impl ::windows::core::TypeKind for NetEnumHandle {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NetEnumHandle {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 pub struct REMOTE_NAME_INFOA {
-    pub lpUniversalName: ::windows::core::PSTR,
-    pub lpConnectionName: ::windows::core::PSTR,
-    pub lpRemainingPath: ::windows::core::PSTR,
+    pub lpUniversalName: ::windows_core::PSTR,
+    pub lpConnectionName: ::windows_core::PSTR,
+    pub lpRemainingPath: ::windows_core::PSTR,
 }
 impl ::core::marker::Copy for REMOTE_NAME_INFOA {}
 impl ::core::clone::Clone for REMOTE_NAME_INFOA {
@@ -1787,8 +1787,8 @@ impl ::core::fmt::Debug for REMOTE_NAME_INFOA {
         f.debug_struct("REMOTE_NAME_INFOA").field("lpUniversalName", &self.lpUniversalName).field("lpConnectionName", &self.lpConnectionName).field("lpRemainingPath", &self.lpRemainingPath).finish()
     }
 }
-impl ::windows::core::TypeKind for REMOTE_NAME_INFOA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for REMOTE_NAME_INFOA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for REMOTE_NAME_INFOA {
     fn eq(&self, other: &Self) -> bool {
@@ -1804,9 +1804,9 @@ impl ::core::default::Default for REMOTE_NAME_INFOA {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 pub struct REMOTE_NAME_INFOW {
-    pub lpUniversalName: ::windows::core::PWSTR,
-    pub lpConnectionName: ::windows::core::PWSTR,
-    pub lpRemainingPath: ::windows::core::PWSTR,
+    pub lpUniversalName: ::windows_core::PWSTR,
+    pub lpConnectionName: ::windows_core::PWSTR,
+    pub lpRemainingPath: ::windows_core::PWSTR,
 }
 impl ::core::marker::Copy for REMOTE_NAME_INFOW {}
 impl ::core::clone::Clone for REMOTE_NAME_INFOW {
@@ -1819,8 +1819,8 @@ impl ::core::fmt::Debug for REMOTE_NAME_INFOW {
         f.debug_struct("REMOTE_NAME_INFOW").field("lpUniversalName", &self.lpUniversalName).field("lpConnectionName", &self.lpConnectionName).field("lpRemainingPath", &self.lpRemainingPath).finish()
     }
 }
-impl ::windows::core::TypeKind for REMOTE_NAME_INFOW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for REMOTE_NAME_INFOW {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for REMOTE_NAME_INFOW {
     fn eq(&self, other: &Self) -> bool {
@@ -1836,7 +1836,7 @@ impl ::core::default::Default for REMOTE_NAME_INFOW {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 pub struct UNIVERSAL_NAME_INFOA {
-    pub lpUniversalName: ::windows::core::PSTR,
+    pub lpUniversalName: ::windows_core::PSTR,
 }
 impl ::core::marker::Copy for UNIVERSAL_NAME_INFOA {}
 impl ::core::clone::Clone for UNIVERSAL_NAME_INFOA {
@@ -1849,8 +1849,8 @@ impl ::core::fmt::Debug for UNIVERSAL_NAME_INFOA {
         f.debug_struct("UNIVERSAL_NAME_INFOA").field("lpUniversalName", &self.lpUniversalName).finish()
     }
 }
-impl ::windows::core::TypeKind for UNIVERSAL_NAME_INFOA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for UNIVERSAL_NAME_INFOA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for UNIVERSAL_NAME_INFOA {
     fn eq(&self, other: &Self) -> bool {
@@ -1866,7 +1866,7 @@ impl ::core::default::Default for UNIVERSAL_NAME_INFOA {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 pub struct UNIVERSAL_NAME_INFOW {
-    pub lpUniversalName: ::windows::core::PWSTR,
+    pub lpUniversalName: ::windows_core::PWSTR,
 }
 impl ::core::marker::Copy for UNIVERSAL_NAME_INFOW {}
 impl ::core::clone::Clone for UNIVERSAL_NAME_INFOW {
@@ -1879,8 +1879,8 @@ impl ::core::fmt::Debug for UNIVERSAL_NAME_INFOW {
         f.debug_struct("UNIVERSAL_NAME_INFOW").field("lpUniversalName", &self.lpUniversalName).finish()
     }
 }
-impl ::windows::core::TypeKind for UNIVERSAL_NAME_INFOW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for UNIVERSAL_NAME_INFOW {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for UNIVERSAL_NAME_INFOW {
     fn eq(&self, other: &Self) -> bool {
@@ -1900,19 +1900,19 @@ pub type PF_AddConnectNotify = ::core::option::Option<unsafe extern "system" fn(
 #[cfg(feature = "Win32_Foundation")]
 pub type PF_CancelConnectNotify = ::core::option::Option<unsafe extern "system" fn(lpnotifyinfo: *mut NOTIFYINFO, lpcancelinfo: *const NOTIFYCANCEL) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub type PF_NPAddConnection = ::core::option::Option<unsafe extern "system" fn(lpnetresource: *const NETRESOURCEW, lppassword: ::windows::core::PCWSTR, lpusername: ::windows::core::PCWSTR) -> u32>;
+pub type PF_NPAddConnection = ::core::option::Option<unsafe extern "system" fn(lpnetresource: *const NETRESOURCEW, lppassword: ::windows_core::PCWSTR, lpusername: ::windows_core::PCWSTR) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PF_NPAddConnection3 = ::core::option::Option<unsafe extern "system" fn(hwndowner: super::super::Foundation::HWND, lpnetresource: *const NETRESOURCEW, lppassword: ::windows::core::PCWSTR, lpusername: ::windows::core::PCWSTR, dwflags: u32) -> u32>;
+pub type PF_NPAddConnection3 = ::core::option::Option<unsafe extern "system" fn(hwndowner: super::super::Foundation::HWND, lpnetresource: *const NETRESOURCEW, lppassword: ::windows_core::PCWSTR, lpusername: ::windows_core::PCWSTR, dwflags: u32) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PF_NPAddConnection4 = ::core::option::Option<unsafe extern "system" fn(hwndowner: super::super::Foundation::HWND, lpnetresource: *const NETRESOURCEW, lpauthbuffer: *const ::core::ffi::c_void, cbauthbuffer: u32, dwflags: u32, lpuseoptions: *const u8, cbuseoptions: u32) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PF_NPCancelConnection = ::core::option::Option<unsafe extern "system" fn(lpname: ::windows::core::PCWSTR, fforce: super::super::Foundation::BOOL) -> u32>;
+pub type PF_NPCancelConnection = ::core::option::Option<unsafe extern "system" fn(lpname: ::windows_core::PCWSTR, fforce: super::super::Foundation::BOOL) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PF_NPCancelConnection2 = ::core::option::Option<unsafe extern "system" fn(lpname: ::windows::core::PCWSTR, fforce: super::super::Foundation::BOOL, dwflags: u32) -> u32>;
+pub type PF_NPCancelConnection2 = ::core::option::Option<unsafe extern "system" fn(lpname: ::windows_core::PCWSTR, fforce: super::super::Foundation::BOOL, dwflags: u32) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PF_NPCloseEnum = ::core::option::Option<unsafe extern "system" fn(henum: super::super::Foundation::HANDLE) -> u32>;
@@ -1921,54 +1921,54 @@ pub type PF_NPCloseEnum = ::core::option::Option<unsafe extern "system" fn(henum
 pub type PF_NPDeviceMode = ::core::option::Option<unsafe extern "system" fn(hparent: super::super::Foundation::HWND) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PF_NPDirectoryNotify = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, lpdir: ::windows::core::PCWSTR, dwoper: u32) -> u32>;
+pub type PF_NPDirectoryNotify = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, lpdir: ::windows_core::PCWSTR, dwoper: u32) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PF_NPEnumResource = ::core::option::Option<unsafe extern "system" fn(henum: super::super::Foundation::HANDLE, lpccount: *mut u32, lpbuffer: *mut ::core::ffi::c_void, lpbuffersize: *mut u32) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PF_NPFMXEditPerm = ::core::option::Option<unsafe extern "system" fn(lpdrivename: ::windows::core::PCWSTR, hwndfmx: super::super::Foundation::HWND, ndialogtype: u32) -> u32>;
+pub type PF_NPFMXEditPerm = ::core::option::Option<unsafe extern "system" fn(lpdrivename: ::windows_core::PCWSTR, hwndfmx: super::super::Foundation::HWND, ndialogtype: u32) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub type PF_NPFMXGetPermCaps = ::core::option::Option<unsafe extern "system" fn(lpdrivename: ::windows::core::PCWSTR) -> u32>;
+pub type PF_NPFMXGetPermCaps = ::core::option::Option<unsafe extern "system" fn(lpdrivename: ::windows_core::PCWSTR) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PF_NPFMXGetPermHelp = ::core::option::Option<unsafe extern "system" fn(lpdrivename: ::windows::core::PCWSTR, ndialogtype: u32, fdirectory: super::super::Foundation::BOOL, lpfilenamebuffer: *mut ::core::ffi::c_void, lpbuffersize: *mut u32, lpnhelpcontext: *mut u32) -> u32>;
+pub type PF_NPFMXGetPermHelp = ::core::option::Option<unsafe extern "system" fn(lpdrivename: ::windows_core::PCWSTR, ndialogtype: u32, fdirectory: super::super::Foundation::BOOL, lpfilenamebuffer: *mut ::core::ffi::c_void, lpbuffersize: *mut u32, lpnhelpcontext: *mut u32) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub type PF_NPFormatNetworkName = ::core::option::Option<unsafe extern "system" fn(lpremotename: ::windows::core::PCWSTR, lpformattedname: ::windows::core::PWSTR, lpnlength: *mut u32, dwflags: u32, dwavecharperline: u32) -> u32>;
+pub type PF_NPFormatNetworkName = ::core::option::Option<unsafe extern "system" fn(lpremotename: ::windows_core::PCWSTR, lpformattedname: ::windows_core::PWSTR, lpnlength: *mut u32, dwflags: u32, dwavecharperline: u32) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 pub type PF_NPGetCaps = ::core::option::Option<unsafe extern "system" fn(ndex: u32) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub type PF_NPGetConnection = ::core::option::Option<unsafe extern "system" fn(lplocalname: ::windows::core::PCWSTR, lpremotename: ::windows::core::PWSTR, lpnbufferlen: *mut u32) -> u32>;
+pub type PF_NPGetConnection = ::core::option::Option<unsafe extern "system" fn(lplocalname: ::windows_core::PCWSTR, lpremotename: ::windows_core::PWSTR, lpnbufferlen: *mut u32) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub type PF_NPGetConnection3 = ::core::option::Option<unsafe extern "system" fn(lplocalname: ::windows::core::PCWSTR, dwlevel: u32, lpbuffer: *mut ::core::ffi::c_void, lpbuffersize: *mut u32) -> u32>;
+pub type PF_NPGetConnection3 = ::core::option::Option<unsafe extern "system" fn(lplocalname: ::windows_core::PCWSTR, dwlevel: u32, lpbuffer: *mut ::core::ffi::c_void, lpbuffersize: *mut u32) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub type PF_NPGetConnectionPerformance = ::core::option::Option<unsafe extern "system" fn(lpremotename: ::windows::core::PCWSTR, lpnetconnectinfo: *mut NETCONNECTINFOSTRUCT) -> u32>;
+pub type PF_NPGetConnectionPerformance = ::core::option::Option<unsafe extern "system" fn(lpremotename: ::windows_core::PCWSTR, lpnetconnectinfo: *mut NETCONNECTINFOSTRUCT) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PF_NPGetDirectoryType = ::core::option::Option<unsafe extern "system" fn(lpname: ::windows::core::PCWSTR, lptype: *const i32, bflushcache: super::super::Foundation::BOOL) -> u32>;
+pub type PF_NPGetDirectoryType = ::core::option::Option<unsafe extern "system" fn(lpname: ::windows_core::PCWSTR, lptype: *const i32, bflushcache: super::super::Foundation::BOOL) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub type PF_NPGetPersistentUseOptionsForConnection = ::core::option::Option<unsafe extern "system" fn(lpremotepath: ::windows::core::PCWSTR, lpreaduseoptions: *const u8, cbreaduseoptions: u32, lpwriteuseoptions: *mut u8, lpsizewriteuseoptions: *mut u32) -> u32>;
+pub type PF_NPGetPersistentUseOptionsForConnection = ::core::option::Option<unsafe extern "system" fn(lpremotepath: ::windows_core::PCWSTR, lpreaduseoptions: *const u8, cbreaduseoptions: u32, lpwriteuseoptions: *mut u8, lpsizewriteuseoptions: *mut u32) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub type PF_NPGetPropertyText = ::core::option::Option<unsafe extern "system" fn(ibutton: u32, npropsel: u32, lpname: ::windows::core::PCWSTR, lpbuttonname: ::windows::core::PWSTR, nbuttonnamelen: u32, ntype: u32) -> u32>;
+pub type PF_NPGetPropertyText = ::core::option::Option<unsafe extern "system" fn(ibutton: u32, npropsel: u32, lpname: ::windows_core::PCWSTR, lpbuttonname: ::windows_core::PWSTR, nbuttonnamelen: u32, ntype: u32) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub type PF_NPGetResourceInformation = ::core::option::Option<unsafe extern "system" fn(lpnetresource: *const NETRESOURCEW, lpbuffer: *mut ::core::ffi::c_void, lpbuffersize: *mut u32, lplpsystem: *mut ::windows::core::PWSTR) -> u32>;
+pub type PF_NPGetResourceInformation = ::core::option::Option<unsafe extern "system" fn(lpnetresource: *const NETRESOURCEW, lpbuffer: *mut ::core::ffi::c_void, lpbuffersize: *mut u32, lplpsystem: *mut ::windows_core::PWSTR) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 pub type PF_NPGetResourceParent = ::core::option::Option<unsafe extern "system" fn(lpnetresource: *const NETRESOURCEW, lpbuffer: *mut ::core::ffi::c_void, lpbuffersize: *mut u32) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub type PF_NPGetUniversalName = ::core::option::Option<unsafe extern "system" fn(lplocalpath: ::windows::core::PCWSTR, dwinfolevel: u32, lpbuffer: *mut ::core::ffi::c_void, lpnbuffersize: *mut u32) -> u32>;
+pub type PF_NPGetUniversalName = ::core::option::Option<unsafe extern "system" fn(lplocalpath: ::windows_core::PCWSTR, dwinfolevel: u32, lpbuffer: *mut ::core::ffi::c_void, lpnbuffersize: *mut u32) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub type PF_NPGetUser = ::core::option::Option<unsafe extern "system" fn(lpname: ::windows::core::PCWSTR, lpusername: ::windows::core::PWSTR, lpnbufferlen: *mut u32) -> u32>;
+pub type PF_NPGetUser = ::core::option::Option<unsafe extern "system" fn(lpname: ::windows_core::PCWSTR, lpusername: ::windows_core::PWSTR, lpnbufferlen: *mut u32) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PF_NPLogonNotify = ::core::option::Option<unsafe extern "system" fn(lplogonid: *const super::super::Foundation::LUID, lpauthentinfotype: ::windows::core::PCWSTR, lpauthentinfo: *const ::core::ffi::c_void, lppreviousauthentinfotype: ::windows::core::PCWSTR, lppreviousauthentinfo: *const ::core::ffi::c_void, lpstationname: ::windows::core::PCWSTR, stationhandle: *const ::core::ffi::c_void, lplogonscript: *mut ::windows::core::PWSTR) -> u32>;
+pub type PF_NPLogonNotify = ::core::option::Option<unsafe extern "system" fn(lplogonid: *const super::super::Foundation::LUID, lpauthentinfotype: ::windows_core::PCWSTR, lpauthentinfo: *const ::core::ffi::c_void, lppreviousauthentinfotype: ::windows_core::PCWSTR, lppreviousauthentinfo: *const ::core::ffi::c_void, lpstationname: ::windows_core::PCWSTR, stationhandle: *const ::core::ffi::c_void, lplogonscript: *mut ::windows_core::PWSTR) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PF_NPOpenEnum = ::core::option::Option<unsafe extern "system" fn(dwscope: u32, dwtype: u32, dwusage: u32, lpnetresource: *const NETRESOURCEW, lphenum: *mut super::super::Foundation::HANDLE) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub type PF_NPPasswordChangeNotify = ::core::option::Option<unsafe extern "system" fn(lpauthentinfotype: ::windows::core::PCWSTR, lpauthentinfo: *const ::core::ffi::c_void, lppreviousauthentinfotype: ::windows::core::PCWSTR, lppreviousauthentinfo: *const ::core::ffi::c_void, lpstationname: ::windows::core::PCWSTR, stationhandle: *const ::core::ffi::c_void, dwchangeinfo: u32) -> u32>;
+pub type PF_NPPasswordChangeNotify = ::core::option::Option<unsafe extern "system" fn(lpauthentinfotype: ::windows_core::PCWSTR, lpauthentinfo: *const ::core::ffi::c_void, lppreviousauthentinfotype: ::windows_core::PCWSTR, lppreviousauthentinfo: *const ::core::ffi::c_void, lpstationname: ::windows_core::PCWSTR, stationhandle: *const ::core::ffi::c_void, dwchangeinfo: u32) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PF_NPPropertyDialog = ::core::option::Option<unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, ibuttondlg: u32, npropsel: u32, lpfilename: ::windows::core::PCWSTR, ntype: u32) -> u32>;
+pub type PF_NPPropertyDialog = ::core::option::Option<unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, ibuttondlg: u32, npropsel: u32, lpfilename: ::windows_core::PCWSTR, ntype: u32) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PF_NPSearchDialog = ::core::option::Option<unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, lpnetresource: *const NETRESOURCEW, lpbuffer: *mut ::core::ffi::c_void, cbbuffer: u32, lpnflags: *mut u32) -> u32>;

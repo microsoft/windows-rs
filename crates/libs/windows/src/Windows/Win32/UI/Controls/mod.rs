@@ -7,8 +7,8 @@ pub mod RichEdit;
 #[inline]
 pub unsafe fn BeginBufferedAnimation<P0, P1>(hwnd: P0, hdctarget: P1, prctarget: *const super::super::Foundation::RECT, dwformat: BP_BUFFERFORMAT, ppaintparams: ::core::option::Option<*const BP_PAINTPARAMS>, panimationparams: *const BP_ANIMATIONPARAMS, phdcfrom: *mut super::super::Graphics::Gdi::HDC, phdcto: *mut super::super::Graphics::Gdi::HDC) -> isize
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<super::super::Graphics::Gdi::HDC>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
 {
     ::windows_targets::link!("uxtheme.dll" "system" fn BeginBufferedAnimation(hwnd : super::super::Foundation:: HWND, hdctarget : super::super::Graphics::Gdi:: HDC, prctarget : *const super::super::Foundation:: RECT, dwformat : BP_BUFFERFORMAT, ppaintparams : *const BP_PAINTPARAMS, panimationparams : *const BP_ANIMATIONPARAMS, phdcfrom : *mut super::super::Graphics::Gdi:: HDC, phdcto : *mut super::super::Graphics::Gdi:: HDC) -> isize);
     BeginBufferedAnimation(hwnd.into_param().abi(), hdctarget.into_param().abi(), prctarget, dwformat, ::core::mem::transmute(ppaintparams.unwrap_or(::std::ptr::null())), panimationparams, phdcfrom, phdcto)
@@ -18,7 +18,7 @@ where
 #[inline]
 pub unsafe fn BeginBufferedPaint<P0>(hdctarget: P0, prctarget: *const super::super::Foundation::RECT, dwformat: BP_BUFFERFORMAT, ppaintparams: ::core::option::Option<*const BP_PAINTPARAMS>, phdc: *mut super::super::Graphics::Gdi::HDC) -> isize
 where
-    P0: ::windows::core::IntoParam<super::super::Graphics::Gdi::HDC>,
+    P0: ::windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
 {
     ::windows_targets::link!("uxtheme.dll" "system" fn BeginBufferedPaint(hdctarget : super::super::Graphics::Gdi:: HDC, prctarget : *const super::super::Foundation:: RECT, dwformat : BP_BUFFERFORMAT, ppaintparams : *const BP_PAINTPARAMS, phdc : *mut super::super::Graphics::Gdi:: HDC) -> isize);
     BeginBufferedPaint(hdctarget.into_param().abi(), prctarget, dwformat, ::core::mem::transmute(ppaintparams.unwrap_or(::std::ptr::null())), phdc)
@@ -28,7 +28,7 @@ where
 #[inline]
 pub unsafe fn BeginPanningFeedback<P0>(hwnd: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("uxtheme.dll" "system" fn BeginPanningFeedback(hwnd : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
     BeginPanningFeedback(hwnd.into_param().abi())
@@ -36,14 +36,14 @@ where
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BufferedPaintClear(hbufferedpaint: isize, prc: ::core::option::Option<*const super::super::Foundation::RECT>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("uxtheme.dll" "system" fn BufferedPaintClear(hbufferedpaint : isize, prc : *const super::super::Foundation:: RECT) -> ::windows::core::HRESULT);
+pub unsafe fn BufferedPaintClear(hbufferedpaint: isize, prc: ::core::option::Option<*const super::super::Foundation::RECT>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("uxtheme.dll" "system" fn BufferedPaintClear(hbufferedpaint : isize, prc : *const super::super::Foundation:: RECT) -> ::windows_core::HRESULT);
     BufferedPaintClear(hbufferedpaint, ::core::mem::transmute(prc.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
-pub unsafe fn BufferedPaintInit() -> ::windows::core::Result<()> {
-    ::windows_targets::link!("uxtheme.dll" "system" fn BufferedPaintInit() -> ::windows::core::HRESULT);
+pub unsafe fn BufferedPaintInit() -> ::windows_core::Result<()> {
+    ::windows_targets::link!("uxtheme.dll" "system" fn BufferedPaintInit() -> ::windows_core::HRESULT);
     BufferedPaintInit().ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -51,8 +51,8 @@ pub unsafe fn BufferedPaintInit() -> ::windows::core::Result<()> {
 #[inline]
 pub unsafe fn BufferedPaintRenderAnimation<P0, P1>(hwnd: P0, hdctarget: P1) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<super::super::Graphics::Gdi::HDC>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
 {
     ::windows_targets::link!("uxtheme.dll" "system" fn BufferedPaintRenderAnimation(hwnd : super::super::Foundation:: HWND, hdctarget : super::super::Graphics::Gdi:: HDC) -> super::super::Foundation:: BOOL);
     BufferedPaintRenderAnimation(hwnd.into_param().abi(), hdctarget.into_param().abi())
@@ -60,24 +60,24 @@ where
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BufferedPaintSetAlpha(hbufferedpaint: isize, prc: ::core::option::Option<*const super::super::Foundation::RECT>, alpha: u8) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("uxtheme.dll" "system" fn BufferedPaintSetAlpha(hbufferedpaint : isize, prc : *const super::super::Foundation:: RECT, alpha : u8) -> ::windows::core::HRESULT);
+pub unsafe fn BufferedPaintSetAlpha(hbufferedpaint: isize, prc: ::core::option::Option<*const super::super::Foundation::RECT>, alpha: u8) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("uxtheme.dll" "system" fn BufferedPaintSetAlpha(hbufferedpaint : isize, prc : *const super::super::Foundation:: RECT, alpha : u8) -> ::windows_core::HRESULT);
     BufferedPaintSetAlpha(hbufferedpaint, ::core::mem::transmute(prc.unwrap_or(::std::ptr::null())), alpha).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BufferedPaintStopAllAnimations<P0>(hwnd: P0) -> ::windows::core::Result<()>
+pub unsafe fn BufferedPaintStopAllAnimations<P0>(hwnd: P0) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("uxtheme.dll" "system" fn BufferedPaintStopAllAnimations(hwnd : super::super::Foundation:: HWND) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("uxtheme.dll" "system" fn BufferedPaintStopAllAnimations(hwnd : super::super::Foundation:: HWND) -> ::windows_core::HRESULT);
     BufferedPaintStopAllAnimations(hwnd.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
-pub unsafe fn BufferedPaintUnInit() -> ::windows::core::Result<()> {
-    ::windows_targets::link!("uxtheme.dll" "system" fn BufferedPaintUnInit() -> ::windows::core::HRESULT);
+pub unsafe fn BufferedPaintUnInit() -> ::windows_core::Result<()> {
+    ::windows_targets::link!("uxtheme.dll" "system" fn BufferedPaintUnInit() -> ::windows_core::HRESULT);
     BufferedPaintUnInit().ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
@@ -85,7 +85,7 @@ pub unsafe fn BufferedPaintUnInit() -> ::windows::core::Result<()> {
 #[inline]
 pub unsafe fn CheckDlgButton<P0>(hdlg: P0, nidbutton: i32, ucheck: DLG_BUTTON_CHECK_STATE) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("user32.dll" "system" fn CheckDlgButton(hdlg : super::super::Foundation:: HWND, nidbutton : i32, ucheck : DLG_BUTTON_CHECK_STATE) -> super::super::Foundation:: BOOL);
     CheckDlgButton(hdlg.into_param().abi(), nidbutton, ucheck)
@@ -95,30 +95,30 @@ where
 #[inline]
 pub unsafe fn CheckRadioButton<P0>(hdlg: P0, nidfirstbutton: i32, nidlastbutton: i32, nidcheckbutton: i32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("user32.dll" "system" fn CheckRadioButton(hdlg : super::super::Foundation:: HWND, nidfirstbutton : i32, nidlastbutton : i32, nidcheckbutton : i32) -> super::super::Foundation:: BOOL);
     CheckRadioButton(hdlg.into_param().abi(), nidfirstbutton, nidlastbutton, nidcheckbutton)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
-pub unsafe fn CloseThemeData<P0>(htheme: P0) -> ::windows::core::Result<()>
+pub unsafe fn CloseThemeData<P0>(htheme: P0) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<HTHEME>,
+    P0: ::windows_core::IntoParam<HTHEME>,
 {
-    ::windows_targets::link!("uxtheme.dll" "system" fn CloseThemeData(htheme : HTHEME) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("uxtheme.dll" "system" fn CloseThemeData(htheme : HTHEME) -> ::windows_core::HRESULT);
     CloseThemeData(htheme.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn CreateMappedBitmap<P0>(hinstance: P0, idbitmap: isize, wflags: u32, lpcolormap: ::core::option::Option<*const COLORMAP>, inummaps: i32) -> ::windows::core::Result<super::super::Graphics::Gdi::HBITMAP>
+pub unsafe fn CreateMappedBitmap<P0>(hinstance: P0, idbitmap: isize, wflags: u32, lpcolormap: ::core::option::Option<*const COLORMAP>, inummaps: i32) -> ::windows_core::Result<super::super::Graphics::Gdi::HBITMAP>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HMODULE>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn CreateMappedBitmap(hinstance : super::super::Foundation:: HMODULE, idbitmap : isize, wflags : u32, lpcolormap : *const COLORMAP, inummaps : i32) -> super::super::Graphics::Gdi:: HBITMAP);
     let result__ = CreateMappedBitmap(hinstance.into_param().abi(), idbitmap, wflags, ::core::mem::transmute(lpcolormap.unwrap_or(::std::ptr::null())), inummaps);
-    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -139,10 +139,10 @@ pub unsafe fn CreatePropertySheetPageW(constpropsheetpagepointer: *mut PROPSHEET
 #[inline]
 pub unsafe fn CreateStatusWindowA<P0, P1>(style: i32, lpsztext: P0, hwndparent: P1, wid: u32) -> super::super::Foundation::HWND
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("comctl32.dll" "system" fn CreateStatusWindowA(style : i32, lpsztext : ::windows::core::PCSTR, hwndparent : super::super::Foundation:: HWND, wid : u32) -> super::super::Foundation:: HWND);
+    ::windows_targets::link!("comctl32.dll" "system" fn CreateStatusWindowA(style : i32, lpsztext : ::windows_core::PCSTR, hwndparent : super::super::Foundation:: HWND, wid : u32) -> super::super::Foundation:: HWND);
     CreateStatusWindowA(style, lpsztext.into_param().abi(), hwndparent.into_param().abi(), wid)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
@@ -150,27 +150,27 @@ where
 #[inline]
 pub unsafe fn CreateStatusWindowW<P0, P1>(style: i32, lpsztext: P0, hwndparent: P1, wid: u32) -> super::super::Foundation::HWND
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("comctl32.dll" "system" fn CreateStatusWindowW(style : i32, lpsztext : ::windows::core::PCWSTR, hwndparent : super::super::Foundation:: HWND, wid : u32) -> super::super::Foundation:: HWND);
+    ::windows_targets::link!("comctl32.dll" "system" fn CreateStatusWindowW(style : i32, lpsztext : ::windows_core::PCWSTR, hwndparent : super::super::Foundation:: HWND, wid : u32) -> super::super::Foundation:: HWND);
     CreateStatusWindowW(style, lpsztext.into_param().abi(), hwndparent.into_param().abi(), wid)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn CreateSyntheticPointerDevice(pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE, maxcount: u32, mode: POINTER_FEEDBACK_MODE) -> ::windows::core::Result<HSYNTHETICPOINTERDEVICE> {
+pub unsafe fn CreateSyntheticPointerDevice(pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE, maxcount: u32, mode: POINTER_FEEDBACK_MODE) -> ::windows_core::Result<HSYNTHETICPOINTERDEVICE> {
     ::windows_targets::link!("user32.dll" "system" fn CreateSyntheticPointerDevice(pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE, maxcount : u32, mode : POINTER_FEEDBACK_MODE) -> HSYNTHETICPOINTERDEVICE);
     let result__ = CreateSyntheticPointerDevice(pointertype, maxcount, mode);
-    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateToolbarEx<P0, P1>(hwnd: P0, ws: u32, wid: u32, nbitmaps: i32, hbminst: P1, wbmid: usize, lpbuttons: *mut TBBUTTON, inumbuttons: i32, dxbutton: i32, dybutton: i32, dxbitmap: i32, dybitmap: i32, ustructsize: u32) -> super::super::Foundation::HWND
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HMODULE>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn CreateToolbarEx(hwnd : super::super::Foundation:: HWND, ws : u32, wid : u32, nbitmaps : i32, hbminst : super::super::Foundation:: HMODULE, wbmid : usize, lpbuttons : *mut TBBUTTON, inumbuttons : i32, dxbutton : i32, dybutton : i32, dxbitmap : i32, dybitmap : i32, ustructsize : u32) -> super::super::Foundation:: HWND);
     CreateToolbarEx(hwnd.into_param().abi(), ws, wid, nbitmaps, hbminst.into_param().abi(), wbmid, lpbuttons, inumbuttons, dxbutton, dybutton, dxbitmap, dybitmap, ustructsize)
@@ -180,9 +180,9 @@ where
 #[inline]
 pub unsafe fn CreateUpDownControl<P0, P1, P2>(dwstyle: u32, x: i32, y: i32, cx: i32, cy: i32, hparent: P0, nid: i32, hinst: P1, hbuddy: P2, nupper: i32, nlower: i32, npos: i32) -> super::super::Foundation::HWND
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
-    P2: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HMODULE>,
+    P2: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn CreateUpDownControl(dwstyle : u32, x : i32, y : i32, cx : i32, cy : i32, hparent : super::super::Foundation:: HWND, nid : i32, hinst : super::super::Foundation:: HMODULE, hbuddy : super::super::Foundation:: HWND, nupper : i32, nlower : i32, npos : i32) -> super::super::Foundation:: HWND);
     CreateUpDownControl(dwstyle, x, y, cx, cy, hparent.into_param().abi(), nid, hinst.into_param().abi(), hbuddy.into_param().abi(), nupper, nlower, npos)
@@ -191,8 +191,8 @@ where
 #[inline]
 pub unsafe fn DPA_Clone<P0, P1>(hdpa: P0, hdpanew: P1) -> HDPA
 where
-    P0: ::windows::core::IntoParam<HDPA>,
-    P1: ::windows::core::IntoParam<HDPA>,
+    P0: ::windows_core::IntoParam<HDPA>,
+    P1: ::windows_core::IntoParam<HDPA>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn DPA_Clone(hdpa : HDPA, hdpanew : HDPA) -> HDPA);
     DPA_Clone(hdpa.into_param().abi(), hdpanew.into_param().abi())
@@ -208,7 +208,7 @@ pub unsafe fn DPA_Create(citemgrow: i32) -> HDPA {
 #[inline]
 pub unsafe fn DPA_CreateEx<P0>(cpgrow: i32, hheap: P0) -> HDPA
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn DPA_CreateEx(cpgrow : i32, hheap : super::super::Foundation:: HANDLE) -> HDPA);
     DPA_CreateEx(cpgrow, hheap.into_param().abi())
@@ -218,7 +218,7 @@ where
 #[inline]
 pub unsafe fn DPA_DeleteAllPtrs<P0>(hdpa: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<HDPA>,
+    P0: ::windows_core::IntoParam<HDPA>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn DPA_DeleteAllPtrs(hdpa : HDPA) -> super::super::Foundation:: BOOL);
     DPA_DeleteAllPtrs(hdpa.into_param().abi())
@@ -227,7 +227,7 @@ where
 #[inline]
 pub unsafe fn DPA_DeletePtr<P0>(hdpa: P0, i: i32) -> *mut ::core::ffi::c_void
 where
-    P0: ::windows::core::IntoParam<HDPA>,
+    P0: ::windows_core::IntoParam<HDPA>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn DPA_DeletePtr(hdpa : HDPA, i : i32) -> *mut ::core::ffi::c_void);
     DPA_DeletePtr(hdpa.into_param().abi(), i)
@@ -237,7 +237,7 @@ where
 #[inline]
 pub unsafe fn DPA_Destroy<P0>(hdpa: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<HDPA>,
+    P0: ::windows_core::IntoParam<HDPA>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn DPA_Destroy(hdpa : HDPA) -> super::super::Foundation:: BOOL);
     DPA_Destroy(hdpa.into_param().abi())
@@ -246,7 +246,7 @@ where
 #[inline]
 pub unsafe fn DPA_DestroyCallback<P0>(hdpa: P0, pfncb: PFNDAENUMCALLBACK, pdata: ::core::option::Option<*const ::core::ffi::c_void>)
 where
-    P0: ::windows::core::IntoParam<HDPA>,
+    P0: ::windows_core::IntoParam<HDPA>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn DPA_DestroyCallback(hdpa : HDPA, pfncb : PFNDAENUMCALLBACK, pdata : *const ::core::ffi::c_void) -> ());
     DPA_DestroyCallback(hdpa.into_param().abi(), pfncb, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null())))
@@ -255,7 +255,7 @@ where
 #[inline]
 pub unsafe fn DPA_EnumCallback<P0>(hdpa: P0, pfncb: PFNDAENUMCALLBACK, pdata: ::core::option::Option<*const ::core::ffi::c_void>)
 where
-    P0: ::windows::core::IntoParam<HDPA>,
+    P0: ::windows_core::IntoParam<HDPA>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn DPA_EnumCallback(hdpa : HDPA, pfncb : PFNDAENUMCALLBACK, pdata : *const ::core::ffi::c_void) -> ());
     DPA_EnumCallback(hdpa.into_param().abi(), pfncb, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null())))
@@ -264,7 +264,7 @@ where
 #[inline]
 pub unsafe fn DPA_GetPtr<P0>(hdpa: P0, i: isize) -> *mut ::core::ffi::c_void
 where
-    P0: ::windows::core::IntoParam<HDPA>,
+    P0: ::windows_core::IntoParam<HDPA>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn DPA_GetPtr(hdpa : HDPA, i : isize) -> *mut ::core::ffi::c_void);
     DPA_GetPtr(hdpa.into_param().abi(), i)
@@ -273,7 +273,7 @@ where
 #[inline]
 pub unsafe fn DPA_GetPtrIndex<P0>(hdpa: P0, p: ::core::option::Option<*const ::core::ffi::c_void>) -> i32
 where
-    P0: ::windows::core::IntoParam<HDPA>,
+    P0: ::windows_core::IntoParam<HDPA>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn DPA_GetPtrIndex(hdpa : HDPA, p : *const ::core::ffi::c_void) -> i32);
     DPA_GetPtrIndex(hdpa.into_param().abi(), ::core::mem::transmute(p.unwrap_or(::std::ptr::null())))
@@ -282,7 +282,7 @@ where
 #[inline]
 pub unsafe fn DPA_GetSize<P0>(hdpa: P0) -> u64
 where
-    P0: ::windows::core::IntoParam<HDPA>,
+    P0: ::windows_core::IntoParam<HDPA>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn DPA_GetSize(hdpa : HDPA) -> u64);
     DPA_GetSize(hdpa.into_param().abi())
@@ -292,7 +292,7 @@ where
 #[inline]
 pub unsafe fn DPA_Grow<P0>(pdpa: P0, cp: i32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<HDPA>,
+    P0: ::windows_core::IntoParam<HDPA>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn DPA_Grow(pdpa : HDPA, cp : i32) -> super::super::Foundation:: BOOL);
     DPA_Grow(pdpa.into_param().abi(), cp)
@@ -301,7 +301,7 @@ where
 #[inline]
 pub unsafe fn DPA_InsertPtr<P0>(hdpa: P0, i: i32, p: ::core::option::Option<*const ::core::ffi::c_void>) -> i32
 where
-    P0: ::windows::core::IntoParam<HDPA>,
+    P0: ::windows_core::IntoParam<HDPA>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn DPA_InsertPtr(hdpa : HDPA, i : i32, p : *const ::core::ffi::c_void) -> i32);
     DPA_InsertPtr(hdpa.into_param().abi(), i, ::core::mem::transmute(p.unwrap_or(::std::ptr::null())))
@@ -309,11 +309,11 @@ where
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn DPA_LoadStream<P0>(phdpa: *mut HDPA, pfn: PFNDPASTREAM, pstream: P0, pvinstdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()>
+pub unsafe fn DPA_LoadStream<P0>(phdpa: *mut HDPA, pfn: PFNDPASTREAM, pstream: P0, pvinstdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::System::Com::IStream>,
+    P0: ::windows_core::IntoParam<super::super::System::Com::IStream>,
 {
-    ::windows_targets::link!("comctl32.dll" "system" fn DPA_LoadStream(phdpa : *mut HDPA, pfn : PFNDPASTREAM, pstream : * mut::core::ffi::c_void, pvinstdata : *const ::core::ffi::c_void) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("comctl32.dll" "system" fn DPA_LoadStream(phdpa : *mut HDPA, pfn : PFNDPASTREAM, pstream : * mut::core::ffi::c_void, pvinstdata : *const ::core::ffi::c_void) -> ::windows_core::HRESULT);
     DPA_LoadStream(phdpa, pfn, pstream.into_param().abi(), ::core::mem::transmute(pvinstdata.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
@@ -321,9 +321,9 @@ where
 #[inline]
 pub unsafe fn DPA_Merge<P0, P1, P2>(hdpadest: P0, hdpasrc: P1, dwflags: u32, pfncompare: PFNDACOMPARE, pfnmerge: PFNDPAMERGE, lparam: P2) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<HDPA>,
-    P1: ::windows::core::IntoParam<HDPA>,
-    P2: ::windows::core::IntoParam<super::super::Foundation::LPARAM>,
+    P0: ::windows_core::IntoParam<HDPA>,
+    P1: ::windows_core::IntoParam<HDPA>,
+    P2: ::windows_core::IntoParam<super::super::Foundation::LPARAM>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn DPA_Merge(hdpadest : HDPA, hdpasrc : HDPA, dwflags : u32, pfncompare : PFNDACOMPARE, pfnmerge : PFNDPAMERGE, lparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
     DPA_Merge(hdpadest.into_param().abi(), hdpasrc.into_param().abi(), dwflags, pfncompare, pfnmerge, lparam.into_param().abi())
@@ -331,12 +331,12 @@ where
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn DPA_SaveStream<P0, P1>(hdpa: P0, pfn: PFNDPASTREAM, pstream: P1, pvinstdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()>
+pub unsafe fn DPA_SaveStream<P0, P1>(hdpa: P0, pfn: PFNDPASTREAM, pstream: P1, pvinstdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<HDPA>,
-    P1: ::windows::core::IntoParam<super::super::System::Com::IStream>,
+    P0: ::windows_core::IntoParam<HDPA>,
+    P1: ::windows_core::IntoParam<super::super::System::Com::IStream>,
 {
-    ::windows_targets::link!("comctl32.dll" "system" fn DPA_SaveStream(hdpa : HDPA, pfn : PFNDPASTREAM, pstream : * mut::core::ffi::c_void, pvinstdata : *const ::core::ffi::c_void) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("comctl32.dll" "system" fn DPA_SaveStream(hdpa : HDPA, pfn : PFNDPASTREAM, pstream : * mut::core::ffi::c_void, pvinstdata : *const ::core::ffi::c_void) -> ::windows_core::HRESULT);
     DPA_SaveStream(hdpa.into_param().abi(), pfn, pstream.into_param().abi(), ::core::mem::transmute(pvinstdata.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
@@ -344,8 +344,8 @@ where
 #[inline]
 pub unsafe fn DPA_Search<P0, P1>(hdpa: P0, pfind: ::core::option::Option<*const ::core::ffi::c_void>, istart: i32, pfncompare: PFNDACOMPARE, lparam: P1, options: u32) -> i32
 where
-    P0: ::windows::core::IntoParam<HDPA>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::LPARAM>,
+    P0: ::windows_core::IntoParam<HDPA>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::LPARAM>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn DPA_Search(hdpa : HDPA, pfind : *const ::core::ffi::c_void, istart : i32, pfncompare : PFNDACOMPARE, lparam : super::super::Foundation:: LPARAM, options : u32) -> i32);
     DPA_Search(hdpa.into_param().abi(), ::core::mem::transmute(pfind.unwrap_or(::std::ptr::null())), istart, pfncompare, lparam.into_param().abi(), options)
@@ -355,7 +355,7 @@ where
 #[inline]
 pub unsafe fn DPA_SetPtr<P0>(hdpa: P0, i: i32, p: ::core::option::Option<*const ::core::ffi::c_void>) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<HDPA>,
+    P0: ::windows_core::IntoParam<HDPA>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn DPA_SetPtr(hdpa : HDPA, i : i32, p : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     DPA_SetPtr(hdpa.into_param().abi(), i, ::core::mem::transmute(p.unwrap_or(::std::ptr::null())))
@@ -365,8 +365,8 @@ where
 #[inline]
 pub unsafe fn DPA_Sort<P0, P1>(hdpa: P0, pfncompare: PFNDACOMPARE, lparam: P1) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<HDPA>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::LPARAM>,
+    P0: ::windows_core::IntoParam<HDPA>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::LPARAM>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn DPA_Sort(hdpa : HDPA, pfncompare : PFNDACOMPARE, lparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
     DPA_Sort(hdpa.into_param().abi(), pfncompare, lparam.into_param().abi())
@@ -375,7 +375,7 @@ where
 #[inline]
 pub unsafe fn DSA_Clone<P0>(hdsa: P0) -> HDSA
 where
-    P0: ::windows::core::IntoParam<HDSA>,
+    P0: ::windows_core::IntoParam<HDSA>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn DSA_Clone(hdsa : HDSA) -> HDSA);
     DSA_Clone(hdsa.into_param().abi())
@@ -391,7 +391,7 @@ pub unsafe fn DSA_Create(cbitem: i32, citemgrow: i32) -> HDSA {
 #[inline]
 pub unsafe fn DSA_DeleteAllItems<P0>(hdsa: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<HDSA>,
+    P0: ::windows_core::IntoParam<HDSA>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn DSA_DeleteAllItems(hdsa : HDSA) -> super::super::Foundation:: BOOL);
     DSA_DeleteAllItems(hdsa.into_param().abi())
@@ -401,7 +401,7 @@ where
 #[inline]
 pub unsafe fn DSA_DeleteItem<P0>(hdsa: P0, i: i32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<HDSA>,
+    P0: ::windows_core::IntoParam<HDSA>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn DSA_DeleteItem(hdsa : HDSA, i : i32) -> super::super::Foundation:: BOOL);
     DSA_DeleteItem(hdsa.into_param().abi(), i)
@@ -411,7 +411,7 @@ where
 #[inline]
 pub unsafe fn DSA_Destroy<P0>(hdsa: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<HDSA>,
+    P0: ::windows_core::IntoParam<HDSA>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn DSA_Destroy(hdsa : HDSA) -> super::super::Foundation:: BOOL);
     DSA_Destroy(hdsa.into_param().abi())
@@ -420,7 +420,7 @@ where
 #[inline]
 pub unsafe fn DSA_DestroyCallback<P0>(hdsa: P0, pfncb: PFNDAENUMCALLBACK, pdata: ::core::option::Option<*const ::core::ffi::c_void>)
 where
-    P0: ::windows::core::IntoParam<HDSA>,
+    P0: ::windows_core::IntoParam<HDSA>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn DSA_DestroyCallback(hdsa : HDSA, pfncb : PFNDAENUMCALLBACK, pdata : *const ::core::ffi::c_void) -> ());
     DSA_DestroyCallback(hdsa.into_param().abi(), pfncb, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null())))
@@ -429,7 +429,7 @@ where
 #[inline]
 pub unsafe fn DSA_EnumCallback<P0>(hdsa: P0, pfncb: PFNDAENUMCALLBACK, pdata: ::core::option::Option<*const ::core::ffi::c_void>)
 where
-    P0: ::windows::core::IntoParam<HDSA>,
+    P0: ::windows_core::IntoParam<HDSA>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn DSA_EnumCallback(hdsa : HDSA, pfncb : PFNDAENUMCALLBACK, pdata : *const ::core::ffi::c_void) -> ());
     DSA_EnumCallback(hdsa.into_param().abi(), pfncb, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null())))
@@ -439,7 +439,7 @@ where
 #[inline]
 pub unsafe fn DSA_GetItem<P0>(hdsa: P0, i: i32, pitem: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<HDSA>,
+    P0: ::windows_core::IntoParam<HDSA>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn DSA_GetItem(hdsa : HDSA, i : i32, pitem : *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     DSA_GetItem(hdsa.into_param().abi(), i, pitem)
@@ -448,7 +448,7 @@ where
 #[inline]
 pub unsafe fn DSA_GetItemPtr<P0>(hdsa: P0, i: i32) -> *mut ::core::ffi::c_void
 where
-    P0: ::windows::core::IntoParam<HDSA>,
+    P0: ::windows_core::IntoParam<HDSA>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn DSA_GetItemPtr(hdsa : HDSA, i : i32) -> *mut ::core::ffi::c_void);
     DSA_GetItemPtr(hdsa.into_param().abi(), i)
@@ -457,7 +457,7 @@ where
 #[inline]
 pub unsafe fn DSA_GetSize<P0>(hdsa: P0) -> u64
 where
-    P0: ::windows::core::IntoParam<HDSA>,
+    P0: ::windows_core::IntoParam<HDSA>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn DSA_GetSize(hdsa : HDSA) -> u64);
     DSA_GetSize(hdsa.into_param().abi())
@@ -466,7 +466,7 @@ where
 #[inline]
 pub unsafe fn DSA_InsertItem<P0>(hdsa: P0, i: i32, pitem: *const ::core::ffi::c_void) -> i32
 where
-    P0: ::windows::core::IntoParam<HDSA>,
+    P0: ::windows_core::IntoParam<HDSA>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn DSA_InsertItem(hdsa : HDSA, i : i32, pitem : *const ::core::ffi::c_void) -> i32);
     DSA_InsertItem(hdsa.into_param().abi(), i, pitem)
@@ -476,7 +476,7 @@ where
 #[inline]
 pub unsafe fn DSA_SetItem<P0>(hdsa: P0, i: i32, pitem: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<HDSA>,
+    P0: ::windows_core::IntoParam<HDSA>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn DSA_SetItem(hdsa : HDSA, i : i32, pitem : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     DSA_SetItem(hdsa.into_param().abi(), i, pitem)
@@ -486,8 +486,8 @@ where
 #[inline]
 pub unsafe fn DSA_Sort<P0, P1>(pdsa: P0, pfncompare: PFNDACOMPARE, lparam: P1) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<HDSA>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::LPARAM>,
+    P0: ::windows_core::IntoParam<HDSA>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::LPARAM>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn DSA_Sort(pdsa : HDSA, pfncompare : PFNDACOMPARE, lparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
     DSA_Sort(pdsa.into_param().abi(), pfncompare, lparam.into_param().abi())
@@ -497,7 +497,7 @@ where
 #[inline]
 pub unsafe fn DestroyPropertySheetPage<P0>(param0: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<HPROPSHEETPAGE>,
+    P0: ::windows_core::IntoParam<HPROPSHEETPAGE>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn DestroyPropertySheetPage(param0 : HPROPSHEETPAGE) -> super::super::Foundation:: BOOL);
     DestroyPropertySheetPage(param0.into_param().abi())
@@ -506,7 +506,7 @@ where
 #[inline]
 pub unsafe fn DestroySyntheticPointerDevice<P0>(device: P0)
 where
-    P0: ::windows::core::IntoParam<HSYNTHETICPOINTERDEVICE>,
+    P0: ::windows_core::IntoParam<HSYNTHETICPOINTERDEVICE>,
 {
     ::windows_targets::link!("user32.dll" "system" fn DestroySyntheticPointerDevice(device : HSYNTHETICPOINTERDEVICE) -> ());
     DestroySyntheticPointerDevice(device.into_param().abi())
@@ -514,41 +514,41 @@ where
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DlgDirListA<P0>(hdlg: P0, lppathspec: ::windows::core::PSTR, nidlistbox: i32, nidstaticpath: i32, ufiletype: DLG_DIR_LIST_FILE_TYPE) -> i32
+pub unsafe fn DlgDirListA<P0>(hdlg: P0, lppathspec: ::windows_core::PSTR, nidlistbox: i32, nidstaticpath: i32, ufiletype: DLG_DIR_LIST_FILE_TYPE) -> i32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("user32.dll" "system" fn DlgDirListA(hdlg : super::super::Foundation:: HWND, lppathspec : ::windows::core::PSTR, nidlistbox : i32, nidstaticpath : i32, ufiletype : DLG_DIR_LIST_FILE_TYPE) -> i32);
+    ::windows_targets::link!("user32.dll" "system" fn DlgDirListA(hdlg : super::super::Foundation:: HWND, lppathspec : ::windows_core::PSTR, nidlistbox : i32, nidstaticpath : i32, ufiletype : DLG_DIR_LIST_FILE_TYPE) -> i32);
     DlgDirListA(hdlg.into_param().abi(), ::core::mem::transmute(lppathspec), nidlistbox, nidstaticpath, ufiletype)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DlgDirListComboBoxA<P0>(hdlg: P0, lppathspec: ::windows::core::PSTR, nidcombobox: i32, nidstaticpath: i32, ufiletype: DLG_DIR_LIST_FILE_TYPE) -> i32
+pub unsafe fn DlgDirListComboBoxA<P0>(hdlg: P0, lppathspec: ::windows_core::PSTR, nidcombobox: i32, nidstaticpath: i32, ufiletype: DLG_DIR_LIST_FILE_TYPE) -> i32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("user32.dll" "system" fn DlgDirListComboBoxA(hdlg : super::super::Foundation:: HWND, lppathspec : ::windows::core::PSTR, nidcombobox : i32, nidstaticpath : i32, ufiletype : DLG_DIR_LIST_FILE_TYPE) -> i32);
+    ::windows_targets::link!("user32.dll" "system" fn DlgDirListComboBoxA(hdlg : super::super::Foundation:: HWND, lppathspec : ::windows_core::PSTR, nidcombobox : i32, nidstaticpath : i32, ufiletype : DLG_DIR_LIST_FILE_TYPE) -> i32);
     DlgDirListComboBoxA(hdlg.into_param().abi(), ::core::mem::transmute(lppathspec), nidcombobox, nidstaticpath, ufiletype)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DlgDirListComboBoxW<P0>(hdlg: P0, lppathspec: ::windows::core::PWSTR, nidcombobox: i32, nidstaticpath: i32, ufiletype: DLG_DIR_LIST_FILE_TYPE) -> i32
+pub unsafe fn DlgDirListComboBoxW<P0>(hdlg: P0, lppathspec: ::windows_core::PWSTR, nidcombobox: i32, nidstaticpath: i32, ufiletype: DLG_DIR_LIST_FILE_TYPE) -> i32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("user32.dll" "system" fn DlgDirListComboBoxW(hdlg : super::super::Foundation:: HWND, lppathspec : ::windows::core::PWSTR, nidcombobox : i32, nidstaticpath : i32, ufiletype : DLG_DIR_LIST_FILE_TYPE) -> i32);
+    ::windows_targets::link!("user32.dll" "system" fn DlgDirListComboBoxW(hdlg : super::super::Foundation:: HWND, lppathspec : ::windows_core::PWSTR, nidcombobox : i32, nidstaticpath : i32, ufiletype : DLG_DIR_LIST_FILE_TYPE) -> i32);
     DlgDirListComboBoxW(hdlg.into_param().abi(), ::core::mem::transmute(lppathspec), nidcombobox, nidstaticpath, ufiletype)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DlgDirListW<P0>(hdlg: P0, lppathspec: ::windows::core::PWSTR, nidlistbox: i32, nidstaticpath: i32, ufiletype: DLG_DIR_LIST_FILE_TYPE) -> i32
+pub unsafe fn DlgDirListW<P0>(hdlg: P0, lppathspec: ::windows_core::PWSTR, nidlistbox: i32, nidstaticpath: i32, ufiletype: DLG_DIR_LIST_FILE_TYPE) -> i32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("user32.dll" "system" fn DlgDirListW(hdlg : super::super::Foundation:: HWND, lppathspec : ::windows::core::PWSTR, nidlistbox : i32, nidstaticpath : i32, ufiletype : DLG_DIR_LIST_FILE_TYPE) -> i32);
+    ::windows_targets::link!("user32.dll" "system" fn DlgDirListW(hdlg : super::super::Foundation:: HWND, lppathspec : ::windows_core::PWSTR, nidlistbox : i32, nidstaticpath : i32, ufiletype : DLG_DIR_LIST_FILE_TYPE) -> i32);
     DlgDirListW(hdlg.into_param().abi(), ::core::mem::transmute(lppathspec), nidlistbox, nidstaticpath, ufiletype)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
@@ -556,9 +556,9 @@ where
 #[inline]
 pub unsafe fn DlgDirSelectComboBoxExA<P0>(hwnddlg: P0, lpstring: &mut [u8], idcombobox: i32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("user32.dll" "system" fn DlgDirSelectComboBoxExA(hwnddlg : super::super::Foundation:: HWND, lpstring : ::windows::core::PSTR, cchout : i32, idcombobox : i32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("user32.dll" "system" fn DlgDirSelectComboBoxExA(hwnddlg : super::super::Foundation:: HWND, lpstring : ::windows_core::PSTR, cchout : i32, idcombobox : i32) -> super::super::Foundation:: BOOL);
     DlgDirSelectComboBoxExA(hwnddlg.into_param().abi(), ::core::mem::transmute(lpstring.as_ptr()), lpstring.len() as _, idcombobox)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
@@ -566,9 +566,9 @@ where
 #[inline]
 pub unsafe fn DlgDirSelectComboBoxExW<P0>(hwnddlg: P0, lpstring: &mut [u16], idcombobox: i32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("user32.dll" "system" fn DlgDirSelectComboBoxExW(hwnddlg : super::super::Foundation:: HWND, lpstring : ::windows::core::PWSTR, cchout : i32, idcombobox : i32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("user32.dll" "system" fn DlgDirSelectComboBoxExW(hwnddlg : super::super::Foundation:: HWND, lpstring : ::windows_core::PWSTR, cchout : i32, idcombobox : i32) -> super::super::Foundation:: BOOL);
     DlgDirSelectComboBoxExW(hwnddlg.into_param().abi(), ::core::mem::transmute(lpstring.as_ptr()), lpstring.len() as _, idcombobox)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
@@ -576,9 +576,9 @@ where
 #[inline]
 pub unsafe fn DlgDirSelectExA<P0>(hwnddlg: P0, lpstring: &mut [u8], idlistbox: i32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("user32.dll" "system" fn DlgDirSelectExA(hwnddlg : super::super::Foundation:: HWND, lpstring : ::windows::core::PSTR, chcount : i32, idlistbox : i32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("user32.dll" "system" fn DlgDirSelectExA(hwnddlg : super::super::Foundation:: HWND, lpstring : ::windows_core::PSTR, chcount : i32, idlistbox : i32) -> super::super::Foundation:: BOOL);
     DlgDirSelectExA(hwnddlg.into_param().abi(), ::core::mem::transmute(lpstring.as_ptr()), lpstring.len() as _, idlistbox)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
@@ -586,9 +586,9 @@ where
 #[inline]
 pub unsafe fn DlgDirSelectExW<P0>(hwnddlg: P0, lpstring: &mut [u16], idlistbox: i32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("user32.dll" "system" fn DlgDirSelectExW(hwnddlg : super::super::Foundation:: HWND, lpstring : ::windows::core::PWSTR, chcount : i32, idlistbox : i32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("user32.dll" "system" fn DlgDirSelectExW(hwnddlg : super::super::Foundation:: HWND, lpstring : ::windows_core::PWSTR, chcount : i32, idlistbox : i32) -> super::super::Foundation:: BOOL);
     DlgDirSelectExW(hwnddlg.into_param().abi(), ::core::mem::transmute(lpstring.as_ptr()), lpstring.len() as _, idlistbox)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
@@ -596,8 +596,8 @@ where
 #[inline]
 pub unsafe fn DrawInsert<P0, P1>(handparent: P0, hlb: P1, nitem: i32)
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn DrawInsert(handparent : super::super::Foundation:: HWND, hlb : super::super::Foundation:: HWND, nitem : i32) -> ());
     DrawInsert(handparent.into_param().abi(), hlb.into_param().abi(), nitem)
@@ -607,11 +607,11 @@ where
 #[inline]
 pub unsafe fn DrawShadowText<P0, P1, P2>(hdc: P0, psztext: &[u16], prc: *const super::super::Foundation::RECT, dwflags: u32, crtext: P1, crshadow: P2, ixoffset: i32, iyoffset: i32) -> i32
 where
-    P0: ::windows::core::IntoParam<super::super::Graphics::Gdi::HDC>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::COLORREF>,
-    P2: ::windows::core::IntoParam<super::super::Foundation::COLORREF>,
+    P0: ::windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::COLORREF>,
+    P2: ::windows_core::IntoParam<super::super::Foundation::COLORREF>,
 {
-    ::windows_targets::link!("comctl32.dll" "system" fn DrawShadowText(hdc : super::super::Graphics::Gdi:: HDC, psztext : ::windows::core::PCWSTR, cch : u32, prc : *const super::super::Foundation:: RECT, dwflags : u32, crtext : super::super::Foundation:: COLORREF, crshadow : super::super::Foundation:: COLORREF, ixoffset : i32, iyoffset : i32) -> i32);
+    ::windows_targets::link!("comctl32.dll" "system" fn DrawShadowText(hdc : super::super::Graphics::Gdi:: HDC, psztext : ::windows_core::PCWSTR, cch : u32, prc : *const super::super::Foundation:: RECT, dwflags : u32, crtext : super::super::Foundation:: COLORREF, crshadow : super::super::Foundation:: COLORREF, ixoffset : i32, iyoffset : i32) -> i32);
     DrawShadowText(hdc.into_param().abi(), ::core::mem::transmute(psztext.as_ptr()), psztext.len() as _, prc, dwflags, crtext.into_param().abi(), crshadow.into_param().abi(), ixoffset, iyoffset)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -619,10 +619,10 @@ where
 #[inline]
 pub unsafe fn DrawStatusTextA<P0, P1>(hdc: P0, lprc: *mut super::super::Foundation::RECT, psztext: P1, uflags: u32)
 where
-    P0: ::windows::core::IntoParam<super::super::Graphics::Gdi::HDC>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P0: ::windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("comctl32.dll" "system" fn DrawStatusTextA(hdc : super::super::Graphics::Gdi:: HDC, lprc : *mut super::super::Foundation:: RECT, psztext : ::windows::core::PCSTR, uflags : u32) -> ());
+    ::windows_targets::link!("comctl32.dll" "system" fn DrawStatusTextA(hdc : super::super::Graphics::Gdi:: HDC, lprc : *mut super::super::Foundation:: RECT, psztext : ::windows_core::PCSTR, uflags : u32) -> ());
     DrawStatusTextA(hdc.into_param().abi(), lprc, psztext.into_param().abi(), uflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -630,99 +630,99 @@ where
 #[inline]
 pub unsafe fn DrawStatusTextW<P0, P1>(hdc: P0, lprc: *mut super::super::Foundation::RECT, psztext: P1, uflags: u32)
 where
-    P0: ::windows::core::IntoParam<super::super::Graphics::Gdi::HDC>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("comctl32.dll" "system" fn DrawStatusTextW(hdc : super::super::Graphics::Gdi:: HDC, lprc : *mut super::super::Foundation:: RECT, psztext : ::windows::core::PCWSTR, uflags : u32) -> ());
+    ::windows_targets::link!("comctl32.dll" "system" fn DrawStatusTextW(hdc : super::super::Graphics::Gdi:: HDC, lprc : *mut super::super::Foundation:: RECT, psztext : ::windows_core::PCWSTR, uflags : u32) -> ());
     DrawStatusTextW(hdc.into_param().abi(), lprc, psztext.into_param().abi(), uflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn DrawThemeBackground<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, prect: *const super::super::Foundation::RECT, pcliprect: ::core::option::Option<*const super::super::Foundation::RECT>) -> ::windows::core::Result<()>
+pub unsafe fn DrawThemeBackground<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, prect: *const super::super::Foundation::RECT, pcliprect: ::core::option::Option<*const super::super::Foundation::RECT>) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<HTHEME>,
-    P1: ::windows::core::IntoParam<super::super::Graphics::Gdi::HDC>,
+    P0: ::windows_core::IntoParam<HTHEME>,
+    P1: ::windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
 {
-    ::windows_targets::link!("uxtheme.dll" "system" fn DrawThemeBackground(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, prect : *const super::super::Foundation:: RECT, pcliprect : *const super::super::Foundation:: RECT) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("uxtheme.dll" "system" fn DrawThemeBackground(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, prect : *const super::super::Foundation:: RECT, pcliprect : *const super::super::Foundation:: RECT) -> ::windows_core::HRESULT);
     DrawThemeBackground(htheme.into_param().abi(), hdc.into_param().abi(), ipartid, istateid, prect, ::core::mem::transmute(pcliprect.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn DrawThemeBackgroundEx<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, prect: *const super::super::Foundation::RECT, poptions: ::core::option::Option<*const DTBGOPTS>) -> ::windows::core::Result<()>
+pub unsafe fn DrawThemeBackgroundEx<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, prect: *const super::super::Foundation::RECT, poptions: ::core::option::Option<*const DTBGOPTS>) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<HTHEME>,
-    P1: ::windows::core::IntoParam<super::super::Graphics::Gdi::HDC>,
+    P0: ::windows_core::IntoParam<HTHEME>,
+    P1: ::windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
 {
-    ::windows_targets::link!("uxtheme.dll" "system" fn DrawThemeBackgroundEx(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, prect : *const super::super::Foundation:: RECT, poptions : *const DTBGOPTS) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("uxtheme.dll" "system" fn DrawThemeBackgroundEx(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, prect : *const super::super::Foundation:: RECT, poptions : *const DTBGOPTS) -> ::windows_core::HRESULT);
     DrawThemeBackgroundEx(htheme.into_param().abi(), hdc.into_param().abi(), ipartid, istateid, prect, ::core::mem::transmute(poptions.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn DrawThemeEdge<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, pdestrect: *const super::super::Foundation::RECT, uedge: super::super::Graphics::Gdi::DRAWEDGE_FLAGS, uflags: super::super::Graphics::Gdi::DRAW_EDGE_FLAGS, pcontentrect: ::core::option::Option<*mut super::super::Foundation::RECT>) -> ::windows::core::Result<()>
+pub unsafe fn DrawThemeEdge<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, pdestrect: *const super::super::Foundation::RECT, uedge: super::super::Graphics::Gdi::DRAWEDGE_FLAGS, uflags: super::super::Graphics::Gdi::DRAW_EDGE_FLAGS, pcontentrect: ::core::option::Option<*mut super::super::Foundation::RECT>) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<HTHEME>,
-    P1: ::windows::core::IntoParam<super::super::Graphics::Gdi::HDC>,
+    P0: ::windows_core::IntoParam<HTHEME>,
+    P1: ::windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
 {
-    ::windows_targets::link!("uxtheme.dll" "system" fn DrawThemeEdge(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, pdestrect : *const super::super::Foundation:: RECT, uedge : super::super::Graphics::Gdi:: DRAWEDGE_FLAGS, uflags : super::super::Graphics::Gdi:: DRAW_EDGE_FLAGS, pcontentrect : *mut super::super::Foundation:: RECT) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("uxtheme.dll" "system" fn DrawThemeEdge(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, pdestrect : *const super::super::Foundation:: RECT, uedge : super::super::Graphics::Gdi:: DRAWEDGE_FLAGS, uflags : super::super::Graphics::Gdi:: DRAW_EDGE_FLAGS, pcontentrect : *mut super::super::Foundation:: RECT) -> ::windows_core::HRESULT);
     DrawThemeEdge(htheme.into_param().abi(), hdc.into_param().abi(), ipartid, istateid, pdestrect, uedge, uflags, ::core::mem::transmute(pcontentrect.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn DrawThemeIcon<P0, P1, P2>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, prect: *const super::super::Foundation::RECT, himl: P2, iimageindex: i32) -> ::windows::core::Result<()>
+pub unsafe fn DrawThemeIcon<P0, P1, P2>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, prect: *const super::super::Foundation::RECT, himl: P2, iimageindex: i32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<HTHEME>,
-    P1: ::windows::core::IntoParam<super::super::Graphics::Gdi::HDC>,
-    P2: ::windows::core::IntoParam<HIMAGELIST>,
+    P0: ::windows_core::IntoParam<HTHEME>,
+    P1: ::windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
+    P2: ::windows_core::IntoParam<HIMAGELIST>,
 {
-    ::windows_targets::link!("uxtheme.dll" "system" fn DrawThemeIcon(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, prect : *const super::super::Foundation:: RECT, himl : HIMAGELIST, iimageindex : i32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("uxtheme.dll" "system" fn DrawThemeIcon(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, prect : *const super::super::Foundation:: RECT, himl : HIMAGELIST, iimageindex : i32) -> ::windows_core::HRESULT);
     DrawThemeIcon(htheme.into_param().abi(), hdc.into_param().abi(), ipartid, istateid, prect, himl.into_param().abi(), iimageindex).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn DrawThemeParentBackground<P0, P1>(hwnd: P0, hdc: P1, prc: ::core::option::Option<*const super::super::Foundation::RECT>) -> ::windows::core::Result<()>
+pub unsafe fn DrawThemeParentBackground<P0, P1>(hwnd: P0, hdc: P1, prc: ::core::option::Option<*const super::super::Foundation::RECT>) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<super::super::Graphics::Gdi::HDC>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
 {
-    ::windows_targets::link!("uxtheme.dll" "system" fn DrawThemeParentBackground(hwnd : super::super::Foundation:: HWND, hdc : super::super::Graphics::Gdi:: HDC, prc : *const super::super::Foundation:: RECT) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("uxtheme.dll" "system" fn DrawThemeParentBackground(hwnd : super::super::Foundation:: HWND, hdc : super::super::Graphics::Gdi:: HDC, prc : *const super::super::Foundation:: RECT) -> ::windows_core::HRESULT);
     DrawThemeParentBackground(hwnd.into_param().abi(), hdc.into_param().abi(), ::core::mem::transmute(prc.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn DrawThemeParentBackgroundEx<P0, P1>(hwnd: P0, hdc: P1, dwflags: DRAW_THEME_PARENT_BACKGROUND_FLAGS, prc: ::core::option::Option<*const super::super::Foundation::RECT>) -> ::windows::core::Result<()>
+pub unsafe fn DrawThemeParentBackgroundEx<P0, P1>(hwnd: P0, hdc: P1, dwflags: DRAW_THEME_PARENT_BACKGROUND_FLAGS, prc: ::core::option::Option<*const super::super::Foundation::RECT>) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<super::super::Graphics::Gdi::HDC>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
 {
-    ::windows_targets::link!("uxtheme.dll" "system" fn DrawThemeParentBackgroundEx(hwnd : super::super::Foundation:: HWND, hdc : super::super::Graphics::Gdi:: HDC, dwflags : DRAW_THEME_PARENT_BACKGROUND_FLAGS, prc : *const super::super::Foundation:: RECT) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("uxtheme.dll" "system" fn DrawThemeParentBackgroundEx(hwnd : super::super::Foundation:: HWND, hdc : super::super::Graphics::Gdi:: HDC, dwflags : DRAW_THEME_PARENT_BACKGROUND_FLAGS, prc : *const super::super::Foundation:: RECT) -> ::windows_core::HRESULT);
     DrawThemeParentBackgroundEx(hwnd.into_param().abi(), hdc.into_param().abi(), dwflags, ::core::mem::transmute(prc.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn DrawThemeText<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, psztext: &[u16], dwtextflags: super::super::Graphics::Gdi::DRAW_TEXT_FORMAT, dwtextflags2: u32, prect: *const super::super::Foundation::RECT) -> ::windows::core::Result<()>
+pub unsafe fn DrawThemeText<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, psztext: &[u16], dwtextflags: super::super::Graphics::Gdi::DRAW_TEXT_FORMAT, dwtextflags2: u32, prect: *const super::super::Foundation::RECT) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<HTHEME>,
-    P1: ::windows::core::IntoParam<super::super::Graphics::Gdi::HDC>,
+    P0: ::windows_core::IntoParam<HTHEME>,
+    P1: ::windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
 {
-    ::windows_targets::link!("uxtheme.dll" "system" fn DrawThemeText(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, psztext : ::windows::core::PCWSTR, cchtext : i32, dwtextflags : super::super::Graphics::Gdi:: DRAW_TEXT_FORMAT, dwtextflags2 : u32, prect : *const super::super::Foundation:: RECT) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("uxtheme.dll" "system" fn DrawThemeText(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, psztext : ::windows_core::PCWSTR, cchtext : i32, dwtextflags : super::super::Graphics::Gdi:: DRAW_TEXT_FORMAT, dwtextflags2 : u32, prect : *const super::super::Foundation:: RECT) -> ::windows_core::HRESULT);
     DrawThemeText(htheme.into_param().abi(), hdc.into_param().abi(), ipartid, istateid, ::core::mem::transmute(psztext.as_ptr()), psztext.len() as _, dwtextflags, dwtextflags2, prect).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn DrawThemeTextEx<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, psztext: &[u16], dwtextflags: super::super::Graphics::Gdi::DRAW_TEXT_FORMAT, prect: *mut super::super::Foundation::RECT, poptions: ::core::option::Option<*const DTTOPTS>) -> ::windows::core::Result<()>
+pub unsafe fn DrawThemeTextEx<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, psztext: &[u16], dwtextflags: super::super::Graphics::Gdi::DRAW_TEXT_FORMAT, prect: *mut super::super::Foundation::RECT, poptions: ::core::option::Option<*const DTTOPTS>) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<HTHEME>,
-    P1: ::windows::core::IntoParam<super::super::Graphics::Gdi::HDC>,
+    P0: ::windows_core::IntoParam<HTHEME>,
+    P1: ::windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
 {
-    ::windows_targets::link!("uxtheme.dll" "system" fn DrawThemeTextEx(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, psztext : ::windows::core::PCWSTR, cchtext : i32, dwtextflags : super::super::Graphics::Gdi:: DRAW_TEXT_FORMAT, prect : *mut super::super::Foundation:: RECT, poptions : *const DTTOPTS) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("uxtheme.dll" "system" fn DrawThemeTextEx(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, psztext : ::windows_core::PCWSTR, cchtext : i32, dwtextflags : super::super::Graphics::Gdi:: DRAW_TEXT_FORMAT, prect : *mut super::super::Foundation:: RECT, poptions : *const DTTOPTS) -> ::windows_core::HRESULT);
     DrawThemeTextEx(htheme.into_param().abi(), hdc.into_param().abi(), ipartid, istateid, ::core::mem::transmute(psztext.as_ptr()), psztext.len() as _, dwtextflags, prect, ::core::mem::transmute(poptions.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -730,7 +730,7 @@ where
 #[inline]
 pub unsafe fn EnableScrollBar<P0>(hwnd: P0, wsbflags: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, warrows: ENABLE_SCROLL_BAR_ARROWS) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("user32.dll" "system" fn EnableScrollBar(hwnd : super::super::Foundation:: HWND, wsbflags : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS, warrows : ENABLE_SCROLL_BAR_ARROWS) -> super::super::Foundation:: BOOL);
     EnableScrollBar(hwnd.into_param().abi(), wsbflags, warrows)
@@ -738,41 +738,41 @@ where
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnableThemeDialogTexture<P0>(hwnd: P0, dwflags: u32) -> ::windows::core::Result<()>
+pub unsafe fn EnableThemeDialogTexture<P0>(hwnd: P0, dwflags: u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("uxtheme.dll" "system" fn EnableThemeDialogTexture(hwnd : super::super::Foundation:: HWND, dwflags : u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("uxtheme.dll" "system" fn EnableThemeDialogTexture(hwnd : super::super::Foundation:: HWND, dwflags : u32) -> ::windows_core::HRESULT);
     EnableThemeDialogTexture(hwnd.into_param().abi(), dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnableTheming<P0>(fenable: P0) -> ::windows::core::Result<()>
+pub unsafe fn EnableTheming<P0>(fenable: P0) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("uxtheme.dll" "system" fn EnableTheming(fenable : super::super::Foundation:: BOOL) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("uxtheme.dll" "system" fn EnableTheming(fenable : super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
     EnableTheming(fenable.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EndBufferedAnimation<P0>(hbpanimation: isize, fupdatetarget: P0) -> ::windows::core::Result<()>
+pub unsafe fn EndBufferedAnimation<P0>(hbpanimation: isize, fupdatetarget: P0) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("uxtheme.dll" "system" fn EndBufferedAnimation(hbpanimation : isize, fupdatetarget : super::super::Foundation:: BOOL) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("uxtheme.dll" "system" fn EndBufferedAnimation(hbpanimation : isize, fupdatetarget : super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
     EndBufferedAnimation(hbpanimation, fupdatetarget.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EndBufferedPaint<P0>(hbufferedpaint: isize, fupdatetarget: P0) -> ::windows::core::Result<()>
+pub unsafe fn EndBufferedPaint<P0>(hbufferedpaint: isize, fupdatetarget: P0) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("uxtheme.dll" "system" fn EndBufferedPaint(hbufferedpaint : isize, fupdatetarget : super::super::Foundation:: BOOL) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("uxtheme.dll" "system" fn EndBufferedPaint(hbufferedpaint : isize, fupdatetarget : super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
     EndBufferedPaint(hbufferedpaint, fupdatetarget.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
@@ -780,8 +780,8 @@ where
 #[inline]
 pub unsafe fn EndPanningFeedback<P0, P1>(hwnd: P0, fanimateback: P1) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("uxtheme.dll" "system" fn EndPanningFeedback(hwnd : super::super::Foundation:: HWND, fanimateback : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     EndPanningFeedback(hwnd.into_param().abi(), fanimateback.into_param().abi())
@@ -805,7 +805,7 @@ pub unsafe fn EvaluateProximityToRect(controlboundingbox: *const super::super::F
 #[inline]
 pub unsafe fn FlatSB_EnableScrollBar<P0>(param0: P0, param1: i32, param2: u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn FlatSB_EnableScrollBar(param0 : super::super::Foundation:: HWND, param1 : i32, param2 : u32) -> super::super::Foundation:: BOOL);
     FlatSB_EnableScrollBar(param0.into_param().abi(), param1, param2)
@@ -815,7 +815,7 @@ where
 #[inline]
 pub unsafe fn FlatSB_GetScrollInfo<P0>(param0: P0, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, param2: *mut super::WindowsAndMessaging::SCROLLINFO) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn FlatSB_GetScrollInfo(param0 : super::super::Foundation:: HWND, code : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS, param2 : *mut super::WindowsAndMessaging:: SCROLLINFO) -> super::super::Foundation:: BOOL);
     FlatSB_GetScrollInfo(param0.into_param().abi(), code, param2)
@@ -825,7 +825,7 @@ where
 #[inline]
 pub unsafe fn FlatSB_GetScrollPos<P0>(param0: P0, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS) -> i32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn FlatSB_GetScrollPos(param0 : super::super::Foundation:: HWND, code : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS) -> i32);
     FlatSB_GetScrollPos(param0.into_param().abi(), code)
@@ -835,7 +835,7 @@ where
 #[inline]
 pub unsafe fn FlatSB_GetScrollProp<P0>(param0: P0, propindex: WSB_PROP, param2: *mut i32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn FlatSB_GetScrollProp(param0 : super::super::Foundation:: HWND, propindex : WSB_PROP, param2 : *mut i32) -> super::super::Foundation:: BOOL);
     FlatSB_GetScrollProp(param0.into_param().abi(), propindex, param2)
@@ -845,7 +845,7 @@ where
 #[inline]
 pub unsafe fn FlatSB_GetScrollRange<P0>(param0: P0, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, param2: *mut i32, param3: *mut i32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn FlatSB_GetScrollRange(param0 : super::super::Foundation:: HWND, code : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS, param2 : *mut i32, param3 : *mut i32) -> super::super::Foundation:: BOOL);
     FlatSB_GetScrollRange(param0.into_param().abi(), code, param2, param3)
@@ -855,8 +855,8 @@ where
 #[inline]
 pub unsafe fn FlatSB_SetScrollInfo<P0, P1>(param0: P0, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, psi: *mut super::WindowsAndMessaging::SCROLLINFO, fredraw: P1) -> i32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn FlatSB_SetScrollInfo(param0 : super::super::Foundation:: HWND, code : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS, psi : *mut super::WindowsAndMessaging:: SCROLLINFO, fredraw : super::super::Foundation:: BOOL) -> i32);
     FlatSB_SetScrollInfo(param0.into_param().abi(), code, psi, fredraw.into_param().abi())
@@ -866,8 +866,8 @@ where
 #[inline]
 pub unsafe fn FlatSB_SetScrollPos<P0, P1>(param0: P0, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, pos: i32, fredraw: P1) -> i32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn FlatSB_SetScrollPos(param0 : super::super::Foundation:: HWND, code : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS, pos : i32, fredraw : super::super::Foundation:: BOOL) -> i32);
     FlatSB_SetScrollPos(param0.into_param().abi(), code, pos, fredraw.into_param().abi())
@@ -877,8 +877,8 @@ where
 #[inline]
 pub unsafe fn FlatSB_SetScrollProp<P0, P1>(param0: P0, index: WSB_PROP, newvalue: isize, param3: P1) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn FlatSB_SetScrollProp(param0 : super::super::Foundation:: HWND, index : WSB_PROP, newvalue : isize, param3 : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     FlatSB_SetScrollProp(param0.into_param().abi(), index, newvalue, param3.into_param().abi())
@@ -888,8 +888,8 @@ where
 #[inline]
 pub unsafe fn FlatSB_SetScrollRange<P0, P1>(param0: P0, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, min: i32, max: i32, fredraw: P1) -> i32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn FlatSB_SetScrollRange(param0 : super::super::Foundation:: HWND, code : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS, min : i32, max : i32, fredraw : super::super::Foundation:: BOOL) -> i32);
     FlatSB_SetScrollRange(param0.into_param().abi(), code, min, max, fredraw.into_param().abi())
@@ -899,8 +899,8 @@ where
 #[inline]
 pub unsafe fn FlatSB_ShowScrollBar<P0, P1>(param0: P0, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, param2: P1) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn FlatSB_ShowScrollBar(param0 : super::super::Foundation:: HWND, code : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS, param2 : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     FlatSB_ShowScrollBar(param0.into_param().abi(), code, param2.into_param().abi())
@@ -908,8 +908,8 @@ where
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn GetBufferedPaintBits(hbufferedpaint: isize, ppbbuffer: *mut *mut super::super::Graphics::Gdi::RGBQUAD, pcxrow: *mut i32) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("uxtheme.dll" "system" fn GetBufferedPaintBits(hbufferedpaint : isize, ppbbuffer : *mut *mut super::super::Graphics::Gdi:: RGBQUAD, pcxrow : *mut i32) -> ::windows::core::HRESULT);
+pub unsafe fn GetBufferedPaintBits(hbufferedpaint: isize, ppbbuffer: *mut *mut super::super::Graphics::Gdi::RGBQUAD, pcxrow: *mut i32) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("uxtheme.dll" "system" fn GetBufferedPaintBits(hbufferedpaint : isize, ppbbuffer : *mut *mut super::super::Graphics::Gdi:: RGBQUAD, pcxrow : *mut i32) -> ::windows_core::HRESULT);
     GetBufferedPaintBits(hbufferedpaint, ppbbuffer, pcxrow).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -929,9 +929,9 @@ pub unsafe fn GetBufferedPaintTargetDC(hbufferedpaint: isize) -> super::super::G
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetBufferedPaintTargetRect(hbufferedpaint: isize) -> ::windows::core::Result<super::super::Foundation::RECT> {
-    ::windows_targets::link!("uxtheme.dll" "system" fn GetBufferedPaintTargetRect(hbufferedpaint : isize, prc : *mut super::super::Foundation:: RECT) -> ::windows::core::HRESULT);
-    let mut result__ = ::windows::core::zeroed::<super::super::Foundation::RECT>();
+pub unsafe fn GetBufferedPaintTargetRect(hbufferedpaint: isize) -> ::windows_core::Result<super::super::Foundation::RECT> {
+    ::windows_targets::link!("uxtheme.dll" "system" fn GetBufferedPaintTargetRect(hbufferedpaint : isize, prc : *mut super::super::Foundation:: RECT) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<super::super::Foundation::RECT>();
     GetBufferedPaintTargetRect(hbufferedpaint, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
@@ -939,15 +939,15 @@ pub unsafe fn GetBufferedPaintTargetRect(hbufferedpaint: isize) -> ::windows::co
 #[inline]
 pub unsafe fn GetComboBoxInfo<P0>(hwndcombo: P0, pcbi: *mut COMBOBOXINFO) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("user32.dll" "system" fn GetComboBoxInfo(hwndcombo : super::super::Foundation:: HWND, pcbi : *mut COMBOBOXINFO) -> super::super::Foundation:: BOOL);
     GetComboBoxInfo(hwndcombo.into_param().abi(), pcbi)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
-pub unsafe fn GetCurrentThemeName(pszthemefilename: &mut [u16], pszcolorbuff: ::core::option::Option<&mut [u16]>, pszsizebuff: ::core::option::Option<&mut [u16]>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("uxtheme.dll" "system" fn GetCurrentThemeName(pszthemefilename : ::windows::core::PWSTR, cchmaxnamechars : i32, pszcolorbuff : ::windows::core::PWSTR, cchmaxcolorchars : i32, pszsizebuff : ::windows::core::PWSTR, cchmaxsizechars : i32) -> ::windows::core::HRESULT);
+pub unsafe fn GetCurrentThemeName(pszthemefilename: &mut [u16], pszcolorbuff: ::core::option::Option<&mut [u16]>, pszsizebuff: ::core::option::Option<&mut [u16]>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("uxtheme.dll" "system" fn GetCurrentThemeName(pszthemefilename : ::windows_core::PWSTR, cchmaxnamechars : i32, pszcolorbuff : ::windows_core::PWSTR, cchmaxcolorchars : i32, pszsizebuff : ::windows_core::PWSTR, cchmaxsizechars : i32) -> ::windows_core::HRESULT);
     GetCurrentThemeName(::core::mem::transmute(pszthemefilename.as_ptr()), pszthemefilename.len() as _, ::core::mem::transmute(pszcolorbuff.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pszcolorbuff.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pszsizebuff.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pszsizebuff.as_deref().map_or(0, |slice| slice.len() as _)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
@@ -955,7 +955,7 @@ pub unsafe fn GetCurrentThemeName(pszthemefilename: &mut [u16], pszcolorbuff: ::
 #[inline]
 pub unsafe fn GetEffectiveClientRect<P0>(hwnd: P0, lprc: *mut super::super::Foundation::RECT, lpinfo: *const i32)
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn GetEffectiveClientRect(hwnd : super::super::Foundation:: HWND, lprc : *mut super::super::Foundation:: RECT, lpinfo : *const i32) -> ());
     GetEffectiveClientRect(hwnd.into_param().abi(), lprc, lpinfo)
@@ -965,7 +965,7 @@ where
 #[inline]
 pub unsafe fn GetListBoxInfo<P0>(hwnd: P0) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("user32.dll" "system" fn GetListBoxInfo(hwnd : super::super::Foundation:: HWND) -> u32);
     GetListBoxInfo(hwnd.into_param().abi())
@@ -978,20 +978,20 @@ pub unsafe fn GetMUILanguage() -> u16 {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
-pub unsafe fn GetThemeAnimationProperty<P0>(htheme: P0, istoryboardid: i32, itargetid: i32, eproperty: TA_PROPERTY, pvproperty: ::core::option::Option<*mut ::core::ffi::c_void>, cbsize: u32, pcbsizeout: *mut u32) -> ::windows::core::Result<()>
+pub unsafe fn GetThemeAnimationProperty<P0>(htheme: P0, istoryboardid: i32, itargetid: i32, eproperty: TA_PROPERTY, pvproperty: ::core::option::Option<*mut ::core::ffi::c_void>, cbsize: u32, pcbsizeout: *mut u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<HTHEME>,
+    P0: ::windows_core::IntoParam<HTHEME>,
 {
-    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeAnimationProperty(htheme : HTHEME, istoryboardid : i32, itargetid : i32, eproperty : TA_PROPERTY, pvproperty : *mut ::core::ffi::c_void, cbsize : u32, pcbsizeout : *mut u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeAnimationProperty(htheme : HTHEME, istoryboardid : i32, itargetid : i32, eproperty : TA_PROPERTY, pvproperty : *mut ::core::ffi::c_void, cbsize : u32, pcbsizeout : *mut u32) -> ::windows_core::HRESULT);
     GetThemeAnimationProperty(htheme.into_param().abi(), istoryboardid, itargetid, eproperty, ::core::mem::transmute(pvproperty.unwrap_or(::std::ptr::null_mut())), cbsize, pcbsizeout).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
-pub unsafe fn GetThemeAnimationTransform<P0>(htheme: P0, istoryboardid: i32, itargetid: i32, dwtransformindex: u32, ptransform: ::core::option::Option<*mut TA_TRANSFORM>, cbsize: u32, pcbsizeout: *mut u32) -> ::windows::core::Result<()>
+pub unsafe fn GetThemeAnimationTransform<P0>(htheme: P0, istoryboardid: i32, itargetid: i32, dwtransformindex: u32, ptransform: ::core::option::Option<*mut TA_TRANSFORM>, cbsize: u32, pcbsizeout: *mut u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<HTHEME>,
+    P0: ::windows_core::IntoParam<HTHEME>,
 {
-    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeAnimationTransform(htheme : HTHEME, istoryboardid : i32, itargetid : i32, dwtransformindex : u32, ptransform : *mut TA_TRANSFORM, cbsize : u32, pcbsizeout : *mut u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeAnimationTransform(htheme : HTHEME, istoryboardid : i32, itargetid : i32, dwtransformindex : u32, ptransform : *mut TA_TRANSFORM, cbsize : u32, pcbsizeout : *mut u32) -> ::windows_core::HRESULT);
     GetThemeAnimationTransform(htheme.into_param().abi(), istoryboardid, itargetid, dwtransformindex, ::core::mem::transmute(ptransform.unwrap_or(::std::ptr::null_mut())), cbsize, pcbsizeout).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -1003,217 +1003,217 @@ pub unsafe fn GetThemeAppProperties() -> SET_THEME_APP_PROPERTIES_FLAGS {
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn GetThemeBackgroundContentRect<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, pboundingrect: *const super::super::Foundation::RECT) -> ::windows::core::Result<super::super::Foundation::RECT>
+pub unsafe fn GetThemeBackgroundContentRect<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, pboundingrect: *const super::super::Foundation::RECT) -> ::windows_core::Result<super::super::Foundation::RECT>
 where
-    P0: ::windows::core::IntoParam<HTHEME>,
-    P1: ::windows::core::IntoParam<super::super::Graphics::Gdi::HDC>,
+    P0: ::windows_core::IntoParam<HTHEME>,
+    P1: ::windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
 {
-    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeBackgroundContentRect(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, pboundingrect : *const super::super::Foundation:: RECT, pcontentrect : *mut super::super::Foundation:: RECT) -> ::windows::core::HRESULT);
-    let mut result__ = ::windows::core::zeroed::<super::super::Foundation::RECT>();
+    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeBackgroundContentRect(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, pboundingrect : *const super::super::Foundation:: RECT, pcontentrect : *mut super::super::Foundation:: RECT) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<super::super::Foundation::RECT>();
     GetThemeBackgroundContentRect(htheme.into_param().abi(), hdc.into_param().abi(), ipartid, istateid, pboundingrect, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn GetThemeBackgroundExtent<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, pcontentrect: *const super::super::Foundation::RECT) -> ::windows::core::Result<super::super::Foundation::RECT>
+pub unsafe fn GetThemeBackgroundExtent<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, pcontentrect: *const super::super::Foundation::RECT) -> ::windows_core::Result<super::super::Foundation::RECT>
 where
-    P0: ::windows::core::IntoParam<HTHEME>,
-    P1: ::windows::core::IntoParam<super::super::Graphics::Gdi::HDC>,
+    P0: ::windows_core::IntoParam<HTHEME>,
+    P1: ::windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
 {
-    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeBackgroundExtent(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, pcontentrect : *const super::super::Foundation:: RECT, pextentrect : *mut super::super::Foundation:: RECT) -> ::windows::core::HRESULT);
-    let mut result__ = ::windows::core::zeroed::<super::super::Foundation::RECT>();
+    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeBackgroundExtent(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, pcontentrect : *const super::super::Foundation:: RECT, pextentrect : *mut super::super::Foundation:: RECT) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<super::super::Foundation::RECT>();
     GetThemeBackgroundExtent(htheme.into_param().abi(), hdc.into_param().abi(), ipartid, istateid, pcontentrect, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn GetThemeBackgroundRegion<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, prect: *const super::super::Foundation::RECT) -> ::windows::core::Result<super::super::Graphics::Gdi::HRGN>
+pub unsafe fn GetThemeBackgroundRegion<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, prect: *const super::super::Foundation::RECT) -> ::windows_core::Result<super::super::Graphics::Gdi::HRGN>
 where
-    P0: ::windows::core::IntoParam<HTHEME>,
-    P1: ::windows::core::IntoParam<super::super::Graphics::Gdi::HDC>,
+    P0: ::windows_core::IntoParam<HTHEME>,
+    P1: ::windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
 {
-    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeBackgroundRegion(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, prect : *const super::super::Foundation:: RECT, pregion : *mut super::super::Graphics::Gdi:: HRGN) -> ::windows::core::HRESULT);
-    let mut result__ = ::windows::core::zeroed::<super::super::Graphics::Gdi::HRGN>();
+    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeBackgroundRegion(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, prect : *const super::super::Foundation:: RECT, pregion : *mut super::super::Graphics::Gdi:: HRGN) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<super::super::Graphics::Gdi::HRGN>();
     GetThemeBackgroundRegion(htheme.into_param().abi(), hdc.into_param().abi(), ipartid, istateid, prect, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn GetThemeBitmap<P0>(htheme: P0, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID, dwflags: GET_THEME_BITMAP_FLAGS) -> ::windows::core::Result<super::super::Graphics::Gdi::HBITMAP>
+pub unsafe fn GetThemeBitmap<P0>(htheme: P0, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID, dwflags: GET_THEME_BITMAP_FLAGS) -> ::windows_core::Result<super::super::Graphics::Gdi::HBITMAP>
 where
-    P0: ::windows::core::IntoParam<HTHEME>,
+    P0: ::windows_core::IntoParam<HTHEME>,
 {
-    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeBitmap(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : THEME_PROPERTY_SYMBOL_ID, dwflags : GET_THEME_BITMAP_FLAGS, phbitmap : *mut super::super::Graphics::Gdi:: HBITMAP) -> ::windows::core::HRESULT);
-    let mut result__ = ::windows::core::zeroed::<super::super::Graphics::Gdi::HBITMAP>();
+    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeBitmap(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : THEME_PROPERTY_SYMBOL_ID, dwflags : GET_THEME_BITMAP_FLAGS, phbitmap : *mut super::super::Graphics::Gdi:: HBITMAP) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<super::super::Graphics::Gdi::HBITMAP>();
     GetThemeBitmap(htheme.into_param().abi(), ipartid, istateid, ipropid, dwflags, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetThemeBool<P0>(htheme: P0, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID) -> ::windows::core::Result<super::super::Foundation::BOOL>
+pub unsafe fn GetThemeBool<P0>(htheme: P0, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID) -> ::windows_core::Result<super::super::Foundation::BOOL>
 where
-    P0: ::windows::core::IntoParam<HTHEME>,
+    P0: ::windows_core::IntoParam<HTHEME>,
 {
-    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeBool(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : THEME_PROPERTY_SYMBOL_ID, pfval : *mut super::super::Foundation:: BOOL) -> ::windows::core::HRESULT);
-    let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeBool(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : THEME_PROPERTY_SYMBOL_ID, pfval : *mut super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
     GetThemeBool(htheme.into_param().abi(), ipartid, istateid, ipropid, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetThemeColor<P0>(htheme: P0, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID) -> ::windows::core::Result<super::super::Foundation::COLORREF>
+pub unsafe fn GetThemeColor<P0>(htheme: P0, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID) -> ::windows_core::Result<super::super::Foundation::COLORREF>
 where
-    P0: ::windows::core::IntoParam<HTHEME>,
+    P0: ::windows_core::IntoParam<HTHEME>,
 {
-    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeColor(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : THEME_PROPERTY_SYMBOL_ID, pcolor : *mut super::super::Foundation:: COLORREF) -> ::windows::core::HRESULT);
-    let mut result__ = ::windows::core::zeroed::<super::super::Foundation::COLORREF>();
+    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeColor(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : THEME_PROPERTY_SYMBOL_ID, pcolor : *mut super::super::Foundation:: COLORREF) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<super::super::Foundation::COLORREF>();
     GetThemeColor(htheme.into_param().abi(), ipartid, istateid, ipropid, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
-pub unsafe fn GetThemeDocumentationProperty<P0, P1>(pszthemename: P0, pszpropertyname: P1, pszvaluebuff: &mut [u16]) -> ::windows::core::Result<()>
+pub unsafe fn GetThemeDocumentationProperty<P0, P1>(pszthemename: P0, pszpropertyname: P1, pszvaluebuff: &mut [u16]) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeDocumentationProperty(pszthemename : ::windows::core::PCWSTR, pszpropertyname : ::windows::core::PCWSTR, pszvaluebuff : ::windows::core::PWSTR, cchmaxvalchars : i32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeDocumentationProperty(pszthemename : ::windows_core::PCWSTR, pszpropertyname : ::windows_core::PCWSTR, pszvaluebuff : ::windows_core::PWSTR, cchmaxvalchars : i32) -> ::windows_core::HRESULT);
     GetThemeDocumentationProperty(pszthemename.into_param().abi(), pszpropertyname.into_param().abi(), ::core::mem::transmute(pszvaluebuff.as_ptr()), pszvaluebuff.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
-pub unsafe fn GetThemeEnumValue<P0>(htheme: P0, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID) -> ::windows::core::Result<i32>
+pub unsafe fn GetThemeEnumValue<P0>(htheme: P0, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID) -> ::windows_core::Result<i32>
 where
-    P0: ::windows::core::IntoParam<HTHEME>,
+    P0: ::windows_core::IntoParam<HTHEME>,
 {
-    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeEnumValue(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : THEME_PROPERTY_SYMBOL_ID, pival : *mut i32) -> ::windows::core::HRESULT);
-    let mut result__ = ::windows::core::zeroed::<i32>();
+    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeEnumValue(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : THEME_PROPERTY_SYMBOL_ID, pival : *mut i32) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<i32>();
     GetThemeEnumValue(htheme.into_param().abi(), ipartid, istateid, ipropid, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
-pub unsafe fn GetThemeFilename<P0>(htheme: P0, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID, pszthemefilename: &mut [u16]) -> ::windows::core::Result<()>
+pub unsafe fn GetThemeFilename<P0>(htheme: P0, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID, pszthemefilename: &mut [u16]) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<HTHEME>,
+    P0: ::windows_core::IntoParam<HTHEME>,
 {
-    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeFilename(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : THEME_PROPERTY_SYMBOL_ID, pszthemefilename : ::windows::core::PWSTR, cchmaxbuffchars : i32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeFilename(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : THEME_PROPERTY_SYMBOL_ID, pszthemefilename : ::windows_core::PWSTR, cchmaxbuffchars : i32) -> ::windows_core::HRESULT);
     GetThemeFilename(htheme.into_param().abi(), ipartid, istateid, ipropid, ::core::mem::transmute(pszthemefilename.as_ptr()), pszthemefilename.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn GetThemeFont<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, ipropid: i32, pfont: *mut super::super::Graphics::Gdi::LOGFONTW) -> ::windows::core::Result<()>
+pub unsafe fn GetThemeFont<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, ipropid: i32, pfont: *mut super::super::Graphics::Gdi::LOGFONTW) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<HTHEME>,
-    P1: ::windows::core::IntoParam<super::super::Graphics::Gdi::HDC>,
+    P0: ::windows_core::IntoParam<HTHEME>,
+    P1: ::windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
 {
-    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeFont(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, ipropid : i32, pfont : *mut super::super::Graphics::Gdi:: LOGFONTW) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeFont(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, ipropid : i32, pfont : *mut super::super::Graphics::Gdi:: LOGFONTW) -> ::windows_core::HRESULT);
     GetThemeFont(htheme.into_param().abi(), hdc.into_param().abi(), ipartid, istateid, ipropid, pfont).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
-pub unsafe fn GetThemeInt<P0>(htheme: P0, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID) -> ::windows::core::Result<i32>
+pub unsafe fn GetThemeInt<P0>(htheme: P0, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID) -> ::windows_core::Result<i32>
 where
-    P0: ::windows::core::IntoParam<HTHEME>,
+    P0: ::windows_core::IntoParam<HTHEME>,
 {
-    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeInt(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : THEME_PROPERTY_SYMBOL_ID, pival : *mut i32) -> ::windows::core::HRESULT);
-    let mut result__ = ::windows::core::zeroed::<i32>();
+    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeInt(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : THEME_PROPERTY_SYMBOL_ID, pival : *mut i32) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<i32>();
     GetThemeInt(htheme.into_param().abi(), ipartid, istateid, ipropid, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
-pub unsafe fn GetThemeIntList<P0>(htheme: P0, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID, pintlist: *mut INTLIST) -> ::windows::core::Result<()>
+pub unsafe fn GetThemeIntList<P0>(htheme: P0, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID, pintlist: *mut INTLIST) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<HTHEME>,
+    P0: ::windows_core::IntoParam<HTHEME>,
 {
-    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeIntList(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : THEME_PROPERTY_SYMBOL_ID, pintlist : *mut INTLIST) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeIntList(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : THEME_PROPERTY_SYMBOL_ID, pintlist : *mut INTLIST) -> ::windows_core::HRESULT);
     GetThemeIntList(htheme.into_param().abi(), ipartid, istateid, ipropid, pintlist).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn GetThemeMargins<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID, prc: ::core::option::Option<*const super::super::Foundation::RECT>) -> ::windows::core::Result<MARGINS>
+pub unsafe fn GetThemeMargins<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID, prc: ::core::option::Option<*const super::super::Foundation::RECT>) -> ::windows_core::Result<MARGINS>
 where
-    P0: ::windows::core::IntoParam<HTHEME>,
-    P1: ::windows::core::IntoParam<super::super::Graphics::Gdi::HDC>,
+    P0: ::windows_core::IntoParam<HTHEME>,
+    P1: ::windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
 {
-    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeMargins(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, ipropid : THEME_PROPERTY_SYMBOL_ID, prc : *const super::super::Foundation:: RECT, pmargins : *mut MARGINS) -> ::windows::core::HRESULT);
-    let mut result__ = ::windows::core::zeroed::<MARGINS>();
+    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeMargins(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, ipropid : THEME_PROPERTY_SYMBOL_ID, prc : *const super::super::Foundation:: RECT, pmargins : *mut MARGINS) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<MARGINS>();
     GetThemeMargins(htheme.into_param().abi(), hdc.into_param().abi(), ipartid, istateid, ipropid, ::core::mem::transmute(prc.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn GetThemeMetric<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID) -> ::windows::core::Result<i32>
+pub unsafe fn GetThemeMetric<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID) -> ::windows_core::Result<i32>
 where
-    P0: ::windows::core::IntoParam<HTHEME>,
-    P1: ::windows::core::IntoParam<super::super::Graphics::Gdi::HDC>,
+    P0: ::windows_core::IntoParam<HTHEME>,
+    P1: ::windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
 {
-    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeMetric(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, ipropid : THEME_PROPERTY_SYMBOL_ID, pival : *mut i32) -> ::windows::core::HRESULT);
-    let mut result__ = ::windows::core::zeroed::<i32>();
+    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeMetric(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, ipropid : THEME_PROPERTY_SYMBOL_ID, pival : *mut i32) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<i32>();
     GetThemeMetric(htheme.into_param().abi(), hdc.into_param().abi(), ipartid, istateid, ipropid, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn GetThemePartSize<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, prc: ::core::option::Option<*const super::super::Foundation::RECT>, esize: THEMESIZE) -> ::windows::core::Result<super::super::Foundation::SIZE>
+pub unsafe fn GetThemePartSize<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, prc: ::core::option::Option<*const super::super::Foundation::RECT>, esize: THEMESIZE) -> ::windows_core::Result<super::super::Foundation::SIZE>
 where
-    P0: ::windows::core::IntoParam<HTHEME>,
-    P1: ::windows::core::IntoParam<super::super::Graphics::Gdi::HDC>,
+    P0: ::windows_core::IntoParam<HTHEME>,
+    P1: ::windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
 {
-    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemePartSize(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, prc : *const super::super::Foundation:: RECT, esize : THEMESIZE, psz : *mut super::super::Foundation:: SIZE) -> ::windows::core::HRESULT);
-    let mut result__ = ::windows::core::zeroed::<super::super::Foundation::SIZE>();
+    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemePartSize(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, prc : *const super::super::Foundation:: RECT, esize : THEMESIZE, psz : *mut super::super::Foundation:: SIZE) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<super::super::Foundation::SIZE>();
     GetThemePartSize(htheme.into_param().abi(), hdc.into_param().abi(), ipartid, istateid, ::core::mem::transmute(prc.unwrap_or(::std::ptr::null())), esize, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetThemePosition<P0>(htheme: P0, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID) -> ::windows::core::Result<super::super::Foundation::POINT>
+pub unsafe fn GetThemePosition<P0>(htheme: P0, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID) -> ::windows_core::Result<super::super::Foundation::POINT>
 where
-    P0: ::windows::core::IntoParam<HTHEME>,
+    P0: ::windows_core::IntoParam<HTHEME>,
 {
-    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemePosition(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : THEME_PROPERTY_SYMBOL_ID, ppoint : *mut super::super::Foundation:: POINT) -> ::windows::core::HRESULT);
-    let mut result__ = ::windows::core::zeroed::<super::super::Foundation::POINT>();
+    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemePosition(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : THEME_PROPERTY_SYMBOL_ID, ppoint : *mut super::super::Foundation:: POINT) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<super::super::Foundation::POINT>();
     GetThemePosition(htheme.into_param().abi(), ipartid, istateid, ipropid, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
-pub unsafe fn GetThemePropertyOrigin<P0>(htheme: P0, ipartid: i32, istateid: i32, ipropid: i32) -> ::windows::core::Result<PROPERTYORIGIN>
+pub unsafe fn GetThemePropertyOrigin<P0>(htheme: P0, ipartid: i32, istateid: i32, ipropid: i32) -> ::windows_core::Result<PROPERTYORIGIN>
 where
-    P0: ::windows::core::IntoParam<HTHEME>,
+    P0: ::windows_core::IntoParam<HTHEME>,
 {
-    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemePropertyOrigin(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, porigin : *mut PROPERTYORIGIN) -> ::windows::core::HRESULT);
-    let mut result__ = ::windows::core::zeroed::<PROPERTYORIGIN>();
+    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemePropertyOrigin(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, porigin : *mut PROPERTYORIGIN) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<PROPERTYORIGIN>();
     GetThemePropertyOrigin(htheme.into_param().abi(), ipartid, istateid, ipropid, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetThemeRect<P0>(htheme: P0, ipartid: i32, istateid: i32, ipropid: i32) -> ::windows::core::Result<super::super::Foundation::RECT>
+pub unsafe fn GetThemeRect<P0>(htheme: P0, ipartid: i32, istateid: i32, ipropid: i32) -> ::windows_core::Result<super::super::Foundation::RECT>
 where
-    P0: ::windows::core::IntoParam<HTHEME>,
+    P0: ::windows_core::IntoParam<HTHEME>,
 {
-    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeRect(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, prect : *mut super::super::Foundation:: RECT) -> ::windows::core::HRESULT);
-    let mut result__ = ::windows::core::zeroed::<super::super::Foundation::RECT>();
+    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeRect(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, prect : *mut super::super::Foundation:: RECT) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<super::super::Foundation::RECT>();
     GetThemeRect(htheme.into_param().abi(), ipartid, istateid, ipropid, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetThemeStream<P0, P1>(htheme: P0, ipartid: i32, istateid: i32, ipropid: i32, ppvstream: *mut *mut ::core::ffi::c_void, pcbstream: ::core::option::Option<*mut u32>, hinst: P1) -> ::windows::core::Result<()>
+pub unsafe fn GetThemeStream<P0, P1>(htheme: P0, ipartid: i32, istateid: i32, ipropid: i32, ppvstream: *mut *mut ::core::ffi::c_void, pcbstream: ::core::option::Option<*mut u32>, hinst: P1) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<HTHEME>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
+    P0: ::windows_core::IntoParam<HTHEME>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HMODULE>,
 {
-    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeStream(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, ppvstream : *mut *mut ::core::ffi::c_void, pcbstream : *mut u32, hinst : super::super::Foundation:: HMODULE) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeStream(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, ppvstream : *mut *mut ::core::ffi::c_void, pcbstream : *mut u32, hinst : super::super::Foundation:: HMODULE) -> ::windows_core::HRESULT);
     GetThemeStream(htheme.into_param().abi(), ipartid, istateid, ipropid, ppvstream, ::core::mem::transmute(pcbstream.unwrap_or(::std::ptr::null_mut())), hinst.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
-pub unsafe fn GetThemeString<P0>(htheme: P0, ipartid: i32, istateid: i32, ipropid: i32, pszbuff: &mut [u16]) -> ::windows::core::Result<()>
+pub unsafe fn GetThemeString<P0>(htheme: P0, ipartid: i32, istateid: i32, ipropid: i32, pszbuff: &mut [u16]) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<HTHEME>,
+    P0: ::windows_core::IntoParam<HTHEME>,
 {
-    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeString(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, pszbuff : ::windows::core::PWSTR, cchmaxbuffchars : i32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeString(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, pszbuff : ::windows_core::PWSTR, cchmaxbuffchars : i32) -> ::windows_core::HRESULT);
     GetThemeString(htheme.into_param().abi(), ipartid, istateid, ipropid, ::core::mem::transmute(pszbuff.as_ptr()), pszbuff.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
@@ -1221,7 +1221,7 @@ where
 #[inline]
 pub unsafe fn GetThemeSysBool<P0>(htheme: P0, iboolid: THEME_PROPERTY_SYMBOL_ID) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<HTHEME>,
+    P0: ::windows_core::IntoParam<HTHEME>,
 {
     ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeSysBool(htheme : HTHEME, iboolid : THEME_PROPERTY_SYMBOL_ID) -> super::super::Foundation:: BOOL);
     GetThemeSysBool(htheme.into_param().abi(), iboolid)
@@ -1231,7 +1231,7 @@ where
 #[inline]
 pub unsafe fn GetThemeSysColor<P0>(htheme: P0, icolorid: i32) -> super::super::Foundation::COLORREF
 where
-    P0: ::windows::core::IntoParam<HTHEME>,
+    P0: ::windows_core::IntoParam<HTHEME>,
 {
     ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeSysColor(htheme : HTHEME, icolorid : i32) -> super::super::Foundation:: COLORREF);
     GetThemeSysColor(htheme.into_param().abi(), icolorid)
@@ -1241,7 +1241,7 @@ where
 #[inline]
 pub unsafe fn GetThemeSysColorBrush<P0>(htheme: P0, icolorid: THEME_PROPERTY_SYMBOL_ID) -> super::super::Graphics::Gdi::HBRUSH
 where
-    P0: ::windows::core::IntoParam<HTHEME>,
+    P0: ::windows_core::IntoParam<HTHEME>,
 {
     ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeSysColorBrush(htheme : HTHEME, icolorid : THEME_PROPERTY_SYMBOL_ID) -> super::super::Graphics::Gdi:: HBRUSH);
     GetThemeSysColorBrush(htheme.into_param().abi(), icolorid)
@@ -1249,81 +1249,81 @@ where
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn GetThemeSysFont<P0>(htheme: P0, ifontid: THEME_PROPERTY_SYMBOL_ID, plf: *mut super::super::Graphics::Gdi::LOGFONTW) -> ::windows::core::Result<()>
+pub unsafe fn GetThemeSysFont<P0>(htheme: P0, ifontid: THEME_PROPERTY_SYMBOL_ID, plf: *mut super::super::Graphics::Gdi::LOGFONTW) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<HTHEME>,
+    P0: ::windows_core::IntoParam<HTHEME>,
 {
-    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeSysFont(htheme : HTHEME, ifontid : THEME_PROPERTY_SYMBOL_ID, plf : *mut super::super::Graphics::Gdi:: LOGFONTW) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeSysFont(htheme : HTHEME, ifontid : THEME_PROPERTY_SYMBOL_ID, plf : *mut super::super::Graphics::Gdi:: LOGFONTW) -> ::windows_core::HRESULT);
     GetThemeSysFont(htheme.into_param().abi(), ifontid, plf).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
-pub unsafe fn GetThemeSysInt<P0>(htheme: P0, iintid: THEME_PROPERTY_SYMBOL_ID) -> ::windows::core::Result<i32>
+pub unsafe fn GetThemeSysInt<P0>(htheme: P0, iintid: THEME_PROPERTY_SYMBOL_ID) -> ::windows_core::Result<i32>
 where
-    P0: ::windows::core::IntoParam<HTHEME>,
+    P0: ::windows_core::IntoParam<HTHEME>,
 {
-    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeSysInt(htheme : HTHEME, iintid : THEME_PROPERTY_SYMBOL_ID, pivalue : *mut i32) -> ::windows::core::HRESULT);
-    let mut result__ = ::windows::core::zeroed::<i32>();
+    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeSysInt(htheme : HTHEME, iintid : THEME_PROPERTY_SYMBOL_ID, pivalue : *mut i32) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<i32>();
     GetThemeSysInt(htheme.into_param().abi(), iintid, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
 pub unsafe fn GetThemeSysSize<P0>(htheme: P0, isizeid: i32) -> i32
 where
-    P0: ::windows::core::IntoParam<HTHEME>,
+    P0: ::windows_core::IntoParam<HTHEME>,
 {
     ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeSysSize(htheme : HTHEME, isizeid : i32) -> i32);
     GetThemeSysSize(htheme.into_param().abi(), isizeid)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
-pub unsafe fn GetThemeSysString<P0>(htheme: P0, istringid: THEME_PROPERTY_SYMBOL_ID, pszstringbuff: &mut [u16]) -> ::windows::core::Result<()>
+pub unsafe fn GetThemeSysString<P0>(htheme: P0, istringid: THEME_PROPERTY_SYMBOL_ID, pszstringbuff: &mut [u16]) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<HTHEME>,
+    P0: ::windows_core::IntoParam<HTHEME>,
 {
-    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeSysString(htheme : HTHEME, istringid : THEME_PROPERTY_SYMBOL_ID, pszstringbuff : ::windows::core::PWSTR, cchmaxstringchars : i32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeSysString(htheme : HTHEME, istringid : THEME_PROPERTY_SYMBOL_ID, pszstringbuff : ::windows_core::PWSTR, cchmaxstringchars : i32) -> ::windows_core::HRESULT);
     GetThemeSysString(htheme.into_param().abi(), istringid, ::core::mem::transmute(pszstringbuff.as_ptr()), pszstringbuff.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn GetThemeTextExtent<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, psztext: &[u16], dwtextflags: super::super::Graphics::Gdi::DRAW_TEXT_FORMAT, pboundingrect: ::core::option::Option<*const super::super::Foundation::RECT>) -> ::windows::core::Result<super::super::Foundation::RECT>
+pub unsafe fn GetThemeTextExtent<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, psztext: &[u16], dwtextflags: super::super::Graphics::Gdi::DRAW_TEXT_FORMAT, pboundingrect: ::core::option::Option<*const super::super::Foundation::RECT>) -> ::windows_core::Result<super::super::Foundation::RECT>
 where
-    P0: ::windows::core::IntoParam<HTHEME>,
-    P1: ::windows::core::IntoParam<super::super::Graphics::Gdi::HDC>,
+    P0: ::windows_core::IntoParam<HTHEME>,
+    P1: ::windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
 {
-    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeTextExtent(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, psztext : ::windows::core::PCWSTR, cchcharcount : i32, dwtextflags : super::super::Graphics::Gdi:: DRAW_TEXT_FORMAT, pboundingrect : *const super::super::Foundation:: RECT, pextentrect : *mut super::super::Foundation:: RECT) -> ::windows::core::HRESULT);
-    let mut result__ = ::windows::core::zeroed::<super::super::Foundation::RECT>();
+    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeTextExtent(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, psztext : ::windows_core::PCWSTR, cchcharcount : i32, dwtextflags : super::super::Graphics::Gdi:: DRAW_TEXT_FORMAT, pboundingrect : *const super::super::Foundation:: RECT, pextentrect : *mut super::super::Foundation:: RECT) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<super::super::Foundation::RECT>();
     GetThemeTextExtent(htheme.into_param().abi(), hdc.into_param().abi(), ipartid, istateid, ::core::mem::transmute(psztext.as_ptr()), psztext.len() as _, dwtextflags, ::core::mem::transmute(pboundingrect.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn GetThemeTextMetrics<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, ptm: *mut super::super::Graphics::Gdi::TEXTMETRICW) -> ::windows::core::Result<()>
+pub unsafe fn GetThemeTextMetrics<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, ptm: *mut super::super::Graphics::Gdi::TEXTMETRICW) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<HTHEME>,
-    P1: ::windows::core::IntoParam<super::super::Graphics::Gdi::HDC>,
+    P0: ::windows_core::IntoParam<HTHEME>,
+    P1: ::windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
 {
-    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeTextMetrics(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, ptm : *mut super::super::Graphics::Gdi:: TEXTMETRICW) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeTextMetrics(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, ptm : *mut super::super::Graphics::Gdi:: TEXTMETRICW) -> ::windows_core::HRESULT);
     GetThemeTextMetrics(htheme.into_param().abi(), hdc.into_param().abi(), ipartid, istateid, ptm).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
-pub unsafe fn GetThemeTimingFunction<P0>(htheme: P0, itimingfunctionid: i32, ptimingfunction: ::core::option::Option<*mut TA_TIMINGFUNCTION>, cbsize: u32, pcbsizeout: *mut u32) -> ::windows::core::Result<()>
+pub unsafe fn GetThemeTimingFunction<P0>(htheme: P0, itimingfunctionid: i32, ptimingfunction: ::core::option::Option<*mut TA_TIMINGFUNCTION>, cbsize: u32, pcbsizeout: *mut u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<HTHEME>,
+    P0: ::windows_core::IntoParam<HTHEME>,
 {
-    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeTimingFunction(htheme : HTHEME, itimingfunctionid : i32, ptimingfunction : *mut TA_TIMINGFUNCTION, cbsize : u32, pcbsizeout : *mut u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeTimingFunction(htheme : HTHEME, itimingfunctionid : i32, ptimingfunction : *mut TA_TIMINGFUNCTION, cbsize : u32, pcbsizeout : *mut u32) -> ::windows_core::HRESULT);
     GetThemeTimingFunction(htheme.into_param().abi(), itimingfunctionid, ::core::mem::transmute(ptimingfunction.unwrap_or(::std::ptr::null_mut())), cbsize, pcbsizeout).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
-pub unsafe fn GetThemeTransitionDuration<P0>(htheme: P0, ipartid: i32, istateidfrom: i32, istateidto: i32, ipropid: i32) -> ::windows::core::Result<u32>
+pub unsafe fn GetThemeTransitionDuration<P0>(htheme: P0, ipartid: i32, istateidfrom: i32, istateidto: i32, ipropid: i32) -> ::windows_core::Result<u32>
 where
-    P0: ::windows::core::IntoParam<HTHEME>,
+    P0: ::windows_core::IntoParam<HTHEME>,
 {
-    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeTransitionDuration(htheme : HTHEME, ipartid : i32, istateidfrom : i32, istateidto : i32, ipropid : i32, pdwduration : *mut u32) -> ::windows::core::HRESULT);
-    let mut result__ = ::windows::core::zeroed::<u32>();
+    ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeTransitionDuration(htheme : HTHEME, ipartid : i32, istateidfrom : i32, istateidto : i32, ipropid : i32, pdwduration : *mut u32) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<u32>();
     GetThemeTransitionDuration(htheme.into_param().abi(), ipartid, istateidfrom, istateidto, ipropid, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
@@ -1331,7 +1331,7 @@ where
 #[inline]
 pub unsafe fn GetWindowFeedbackSetting<P0>(hwnd: P0, feedback: FEEDBACK_TYPE, dwflags: u32, psize: *mut u32, config: ::core::option::Option<*mut ::core::ffi::c_void>) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("user32.dll" "system" fn GetWindowFeedbackSetting(hwnd : super::super::Foundation:: HWND, feedback : FEEDBACK_TYPE, dwflags : u32, psize : *mut u32, config : *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     GetWindowFeedbackSetting(hwnd.into_param().abi(), feedback, dwflags, psize, ::core::mem::transmute(config.unwrap_or(::std::ptr::null_mut())))
@@ -1341,31 +1341,31 @@ where
 #[inline]
 pub unsafe fn GetWindowTheme<P0>(hwnd: P0) -> HTHEME
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("uxtheme.dll" "system" fn GetWindowTheme(hwnd : super::super::Foundation:: HWND) -> HTHEME);
     GetWindowTheme(hwnd.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
-pub unsafe fn HIMAGELIST_QueryInterface<P0>(himl: P0, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn HIMAGELIST_QueryInterface<P0>(himl: P0, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<HIMAGELIST>,
+    P0: ::windows_core::IntoParam<HIMAGELIST>,
 {
-    ::windows_targets::link!("comctl32.dll" "system" fn HIMAGELIST_QueryInterface(himl : HIMAGELIST, riid : *const ::windows::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("comctl32.dll" "system" fn HIMAGELIST_QueryInterface(himl : HIMAGELIST, riid : *const ::windows_core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     HIMAGELIST_QueryInterface(himl.into_param().abi(), riid, ppv).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn HitTestThemeBackground<P0, P1, P2>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, dwoptions: HIT_TEST_BACKGROUND_OPTIONS, prect: *const super::super::Foundation::RECT, hrgn: P2, pttest: super::super::Foundation::POINT) -> ::windows::core::Result<u16>
+pub unsafe fn HitTestThemeBackground<P0, P1, P2>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, dwoptions: HIT_TEST_BACKGROUND_OPTIONS, prect: *const super::super::Foundation::RECT, hrgn: P2, pttest: super::super::Foundation::POINT) -> ::windows_core::Result<u16>
 where
-    P0: ::windows::core::IntoParam<HTHEME>,
-    P1: ::windows::core::IntoParam<super::super::Graphics::Gdi::HDC>,
-    P2: ::windows::core::IntoParam<super::super::Graphics::Gdi::HRGN>,
+    P0: ::windows_core::IntoParam<HTHEME>,
+    P1: ::windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
+    P2: ::windows_core::IntoParam<super::super::Graphics::Gdi::HRGN>,
 {
-    ::windows_targets::link!("uxtheme.dll" "system" fn HitTestThemeBackground(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, dwoptions : HIT_TEST_BACKGROUND_OPTIONS, prect : *const super::super::Foundation:: RECT, hrgn : super::super::Graphics::Gdi:: HRGN, pttest : super::super::Foundation:: POINT, pwhittestcode : *mut u16) -> ::windows::core::HRESULT);
-    let mut result__ = ::windows::core::zeroed::<u16>();
+    ::windows_targets::link!("uxtheme.dll" "system" fn HitTestThemeBackground(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, dwoptions : HIT_TEST_BACKGROUND_OPTIONS, prect : *const super::super::Foundation:: RECT, hrgn : super::super::Graphics::Gdi:: HRGN, pttest : super::super::Foundation:: POINT, pwhittestcode : *mut u16) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<u16>();
     HitTestThemeBackground(htheme.into_param().abi(), hdc.into_param().abi(), ipartid, istateid, dwoptions, prect, hrgn.into_param().abi(), ::core::mem::transmute(pttest), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -1373,9 +1373,9 @@ where
 #[inline]
 pub unsafe fn ImageList_Add<P0, P1, P2>(himl: P0, hbmimage: P1, hbmmask: P2) -> i32
 where
-    P0: ::windows::core::IntoParam<HIMAGELIST>,
-    P1: ::windows::core::IntoParam<super::super::Graphics::Gdi::HBITMAP>,
-    P2: ::windows::core::IntoParam<super::super::Graphics::Gdi::HBITMAP>,
+    P0: ::windows_core::IntoParam<HIMAGELIST>,
+    P1: ::windows_core::IntoParam<super::super::Graphics::Gdi::HBITMAP>,
+    P2: ::windows_core::IntoParam<super::super::Graphics::Gdi::HBITMAP>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn ImageList_Add(himl : HIMAGELIST, hbmimage : super::super::Graphics::Gdi:: HBITMAP, hbmmask : super::super::Graphics::Gdi:: HBITMAP) -> i32);
     ImageList_Add(himl.into_param().abi(), hbmimage.into_param().abi(), hbmmask.into_param().abi())
@@ -1385,9 +1385,9 @@ where
 #[inline]
 pub unsafe fn ImageList_AddMasked<P0, P1, P2>(himl: P0, hbmimage: P1, crmask: P2) -> i32
 where
-    P0: ::windows::core::IntoParam<HIMAGELIST>,
-    P1: ::windows::core::IntoParam<super::super::Graphics::Gdi::HBITMAP>,
-    P2: ::windows::core::IntoParam<super::super::Foundation::COLORREF>,
+    P0: ::windows_core::IntoParam<HIMAGELIST>,
+    P1: ::windows_core::IntoParam<super::super::Graphics::Gdi::HBITMAP>,
+    P2: ::windows_core::IntoParam<super::super::Foundation::COLORREF>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn ImageList_AddMasked(himl : HIMAGELIST, hbmimage : super::super::Graphics::Gdi:: HBITMAP, crmask : super::super::Foundation:: COLORREF) -> i32);
     ImageList_AddMasked(himl.into_param().abi(), hbmimage.into_param().abi(), crmask.into_param().abi())
@@ -1397,29 +1397,29 @@ where
 #[inline]
 pub unsafe fn ImageList_BeginDrag<P0>(himltrack: P0, itrack: i32, dxhotspot: i32, dyhotspot: i32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<HIMAGELIST>,
+    P0: ::windows_core::IntoParam<HIMAGELIST>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn ImageList_BeginDrag(himltrack : HIMAGELIST, itrack : i32, dxhotspot : i32, dyhotspot : i32) -> super::super::Foundation:: BOOL);
     ImageList_BeginDrag(himltrack.into_param().abi(), itrack, dxhotspot, dyhotspot)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
-pub unsafe fn ImageList_CoCreateInstance<P0, T>(rclsid: *const ::windows::core::GUID, punkouter: P0) -> ::windows::core::Result<T>
+pub unsafe fn ImageList_CoCreateInstance<P0, T>(rclsid: *const ::windows_core::GUID, punkouter: P0) -> ::windows_core::Result<T>
 where
-    P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
-    T: ::windows::core::ComInterface,
+    P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
+    T: ::windows_core::ComInterface,
 {
-    ::windows_targets::link!("comctl32.dll" "system" fn ImageList_CoCreateInstance(rclsid : *const ::windows::core::GUID, punkouter : * mut::core::ffi::c_void, riid : *const ::windows::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("comctl32.dll" "system" fn ImageList_CoCreateInstance(rclsid : *const ::windows_core::GUID, punkouter : * mut::core::ffi::c_void, riid : *const ::windows_core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     let mut result__ = ::std::ptr::null_mut();
-    ImageList_CoCreateInstance(rclsid, punkouter.into_param().abi(), &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
+    ImageList_CoCreateInstance(rclsid, punkouter.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ImageList_Copy<P0, P1>(himldst: P0, idst: i32, himlsrc: P1, isrc: i32, uflags: IMAGE_LIST_COPY_FLAGS) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<HIMAGELIST>,
-    P1: ::windows::core::IntoParam<HIMAGELIST>,
+    P0: ::windows_core::IntoParam<HIMAGELIST>,
+    P1: ::windows_core::IntoParam<HIMAGELIST>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn ImageList_Copy(himldst : HIMAGELIST, idst : i32, himlsrc : HIMAGELIST, isrc : i32, uflags : IMAGE_LIST_COPY_FLAGS) -> super::super::Foundation:: BOOL);
     ImageList_Copy(himldst.into_param().abi(), idst, himlsrc.into_param().abi(), isrc, uflags)
@@ -1435,7 +1435,7 @@ pub unsafe fn ImageList_Create(cx: i32, cy: i32, flags: IMAGELIST_CREATION_FLAGS
 #[inline]
 pub unsafe fn ImageList_Destroy<P0>(himl: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<HIMAGELIST>,
+    P0: ::windows_core::IntoParam<HIMAGELIST>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn ImageList_Destroy(himl : HIMAGELIST) -> super::super::Foundation:: BOOL);
     ImageList_Destroy(himl.into_param().abi())
@@ -1445,7 +1445,7 @@ where
 #[inline]
 pub unsafe fn ImageList_DragEnter<P0>(hwndlock: P0, x: i32, y: i32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn ImageList_DragEnter(hwndlock : super::super::Foundation:: HWND, x : i32, y : i32) -> super::super::Foundation:: BOOL);
     ImageList_DragEnter(hwndlock.into_param().abi(), x, y)
@@ -1455,7 +1455,7 @@ where
 #[inline]
 pub unsafe fn ImageList_DragLeave<P0>(hwndlock: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn ImageList_DragLeave(hwndlock : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
     ImageList_DragLeave(hwndlock.into_param().abi())
@@ -1472,7 +1472,7 @@ pub unsafe fn ImageList_DragMove(x: i32, y: i32) -> super::super::Foundation::BO
 #[inline]
 pub unsafe fn ImageList_DragShowNolock<P0>(fshow: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn ImageList_DragShowNolock(fshow : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     ImageList_DragShowNolock(fshow.into_param().abi())
@@ -1482,8 +1482,8 @@ where
 #[inline]
 pub unsafe fn ImageList_Draw<P0, P1>(himl: P0, i: i32, hdcdst: P1, x: i32, y: i32, fstyle: IMAGE_LIST_DRAW_STYLE) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<HIMAGELIST>,
-    P1: ::windows::core::IntoParam<super::super::Graphics::Gdi::HDC>,
+    P0: ::windows_core::IntoParam<HIMAGELIST>,
+    P1: ::windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn ImageList_Draw(himl : HIMAGELIST, i : i32, hdcdst : super::super::Graphics::Gdi:: HDC, x : i32, y : i32, fstyle : IMAGE_LIST_DRAW_STYLE) -> super::super::Foundation:: BOOL);
     ImageList_Draw(himl.into_param().abi(), i, hdcdst.into_param().abi(), x, y, fstyle)
@@ -1493,10 +1493,10 @@ where
 #[inline]
 pub unsafe fn ImageList_DrawEx<P0, P1, P2, P3>(himl: P0, i: i32, hdcdst: P1, x: i32, y: i32, dx: i32, dy: i32, rgbbk: P2, rgbfg: P3, fstyle: IMAGE_LIST_DRAW_STYLE) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<HIMAGELIST>,
-    P1: ::windows::core::IntoParam<super::super::Graphics::Gdi::HDC>,
-    P2: ::windows::core::IntoParam<super::super::Foundation::COLORREF>,
-    P3: ::windows::core::IntoParam<super::super::Foundation::COLORREF>,
+    P0: ::windows_core::IntoParam<HIMAGELIST>,
+    P1: ::windows_core::IntoParam<super::super::Graphics::Gdi::HDC>,
+    P2: ::windows_core::IntoParam<super::super::Foundation::COLORREF>,
+    P3: ::windows_core::IntoParam<super::super::Foundation::COLORREF>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn ImageList_DrawEx(himl : HIMAGELIST, i : i32, hdcdst : super::super::Graphics::Gdi:: HDC, x : i32, y : i32, dx : i32, dy : i32, rgbbk : super::super::Foundation:: COLORREF, rgbfg : super::super::Foundation:: COLORREF, fstyle : IMAGE_LIST_DRAW_STYLE) -> super::super::Foundation:: BOOL);
     ImageList_DrawEx(himl.into_param().abi(), i, hdcdst.into_param().abi(), x, y, dx, dy, rgbbk.into_param().abi(), rgbfg.into_param().abi(), fstyle)
@@ -1512,7 +1512,7 @@ pub unsafe fn ImageList_DrawIndirect(pimldp: *const IMAGELISTDRAWPARAMS) -> supe
 #[inline]
 pub unsafe fn ImageList_Duplicate<P0>(himl: P0) -> HIMAGELIST
 where
-    P0: ::windows::core::IntoParam<HIMAGELIST>,
+    P0: ::windows_core::IntoParam<HIMAGELIST>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn ImageList_Duplicate(himl : HIMAGELIST) -> HIMAGELIST);
     ImageList_Duplicate(himl.into_param().abi())
@@ -1528,7 +1528,7 @@ pub unsafe fn ImageList_EndDrag() {
 #[inline]
 pub unsafe fn ImageList_GetBkColor<P0>(himl: P0) -> super::super::Foundation::COLORREF
 where
-    P0: ::windows::core::IntoParam<HIMAGELIST>,
+    P0: ::windows_core::IntoParam<HIMAGELIST>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn ImageList_GetBkColor(himl : HIMAGELIST) -> super::super::Foundation:: COLORREF);
     ImageList_GetBkColor(himl.into_param().abi())
@@ -1545,7 +1545,7 @@ pub unsafe fn ImageList_GetDragImage(ppt: ::core::option::Option<*mut super::sup
 #[inline]
 pub unsafe fn ImageList_GetIcon<P0>(himl: P0, i: i32, flags: u32) -> super::WindowsAndMessaging::HICON
 where
-    P0: ::windows::core::IntoParam<HIMAGELIST>,
+    P0: ::windows_core::IntoParam<HIMAGELIST>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn ImageList_GetIcon(himl : HIMAGELIST, i : i32, flags : u32) -> super::WindowsAndMessaging:: HICON);
     ImageList_GetIcon(himl.into_param().abi(), i, flags)
@@ -1555,7 +1555,7 @@ where
 #[inline]
 pub unsafe fn ImageList_GetIconSize<P0>(himl: P0, cx: ::core::option::Option<*mut i32>, cy: ::core::option::Option<*mut i32>) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<HIMAGELIST>,
+    P0: ::windows_core::IntoParam<HIMAGELIST>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn ImageList_GetIconSize(himl : HIMAGELIST, cx : *mut i32, cy : *mut i32) -> super::super::Foundation:: BOOL);
     ImageList_GetIconSize(himl.into_param().abi(), ::core::mem::transmute(cx.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(cy.unwrap_or(::std::ptr::null_mut())))
@@ -1564,7 +1564,7 @@ where
 #[inline]
 pub unsafe fn ImageList_GetImageCount<P0>(himl: P0) -> i32
 where
-    P0: ::windows::core::IntoParam<HIMAGELIST>,
+    P0: ::windows_core::IntoParam<HIMAGELIST>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn ImageList_GetImageCount(himl : HIMAGELIST) -> i32);
     ImageList_GetImageCount(himl.into_param().abi())
@@ -1574,7 +1574,7 @@ where
 #[inline]
 pub unsafe fn ImageList_GetImageInfo<P0>(himl: P0, i: i32, pimageinfo: *mut IMAGEINFO) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<HIMAGELIST>,
+    P0: ::windows_core::IntoParam<HIMAGELIST>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn ImageList_GetImageInfo(himl : HIMAGELIST, i : i32, pimageinfo : *mut IMAGEINFO) -> super::super::Foundation:: BOOL);
     ImageList_GetImageInfo(himl.into_param().abi(), i, pimageinfo)
@@ -1584,11 +1584,11 @@ where
 #[inline]
 pub unsafe fn ImageList_LoadImageA<P0, P1, P2>(hi: P0, lpbmp: P1, cx: i32, cgrow: i32, crmask: P2, utype: u32, uflags: super::WindowsAndMessaging::IMAGE_FLAGS) -> HIMAGELIST
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
-    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
-    P2: ::windows::core::IntoParam<super::super::Foundation::COLORREF>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HMODULE>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P2: ::windows_core::IntoParam<super::super::Foundation::COLORREF>,
 {
-    ::windows_targets::link!("comctl32.dll" "system" fn ImageList_LoadImageA(hi : super::super::Foundation:: HMODULE, lpbmp : ::windows::core::PCSTR, cx : i32, cgrow : i32, crmask : super::super::Foundation:: COLORREF, utype : u32, uflags : super::WindowsAndMessaging:: IMAGE_FLAGS) -> HIMAGELIST);
+    ::windows_targets::link!("comctl32.dll" "system" fn ImageList_LoadImageA(hi : super::super::Foundation:: HMODULE, lpbmp : ::windows_core::PCSTR, cx : i32, cgrow : i32, crmask : super::super::Foundation:: COLORREF, utype : u32, uflags : super::WindowsAndMessaging:: IMAGE_FLAGS) -> HIMAGELIST);
     ImageList_LoadImageA(hi.into_param().abi(), lpbmp.into_param().abi(), cx, cgrow, crmask.into_param().abi(), utype, uflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -1596,19 +1596,19 @@ where
 #[inline]
 pub unsafe fn ImageList_LoadImageW<P0, P1, P2>(hi: P0, lpbmp: P1, cx: i32, cgrow: i32, crmask: P2, utype: u32, uflags: super::WindowsAndMessaging::IMAGE_FLAGS) -> HIMAGELIST
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P2: ::windows::core::IntoParam<super::super::Foundation::COLORREF>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HMODULE>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P2: ::windows_core::IntoParam<super::super::Foundation::COLORREF>,
 {
-    ::windows_targets::link!("comctl32.dll" "system" fn ImageList_LoadImageW(hi : super::super::Foundation:: HMODULE, lpbmp : ::windows::core::PCWSTR, cx : i32, cgrow : i32, crmask : super::super::Foundation:: COLORREF, utype : u32, uflags : super::WindowsAndMessaging:: IMAGE_FLAGS) -> HIMAGELIST);
+    ::windows_targets::link!("comctl32.dll" "system" fn ImageList_LoadImageW(hi : super::super::Foundation:: HMODULE, lpbmp : ::windows_core::PCWSTR, cx : i32, cgrow : i32, crmask : super::super::Foundation:: COLORREF, utype : u32, uflags : super::WindowsAndMessaging:: IMAGE_FLAGS) -> HIMAGELIST);
     ImageList_LoadImageW(hi.into_param().abi(), lpbmp.into_param().abi(), cx, cgrow, crmask.into_param().abi(), utype, uflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
 pub unsafe fn ImageList_Merge<P0, P1>(himl1: P0, i1: i32, himl2: P1, i2: i32, dx: i32, dy: i32) -> HIMAGELIST
 where
-    P0: ::windows::core::IntoParam<HIMAGELIST>,
-    P1: ::windows::core::IntoParam<HIMAGELIST>,
+    P0: ::windows_core::IntoParam<HIMAGELIST>,
+    P1: ::windows_core::IntoParam<HIMAGELIST>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn ImageList_Merge(himl1 : HIMAGELIST, i1 : i32, himl2 : HIMAGELIST, i2 : i32, dx : i32, dy : i32) -> HIMAGELIST);
     ImageList_Merge(himl1.into_param().abi(), i1, himl2.into_param().abi(), i2, dx, dy)
@@ -1618,7 +1618,7 @@ where
 #[inline]
 pub unsafe fn ImageList_Read<P0>(pstm: P0) -> HIMAGELIST
 where
-    P0: ::windows::core::IntoParam<super::super::System::Com::IStream>,
+    P0: ::windows_core::IntoParam<super::super::System::Com::IStream>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn ImageList_Read(pstm : * mut::core::ffi::c_void) -> HIMAGELIST);
     ImageList_Read(pstm.into_param().abi())
@@ -1626,11 +1626,11 @@ where
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn ImageList_ReadEx<P0>(dwflags: u32, pstm: P0, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn ImageList_ReadEx<P0>(dwflags: u32, pstm: P0, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::System::Com::IStream>,
+    P0: ::windows_core::IntoParam<super::super::System::Com::IStream>,
 {
-    ::windows_targets::link!("comctl32.dll" "system" fn ImageList_ReadEx(dwflags : u32, pstm : * mut::core::ffi::c_void, riid : *const ::windows::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("comctl32.dll" "system" fn ImageList_ReadEx(dwflags : u32, pstm : * mut::core::ffi::c_void, riid : *const ::windows_core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     ImageList_ReadEx(dwflags, pstm.into_param().abi(), riid, ppv).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
@@ -1638,7 +1638,7 @@ where
 #[inline]
 pub unsafe fn ImageList_Remove<P0>(himl: P0, i: i32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<HIMAGELIST>,
+    P0: ::windows_core::IntoParam<HIMAGELIST>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn ImageList_Remove(himl : HIMAGELIST, i : i32) -> super::super::Foundation:: BOOL);
     ImageList_Remove(himl.into_param().abi(), i)
@@ -1648,9 +1648,9 @@ where
 #[inline]
 pub unsafe fn ImageList_Replace<P0, P1, P2>(himl: P0, i: i32, hbmimage: P1, hbmmask: P2) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<HIMAGELIST>,
-    P1: ::windows::core::IntoParam<super::super::Graphics::Gdi::HBITMAP>,
-    P2: ::windows::core::IntoParam<super::super::Graphics::Gdi::HBITMAP>,
+    P0: ::windows_core::IntoParam<HIMAGELIST>,
+    P1: ::windows_core::IntoParam<super::super::Graphics::Gdi::HBITMAP>,
+    P2: ::windows_core::IntoParam<super::super::Graphics::Gdi::HBITMAP>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn ImageList_Replace(himl : HIMAGELIST, i : i32, hbmimage : super::super::Graphics::Gdi:: HBITMAP, hbmmask : super::super::Graphics::Gdi:: HBITMAP) -> super::super::Foundation:: BOOL);
     ImageList_Replace(himl.into_param().abi(), i, hbmimage.into_param().abi(), hbmmask.into_param().abi())
@@ -1660,8 +1660,8 @@ where
 #[inline]
 pub unsafe fn ImageList_ReplaceIcon<P0, P1>(himl: P0, i: i32, hicon: P1) -> i32
 where
-    P0: ::windows::core::IntoParam<HIMAGELIST>,
-    P1: ::windows::core::IntoParam<super::WindowsAndMessaging::HICON>,
+    P0: ::windows_core::IntoParam<HIMAGELIST>,
+    P1: ::windows_core::IntoParam<super::WindowsAndMessaging::HICON>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn ImageList_ReplaceIcon(himl : HIMAGELIST, i : i32, hicon : super::WindowsAndMessaging:: HICON) -> i32);
     ImageList_ReplaceIcon(himl.into_param().abi(), i, hicon.into_param().abi())
@@ -1671,8 +1671,8 @@ where
 #[inline]
 pub unsafe fn ImageList_SetBkColor<P0, P1>(himl: P0, clrbk: P1) -> super::super::Foundation::COLORREF
 where
-    P0: ::windows::core::IntoParam<HIMAGELIST>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::COLORREF>,
+    P0: ::windows_core::IntoParam<HIMAGELIST>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::COLORREF>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn ImageList_SetBkColor(himl : HIMAGELIST, clrbk : super::super::Foundation:: COLORREF) -> super::super::Foundation:: COLORREF);
     ImageList_SetBkColor(himl.into_param().abi(), clrbk.into_param().abi())
@@ -1682,7 +1682,7 @@ where
 #[inline]
 pub unsafe fn ImageList_SetDragCursorImage<P0>(himldrag: P0, idrag: i32, dxhotspot: i32, dyhotspot: i32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<HIMAGELIST>,
+    P0: ::windows_core::IntoParam<HIMAGELIST>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn ImageList_SetDragCursorImage(himldrag : HIMAGELIST, idrag : i32, dxhotspot : i32, dyhotspot : i32) -> super::super::Foundation:: BOOL);
     ImageList_SetDragCursorImage(himldrag.into_param().abi(), idrag, dxhotspot, dyhotspot)
@@ -1692,7 +1692,7 @@ where
 #[inline]
 pub unsafe fn ImageList_SetIconSize<P0>(himl: P0, cx: i32, cy: i32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<HIMAGELIST>,
+    P0: ::windows_core::IntoParam<HIMAGELIST>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn ImageList_SetIconSize(himl : HIMAGELIST, cx : i32, cy : i32) -> super::super::Foundation:: BOOL);
     ImageList_SetIconSize(himl.into_param().abi(), cx, cy)
@@ -1702,7 +1702,7 @@ where
 #[inline]
 pub unsafe fn ImageList_SetImageCount<P0>(himl: P0, unewcount: u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<HIMAGELIST>,
+    P0: ::windows_core::IntoParam<HIMAGELIST>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn ImageList_SetImageCount(himl : HIMAGELIST, unewcount : u32) -> super::super::Foundation:: BOOL);
     ImageList_SetImageCount(himl.into_param().abi(), unewcount)
@@ -1712,7 +1712,7 @@ where
 #[inline]
 pub unsafe fn ImageList_SetOverlayImage<P0>(himl: P0, iimage: i32, ioverlay: i32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<HIMAGELIST>,
+    P0: ::windows_core::IntoParam<HIMAGELIST>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn ImageList_SetOverlayImage(himl : HIMAGELIST, iimage : i32, ioverlay : i32) -> super::super::Foundation:: BOOL);
     ImageList_SetOverlayImage(himl.into_param().abi(), iimage, ioverlay)
@@ -1722,8 +1722,8 @@ where
 #[inline]
 pub unsafe fn ImageList_Write<P0, P1>(himl: P0, pstm: P1) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<HIMAGELIST>,
-    P1: ::windows::core::IntoParam<super::super::System::Com::IStream>,
+    P0: ::windows_core::IntoParam<HIMAGELIST>,
+    P1: ::windows_core::IntoParam<super::super::System::Com::IStream>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn ImageList_Write(himl : HIMAGELIST, pstm : * mut::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     ImageList_Write(himl.into_param().abi(), pstm.into_param().abi())
@@ -1731,12 +1731,12 @@ where
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn ImageList_WriteEx<P0, P1>(himl: P0, dwflags: IMAGE_LIST_WRITE_STREAM_FLAGS, pstm: P1) -> ::windows::core::Result<()>
+pub unsafe fn ImageList_WriteEx<P0, P1>(himl: P0, dwflags: IMAGE_LIST_WRITE_STREAM_FLAGS, pstm: P1) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<HIMAGELIST>,
-    P1: ::windows::core::IntoParam<super::super::System::Com::IStream>,
+    P0: ::windows_core::IntoParam<HIMAGELIST>,
+    P1: ::windows_core::IntoParam<super::super::System::Com::IStream>,
 {
-    ::windows_targets::link!("comctl32.dll" "system" fn ImageList_WriteEx(himl : HIMAGELIST, dwflags : IMAGE_LIST_WRITE_STREAM_FLAGS, pstm : * mut::core::ffi::c_void) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("comctl32.dll" "system" fn ImageList_WriteEx(himl : HIMAGELIST, dwflags : IMAGE_LIST_WRITE_STREAM_FLAGS, pstm : * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
     ImageList_WriteEx(himl.into_param().abi(), dwflags, pstm.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -1763,7 +1763,7 @@ pub unsafe fn InitMUILanguage(uilang: u16) {
 #[inline]
 pub unsafe fn InitializeFlatSB<P0>(param0: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn InitializeFlatSB(param0 : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
     InitializeFlatSB(param0.into_param().abi())
@@ -1794,7 +1794,7 @@ pub unsafe fn IsCompositionActive() -> super::super::Foundation::BOOL {
 #[inline]
 pub unsafe fn IsDlgButtonChecked<P0>(hdlg: P0, nidbutton: i32) -> u32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("user32.dll" "system" fn IsDlgButtonChecked(hdlg : super::super::Foundation:: HWND, nidbutton : i32) -> u32);
     IsDlgButtonChecked(hdlg.into_param().abi(), nidbutton)
@@ -1811,7 +1811,7 @@ pub unsafe fn IsThemeActive() -> super::super::Foundation::BOOL {
 #[inline]
 pub unsafe fn IsThemeBackgroundPartiallyTransparent<P0>(htheme: P0, ipartid: i32, istateid: i32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<HTHEME>,
+    P0: ::windows_core::IntoParam<HTHEME>,
 {
     ::windows_targets::link!("uxtheme.dll" "system" fn IsThemeBackgroundPartiallyTransparent(htheme : HTHEME, ipartid : i32, istateid : i32) -> super::super::Foundation:: BOOL);
     IsThemeBackgroundPartiallyTransparent(htheme.into_param().abi(), ipartid, istateid)
@@ -1821,7 +1821,7 @@ where
 #[inline]
 pub unsafe fn IsThemeDialogTextureEnabled<P0>(hwnd: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("uxtheme.dll" "system" fn IsThemeDialogTextureEnabled(hwnd : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
     IsThemeDialogTextureEnabled(hwnd.into_param().abi())
@@ -1831,7 +1831,7 @@ where
 #[inline]
 pub unsafe fn IsThemePartDefined<P0>(htheme: P0, ipartid: i32, istateid: i32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<HTHEME>,
+    P0: ::windows_core::IntoParam<HTHEME>,
 {
     ::windows_targets::link!("uxtheme.dll" "system" fn IsThemePartDefined(htheme : HTHEME, ipartid : i32, istateid : i32) -> super::super::Foundation:: BOOL);
     IsThemePartDefined(htheme.into_param().abi(), ipartid, istateid)
@@ -1841,8 +1841,8 @@ where
 #[inline]
 pub unsafe fn LBItemFromPt<P0, P1>(hlb: P0, pt: super::super::Foundation::POINT, bautoscroll: P1) -> i32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn LBItemFromPt(hlb : super::super::Foundation:: HWND, pt : super::super::Foundation:: POINT, bautoscroll : super::super::Foundation:: BOOL) -> i32);
     LBItemFromPt(hlb.into_param().abi(), ::core::mem::transmute(pt), bautoscroll.into_param().abi())
@@ -1850,25 +1850,25 @@ where
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
-pub unsafe fn LoadIconMetric<P0, P1>(hinst: P0, pszname: P1, lims: _LI_METRIC) -> ::windows::core::Result<super::WindowsAndMessaging::HICON>
+pub unsafe fn LoadIconMetric<P0, P1>(hinst: P0, pszname: P1, lims: _LI_METRIC) -> ::windows_core::Result<super::WindowsAndMessaging::HICON>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HMODULE>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("comctl32.dll" "system" fn LoadIconMetric(hinst : super::super::Foundation:: HMODULE, pszname : ::windows::core::PCWSTR, lims : _LI_METRIC, phico : *mut super::WindowsAndMessaging:: HICON) -> ::windows::core::HRESULT);
-    let mut result__ = ::windows::core::zeroed::<super::WindowsAndMessaging::HICON>();
+    ::windows_targets::link!("comctl32.dll" "system" fn LoadIconMetric(hinst : super::super::Foundation:: HMODULE, pszname : ::windows_core::PCWSTR, lims : _LI_METRIC, phico : *mut super::WindowsAndMessaging:: HICON) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<super::WindowsAndMessaging::HICON>();
     LoadIconMetric(hinst.into_param().abi(), pszname.into_param().abi(), lims, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
-pub unsafe fn LoadIconWithScaleDown<P0, P1>(hinst: P0, pszname: P1, cx: i32, cy: i32) -> ::windows::core::Result<super::WindowsAndMessaging::HICON>
+pub unsafe fn LoadIconWithScaleDown<P0, P1>(hinst: P0, pszname: P1, cx: i32, cy: i32) -> ::windows_core::Result<super::WindowsAndMessaging::HICON>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HMODULE>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("comctl32.dll" "system" fn LoadIconWithScaleDown(hinst : super::super::Foundation:: HMODULE, pszname : ::windows::core::PCWSTR, cx : i32, cy : i32, phico : *mut super::WindowsAndMessaging:: HICON) -> ::windows::core::HRESULT);
-    let mut result__ = ::windows::core::zeroed::<super::WindowsAndMessaging::HICON>();
+    ::windows_targets::link!("comctl32.dll" "system" fn LoadIconWithScaleDown(hinst : super::super::Foundation:: HMODULE, pszname : ::windows_core::PCWSTR, cx : i32, cy : i32, phico : *mut super::WindowsAndMessaging:: HICON) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<super::WindowsAndMessaging::HICON>();
     LoadIconWithScaleDown(hinst.into_param().abi(), pszname.into_param().abi(), cx, cy, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
@@ -1876,7 +1876,7 @@ where
 #[inline]
 pub unsafe fn MakeDragList<P0>(hlb: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn MakeDragList(hlb : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
     MakeDragList(hlb.into_param().abi())
@@ -1886,11 +1886,11 @@ where
 #[inline]
 pub unsafe fn MenuHelp<P0, P1, P2, P3, P4>(umsg: u32, wparam: P0, lparam: P1, hmainmenu: P2, hinst: P3, hwndstatus: P4, lpwids: *const u32)
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::WPARAM>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::LPARAM>,
-    P2: ::windows::core::IntoParam<super::WindowsAndMessaging::HMENU>,
-    P3: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
-    P4: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::WPARAM>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::LPARAM>,
+    P2: ::windows_core::IntoParam<super::WindowsAndMessaging::HMENU>,
+    P3: ::windows_core::IntoParam<super::super::Foundation::HMODULE>,
+    P4: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn MenuHelp(umsg : u32, wparam : super::super::Foundation:: WPARAM, lparam : super::super::Foundation:: LPARAM, hmainmenu : super::WindowsAndMessaging:: HMENU, hinst : super::super::Foundation:: HMODULE, hwndstatus : super::super::Foundation:: HWND, lpwids : *const u32) -> ());
     MenuHelp(umsg, wparam.into_param().abi(), lparam.into_param().abi(), hmainmenu.into_param().abi(), hinst.into_param().abi(), hwndstatus.into_param().abi(), lpwids)
@@ -1900,10 +1900,10 @@ where
 #[inline]
 pub unsafe fn OpenThemeData<P0, P1>(hwnd: P0, pszclasslist: P1) -> HTHEME
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("uxtheme.dll" "system" fn OpenThemeData(hwnd : super::super::Foundation:: HWND, pszclasslist : ::windows::core::PCWSTR) -> HTHEME);
+    ::windows_targets::link!("uxtheme.dll" "system" fn OpenThemeData(hwnd : super::super::Foundation:: HWND, pszclasslist : ::windows_core::PCWSTR) -> HTHEME);
     OpenThemeData(hwnd.into_param().abi(), pszclasslist.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
@@ -1911,10 +1911,10 @@ where
 #[inline]
 pub unsafe fn OpenThemeDataEx<P0, P1>(hwnd: P0, pszclasslist: P1, dwflags: OPEN_THEME_DATA_FLAGS) -> HTHEME
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("uxtheme.dll" "system" fn OpenThemeDataEx(hwnd : super::super::Foundation:: HWND, pszclasslist : ::windows::core::PCWSTR, dwflags : OPEN_THEME_DATA_FLAGS) -> HTHEME);
+    ::windows_targets::link!("uxtheme.dll" "system" fn OpenThemeDataEx(hwnd : super::super::Foundation:: HWND, pszclasslist : ::windows_core::PCWSTR, dwflags : OPEN_THEME_DATA_FLAGS) -> HTHEME);
     OpenThemeDataEx(hwnd.into_param().abi(), pszclasslist.into_param().abi(), dwflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
@@ -1943,8 +1943,8 @@ pub unsafe fn PropertySheetW(param0: *mut PROPSHEETHEADERW_V2) -> isize {
 #[inline]
 pub unsafe fn RegisterPointerDeviceNotifications<P0, P1>(window: P0, notifyrange: P1) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("user32.dll" "system" fn RegisterPointerDeviceNotifications(window : super::super::Foundation:: HWND, notifyrange : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     RegisterPointerDeviceNotifications(window.into_param().abi(), notifyrange.into_param().abi())
@@ -1954,7 +1954,7 @@ where
 #[inline]
 pub unsafe fn RegisterTouchHitTestingWindow<P0>(hwnd: P0, value: u32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("user32.dll" "system" fn RegisterTouchHitTestingWindow(hwnd : super::super::Foundation:: HWND, value : u32) -> super::super::Foundation:: BOOL);
     RegisterTouchHitTestingWindow(hwnd.into_param().abi(), value)
@@ -1964,8 +1964,8 @@ where
 #[inline]
 pub unsafe fn SetScrollInfo<P0, P1>(hwnd: P0, nbar: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, lpsi: *const super::WindowsAndMessaging::SCROLLINFO, redraw: P1) -> i32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("user32.dll" "system" fn SetScrollInfo(hwnd : super::super::Foundation:: HWND, nbar : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS, lpsi : *const super::WindowsAndMessaging:: SCROLLINFO, redraw : super::super::Foundation:: BOOL) -> i32);
     SetScrollInfo(hwnd.into_param().abi(), nbar, lpsi, redraw.into_param().abi())
@@ -1975,8 +1975,8 @@ where
 #[inline]
 pub unsafe fn SetScrollPos<P0, P1>(hwnd: P0, nbar: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, npos: i32, bredraw: P1) -> i32
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("user32.dll" "system" fn SetScrollPos(hwnd : super::super::Foundation:: HWND, nbar : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS, npos : i32, bredraw : super::super::Foundation:: BOOL) -> i32);
     SetScrollPos(hwnd.into_param().abi(), nbar, npos, bredraw.into_param().abi())
@@ -1986,8 +1986,8 @@ where
 #[inline]
 pub unsafe fn SetScrollRange<P0, P1>(hwnd: P0, nbar: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, nminpos: i32, nmaxpos: i32, bredraw: P1) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("user32.dll" "system" fn SetScrollRange(hwnd : super::super::Foundation:: HWND, nbar : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS, nminpos : i32, nmaxpos : i32, bredraw : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     SetScrollRange(hwnd.into_param().abi(), nbar, nminpos, nmaxpos, bredraw.into_param().abi())
@@ -2003,7 +2003,7 @@ pub unsafe fn SetThemeAppProperties(dwflags: SET_THEME_APP_PROPERTIES_FLAGS) {
 #[inline]
 pub unsafe fn SetWindowFeedbackSetting<P0>(hwnd: P0, feedback: FEEDBACK_TYPE, dwflags: u32, size: u32, configuration: ::core::option::Option<*const ::core::ffi::c_void>) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("user32.dll" "system" fn SetWindowFeedbackSetting(hwnd : super::super::Foundation:: HWND, feedback : FEEDBACK_TYPE, dwflags : u32, size : u32, configuration : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     SetWindowFeedbackSetting(hwnd.into_param().abi(), feedback, dwflags, size, ::core::mem::transmute(configuration.unwrap_or(::std::ptr::null())))
@@ -2011,23 +2011,23 @@ where
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetWindowTheme<P0, P1, P2>(hwnd: P0, pszsubappname: P1, pszsubidlist: P2) -> ::windows::core::Result<()>
+pub unsafe fn SetWindowTheme<P0, P1, P2>(hwnd: P0, pszsubappname: P1, pszsubidlist: P2) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("uxtheme.dll" "system" fn SetWindowTheme(hwnd : super::super::Foundation:: HWND, pszsubappname : ::windows::core::PCWSTR, pszsubidlist : ::windows::core::PCWSTR) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("uxtheme.dll" "system" fn SetWindowTheme(hwnd : super::super::Foundation:: HWND, pszsubappname : ::windows_core::PCWSTR, pszsubidlist : ::windows_core::PCWSTR) -> ::windows_core::HRESULT);
     SetWindowTheme(hwnd.into_param().abi(), pszsubappname.into_param().abi(), pszsubidlist.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetWindowThemeAttribute<P0>(hwnd: P0, eattribute: WINDOWTHEMEATTRIBUTETYPE, pvattribute: *const ::core::ffi::c_void, cbattribute: u32) -> ::windows::core::Result<()>
+pub unsafe fn SetWindowThemeAttribute<P0>(hwnd: P0, eattribute: WINDOWTHEMEATTRIBUTETYPE, pvattribute: *const ::core::ffi::c_void, cbattribute: u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("uxtheme.dll" "system" fn SetWindowThemeAttribute(hwnd : super::super::Foundation:: HWND, eattribute : WINDOWTHEMEATTRIBUTETYPE, pvattribute : *const ::core::ffi::c_void, cbattribute : u32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("uxtheme.dll" "system" fn SetWindowThemeAttribute(hwnd : super::super::Foundation:: HWND, eattribute : WINDOWTHEMEATTRIBUTETYPE, pvattribute : *const ::core::ffi::c_void, cbattribute : u32) -> ::windows_core::HRESULT);
     SetWindowThemeAttribute(hwnd.into_param().abi(), eattribute, pvattribute, cbattribute).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
@@ -2035,7 +2035,7 @@ where
 #[inline]
 pub unsafe fn ShowHideMenuCtl<P0>(hwnd: P0, uflags: usize, lpinfo: *const i32) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn ShowHideMenuCtl(hwnd : super::super::Foundation:: HWND, uflags : usize, lpinfo : *const i32) -> super::super::Foundation:: BOOL);
     ShowHideMenuCtl(hwnd.into_param().abi(), uflags, lpinfo)
@@ -2045,8 +2045,8 @@ where
 #[inline]
 pub unsafe fn ShowScrollBar<P0, P1>(hwnd: P0, wbar: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, bshow: P1) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("user32.dll" "system" fn ShowScrollBar(hwnd : super::super::Foundation:: HWND, wbar : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS, bshow : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     ShowScrollBar(hwnd.into_param().abi(), wbar, bshow.into_param().abi())
@@ -2054,43 +2054,43 @@ where
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn Str_SetPtrW<P0>(ppsz: *mut ::windows::core::PWSTR, psz: P0) -> super::super::Foundation::BOOL
+pub unsafe fn Str_SetPtrW<P0>(ppsz: *mut ::windows_core::PWSTR, psz: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("comctl32.dll" "system" fn Str_SetPtrW(ppsz : *mut ::windows::core::PWSTR, psz : ::windows::core::PCWSTR) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("comctl32.dll" "system" fn Str_SetPtrW(ppsz : *mut ::windows_core::PWSTR, psz : ::windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     Str_SetPtrW(ppsz, psz.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TaskDialog<P0, P1, P2, P3, P4, P5>(hwndowner: P0, hinstance: P1, pszwindowtitle: P2, pszmaininstruction: P3, pszcontent: P4, dwcommonbuttons: TASKDIALOG_COMMON_BUTTON_FLAGS, pszicon: P5, pnbutton: ::core::option::Option<*mut i32>) -> ::windows::core::Result<()>
+pub unsafe fn TaskDialog<P0, P1, P2, P3, P4, P5>(hwndowner: P0, hinstance: P1, pszwindowtitle: P2, pszmaininstruction: P3, pszcontent: P4, dwcommonbuttons: TASKDIALOG_COMMON_BUTTON_FLAGS, pszicon: P5, pnbutton: ::core::option::Option<*mut i32>) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::HMODULE>,
-    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P3: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P4: ::windows::core::IntoParam<::windows::core::PCWSTR>,
-    P5: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HMODULE>,
+    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P3: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P4: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P5: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("comctl32.dll" "system" fn TaskDialog(hwndowner : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HMODULE, pszwindowtitle : ::windows::core::PCWSTR, pszmaininstruction : ::windows::core::PCWSTR, pszcontent : ::windows::core::PCWSTR, dwcommonbuttons : TASKDIALOG_COMMON_BUTTON_FLAGS, pszicon : ::windows::core::PCWSTR, pnbutton : *mut i32) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("comctl32.dll" "system" fn TaskDialog(hwndowner : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HMODULE, pszwindowtitle : ::windows_core::PCWSTR, pszmaininstruction : ::windows_core::PCWSTR, pszcontent : ::windows_core::PCWSTR, dwcommonbuttons : TASKDIALOG_COMMON_BUTTON_FLAGS, pszicon : ::windows_core::PCWSTR, pnbutton : *mut i32) -> ::windows_core::HRESULT);
     TaskDialog(hwndowner.into_param().abi(), hinstance.into_param().abi(), pszwindowtitle.into_param().abi(), pszmaininstruction.into_param().abi(), pszcontent.into_param().abi(), dwcommonbuttons, pszicon.into_param().abi(), ::core::mem::transmute(pnbutton.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
-pub unsafe fn TaskDialogIndirect(ptaskconfig: *const TASKDIALOGCONFIG, pnbutton: ::core::option::Option<*mut i32>, pnradiobutton: ::core::option::Option<*mut i32>, pfverificationflagchecked: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> ::windows::core::Result<()> {
-    ::windows_targets::link!("comctl32.dll" "system" fn TaskDialogIndirect(ptaskconfig : *const TASKDIALOGCONFIG, pnbutton : *mut i32, pnradiobutton : *mut i32, pfverificationflagchecked : *mut super::super::Foundation:: BOOL) -> ::windows::core::HRESULT);
+pub unsafe fn TaskDialogIndirect(ptaskconfig: *const TASKDIALOGCONFIG, pnbutton: ::core::option::Option<*mut i32>, pnradiobutton: ::core::option::Option<*mut i32>, pfverificationflagchecked: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("comctl32.dll" "system" fn TaskDialogIndirect(ptaskconfig : *const TASKDIALOGCONFIG, pnbutton : *mut i32, pnradiobutton : *mut i32, pfverificationflagchecked : *mut super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
     TaskDialogIndirect(ptaskconfig, ::core::mem::transmute(pnbutton.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pnradiobutton.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pfverificationflagchecked.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UninitializeFlatSB<P0>(param0: P0) -> ::windows::core::Result<()>
+pub unsafe fn UninitializeFlatSB<P0>(param0: P0) -> ::windows_core::Result<()>
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("comctl32.dll" "system" fn UninitializeFlatSB(param0 : super::super::Foundation:: HWND) -> ::windows::core::HRESULT);
+    ::windows_targets::link!("comctl32.dll" "system" fn UninitializeFlatSB(param0 : super::super::Foundation:: HWND) -> ::windows_core::HRESULT);
     UninitializeFlatSB(param0.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
@@ -2098,179 +2098,179 @@ where
 #[inline]
 pub unsafe fn UpdatePanningFeedback<P0, P1>(hwnd: P0, ltotaloverpanoffsetx: i32, ltotaloverpanoffsety: i32, fininertia: P1) -> super::super::Foundation::BOOL
 where
-    P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("uxtheme.dll" "system" fn UpdatePanningFeedback(hwnd : super::super::Foundation:: HWND, ltotaloverpanoffsetx : i32, ltotaloverpanoffsety : i32, fininertia : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     UpdatePanningFeedback(hwnd.into_param().abi(), ltotaloverpanoffsetx, ltotaloverpanoffsety, fininertia.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-pub struct IImageList(::windows::core::IUnknown);
+pub struct IImageList(::windows_core::IUnknown);
 impl IImageList {
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn Add<P0, P1>(&self, hbmimage: P0, hbmmask: P1) -> ::windows::core::Result<i32>
+    pub unsafe fn Add<P0, P1>(&self, hbmimage: P0, hbmmask: P1) -> ::windows_core::Result<i32>
     where
-        P0: ::windows::core::IntoParam<super::super::Graphics::Gdi::HBITMAP>,
-        P1: ::windows::core::IntoParam<super::super::Graphics::Gdi::HBITMAP>,
+        P0: ::windows_core::IntoParam<super::super::Graphics::Gdi::HBITMAP>,
+        P1: ::windows_core::IntoParam<super::super::Graphics::Gdi::HBITMAP>,
     {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), hbmimage.into_param().abi(), hbmmask.into_param().abi(), &mut result__).from_abi(result__)
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).Add)(::windows_core::Interface::as_raw(self), hbmimage.into_param().abi(), hbmmask.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub unsafe fn ReplaceIcon<P0>(&self, i: i32, hicon: P0) -> ::windows::core::Result<i32>
+    pub unsafe fn ReplaceIcon<P0>(&self, i: i32, hicon: P0) -> ::windows_core::Result<i32>
     where
-        P0: ::windows::core::IntoParam<super::WindowsAndMessaging::HICON>,
+        P0: ::windows_core::IntoParam<super::WindowsAndMessaging::HICON>,
     {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).ReplaceIcon)(::windows::core::Interface::as_raw(self), i, hicon.into_param().abi(), &mut result__).from_abi(result__)
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).ReplaceIcon)(::windows_core::Interface::as_raw(self), i, hicon.into_param().abi(), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetOverlayImage(&self, iimage: i32, ioverlay: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOverlayImage)(::windows::core::Interface::as_raw(self), iimage, ioverlay).ok()
+    pub unsafe fn SetOverlayImage(&self, iimage: i32, ioverlay: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetOverlayImage)(::windows_core::Interface::as_raw(self), iimage, ioverlay).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn Replace<P0, P1>(&self, i: i32, hbmimage: P0, hbmmask: P1) -> ::windows::core::Result<()>
+    pub unsafe fn Replace<P0, P1>(&self, i: i32, hbmimage: P0, hbmmask: P1) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Graphics::Gdi::HBITMAP>,
-        P1: ::windows::core::IntoParam<super::super::Graphics::Gdi::HBITMAP>,
+        P0: ::windows_core::IntoParam<super::super::Graphics::Gdi::HBITMAP>,
+        P1: ::windows_core::IntoParam<super::super::Graphics::Gdi::HBITMAP>,
     {
-        (::windows::core::Interface::vtable(self).Replace)(::windows::core::Interface::as_raw(self), i, hbmimage.into_param().abi(), hbmmask.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).Replace)(::windows_core::Interface::as_raw(self), i, hbmimage.into_param().abi(), hbmmask.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn AddMasked<P0, P1>(&self, hbmimage: P0, crmask: P1) -> ::windows::core::Result<i32>
+    pub unsafe fn AddMasked<P0, P1>(&self, hbmimage: P0, crmask: P1) -> ::windows_core::Result<i32>
     where
-        P0: ::windows::core::IntoParam<super::super::Graphics::Gdi::HBITMAP>,
-        P1: ::windows::core::IntoParam<super::super::Foundation::COLORREF>,
+        P0: ::windows_core::IntoParam<super::super::Graphics::Gdi::HBITMAP>,
+        P1: ::windows_core::IntoParam<super::super::Foundation::COLORREF>,
     {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).AddMasked)(::windows::core::Interface::as_raw(self), hbmimage.into_param().abi(), crmask.into_param().abi(), &mut result__).from_abi(result__)
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).AddMasked)(::windows_core::Interface::as_raw(self), hbmimage.into_param().abi(), crmask.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn Draw(&self, pimldp: *const IMAGELISTDRAWPARAMS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Draw)(::windows::core::Interface::as_raw(self), pimldp).ok()
+    pub unsafe fn Draw(&self, pimldp: *const IMAGELISTDRAWPARAMS) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Draw)(::windows_core::Interface::as_raw(self), pimldp).ok()
     }
-    pub unsafe fn Remove(&self, i: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), i).ok()
+    pub unsafe fn Remove(&self, i: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Remove)(::windows_core::Interface::as_raw(self), i).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub unsafe fn GetIcon(&self, i: i32, flags: u32) -> ::windows::core::Result<super::WindowsAndMessaging::HICON> {
-        let mut result__ = ::windows::core::zeroed::<super::WindowsAndMessaging::HICON>();
-        (::windows::core::Interface::vtable(self).GetIcon)(::windows::core::Interface::as_raw(self), i, flags, &mut result__).from_abi(result__)
+    pub unsafe fn GetIcon(&self, i: i32, flags: u32) -> ::windows_core::Result<super::WindowsAndMessaging::HICON> {
+        let mut result__ = ::windows_core::zeroed::<super::WindowsAndMessaging::HICON>();
+        (::windows_core::Interface::vtable(self).GetIcon)(::windows_core::Interface::as_raw(self), i, flags, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn GetImageInfo(&self, i: i32, pimageinfo: *mut IMAGEINFO) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetImageInfo)(::windows::core::Interface::as_raw(self), i, pimageinfo).ok()
+    pub unsafe fn GetImageInfo(&self, i: i32, pimageinfo: *mut IMAGEINFO) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetImageInfo)(::windows_core::Interface::as_raw(self), i, pimageinfo).ok()
     }
-    pub unsafe fn Copy<P0>(&self, idst: i32, punksrc: P0, isrc: i32, uflags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn Copy<P0>(&self, idst: i32, punksrc: P0, isrc: i32, uflags: u32) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        (::windows::core::Interface::vtable(self).Copy)(::windows::core::Interface::as_raw(self), idst, punksrc.into_param().abi(), isrc, uflags).ok()
+        (::windows_core::Interface::vtable(self).Copy)(::windows_core::Interface::as_raw(self), idst, punksrc.into_param().abi(), isrc, uflags).ok()
     }
-    pub unsafe fn Merge<P0>(&self, i1: i32, punk2: P0, i2: i32, dx: i32, dy: i32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+    pub unsafe fn Merge<P0>(&self, i1: i32, punk2: P0, i2: i32, dx: i32, dy: i32, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        (::windows::core::Interface::vtable(self).Merge)(::windows::core::Interface::as_raw(self), i1, punk2.into_param().abi(), i2, dx, dy, riid, ppv).ok()
+        (::windows_core::Interface::vtable(self).Merge)(::windows_core::Interface::as_raw(self), i1, punk2.into_param().abi(), i2, dx, dy, riid, ppv).ok()
     }
-    pub unsafe fn Clone(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), riid, ppv).ok()
+    pub unsafe fn Clone(&self, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Clone)(::windows_core::Interface::as_raw(self), riid, ppv).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetImageRect(&self, i: i32) -> ::windows::core::Result<super::super::Foundation::RECT> {
-        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::RECT>();
-        (::windows::core::Interface::vtable(self).GetImageRect)(::windows::core::Interface::as_raw(self), i, &mut result__).from_abi(result__)
+    pub unsafe fn GetImageRect(&self, i: i32) -> ::windows_core::Result<super::super::Foundation::RECT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::RECT>();
+        (::windows_core::Interface::vtable(self).GetImageRect)(::windows_core::Interface::as_raw(self), i, &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetIconSize(&self, cx: *mut i32, cy: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetIconSize)(::windows::core::Interface::as_raw(self), cx, cy).ok()
+    pub unsafe fn GetIconSize(&self, cx: *mut i32, cy: *mut i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetIconSize)(::windows_core::Interface::as_raw(self), cx, cy).ok()
     }
-    pub unsafe fn SetIconSize(&self, cx: i32, cy: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetIconSize)(::windows::core::Interface::as_raw(self), cx, cy).ok()
+    pub unsafe fn SetIconSize(&self, cx: i32, cy: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetIconSize)(::windows_core::Interface::as_raw(self), cx, cy).ok()
     }
-    pub unsafe fn GetImageCount(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).GetImageCount)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn GetImageCount(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).GetImageCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetImageCount(&self, unewcount: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetImageCount)(::windows::core::Interface::as_raw(self), unewcount).ok()
+    pub unsafe fn SetImageCount(&self, unewcount: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetImageCount)(::windows_core::Interface::as_raw(self), unewcount).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetBkColor<P0>(&self, clrbk: P0) -> ::windows::core::Result<super::super::Foundation::COLORREF>
+    pub unsafe fn SetBkColor<P0>(&self, clrbk: P0) -> ::windows_core::Result<super::super::Foundation::COLORREF>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::COLORREF>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::COLORREF>,
     {
-        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::COLORREF>();
-        (::windows::core::Interface::vtable(self).SetBkColor)(::windows::core::Interface::as_raw(self), clrbk.into_param().abi(), &mut result__).from_abi(result__)
+        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::COLORREF>();
+        (::windows_core::Interface::vtable(self).SetBkColor)(::windows_core::Interface::as_raw(self), clrbk.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetBkColor(&self) -> ::windows::core::Result<super::super::Foundation::COLORREF> {
-        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::COLORREF>();
-        (::windows::core::Interface::vtable(self).GetBkColor)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn GetBkColor(&self) -> ::windows_core::Result<super::super::Foundation::COLORREF> {
+        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::COLORREF>();
+        (::windows_core::Interface::vtable(self).GetBkColor)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn BeginDrag(&self, itrack: i32, dxhotspot: i32, dyhotspot: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BeginDrag)(::windows::core::Interface::as_raw(self), itrack, dxhotspot, dyhotspot).ok()
+    pub unsafe fn BeginDrag(&self, itrack: i32, dxhotspot: i32, dyhotspot: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).BeginDrag)(::windows_core::Interface::as_raw(self), itrack, dxhotspot, dyhotspot).ok()
     }
-    pub unsafe fn EndDrag(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EndDrag)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn EndDrag(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).EndDrag)(::windows_core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DragEnter<P0>(&self, hwndlock: P0, x: i32, y: i32) -> ::windows::core::Result<()>
+    pub unsafe fn DragEnter<P0>(&self, hwndlock: P0, x: i32, y: i32) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
     {
-        (::windows::core::Interface::vtable(self).DragEnter)(::windows::core::Interface::as_raw(self), hwndlock.into_param().abi(), x, y).ok()
+        (::windows_core::Interface::vtable(self).DragEnter)(::windows_core::Interface::as_raw(self), hwndlock.into_param().abi(), x, y).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DragLeave<P0>(&self, hwndlock: P0) -> ::windows::core::Result<()>
+    pub unsafe fn DragLeave<P0>(&self, hwndlock: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
     {
-        (::windows::core::Interface::vtable(self).DragLeave)(::windows::core::Interface::as_raw(self), hwndlock.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).DragLeave)(::windows_core::Interface::as_raw(self), hwndlock.into_param().abi()).ok()
     }
-    pub unsafe fn DragMove(&self, x: i32, y: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DragMove)(::windows::core::Interface::as_raw(self), x, y).ok()
+    pub unsafe fn DragMove(&self, x: i32, y: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).DragMove)(::windows_core::Interface::as_raw(self), x, y).ok()
     }
-    pub unsafe fn SetDragCursorImage<P0>(&self, punk: P0, idrag: i32, dxhotspot: i32, dyhotspot: i32) -> ::windows::core::Result<()>
+    pub unsafe fn SetDragCursorImage<P0>(&self, punk: P0, idrag: i32, dxhotspot: i32, dyhotspot: i32) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        (::windows::core::Interface::vtable(self).SetDragCursorImage)(::windows::core::Interface::as_raw(self), punk.into_param().abi(), idrag, dxhotspot, dyhotspot).ok()
+        (::windows_core::Interface::vtable(self).SetDragCursorImage)(::windows_core::Interface::as_raw(self), punk.into_param().abi(), idrag, dxhotspot, dyhotspot).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DragShowNolock<P0>(&self, fshow: P0) -> ::windows::core::Result<()>
+    pub unsafe fn DragShowNolock<P0>(&self, fshow: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).DragShowNolock)(::windows::core::Interface::as_raw(self), fshow.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).DragShowNolock)(::windows_core::Interface::as_raw(self), fshow.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDragImage(&self, ppt: ::core::option::Option<*mut super::super::Foundation::POINT>, ppthotspot: ::core::option::Option<*mut super::super::Foundation::POINT>, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDragImage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppt.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppthotspot.unwrap_or(::std::ptr::null_mut())), riid, ppv).ok()
+    pub unsafe fn GetDragImage(&self, ppt: ::core::option::Option<*mut super::super::Foundation::POINT>, ppthotspot: ::core::option::Option<*mut super::super::Foundation::POINT>, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetDragImage)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppt.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppthotspot.unwrap_or(::std::ptr::null_mut())), riid, ppv).ok()
     }
-    pub unsafe fn GetItemFlags(&self, i: i32) -> ::windows::core::Result<IMAGE_LIST_ITEM_FLAGS> {
-        let mut result__ = ::windows::core::zeroed::<IMAGE_LIST_ITEM_FLAGS>();
-        (::windows::core::Interface::vtable(self).GetItemFlags)(::windows::core::Interface::as_raw(self), i, &mut result__).from_abi(result__)
+    pub unsafe fn GetItemFlags(&self, i: i32) -> ::windows_core::Result<IMAGE_LIST_ITEM_FLAGS> {
+        let mut result__ = ::windows_core::zeroed::<IMAGE_LIST_ITEM_FLAGS>();
+        (::windows_core::Interface::vtable(self).GetItemFlags)(::windows_core::Interface::as_raw(self), i, &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetOverlayImage(&self, ioverlay: i32) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).GetOverlayImage)(::windows::core::Interface::as_raw(self), ioverlay, &mut result__).from_abi(result__)
+    pub unsafe fn GetOverlayImage(&self, ioverlay: i32) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).GetOverlayImage)(::windows_core::Interface::as_raw(self), ioverlay, &mut result__).from_abi(result__)
     }
 }
-::windows::imp::interface_hierarchy!(IImageList, ::windows::core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IImageList, ::windows_core::IUnknown);
 impl ::core::cmp::PartialEq for IImageList {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2282,7 +2282,7 @@ impl ::core::fmt::Debug for IImageList {
         f.debug_tuple("IImageList").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IImageList {
+unsafe impl ::windows_core::Interface for IImageList {
     type Vtable = IImageList_Vtbl;
 }
 impl ::core::clone::Clone for IImageList {
@@ -2290,304 +2290,304 @@ impl ::core::clone::Clone for IImageList {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IImageList {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46eb5926_582e_4017_9fdf_e8998daa0950);
+unsafe impl ::windows_core::ComInterface for IImageList {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x46eb5926_582e_4017_9fdf_e8998daa0950);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IImageList_Vtbl {
-    pub base__: ::windows::core::IUnknown_Vtbl,
+    pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hbmimage: super::super::Graphics::Gdi::HBITMAP, hbmmask: super::super::Graphics::Gdi::HBITMAP, pi: *mut i32) -> ::windows::core::HRESULT,
+    pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hbmimage: super::super::Graphics::Gdi::HBITMAP, hbmmask: super::super::Graphics::Gdi::HBITMAP, pi: *mut i32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     Add: usize,
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub ReplaceIcon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, i: i32, hicon: super::WindowsAndMessaging::HICON, pi: *mut i32) -> ::windows::core::HRESULT,
+    pub ReplaceIcon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, i: i32, hicon: super::WindowsAndMessaging::HICON, pi: *mut i32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_UI_WindowsAndMessaging"))]
     ReplaceIcon: usize,
-    pub SetOverlayImage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iimage: i32, ioverlay: i32) -> ::windows::core::HRESULT,
+    pub SetOverlayImage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iimage: i32, ioverlay: i32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub Replace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, i: i32, hbmimage: super::super::Graphics::Gdi::HBITMAP, hbmmask: super::super::Graphics::Gdi::HBITMAP) -> ::windows::core::HRESULT,
+    pub Replace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, i: i32, hbmimage: super::super::Graphics::Gdi::HBITMAP, hbmmask: super::super::Graphics::Gdi::HBITMAP) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     Replace: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub AddMasked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hbmimage: super::super::Graphics::Gdi::HBITMAP, crmask: super::super::Foundation::COLORREF, pi: *mut i32) -> ::windows::core::HRESULT,
+    pub AddMasked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hbmimage: super::super::Graphics::Gdi::HBITMAP, crmask: super::super::Foundation::COLORREF, pi: *mut i32) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))]
     AddMasked: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub Draw: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pimldp: *const IMAGELISTDRAWPARAMS) -> ::windows::core::HRESULT,
+    pub Draw: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pimldp: *const IMAGELISTDRAWPARAMS) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))]
     Draw: usize,
-    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, i: i32) -> ::windows::core::HRESULT,
+    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, i: i32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub GetIcon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, i: i32, flags: u32, picon: *mut super::WindowsAndMessaging::HICON) -> ::windows::core::HRESULT,
+    pub GetIcon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, i: i32, flags: u32, picon: *mut super::WindowsAndMessaging::HICON) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_UI_WindowsAndMessaging"))]
     GetIcon: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub GetImageInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, i: i32, pimageinfo: *mut IMAGEINFO) -> ::windows::core::HRESULT,
+    pub GetImageInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, i: i32, pimageinfo: *mut IMAGEINFO) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))]
     GetImageInfo: usize,
-    pub Copy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, idst: i32, punksrc: *mut ::core::ffi::c_void, isrc: i32, uflags: u32) -> ::windows::core::HRESULT,
-    pub Merge: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, i1: i32, punk2: *mut ::core::ffi::c_void, i2: i32, dx: i32, dy: i32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Copy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, idst: i32, punksrc: *mut ::core::ffi::c_void, isrc: i32, uflags: u32) -> ::windows_core::HRESULT,
+    pub Merge: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, i1: i32, punk2: *mut ::core::ffi::c_void, i2: i32, dx: i32, dy: i32, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub GetImageRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, i: i32, prc: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT,
+    pub GetImageRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, i: i32, prc: *mut super::super::Foundation::RECT) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     GetImageRect: usize,
-    pub GetIconSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cx: *mut i32, cy: *mut i32) -> ::windows::core::HRESULT,
-    pub SetIconSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cx: i32, cy: i32) -> ::windows::core::HRESULT,
-    pub GetImageCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pi: *mut i32) -> ::windows::core::HRESULT,
-    pub SetImageCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unewcount: u32) -> ::windows::core::HRESULT,
+    pub GetIconSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cx: *mut i32, cy: *mut i32) -> ::windows_core::HRESULT,
+    pub SetIconSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cx: i32, cy: i32) -> ::windows_core::HRESULT,
+    pub GetImageCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pi: *mut i32) -> ::windows_core::HRESULT,
+    pub SetImageCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unewcount: u32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub SetBkColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clrbk: super::super::Foundation::COLORREF, pclr: *mut super::super::Foundation::COLORREF) -> ::windows::core::HRESULT,
+    pub SetBkColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clrbk: super::super::Foundation::COLORREF, pclr: *mut super::super::Foundation::COLORREF) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     SetBkColor: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub GetBkColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclr: *mut super::super::Foundation::COLORREF) -> ::windows::core::HRESULT,
+    pub GetBkColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclr: *mut super::super::Foundation::COLORREF) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     GetBkColor: usize,
-    pub BeginDrag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, itrack: i32, dxhotspot: i32, dyhotspot: i32) -> ::windows::core::HRESULT,
-    pub EndDrag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub BeginDrag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, itrack: i32, dxhotspot: i32, dyhotspot: i32) -> ::windows_core::HRESULT,
+    pub EndDrag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub DragEnter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndlock: super::super::Foundation::HWND, x: i32, y: i32) -> ::windows::core::HRESULT,
+    pub DragEnter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndlock: super::super::Foundation::HWND, x: i32, y: i32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     DragEnter: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub DragLeave: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndlock: super::super::Foundation::HWND) -> ::windows::core::HRESULT,
+    pub DragLeave: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndlock: super::super::Foundation::HWND) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     DragLeave: usize,
-    pub DragMove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, x: i32, y: i32) -> ::windows::core::HRESULT,
-    pub SetDragCursorImage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punk: *mut ::core::ffi::c_void, idrag: i32, dxhotspot: i32, dyhotspot: i32) -> ::windows::core::HRESULT,
+    pub DragMove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, x: i32, y: i32) -> ::windows_core::HRESULT,
+    pub SetDragCursorImage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punk: *mut ::core::ffi::c_void, idrag: i32, dxhotspot: i32, dyhotspot: i32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub DragShowNolock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fshow: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    pub DragShowNolock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fshow: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     DragShowNolock: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub GetDragImage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppt: *mut super::super::Foundation::POINT, ppthotspot: *mut super::super::Foundation::POINT, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetDragImage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppt: *mut super::super::Foundation::POINT, ppthotspot: *mut super::super::Foundation::POINT, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     GetDragImage: usize,
-    pub GetItemFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, i: i32, dwflags: *mut IMAGE_LIST_ITEM_FLAGS) -> ::windows::core::HRESULT,
-    pub GetOverlayImage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ioverlay: i32, piindex: *mut i32) -> ::windows::core::HRESULT,
+    pub GetItemFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, i: i32, dwflags: *mut IMAGE_LIST_ITEM_FLAGS) -> ::windows_core::HRESULT,
+    pub GetOverlayImage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ioverlay: i32, piindex: *mut i32) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-pub struct IImageList2(::windows::core::IUnknown);
+pub struct IImageList2(::windows_core::IUnknown);
 impl IImageList2 {
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn Add<P0, P1>(&self, hbmimage: P0, hbmmask: P1) -> ::windows::core::Result<i32>
+    pub unsafe fn Add<P0, P1>(&self, hbmimage: P0, hbmmask: P1) -> ::windows_core::Result<i32>
     where
-        P0: ::windows::core::IntoParam<super::super::Graphics::Gdi::HBITMAP>,
-        P1: ::windows::core::IntoParam<super::super::Graphics::Gdi::HBITMAP>,
+        P0: ::windows_core::IntoParam<super::super::Graphics::Gdi::HBITMAP>,
+        P1: ::windows_core::IntoParam<super::super::Graphics::Gdi::HBITMAP>,
     {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).base__.Add)(::windows::core::Interface::as_raw(self), hbmimage.into_param().abi(), hbmmask.into_param().abi(), &mut result__).from_abi(result__)
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).base__.Add)(::windows_core::Interface::as_raw(self), hbmimage.into_param().abi(), hbmmask.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub unsafe fn ReplaceIcon<P0>(&self, i: i32, hicon: P0) -> ::windows::core::Result<i32>
+    pub unsafe fn ReplaceIcon<P0>(&self, i: i32, hicon: P0) -> ::windows_core::Result<i32>
     where
-        P0: ::windows::core::IntoParam<super::WindowsAndMessaging::HICON>,
+        P0: ::windows_core::IntoParam<super::WindowsAndMessaging::HICON>,
     {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).base__.ReplaceIcon)(::windows::core::Interface::as_raw(self), i, hicon.into_param().abi(), &mut result__).from_abi(result__)
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).base__.ReplaceIcon)(::windows_core::Interface::as_raw(self), i, hicon.into_param().abi(), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetOverlayImage(&self, iimage: i32, ioverlay: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetOverlayImage)(::windows::core::Interface::as_raw(self), iimage, ioverlay).ok()
+    pub unsafe fn SetOverlayImage(&self, iimage: i32, ioverlay: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.SetOverlayImage)(::windows_core::Interface::as_raw(self), iimage, ioverlay).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn Replace<P0, P1>(&self, i: i32, hbmimage: P0, hbmmask: P1) -> ::windows::core::Result<()>
+    pub unsafe fn Replace<P0, P1>(&self, i: i32, hbmimage: P0, hbmmask: P1) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Graphics::Gdi::HBITMAP>,
-        P1: ::windows::core::IntoParam<super::super::Graphics::Gdi::HBITMAP>,
+        P0: ::windows_core::IntoParam<super::super::Graphics::Gdi::HBITMAP>,
+        P1: ::windows_core::IntoParam<super::super::Graphics::Gdi::HBITMAP>,
     {
-        (::windows::core::Interface::vtable(self).base__.Replace)(::windows::core::Interface::as_raw(self), i, hbmimage.into_param().abi(), hbmmask.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).base__.Replace)(::windows_core::Interface::as_raw(self), i, hbmimage.into_param().abi(), hbmmask.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn AddMasked<P0, P1>(&self, hbmimage: P0, crmask: P1) -> ::windows::core::Result<i32>
+    pub unsafe fn AddMasked<P0, P1>(&self, hbmimage: P0, crmask: P1) -> ::windows_core::Result<i32>
     where
-        P0: ::windows::core::IntoParam<super::super::Graphics::Gdi::HBITMAP>,
-        P1: ::windows::core::IntoParam<super::super::Foundation::COLORREF>,
+        P0: ::windows_core::IntoParam<super::super::Graphics::Gdi::HBITMAP>,
+        P1: ::windows_core::IntoParam<super::super::Foundation::COLORREF>,
     {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).base__.AddMasked)(::windows::core::Interface::as_raw(self), hbmimage.into_param().abi(), crmask.into_param().abi(), &mut result__).from_abi(result__)
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).base__.AddMasked)(::windows_core::Interface::as_raw(self), hbmimage.into_param().abi(), crmask.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn Draw(&self, pimldp: *const IMAGELISTDRAWPARAMS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Draw)(::windows::core::Interface::as_raw(self), pimldp).ok()
+    pub unsafe fn Draw(&self, pimldp: *const IMAGELISTDRAWPARAMS) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.Draw)(::windows_core::Interface::as_raw(self), pimldp).ok()
     }
-    pub unsafe fn Remove(&self, i: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Remove)(::windows::core::Interface::as_raw(self), i).ok()
+    pub unsafe fn Remove(&self, i: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.Remove)(::windows_core::Interface::as_raw(self), i).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub unsafe fn GetIcon(&self, i: i32, flags: u32) -> ::windows::core::Result<super::WindowsAndMessaging::HICON> {
-        let mut result__ = ::windows::core::zeroed::<super::WindowsAndMessaging::HICON>();
-        (::windows::core::Interface::vtable(self).base__.GetIcon)(::windows::core::Interface::as_raw(self), i, flags, &mut result__).from_abi(result__)
+    pub unsafe fn GetIcon(&self, i: i32, flags: u32) -> ::windows_core::Result<super::WindowsAndMessaging::HICON> {
+        let mut result__ = ::windows_core::zeroed::<super::WindowsAndMessaging::HICON>();
+        (::windows_core::Interface::vtable(self).base__.GetIcon)(::windows_core::Interface::as_raw(self), i, flags, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn GetImageInfo(&self, i: i32, pimageinfo: *mut IMAGEINFO) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetImageInfo)(::windows::core::Interface::as_raw(self), i, pimageinfo).ok()
+    pub unsafe fn GetImageInfo(&self, i: i32, pimageinfo: *mut IMAGEINFO) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.GetImageInfo)(::windows_core::Interface::as_raw(self), i, pimageinfo).ok()
     }
-    pub unsafe fn Copy<P0>(&self, idst: i32, punksrc: P0, isrc: i32, uflags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn Copy<P0>(&self, idst: i32, punksrc: P0, isrc: i32, uflags: u32) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        (::windows::core::Interface::vtable(self).base__.Copy)(::windows::core::Interface::as_raw(self), idst, punksrc.into_param().abi(), isrc, uflags).ok()
+        (::windows_core::Interface::vtable(self).base__.Copy)(::windows_core::Interface::as_raw(self), idst, punksrc.into_param().abi(), isrc, uflags).ok()
     }
-    pub unsafe fn Merge<P0>(&self, i1: i32, punk2: P0, i2: i32, dx: i32, dy: i32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+    pub unsafe fn Merge<P0>(&self, i1: i32, punk2: P0, i2: i32, dx: i32, dy: i32, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        (::windows::core::Interface::vtable(self).base__.Merge)(::windows::core::Interface::as_raw(self), i1, punk2.into_param().abi(), i2, dx, dy, riid, ppv).ok()
+        (::windows_core::Interface::vtable(self).base__.Merge)(::windows_core::Interface::as_raw(self), i1, punk2.into_param().abi(), i2, dx, dy, riid, ppv).ok()
     }
-    pub unsafe fn Clone(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Clone)(::windows::core::Interface::as_raw(self), riid, ppv).ok()
+    pub unsafe fn Clone(&self, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.Clone)(::windows_core::Interface::as_raw(self), riid, ppv).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetImageRect(&self, i: i32) -> ::windows::core::Result<super::super::Foundation::RECT> {
-        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::RECT>();
-        (::windows::core::Interface::vtable(self).base__.GetImageRect)(::windows::core::Interface::as_raw(self), i, &mut result__).from_abi(result__)
+    pub unsafe fn GetImageRect(&self, i: i32) -> ::windows_core::Result<super::super::Foundation::RECT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::RECT>();
+        (::windows_core::Interface::vtable(self).base__.GetImageRect)(::windows_core::Interface::as_raw(self), i, &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetIconSize(&self, cx: *mut i32, cy: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetIconSize)(::windows::core::Interface::as_raw(self), cx, cy).ok()
+    pub unsafe fn GetIconSize(&self, cx: *mut i32, cy: *mut i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.GetIconSize)(::windows_core::Interface::as_raw(self), cx, cy).ok()
     }
-    pub unsafe fn SetIconSize(&self, cx: i32, cy: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetIconSize)(::windows::core::Interface::as_raw(self), cx, cy).ok()
+    pub unsafe fn SetIconSize(&self, cx: i32, cy: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.SetIconSize)(::windows_core::Interface::as_raw(self), cx, cy).ok()
     }
-    pub unsafe fn GetImageCount(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).base__.GetImageCount)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn GetImageCount(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).base__.GetImageCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetImageCount(&self, unewcount: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetImageCount)(::windows::core::Interface::as_raw(self), unewcount).ok()
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetBkColor<P0>(&self, clrbk: P0) -> ::windows::core::Result<super::super::Foundation::COLORREF>
-    where
-        P0: ::windows::core::IntoParam<super::super::Foundation::COLORREF>,
-    {
-        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::COLORREF>();
-        (::windows::core::Interface::vtable(self).base__.SetBkColor)(::windows::core::Interface::as_raw(self), clrbk.into_param().abi(), &mut result__).from_abi(result__)
+    pub unsafe fn SetImageCount(&self, unewcount: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.SetImageCount)(::windows_core::Interface::as_raw(self), unewcount).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetBkColor(&self) -> ::windows::core::Result<super::super::Foundation::COLORREF> {
-        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::COLORREF>();
-        (::windows::core::Interface::vtable(self).base__.GetBkColor)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
-    }
-    pub unsafe fn BeginDrag(&self, itrack: i32, dxhotspot: i32, dyhotspot: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.BeginDrag)(::windows::core::Interface::as_raw(self), itrack, dxhotspot, dyhotspot).ok()
-    }
-    pub unsafe fn EndDrag(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.EndDrag)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn SetBkColor<P0>(&self, clrbk: P0) -> ::windows_core::Result<super::super::Foundation::COLORREF>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::COLORREF>,
+    {
+        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::COLORREF>();
+        (::windows_core::Interface::vtable(self).base__.SetBkColor)(::windows_core::Interface::as_raw(self), clrbk.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DragEnter<P0>(&self, hwndlock: P0, x: i32, y: i32) -> ::windows::core::Result<()>
-    where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
-    {
-        (::windows::core::Interface::vtable(self).base__.DragEnter)(::windows::core::Interface::as_raw(self), hwndlock.into_param().abi(), x, y).ok()
+    pub unsafe fn GetBkColor(&self) -> ::windows_core::Result<super::super::Foundation::COLORREF> {
+        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::COLORREF>();
+        (::windows_core::Interface::vtable(self).base__.GetBkColor)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    pub unsafe fn BeginDrag(&self, itrack: i32, dxhotspot: i32, dyhotspot: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.BeginDrag)(::windows_core::Interface::as_raw(self), itrack, dxhotspot, dyhotspot).ok()
+    }
+    pub unsafe fn EndDrag(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.EndDrag)(::windows_core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DragLeave<P0>(&self, hwndlock: P0) -> ::windows::core::Result<()>
+    pub unsafe fn DragEnter<P0>(&self, hwndlock: P0, x: i32, y: i32) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
     {
-        (::windows::core::Interface::vtable(self).base__.DragLeave)(::windows::core::Interface::as_raw(self), hwndlock.into_param().abi()).ok()
-    }
-    pub unsafe fn DragMove(&self, x: i32, y: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.DragMove)(::windows::core::Interface::as_raw(self), x, y).ok()
-    }
-    pub unsafe fn SetDragCursorImage<P0>(&self, punk: P0, idrag: i32, dxhotspot: i32, dyhotspot: i32) -> ::windows::core::Result<()>
-    where
-        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SetDragCursorImage)(::windows::core::Interface::as_raw(self), punk.into_param().abi(), idrag, dxhotspot, dyhotspot).ok()
+        (::windows_core::Interface::vtable(self).base__.DragEnter)(::windows_core::Interface::as_raw(self), hwndlock.into_param().abi(), x, y).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DragShowNolock<P0>(&self, fshow: P0) -> ::windows::core::Result<()>
+    pub unsafe fn DragLeave<P0>(&self, hwndlock: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
     {
-        (::windows::core::Interface::vtable(self).base__.DragShowNolock)(::windows::core::Interface::as_raw(self), fshow.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).base__.DragLeave)(::windows_core::Interface::as_raw(self), hwndlock.into_param().abi()).ok()
+    }
+    pub unsafe fn DragMove(&self, x: i32, y: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.DragMove)(::windows_core::Interface::as_raw(self), x, y).ok()
+    }
+    pub unsafe fn SetDragCursorImage<P0>(&self, punk: P0, idrag: i32, dxhotspot: i32, dyhotspot: i32) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
+    {
+        (::windows_core::Interface::vtable(self).base__.SetDragCursorImage)(::windows_core::Interface::as_raw(self), punk.into_param().abi(), idrag, dxhotspot, dyhotspot).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDragImage(&self, ppt: ::core::option::Option<*mut super::super::Foundation::POINT>, ppthotspot: ::core::option::Option<*mut super::super::Foundation::POINT>, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetDragImage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppt.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppthotspot.unwrap_or(::std::ptr::null_mut())), riid, ppv).ok()
-    }
-    pub unsafe fn GetItemFlags(&self, i: i32) -> ::windows::core::Result<IMAGE_LIST_ITEM_FLAGS> {
-        let mut result__ = ::windows::core::zeroed::<IMAGE_LIST_ITEM_FLAGS>();
-        (::windows::core::Interface::vtable(self).base__.GetItemFlags)(::windows::core::Interface::as_raw(self), i, &mut result__).from_abi(result__)
-    }
-    pub unsafe fn GetOverlayImage(&self, ioverlay: i32) -> ::windows::core::Result<i32> {
-        let mut result__ = ::windows::core::zeroed::<i32>();
-        (::windows::core::Interface::vtable(self).base__.GetOverlayImage)(::windows::core::Interface::as_raw(self), ioverlay, &mut result__).from_abi(result__)
-    }
-    pub unsafe fn Resize(&self, cxnewiconsize: i32, cynewiconsize: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Resize)(::windows::core::Interface::as_raw(self), cxnewiconsize, cynewiconsize).ok()
-    }
-    pub unsafe fn GetOriginalSize(&self, iimage: i32, dwflags: u32, pcx: *mut i32, pcy: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetOriginalSize)(::windows::core::Interface::as_raw(self), iimage, dwflags, pcx, pcy).ok()
-    }
-    pub unsafe fn SetOriginalSize(&self, iimage: i32, cx: i32, cy: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOriginalSize)(::windows::core::Interface::as_raw(self), iimage, cx, cy).ok()
-    }
-    pub unsafe fn SetCallback<P0>(&self, punk: P0) -> ::windows::core::Result<()>
+    pub unsafe fn DragShowNolock<P0>(&self, fshow: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).SetCallback)(::windows::core::Interface::as_raw(self), punk.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).base__.DragShowNolock)(::windows_core::Interface::as_raw(self), fshow.into_param().abi()).ok()
     }
-    pub unsafe fn GetCallback(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetCallback)(::windows::core::Interface::as_raw(self), riid, ppv).ok()
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetDragImage(&self, ppt: ::core::option::Option<*mut super::super::Foundation::POINT>, ppthotspot: ::core::option::Option<*mut super::super::Foundation::POINT>, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.GetDragImage)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppt.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppthotspot.unwrap_or(::std::ptr::null_mut())), riid, ppv).ok()
     }
-    pub unsafe fn ForceImagePresent(&self, iimage: i32, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ForceImagePresent)(::windows::core::Interface::as_raw(self), iimage, dwflags).ok()
+    pub unsafe fn GetItemFlags(&self, i: i32) -> ::windows_core::Result<IMAGE_LIST_ITEM_FLAGS> {
+        let mut result__ = ::windows_core::zeroed::<IMAGE_LIST_ITEM_FLAGS>();
+        (::windows_core::Interface::vtable(self).base__.GetItemFlags)(::windows_core::Interface::as_raw(self), i, &mut result__).from_abi(result__)
     }
-    pub unsafe fn DiscardImages(&self, ifirstimage: i32, ilastimage: i32, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DiscardImages)(::windows::core::Interface::as_raw(self), ifirstimage, ilastimage, dwflags).ok()
+    pub unsafe fn GetOverlayImage(&self, ioverlay: i32) -> ::windows_core::Result<i32> {
+        let mut result__ = ::windows_core::zeroed::<i32>();
+        (::windows_core::Interface::vtable(self).base__.GetOverlayImage)(::windows_core::Interface::as_raw(self), ioverlay, &mut result__).from_abi(result__)
+    }
+    pub unsafe fn Resize(&self, cxnewiconsize: i32, cynewiconsize: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Resize)(::windows_core::Interface::as_raw(self), cxnewiconsize, cynewiconsize).ok()
+    }
+    pub unsafe fn GetOriginalSize(&self, iimage: i32, dwflags: u32, pcx: *mut i32, pcy: *mut i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetOriginalSize)(::windows_core::Interface::as_raw(self), iimage, dwflags, pcx, pcy).ok()
+    }
+    pub unsafe fn SetOriginalSize(&self, iimage: i32, cx: i32, cy: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetOriginalSize)(::windows_core::Interface::as_raw(self), iimage, cx, cy).ok()
+    }
+    pub unsafe fn SetCallback<P0>(&self, punk: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
+    {
+        (::windows_core::Interface::vtable(self).SetCallback)(::windows_core::Interface::as_raw(self), punk.into_param().abi()).ok()
+    }
+    pub unsafe fn GetCallback(&self, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetCallback)(::windows_core::Interface::as_raw(self), riid, ppv).ok()
+    }
+    pub unsafe fn ForceImagePresent(&self, iimage: i32, dwflags: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).ForceImagePresent)(::windows_core::Interface::as_raw(self), iimage, dwflags).ok()
+    }
+    pub unsafe fn DiscardImages(&self, ifirstimage: i32, ilastimage: i32, dwflags: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).DiscardImages)(::windows_core::Interface::as_raw(self), ifirstimage, ilastimage, dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn PreloadImages(&self, pimldp: *const IMAGELISTDRAWPARAMS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PreloadImages)(::windows::core::Interface::as_raw(self), pimldp).ok()
+    pub unsafe fn PreloadImages(&self, pimldp: *const IMAGELISTDRAWPARAMS) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).PreloadImages)(::windows_core::Interface::as_raw(self), pimldp).ok()
     }
-    pub unsafe fn GetStatistics(&self, pils: *mut IMAGELISTSTATS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetStatistics)(::windows::core::Interface::as_raw(self), pils).ok()
+    pub unsafe fn GetStatistics(&self, pils: *mut IMAGELISTSTATS) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetStatistics)(::windows_core::Interface::as_raw(self), pils).ok()
     }
-    pub unsafe fn Initialize(&self, cx: i32, cy: i32, flags: IMAGELIST_CREATION_FLAGS, cinitial: i32, cgrow: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), cx, cy, flags, cinitial, cgrow).ok()
+    pub unsafe fn Initialize(&self, cx: i32, cy: i32, flags: IMAGELIST_CREATION_FLAGS, cinitial: i32, cgrow: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), cx, cy, flags, cinitial, cgrow).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn Replace2<P0, P1, P2>(&self, i: i32, hbmimage: P0, hbmmask: P1, punk: P2, dwflags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn Replace2<P0, P1, P2>(&self, i: i32, hbmimage: P0, hbmmask: P1, punk: P2, dwflags: u32) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<super::super::Graphics::Gdi::HBITMAP>,
-        P1: ::windows::core::IntoParam<super::super::Graphics::Gdi::HBITMAP>,
-        P2: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        P0: ::windows_core::IntoParam<super::super::Graphics::Gdi::HBITMAP>,
+        P1: ::windows_core::IntoParam<super::super::Graphics::Gdi::HBITMAP>,
+        P2: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        (::windows::core::Interface::vtable(self).Replace2)(::windows::core::Interface::as_raw(self), i, hbmimage.into_param().abi(), hbmmask.into_param().abi(), punk.into_param().abi(), dwflags).ok()
+        (::windows_core::Interface::vtable(self).Replace2)(::windows_core::Interface::as_raw(self), i, hbmimage.into_param().abi(), hbmmask.into_param().abi(), punk.into_param().abi(), dwflags).ok()
     }
-    pub unsafe fn ReplaceFromImageList<P0, P1>(&self, i: i32, pil: P0, isrc: i32, punk: P1, dwflags: u32) -> ::windows::core::Result<()>
+    pub unsafe fn ReplaceFromImageList<P0, P1>(&self, i: i32, pil: P0, isrc: i32, punk: P1, dwflags: u32) -> ::windows_core::Result<()>
     where
-        P0: ::windows::core::IntoParam<IImageList>,
-        P1: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        P0: ::windows_core::IntoParam<IImageList>,
+        P1: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        (::windows::core::Interface::vtable(self).ReplaceFromImageList)(::windows::core::Interface::as_raw(self), i, pil.into_param().abi(), isrc, punk.into_param().abi(), dwflags).ok()
+        (::windows_core::Interface::vtable(self).ReplaceFromImageList)(::windows_core::Interface::as_raw(self), i, pil.into_param().abi(), isrc, punk.into_param().abi(), dwflags).ok()
     }
 }
-::windows::imp::interface_hierarchy!(IImageList2, ::windows::core::IUnknown, IImageList);
+::windows_core::imp::interface_hierarchy!(IImageList2, ::windows_core::IUnknown, IImageList);
 impl ::core::cmp::PartialEq for IImageList2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2599,7 +2599,7 @@ impl ::core::fmt::Debug for IImageList2 {
         f.debug_tuple("IImageList2").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Interface for IImageList2 {
+unsafe impl ::windows_core::Interface for IImageList2 {
     type Vtable = IImageList2_Vtbl;
 }
 impl ::core::clone::Clone for IImageList2 {
@@ -2607,31 +2607,31 @@ impl ::core::clone::Clone for IImageList2 {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IImageList2 {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x192b9d83_50fc_457b_90a0_2b82a8b5dae1);
+unsafe impl ::windows_core::ComInterface for IImageList2 {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x192b9d83_50fc_457b_90a0_2b82a8b5dae1);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IImageList2_Vtbl {
     pub base__: IImageList_Vtbl,
-    pub Resize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cxnewiconsize: i32, cynewiconsize: i32) -> ::windows::core::HRESULT,
-    pub GetOriginalSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iimage: i32, dwflags: u32, pcx: *mut i32, pcy: *mut i32) -> ::windows::core::HRESULT,
-    pub SetOriginalSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iimage: i32, cx: i32, cy: i32) -> ::windows::core::HRESULT,
-    pub SetCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub ForceImagePresent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iimage: i32, dwflags: u32) -> ::windows::core::HRESULT,
-    pub DiscardImages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ifirstimage: i32, ilastimage: i32, dwflags: u32) -> ::windows::core::HRESULT,
+    pub Resize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cxnewiconsize: i32, cynewiconsize: i32) -> ::windows_core::HRESULT,
+    pub GetOriginalSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iimage: i32, dwflags: u32, pcx: *mut i32, pcy: *mut i32) -> ::windows_core::HRESULT,
+    pub SetOriginalSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iimage: i32, cx: i32, cy: i32) -> ::windows_core::HRESULT,
+    pub SetCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punk: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ForceImagePresent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iimage: i32, dwflags: u32) -> ::windows_core::HRESULT,
+    pub DiscardImages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ifirstimage: i32, ilastimage: i32, dwflags: u32) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub PreloadImages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pimldp: *const IMAGELISTDRAWPARAMS) -> ::windows::core::HRESULT,
+    pub PreloadImages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pimldp: *const IMAGELISTDRAWPARAMS) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))]
     PreloadImages: usize,
-    pub GetStatistics: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pils: *mut IMAGELISTSTATS) -> ::windows::core::HRESULT,
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cx: i32, cy: i32, flags: IMAGELIST_CREATION_FLAGS, cinitial: i32, cgrow: i32) -> ::windows::core::HRESULT,
+    pub GetStatistics: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pils: *mut IMAGELISTSTATS) -> ::windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cx: i32, cy: i32, flags: IMAGELIST_CREATION_FLAGS, cinitial: i32, cgrow: i32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub Replace2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, i: i32, hbmimage: super::super::Graphics::Gdi::HBITMAP, hbmmask: super::super::Graphics::Gdi::HBITMAP, punk: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT,
+    pub Replace2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, i: i32, hbmimage: super::super::Graphics::Gdi::HBITMAP, hbmmask: super::super::Graphics::Gdi::HBITMAP, punk: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     Replace2: usize,
-    pub ReplaceFromImageList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, i: i32, pil: *mut ::core::ffi::c_void, isrc: i32, punk: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT,
+    pub ReplaceFromImageList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, i: i32, pil: *mut ::core::ffi::c_void, isrc: i32, punk: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const ACM_ISPLAYING: u32 = 1128u32;
@@ -2658,11 +2658,11 @@ pub const ACS_TIMER: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const ACS_TRANSPARENT: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ANIMATE_CLASS: ::windows::core::PCWSTR = ::windows::core::w!("SysAnimate32");
+pub const ANIMATE_CLASS: ::windows_core::PCWSTR = ::windows_core::w!("SysAnimate32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ANIMATE_CLASSA: ::windows::core::PCSTR = ::windows::core::s!("SysAnimate32");
+pub const ANIMATE_CLASSA: ::windows_core::PCSTR = ::windows_core::s!("SysAnimate32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ANIMATE_CLASSW: ::windows::core::PCWSTR = ::windows::core::w!("SysAnimate32");
+pub const ANIMATE_CLASSW: ::windows_core::PCWSTR = ::windows_core::w!("SysAnimate32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const BCM_FIRST: u32 = 5632u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -2932,11 +2932,11 @@ pub const COLORMGMTDLGORD: u32 = 1551u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const COMCTL32_VERSION: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DATETIMEPICK_CLASS: ::windows::core::PCWSTR = ::windows::core::w!("SysDateTimePick32");
+pub const DATETIMEPICK_CLASS: ::windows_core::PCWSTR = ::windows_core::w!("SysDateTimePick32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DATETIMEPICK_CLASSA: ::windows::core::PCSTR = ::windows::core::s!("SysDateTimePick32");
+pub const DATETIMEPICK_CLASSA: ::windows_core::PCSTR = ::windows_core::s!("SysDateTimePick32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DATETIMEPICK_CLASSW: ::windows::core::PCWSTR = ::windows::core::w!("SysDateTimePick32");
+pub const DATETIMEPICK_CLASSW: ::windows_core::PCWSTR = ::windows_core::w!("SysDateTimePick32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const DA_ERR: i32 = -1i32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -2968,7 +2968,7 @@ pub const DPA_APPEND: u32 = 2147483647u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const DPA_ERR: i32 = -1i32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DRAGLISTMSGSTRING: ::windows::core::PCWSTR = ::windows::core::w!("commctrl_DragListMsg");
+pub const DRAGLISTMSGSTRING: ::windows_core::PCWSTR = ::windows_core::w!("commctrl_DragListMsg");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const DSA_APPEND: u32 = 2147483647u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -3464,11 +3464,11 @@ pub const HOTKEYF_EXT: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const HOTKEYF_SHIFT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HOTKEY_CLASS: ::windows::core::PCWSTR = ::windows::core::w!("msctls_hotkey32");
+pub const HOTKEY_CLASS: ::windows_core::PCWSTR = ::windows_core::w!("msctls_hotkey32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HOTKEY_CLASSA: ::windows::core::PCSTR = ::windows::core::s!("msctls_hotkey32");
+pub const HOTKEY_CLASSA: ::windows_core::PCSTR = ::windows_core::s!("msctls_hotkey32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HOTKEY_CLASSW: ::windows::core::PCWSTR = ::windows::core::w!("msctls_hotkey32");
+pub const HOTKEY_CLASSW: ::windows_core::PCWSTR = ::windows_core::w!("msctls_hotkey32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const HOVER_DEFAULT: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -3576,7 +3576,7 @@ pub const I_IMAGENONE: i32 = -2i32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const I_INDENTCALLBACK: i32 = -1i32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ImageList: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c476ba2_02b1_48f4_8048_b24619ddc058);
+pub const ImageList: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7c476ba2_02b1_48f4_8048_b24619ddc058);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LM_GETIDEALHEIGHT: u32 = 1793u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -4348,11 +4348,11 @@ pub const MCS_SHORTDAYSOFWEEK: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MCS_WEEKNUMBERS: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MONTHCAL_CLASS: ::windows::core::PCWSTR = ::windows::core::w!("SysMonthCal32");
+pub const MONTHCAL_CLASS: ::windows_core::PCWSTR = ::windows_core::w!("SysMonthCal32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MONTHCAL_CLASSA: ::windows::core::PCSTR = ::windows::core::s!("SysMonthCal32");
+pub const MONTHCAL_CLASSA: ::windows_core::PCSTR = ::windows_core::s!("SysMonthCal32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MONTHCAL_CLASSW: ::windows::core::PCWSTR = ::windows::core::w!("SysMonthCal32");
+pub const MONTHCAL_CLASSW: ::windows_core::PCWSTR = ::windows_core::w!("SysMonthCal32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MSGF_COMMCTRL_BEGINDRAG: u32 = 16896u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -4554,11 +4554,11 @@ pub const PRINTDLGORD: u32 = 1538u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const PRNSETUPDLGORD: u32 = 1539u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PROGRESS_CLASS: ::windows::core::PCWSTR = ::windows::core::w!("msctls_progress32");
+pub const PROGRESS_CLASS: ::windows_core::PCWSTR = ::windows_core::w!("msctls_progress32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PROGRESS_CLASSA: ::windows::core::PCSTR = ::windows::core::s!("msctls_progress32");
+pub const PROGRESS_CLASSA: ::windows_core::PCSTR = ::windows_core::s!("msctls_progress32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PROGRESS_CLASSW: ::windows::core::PCWSTR = ::windows::core::w!("msctls_progress32");
+pub const PROGRESS_CLASSW: ::windows_core::PCWSTR = ::windows_core::w!("msctls_progress32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const PROP_LG_CXDLG: u32 = 252u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -5030,11 +5030,11 @@ pub const RB_SHOWBAND: u32 = 1059u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const RB_SIZETORECT: u32 = 1047u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const REBARCLASSNAME: ::windows::core::PCWSTR = ::windows::core::w!("ReBarWindow32");
+pub const REBARCLASSNAME: ::windows_core::PCWSTR = ::windows_core::w!("ReBarWindow32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const REBARCLASSNAMEA: ::windows::core::PCSTR = ::windows::core::s!("ReBarWindow32");
+pub const REBARCLASSNAMEA: ::windows_core::PCSTR = ::windows_core::s!("ReBarWindow32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const REBARCLASSNAMEW: ::windows::core::PCWSTR = ::windows::core::w!("ReBarWindow32");
+pub const REBARCLASSNAMEW: ::windows_core::PCWSTR = ::windows_core::w!("ReBarWindow32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const REPLACEDLGORD: u32 = 1541u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -5114,11 +5114,11 @@ pub const SB_SIMPLE: u32 = 1033u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const SB_SIMPLEID: u32 = 255u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const STATUSCLASSNAME: ::windows::core::PCWSTR = ::windows::core::w!("msctls_statusbar32");
+pub const STATUSCLASSNAME: ::windows_core::PCWSTR = ::windows_core::w!("msctls_statusbar32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const STATUSCLASSNAMEA: ::windows::core::PCSTR = ::windows::core::s!("msctls_statusbar32");
+pub const STATUSCLASSNAMEA: ::windows_core::PCSTR = ::windows_core::s!("msctls_statusbar32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const STATUSCLASSNAMEW: ::windows::core::PCWSTR = ::windows::core::w!("msctls_statusbar32");
+pub const STATUSCLASSNAMEW: ::windows_core::PCWSTR = ::windows_core::w!("msctls_statusbar32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const STD_COPY: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -5150,13 +5150,13 @@ pub const STD_REPLACE: u32 = 13u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const STD_UNDO: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SZ_THDOCPROP_AUTHOR: ::windows::core::PCWSTR = ::windows::core::w!("author");
+pub const SZ_THDOCPROP_AUTHOR: ::windows_core::PCWSTR = ::windows_core::w!("author");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SZ_THDOCPROP_CANONICALNAME: ::windows::core::PCWSTR = ::windows::core::w!("ThemeName");
+pub const SZ_THDOCPROP_CANONICALNAME: ::windows_core::PCWSTR = ::windows_core::w!("ThemeName");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SZ_THDOCPROP_DISPLAYNAME: ::windows::core::PCWSTR = ::windows::core::w!("DisplayName");
+pub const SZ_THDOCPROP_DISPLAYNAME: ::windows_core::PCWSTR = ::windows_core::w!("DisplayName");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SZ_THDOCPROP_TOOLTIP: ::windows::core::PCWSTR = ::windows::core::w!("ToolTip");
+pub const SZ_THDOCPROP_TOOLTIP: ::windows_core::PCWSTR = ::windows_core::w!("ToolTip");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TBBF_LARGE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -5804,35 +5804,35 @@ pub const TCS_TOOLTIPS: u32 = 16384u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TCS_VERTICAL: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TD_ERROR_ICON: ::windows::core::PCWSTR = ::windows::core::PCWSTR(65534u16 as _);
+pub const TD_ERROR_ICON: ::windows_core::PCWSTR = ::windows_core::PCWSTR(65534u16 as _);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TD_INFORMATION_ICON: ::windows::core::PCWSTR = ::windows::core::PCWSTR(65533u16 as _);
+pub const TD_INFORMATION_ICON: ::windows_core::PCWSTR = ::windows_core::PCWSTR(65533u16 as _);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TD_SHIELD_ICON: ::windows::core::PCWSTR = ::windows::core::PCWSTR(65532u16 as _);
+pub const TD_SHIELD_ICON: ::windows_core::PCWSTR = ::windows_core::PCWSTR(65532u16 as _);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TD_WARNING_ICON: ::windows::core::PCWSTR = ::windows::core::PCWSTR(65535u16 as _);
+pub const TD_WARNING_ICON: ::windows_core::PCWSTR = ::windows_core::PCWSTR(65535u16 as _);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TMTVS_RESERVEDHIGH: u32 = 19999u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TMTVS_RESERVEDLOW: u32 = 100000u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TOOLBARCLASSNAME: ::windows::core::PCWSTR = ::windows::core::w!("ToolbarWindow32");
+pub const TOOLBARCLASSNAME: ::windows_core::PCWSTR = ::windows_core::w!("ToolbarWindow32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TOOLBARCLASSNAMEA: ::windows::core::PCSTR = ::windows::core::s!("ToolbarWindow32");
+pub const TOOLBARCLASSNAMEA: ::windows_core::PCSTR = ::windows_core::s!("ToolbarWindow32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TOOLBARCLASSNAMEW: ::windows::core::PCWSTR = ::windows::core::w!("ToolbarWindow32");
+pub const TOOLBARCLASSNAMEW: ::windows_core::PCWSTR = ::windows_core::w!("ToolbarWindow32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TOOLTIPS_CLASS: ::windows::core::PCWSTR = ::windows::core::w!("tooltips_class32");
+pub const TOOLTIPS_CLASS: ::windows_core::PCWSTR = ::windows_core::w!("tooltips_class32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TOOLTIPS_CLASSA: ::windows::core::PCSTR = ::windows::core::s!("tooltips_class32");
+pub const TOOLTIPS_CLASSA: ::windows_core::PCSTR = ::windows_core::s!("tooltips_class32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TOOLTIPS_CLASSW: ::windows::core::PCWSTR = ::windows::core::w!("tooltips_class32");
+pub const TOOLTIPS_CLASSW: ::windows_core::PCWSTR = ::windows_core::w!("tooltips_class32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TRACKBAR_CLASS: ::windows::core::PCWSTR = ::windows::core::w!("msctls_trackbar32");
+pub const TRACKBAR_CLASS: ::windows_core::PCWSTR = ::windows_core::w!("msctls_trackbar32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TRACKBAR_CLASSA: ::windows::core::PCSTR = ::windows::core::s!("msctls_trackbar32");
+pub const TRACKBAR_CLASSA: ::windows_core::PCSTR = ::windows_core::s!("msctls_trackbar32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TRACKBAR_CLASSW: ::windows::core::PCWSTR = ::windows::core::w!("msctls_trackbar32");
+pub const TRACKBAR_CLASSW: ::windows_core::PCWSTR = ::windows_core::w!("msctls_trackbar32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TRBN_FIRST: u32 = 4294965795u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -6376,11 +6376,11 @@ pub const UDS_WRAP: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const UD_MAXVAL: u32 = 32767u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const UPDOWN_CLASS: ::windows::core::PCWSTR = ::windows::core::w!("msctls_updown32");
+pub const UPDOWN_CLASS: ::windows_core::PCWSTR = ::windows_core::w!("msctls_updown32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const UPDOWN_CLASSA: ::windows::core::PCSTR = ::windows::core::s!("msctls_updown32");
+pub const UPDOWN_CLASSA: ::windows_core::PCSTR = ::windows_core::s!("msctls_updown32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const UPDOWN_CLASSW: ::windows::core::PCWSTR = ::windows::core::w!("msctls_updown32");
+pub const UPDOWN_CLASSW: ::windows_core::PCWSTR = ::windows_core::w!("msctls_updown32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const VIEW_DETAILS: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -6408,225 +6408,225 @@ pub const VIEW_SORTTYPE: u32 = 7u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const VIEW_VIEWMENU: u32 = 12u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_AEROWIZARD: ::windows::core::PCWSTR = ::windows::core::w!("AEROWIZARD");
+pub const VSCLASS_AEROWIZARD: ::windows_core::PCWSTR = ::windows_core::w!("AEROWIZARD");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_AEROWIZARDSTYLE: ::windows::core::PCWSTR = ::windows::core::w!("AEROWIZARDSTYLE");
+pub const VSCLASS_AEROWIZARDSTYLE: ::windows_core::PCWSTR = ::windows_core::w!("AEROWIZARDSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_BUTTON: ::windows::core::PCWSTR = ::windows::core::w!("BUTTON");
+pub const VSCLASS_BUTTON: ::windows_core::PCWSTR = ::windows_core::w!("BUTTON");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_BUTTONSTYLE: ::windows::core::PCWSTR = ::windows::core::w!("BUTTONSTYLE");
+pub const VSCLASS_BUTTONSTYLE: ::windows_core::PCWSTR = ::windows_core::w!("BUTTONSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_CLOCK: ::windows::core::PCWSTR = ::windows::core::w!("CLOCK");
+pub const VSCLASS_CLOCK: ::windows_core::PCWSTR = ::windows_core::w!("CLOCK");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_COMBOBOX: ::windows::core::PCWSTR = ::windows::core::w!("COMBOBOX");
+pub const VSCLASS_COMBOBOX: ::windows_core::PCWSTR = ::windows_core::w!("COMBOBOX");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_COMBOBOXSTYLE: ::windows::core::PCWSTR = ::windows::core::w!("COMBOBOXSTYLE");
+pub const VSCLASS_COMBOBOXSTYLE: ::windows_core::PCWSTR = ::windows_core::w!("COMBOBOXSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_COMMUNICATIONS: ::windows::core::PCWSTR = ::windows::core::w!("COMMUNICATIONS");
+pub const VSCLASS_COMMUNICATIONS: ::windows_core::PCWSTR = ::windows_core::w!("COMMUNICATIONS");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_COMMUNICATIONSSTYLE: ::windows::core::PCWSTR = ::windows::core::w!("COMMUNICATIONSSTYLE");
+pub const VSCLASS_COMMUNICATIONSSTYLE: ::windows_core::PCWSTR = ::windows_core::w!("COMMUNICATIONSSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_CONTROLPANEL: ::windows::core::PCWSTR = ::windows::core::w!("CONTROLPANEL");
+pub const VSCLASS_CONTROLPANEL: ::windows_core::PCWSTR = ::windows_core::w!("CONTROLPANEL");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_CONTROLPANELSTYLE: ::windows::core::PCWSTR = ::windows::core::w!("CONTROLPANELSTYLE");
+pub const VSCLASS_CONTROLPANELSTYLE: ::windows_core::PCWSTR = ::windows_core::w!("CONTROLPANELSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_DATEPICKER: ::windows::core::PCWSTR = ::windows::core::w!("DATEPICKER");
+pub const VSCLASS_DATEPICKER: ::windows_core::PCWSTR = ::windows_core::w!("DATEPICKER");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_DATEPICKERSTYLE: ::windows::core::PCWSTR = ::windows::core::w!("DATEPICKERSTYLE");
+pub const VSCLASS_DATEPICKERSTYLE: ::windows_core::PCWSTR = ::windows_core::w!("DATEPICKERSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_DRAGDROP: ::windows::core::PCWSTR = ::windows::core::w!("DRAGDROP");
+pub const VSCLASS_DRAGDROP: ::windows_core::PCWSTR = ::windows_core::w!("DRAGDROP");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_DRAGDROPSTYLE: ::windows::core::PCWSTR = ::windows::core::w!("DRAGDROPSTYLE");
+pub const VSCLASS_DRAGDROPSTYLE: ::windows_core::PCWSTR = ::windows_core::w!("DRAGDROPSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_EDIT: ::windows::core::PCWSTR = ::windows::core::w!("EDIT");
+pub const VSCLASS_EDIT: ::windows_core::PCWSTR = ::windows_core::w!("EDIT");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_EDITSTYLE: ::windows::core::PCWSTR = ::windows::core::w!("EDITSTYLE");
+pub const VSCLASS_EDITSTYLE: ::windows_core::PCWSTR = ::windows_core::w!("EDITSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_EMPTYMARKUP: ::windows::core::PCWSTR = ::windows::core::w!("EMPTYMARKUP");
+pub const VSCLASS_EMPTYMARKUP: ::windows_core::PCWSTR = ::windows_core::w!("EMPTYMARKUP");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_EXPLORERBAR: ::windows::core::PCWSTR = ::windows::core::w!("EXPLORERBAR");
+pub const VSCLASS_EXPLORERBAR: ::windows_core::PCWSTR = ::windows_core::w!("EXPLORERBAR");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_EXPLORERBARSTYLE: ::windows::core::PCWSTR = ::windows::core::w!("EXPLORERBARSTYLE");
+pub const VSCLASS_EXPLORERBARSTYLE: ::windows_core::PCWSTR = ::windows_core::w!("EXPLORERBARSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_FLYOUT: ::windows::core::PCWSTR = ::windows::core::w!("FLYOUT");
+pub const VSCLASS_FLYOUT: ::windows_core::PCWSTR = ::windows_core::w!("FLYOUT");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_FLYOUTSTYLE: ::windows::core::PCWSTR = ::windows::core::w!("FLYOUTSTYLE");
+pub const VSCLASS_FLYOUTSTYLE: ::windows_core::PCWSTR = ::windows_core::w!("FLYOUTSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_HEADER: ::windows::core::PCWSTR = ::windows::core::w!("HEADER");
+pub const VSCLASS_HEADER: ::windows_core::PCWSTR = ::windows_core::w!("HEADER");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_HEADERSTYLE: ::windows::core::PCWSTR = ::windows::core::w!("HEADERSTYLE");
+pub const VSCLASS_HEADERSTYLE: ::windows_core::PCWSTR = ::windows_core::w!("HEADERSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_LINK: ::windows::core::PCWSTR = ::windows::core::w!("LINK");
+pub const VSCLASS_LINK: ::windows_core::PCWSTR = ::windows_core::w!("LINK");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_LISTBOX: ::windows::core::PCWSTR = ::windows::core::w!("LISTBOX");
+pub const VSCLASS_LISTBOX: ::windows_core::PCWSTR = ::windows_core::w!("LISTBOX");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_LISTBOXSTYLE: ::windows::core::PCWSTR = ::windows::core::w!("LISTBOXSTYLE");
+pub const VSCLASS_LISTBOXSTYLE: ::windows_core::PCWSTR = ::windows_core::w!("LISTBOXSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_LISTVIEW: ::windows::core::PCWSTR = ::windows::core::w!("LISTVIEW");
+pub const VSCLASS_LISTVIEW: ::windows_core::PCWSTR = ::windows_core::w!("LISTVIEW");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_LISTVIEWSTYLE: ::windows::core::PCWSTR = ::windows::core::w!("LISTVIEWSTYLE");
+pub const VSCLASS_LISTVIEWSTYLE: ::windows_core::PCWSTR = ::windows_core::w!("LISTVIEWSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_MENU: ::windows::core::PCWSTR = ::windows::core::w!("MENU");
+pub const VSCLASS_MENU: ::windows_core::PCWSTR = ::windows_core::w!("MENU");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_MENUBAND: ::windows::core::PCWSTR = ::windows::core::w!("MENUBAND");
+pub const VSCLASS_MENUBAND: ::windows_core::PCWSTR = ::windows_core::w!("MENUBAND");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_MENUSTYLE: ::windows::core::PCWSTR = ::windows::core::w!("MENUSTYLE");
+pub const VSCLASS_MENUSTYLE: ::windows_core::PCWSTR = ::windows_core::w!("MENUSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_MONTHCAL: ::windows::core::PCWSTR = ::windows::core::w!("MONTHCAL");
+pub const VSCLASS_MONTHCAL: ::windows_core::PCWSTR = ::windows_core::w!("MONTHCAL");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_NAVIGATION: ::windows::core::PCWSTR = ::windows::core::w!("NAVIGATION");
+pub const VSCLASS_NAVIGATION: ::windows_core::PCWSTR = ::windows_core::w!("NAVIGATION");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_PAGE: ::windows::core::PCWSTR = ::windows::core::w!("PAGE");
+pub const VSCLASS_PAGE: ::windows_core::PCWSTR = ::windows_core::w!("PAGE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_PROGRESS: ::windows::core::PCWSTR = ::windows::core::w!("PROGRESS");
+pub const VSCLASS_PROGRESS: ::windows_core::PCWSTR = ::windows_core::w!("PROGRESS");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_PROGRESSSTYLE: ::windows::core::PCWSTR = ::windows::core::w!("PROGRESSSTYLE");
+pub const VSCLASS_PROGRESSSTYLE: ::windows_core::PCWSTR = ::windows_core::w!("PROGRESSSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_REBAR: ::windows::core::PCWSTR = ::windows::core::w!("REBAR");
+pub const VSCLASS_REBAR: ::windows_core::PCWSTR = ::windows_core::w!("REBAR");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_REBARSTYLE: ::windows::core::PCWSTR = ::windows::core::w!("REBARSTYLE");
+pub const VSCLASS_REBARSTYLE: ::windows_core::PCWSTR = ::windows_core::w!("REBARSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_SCROLLBAR: ::windows::core::PCWSTR = ::windows::core::w!("SCROLLBAR");
+pub const VSCLASS_SCROLLBAR: ::windows_core::PCWSTR = ::windows_core::w!("SCROLLBAR");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_SCROLLBARSTYLE: ::windows::core::PCWSTR = ::windows::core::w!("SCROLLBARSTYLE");
+pub const VSCLASS_SCROLLBARSTYLE: ::windows_core::PCWSTR = ::windows_core::w!("SCROLLBARSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_SPIN: ::windows::core::PCWSTR = ::windows::core::w!("SPIN");
+pub const VSCLASS_SPIN: ::windows_core::PCWSTR = ::windows_core::w!("SPIN");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_SPINSTYLE: ::windows::core::PCWSTR = ::windows::core::w!("SPINSTYLE");
+pub const VSCLASS_SPINSTYLE: ::windows_core::PCWSTR = ::windows_core::w!("SPINSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_STARTPANEL: ::windows::core::PCWSTR = ::windows::core::w!("STARTPANEL");
+pub const VSCLASS_STARTPANEL: ::windows_core::PCWSTR = ::windows_core::w!("STARTPANEL");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_STATIC: ::windows::core::PCWSTR = ::windows::core::w!("STATIC");
+pub const VSCLASS_STATIC: ::windows_core::PCWSTR = ::windows_core::w!("STATIC");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_STATUS: ::windows::core::PCWSTR = ::windows::core::w!("STATUS");
+pub const VSCLASS_STATUS: ::windows_core::PCWSTR = ::windows_core::w!("STATUS");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_STATUSSTYLE: ::windows::core::PCWSTR = ::windows::core::w!("STATUSSTYLE");
+pub const VSCLASS_STATUSSTYLE: ::windows_core::PCWSTR = ::windows_core::w!("STATUSSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_TAB: ::windows::core::PCWSTR = ::windows::core::w!("TAB");
+pub const VSCLASS_TAB: ::windows_core::PCWSTR = ::windows_core::w!("TAB");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_TABSTYLE: ::windows::core::PCWSTR = ::windows::core::w!("TABSTYLE");
+pub const VSCLASS_TABSTYLE: ::windows_core::PCWSTR = ::windows_core::w!("TABSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_TASKBAND: ::windows::core::PCWSTR = ::windows::core::w!("TASKBAND");
+pub const VSCLASS_TASKBAND: ::windows_core::PCWSTR = ::windows_core::w!("TASKBAND");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_TASKBAR: ::windows::core::PCWSTR = ::windows::core::w!("TASKBAR");
+pub const VSCLASS_TASKBAR: ::windows_core::PCWSTR = ::windows_core::w!("TASKBAR");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_TASKDIALOG: ::windows::core::PCWSTR = ::windows::core::w!("TASKDIALOG");
+pub const VSCLASS_TASKDIALOG: ::windows_core::PCWSTR = ::windows_core::w!("TASKDIALOG");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_TASKDIALOGSTYLE: ::windows::core::PCWSTR = ::windows::core::w!("TASKDIALOGSTYLE");
+pub const VSCLASS_TASKDIALOGSTYLE: ::windows_core::PCWSTR = ::windows_core::w!("TASKDIALOGSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_TEXTSELECTIONGRIPPER: ::windows::core::PCWSTR = ::windows::core::w!("TEXTSELECTIONGRIPPER");
+pub const VSCLASS_TEXTSELECTIONGRIPPER: ::windows_core::PCWSTR = ::windows_core::w!("TEXTSELECTIONGRIPPER");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_TEXTSTYLE: ::windows::core::PCWSTR = ::windows::core::w!("TEXTSTYLE");
+pub const VSCLASS_TEXTSTYLE: ::windows_core::PCWSTR = ::windows_core::w!("TEXTSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_TOOLBAR: ::windows::core::PCWSTR = ::windows::core::w!("TOOLBAR");
+pub const VSCLASS_TOOLBAR: ::windows_core::PCWSTR = ::windows_core::w!("TOOLBAR");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_TOOLBARSTYLE: ::windows::core::PCWSTR = ::windows::core::w!("TOOLBARSTYLE");
+pub const VSCLASS_TOOLBARSTYLE: ::windows_core::PCWSTR = ::windows_core::w!("TOOLBARSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_TOOLTIP: ::windows::core::PCWSTR = ::windows::core::w!("TOOLTIP");
+pub const VSCLASS_TOOLTIP: ::windows_core::PCWSTR = ::windows_core::w!("TOOLTIP");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_TOOLTIPSTYLE: ::windows::core::PCWSTR = ::windows::core::w!("TOOLTIPSTYLE");
+pub const VSCLASS_TOOLTIPSTYLE: ::windows_core::PCWSTR = ::windows_core::w!("TOOLTIPSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_TRACKBAR: ::windows::core::PCWSTR = ::windows::core::w!("TRACKBAR");
+pub const VSCLASS_TRACKBAR: ::windows_core::PCWSTR = ::windows_core::w!("TRACKBAR");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_TRACKBARSTYLE: ::windows::core::PCWSTR = ::windows::core::w!("TRACKBARSTYLE");
+pub const VSCLASS_TRACKBARSTYLE: ::windows_core::PCWSTR = ::windows_core::w!("TRACKBARSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_TRAYNOTIFY: ::windows::core::PCWSTR = ::windows::core::w!("TRAYNOTIFY");
+pub const VSCLASS_TRAYNOTIFY: ::windows_core::PCWSTR = ::windows_core::w!("TRAYNOTIFY");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_TREEVIEW: ::windows::core::PCWSTR = ::windows::core::w!("TREEVIEW");
+pub const VSCLASS_TREEVIEW: ::windows_core::PCWSTR = ::windows_core::w!("TREEVIEW");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_TREEVIEWSTYLE: ::windows::core::PCWSTR = ::windows::core::w!("TREEVIEWSTYLE");
+pub const VSCLASS_TREEVIEWSTYLE: ::windows_core::PCWSTR = ::windows_core::w!("TREEVIEWSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_USERTILE: ::windows::core::PCWSTR = ::windows::core::w!("USERTILE");
+pub const VSCLASS_USERTILE: ::windows_core::PCWSTR = ::windows_core::w!("USERTILE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_WINDOW: ::windows::core::PCWSTR = ::windows::core::w!("WINDOW");
+pub const VSCLASS_WINDOW: ::windows_core::PCWSTR = ::windows_core::w!("WINDOW");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSCLASS_WINDOWSTYLE: ::windows::core::PCWSTR = ::windows::core::w!("WINDOWSTYLE");
+pub const VSCLASS_WINDOWSTYLE: ::windows_core::PCWSTR = ::windows_core::w!("WINDOWSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_BUTTON: ::windows::core::PCWSTR = ::windows::core::w!("Button");
+pub const WC_BUTTON: ::windows_core::PCWSTR = ::windows_core::w!("Button");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_BUTTONA: ::windows::core::PCSTR = ::windows::core::s!("Button");
+pub const WC_BUTTONA: ::windows_core::PCSTR = ::windows_core::s!("Button");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_BUTTONW: ::windows::core::PCWSTR = ::windows::core::w!("Button");
+pub const WC_BUTTONW: ::windows_core::PCWSTR = ::windows_core::w!("Button");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_COMBOBOX: ::windows::core::PCWSTR = ::windows::core::w!("ComboBox");
+pub const WC_COMBOBOX: ::windows_core::PCWSTR = ::windows_core::w!("ComboBox");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_COMBOBOXA: ::windows::core::PCSTR = ::windows::core::s!("ComboBox");
+pub const WC_COMBOBOXA: ::windows_core::PCSTR = ::windows_core::s!("ComboBox");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_COMBOBOXEX: ::windows::core::PCWSTR = ::windows::core::w!("ComboBoxEx32");
+pub const WC_COMBOBOXEX: ::windows_core::PCWSTR = ::windows_core::w!("ComboBoxEx32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_COMBOBOXEXA: ::windows::core::PCSTR = ::windows::core::s!("ComboBoxEx32");
+pub const WC_COMBOBOXEXA: ::windows_core::PCSTR = ::windows_core::s!("ComboBoxEx32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_COMBOBOXEXW: ::windows::core::PCWSTR = ::windows::core::w!("ComboBoxEx32");
+pub const WC_COMBOBOXEXW: ::windows_core::PCWSTR = ::windows_core::w!("ComboBoxEx32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_COMBOBOXW: ::windows::core::PCWSTR = ::windows::core::w!("ComboBox");
+pub const WC_COMBOBOXW: ::windows_core::PCWSTR = ::windows_core::w!("ComboBox");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_EDIT: ::windows::core::PCWSTR = ::windows::core::w!("Edit");
+pub const WC_EDIT: ::windows_core::PCWSTR = ::windows_core::w!("Edit");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_EDITA: ::windows::core::PCSTR = ::windows::core::s!("Edit");
+pub const WC_EDITA: ::windows_core::PCSTR = ::windows_core::s!("Edit");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_EDITW: ::windows::core::PCWSTR = ::windows::core::w!("Edit");
+pub const WC_EDITW: ::windows_core::PCWSTR = ::windows_core::w!("Edit");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_HEADER: ::windows::core::PCWSTR = ::windows::core::w!("SysHeader32");
+pub const WC_HEADER: ::windows_core::PCWSTR = ::windows_core::w!("SysHeader32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_HEADERA: ::windows::core::PCSTR = ::windows::core::s!("SysHeader32");
+pub const WC_HEADERA: ::windows_core::PCSTR = ::windows_core::s!("SysHeader32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_HEADERW: ::windows::core::PCWSTR = ::windows::core::w!("SysHeader32");
+pub const WC_HEADERW: ::windows_core::PCWSTR = ::windows_core::w!("SysHeader32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_IPADDRESS: ::windows::core::PCWSTR = ::windows::core::w!("SysIPAddress32");
+pub const WC_IPADDRESS: ::windows_core::PCWSTR = ::windows_core::w!("SysIPAddress32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_IPADDRESSA: ::windows::core::PCSTR = ::windows::core::s!("SysIPAddress32");
+pub const WC_IPADDRESSA: ::windows_core::PCSTR = ::windows_core::s!("SysIPAddress32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_IPADDRESSW: ::windows::core::PCWSTR = ::windows::core::w!("SysIPAddress32");
+pub const WC_IPADDRESSW: ::windows_core::PCWSTR = ::windows_core::w!("SysIPAddress32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_LINK: ::windows::core::PCWSTR = ::windows::core::w!("SysLink");
+pub const WC_LINK: ::windows_core::PCWSTR = ::windows_core::w!("SysLink");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_LISTBOX: ::windows::core::PCWSTR = ::windows::core::w!("ListBox");
+pub const WC_LISTBOX: ::windows_core::PCWSTR = ::windows_core::w!("ListBox");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_LISTBOXA: ::windows::core::PCSTR = ::windows::core::s!("ListBox");
+pub const WC_LISTBOXA: ::windows_core::PCSTR = ::windows_core::s!("ListBox");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_LISTBOXW: ::windows::core::PCWSTR = ::windows::core::w!("ListBox");
+pub const WC_LISTBOXW: ::windows_core::PCWSTR = ::windows_core::w!("ListBox");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_LISTVIEW: ::windows::core::PCWSTR = ::windows::core::w!("SysListView32");
+pub const WC_LISTVIEW: ::windows_core::PCWSTR = ::windows_core::w!("SysListView32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_LISTVIEWA: ::windows::core::PCSTR = ::windows::core::s!("SysListView32");
+pub const WC_LISTVIEWA: ::windows_core::PCSTR = ::windows_core::s!("SysListView32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_LISTVIEWW: ::windows::core::PCWSTR = ::windows::core::w!("SysListView32");
+pub const WC_LISTVIEWW: ::windows_core::PCWSTR = ::windows_core::w!("SysListView32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_NATIVEFONTCTL: ::windows::core::PCWSTR = ::windows::core::w!("NativeFontCtl");
+pub const WC_NATIVEFONTCTL: ::windows_core::PCWSTR = ::windows_core::w!("NativeFontCtl");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_NATIVEFONTCTLA: ::windows::core::PCSTR = ::windows::core::s!("NativeFontCtl");
+pub const WC_NATIVEFONTCTLA: ::windows_core::PCSTR = ::windows_core::s!("NativeFontCtl");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_NATIVEFONTCTLW: ::windows::core::PCWSTR = ::windows::core::w!("NativeFontCtl");
+pub const WC_NATIVEFONTCTLW: ::windows_core::PCWSTR = ::windows_core::w!("NativeFontCtl");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_PAGESCROLLER: ::windows::core::PCWSTR = ::windows::core::w!("SysPager");
+pub const WC_PAGESCROLLER: ::windows_core::PCWSTR = ::windows_core::w!("SysPager");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_PAGESCROLLERA: ::windows::core::PCSTR = ::windows::core::s!("SysPager");
+pub const WC_PAGESCROLLERA: ::windows_core::PCSTR = ::windows_core::s!("SysPager");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_PAGESCROLLERW: ::windows::core::PCWSTR = ::windows::core::w!("SysPager");
+pub const WC_PAGESCROLLERW: ::windows_core::PCWSTR = ::windows_core::w!("SysPager");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_SCROLLBAR: ::windows::core::PCWSTR = ::windows::core::w!("ScrollBar");
+pub const WC_SCROLLBAR: ::windows_core::PCWSTR = ::windows_core::w!("ScrollBar");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_SCROLLBARA: ::windows::core::PCSTR = ::windows::core::s!("ScrollBar");
+pub const WC_SCROLLBARA: ::windows_core::PCSTR = ::windows_core::s!("ScrollBar");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_SCROLLBARW: ::windows::core::PCWSTR = ::windows::core::w!("ScrollBar");
+pub const WC_SCROLLBARW: ::windows_core::PCWSTR = ::windows_core::w!("ScrollBar");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_STATIC: ::windows::core::PCWSTR = ::windows::core::w!("Static");
+pub const WC_STATIC: ::windows_core::PCWSTR = ::windows_core::w!("Static");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_STATICA: ::windows::core::PCSTR = ::windows::core::s!("Static");
+pub const WC_STATICA: ::windows_core::PCSTR = ::windows_core::s!("Static");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_STATICW: ::windows::core::PCWSTR = ::windows::core::w!("Static");
+pub const WC_STATICW: ::windows_core::PCWSTR = ::windows_core::w!("Static");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_TABCONTROL: ::windows::core::PCWSTR = ::windows::core::w!("SysTabControl32");
+pub const WC_TABCONTROL: ::windows_core::PCWSTR = ::windows_core::w!("SysTabControl32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_TABCONTROLA: ::windows::core::PCSTR = ::windows::core::s!("SysTabControl32");
+pub const WC_TABCONTROLA: ::windows_core::PCSTR = ::windows_core::s!("SysTabControl32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_TABCONTROLW: ::windows::core::PCWSTR = ::windows::core::w!("SysTabControl32");
+pub const WC_TABCONTROLW: ::windows_core::PCWSTR = ::windows_core::w!("SysTabControl32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_TREEVIEW: ::windows::core::PCWSTR = ::windows::core::w!("SysTreeView32");
+pub const WC_TREEVIEW: ::windows_core::PCWSTR = ::windows_core::w!("SysTreeView32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_TREEVIEWA: ::windows::core::PCSTR = ::windows::core::s!("SysTreeView32");
+pub const WC_TREEVIEWA: ::windows_core::PCSTR = ::windows_core::s!("SysTreeView32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WC_TREEVIEWW: ::windows::core::PCWSTR = ::windows::core::w!("SysTreeView32");
+pub const WC_TREEVIEWW: ::windows_core::PCWSTR = ::windows_core::w!("SysTreeView32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const WIZ_BODYCX: u32 = 184u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -6994,8 +6994,8 @@ impl ::core::default::Default for AEROWIZARDPARTS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for AEROWIZARDPARTS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for AEROWIZARDPARTS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for AEROWIZARDPARTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7057,8 +7057,8 @@ impl ::core::default::Default for ARROWBTNSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for ARROWBTNSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for ARROWBTNSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for ARROWBTNSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7092,8 +7092,8 @@ impl ::core::default::Default for BACKGROUNDSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for BACKGROUNDSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for BACKGROUNDSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for BACKGROUNDSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7123,8 +7123,8 @@ impl ::core::default::Default for BACKGROUNDWITHBORDERSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for BACKGROUNDWITHBORDERSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for BACKGROUNDWITHBORDERSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for BACKGROUNDWITHBORDERSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7150,8 +7150,8 @@ impl ::core::default::Default for BALLOONSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for BALLOONSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for BALLOONSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for BALLOONSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7185,8 +7185,8 @@ impl ::core::default::Default for BALLOONSTEMSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for BALLOONSTEMSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for BALLOONSTEMSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for BALLOONSTEMSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7212,8 +7212,8 @@ impl ::core::default::Default for BARBACKGROUNDSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for BARBACKGROUNDSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for BARBACKGROUNDSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for BARBACKGROUNDSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7247,8 +7247,8 @@ impl ::core::default::Default for BARITEMSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for BARITEMSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for BARITEMSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for BARITEMSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7276,8 +7276,8 @@ impl ::core::default::Default for BGTYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for BGTYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for BGTYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for BGTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7303,8 +7303,8 @@ impl ::core::default::Default for BODYSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for BODYSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for BODYSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for BODYSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7334,8 +7334,8 @@ impl ::core::default::Default for BORDERSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for BORDERSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for BORDERSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for BORDERSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7363,8 +7363,8 @@ impl ::core::default::Default for BORDERTYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for BORDERTYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for BORDERTYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for BORDERTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7394,8 +7394,8 @@ impl ::core::default::Default for BORDER_HSCROLLSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for BORDER_HSCROLLSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for BORDER_HSCROLLSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for BORDER_HSCROLLSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7425,8 +7425,8 @@ impl ::core::default::Default for BORDER_HVSCROLLSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for BORDER_HVSCROLLSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for BORDER_HVSCROLLSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for BORDER_HVSCROLLSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7456,8 +7456,8 @@ impl ::core::default::Default for BORDER_NOSCROLLSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for BORDER_NOSCROLLSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for BORDER_NOSCROLLSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for BORDER_NOSCROLLSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7487,8 +7487,8 @@ impl ::core::default::Default for BORDER_VSCROLLSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for BORDER_VSCROLLSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for BORDER_VSCROLLSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for BORDER_VSCROLLSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7518,8 +7518,8 @@ impl ::core::default::Default for BP_ANIMATIONSTYLE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for BP_ANIMATIONSTYLE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for BP_ANIMATIONSTYLE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for BP_ANIMATIONSTYLE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7549,8 +7549,8 @@ impl ::core::default::Default for BP_BUFFERFORMAT {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for BP_BUFFERFORMAT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for BP_BUFFERFORMAT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for BP_BUFFERFORMAT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7578,8 +7578,8 @@ impl ::core::default::Default for BP_PAINTPARAMS_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for BP_PAINTPARAMS_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for BP_PAINTPARAMS_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for BP_PAINTPARAMS_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7656,8 +7656,8 @@ impl ::core::default::Default for BUTTONPARTS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for BUTTONPARTS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for BUTTONPARTS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for BUTTONPARTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7689,8 +7689,8 @@ impl ::core::default::Default for BUTTON_IMAGELIST_ALIGN {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for BUTTON_IMAGELIST_ALIGN {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for BUTTON_IMAGELIST_ALIGN {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for BUTTON_IMAGELIST_ALIGN {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7718,8 +7718,8 @@ impl ::core::default::Default for CAPTIONSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for CAPTIONSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CAPTIONSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for CAPTIONSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7781,8 +7781,8 @@ impl ::core::default::Default for CHECKBOXSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for CHECKBOXSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CHECKBOXSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for CHECKBOXSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7810,8 +7810,8 @@ impl ::core::default::Default for CHEVRONSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for CHEVRONSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CHEVRONSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for CHEVRONSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7839,8 +7839,8 @@ impl ::core::default::Default for CHEVRONVERTSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for CHEVRONVERTSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CHEVRONVERTSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for CHEVRONVERTSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7864,8 +7864,8 @@ impl ::core::default::Default for CLOCKPARTS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for CLOCKPARTS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CLOCKPARTS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for CLOCKPARTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7893,8 +7893,8 @@ impl ::core::default::Default for CLOCKSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for CLOCKSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CLOCKSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for CLOCKSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7924,8 +7924,8 @@ impl ::core::default::Default for CLOSEBUTTONSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for CLOSEBUTTONSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CLOSEBUTTONSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for CLOSEBUTTONSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7953,8 +7953,8 @@ impl ::core::default::Default for CLOSESTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for CLOSESTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CLOSESTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for CLOSESTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7982,8 +7982,8 @@ impl ::core::default::Default for COLLAPSEBUTTONSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for COLLAPSEBUTTONSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for COLLAPSEBUTTONSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for COLLAPSEBUTTONSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8015,8 +8015,8 @@ impl ::core::default::Default for COMBOBOXINFO_BUTTON_STATE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for COMBOBOXINFO_BUTTON_STATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for COMBOBOXINFO_BUTTON_STATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for COMBOBOXINFO_BUTTON_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8056,8 +8056,8 @@ impl ::core::default::Default for COMBOBOXPARTS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for COMBOBOXPARTS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for COMBOBOXPARTS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for COMBOBOXPARTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8087,8 +8087,8 @@ impl ::core::default::Default for COMBOBOXSTYLESTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for COMBOBOXSTYLESTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for COMBOBOXSTYLESTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for COMBOBOXSTYLESTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8124,8 +8124,8 @@ impl ::core::default::Default for COMBOBOX_EX_ITEM_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for COMBOBOX_EX_ITEM_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for COMBOBOX_EX_ITEM_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for COMBOBOX_EX_ITEM_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8190,8 +8190,8 @@ impl ::core::default::Default for COMMANDLINKGLYPHSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for COMMANDLINKGLYPHSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for COMMANDLINKGLYPHSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for COMMANDLINKGLYPHSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8225,8 +8225,8 @@ impl ::core::default::Default for COMMANDLINKSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for COMMANDLINKSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for COMMANDLINKSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for COMMANDLINKSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8250,8 +8250,8 @@ impl ::core::default::Default for COMMUNICATIONSPARTS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for COMMUNICATIONSPARTS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for COMMUNICATIONSPARTS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for COMMUNICATIONSPARTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8279,8 +8279,8 @@ impl ::core::default::Default for CONTENTALIGNMENT {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for CONTENTALIGNMENT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CONTENTALIGNMENT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for CONTENTALIGNMENT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8304,8 +8304,8 @@ impl ::core::default::Default for CONTENTAREASTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for CONTENTAREASTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CONTENTAREASTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for CONTENTAREASTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8335,8 +8335,8 @@ impl ::core::default::Default for CONTENTLINKSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for CONTENTLINKSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CONTENTLINKSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for CONTENTLINKSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8360,8 +8360,8 @@ impl ::core::default::Default for CONTENTPANESTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for CONTENTPANESTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CONTENTPANESTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for CONTENTPANESTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8387,8 +8387,8 @@ impl ::core::default::Default for CONTROLLABELSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for CONTROLLABELSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CONTROLLABELSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for CONTROLLABELSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8448,8 +8448,8 @@ impl ::core::default::Default for CONTROLPANELPARTS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for CONTROLPANELPARTS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CONTROLPANELPARTS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for CONTROLPANELPARTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8475,8 +8475,8 @@ impl ::core::default::Default for COPYSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for COPYSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for COPYSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for COPYSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8502,8 +8502,8 @@ impl ::core::default::Default for CREATELINKSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for CREATELINKSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CREATELINKSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for CREATELINKSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8533,8 +8533,8 @@ impl ::core::default::Default for CUEBANNERSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for CUEBANNERSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CUEBANNERSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for CUEBANNERSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8564,8 +8564,8 @@ impl ::core::default::Default for DATEBORDERSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for DATEBORDERSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DATEBORDERSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for DATEBORDERSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8593,8 +8593,8 @@ impl ::core::default::Default for DATEPICKERPARTS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for DATEPICKERPARTS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DATEPICKERPARTS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for DATEPICKERPARTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8622,8 +8622,8 @@ impl ::core::default::Default for DATETEXTSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for DATETEXTSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DATETEXTSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for DATETEXTSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8651,8 +8651,8 @@ impl ::core::default::Default for DLG_BUTTON_CHECK_STATE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for DLG_BUTTON_CHECK_STATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DLG_BUTTON_CHECK_STATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for DLG_BUTTON_CHECK_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8692,8 +8692,8 @@ impl ::core::default::Default for DLG_DIR_LIST_FILE_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for DLG_DIR_LIST_FILE_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DLG_DIR_LIST_FILE_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for DLG_DIR_LIST_FILE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8756,8 +8756,8 @@ impl ::core::default::Default for DOWNHORZSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for DOWNHORZSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DOWNHORZSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for DOWNHORZSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8787,8 +8787,8 @@ impl ::core::default::Default for DOWNSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for DOWNSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DOWNSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for DOWNSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8816,8 +8816,8 @@ impl ::core::default::Default for DPAMM_MESSAGE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for DPAMM_MESSAGE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DPAMM_MESSAGE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for DPAMM_MESSAGE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8855,8 +8855,8 @@ impl ::core::default::Default for DRAGDROPPARTS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for DRAGDROPPARTS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DRAGDROPPARTS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for DRAGDROPPARTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8886,8 +8886,8 @@ impl ::core::default::Default for DRAGLISTINFO_NOTIFICATION_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for DRAGLISTINFO_NOTIFICATION_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DRAGLISTINFO_NOTIFICATION_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for DRAGLISTINFO_NOTIFICATION_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8923,8 +8923,8 @@ impl ::core::default::Default for DRAWITEMSTRUCT_CTL_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for DRAWITEMSTRUCT_CTL_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DRAWITEMSTRUCT_CTL_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for DRAWITEMSTRUCT_CTL_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8952,8 +8952,8 @@ impl ::core::default::Default for DRAW_THEME_PARENT_BACKGROUND_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for DRAW_THEME_PARENT_BACKGROUND_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DRAW_THEME_PARENT_BACKGROUND_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for DRAW_THEME_PARENT_BACKGROUND_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9016,8 +9016,8 @@ impl ::core::default::Default for DROPDOWNBUTTONLEFTSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for DROPDOWNBUTTONLEFTSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DROPDOWNBUTTONLEFTSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for DROPDOWNBUTTONLEFTSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9047,8 +9047,8 @@ impl ::core::default::Default for DROPDOWNBUTTONRIGHTSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for DROPDOWNBUTTONRIGHTSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DROPDOWNBUTTONRIGHTSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for DROPDOWNBUTTONRIGHTSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9074,8 +9074,8 @@ impl ::core::default::Default for DROPDOWNITEMSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for DROPDOWNITEMSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DROPDOWNITEMSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for DROPDOWNITEMSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9127,8 +9127,8 @@ impl ::core::default::Default for DTTOPTS_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for DTTOPTS_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DTTOPTS_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for DTTOPTS_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9191,8 +9191,8 @@ impl ::core::default::Default for EC_ENDOFLINE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for EC_ENDOFLINE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EC_ENDOFLINE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for EC_ENDOFLINE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9218,8 +9218,8 @@ impl ::core::default::Default for EC_SEARCHWEB_ENTRYPOINT {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for EC_SEARCHWEB_ENTRYPOINT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EC_SEARCHWEB_ENTRYPOINT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for EC_SEARCHWEB_ENTRYPOINT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9255,8 +9255,8 @@ impl ::core::default::Default for EDITBALLOONTIP_ICON {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for EDITBALLOONTIP_ICON {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EDITBALLOONTIP_ICON {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for EDITBALLOONTIP_ICON {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9286,8 +9286,8 @@ impl ::core::default::Default for EDITBORDER_HSCROLLSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for EDITBORDER_HSCROLLSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EDITBORDER_HSCROLLSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for EDITBORDER_HSCROLLSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9317,8 +9317,8 @@ impl ::core::default::Default for EDITBORDER_HVSCROLLSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for EDITBORDER_HVSCROLLSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EDITBORDER_HVSCROLLSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for EDITBORDER_HVSCROLLSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9348,8 +9348,8 @@ impl ::core::default::Default for EDITBORDER_NOSCROLLSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for EDITBORDER_NOSCROLLSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EDITBORDER_NOSCROLLSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for EDITBORDER_NOSCROLLSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9379,8 +9379,8 @@ impl ::core::default::Default for EDITBORDER_VSCROLLSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for EDITBORDER_VSCROLLSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EDITBORDER_VSCROLLSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for EDITBORDER_VSCROLLSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9420,8 +9420,8 @@ impl ::core::default::Default for EDITPARTS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for EDITPARTS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EDITPARTS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for EDITPARTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9459,8 +9459,8 @@ impl ::core::default::Default for EDITTEXTSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for EDITTEXTSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EDITTEXTSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for EDITTEXTSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9484,8 +9484,8 @@ impl ::core::default::Default for EMPTYMARKUPPARTS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for EMPTYMARKUPPARTS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EMPTYMARKUPPARTS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for EMPTYMARKUPPARTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9523,8 +9523,8 @@ impl ::core::default::Default for ENABLE_SCROLL_BAR_ARROWS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for ENABLE_SCROLL_BAR_ARROWS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for ENABLE_SCROLL_BAR_ARROWS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for ENABLE_SCROLL_BAR_ARROWS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9552,8 +9552,8 @@ impl ::core::default::Default for EXPANDBUTTONSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for EXPANDBUTTONSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EXPANDBUTTONSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for EXPANDBUTTONSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9591,8 +9591,8 @@ impl ::core::default::Default for EXPANDOBUTTONSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for EXPANDOBUTTONSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EXPANDOBUTTONSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for EXPANDOBUTTONSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9638,8 +9638,8 @@ impl ::core::default::Default for EXPLORERBARPARTS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for EXPLORERBARPARTS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EXPLORERBARPARTS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for EXPLORERBARPARTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9685,8 +9685,8 @@ impl ::core::default::Default for FEEDBACK_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for FEEDBACK_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for FEEDBACK_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for FEEDBACK_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9716,8 +9716,8 @@ impl ::core::default::Default for FILLSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for FILLSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for FILLSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for FILLSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9749,8 +9749,8 @@ impl ::core::default::Default for FILLTYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for FILLTYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for FILLTYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for FILLTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9780,8 +9780,8 @@ impl ::core::default::Default for FILLVERTSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for FILLVERTSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for FILLVERTSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for FILLVERTSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9819,8 +9819,8 @@ impl ::core::default::Default for FLYOUTPARTS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for FLYOUTPARTS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for FLYOUTPARTS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for FLYOUTPARTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9846,8 +9846,8 @@ impl ::core::default::Default for FRAMEBOTTOMSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for FRAMEBOTTOMSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for FRAMEBOTTOMSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for FRAMEBOTTOMSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9873,8 +9873,8 @@ impl ::core::default::Default for FRAMELEFTSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for FRAMELEFTSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for FRAMELEFTSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for FRAMELEFTSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9900,8 +9900,8 @@ impl ::core::default::Default for FRAMERIGHTSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for FRAMERIGHTSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for FRAMERIGHTSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for FRAMERIGHTSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9927,8 +9927,8 @@ impl ::core::default::Default for FRAMESTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for FRAMESTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for FRAMESTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for FRAMESTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9956,8 +9956,8 @@ impl ::core::default::Default for GET_THEME_BITMAP_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for GET_THEME_BITMAP_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for GET_THEME_BITMAP_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for GET_THEME_BITMAP_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9985,8 +9985,8 @@ impl ::core::default::Default for GLYPHFONTSIZINGTYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for GLYPHFONTSIZINGTYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for GLYPHFONTSIZINGTYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for GLYPHFONTSIZINGTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -10012,8 +10012,8 @@ impl ::core::default::Default for GLYPHSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for GLYPHSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for GLYPHSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for GLYPHSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -10041,8 +10041,8 @@ impl ::core::default::Default for GLYPHTYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for GLYPHTYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for GLYPHTYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for GLYPHTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -10076,8 +10076,8 @@ impl ::core::default::Default for GRIDCELLBACKGROUNDSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for GRIDCELLBACKGROUNDSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for GRIDCELLBACKGROUNDSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for GRIDCELLBACKGROUNDSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -10113,8 +10113,8 @@ impl ::core::default::Default for GRIDCELLSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for GRIDCELLSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for GRIDCELLSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for GRIDCELLSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -10146,8 +10146,8 @@ impl ::core::default::Default for GRIDCELLUPPERSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for GRIDCELLUPPERSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for GRIDCELLUPPERSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for GRIDCELLUPPERSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -10173,8 +10173,8 @@ impl ::core::default::Default for GRIPPERSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for GRIPPERSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for GRIPPERSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for GRIPPERSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -10200,8 +10200,8 @@ impl ::core::default::Default for GROUPBOXSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for GROUPBOXSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for GROUPBOXSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for GROUPBOXSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -10255,8 +10255,8 @@ impl ::core::default::Default for GROUPHEADERLINESTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for GROUPHEADERLINESTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for GROUPHEADERLINESTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for GROUPHEADERLINESTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -10310,8 +10310,8 @@ impl ::core::default::Default for GROUPHEADERSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for GROUPHEADERSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for GROUPHEADERSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for GROUPHEADERSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -10339,8 +10339,8 @@ impl ::core::default::Default for HALIGN {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for HALIGN {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HALIGN {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for HALIGN {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -10384,8 +10384,8 @@ impl ::core::default::Default for HDI_MASK {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for HDI_MASK {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HDI_MASK {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for HDI_MASK {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -10442,8 +10442,8 @@ impl ::core::default::Default for HEADERAREASTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for HEADERAREASTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HEADERAREASTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for HEADERAREASTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -10471,8 +10471,8 @@ impl ::core::default::Default for HEADERCLOSESTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for HEADERCLOSESTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HEADERCLOSESTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for HEADERCLOSESTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -10500,8 +10500,8 @@ impl ::core::default::Default for HEADERDROPDOWNFILTERSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for HEADERDROPDOWNFILTERSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HEADERDROPDOWNFILTERSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for HEADERDROPDOWNFILTERSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -10529,8 +10529,8 @@ impl ::core::default::Default for HEADERDROPDOWNSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for HEADERDROPDOWNSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HEADERDROPDOWNSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for HEADERDROPDOWNSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -10558,8 +10558,8 @@ impl ::core::default::Default for HEADERITEMLEFTSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for HEADERITEMLEFTSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HEADERITEMLEFTSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for HEADERITEMLEFTSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -10587,8 +10587,8 @@ impl ::core::default::Default for HEADERITEMRIGHTSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for HEADERITEMRIGHTSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HEADERITEMRIGHTSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for HEADERITEMRIGHTSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -10634,8 +10634,8 @@ impl ::core::default::Default for HEADERITEMSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for HEADERITEMSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HEADERITEMSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for HEADERITEMSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -10661,8 +10661,8 @@ impl ::core::default::Default for HEADEROVERFLOWSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for HEADEROVERFLOWSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HEADEROVERFLOWSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for HEADEROVERFLOWSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -10698,8 +10698,8 @@ impl ::core::default::Default for HEADERPARTS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for HEADERPARTS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HEADERPARTS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for HEADERPARTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -10733,8 +10733,8 @@ impl ::core::default::Default for HEADERPINSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for HEADERPINSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HEADERPINSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for HEADERPINSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -10760,8 +10760,8 @@ impl ::core::default::Default for HEADERSORTARROWSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for HEADERSORTARROWSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HEADERSORTARROWSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for HEADERSORTARROWSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -10787,8 +10787,8 @@ impl ::core::default::Default for HEADERSTYLESTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for HEADERSTYLESTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HEADERSTYLESTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for HEADERSTYLESTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -10842,8 +10842,8 @@ impl ::core::default::Default for HEADER_CONTROL_FORMAT_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for HEADER_CONTROL_FORMAT_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HEADER_CONTROL_FORMAT_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for HEADER_CONTROL_FORMAT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -10867,8 +10867,8 @@ impl ::core::default::Default for HEADER_CONTROL_FORMAT_STATE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for HEADER_CONTROL_FORMAT_STATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HEADER_CONTROL_FORMAT_STATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for HEADER_CONTROL_FORMAT_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -10898,8 +10898,8 @@ impl ::core::default::Default for HEADER_CONTROL_FORMAT_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for HEADER_CONTROL_FORMAT_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HEADER_CONTROL_FORMAT_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for HEADER_CONTROL_FORMAT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -10927,8 +10927,8 @@ impl ::core::default::Default for HEADER_CONTROL_NOTIFICATION_BUTTON {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for HEADER_CONTROL_NOTIFICATION_BUTTON {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HEADER_CONTROL_NOTIFICATION_BUTTON {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for HEADER_CONTROL_NOTIFICATION_BUTTON {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -10976,8 +10976,8 @@ impl ::core::default::Default for HEADER_HITTEST_INFO_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for HEADER_HITTEST_INFO_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HEADER_HITTEST_INFO_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for HEADER_HITTEST_INFO_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -11040,8 +11040,8 @@ impl ::core::default::Default for HELPBUTTONSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for HELPBUTTONSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HELPBUTTONSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for HELPBUTTONSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -11071,8 +11071,8 @@ impl ::core::default::Default for HELPLINKSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for HELPLINKSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HELPLINKSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for HELPLINKSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -11114,8 +11114,8 @@ impl ::core::default::Default for HIT_TEST_BACKGROUND_OPTIONS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for HIT_TEST_BACKGROUND_OPTIONS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HIT_TEST_BACKGROUND_OPTIONS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for HIT_TEST_BACKGROUND_OPTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -11145,8 +11145,8 @@ impl ::core::default::Default for HORZSCROLLSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for HORZSCROLLSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HORZSCROLLSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for HORZSCROLLSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -11176,8 +11176,8 @@ impl ::core::default::Default for HORZTHUMBSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for HORZTHUMBSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HORZTHUMBSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for HORZTHUMBSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -11203,8 +11203,8 @@ impl ::core::default::Default for HOTGLYPHSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for HOTGLYPHSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HOTGLYPHSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for HOTGLYPHSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -11232,8 +11232,8 @@ impl ::core::default::Default for HOVERBACKGROUNDSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for HOVERBACKGROUNDSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HOVERBACKGROUNDSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for HOVERBACKGROUNDSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -11259,8 +11259,8 @@ impl ::core::default::Default for HYPERLINKSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for HYPERLINKSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HYPERLINKSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for HYPERLINKSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -11290,8 +11290,8 @@ impl ::core::default::Default for HYPERLINKTEXTSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for HYPERLINKTEXTSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HYPERLINKTEXTSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for HYPERLINKTEXTSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -11323,8 +11323,8 @@ impl ::core::default::Default for ICONEFFECT {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for ICONEFFECT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for ICONEFFECT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for ICONEFFECT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -11352,8 +11352,8 @@ impl ::core::default::Default for IEBARMENUSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for IEBARMENUSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IEBARMENUSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for IEBARMENUSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -11379,8 +11379,8 @@ impl ::core::default::Default for IMAGELAYOUT {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for IMAGELAYOUT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IMAGELAYOUT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for IMAGELAYOUT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -11428,8 +11428,8 @@ impl ::core::default::Default for IMAGELIST_CREATION_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for IMAGELIST_CREATION_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IMAGELIST_CREATION_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for IMAGELIST_CREATION_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -11490,8 +11490,8 @@ impl ::core::default::Default for IMAGESELECTTYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for IMAGESELECTTYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IMAGESELECTTYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for IMAGESELECTTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -11517,8 +11517,8 @@ impl ::core::default::Default for IMAGE_LIST_COPY_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for IMAGE_LIST_COPY_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IMAGE_LIST_COPY_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for IMAGE_LIST_COPY_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -11570,8 +11570,8 @@ impl ::core::default::Default for IMAGE_LIST_DRAW_STYLE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for IMAGE_LIST_DRAW_STYLE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IMAGE_LIST_DRAW_STYLE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for IMAGE_LIST_DRAW_STYLE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -11630,8 +11630,8 @@ impl ::core::default::Default for IMAGE_LIST_ITEM_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for IMAGE_LIST_ITEM_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IMAGE_LIST_ITEM_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for IMAGE_LIST_ITEM_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -11657,8 +11657,8 @@ impl ::core::default::Default for IMAGE_LIST_WRITE_STREAM_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for IMAGE_LIST_WRITE_STREAM_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IMAGE_LIST_WRITE_STREAM_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for IMAGE_LIST_WRITE_STREAM_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -11747,8 +11747,8 @@ impl ::core::default::Default for INITCOMMONCONTROLSEX_ICC {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for INITCOMMONCONTROLSEX_ICC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for INITCOMMONCONTROLSEX_ICC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for INITCOMMONCONTROLSEX_ICC {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -11811,8 +11811,8 @@ impl ::core::default::Default for ITEMSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for ITEMSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for ITEMSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for ITEMSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -11842,8 +11842,8 @@ impl ::core::default::Default for LABELSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for LABELSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LABELSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for LABELSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -11869,8 +11869,8 @@ impl ::core::default::Default for LINKHEADERSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for LINKHEADERSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LINKHEADERSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for LINKHEADERSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -11894,8 +11894,8 @@ impl ::core::default::Default for LINKPARTS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for LINKPARTS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LINKPARTS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for LINKPARTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -11921,8 +11921,8 @@ impl ::core::default::Default for LINKSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for LINKSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LINKSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for LINKSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -11954,8 +11954,8 @@ impl ::core::default::Default for LISTBOXPARTS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for LISTBOXPARTS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LISTBOXPARTS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for LISTBOXPARTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -11989,8 +11989,8 @@ impl ::core::default::Default for LISTITEMSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for LISTITEMSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LISTITEMSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for LISTITEMSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12032,8 +12032,8 @@ impl ::core::default::Default for LISTVIEWPARTS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for LISTVIEWPARTS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LISTVIEWPARTS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for LISTVIEWPARTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12063,8 +12063,8 @@ impl ::core::default::Default for LIST_ITEM_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for LIST_ITEM_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LIST_ITEM_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for LIST_ITEM_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12129,8 +12129,8 @@ impl ::core::default::Default for LIST_ITEM_STATE_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for LIST_ITEM_STATE_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LIST_ITEM_STATE_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for LIST_ITEM_STATE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12205,8 +12205,8 @@ impl ::core::default::Default for LIST_VIEW_BACKGROUND_IMAGE_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for LIST_VIEW_BACKGROUND_IMAGE_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LIST_VIEW_BACKGROUND_IMAGE_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for LIST_VIEW_BACKGROUND_IMAGE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12273,8 +12273,8 @@ impl ::core::default::Default for LIST_VIEW_GROUP_ALIGN_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for LIST_VIEW_GROUP_ALIGN_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LIST_VIEW_GROUP_ALIGN_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for LIST_VIEW_GROUP_ALIGN_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12347,8 +12347,8 @@ impl ::core::default::Default for LIST_VIEW_GROUP_STATE_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for LIST_VIEW_GROUP_STATE_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LIST_VIEW_GROUP_STATE_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for LIST_VIEW_GROUP_STATE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12405,8 +12405,8 @@ impl ::core::default::Default for LIST_VIEW_INSERT_MARK_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for LIST_VIEW_INSERT_MARK_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LIST_VIEW_INSERT_MARK_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for LIST_VIEW_INSERT_MARK_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12471,8 +12471,8 @@ impl ::core::default::Default for LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12547,8 +12547,8 @@ impl ::core::default::Default for LIST_VIEW_ITEM_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for LIST_VIEW_ITEM_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LIST_VIEW_ITEM_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for LIST_VIEW_ITEM_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12619,8 +12619,8 @@ impl ::core::default::Default for LIST_VIEW_ITEM_STATE_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for LIST_VIEW_ITEM_STATE_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LIST_VIEW_ITEM_STATE_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for LIST_VIEW_ITEM_STATE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12648,8 +12648,8 @@ impl ::core::default::Default for LOGOFFBUTTONSSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for LOGOFFBUTTONSSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LOGOFFBUTTONSSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for LOGOFFBUTTONSSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12693,8 +12693,8 @@ impl ::core::default::Default for LVCOLUMNW_FORMAT {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for LVCOLUMNW_FORMAT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LVCOLUMNW_FORMAT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for LVCOLUMNW_FORMAT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12767,8 +12767,8 @@ impl ::core::default::Default for LVCOLUMNW_MASK {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for LVCOLUMNW_MASK {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LVCOLUMNW_MASK {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for LVCOLUMNW_MASK {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12835,8 +12835,8 @@ impl ::core::default::Default for LVFINDINFOW_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for LVFINDINFOW_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LVFINDINFOW_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for LVFINDINFOW_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12895,8 +12895,8 @@ impl ::core::default::Default for LVFOOTERITEM_MASK {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for LVFOOTERITEM_MASK {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LVFOOTERITEM_MASK {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for LVFOOTERITEM_MASK {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12926,8 +12926,8 @@ impl ::core::default::Default for LVGROUP_MASK {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for LVGROUP_MASK {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LVGROUP_MASK {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for LVGROUP_MASK {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -13016,8 +13016,8 @@ impl ::core::default::Default for LVHITTESTINFO_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for LVHITTESTINFO_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LVHITTESTINFO_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for LVHITTESTINFO_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -13076,8 +13076,8 @@ impl ::core::default::Default for LVITEMA_GROUP_ID {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for LVITEMA_GROUP_ID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LVITEMA_GROUP_ID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for LVITEMA_GROUP_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -13107,8 +13107,8 @@ impl ::core::default::Default for LVTILEVIEWINFO_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for LVTILEVIEWINFO_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LVTILEVIEWINFO_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for LVTILEVIEWINFO_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -13169,8 +13169,8 @@ impl ::core::default::Default for LVTILEVIEWINFO_MASK {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for LVTILEVIEWINFO_MASK {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LVTILEVIEWINFO_MASK {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for LVTILEVIEWINFO_MASK {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -13229,8 +13229,8 @@ impl ::core::default::Default for MARKUPTEXTSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MARKUPTEXTSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MARKUPTEXTSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MARKUPTEXTSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -13260,8 +13260,8 @@ impl ::core::default::Default for MAXBUTTONSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MAXBUTTONSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MAXBUTTONSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MAXBUTTONSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -13289,8 +13289,8 @@ impl ::core::default::Default for MAXCAPTIONSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MAXCAPTIONSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MAXCAPTIONSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MAXCAPTIONSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -13318,8 +13318,8 @@ impl ::core::default::Default for MCGRIDINFO_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MCGRIDINFO_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MCGRIDINFO_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MCGRIDINFO_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -13392,8 +13392,8 @@ impl ::core::default::Default for MCGRIDINFO_PART {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MCGRIDINFO_PART {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MCGRIDINFO_PART {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MCGRIDINFO_PART {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -13455,8 +13455,8 @@ impl ::core::default::Default for MCHITTESTINFO_HIT_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MCHITTESTINFO_HIT_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MCHITTESTINFO_HIT_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MCHITTESTINFO_HIT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -13519,8 +13519,8 @@ impl ::core::default::Default for MDICLOSEBUTTONSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MDICLOSEBUTTONSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MDICLOSEBUTTONSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MDICLOSEBUTTONSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -13550,8 +13550,8 @@ impl ::core::default::Default for MDIMINBUTTONSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MDIMINBUTTONSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MDIMINBUTTONSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MDIMINBUTTONSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -13581,8 +13581,8 @@ impl ::core::default::Default for MDIRESTOREBUTTONSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MDIRESTOREBUTTONSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MDIRESTOREBUTTONSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MDIRESTOREBUTTONSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -13608,8 +13608,8 @@ impl ::core::default::Default for MENUBANDPARTS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MENUBANDPARTS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MENUBANDPARTS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MENUBANDPARTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -13643,8 +13643,8 @@ impl ::core::default::Default for MENUBANDSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MENUBANDSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MENUBANDSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MENUBANDSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -13720,8 +13720,8 @@ impl ::core::default::Default for MENUPARTS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MENUPARTS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MENUPARTS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MENUPARTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -13751,8 +13751,8 @@ impl ::core::default::Default for MINBUTTONSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MINBUTTONSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MINBUTTONSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MINBUTTONSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -13780,8 +13780,8 @@ impl ::core::default::Default for MINCAPTIONSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MINCAPTIONSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MINCAPTIONSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MINCAPTIONSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -13825,8 +13825,8 @@ impl ::core::default::Default for MONTHCALPARTS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MONTHCALPARTS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MONTHCALPARTS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MONTHCALPARTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -13858,8 +13858,8 @@ impl ::core::default::Default for MONTH_CALDENDAR_MESSAGES_VIEW {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MONTH_CALDENDAR_MESSAGES_VIEW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MONTH_CALDENDAR_MESSAGES_VIEW {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MONTH_CALDENDAR_MESSAGES_VIEW {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -13887,8 +13887,8 @@ impl ::core::default::Default for MOREPROGRAMSARROWBACKSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MOREPROGRAMSARROWBACKSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MOREPROGRAMSARROWBACKSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MOREPROGRAMSARROWBACKSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -13916,8 +13916,8 @@ impl ::core::default::Default for MOREPROGRAMSARROWSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MOREPROGRAMSARROWSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MOREPROGRAMSARROWSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MOREPROGRAMSARROWSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -13949,8 +13949,8 @@ impl ::core::default::Default for MOREPROGRAMSTABSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MOREPROGRAMSTABSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MOREPROGRAMSTABSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MOREPROGRAMSTABSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -13976,8 +13976,8 @@ impl ::core::default::Default for MOVESTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for MOVESTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MOVESTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for MOVESTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -14005,8 +14005,8 @@ impl ::core::default::Default for NAVIGATIONPARTS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NAVIGATIONPARTS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NAVIGATIONPARTS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NAVIGATIONPARTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -14036,8 +14036,8 @@ impl ::core::default::Default for NAVNEXTSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NAVNEXTSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NAVNEXTSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NAVNEXTSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -14067,8 +14067,8 @@ impl ::core::default::Default for NAVPREVSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NAVPREVSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NAVPREVSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NAVPREVSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -14098,8 +14098,8 @@ impl ::core::default::Default for NAV_BACKBUTTONSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NAV_BACKBUTTONSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NAV_BACKBUTTONSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NAV_BACKBUTTONSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -14129,8 +14129,8 @@ impl ::core::default::Default for NAV_FORWARDBUTTONSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NAV_FORWARDBUTTONSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NAV_FORWARDBUTTONSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NAV_FORWARDBUTTONSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -14160,8 +14160,8 @@ impl ::core::default::Default for NAV_MENUBUTTONSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NAV_MENUBUTTONSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NAV_MENUBUTTONSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NAV_MENUBUTTONSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -14199,8 +14199,8 @@ impl ::core::default::Default for NMCUSTOMDRAW_DRAW_STAGE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NMCUSTOMDRAW_DRAW_STAGE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMCUSTOMDRAW_DRAW_STAGE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NMCUSTOMDRAW_DRAW_STAGE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -14248,8 +14248,8 @@ impl ::core::default::Default for NMCUSTOMDRAW_DRAW_STATE_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NMCUSTOMDRAW_DRAW_STATE_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMCUSTOMDRAW_DRAW_STATE_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NMCUSTOMDRAW_DRAW_STATE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -14308,8 +14308,8 @@ impl ::core::default::Default for NMDATETIMECHANGE_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NMDATETIMECHANGE_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMDATETIMECHANGE_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NMDATETIMECHANGE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -14337,8 +14337,8 @@ impl ::core::default::Default for NMLVCUSTOMDRAW_ITEM_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NMLVCUSTOMDRAW_ITEM_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMLVCUSTOMDRAW_ITEM_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NMLVCUSTOMDRAW_ITEM_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -14362,8 +14362,8 @@ impl ::core::default::Default for NMLVEMPTYMARKUP_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NMLVEMPTYMARKUP_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMLVEMPTYMARKUP_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NMLVEMPTYMARKUP_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -14389,8 +14389,8 @@ impl ::core::default::Default for NMLVGETINFOTIP_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NMLVGETINFOTIP_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMLVGETINFOTIP_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NMLVGETINFOTIP_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -14416,8 +14416,8 @@ impl ::core::default::Default for NMPGCALCSIZE_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NMPGCALCSIZE_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMPGCALCSIZE_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NMPGCALCSIZE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -14447,8 +14447,8 @@ impl ::core::default::Default for NMPGSCROLL_DIR {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NMPGSCROLL_DIR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMPGSCROLL_DIR {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NMPGSCROLL_DIR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -14478,8 +14478,8 @@ impl ::core::default::Default for NMPGSCROLL_KEYS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NMPGSCROLL_KEYS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMPGSCROLL_KEYS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NMPGSCROLL_KEYS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -14540,8 +14540,8 @@ impl ::core::default::Default for NMREBAR_MASK_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NMREBAR_MASK_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMREBAR_MASK_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NMREBAR_MASK_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -14602,8 +14602,8 @@ impl ::core::default::Default for NMTBDISPINFOW_MASK {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NMTBDISPINFOW_MASK {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMTBDISPINFOW_MASK {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NMTBDISPINFOW_MASK {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -14678,8 +14678,8 @@ impl ::core::default::Default for NMTBHOTITEM_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NMTBHOTITEM_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMTBHOTITEM_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NMTBHOTITEM_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -14750,8 +14750,8 @@ impl ::core::default::Default for NM_TREEVIEW_ACTION {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NM_TREEVIEW_ACTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NM_TREEVIEW_ACTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NM_TREEVIEW_ACTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -14810,8 +14810,8 @@ impl ::core::default::Default for NONESTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NONESTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NONESTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NONESTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -14839,8 +14839,8 @@ impl ::core::default::Default for NORMALGROUPCOLLAPSESTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NORMALGROUPCOLLAPSESTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NORMALGROUPCOLLAPSESTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NORMALGROUPCOLLAPSESTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -14868,8 +14868,8 @@ impl ::core::default::Default for NORMALGROUPEXPANDSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for NORMALGROUPEXPANDSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NORMALGROUPEXPANDSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for NORMALGROUPEXPANDSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -14897,8 +14897,8 @@ impl ::core::default::Default for ODA_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for ODA_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for ODA_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for ODA_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -14942,8 +14942,8 @@ impl ::core::default::Default for ODS_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for ODS_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for ODS_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for ODS_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -14993,8 +14993,8 @@ impl ::core::default::Default for OFFSETTYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for OFFSETTYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for OFFSETTYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for OFFSETTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15026,8 +15026,8 @@ impl ::core::default::Default for OPENBOXSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for OPENBOXSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for OPENBOXSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for OPENBOXSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15053,8 +15053,8 @@ impl ::core::default::Default for OPEN_THEME_DATA_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for OPEN_THEME_DATA_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for OPEN_THEME_DATA_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for OPEN_THEME_DATA_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15117,8 +15117,8 @@ impl ::core::default::Default for PAGEPARTS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for PAGEPARTS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PAGEPARTS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for PAGEPARTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15148,8 +15148,8 @@ impl ::core::default::Default for POINTER_DEVICE_CURSOR_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for POINTER_DEVICE_CURSOR_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for POINTER_DEVICE_CURSOR_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for POINTER_DEVICE_CURSOR_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15181,8 +15181,8 @@ impl ::core::default::Default for POINTER_DEVICE_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for POINTER_DEVICE_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for POINTER_DEVICE_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for POINTER_DEVICE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15210,8 +15210,8 @@ impl ::core::default::Default for POINTER_FEEDBACK_MODE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for POINTER_FEEDBACK_MODE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for POINTER_FEEDBACK_MODE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for POINTER_FEEDBACK_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15239,8 +15239,8 @@ impl ::core::default::Default for POPUPCHECKBACKGROUNDSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for POPUPCHECKBACKGROUNDSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for POPUPCHECKBACKGROUNDSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for POPUPCHECKBACKGROUNDSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15270,8 +15270,8 @@ impl ::core::default::Default for POPUPCHECKSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for POPUPCHECKSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for POPUPCHECKSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for POPUPCHECKSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15301,8 +15301,8 @@ impl ::core::default::Default for POPUPITEMFOCUSABLESTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for POPUPITEMFOCUSABLESTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for POPUPITEMFOCUSABLESTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for POPUPITEMFOCUSABLESTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15326,8 +15326,8 @@ impl ::core::default::Default for POPUPITEMKBFOCUSSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for POPUPITEMKBFOCUSSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for POPUPITEMKBFOCUSSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for POPUPITEMKBFOCUSSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15357,8 +15357,8 @@ impl ::core::default::Default for POPUPITEMSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for POPUPITEMSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for POPUPITEMSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for POPUPITEMSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15382,8 +15382,8 @@ impl ::core::default::Default for POPUPSUBMENUHCHOTSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for POPUPSUBMENUHCHOTSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for POPUPSUBMENUHCHOTSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for POPUPSUBMENUHCHOTSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15409,8 +15409,8 @@ impl ::core::default::Default for POPUPSUBMENUSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for POPUPSUBMENUSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for POPUPSUBMENUSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for POPUPSUBMENUSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15456,8 +15456,8 @@ impl ::core::default::Default for PROGRESSPARTS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for PROGRESSPARTS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROGRESSPARTS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for PROGRESSPARTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15489,8 +15489,8 @@ impl ::core::default::Default for PROPERTYORIGIN {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for PROPERTYORIGIN {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROPERTYORIGIN {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for PROPERTYORIGIN {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15520,8 +15520,8 @@ impl ::core::default::Default for PSPCB_MESSAGE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for PSPCB_MESSAGE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PSPCB_MESSAGE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for PSPCB_MESSAGE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15547,8 +15547,8 @@ impl ::core::default::Default for PUSHBUTTONDROPDOWNSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for PUSHBUTTONDROPDOWNSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PUSHBUTTONDROPDOWNSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for PUSHBUTTONDROPDOWNSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15582,8 +15582,8 @@ impl ::core::default::Default for PUSHBUTTONSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for PUSHBUTTONSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PUSHBUTTONSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for PUSHBUTTONSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15621,8 +15621,8 @@ impl ::core::default::Default for RADIOBUTTONSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for RADIOBUTTONSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RADIOBUTTONSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for RADIOBUTTONSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15652,8 +15652,8 @@ impl ::core::default::Default for READONLYSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for READONLYSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for READONLYSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for READONLYSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15691,8 +15691,8 @@ impl ::core::default::Default for REBARPARTS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for REBARPARTS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for REBARPARTS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for REBARPARTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15722,8 +15722,8 @@ impl ::core::default::Default for RESTOREBUTTONSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for RESTOREBUTTONSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RESTOREBUTTONSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for RESTOREBUTTONSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15767,8 +15767,8 @@ impl ::core::default::Default for SCROLLBARPARTS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for SCROLLBARPARTS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SCROLLBARPARTS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for SCROLLBARPARTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15800,8 +15800,8 @@ impl ::core::default::Default for SCROLLBARSTYLESTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for SCROLLBARSTYLESTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SCROLLBARSTYLESTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for SCROLLBARSTYLESTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15827,8 +15827,8 @@ impl ::core::default::Default for SECTIONTITLELINKSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for SECTIONTITLELINKSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SECTIONTITLELINKSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for SECTIONTITLELINKSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15858,8 +15858,8 @@ impl ::core::default::Default for SET_THEME_APP_PROPERTIES_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for SET_THEME_APP_PROPERTIES_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SET_THEME_APP_PROPERTIES_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for SET_THEME_APP_PROPERTIES_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15922,8 +15922,8 @@ impl ::core::default::Default for SHOWCALENDARBUTTONRIGHTSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for SHOWCALENDARBUTTONRIGHTSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SHOWCALENDARBUTTONRIGHTSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for SHOWCALENDARBUTTONRIGHTSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15961,8 +15961,8 @@ impl ::core::default::Default for SIZEBOXSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for SIZEBOXSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SIZEBOXSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for SIZEBOXSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -15990,8 +15990,8 @@ impl ::core::default::Default for SIZINGTYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for SIZINGTYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SIZINGTYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for SIZINGTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -16019,8 +16019,8 @@ impl ::core::default::Default for SMALLCAPTIONSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for SMALLCAPTIONSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SMALLCAPTIONSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for SMALLCAPTIONSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -16050,8 +16050,8 @@ impl ::core::default::Default for SMALLCLOSEBUTTONSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for SMALLCLOSEBUTTONSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SMALLCLOSEBUTTONSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for SMALLCLOSEBUTTONSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -16077,8 +16077,8 @@ impl ::core::default::Default for SMALLFRAMEBOTTOMSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for SMALLFRAMEBOTTOMSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SMALLFRAMEBOTTOMSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for SMALLFRAMEBOTTOMSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -16104,8 +16104,8 @@ impl ::core::default::Default for SMALLFRAMELEFTSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for SMALLFRAMELEFTSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SMALLFRAMELEFTSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for SMALLFRAMELEFTSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -16131,8 +16131,8 @@ impl ::core::default::Default for SMALLFRAMERIGHTSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for SMALLFRAMERIGHTSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SMALLFRAMERIGHTSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for SMALLFRAMERIGHTSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -16164,8 +16164,8 @@ impl ::core::default::Default for SOFTWAREEXPLORERSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for SOFTWAREEXPLORERSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SOFTWAREEXPLORERSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for SOFTWAREEXPLORERSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -16193,8 +16193,8 @@ impl ::core::default::Default for SPECIALGROUPCOLLAPSESTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for SPECIALGROUPCOLLAPSESTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SPECIALGROUPCOLLAPSESTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for SPECIALGROUPCOLLAPSESTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -16222,8 +16222,8 @@ impl ::core::default::Default for SPECIALGROUPEXPANDSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for SPECIALGROUPEXPANDSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SPECIALGROUPEXPANDSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for SPECIALGROUPEXPANDSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -16253,8 +16253,8 @@ impl ::core::default::Default for SPINPARTS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for SPINPARTS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SPINPARTS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for SPINPARTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -16282,8 +16282,8 @@ impl ::core::default::Default for SPLITTERSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for SPLITTERSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SPLITTERSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for SPLITTERSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -16311,8 +16311,8 @@ impl ::core::default::Default for SPLITTERVERTSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for SPLITTERVERTSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SPLITTERVERTSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for SPLITTERVERTSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -16338,8 +16338,8 @@ impl ::core::default::Default for STANDARDSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for STANDARDSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for STANDARDSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for STANDARDSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -16399,8 +16399,8 @@ impl ::core::default::Default for STARTPANELPARTS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for STARTPANELPARTS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for STARTPANELPARTS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for STARTPANELPARTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -16424,8 +16424,8 @@ impl ::core::default::Default for STATICPARTS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for STATICPARTS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for STATICPARTS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for STATICPARTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -16453,8 +16453,8 @@ impl ::core::default::Default for STATUSPARTS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for STATUSPARTS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for STATUSPARTS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for STATUSPARTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -16484,8 +16484,8 @@ impl ::core::default::Default for SYSBUTTONSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for SYSBUTTONSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SYSBUTTONSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for SYSBUTTONSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -16509,8 +16509,8 @@ impl ::core::default::Default for SYSTEMCLOSEHCHOTSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for SYSTEMCLOSEHCHOTSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SYSTEMCLOSEHCHOTSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for SYSTEMCLOSEHCHOTSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -16536,8 +16536,8 @@ impl ::core::default::Default for SYSTEMCLOSESTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for SYSTEMCLOSESTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SYSTEMCLOSESTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for SYSTEMCLOSESTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -16561,8 +16561,8 @@ impl ::core::default::Default for SYSTEMMAXIMIZEHCHOTSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for SYSTEMMAXIMIZEHCHOTSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SYSTEMMAXIMIZEHCHOTSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for SYSTEMMAXIMIZEHCHOTSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -16588,8 +16588,8 @@ impl ::core::default::Default for SYSTEMMAXIMIZESTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for SYSTEMMAXIMIZESTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SYSTEMMAXIMIZESTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for SYSTEMMAXIMIZESTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -16613,8 +16613,8 @@ impl ::core::default::Default for SYSTEMMINIMIZEHCHOTSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for SYSTEMMINIMIZEHCHOTSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SYSTEMMINIMIZEHCHOTSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for SYSTEMMINIMIZEHCHOTSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -16640,8 +16640,8 @@ impl ::core::default::Default for SYSTEMMINIMIZESTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for SYSTEMMINIMIZESTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SYSTEMMINIMIZESTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for SYSTEMMINIMIZESTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -16665,8 +16665,8 @@ impl ::core::default::Default for SYSTEMRESTOREHCHOTSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for SYSTEMRESTOREHCHOTSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SYSTEMRESTOREHCHOTSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for SYSTEMRESTOREHCHOTSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -16692,8 +16692,8 @@ impl ::core::default::Default for SYSTEMRESTORESTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for SYSTEMRESTORESTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for SYSTEMRESTORESTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for SYSTEMRESTORESTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -16725,8 +16725,8 @@ impl ::core::default::Default for TABITEMBOTHEDGESTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TABITEMBOTHEDGESTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TABITEMBOTHEDGESTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TABITEMBOTHEDGESTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -16758,8 +16758,8 @@ impl ::core::default::Default for TABITEMLEFTEDGESTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TABITEMLEFTEDGESTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TABITEMLEFTEDGESTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TABITEMLEFTEDGESTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -16791,8 +16791,8 @@ impl ::core::default::Default for TABITEMRIGHTEDGESTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TABITEMRIGHTEDGESTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TABITEMRIGHTEDGESTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TABITEMRIGHTEDGESTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -16824,8 +16824,8 @@ impl ::core::default::Default for TABITEMSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TABITEMSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TABITEMSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TABITEMSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -16869,8 +16869,8 @@ impl ::core::default::Default for TABPARTS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TABPARTS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TABPARTS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TABPARTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -16898,8 +16898,8 @@ impl ::core::default::Default for TABSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TABSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TABSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TABSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -16925,8 +16925,8 @@ impl ::core::default::Default for TAB_CONTROL_ITEM_STATE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TAB_CONTROL_ITEM_STATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TAB_CONTROL_ITEM_STATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TAB_CONTROL_ITEM_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -16954,8 +16954,8 @@ impl ::core::default::Default for TASKBANDPARTS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TASKBANDPARTS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TASKBANDPARTS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TASKBANDPARTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -16993,8 +16993,8 @@ impl ::core::default::Default for TASKBARPARTS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TASKBARPARTS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TASKBARPARTS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TASKBARPARTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -17058,8 +17058,8 @@ impl ::core::default::Default for TASKDIALOGPARTS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TASKDIALOGPARTS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TASKDIALOGPARTS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TASKDIALOGPARTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -17093,8 +17093,8 @@ impl ::core::default::Default for TASKDIALOG_COMMON_BUTTON_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TASKDIALOG_COMMON_BUTTON_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TASKDIALOG_COMMON_BUTTON_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TASKDIALOG_COMMON_BUTTON_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -17124,8 +17124,8 @@ impl ::core::default::Default for TASKDIALOG_ELEMENTS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TASKDIALOG_ELEMENTS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TASKDIALOG_ELEMENTS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TASKDIALOG_ELEMENTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -17183,8 +17183,8 @@ impl ::core::default::Default for TASKDIALOG_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TASKDIALOG_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TASKDIALOG_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TASKDIALOG_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -17210,8 +17210,8 @@ impl ::core::default::Default for TASKDIALOG_ICON_ELEMENTS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TASKDIALOG_ICON_ELEMENTS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TASKDIALOG_ICON_ELEMENTS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TASKDIALOG_ICON_ELEMENTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -17263,8 +17263,8 @@ impl ::core::default::Default for TASKDIALOG_MESSAGES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TASKDIALOG_MESSAGES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TASKDIALOG_MESSAGES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TASKDIALOG_MESSAGES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -17308,8 +17308,8 @@ impl ::core::default::Default for TASKDIALOG_NOTIFICATIONS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TASKDIALOG_NOTIFICATIONS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TASKDIALOG_NOTIFICATIONS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TASKDIALOG_NOTIFICATIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -17341,8 +17341,8 @@ impl ::core::default::Default for TASKLINKSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TASKLINKSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TASKLINKSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TASKLINKSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -17376,8 +17376,8 @@ impl ::core::default::Default for TA_PROPERTY {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TA_PROPERTY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TA_PROPERTY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TA_PROPERTY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -17411,8 +17411,8 @@ impl ::core::default::Default for TA_PROPERTY_FLAG {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TA_PROPERTY_FLAG {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TA_PROPERTY_FLAG {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TA_PROPERTY_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -17471,8 +17471,8 @@ impl ::core::default::Default for TA_TIMINGFUNCTION_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TA_TIMINGFUNCTION_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TA_TIMINGFUNCTION_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TA_TIMINGFUNCTION_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -17502,8 +17502,8 @@ impl ::core::default::Default for TA_TRANSFORM_FLAG {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TA_TRANSFORM_FLAG {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TA_TRANSFORM_FLAG {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TA_TRANSFORM_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -17566,8 +17566,8 @@ impl ::core::default::Default for TA_TRANSFORM_TYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TA_TRANSFORM_TYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TA_TRANSFORM_TYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TA_TRANSFORM_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -17605,8 +17605,8 @@ impl ::core::default::Default for TBBUTTONINFOW_MASK {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TBBUTTONINFOW_MASK {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TBBUTTONINFOW_MASK {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TBBUTTONINFOW_MASK {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -17667,8 +17667,8 @@ impl ::core::default::Default for TBINSERTMARK_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TBINSERTMARK_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TBINSERTMARK_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TBINSERTMARK_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -17698,8 +17698,8 @@ impl ::core::default::Default for TCHITTESTINFO_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TCHITTESTINFO_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TCHITTESTINFO_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TCHITTESTINFO_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -17731,8 +17731,8 @@ impl ::core::default::Default for TCITEMHEADERA_MASK {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TCITEMHEADERA_MASK {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TCITEMHEADERA_MASK {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TCITEMHEADERA_MASK {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -17789,8 +17789,8 @@ impl ::core::default::Default for TEXTSELECTIONGRIPPERPARTS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TEXTSELECTIONGRIPPERPARTS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TEXTSELECTIONGRIPPERPARTS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TEXTSELECTIONGRIPPERPARTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -17818,8 +17818,8 @@ impl ::core::default::Default for TEXTSHADOWTYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TEXTSHADOWTYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TEXTSHADOWTYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TEXTSHADOWTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -17859,8 +17859,8 @@ impl ::core::default::Default for TEXTSTYLEPARTS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TEXTSTYLEPARTS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TEXTSTYLEPARTS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TEXTSTYLEPARTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -17888,8 +17888,8 @@ impl ::core::default::Default for THEMESIZE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for THEMESIZE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for THEMESIZE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for THEMESIZE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -18425,8 +18425,8 @@ impl ::core::default::Default for THEME_PROPERTY_SYMBOL_ID {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for THEME_PROPERTY_SYMBOL_ID {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for THEME_PROPERTY_SYMBOL_ID {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for THEME_PROPERTY_SYMBOL_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -18458,8 +18458,8 @@ impl ::core::default::Default for THUMBBOTTOMSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for THUMBBOTTOMSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for THUMBBOTTOMSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for THUMBBOTTOMSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -18491,8 +18491,8 @@ impl ::core::default::Default for THUMBLEFTSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for THUMBLEFTSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for THUMBLEFTSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for THUMBLEFTSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -18524,8 +18524,8 @@ impl ::core::default::Default for THUMBRIGHTSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for THUMBRIGHTSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for THUMBRIGHTSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for THUMBRIGHTSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -18557,8 +18557,8 @@ impl ::core::default::Default for THUMBSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for THUMBSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for THUMBSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for THUMBSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -18590,8 +18590,8 @@ impl ::core::default::Default for THUMBTOPSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for THUMBTOPSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for THUMBTOPSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for THUMBTOPSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -18623,8 +18623,8 @@ impl ::core::default::Default for THUMBVERTSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for THUMBVERTSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for THUMBVERTSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for THUMBVERTSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -18648,8 +18648,8 @@ impl ::core::default::Default for TICSSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TICSSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TICSSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TICSSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -18673,8 +18673,8 @@ impl ::core::default::Default for TICSVERTSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TICSVERTSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TICSVERTSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TICSVERTSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -18700,8 +18700,8 @@ impl ::core::default::Default for TITLEBARSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TITLEBARSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TITLEBARSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TITLEBARSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -18737,8 +18737,8 @@ impl ::core::default::Default for TOOLBARPARTS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TOOLBARPARTS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TOOLBARPARTS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TOOLBARPARTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -18776,8 +18776,8 @@ impl ::core::default::Default for TOOLBARSTYLESTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TOOLBARSTYLESTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TOOLBARSTYLESTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TOOLBARSTYLESTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -18813,8 +18813,8 @@ impl ::core::default::Default for TOOLTIPPARTS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TOOLTIPPARTS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TOOLTIPPARTS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TOOLTIPPARTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -18854,8 +18854,8 @@ impl ::core::default::Default for TOOLTIP_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TOOLTIP_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TOOLTIP_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TOOLTIP_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -18920,8 +18920,8 @@ impl ::core::default::Default for TOPTABITEMBOTHEDGESTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TOPTABITEMBOTHEDGESTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TOPTABITEMBOTHEDGESTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TOPTABITEMBOTHEDGESTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -18953,8 +18953,8 @@ impl ::core::default::Default for TOPTABITEMLEFTEDGESTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TOPTABITEMLEFTEDGESTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TOPTABITEMLEFTEDGESTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TOPTABITEMLEFTEDGESTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -18986,8 +18986,8 @@ impl ::core::default::Default for TOPTABITEMRIGHTEDGESTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TOPTABITEMRIGHTEDGESTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TOPTABITEMRIGHTEDGESTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TOPTABITEMRIGHTEDGESTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -19019,8 +19019,8 @@ impl ::core::default::Default for TOPTABITEMSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TOPTABITEMSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TOPTABITEMSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TOPTABITEMSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -19062,8 +19062,8 @@ impl ::core::default::Default for TRACKBARPARTS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TRACKBARPARTS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TRACKBARPARTS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TRACKBARPARTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -19087,8 +19087,8 @@ impl ::core::default::Default for TRACKBARSTYLESTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TRACKBARSTYLESTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TRACKBARSTYLESTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TRACKBARSTYLESTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -19112,8 +19112,8 @@ impl ::core::default::Default for TRACKSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TRACKSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TRACKSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TRACKSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -19137,8 +19137,8 @@ impl ::core::default::Default for TRACKVERTSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TRACKVERTSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TRACKVERTSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TRACKVERTSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -19174,8 +19174,8 @@ impl ::core::default::Default for TRAILINGGRIDCELLSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TRAILINGGRIDCELLSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TRAILINGGRIDCELLSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TRAILINGGRIDCELLSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -19207,8 +19207,8 @@ impl ::core::default::Default for TRAILINGGRIDCELLUPPERSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TRAILINGGRIDCELLUPPERSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TRAILINGGRIDCELLUPPERSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TRAILINGGRIDCELLUPPERSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -19238,8 +19238,8 @@ impl ::core::default::Default for TRANSPARENTBACKGROUNDSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TRANSPARENTBACKGROUNDSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TRANSPARENTBACKGROUNDSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TRANSPARENTBACKGROUNDSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -19265,8 +19265,8 @@ impl ::core::default::Default for TRANSPARENTBARSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TRANSPARENTBARSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TRANSPARENTBARSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TRANSPARENTBARSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -19292,8 +19292,8 @@ impl ::core::default::Default for TRANSPARENTBARVERTSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TRANSPARENTBARVERTSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TRANSPARENTBARVERTSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TRANSPARENTBARVERTSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -19319,8 +19319,8 @@ impl ::core::default::Default for TRAYNOTIFYPARTS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TRAYNOTIFYPARTS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TRAYNOTIFYPARTS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TRAYNOTIFYPARTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -19354,8 +19354,8 @@ impl ::core::default::Default for TREEITEMSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TREEITEMSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TREEITEMSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TREEITEMSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -19385,8 +19385,8 @@ impl ::core::default::Default for TREEVIEWPARTS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TREEVIEWPARTS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TREEVIEWPARTS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TREEVIEWPARTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -19434,8 +19434,8 @@ impl ::core::default::Default for TREE_VIEW_ITEM_STATE_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TREE_VIEW_ITEM_STATE_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TREE_VIEW_ITEM_STATE_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TREE_VIEW_ITEM_STATE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -19463,8 +19463,8 @@ impl ::core::default::Default for TRUESIZESCALINGTYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TRUESIZESCALINGTYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TRUESIZESCALINGTYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TRUESIZESCALINGTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -19510,8 +19510,8 @@ impl ::core::default::Default for TVHITTESTINFO_FLAGS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TVHITTESTINFO_FLAGS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TVHITTESTINFO_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TVHITTESTINFO_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -19574,8 +19574,8 @@ impl ::core::default::Default for TVITEMEXW_CHILDREN {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TVITEMEXW_CHILDREN {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TVITEMEXW_CHILDREN {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TVITEMEXW_CHILDREN {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -19599,8 +19599,8 @@ impl ::core::default::Default for TVITEMPART {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TVITEMPART {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TVITEMPART {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TVITEMPART {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -19644,8 +19644,8 @@ impl ::core::default::Default for TVITEM_MASK {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for TVITEM_MASK {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TVITEM_MASK {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for TVITEM_MASK {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -19704,8 +19704,8 @@ impl ::core::default::Default for UPDATEMETADATASTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for UPDATEMETADATASTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for UPDATEMETADATASTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for UPDATEMETADATASTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -19735,8 +19735,8 @@ impl ::core::default::Default for UPHORZSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for UPHORZSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for UPHORZSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for UPHORZSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -19766,8 +19766,8 @@ impl ::core::default::Default for UPSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for UPSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for UPSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for UPSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -19793,8 +19793,8 @@ impl ::core::default::Default for USERTILEPARTS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for USERTILEPARTS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USERTILEPARTS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for USERTILEPARTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -19822,8 +19822,8 @@ impl ::core::default::Default for VALIGN {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for VALIGN {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VALIGN {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for VALIGN {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -19853,8 +19853,8 @@ impl ::core::default::Default for VERTSCROLLSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for VERTSCROLLSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VERTSCROLLSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for VERTSCROLLSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -19884,8 +19884,8 @@ impl ::core::default::Default for VERTTHUMBSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for VERTTHUMBSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for VERTTHUMBSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for VERTTHUMBSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -19911,8 +19911,8 @@ impl ::core::default::Default for WARNINGSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WARNINGSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WARNINGSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WARNINGSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -20012,8 +20012,8 @@ impl ::core::default::Default for WINDOWPARTS {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WINDOWPARTS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WINDOWPARTS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WINDOWPARTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -20037,8 +20037,8 @@ impl ::core::default::Default for WINDOWTHEMEATTRIBUTETYPE {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WINDOWTHEMEATTRIBUTETYPE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WINDOWTHEMEATTRIBUTETYPE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WINDOWTHEMEATTRIBUTETYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -20076,8 +20076,8 @@ impl ::core::default::Default for WORD_BREAK_ACTION {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WORD_BREAK_ACTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WORD_BREAK_ACTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WORD_BREAK_ACTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -20105,8 +20105,8 @@ impl ::core::default::Default for WRENCHSTATES {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WRENCHSTATES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WRENCHSTATES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WRENCHSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -20152,8 +20152,8 @@ impl ::core::default::Default for WSB_PROP {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for WSB_PROP {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WSB_PROP {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for WSB_PROP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -20179,8 +20179,8 @@ impl ::core::default::Default for _LI_METRIC {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for _LI_METRIC {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for _LI_METRIC {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for _LI_METRIC {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -20206,8 +20206,8 @@ impl ::core::fmt::Debug for BP_ANIMATIONPARAMS {
         f.debug_struct("BP_ANIMATIONPARAMS").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("style", &self.style).field("dwDuration", &self.dwDuration).finish()
     }
 }
-impl ::windows::core::TypeKind for BP_ANIMATIONPARAMS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for BP_ANIMATIONPARAMS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for BP_ANIMATIONPARAMS {
     fn eq(&self, other: &Self) -> bool {
@@ -20244,8 +20244,8 @@ impl ::core::fmt::Debug for BP_PAINTPARAMS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for BP_PAINTPARAMS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for BP_PAINTPARAMS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for BP_PAINTPARAMS {
@@ -20284,8 +20284,8 @@ impl ::core::fmt::Debug for BUTTON_IMAGELIST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for BUTTON_IMAGELIST {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for BUTTON_IMAGELIST {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for BUTTON_IMAGELIST {
@@ -20325,8 +20325,8 @@ impl ::core::fmt::Debug for BUTTON_SPLITINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for BUTTON_SPLITINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for BUTTON_SPLITINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for BUTTON_SPLITINFO {
@@ -20391,8 +20391,8 @@ impl ::core::fmt::Debug for CCINFOA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for CCINFOA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CCINFOA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for CCINFOA {
@@ -20449,8 +20449,8 @@ impl ::core::fmt::Debug for CCINFOW {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for CCINFOW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CCINFOW {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for CCINFOW {
@@ -20478,8 +20478,8 @@ impl ::core::fmt::Debug for CCSTYLEA {
         f.debug_struct("CCSTYLEA").field("flStyle", &self.flStyle).field("flExtStyle", &self.flExtStyle).field("szText", &self.szText).field("lgid", &self.lgid).field("wReserved1", &self.wReserved1).finish()
     }
 }
-impl ::windows::core::TypeKind for CCSTYLEA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CCSTYLEA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for CCSTYLEA {
     fn eq(&self, other: &Self) -> bool {
@@ -20497,7 +20497,7 @@ impl ::core::default::Default for CCSTYLEA {
 pub struct CCSTYLEFLAGA {
     pub flStyle: u32,
     pub flStyleMask: u32,
-    pub pszStyle: ::windows::core::PSTR,
+    pub pszStyle: ::windows_core::PSTR,
 }
 impl ::core::marker::Copy for CCSTYLEFLAGA {}
 impl ::core::clone::Clone for CCSTYLEFLAGA {
@@ -20510,8 +20510,8 @@ impl ::core::fmt::Debug for CCSTYLEFLAGA {
         f.debug_struct("CCSTYLEFLAGA").field("flStyle", &self.flStyle).field("flStyleMask", &self.flStyleMask).field("pszStyle", &self.pszStyle).finish()
     }
 }
-impl ::windows::core::TypeKind for CCSTYLEFLAGA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CCSTYLEFLAGA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for CCSTYLEFLAGA {
     fn eq(&self, other: &Self) -> bool {
@@ -20529,7 +20529,7 @@ impl ::core::default::Default for CCSTYLEFLAGA {
 pub struct CCSTYLEFLAGW {
     pub flStyle: u32,
     pub flStyleMask: u32,
-    pub pszStyle: ::windows::core::PWSTR,
+    pub pszStyle: ::windows_core::PWSTR,
 }
 impl ::core::marker::Copy for CCSTYLEFLAGW {}
 impl ::core::clone::Clone for CCSTYLEFLAGW {
@@ -20542,8 +20542,8 @@ impl ::core::fmt::Debug for CCSTYLEFLAGW {
         f.debug_struct("CCSTYLEFLAGW").field("flStyle", &self.flStyle).field("flStyleMask", &self.flStyleMask).field("pszStyle", &self.pszStyle).finish()
     }
 }
-impl ::windows::core::TypeKind for CCSTYLEFLAGW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CCSTYLEFLAGW {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for CCSTYLEFLAGW {
     fn eq(&self, other: &Self) -> bool {
@@ -20576,8 +20576,8 @@ impl ::core::fmt::Debug for CCSTYLEW {
         f.debug_struct("CCSTYLEW").field("flStyle", &self.flStyle).field("flExtStyle", &self.flExtStyle).field("szText", &self.szText).field("lgid", &self.lgid).field("wReserved1", &self.wReserved1).finish()
     }
 }
-impl ::windows::core::TypeKind for CCSTYLEW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for CCSTYLEW {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for CCSTYLEW {
     fn eq(&self, other: &Self) -> bool {
@@ -20612,8 +20612,8 @@ impl ::core::fmt::Debug for COLORMAP {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for COLORMAP {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for COLORMAP {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for COLORMAP {
@@ -20652,8 +20652,8 @@ impl ::core::fmt::Debug for COLORSCHEME {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for COLORSCHEME {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for COLORSCHEME {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for COLORSCHEME {
@@ -20675,7 +20675,7 @@ impl ::core::default::Default for COLORSCHEME {
 pub struct COMBOBOXEXITEMA {
     pub mask: COMBOBOX_EX_ITEM_FLAGS,
     pub iItem: isize,
-    pub pszText: ::windows::core::PSTR,
+    pub pszText: ::windows_core::PSTR,
     pub cchTextMax: i32,
     pub iImage: i32,
     pub iSelectedImage: i32,
@@ -20698,8 +20698,8 @@ impl ::core::fmt::Debug for COMBOBOXEXITEMA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for COMBOBOXEXITEMA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for COMBOBOXEXITEMA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for COMBOBOXEXITEMA {
@@ -20721,7 +20721,7 @@ impl ::core::default::Default for COMBOBOXEXITEMA {
 pub struct COMBOBOXEXITEMW {
     pub mask: COMBOBOX_EX_ITEM_FLAGS,
     pub iItem: isize,
-    pub pszText: ::windows::core::PWSTR,
+    pub pszText: ::windows_core::PWSTR,
     pub cchTextMax: i32,
     pub iImage: i32,
     pub iSelectedImage: i32,
@@ -20744,8 +20744,8 @@ impl ::core::fmt::Debug for COMBOBOXEXITEMW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for COMBOBOXEXITEMW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for COMBOBOXEXITEMW {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for COMBOBOXEXITEMW {
@@ -20788,8 +20788,8 @@ impl ::core::fmt::Debug for COMBOBOXINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for COMBOBOXINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for COMBOBOXINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for COMBOBOXINFO {
@@ -20833,8 +20833,8 @@ impl ::core::fmt::Debug for COMPAREITEMSTRUCT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for COMPAREITEMSTRUCT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for COMPAREITEMSTRUCT {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for COMPAREITEMSTRUCT {
@@ -20878,8 +20878,8 @@ impl ::core::fmt::Debug for DATETIMEPICKERINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DATETIMEPICKERINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DATETIMEPICKERINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DATETIMEPICKERINFO {
@@ -20920,8 +20920,8 @@ impl ::core::fmt::Debug for DELETEITEMSTRUCT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DELETEITEMSTRUCT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DELETEITEMSTRUCT {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DELETEITEMSTRUCT {
@@ -20954,8 +20954,8 @@ impl ::core::fmt::Debug for DPASTREAMINFO {
         f.debug_struct("DPASTREAMINFO").field("iPos", &self.iPos).field("pvItem", &self.pvItem).finish()
     }
 }
-impl ::windows::core::TypeKind for DPASTREAMINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DPASTREAMINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for DPASTREAMINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -20991,8 +20991,8 @@ impl ::core::fmt::Debug for DRAGLISTINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DRAGLISTINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DRAGLISTINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DRAGLISTINFO {
@@ -21037,8 +21037,8 @@ impl ::core::fmt::Debug for DRAWITEMSTRUCT {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DRAWITEMSTRUCT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DRAWITEMSTRUCT {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DRAWITEMSTRUCT {
@@ -21077,8 +21077,8 @@ impl ::core::fmt::Debug for DTBGOPTS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for DTBGOPTS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DTBGOPTS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DTBGOPTS {
@@ -21144,8 +21144,8 @@ impl ::core::fmt::Debug for DTTOPTS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for DTTOPTS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for DTTOPTS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DTTOPTS {
@@ -21157,8 +21157,8 @@ impl ::core::default::Default for DTTOPTS {
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub struct EDITBALLOONTIP {
     pub cbStruct: u32,
-    pub pszTitle: ::windows::core::PCWSTR,
-    pub pszText: ::windows::core::PCWSTR,
+    pub pszTitle: ::windows_core::PCWSTR,
+    pub pszText: ::windows_core::PCWSTR,
     pub ttiIcon: EDITBALLOONTIP_ICON,
 }
 impl ::core::marker::Copy for EDITBALLOONTIP {}
@@ -21172,8 +21172,8 @@ impl ::core::fmt::Debug for EDITBALLOONTIP {
         f.debug_struct("EDITBALLOONTIP").field("cbStruct", &self.cbStruct).field("pszTitle", &self.pszTitle).field("pszText", &self.pszText).field("ttiIcon", &self.ttiIcon).finish()
     }
 }
-impl ::windows::core::TypeKind for EDITBALLOONTIP {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for EDITBALLOONTIP {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for EDITBALLOONTIP {
     fn eq(&self, other: &Self) -> bool {
@@ -21209,8 +21209,8 @@ impl ::core::fmt::Debug for HDHITTESTINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for HDHITTESTINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HDHITTESTINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HDHITTESTINFO {
@@ -21232,7 +21232,7 @@ impl ::core::default::Default for HDHITTESTINFO {
 pub struct HDITEMA {
     pub mask: HDI_MASK,
     pub cxy: i32,
-    pub pszText: ::windows::core::PSTR,
+    pub pszText: ::windows_core::PSTR,
     pub hbm: super::super::Graphics::Gdi::HBITMAP,
     pub cchTextMax: i32,
     pub fmt: HEADER_CONTROL_FORMAT_FLAGS,
@@ -21258,8 +21258,8 @@ impl ::core::fmt::Debug for HDITEMA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for HDITEMA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HDITEMA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for HDITEMA {
@@ -21281,7 +21281,7 @@ impl ::core::default::Default for HDITEMA {
 pub struct HDITEMW {
     pub mask: HDI_MASK,
     pub cxy: i32,
-    pub pszText: ::windows::core::PWSTR,
+    pub pszText: ::windows_core::PWSTR,
     pub hbm: super::super::Graphics::Gdi::HBITMAP,
     pub cchTextMax: i32,
     pub fmt: HEADER_CONTROL_FORMAT_FLAGS,
@@ -21307,8 +21307,8 @@ impl ::core::fmt::Debug for HDITEMW {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for HDITEMW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HDITEMW {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for HDITEMW {
@@ -21346,8 +21346,8 @@ impl ::core::fmt::Debug for HDLAYOUT {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for HDLAYOUT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HDLAYOUT {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::cmp::PartialEq for HDLAYOUT {
@@ -21387,8 +21387,8 @@ impl ::core::fmt::Debug for HDPA {
         f.debug_tuple("HDPA").field(&self.0).finish()
     }
 }
-impl ::windows::core::TypeKind for HDPA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HDPA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -21414,13 +21414,13 @@ impl ::core::fmt::Debug for HDSA {
         f.debug_tuple("HDSA").field(&self.0).finish()
     }
 }
-impl ::windows::core::TypeKind for HDSA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HDSA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub struct HD_TEXTFILTERA {
-    pub pszText: ::windows::core::PSTR,
+    pub pszText: ::windows_core::PSTR,
     pub cchTextMax: i32,
 }
 impl ::core::marker::Copy for HD_TEXTFILTERA {}
@@ -21434,8 +21434,8 @@ impl ::core::fmt::Debug for HD_TEXTFILTERA {
         f.debug_struct("HD_TEXTFILTERA").field("pszText", &self.pszText).field("cchTextMax", &self.cchTextMax).finish()
     }
 }
-impl ::windows::core::TypeKind for HD_TEXTFILTERA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HD_TEXTFILTERA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for HD_TEXTFILTERA {
     fn eq(&self, other: &Self) -> bool {
@@ -21451,7 +21451,7 @@ impl ::core::default::Default for HD_TEXTFILTERA {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub struct HD_TEXTFILTERW {
-    pub pszText: ::windows::core::PWSTR,
+    pub pszText: ::windows_core::PWSTR,
     pub cchTextMax: i32,
 }
 impl ::core::marker::Copy for HD_TEXTFILTERW {}
@@ -21465,8 +21465,8 @@ impl ::core::fmt::Debug for HD_TEXTFILTERW {
         f.debug_struct("HD_TEXTFILTERW").field("pszText", &self.pszText).field("cchTextMax", &self.cchTextMax).finish()
     }
 }
-impl ::windows::core::TypeKind for HD_TEXTFILTERW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HD_TEXTFILTERW {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for HD_TEXTFILTERW {
     fn eq(&self, other: &Self) -> bool {
@@ -21503,8 +21503,8 @@ impl ::core::fmt::Debug for HIMAGELIST {
         f.debug_tuple("HIMAGELIST").field(&self.0).finish()
     }
 }
-impl ::windows::core::TypeKind for HIMAGELIST {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HIMAGELIST {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -21530,8 +21530,8 @@ impl ::core::fmt::Debug for HPROPSHEETPAGE {
         f.debug_tuple("HPROPSHEETPAGE").field(&self.0).finish()
     }
 }
-impl ::windows::core::TypeKind for HPROPSHEETPAGE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HPROPSHEETPAGE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -21557,8 +21557,8 @@ impl ::core::fmt::Debug for HSYNTHETICPOINTERDEVICE {
         f.debug_tuple("HSYNTHETICPOINTERDEVICE").field(&self.0).finish()
     }
 }
-impl ::windows::core::TypeKind for HSYNTHETICPOINTERDEVICE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HSYNTHETICPOINTERDEVICE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -21584,8 +21584,8 @@ impl ::core::fmt::Debug for HTHEME {
         f.debug_tuple("HTHEME").field(&self.0).finish()
     }
 }
-impl ::windows::core::TypeKind for HTHEME {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HTHEME {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -21606,8 +21606,8 @@ impl ::core::fmt::Debug for HTREEITEM {
         f.debug_tuple("HTREEITEM").field(&self.0).finish()
     }
 }
-impl ::windows::core::TypeKind for HTREEITEM {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for HTREEITEM {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -21634,8 +21634,8 @@ impl ::core::fmt::Debug for IMAGEINFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for IMAGEINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IMAGEINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for IMAGEINFO {
@@ -21706,8 +21706,8 @@ impl ::core::fmt::Debug for IMAGELISTDRAWPARAMS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for IMAGELISTDRAWPARAMS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IMAGELISTDRAWPARAMS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for IMAGELISTDRAWPARAMS {
@@ -21742,8 +21742,8 @@ impl ::core::fmt::Debug for IMAGELISTSTATS {
         f.debug_struct("IMAGELISTSTATS").field("cbSize", &self.cbSize).field("cAlloc", &self.cAlloc).field("cUsed", &self.cUsed).field("cStandby", &self.cStandby).finish()
     }
 }
-impl ::windows::core::TypeKind for IMAGELISTSTATS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for IMAGELISTSTATS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for IMAGELISTSTATS {
     fn eq(&self, other: &Self) -> bool {
@@ -21773,8 +21773,8 @@ impl ::core::fmt::Debug for INITCOMMONCONTROLSEX {
         f.debug_struct("INITCOMMONCONTROLSEX").field("dwSize", &self.dwSize).field("dwICC", &self.dwICC).finish()
     }
 }
-impl ::windows::core::TypeKind for INITCOMMONCONTROLSEX {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for INITCOMMONCONTROLSEX {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for INITCOMMONCONTROLSEX {
     fn eq(&self, other: &Self) -> bool {
@@ -21804,8 +21804,8 @@ impl ::core::fmt::Debug for INTLIST {
         f.debug_struct("INTLIST").field("iValueCount", &self.iValueCount).field("iValues", &self.iValues).finish()
     }
 }
-impl ::windows::core::TypeKind for INTLIST {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for INTLIST {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for INTLIST {
     fn eq(&self, other: &Self) -> bool {
@@ -21840,8 +21840,8 @@ impl ::core::fmt::Debug for LHITTESTINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for LHITTESTINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LHITTESTINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LHITTESTINFO {
@@ -21878,8 +21878,8 @@ impl ::core::fmt::Debug for LITEM {
         f.debug_struct("LITEM").field("mask", &self.mask).field("iLink", &self.iLink).field("state", &self.state).field("stateMask", &self.stateMask).field("szID", &self.szID).field("szUrl", &self.szUrl).finish()
     }
 }
-impl ::windows::core::TypeKind for LITEM {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LITEM {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for LITEM {
     fn eq(&self, other: &Self) -> bool {
@@ -21898,7 +21898,7 @@ impl ::core::default::Default for LITEM {
 pub struct LVBKIMAGEA {
     pub ulFlags: LIST_VIEW_BACKGROUND_IMAGE_FLAGS,
     pub hbm: super::super::Graphics::Gdi::HBITMAP,
-    pub pszImage: ::windows::core::PSTR,
+    pub pszImage: ::windows_core::PSTR,
     pub cchImageMax: u32,
     pub xOffsetPercent: i32,
     pub yOffsetPercent: i32,
@@ -21918,8 +21918,8 @@ impl ::core::fmt::Debug for LVBKIMAGEA {
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::windows::core::TypeKind for LVBKIMAGEA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LVBKIMAGEA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for LVBKIMAGEA {
@@ -21941,7 +21941,7 @@ impl ::core::default::Default for LVBKIMAGEA {
 pub struct LVBKIMAGEW {
     pub ulFlags: LIST_VIEW_BACKGROUND_IMAGE_FLAGS,
     pub hbm: super::super::Graphics::Gdi::HBITMAP,
-    pub pszImage: ::windows::core::PWSTR,
+    pub pszImage: ::windows_core::PWSTR,
     pub cchImageMax: u32,
     pub xOffsetPercent: i32,
     pub yOffsetPercent: i32,
@@ -21961,8 +21961,8 @@ impl ::core::fmt::Debug for LVBKIMAGEW {
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::windows::core::TypeKind for LVBKIMAGEW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LVBKIMAGEW {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for LVBKIMAGEW {
@@ -21984,7 +21984,7 @@ pub struct LVCOLUMNA {
     pub mask: LVCOLUMNW_MASK,
     pub fmt: LVCOLUMNW_FORMAT,
     pub cx: i32,
-    pub pszText: ::windows::core::PSTR,
+    pub pszText: ::windows_core::PSTR,
     pub cchTextMax: i32,
     pub iSubItem: i32,
     pub iImage: i32,
@@ -22004,8 +22004,8 @@ impl ::core::fmt::Debug for LVCOLUMNA {
         f.debug_struct("LVCOLUMNA").field("mask", &self.mask).field("fmt", &self.fmt).field("cx", &self.cx).field("pszText", &self.pszText).field("cchTextMax", &self.cchTextMax).field("iSubItem", &self.iSubItem).field("iImage", &self.iImage).field("iOrder", &self.iOrder).field("cxMin", &self.cxMin).field("cxDefault", &self.cxDefault).field("cxIdeal", &self.cxIdeal).finish()
     }
 }
-impl ::windows::core::TypeKind for LVCOLUMNA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LVCOLUMNA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for LVCOLUMNA {
     fn eq(&self, other: &Self) -> bool {
@@ -22024,7 +22024,7 @@ pub struct LVCOLUMNW {
     pub mask: LVCOLUMNW_MASK,
     pub fmt: LVCOLUMNW_FORMAT,
     pub cx: i32,
-    pub pszText: ::windows::core::PWSTR,
+    pub pszText: ::windows_core::PWSTR,
     pub cchTextMax: i32,
     pub iSubItem: i32,
     pub iImage: i32,
@@ -22044,8 +22044,8 @@ impl ::core::fmt::Debug for LVCOLUMNW {
         f.debug_struct("LVCOLUMNW").field("mask", &self.mask).field("fmt", &self.fmt).field("cx", &self.cx).field("pszText", &self.pszText).field("cchTextMax", &self.cchTextMax).field("iSubItem", &self.iSubItem).field("iImage", &self.iImage).field("iOrder", &self.iOrder).field("cxMin", &self.cxMin).field("cxDefault", &self.cxDefault).field("cxIdeal", &self.cxIdeal).finish()
     }
 }
-impl ::windows::core::TypeKind for LVCOLUMNW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LVCOLUMNW {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for LVCOLUMNW {
     fn eq(&self, other: &Self) -> bool {
@@ -22063,7 +22063,7 @@ impl ::core::default::Default for LVCOLUMNW {
 #[cfg(feature = "Win32_Foundation")]
 pub struct LVFINDINFOA {
     pub flags: LVFINDINFOW_FLAGS,
-    pub psz: ::windows::core::PCSTR,
+    pub psz: ::windows_core::PCSTR,
     pub lParam: super::super::Foundation::LPARAM,
     pub pt: super::super::Foundation::POINT,
     pub vkDirection: u32,
@@ -22083,8 +22083,8 @@ impl ::core::fmt::Debug for LVFINDINFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for LVFINDINFOA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LVFINDINFOA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LVFINDINFOA {
@@ -22105,7 +22105,7 @@ impl ::core::default::Default for LVFINDINFOA {
 #[cfg(feature = "Win32_Foundation")]
 pub struct LVFINDINFOW {
     pub flags: LVFINDINFOW_FLAGS,
-    pub psz: ::windows::core::PCWSTR,
+    pub psz: ::windows_core::PCWSTR,
     pub lParam: super::super::Foundation::LPARAM,
     pub pt: super::super::Foundation::POINT,
     pub vkDirection: u32,
@@ -22125,8 +22125,8 @@ impl ::core::fmt::Debug for LVFINDINFOW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for LVFINDINFOW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LVFINDINFOW {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LVFINDINFOW {
@@ -22146,7 +22146,7 @@ impl ::core::default::Default for LVFINDINFOW {
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub struct LVFOOTERINFO {
     pub mask: u32,
-    pub pszText: ::windows::core::PWSTR,
+    pub pszText: ::windows_core::PWSTR,
     pub cchTextMax: i32,
     pub cItems: u32,
 }
@@ -22161,8 +22161,8 @@ impl ::core::fmt::Debug for LVFOOTERINFO {
         f.debug_struct("LVFOOTERINFO").field("mask", &self.mask).field("pszText", &self.pszText).field("cchTextMax", &self.cchTextMax).field("cItems", &self.cItems).finish()
     }
 }
-impl ::windows::core::TypeKind for LVFOOTERINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LVFOOTERINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for LVFOOTERINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -22180,7 +22180,7 @@ impl ::core::default::Default for LVFOOTERINFO {
 pub struct LVFOOTERITEM {
     pub mask: LVFOOTERITEM_MASK,
     pub iItem: i32,
-    pub pszText: ::windows::core::PWSTR,
+    pub pszText: ::windows_core::PWSTR,
     pub cchTextMax: i32,
     pub state: u32,
     pub stateMask: u32,
@@ -22196,8 +22196,8 @@ impl ::core::fmt::Debug for LVFOOTERITEM {
         f.debug_struct("LVFOOTERITEM").field("mask", &self.mask).field("iItem", &self.iItem).field("pszText", &self.pszText).field("cchTextMax", &self.cchTextMax).field("state", &self.state).field("stateMask", &self.stateMask).finish()
     }
 }
-impl ::windows::core::TypeKind for LVFOOTERITEM {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LVFOOTERITEM {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for LVFOOTERITEM {
     fn eq(&self, other: &Self) -> bool {
@@ -22215,27 +22215,27 @@ impl ::core::default::Default for LVFOOTERITEM {
 pub struct LVGROUP {
     pub cbSize: u32,
     pub mask: LVGROUP_MASK,
-    pub pszHeader: ::windows::core::PWSTR,
+    pub pszHeader: ::windows_core::PWSTR,
     pub cchHeader: i32,
-    pub pszFooter: ::windows::core::PWSTR,
+    pub pszFooter: ::windows_core::PWSTR,
     pub cchFooter: i32,
     pub iGroupId: i32,
     pub stateMask: LIST_VIEW_GROUP_STATE_FLAGS,
     pub state: LIST_VIEW_GROUP_STATE_FLAGS,
     pub uAlign: LIST_VIEW_GROUP_ALIGN_FLAGS,
-    pub pszSubtitle: ::windows::core::PWSTR,
+    pub pszSubtitle: ::windows_core::PWSTR,
     pub cchSubtitle: u32,
-    pub pszTask: ::windows::core::PWSTR,
+    pub pszTask: ::windows_core::PWSTR,
     pub cchTask: u32,
-    pub pszDescriptionTop: ::windows::core::PWSTR,
+    pub pszDescriptionTop: ::windows_core::PWSTR,
     pub cchDescriptionTop: u32,
-    pub pszDescriptionBottom: ::windows::core::PWSTR,
+    pub pszDescriptionBottom: ::windows_core::PWSTR,
     pub cchDescriptionBottom: u32,
     pub iTitleImage: i32,
     pub iExtendedImage: i32,
     pub iFirstItem: i32,
     pub cItems: u32,
-    pub pszSubsetTitle: ::windows::core::PWSTR,
+    pub pszSubsetTitle: ::windows_core::PWSTR,
     pub cchSubsetTitle: u32,
 }
 impl ::core::marker::Copy for LVGROUP {}
@@ -22274,8 +22274,8 @@ impl ::core::fmt::Debug for LVGROUP {
             .finish()
     }
 }
-impl ::windows::core::TypeKind for LVGROUP {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LVGROUP {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for LVGROUP {
     fn eq(&self, other: &Self) -> bool {
@@ -22343,8 +22343,8 @@ impl ::core::fmt::Debug for LVGROUPMETRICS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for LVGROUPMETRICS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LVGROUPMETRICS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LVGROUPMETRICS {
@@ -22385,8 +22385,8 @@ impl ::core::fmt::Debug for LVHITTESTINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for LVHITTESTINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LVHITTESTINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LVHITTESTINFO {
@@ -22420,8 +22420,8 @@ impl ::core::fmt::Debug for LVINSERTGROUPSORTED {
         f.debug_struct("LVINSERTGROUPSORTED").field("pvData", &self.pvData).field("lvGroup", &self.lvGroup).finish()
     }
 }
-impl ::windows::core::TypeKind for LVINSERTGROUPSORTED {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LVINSERTGROUPSORTED {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for LVINSERTGROUPSORTED {
     fn default() -> Self {
@@ -22447,8 +22447,8 @@ impl ::core::fmt::Debug for LVINSERTMARK {
         f.debug_struct("LVINSERTMARK").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("iItem", &self.iItem).field("dwReserved", &self.dwReserved).finish()
     }
 }
-impl ::windows::core::TypeKind for LVINSERTMARK {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LVINSERTMARK {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for LVINSERTMARK {
     fn eq(&self, other: &Self) -> bool {
@@ -22470,7 +22470,7 @@ pub struct LVITEMA {
     pub iSubItem: i32,
     pub state: LIST_VIEW_ITEM_STATE_FLAGS,
     pub stateMask: LIST_VIEW_ITEM_STATE_FLAGS,
-    pub pszText: ::windows::core::PSTR,
+    pub pszText: ::windows_core::PSTR,
     pub cchTextMax: i32,
     pub iImage: i32,
     pub lParam: super::super::Foundation::LPARAM,
@@ -22512,8 +22512,8 @@ impl ::core::fmt::Debug for LVITEMA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for LVITEMA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LVITEMA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LVITEMA {
@@ -22546,8 +22546,8 @@ impl ::core::fmt::Debug for LVITEMINDEX {
         f.debug_struct("LVITEMINDEX").field("iItem", &self.iItem).field("iGroup", &self.iGroup).finish()
     }
 }
-impl ::windows::core::TypeKind for LVITEMINDEX {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LVITEMINDEX {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for LVITEMINDEX {
     fn eq(&self, other: &Self) -> bool {
@@ -22569,7 +22569,7 @@ pub struct LVITEMW {
     pub iSubItem: i32,
     pub state: LIST_VIEW_ITEM_STATE_FLAGS,
     pub stateMask: LIST_VIEW_ITEM_STATE_FLAGS,
-    pub pszText: ::windows::core::PWSTR,
+    pub pszText: ::windows_core::PWSTR,
     pub cchTextMax: i32,
     pub iImage: i32,
     pub lParam: super::super::Foundation::LPARAM,
@@ -22611,8 +22611,8 @@ impl ::core::fmt::Debug for LVITEMW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for LVITEMW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LVITEMW {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LVITEMW {
@@ -22633,7 +22633,7 @@ impl ::core::default::Default for LVITEMW {
 pub struct LVSETINFOTIP {
     pub cbSize: u32,
     pub dwFlags: u32,
-    pub pszText: ::windows::core::PWSTR,
+    pub pszText: ::windows_core::PWSTR,
     pub iItem: i32,
     pub iSubItem: i32,
 }
@@ -22648,8 +22648,8 @@ impl ::core::fmt::Debug for LVSETINFOTIP {
         f.debug_struct("LVSETINFOTIP").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("pszText", &self.pszText).field("iItem", &self.iItem).field("iSubItem", &self.iSubItem).finish()
     }
 }
-impl ::windows::core::TypeKind for LVSETINFOTIP {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LVSETINFOTIP {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for LVSETINFOTIP {
     fn eq(&self, other: &Self) -> bool {
@@ -22682,8 +22682,8 @@ impl ::core::fmt::Debug for LVTILEINFO {
         f.debug_struct("LVTILEINFO").field("cbSize", &self.cbSize).field("iItem", &self.iItem).field("cColumns", &self.cColumns).field("puColumns", &self.puColumns).field("piColFmt", &self.piColFmt).finish()
     }
 }
-impl ::windows::core::TypeKind for LVTILEINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LVTILEINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for LVTILEINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -22722,8 +22722,8 @@ impl ::core::fmt::Debug for LVTILEVIEWINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for LVTILEVIEWINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for LVTILEVIEWINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LVTILEVIEWINFO {
@@ -22758,8 +22758,8 @@ impl ::core::fmt::Debug for MARGINS {
         f.debug_struct("MARGINS").field("cxLeftWidth", &self.cxLeftWidth).field("cxRightWidth", &self.cxRightWidth).field("cyTopHeight", &self.cyTopHeight).field("cyBottomHeight", &self.cyBottomHeight).finish()
     }
 }
-impl ::windows::core::TypeKind for MARGINS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MARGINS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for MARGINS {
     fn eq(&self, other: &Self) -> bool {
@@ -22786,7 +22786,7 @@ pub struct MCGRIDINFO {
     pub stStart: super::super::Foundation::SYSTEMTIME,
     pub stEnd: super::super::Foundation::SYSTEMTIME,
     pub rc: super::super::Foundation::RECT,
-    pub pszName: ::windows::core::PWSTR,
+    pub pszName: ::windows_core::PWSTR,
     pub cchName: usize,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -22804,8 +22804,8 @@ impl ::core::fmt::Debug for MCGRIDINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for MCGRIDINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MCGRIDINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MCGRIDINFO {
@@ -22849,8 +22849,8 @@ impl ::core::fmt::Debug for MCHITTESTINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for MCHITTESTINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MCHITTESTINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MCHITTESTINFO {
@@ -22887,8 +22887,8 @@ impl ::core::fmt::Debug for MEASUREITEMSTRUCT {
         f.debug_struct("MEASUREITEMSTRUCT").field("CtlType", &self.CtlType).field("CtlID", &self.CtlID).field("itemID", &self.itemID).field("itemWidth", &self.itemWidth).field("itemHeight", &self.itemHeight).field("itemData", &self.itemData).finish()
     }
 }
-impl ::windows::core::TypeKind for MEASUREITEMSTRUCT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for MEASUREITEMSTRUCT {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for MEASUREITEMSTRUCT {
     fn eq(&self, other: &Self) -> bool {
@@ -22923,8 +22923,8 @@ impl ::core::fmt::Debug for NMBCDROPDOWN {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMBCDROPDOWN {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMBCDROPDOWN {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMBCDROPDOWN {
@@ -22962,8 +22962,8 @@ impl ::core::fmt::Debug for NMBCHOTITEM {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMBCHOTITEM {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMBCHOTITEM {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMBCHOTITEM {
@@ -23002,8 +23002,8 @@ impl ::core::fmt::Debug for NMCBEDRAGBEGINA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMCBEDRAGBEGINA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMCBEDRAGBEGINA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMCBEDRAGBEGINA {
@@ -23042,8 +23042,8 @@ impl ::core::fmt::Debug for NMCBEDRAGBEGINW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMCBEDRAGBEGINW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMCBEDRAGBEGINW {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMCBEDRAGBEGINW {
@@ -23084,8 +23084,8 @@ impl ::core::fmt::Debug for NMCBEENDEDITA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMCBEENDEDITA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMCBEENDEDITA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMCBEENDEDITA {
@@ -23126,8 +23126,8 @@ impl ::core::fmt::Debug for NMCBEENDEDITW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMCBEENDEDITW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMCBEENDEDITW {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMCBEENDEDITW {
@@ -23167,8 +23167,8 @@ impl ::core::fmt::Debug for NMCHAR {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMCHAR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMCHAR {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMCHAR {
@@ -23206,8 +23206,8 @@ impl ::core::fmt::Debug for NMCOMBOBOXEXA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMCOMBOBOXEXA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMCOMBOBOXEXA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMCOMBOBOXEXA {
@@ -23245,8 +23245,8 @@ impl ::core::fmt::Debug for NMCOMBOBOXEXW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMCOMBOBOXEXW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMCOMBOBOXEXW {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMCOMBOBOXEXW {
@@ -23289,8 +23289,8 @@ impl ::core::fmt::Debug for NMCUSTOMDRAW {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for NMCUSTOMDRAW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMCUSTOMDRAW {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for NMCUSTOMDRAW {
@@ -23330,8 +23330,8 @@ impl ::core::fmt::Debug for NMCUSTOMSPLITRECTINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMCUSTOMSPLITRECTINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMCUSTOMSPLITRECTINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMCUSTOMSPLITRECTINFO {
@@ -23353,7 +23353,7 @@ impl ::core::default::Default for NMCUSTOMSPLITRECTINFO {
 pub struct NMCUSTOMTEXT {
     pub hdr: NMHDR,
     pub hDC: super::super::Graphics::Gdi::HDC,
-    pub lpString: ::windows::core::PCWSTR,
+    pub lpString: ::windows_core::PCWSTR,
     pub nCount: i32,
     pub lpRect: *mut super::super::Foundation::RECT,
     pub uFormat: u32,
@@ -23374,8 +23374,8 @@ impl ::core::fmt::Debug for NMCUSTOMTEXT {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for NMCUSTOMTEXT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMCUSTOMTEXT {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for NMCUSTOMTEXT {
@@ -23414,8 +23414,8 @@ impl ::core::fmt::Debug for NMDATETIMECHANGE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMDATETIMECHANGE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMDATETIMECHANGE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMDATETIMECHANGE {
@@ -23436,9 +23436,9 @@ impl ::core::default::Default for NMDATETIMECHANGE {
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMDATETIMEFORMATA {
     pub nmhdr: NMHDR,
-    pub pszFormat: ::windows::core::PCSTR,
+    pub pszFormat: ::windows_core::PCSTR,
     pub st: super::super::Foundation::SYSTEMTIME,
-    pub pszDisplay: ::windows::core::PCSTR,
+    pub pszDisplay: ::windows_core::PCSTR,
     pub szDisplay: [u8; 64],
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -23456,8 +23456,8 @@ impl ::core::fmt::Debug for NMDATETIMEFORMATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMDATETIMEFORMATA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMDATETIMEFORMATA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMDATETIMEFORMATA {
@@ -23478,7 +23478,7 @@ impl ::core::default::Default for NMDATETIMEFORMATA {
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMDATETIMEFORMATQUERYA {
     pub nmhdr: NMHDR,
-    pub pszFormat: ::windows::core::PCSTR,
+    pub pszFormat: ::windows_core::PCSTR,
     pub szMax: super::super::Foundation::SIZE,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -23496,8 +23496,8 @@ impl ::core::fmt::Debug for NMDATETIMEFORMATQUERYA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMDATETIMEFORMATQUERYA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMDATETIMEFORMATQUERYA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMDATETIMEFORMATQUERYA {
@@ -23518,7 +23518,7 @@ impl ::core::default::Default for NMDATETIMEFORMATQUERYA {
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMDATETIMEFORMATQUERYW {
     pub nmhdr: NMHDR,
-    pub pszFormat: ::windows::core::PCWSTR,
+    pub pszFormat: ::windows_core::PCWSTR,
     pub szMax: super::super::Foundation::SIZE,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -23536,8 +23536,8 @@ impl ::core::fmt::Debug for NMDATETIMEFORMATQUERYW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMDATETIMEFORMATQUERYW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMDATETIMEFORMATQUERYW {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMDATETIMEFORMATQUERYW {
@@ -23558,9 +23558,9 @@ impl ::core::default::Default for NMDATETIMEFORMATQUERYW {
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMDATETIMEFORMATW {
     pub nmhdr: NMHDR,
-    pub pszFormat: ::windows::core::PCWSTR,
+    pub pszFormat: ::windows_core::PCWSTR,
     pub st: super::super::Foundation::SYSTEMTIME,
-    pub pszDisplay: ::windows::core::PCWSTR,
+    pub pszDisplay: ::windows_core::PCWSTR,
     pub szDisplay: [u16; 64],
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -23578,8 +23578,8 @@ impl ::core::fmt::Debug for NMDATETIMEFORMATW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMDATETIMEFORMATW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMDATETIMEFORMATW {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMDATETIMEFORMATW {
@@ -23600,7 +23600,7 @@ impl ::core::default::Default for NMDATETIMEFORMATW {
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMDATETIMESTRINGA {
     pub nmhdr: NMHDR,
-    pub pszUserString: ::windows::core::PCSTR,
+    pub pszUserString: ::windows_core::PCSTR,
     pub st: super::super::Foundation::SYSTEMTIME,
     pub dwFlags: u32,
 }
@@ -23619,8 +23619,8 @@ impl ::core::fmt::Debug for NMDATETIMESTRINGA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMDATETIMESTRINGA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMDATETIMESTRINGA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMDATETIMESTRINGA {
@@ -23641,7 +23641,7 @@ impl ::core::default::Default for NMDATETIMESTRINGA {
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMDATETIMESTRINGW {
     pub nmhdr: NMHDR,
-    pub pszUserString: ::windows::core::PCWSTR,
+    pub pszUserString: ::windows_core::PCWSTR,
     pub st: super::super::Foundation::SYSTEMTIME,
     pub dwFlags: u32,
 }
@@ -23660,8 +23660,8 @@ impl ::core::fmt::Debug for NMDATETIMESTRINGW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMDATETIMESTRINGW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMDATETIMESTRINGW {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMDATETIMESTRINGW {
@@ -23683,7 +23683,7 @@ impl ::core::default::Default for NMDATETIMESTRINGW {
 pub struct NMDATETIMEWMKEYDOWNA {
     pub nmhdr: NMHDR,
     pub nVirtKey: i32,
-    pub pszFormat: ::windows::core::PCSTR,
+    pub pszFormat: ::windows_core::PCSTR,
     pub st: super::super::Foundation::SYSTEMTIME,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -23701,8 +23701,8 @@ impl ::core::fmt::Debug for NMDATETIMEWMKEYDOWNA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMDATETIMEWMKEYDOWNA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMDATETIMEWMKEYDOWNA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMDATETIMEWMKEYDOWNA {
@@ -23724,7 +23724,7 @@ impl ::core::default::Default for NMDATETIMEWMKEYDOWNA {
 pub struct NMDATETIMEWMKEYDOWNW {
     pub nmhdr: NMHDR,
     pub nVirtKey: i32,
-    pub pszFormat: ::windows::core::PCWSTR,
+    pub pszFormat: ::windows_core::PCWSTR,
     pub st: super::super::Foundation::SYSTEMTIME,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -23742,8 +23742,8 @@ impl ::core::fmt::Debug for NMDATETIMEWMKEYDOWNW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMDATETIMEWMKEYDOWNW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMDATETIMEWMKEYDOWNW {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMDATETIMEWMKEYDOWNW {
@@ -23783,8 +23783,8 @@ impl ::core::fmt::Debug for NMDAYSTATE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMDAYSTATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMDAYSTATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMDAYSTATE {
@@ -23807,7 +23807,7 @@ pub struct NMHDDISPINFOA {
     pub hdr: NMHDR,
     pub iItem: i32,
     pub mask: HDI_MASK,
-    pub pszText: ::windows::core::PSTR,
+    pub pszText: ::windows_core::PSTR,
     pub cchTextMax: i32,
     pub iImage: i32,
     pub lParam: super::super::Foundation::LPARAM,
@@ -23827,8 +23827,8 @@ impl ::core::fmt::Debug for NMHDDISPINFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMHDDISPINFOA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMHDDISPINFOA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMHDDISPINFOA {
@@ -23851,7 +23851,7 @@ pub struct NMHDDISPINFOW {
     pub hdr: NMHDR,
     pub iItem: i32,
     pub mask: HDI_MASK,
-    pub pszText: ::windows::core::PWSTR,
+    pub pszText: ::windows_core::PWSTR,
     pub cchTextMax: i32,
     pub iImage: i32,
     pub lParam: super::super::Foundation::LPARAM,
@@ -23871,8 +23871,8 @@ impl ::core::fmt::Debug for NMHDDISPINFOW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMHDDISPINFOW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMHDDISPINFOW {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMHDDISPINFOW {
@@ -23911,8 +23911,8 @@ impl ::core::fmt::Debug for NMHDFILTERBTNCLICK {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMHDFILTERBTNCLICK {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMHDFILTERBTNCLICK {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMHDFILTERBTNCLICK {
@@ -23951,8 +23951,8 @@ impl ::core::fmt::Debug for NMHDR {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMHDR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMHDR {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMHDR {
@@ -23992,8 +23992,8 @@ impl ::core::fmt::Debug for NMHEADERA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for NMHEADERA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMHEADERA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for NMHEADERA {
@@ -24033,8 +24033,8 @@ impl ::core::fmt::Debug for NMHEADERW {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for NMHEADERW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMHEADERW {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for NMHEADERW {
@@ -24073,8 +24073,8 @@ impl ::core::fmt::Debug for NMIPADDRESS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMIPADDRESS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMIPADDRESS {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMIPADDRESS {
@@ -24119,8 +24119,8 @@ impl ::core::fmt::Debug for NMITEMACTIVATE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMITEMACTIVATE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMITEMACTIVATE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMITEMACTIVATE {
@@ -24159,8 +24159,8 @@ impl ::core::fmt::Debug for NMKEY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMKEY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMKEY {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMKEY {
@@ -24198,8 +24198,8 @@ impl ::core::fmt::Debug for NMLINK {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMLINK {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMLINK {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMLINK {
@@ -24243,8 +24243,8 @@ impl ::core::fmt::Debug for NMLISTVIEW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMLISTVIEW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMLISTVIEW {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMLISTVIEW {
@@ -24283,8 +24283,8 @@ impl ::core::fmt::Debug for NMLVCACHEHINT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMLVCACHEHINT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMLVCACHEHINT {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMLVCACHEHINT {
@@ -24332,8 +24332,8 @@ impl ::core::fmt::Debug for NMLVCUSTOMDRAW {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for NMLVCUSTOMDRAW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMLVCUSTOMDRAW {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for NMLVCUSTOMDRAW {
@@ -24371,8 +24371,8 @@ impl ::core::fmt::Debug for NMLVDISPINFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMLVDISPINFOA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMLVDISPINFOA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMLVDISPINFOA {
@@ -24410,8 +24410,8 @@ impl ::core::fmt::Debug for NMLVDISPINFOW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMLVDISPINFOW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMLVDISPINFOW {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMLVDISPINFOW {
@@ -24450,8 +24450,8 @@ impl ::core::fmt::Debug for NMLVEMPTYMARKUP {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMLVEMPTYMARKUP {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMLVEMPTYMARKUP {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMLVEMPTYMARKUP {
@@ -24490,8 +24490,8 @@ impl ::core::fmt::Debug for NMLVFINDITEMA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMLVFINDITEMA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMLVFINDITEMA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMLVFINDITEMA {
@@ -24530,8 +24530,8 @@ impl ::core::fmt::Debug for NMLVFINDITEMW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMLVFINDITEMW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMLVFINDITEMW {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMLVFINDITEMW {
@@ -24553,7 +24553,7 @@ impl ::core::default::Default for NMLVFINDITEMW {
 pub struct NMLVGETINFOTIPA {
     pub hdr: NMHDR,
     pub dwFlags: NMLVGETINFOTIP_FLAGS,
-    pub pszText: ::windows::core::PSTR,
+    pub pszText: ::windows_core::PSTR,
     pub cchTextMax: i32,
     pub iItem: i32,
     pub iSubItem: i32,
@@ -24574,8 +24574,8 @@ impl ::core::fmt::Debug for NMLVGETINFOTIPA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMLVGETINFOTIPA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMLVGETINFOTIPA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMLVGETINFOTIPA {
@@ -24597,7 +24597,7 @@ impl ::core::default::Default for NMLVGETINFOTIPA {
 pub struct NMLVGETINFOTIPW {
     pub hdr: NMHDR,
     pub dwFlags: NMLVGETINFOTIP_FLAGS,
-    pub pszText: ::windows::core::PWSTR,
+    pub pszText: ::windows_core::PWSTR,
     pub cchTextMax: i32,
     pub iItem: i32,
     pub iSubItem: i32,
@@ -24618,8 +24618,8 @@ impl ::core::fmt::Debug for NMLVGETINFOTIPW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMLVGETINFOTIPW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMLVGETINFOTIPW {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMLVGETINFOTIPW {
@@ -24652,8 +24652,8 @@ impl ::core::clone::Clone for NMLVKEYDOWN {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMLVKEYDOWN {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMLVKEYDOWN {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NMLVKEYDOWN {
@@ -24685,8 +24685,8 @@ impl ::core::fmt::Debug for NMLVLINK {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMLVLINK {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMLVLINK {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMLVLINK {
@@ -24727,8 +24727,8 @@ impl ::core::fmt::Debug for NMLVODSTATECHANGE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMLVODSTATECHANGE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMLVODSTATECHANGE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMLVODSTATECHANGE {
@@ -24767,8 +24767,8 @@ impl ::core::fmt::Debug for NMLVSCROLL {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMLVSCROLL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMLVSCROLL {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMLVSCROLL {
@@ -24809,8 +24809,8 @@ impl ::core::fmt::Debug for NMMOUSE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMMOUSE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMMOUSE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMMOUSE {
@@ -24832,9 +24832,9 @@ impl ::core::default::Default for NMMOUSE {
 pub struct NMOBJECTNOTIFY {
     pub hdr: NMHDR,
     pub iItem: i32,
-    pub piid: *const ::windows::core::GUID,
+    pub piid: *const ::windows_core::GUID,
     pub pObject: *mut ::core::ffi::c_void,
-    pub hResult: ::windows::core::HRESULT,
+    pub hResult: ::windows_core::HRESULT,
     pub dwFlags: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -24852,8 +24852,8 @@ impl ::core::fmt::Debug for NMOBJECTNOTIFY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMOBJECTNOTIFY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMOBJECTNOTIFY {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMOBJECTNOTIFY {
@@ -24893,8 +24893,8 @@ impl ::core::fmt::Debug for NMPGCALCSIZE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMPGCALCSIZE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMPGCALCSIZE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMPGCALCSIZE {
@@ -24934,8 +24934,8 @@ impl ::core::fmt::Debug for NMPGHOTITEM {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMPGHOTITEM {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMPGHOTITEM {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMPGHOTITEM {
@@ -24972,8 +24972,8 @@ impl ::core::clone::Clone for NMPGSCROLL {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMPGSCROLL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMPGSCROLL {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NMPGSCROLL {
@@ -25005,8 +25005,8 @@ impl ::core::fmt::Debug for NMRBAUTOSIZE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMRBAUTOSIZE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMRBAUTOSIZE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMRBAUTOSIZE {
@@ -25048,8 +25048,8 @@ impl ::core::fmt::Debug for NMREBAR {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMREBAR {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMREBAR {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMREBAR {
@@ -25092,8 +25092,8 @@ impl ::core::fmt::Debug for NMREBARAUTOBREAK {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMREBARAUTOBREAK {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMREBARAUTOBREAK {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMREBARAUTOBREAK {
@@ -25135,8 +25135,8 @@ impl ::core::fmt::Debug for NMREBARCHEVRON {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMREBARCHEVRON {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMREBARCHEVRON {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMREBARCHEVRON {
@@ -25177,8 +25177,8 @@ impl ::core::fmt::Debug for NMREBARCHILDSIZE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMREBARCHILDSIZE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMREBARCHILDSIZE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMREBARCHILDSIZE {
@@ -25216,8 +25216,8 @@ impl ::core::fmt::Debug for NMREBARSPLITTER {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMREBARSPLITTER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMREBARSPLITTER {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMREBARSPLITTER {
@@ -25257,8 +25257,8 @@ impl ::core::fmt::Debug for NMSEARCHWEB {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMSEARCHWEB {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMSEARCHWEB {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMSEARCHWEB {
@@ -25297,8 +25297,8 @@ impl ::core::fmt::Debug for NMSELCHANGE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMSELCHANGE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMSELCHANGE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMSELCHANGE {
@@ -25363,8 +25363,8 @@ impl ::core::fmt::Debug for NMTBCUSTOMDRAW {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for NMTBCUSTOMDRAW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMTBCUSTOMDRAW {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for NMTBCUSTOMDRAW {
@@ -25389,7 +25389,7 @@ pub struct NMTBDISPINFOA {
     pub idCommand: i32,
     pub lParam: usize,
     pub iImage: i32,
-    pub pszText: ::windows::core::PSTR,
+    pub pszText: ::windows_core::PSTR,
     pub cchText: i32,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -25407,8 +25407,8 @@ impl ::core::fmt::Debug for NMTBDISPINFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMTBDISPINFOA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMTBDISPINFOA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMTBDISPINFOA {
@@ -25433,7 +25433,7 @@ pub struct NMTBDISPINFOW {
     pub idCommand: i32,
     pub lParam: usize,
     pub iImage: i32,
-    pub pszText: ::windows::core::PWSTR,
+    pub pszText: ::windows_core::PWSTR,
     pub cchText: i32,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -25451,8 +25451,8 @@ impl ::core::fmt::Debug for NMTBDISPINFOW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMTBDISPINFOW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMTBDISPINFOW {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMTBDISPINFOW {
@@ -25473,7 +25473,7 @@ impl ::core::default::Default for NMTBDISPINFOW {
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMTBGETINFOTIPA {
     pub hdr: NMHDR,
-    pub pszText: ::windows::core::PSTR,
+    pub pszText: ::windows_core::PSTR,
     pub cchTextMax: i32,
     pub iItem: i32,
     pub lParam: super::super::Foundation::LPARAM,
@@ -25493,8 +25493,8 @@ impl ::core::fmt::Debug for NMTBGETINFOTIPA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMTBGETINFOTIPA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMTBGETINFOTIPA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMTBGETINFOTIPA {
@@ -25515,7 +25515,7 @@ impl ::core::default::Default for NMTBGETINFOTIPA {
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMTBGETINFOTIPW {
     pub hdr: NMHDR,
-    pub pszText: ::windows::core::PWSTR,
+    pub pszText: ::windows_core::PWSTR,
     pub cchTextMax: i32,
     pub iItem: i32,
     pub lParam: super::super::Foundation::LPARAM,
@@ -25535,8 +25535,8 @@ impl ::core::fmt::Debug for NMTBGETINFOTIPW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMTBGETINFOTIPW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMTBGETINFOTIPW {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMTBGETINFOTIPW {
@@ -25576,8 +25576,8 @@ impl ::core::fmt::Debug for NMTBHOTITEM {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMTBHOTITEM {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMTBHOTITEM {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMTBHOTITEM {
@@ -25621,8 +25621,8 @@ impl ::core::fmt::Debug for NMTBRESTORE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMTBRESTORE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMTBRESTORE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMTBRESTORE {
@@ -25665,8 +25665,8 @@ impl ::core::fmt::Debug for NMTBSAVE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMTBSAVE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMTBSAVE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMTBSAVE {
@@ -25699,8 +25699,8 @@ impl ::core::clone::Clone for NMTCKEYDOWN {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMTCKEYDOWN {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMTCKEYDOWN {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NMTCKEYDOWN {
@@ -25716,7 +25716,7 @@ pub struct NMTOOLBARA {
     pub iItem: i32,
     pub tbButton: TBBUTTON,
     pub cchText: i32,
-    pub pszText: ::windows::core::PSTR,
+    pub pszText: ::windows_core::PSTR,
     pub rcButton: super::super::Foundation::RECT,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -25734,8 +25734,8 @@ impl ::core::fmt::Debug for NMTOOLBARA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMTOOLBARA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMTOOLBARA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMTOOLBARA {
@@ -25759,7 +25759,7 @@ pub struct NMTOOLBARW {
     pub iItem: i32,
     pub tbButton: TBBUTTON,
     pub cchText: i32,
-    pub pszText: ::windows::core::PWSTR,
+    pub pszText: ::windows_core::PWSTR,
     pub rcButton: super::super::Foundation::RECT,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -25777,8 +25777,8 @@ impl ::core::fmt::Debug for NMTOOLBARW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMTOOLBARW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMTOOLBARW {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMTOOLBARW {
@@ -25816,8 +25816,8 @@ impl ::core::fmt::Debug for NMTOOLTIPSCREATED {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMTOOLTIPSCREATED {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMTOOLTIPSCREATED {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMTOOLTIPSCREATED {
@@ -25856,8 +25856,8 @@ impl ::core::fmt::Debug for NMTRBTHUMBPOSCHANGING {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMTRBTHUMBPOSCHANGING {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMTRBTHUMBPOSCHANGING {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMTRBTHUMBPOSCHANGING {
@@ -25898,8 +25898,8 @@ impl ::core::fmt::Debug for NMTREEVIEWA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMTREEVIEWA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMTREEVIEWA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMTREEVIEWA {
@@ -25940,8 +25940,8 @@ impl ::core::fmt::Debug for NMTREEVIEWW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMTREEVIEWW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMTREEVIEWW {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMTREEVIEWW {
@@ -25979,8 +25979,8 @@ impl ::core::fmt::Debug for NMTTCUSTOMDRAW {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for NMTTCUSTOMDRAW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMTTCUSTOMDRAW {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for NMTTCUSTOMDRAW {
@@ -26001,7 +26001,7 @@ impl ::core::default::Default for NMTTCUSTOMDRAW {
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMTTDISPINFOA {
     pub hdr: NMHDR,
-    pub lpszText: ::windows::core::PSTR,
+    pub lpszText: ::windows_core::PSTR,
     pub szText: [u8; 80],
     pub hinst: super::super::Foundation::HMODULE,
     pub uFlags: TOOLTIP_FLAGS,
@@ -26022,8 +26022,8 @@ impl ::core::fmt::Debug for NMTTDISPINFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMTTDISPINFOA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMTTDISPINFOA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMTTDISPINFOA {
@@ -26044,7 +26044,7 @@ impl ::core::default::Default for NMTTDISPINFOA {
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMTTDISPINFOW {
     pub hdr: NMHDR,
-    pub lpszText: ::windows::core::PWSTR,
+    pub lpszText: ::windows_core::PWSTR,
     pub szText: [u16; 80],
     pub hinst: super::super::Foundation::HMODULE,
     pub uFlags: TOOLTIP_FLAGS,
@@ -26065,8 +26065,8 @@ impl ::core::fmt::Debug for NMTTDISPINFOW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMTTDISPINFOW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMTTDISPINFOW {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMTTDISPINFOW {
@@ -26088,7 +26088,7 @@ impl ::core::default::Default for NMTTDISPINFOW {
 pub struct NMTVASYNCDRAW {
     pub hdr: NMHDR,
     pub pimldp: *mut IMAGELISTDRAWPARAMS,
-    pub hr: ::windows::core::HRESULT,
+    pub hr: ::windows_core::HRESULT,
     pub hItem: HTREEITEM,
     pub lParam: super::super::Foundation::LPARAM,
     pub dwRetFlags: u32,
@@ -26109,8 +26109,8 @@ impl ::core::fmt::Debug for NMTVASYNCDRAW {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for NMTVASYNCDRAW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMTVASYNCDRAW {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for NMTVASYNCDRAW {
@@ -26150,8 +26150,8 @@ impl ::core::fmt::Debug for NMTVCUSTOMDRAW {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for NMTVCUSTOMDRAW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMTVCUSTOMDRAW {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for NMTVCUSTOMDRAW {
@@ -26189,8 +26189,8 @@ impl ::core::fmt::Debug for NMTVDISPINFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMTVDISPINFOA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMTVDISPINFOA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMTVDISPINFOA {
@@ -26228,8 +26228,8 @@ impl ::core::fmt::Debug for NMTVDISPINFOEXA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMTVDISPINFOEXA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMTVDISPINFOEXA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMTVDISPINFOEXA {
@@ -26267,8 +26267,8 @@ impl ::core::fmt::Debug for NMTVDISPINFOEXW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMTVDISPINFOEXW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMTVDISPINFOEXW {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMTVDISPINFOEXW {
@@ -26306,8 +26306,8 @@ impl ::core::fmt::Debug for NMTVDISPINFOW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMTVDISPINFOW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMTVDISPINFOW {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMTVDISPINFOW {
@@ -26328,7 +26328,7 @@ impl ::core::default::Default for NMTVDISPINFOW {
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMTVGETINFOTIPA {
     pub hdr: NMHDR,
-    pub pszText: ::windows::core::PSTR,
+    pub pszText: ::windows_core::PSTR,
     pub cchTextMax: i32,
     pub hItem: HTREEITEM,
     pub lParam: super::super::Foundation::LPARAM,
@@ -26348,8 +26348,8 @@ impl ::core::fmt::Debug for NMTVGETINFOTIPA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMTVGETINFOTIPA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMTVGETINFOTIPA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMTVGETINFOTIPA {
@@ -26370,7 +26370,7 @@ impl ::core::default::Default for NMTVGETINFOTIPA {
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMTVGETINFOTIPW {
     pub hdr: NMHDR,
-    pub pszText: ::windows::core::PWSTR,
+    pub pszText: ::windows_core::PWSTR,
     pub cchTextMax: i32,
     pub hItem: HTREEITEM,
     pub lParam: super::super::Foundation::LPARAM,
@@ -26390,8 +26390,8 @@ impl ::core::fmt::Debug for NMTVGETINFOTIPW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMTVGETINFOTIPW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMTVGETINFOTIPW {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMTVGETINFOTIPW {
@@ -26433,8 +26433,8 @@ impl ::core::fmt::Debug for NMTVITEMCHANGE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMTVITEMCHANGE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMTVITEMCHANGE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMTVITEMCHANGE {
@@ -26467,8 +26467,8 @@ impl ::core::clone::Clone for NMTVKEYDOWN {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMTVKEYDOWN {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMTVKEYDOWN {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NMTVKEYDOWN {
@@ -26500,8 +26500,8 @@ impl ::core::fmt::Debug for NMTVSTATEIMAGECHANGING {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMTVSTATEIMAGECHANGING {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMTVSTATEIMAGECHANGING {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMTVSTATEIMAGECHANGING {
@@ -26540,8 +26540,8 @@ impl ::core::fmt::Debug for NMUPDOWN {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMUPDOWN {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMUPDOWN {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMUPDOWN {
@@ -26580,8 +26580,8 @@ impl ::core::fmt::Debug for NMVIEWCHANGE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for NMVIEWCHANGE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for NMVIEWCHANGE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NMVIEWCHANGE {
@@ -26614,8 +26614,8 @@ impl ::core::fmt::Debug for PBRANGE {
         f.debug_struct("PBRANGE").field("iLow", &self.iLow).field("iHigh", &self.iHigh).finish()
     }
 }
-impl ::windows::core::TypeKind for PBRANGE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PBRANGE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for PBRANGE {
     fn eq(&self, other: &Self) -> bool {
@@ -26645,8 +26645,8 @@ impl ::core::fmt::Debug for POINTER_DEVICE_CURSOR_INFO {
         f.debug_struct("POINTER_DEVICE_CURSOR_INFO").field("cursorId", &self.cursorId).field("cursor", &self.cursor).finish()
     }
 }
-impl ::windows::core::TypeKind for POINTER_DEVICE_CURSOR_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for POINTER_DEVICE_CURSOR_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for POINTER_DEVICE_CURSOR_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -26686,8 +26686,8 @@ impl ::core::fmt::Debug for POINTER_DEVICE_INFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for POINTER_DEVICE_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for POINTER_DEVICE_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for POINTER_DEVICE_INFO {
@@ -26726,8 +26726,8 @@ impl ::core::fmt::Debug for POINTER_DEVICE_PROPERTY {
         f.debug_struct("POINTER_DEVICE_PROPERTY").field("logicalMin", &self.logicalMin).field("logicalMax", &self.logicalMax).field("physicalMin", &self.physicalMin).field("physicalMax", &self.physicalMax).field("unit", &self.unit).field("unitExponent", &self.unitExponent).field("usagePageId", &self.usagePageId).field("usageId", &self.usageId).finish()
     }
 }
-impl ::windows::core::TypeKind for POINTER_DEVICE_PROPERTY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for POINTER_DEVICE_PROPERTY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for POINTER_DEVICE_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
@@ -26756,8 +26756,8 @@ impl ::core::clone::Clone for POINTER_TYPE_INFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for POINTER_TYPE_INFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for POINTER_TYPE_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for POINTER_TYPE_INFO {
@@ -26781,8 +26781,8 @@ impl ::core::clone::Clone for POINTER_TYPE_INFO_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for POINTER_TYPE_INFO_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for POINTER_TYPE_INFO_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for POINTER_TYPE_INFO_0 {
@@ -26799,7 +26799,7 @@ pub struct PROPSHEETHEADERA_V1 {
     pub hwndParent: super::super::Foundation::HWND,
     pub hInstance: super::super::Foundation::HMODULE,
     pub Anonymous1: PROPSHEETHEADERA_V1_0,
-    pub pszCaption: ::windows::core::PCSTR,
+    pub pszCaption: ::windows_core::PCSTR,
     pub nPages: u32,
     pub Anonymous2: PROPSHEETHEADERA_V1_1,
     pub Anonymous3: PROPSHEETHEADERA_V1_2,
@@ -26814,8 +26814,8 @@ impl ::core::clone::Clone for PROPSHEETHEADERA_V1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for PROPSHEETHEADERA_V1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROPSHEETHEADERA_V1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for PROPSHEETHEADERA_V1 {
@@ -26828,7 +26828,7 @@ impl ::core::default::Default for PROPSHEETHEADERA_V1 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERA_V1_0 {
     pub hIcon: super::WindowsAndMessaging::HICON,
-    pub pszIcon: ::windows::core::PCSTR,
+    pub pszIcon: ::windows_core::PCSTR,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for PROPSHEETHEADERA_V1_0 {}
@@ -26839,8 +26839,8 @@ impl ::core::clone::Clone for PROPSHEETHEADERA_V1_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for PROPSHEETHEADERA_V1_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROPSHEETHEADERA_V1_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for PROPSHEETHEADERA_V1_0 {
@@ -26853,7 +26853,7 @@ impl ::core::default::Default for PROPSHEETHEADERA_V1_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERA_V1_1 {
     pub nStartPage: u32,
-    pub pStartPage: ::windows::core::PCSTR,
+    pub pStartPage: ::windows_core::PCSTR,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for PROPSHEETHEADERA_V1_1 {}
@@ -26864,8 +26864,8 @@ impl ::core::clone::Clone for PROPSHEETHEADERA_V1_1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for PROPSHEETHEADERA_V1_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROPSHEETHEADERA_V1_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for PROPSHEETHEADERA_V1_1 {
@@ -26889,8 +26889,8 @@ impl ::core::clone::Clone for PROPSHEETHEADERA_V1_2 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for PROPSHEETHEADERA_V1_2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROPSHEETHEADERA_V1_2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for PROPSHEETHEADERA_V1_2 {
@@ -26907,7 +26907,7 @@ pub struct PROPSHEETHEADERA_V2 {
     pub hwndParent: super::super::Foundation::HWND,
     pub hInstance: super::super::Foundation::HMODULE,
     pub Anonymous1: PROPSHEETHEADERA_V2_0,
-    pub pszCaption: ::windows::core::PCSTR,
+    pub pszCaption: ::windows_core::PCSTR,
     pub nPages: u32,
     pub Anonymous2: PROPSHEETHEADERA_V2_1,
     pub Anonymous3: PROPSHEETHEADERA_V2_2,
@@ -26925,8 +26925,8 @@ impl ::core::clone::Clone for PROPSHEETHEADERA_V2 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for PROPSHEETHEADERA_V2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROPSHEETHEADERA_V2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for PROPSHEETHEADERA_V2 {
@@ -26939,7 +26939,7 @@ impl ::core::default::Default for PROPSHEETHEADERA_V2 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERA_V2_0 {
     pub hIcon: super::WindowsAndMessaging::HICON,
-    pub pszIcon: ::windows::core::PCSTR,
+    pub pszIcon: ::windows_core::PCSTR,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for PROPSHEETHEADERA_V2_0 {}
@@ -26950,8 +26950,8 @@ impl ::core::clone::Clone for PROPSHEETHEADERA_V2_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for PROPSHEETHEADERA_V2_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROPSHEETHEADERA_V2_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for PROPSHEETHEADERA_V2_0 {
@@ -26964,7 +26964,7 @@ impl ::core::default::Default for PROPSHEETHEADERA_V2_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERA_V2_1 {
     pub nStartPage: u32,
-    pub pStartPage: ::windows::core::PCSTR,
+    pub pStartPage: ::windows_core::PCSTR,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for PROPSHEETHEADERA_V2_1 {}
@@ -26975,8 +26975,8 @@ impl ::core::clone::Clone for PROPSHEETHEADERA_V2_1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for PROPSHEETHEADERA_V2_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROPSHEETHEADERA_V2_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for PROPSHEETHEADERA_V2_1 {
@@ -27000,8 +27000,8 @@ impl ::core::clone::Clone for PROPSHEETHEADERA_V2_2 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for PROPSHEETHEADERA_V2_2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROPSHEETHEADERA_V2_2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for PROPSHEETHEADERA_V2_2 {
@@ -27014,7 +27014,7 @@ impl ::core::default::Default for PROPSHEETHEADERA_V2_2 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERA_V2_3 {
     pub hbmWatermark: super::super::Graphics::Gdi::HBITMAP,
-    pub pszbmWatermark: ::windows::core::PCSTR,
+    pub pszbmWatermark: ::windows_core::PCSTR,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for PROPSHEETHEADERA_V2_3 {}
@@ -27025,8 +27025,8 @@ impl ::core::clone::Clone for PROPSHEETHEADERA_V2_3 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for PROPSHEETHEADERA_V2_3 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROPSHEETHEADERA_V2_3 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for PROPSHEETHEADERA_V2_3 {
@@ -27039,7 +27039,7 @@ impl ::core::default::Default for PROPSHEETHEADERA_V2_3 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERA_V2_4 {
     pub hbmHeader: super::super::Graphics::Gdi::HBITMAP,
-    pub pszbmHeader: ::windows::core::PCSTR,
+    pub pszbmHeader: ::windows_core::PCSTR,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for PROPSHEETHEADERA_V2_4 {}
@@ -27050,8 +27050,8 @@ impl ::core::clone::Clone for PROPSHEETHEADERA_V2_4 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for PROPSHEETHEADERA_V2_4 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROPSHEETHEADERA_V2_4 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for PROPSHEETHEADERA_V2_4 {
@@ -27068,7 +27068,7 @@ pub struct PROPSHEETHEADERW_V1 {
     pub hwndParent: super::super::Foundation::HWND,
     pub hInstance: super::super::Foundation::HMODULE,
     pub Anonymous1: PROPSHEETHEADERW_V1_0,
-    pub pszCaption: ::windows::core::PCWSTR,
+    pub pszCaption: ::windows_core::PCWSTR,
     pub nPages: u32,
     pub Anonymous2: PROPSHEETHEADERW_V1_1,
     pub Anonymous3: PROPSHEETHEADERW_V1_2,
@@ -27083,8 +27083,8 @@ impl ::core::clone::Clone for PROPSHEETHEADERW_V1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for PROPSHEETHEADERW_V1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROPSHEETHEADERW_V1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for PROPSHEETHEADERW_V1 {
@@ -27097,7 +27097,7 @@ impl ::core::default::Default for PROPSHEETHEADERW_V1 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERW_V1_0 {
     pub hIcon: super::WindowsAndMessaging::HICON,
-    pub pszIcon: ::windows::core::PCWSTR,
+    pub pszIcon: ::windows_core::PCWSTR,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for PROPSHEETHEADERW_V1_0 {}
@@ -27108,8 +27108,8 @@ impl ::core::clone::Clone for PROPSHEETHEADERW_V1_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for PROPSHEETHEADERW_V1_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROPSHEETHEADERW_V1_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for PROPSHEETHEADERW_V1_0 {
@@ -27122,7 +27122,7 @@ impl ::core::default::Default for PROPSHEETHEADERW_V1_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERW_V1_1 {
     pub nStartPage: u32,
-    pub pStartPage: ::windows::core::PCWSTR,
+    pub pStartPage: ::windows_core::PCWSTR,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for PROPSHEETHEADERW_V1_1 {}
@@ -27133,8 +27133,8 @@ impl ::core::clone::Clone for PROPSHEETHEADERW_V1_1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for PROPSHEETHEADERW_V1_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROPSHEETHEADERW_V1_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for PROPSHEETHEADERW_V1_1 {
@@ -27158,8 +27158,8 @@ impl ::core::clone::Clone for PROPSHEETHEADERW_V1_2 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for PROPSHEETHEADERW_V1_2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROPSHEETHEADERW_V1_2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for PROPSHEETHEADERW_V1_2 {
@@ -27176,7 +27176,7 @@ pub struct PROPSHEETHEADERW_V2 {
     pub hwndParent: super::super::Foundation::HWND,
     pub hInstance: super::super::Foundation::HMODULE,
     pub Anonymous1: PROPSHEETHEADERW_V2_0,
-    pub pszCaption: ::windows::core::PCWSTR,
+    pub pszCaption: ::windows_core::PCWSTR,
     pub nPages: u32,
     pub Anonymous2: PROPSHEETHEADERW_V2_1,
     pub Anonymous3: PROPSHEETHEADERW_V2_2,
@@ -27194,8 +27194,8 @@ impl ::core::clone::Clone for PROPSHEETHEADERW_V2 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for PROPSHEETHEADERW_V2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROPSHEETHEADERW_V2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for PROPSHEETHEADERW_V2 {
@@ -27208,7 +27208,7 @@ impl ::core::default::Default for PROPSHEETHEADERW_V2 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERW_V2_0 {
     pub hIcon: super::WindowsAndMessaging::HICON,
-    pub pszIcon: ::windows::core::PCWSTR,
+    pub pszIcon: ::windows_core::PCWSTR,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for PROPSHEETHEADERW_V2_0 {}
@@ -27219,8 +27219,8 @@ impl ::core::clone::Clone for PROPSHEETHEADERW_V2_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for PROPSHEETHEADERW_V2_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROPSHEETHEADERW_V2_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for PROPSHEETHEADERW_V2_0 {
@@ -27233,7 +27233,7 @@ impl ::core::default::Default for PROPSHEETHEADERW_V2_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERW_V2_1 {
     pub nStartPage: u32,
-    pub pStartPage: ::windows::core::PCWSTR,
+    pub pStartPage: ::windows_core::PCWSTR,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for PROPSHEETHEADERW_V2_1 {}
@@ -27244,8 +27244,8 @@ impl ::core::clone::Clone for PROPSHEETHEADERW_V2_1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for PROPSHEETHEADERW_V2_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROPSHEETHEADERW_V2_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for PROPSHEETHEADERW_V2_1 {
@@ -27269,8 +27269,8 @@ impl ::core::clone::Clone for PROPSHEETHEADERW_V2_2 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for PROPSHEETHEADERW_V2_2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROPSHEETHEADERW_V2_2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for PROPSHEETHEADERW_V2_2 {
@@ -27283,7 +27283,7 @@ impl ::core::default::Default for PROPSHEETHEADERW_V2_2 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERW_V2_3 {
     pub hbmWatermark: super::super::Graphics::Gdi::HBITMAP,
-    pub pszbmWatermark: ::windows::core::PCWSTR,
+    pub pszbmWatermark: ::windows_core::PCWSTR,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for PROPSHEETHEADERW_V2_3 {}
@@ -27294,8 +27294,8 @@ impl ::core::clone::Clone for PROPSHEETHEADERW_V2_3 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for PROPSHEETHEADERW_V2_3 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROPSHEETHEADERW_V2_3 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for PROPSHEETHEADERW_V2_3 {
@@ -27308,7 +27308,7 @@ impl ::core::default::Default for PROPSHEETHEADERW_V2_3 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERW_V2_4 {
     pub hbmHeader: super::super::Graphics::Gdi::HBITMAP,
-    pub pszbmHeader: ::windows::core::PCWSTR,
+    pub pszbmHeader: ::windows_core::PCWSTR,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for PROPSHEETHEADERW_V2_4 {}
@@ -27319,8 +27319,8 @@ impl ::core::clone::Clone for PROPSHEETHEADERW_V2_4 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for PROPSHEETHEADERW_V2_4 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROPSHEETHEADERW_V2_4 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for PROPSHEETHEADERW_V2_4 {
@@ -27337,13 +27337,13 @@ pub struct PROPSHEETPAGEA {
     pub hInstance: super::super::Foundation::HMODULE,
     pub Anonymous1: PROPSHEETPAGEA_0,
     pub Anonymous2: PROPSHEETPAGEA_1,
-    pub pszTitle: ::windows::core::PCSTR,
+    pub pszTitle: ::windows_core::PCSTR,
     pub pfnDlgProc: super::WindowsAndMessaging::DLGPROC,
     pub lParam: super::super::Foundation::LPARAM,
     pub pfnCallback: LPFNPSPCALLBACKA,
     pub pcRefParent: *mut u32,
-    pub pszHeaderTitle: ::windows::core::PCSTR,
-    pub pszHeaderSubTitle: ::windows::core::PCSTR,
+    pub pszHeaderTitle: ::windows_core::PCSTR,
+    pub pszHeaderSubTitle: ::windows_core::PCSTR,
     pub hActCtx: super::super::Foundation::HANDLE,
     pub Anonymous3: PROPSHEETPAGEA_2,
 }
@@ -27356,8 +27356,8 @@ impl ::core::clone::Clone for PROPSHEETPAGEA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for PROPSHEETPAGEA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROPSHEETPAGEA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for PROPSHEETPAGEA {
@@ -27369,7 +27369,7 @@ impl ::core::default::Default for PROPSHEETPAGEA {
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEA_0 {
-    pub pszTemplate: ::windows::core::PCSTR,
+    pub pszTemplate: ::windows_core::PCSTR,
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -27381,8 +27381,8 @@ impl ::core::clone::Clone for PROPSHEETPAGEA_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for PROPSHEETPAGEA_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROPSHEETPAGEA_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for PROPSHEETPAGEA_0 {
@@ -27395,7 +27395,7 @@ impl ::core::default::Default for PROPSHEETPAGEA_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEA_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
-    pub pszIcon: ::windows::core::PCSTR,
+    pub pszIcon: ::windows_core::PCSTR,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for PROPSHEETPAGEA_1 {}
@@ -27406,8 +27406,8 @@ impl ::core::clone::Clone for PROPSHEETPAGEA_1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for PROPSHEETPAGEA_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROPSHEETPAGEA_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for PROPSHEETPAGEA_1 {
@@ -27420,7 +27420,7 @@ impl ::core::default::Default for PROPSHEETPAGEA_1 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEA_2 {
     pub hbmHeader: super::super::Graphics::Gdi::HBITMAP,
-    pub pszbmHeader: ::windows::core::PCSTR,
+    pub pszbmHeader: ::windows_core::PCSTR,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for PROPSHEETPAGEA_2 {}
@@ -27431,8 +27431,8 @@ impl ::core::clone::Clone for PROPSHEETPAGEA_2 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for PROPSHEETPAGEA_2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROPSHEETPAGEA_2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for PROPSHEETPAGEA_2 {
@@ -27449,7 +27449,7 @@ pub struct PROPSHEETPAGEA_V1 {
     pub hInstance: super::super::Foundation::HMODULE,
     pub Anonymous1: PROPSHEETPAGEA_V1_0,
     pub Anonymous2: PROPSHEETPAGEA_V1_1,
-    pub pszTitle: ::windows::core::PCSTR,
+    pub pszTitle: ::windows_core::PCSTR,
     pub pfnDlgProc: super::WindowsAndMessaging::DLGPROC,
     pub lParam: super::super::Foundation::LPARAM,
     pub pfnCallback: LPFNPSPCALLBACKA,
@@ -27464,8 +27464,8 @@ impl ::core::clone::Clone for PROPSHEETPAGEA_V1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for PROPSHEETPAGEA_V1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROPSHEETPAGEA_V1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for PROPSHEETPAGEA_V1 {
@@ -27477,7 +27477,7 @@ impl ::core::default::Default for PROPSHEETPAGEA_V1 {
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEA_V1_0 {
-    pub pszTemplate: ::windows::core::PCSTR,
+    pub pszTemplate: ::windows_core::PCSTR,
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -27489,8 +27489,8 @@ impl ::core::clone::Clone for PROPSHEETPAGEA_V1_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for PROPSHEETPAGEA_V1_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROPSHEETPAGEA_V1_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for PROPSHEETPAGEA_V1_0 {
@@ -27503,7 +27503,7 @@ impl ::core::default::Default for PROPSHEETPAGEA_V1_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEA_V1_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
-    pub pszIcon: ::windows::core::PCSTR,
+    pub pszIcon: ::windows_core::PCSTR,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for PROPSHEETPAGEA_V1_1 {}
@@ -27514,8 +27514,8 @@ impl ::core::clone::Clone for PROPSHEETPAGEA_V1_1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for PROPSHEETPAGEA_V1_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROPSHEETPAGEA_V1_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for PROPSHEETPAGEA_V1_1 {
@@ -27532,13 +27532,13 @@ pub struct PROPSHEETPAGEA_V2 {
     pub hInstance: super::super::Foundation::HMODULE,
     pub Anonymous1: PROPSHEETPAGEA_V2_0,
     pub Anonymous2: PROPSHEETPAGEA_V2_1,
-    pub pszTitle: ::windows::core::PCSTR,
+    pub pszTitle: ::windows_core::PCSTR,
     pub pfnDlgProc: super::WindowsAndMessaging::DLGPROC,
     pub lParam: super::super::Foundation::LPARAM,
     pub pfnCallback: LPFNPSPCALLBACKA,
     pub pcRefParent: *mut u32,
-    pub pszHeaderTitle: ::windows::core::PCSTR,
-    pub pszHeaderSubTitle: ::windows::core::PCSTR,
+    pub pszHeaderTitle: ::windows_core::PCSTR,
+    pub pszHeaderSubTitle: ::windows_core::PCSTR,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for PROPSHEETPAGEA_V2 {}
@@ -27549,8 +27549,8 @@ impl ::core::clone::Clone for PROPSHEETPAGEA_V2 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for PROPSHEETPAGEA_V2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROPSHEETPAGEA_V2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for PROPSHEETPAGEA_V2 {
@@ -27562,7 +27562,7 @@ impl ::core::default::Default for PROPSHEETPAGEA_V2 {
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEA_V2_0 {
-    pub pszTemplate: ::windows::core::PCSTR,
+    pub pszTemplate: ::windows_core::PCSTR,
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -27574,8 +27574,8 @@ impl ::core::clone::Clone for PROPSHEETPAGEA_V2_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for PROPSHEETPAGEA_V2_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROPSHEETPAGEA_V2_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for PROPSHEETPAGEA_V2_0 {
@@ -27588,7 +27588,7 @@ impl ::core::default::Default for PROPSHEETPAGEA_V2_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEA_V2_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
-    pub pszIcon: ::windows::core::PCSTR,
+    pub pszIcon: ::windows_core::PCSTR,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for PROPSHEETPAGEA_V2_1 {}
@@ -27599,8 +27599,8 @@ impl ::core::clone::Clone for PROPSHEETPAGEA_V2_1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for PROPSHEETPAGEA_V2_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROPSHEETPAGEA_V2_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for PROPSHEETPAGEA_V2_1 {
@@ -27617,13 +27617,13 @@ pub struct PROPSHEETPAGEA_V3 {
     pub hInstance: super::super::Foundation::HMODULE,
     pub Anonymous1: PROPSHEETPAGEA_V3_0,
     pub Anonymous2: PROPSHEETPAGEA_V3_1,
-    pub pszTitle: ::windows::core::PCSTR,
+    pub pszTitle: ::windows_core::PCSTR,
     pub pfnDlgProc: super::WindowsAndMessaging::DLGPROC,
     pub lParam: super::super::Foundation::LPARAM,
     pub pfnCallback: LPFNPSPCALLBACKA,
     pub pcRefParent: *mut u32,
-    pub pszHeaderTitle: ::windows::core::PCSTR,
-    pub pszHeaderSubTitle: ::windows::core::PCSTR,
+    pub pszHeaderTitle: ::windows_core::PCSTR,
+    pub pszHeaderSubTitle: ::windows_core::PCSTR,
     pub hActCtx: super::super::Foundation::HANDLE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -27635,8 +27635,8 @@ impl ::core::clone::Clone for PROPSHEETPAGEA_V3 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for PROPSHEETPAGEA_V3 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROPSHEETPAGEA_V3 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for PROPSHEETPAGEA_V3 {
@@ -27648,7 +27648,7 @@ impl ::core::default::Default for PROPSHEETPAGEA_V3 {
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEA_V3_0 {
-    pub pszTemplate: ::windows::core::PCSTR,
+    pub pszTemplate: ::windows_core::PCSTR,
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -27660,8 +27660,8 @@ impl ::core::clone::Clone for PROPSHEETPAGEA_V3_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for PROPSHEETPAGEA_V3_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROPSHEETPAGEA_V3_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for PROPSHEETPAGEA_V3_0 {
@@ -27674,7 +27674,7 @@ impl ::core::default::Default for PROPSHEETPAGEA_V3_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEA_V3_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
-    pub pszIcon: ::windows::core::PCSTR,
+    pub pszIcon: ::windows_core::PCSTR,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for PROPSHEETPAGEA_V3_1 {}
@@ -27685,8 +27685,8 @@ impl ::core::clone::Clone for PROPSHEETPAGEA_V3_1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for PROPSHEETPAGEA_V3_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROPSHEETPAGEA_V3_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for PROPSHEETPAGEA_V3_1 {
@@ -27703,13 +27703,13 @@ pub struct PROPSHEETPAGEW {
     pub hInstance: super::super::Foundation::HMODULE,
     pub Anonymous1: PROPSHEETPAGEW_0,
     pub Anonymous2: PROPSHEETPAGEW_1,
-    pub pszTitle: ::windows::core::PCWSTR,
+    pub pszTitle: ::windows_core::PCWSTR,
     pub pfnDlgProc: super::WindowsAndMessaging::DLGPROC,
     pub lParam: super::super::Foundation::LPARAM,
     pub pfnCallback: LPFNPSPCALLBACKW,
     pub pcRefParent: *mut u32,
-    pub pszHeaderTitle: ::windows::core::PCWSTR,
-    pub pszHeaderSubTitle: ::windows::core::PCWSTR,
+    pub pszHeaderTitle: ::windows_core::PCWSTR,
+    pub pszHeaderSubTitle: ::windows_core::PCWSTR,
     pub hActCtx: super::super::Foundation::HANDLE,
     pub Anonymous3: PROPSHEETPAGEW_2,
 }
@@ -27722,8 +27722,8 @@ impl ::core::clone::Clone for PROPSHEETPAGEW {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for PROPSHEETPAGEW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROPSHEETPAGEW {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for PROPSHEETPAGEW {
@@ -27735,7 +27735,7 @@ impl ::core::default::Default for PROPSHEETPAGEW {
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEW_0 {
-    pub pszTemplate: ::windows::core::PCWSTR,
+    pub pszTemplate: ::windows_core::PCWSTR,
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -27747,8 +27747,8 @@ impl ::core::clone::Clone for PROPSHEETPAGEW_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for PROPSHEETPAGEW_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROPSHEETPAGEW_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for PROPSHEETPAGEW_0 {
@@ -27761,7 +27761,7 @@ impl ::core::default::Default for PROPSHEETPAGEW_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEW_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
-    pub pszIcon: ::windows::core::PCWSTR,
+    pub pszIcon: ::windows_core::PCWSTR,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for PROPSHEETPAGEW_1 {}
@@ -27772,8 +27772,8 @@ impl ::core::clone::Clone for PROPSHEETPAGEW_1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for PROPSHEETPAGEW_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROPSHEETPAGEW_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for PROPSHEETPAGEW_1 {
@@ -27786,7 +27786,7 @@ impl ::core::default::Default for PROPSHEETPAGEW_1 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEW_2 {
     pub hbmHeader: super::super::Graphics::Gdi::HBITMAP,
-    pub pszbmHeader: ::windows::core::PCWSTR,
+    pub pszbmHeader: ::windows_core::PCWSTR,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for PROPSHEETPAGEW_2 {}
@@ -27797,8 +27797,8 @@ impl ::core::clone::Clone for PROPSHEETPAGEW_2 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for PROPSHEETPAGEW_2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROPSHEETPAGEW_2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for PROPSHEETPAGEW_2 {
@@ -27815,7 +27815,7 @@ pub struct PROPSHEETPAGEW_V1 {
     pub hInstance: super::super::Foundation::HMODULE,
     pub Anonymous1: PROPSHEETPAGEW_V1_0,
     pub Anonymous2: PROPSHEETPAGEW_V1_1,
-    pub pszTitle: ::windows::core::PCWSTR,
+    pub pszTitle: ::windows_core::PCWSTR,
     pub pfnDlgProc: super::WindowsAndMessaging::DLGPROC,
     pub lParam: super::super::Foundation::LPARAM,
     pub pfnCallback: LPFNPSPCALLBACKW,
@@ -27830,8 +27830,8 @@ impl ::core::clone::Clone for PROPSHEETPAGEW_V1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for PROPSHEETPAGEW_V1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROPSHEETPAGEW_V1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for PROPSHEETPAGEW_V1 {
@@ -27843,7 +27843,7 @@ impl ::core::default::Default for PROPSHEETPAGEW_V1 {
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEW_V1_0 {
-    pub pszTemplate: ::windows::core::PCWSTR,
+    pub pszTemplate: ::windows_core::PCWSTR,
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -27855,8 +27855,8 @@ impl ::core::clone::Clone for PROPSHEETPAGEW_V1_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for PROPSHEETPAGEW_V1_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROPSHEETPAGEW_V1_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for PROPSHEETPAGEW_V1_0 {
@@ -27869,7 +27869,7 @@ impl ::core::default::Default for PROPSHEETPAGEW_V1_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEW_V1_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
-    pub pszIcon: ::windows::core::PCWSTR,
+    pub pszIcon: ::windows_core::PCWSTR,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for PROPSHEETPAGEW_V1_1 {}
@@ -27880,8 +27880,8 @@ impl ::core::clone::Clone for PROPSHEETPAGEW_V1_1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for PROPSHEETPAGEW_V1_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROPSHEETPAGEW_V1_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for PROPSHEETPAGEW_V1_1 {
@@ -27898,13 +27898,13 @@ pub struct PROPSHEETPAGEW_V2 {
     pub hInstance: super::super::Foundation::HMODULE,
     pub Anonymous1: PROPSHEETPAGEW_V2_0,
     pub Anonymous2: PROPSHEETPAGEW_V2_1,
-    pub pszTitle: ::windows::core::PCWSTR,
+    pub pszTitle: ::windows_core::PCWSTR,
     pub pfnDlgProc: super::WindowsAndMessaging::DLGPROC,
     pub lParam: super::super::Foundation::LPARAM,
     pub pfnCallback: LPFNPSPCALLBACKW,
     pub pcRefParent: *mut u32,
-    pub pszHeaderTitle: ::windows::core::PCWSTR,
-    pub pszHeaderSubTitle: ::windows::core::PCWSTR,
+    pub pszHeaderTitle: ::windows_core::PCWSTR,
+    pub pszHeaderSubTitle: ::windows_core::PCWSTR,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for PROPSHEETPAGEW_V2 {}
@@ -27915,8 +27915,8 @@ impl ::core::clone::Clone for PROPSHEETPAGEW_V2 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for PROPSHEETPAGEW_V2 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROPSHEETPAGEW_V2 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for PROPSHEETPAGEW_V2 {
@@ -27928,7 +27928,7 @@ impl ::core::default::Default for PROPSHEETPAGEW_V2 {
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEW_V2_0 {
-    pub pszTemplate: ::windows::core::PCWSTR,
+    pub pszTemplate: ::windows_core::PCWSTR,
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -27940,8 +27940,8 @@ impl ::core::clone::Clone for PROPSHEETPAGEW_V2_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for PROPSHEETPAGEW_V2_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROPSHEETPAGEW_V2_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for PROPSHEETPAGEW_V2_0 {
@@ -27954,7 +27954,7 @@ impl ::core::default::Default for PROPSHEETPAGEW_V2_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEW_V2_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
-    pub pszIcon: ::windows::core::PCWSTR,
+    pub pszIcon: ::windows_core::PCWSTR,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for PROPSHEETPAGEW_V2_1 {}
@@ -27965,8 +27965,8 @@ impl ::core::clone::Clone for PROPSHEETPAGEW_V2_1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for PROPSHEETPAGEW_V2_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROPSHEETPAGEW_V2_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for PROPSHEETPAGEW_V2_1 {
@@ -27983,13 +27983,13 @@ pub struct PROPSHEETPAGEW_V3 {
     pub hInstance: super::super::Foundation::HMODULE,
     pub Anonymous1: PROPSHEETPAGEW_V3_0,
     pub Anonymous2: PROPSHEETPAGEW_V3_1,
-    pub pszTitle: ::windows::core::PCWSTR,
+    pub pszTitle: ::windows_core::PCWSTR,
     pub pfnDlgProc: super::WindowsAndMessaging::DLGPROC,
     pub lParam: super::super::Foundation::LPARAM,
     pub pfnCallback: LPFNPSPCALLBACKW,
     pub pcRefParent: *mut u32,
-    pub pszHeaderTitle: ::windows::core::PCWSTR,
-    pub pszHeaderSubTitle: ::windows::core::PCWSTR,
+    pub pszHeaderTitle: ::windows_core::PCWSTR,
+    pub pszHeaderSubTitle: ::windows_core::PCWSTR,
     pub hActCtx: super::super::Foundation::HANDLE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -28001,8 +28001,8 @@ impl ::core::clone::Clone for PROPSHEETPAGEW_V3 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for PROPSHEETPAGEW_V3 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROPSHEETPAGEW_V3 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for PROPSHEETPAGEW_V3 {
@@ -28014,7 +28014,7 @@ impl ::core::default::Default for PROPSHEETPAGEW_V3 {
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEW_V3_0 {
-    pub pszTemplate: ::windows::core::PCWSTR,
+    pub pszTemplate: ::windows_core::PCWSTR,
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -28026,8 +28026,8 @@ impl ::core::clone::Clone for PROPSHEETPAGEW_V3_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for PROPSHEETPAGEW_V3_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROPSHEETPAGEW_V3_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for PROPSHEETPAGEW_V3_0 {
@@ -28040,7 +28040,7 @@ impl ::core::default::Default for PROPSHEETPAGEW_V3_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEW_V3_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
-    pub pszIcon: ::windows::core::PCWSTR,
+    pub pszIcon: ::windows_core::PCWSTR,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for PROPSHEETPAGEW_V3_1 {}
@@ -28051,8 +28051,8 @@ impl ::core::clone::Clone for PROPSHEETPAGEW_V3_1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for PROPSHEETPAGEW_V3_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PROPSHEETPAGEW_V3_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for PROPSHEETPAGEW_V3_1 {
@@ -28082,8 +28082,8 @@ impl ::core::fmt::Debug for PSHNOTIFY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for PSHNOTIFY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PSHNOTIFY {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PSHNOTIFY {
@@ -28122,8 +28122,8 @@ impl ::core::fmt::Debug for RBHITTESTINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for RBHITTESTINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for RBHITTESTINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RBHITTESTINFO {
@@ -28148,7 +28148,7 @@ pub struct REBARBANDINFOA {
     pub fStyle: u32,
     pub clrFore: super::super::Foundation::COLORREF,
     pub clrBack: super::super::Foundation::COLORREF,
-    pub lpText: ::windows::core::PSTR,
+    pub lpText: ::windows_core::PSTR,
     pub cch: u32,
     pub iImage: i32,
     pub hwndChild: super::super::Foundation::HWND,
@@ -28204,8 +28204,8 @@ impl ::core::fmt::Debug for REBARBANDINFOA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for REBARBANDINFOA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for REBARBANDINFOA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for REBARBANDINFOA {
@@ -28230,7 +28230,7 @@ pub struct REBARBANDINFOW {
     pub fStyle: u32,
     pub clrFore: super::super::Foundation::COLORREF,
     pub clrBack: super::super::Foundation::COLORREF,
-    pub lpText: ::windows::core::PWSTR,
+    pub lpText: ::windows_core::PWSTR,
     pub cch: u32,
     pub iImage: i32,
     pub hwndChild: super::super::Foundation::HWND,
@@ -28286,8 +28286,8 @@ impl ::core::fmt::Debug for REBARBANDINFOW {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::windows::core::TypeKind for REBARBANDINFOW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for REBARBANDINFOW {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for REBARBANDINFOW {
@@ -28321,8 +28321,8 @@ impl ::core::fmt::Debug for REBARINFO {
         f.debug_struct("REBARINFO").field("cbSize", &self.cbSize).field("fMask", &self.fMask).field("himl", &self.himl).finish()
     }
 }
-impl ::windows::core::TypeKind for REBARINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for REBARINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for REBARINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -28344,22 +28344,22 @@ pub struct TASKDIALOGCONFIG {
     pub hInstance: super::super::Foundation::HMODULE,
     pub dwFlags: TASKDIALOG_FLAGS,
     pub dwCommonButtons: TASKDIALOG_COMMON_BUTTON_FLAGS,
-    pub pszWindowTitle: ::windows::core::PCWSTR,
+    pub pszWindowTitle: ::windows_core::PCWSTR,
     pub Anonymous1: TASKDIALOGCONFIG_0,
-    pub pszMainInstruction: ::windows::core::PCWSTR,
-    pub pszContent: ::windows::core::PCWSTR,
+    pub pszMainInstruction: ::windows_core::PCWSTR,
+    pub pszContent: ::windows_core::PCWSTR,
     pub cButtons: u32,
     pub pButtons: *const TASKDIALOG_BUTTON,
     pub nDefaultButton: i32,
     pub cRadioButtons: u32,
     pub pRadioButtons: *const TASKDIALOG_BUTTON,
     pub nDefaultRadioButton: i32,
-    pub pszVerificationText: ::windows::core::PCWSTR,
-    pub pszExpandedInformation: ::windows::core::PCWSTR,
-    pub pszExpandedControlText: ::windows::core::PCWSTR,
-    pub pszCollapsedControlText: ::windows::core::PCWSTR,
+    pub pszVerificationText: ::windows_core::PCWSTR,
+    pub pszExpandedInformation: ::windows_core::PCWSTR,
+    pub pszExpandedControlText: ::windows_core::PCWSTR,
+    pub pszCollapsedControlText: ::windows_core::PCWSTR,
     pub Anonymous2: TASKDIALOGCONFIG_1,
-    pub pszFooter: ::windows::core::PCWSTR,
+    pub pszFooter: ::windows_core::PCWSTR,
     pub pfCallback: PFTASKDIALOGCALLBACK,
     pub lpCallbackData: isize,
     pub cxWidth: u32,
@@ -28373,8 +28373,8 @@ impl ::core::clone::Clone for TASKDIALOGCONFIG {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for TASKDIALOGCONFIG {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TASKDIALOGCONFIG {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for TASKDIALOGCONFIG {
@@ -28387,7 +28387,7 @@ impl ::core::default::Default for TASKDIALOGCONFIG {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union TASKDIALOGCONFIG_0 {
     pub hMainIcon: super::WindowsAndMessaging::HICON,
-    pub pszMainIcon: ::windows::core::PCWSTR,
+    pub pszMainIcon: ::windows_core::PCWSTR,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for TASKDIALOGCONFIG_0 {}
@@ -28398,8 +28398,8 @@ impl ::core::clone::Clone for TASKDIALOGCONFIG_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for TASKDIALOGCONFIG_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TASKDIALOGCONFIG_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for TASKDIALOGCONFIG_0 {
@@ -28412,7 +28412,7 @@ impl ::core::default::Default for TASKDIALOGCONFIG_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union TASKDIALOGCONFIG_1 {
     pub hFooterIcon: super::WindowsAndMessaging::HICON,
-    pub pszFooterIcon: ::windows::core::PCWSTR,
+    pub pszFooterIcon: ::windows_core::PCWSTR,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for TASKDIALOGCONFIG_1 {}
@@ -28423,8 +28423,8 @@ impl ::core::clone::Clone for TASKDIALOGCONFIG_1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::windows::core::TypeKind for TASKDIALOGCONFIG_1 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TASKDIALOGCONFIG_1 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for TASKDIALOGCONFIG_1 {
@@ -28436,7 +28436,7 @@ impl ::core::default::Default for TASKDIALOGCONFIG_1 {
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub struct TASKDIALOG_BUTTON {
     pub nButtonID: i32,
-    pub pszButtonText: ::windows::core::PCWSTR,
+    pub pszButtonText: ::windows_core::PCWSTR,
 }
 impl ::core::marker::Copy for TASKDIALOG_BUTTON {}
 impl ::core::clone::Clone for TASKDIALOG_BUTTON {
@@ -28444,8 +28444,8 @@ impl ::core::clone::Clone for TASKDIALOG_BUTTON {
         *self
     }
 }
-impl ::windows::core::TypeKind for TASKDIALOG_BUTTON {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TASKDIALOG_BUTTON {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::default::Default for TASKDIALOG_BUTTON {
     fn default() -> Self {
@@ -28472,8 +28472,8 @@ impl ::core::fmt::Debug for TA_CUBIC_BEZIER {
         f.debug_struct("TA_CUBIC_BEZIER").field("header", &self.header).field("rX0", &self.rX0).field("rY0", &self.rY0).field("rX1", &self.rX1).field("rY1", &self.rY1).finish()
     }
 }
-impl ::windows::core::TypeKind for TA_CUBIC_BEZIER {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TA_CUBIC_BEZIER {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for TA_CUBIC_BEZIER {
     fn eq(&self, other: &Self) -> bool {
@@ -28502,8 +28502,8 @@ impl ::core::fmt::Debug for TA_TIMINGFUNCTION {
         f.debug_struct("TA_TIMINGFUNCTION").field("eTimingFunctionType", &self.eTimingFunctionType).finish()
     }
 }
-impl ::windows::core::TypeKind for TA_TIMINGFUNCTION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TA_TIMINGFUNCTION {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for TA_TIMINGFUNCTION {
     fn eq(&self, other: &Self) -> bool {
@@ -28536,8 +28536,8 @@ impl ::core::fmt::Debug for TA_TRANSFORM {
         f.debug_struct("TA_TRANSFORM").field("eTransformType", &self.eTransformType).field("dwTimingFunctionId", &self.dwTimingFunctionId).field("dwStartTime", &self.dwStartTime).field("dwDurationTime", &self.dwDurationTime).field("eFlags", &self.eFlags).finish()
     }
 }
-impl ::windows::core::TypeKind for TA_TRANSFORM {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TA_TRANSFORM {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for TA_TRANSFORM {
     fn eq(&self, other: &Self) -> bool {
@@ -28572,8 +28572,8 @@ impl ::core::fmt::Debug for TA_TRANSFORM_2D {
         f.debug_struct("TA_TRANSFORM_2D").field("header", &self.header).field("rX", &self.rX).field("rY", &self.rY).field("rInitialX", &self.rInitialX).field("rInitialY", &self.rInitialY).field("rOriginX", &self.rOriginX).field("rOriginY", &self.rOriginY).finish()
     }
 }
-impl ::windows::core::TypeKind for TA_TRANSFORM_2D {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TA_TRANSFORM_2D {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for TA_TRANSFORM_2D {
     fn eq(&self, other: &Self) -> bool {
@@ -28610,8 +28610,8 @@ impl ::core::fmt::Debug for TA_TRANSFORM_CLIP {
         f.debug_struct("TA_TRANSFORM_CLIP").field("header", &self.header).field("rLeft", &self.rLeft).field("rTop", &self.rTop).field("rRight", &self.rRight).field("rBottom", &self.rBottom).field("rInitialLeft", &self.rInitialLeft).field("rInitialTop", &self.rInitialTop).field("rInitialRight", &self.rInitialRight).field("rInitialBottom", &self.rInitialBottom).finish()
     }
 }
-impl ::windows::core::TypeKind for TA_TRANSFORM_CLIP {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TA_TRANSFORM_CLIP {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for TA_TRANSFORM_CLIP {
     fn eq(&self, other: &Self) -> bool {
@@ -28642,8 +28642,8 @@ impl ::core::fmt::Debug for TA_TRANSFORM_OPACITY {
         f.debug_struct("TA_TRANSFORM_OPACITY").field("header", &self.header).field("rOpacity", &self.rOpacity).field("rInitialOpacity", &self.rInitialOpacity).finish()
     }
 }
-impl ::windows::core::TypeKind for TA_TRANSFORM_OPACITY {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TA_TRANSFORM_OPACITY {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for TA_TRANSFORM_OPACITY {
     fn eq(&self, other: &Self) -> bool {
@@ -28678,8 +28678,8 @@ impl ::core::fmt::Debug for TBADDBITMAP {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for TBADDBITMAP {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TBADDBITMAP {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TBADDBITMAP {
@@ -28722,8 +28722,8 @@ impl ::core::fmt::Debug for TBBUTTON {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::windows::core::TypeKind for TBBUTTON {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TBBUTTON {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for TBBUTTON {
@@ -28766,8 +28766,8 @@ impl ::core::fmt::Debug for TBBUTTON {
     }
 }
 #[cfg(target_arch = "x86")]
-impl ::windows::core::TypeKind for TBBUTTON {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TBBUTTON {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::cmp::PartialEq for TBBUTTON {
@@ -28794,7 +28794,7 @@ pub struct TBBUTTONINFOA {
     pub fsStyle: u8,
     pub cx: u16,
     pub lParam: usize,
-    pub pszText: ::windows::core::PSTR,
+    pub pszText: ::windows_core::PSTR,
     pub cchText: i32,
 }
 impl ::core::marker::Copy for TBBUTTONINFOA {}
@@ -28808,8 +28808,8 @@ impl ::core::fmt::Debug for TBBUTTONINFOA {
         f.debug_struct("TBBUTTONINFOA").field("cbSize", &self.cbSize).field("dwMask", &self.dwMask).field("idCommand", &self.idCommand).field("iImage", &self.iImage).field("fsState", &self.fsState).field("fsStyle", &self.fsStyle).field("cx", &self.cx).field("lParam", &self.lParam).field("pszText", &self.pszText).field("cchText", &self.cchText).finish()
     }
 }
-impl ::windows::core::TypeKind for TBBUTTONINFOA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TBBUTTONINFOA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for TBBUTTONINFOA {
     fn eq(&self, other: &Self) -> bool {
@@ -28833,7 +28833,7 @@ pub struct TBBUTTONINFOW {
     pub fsStyle: u8,
     pub cx: u16,
     pub lParam: usize,
-    pub pszText: ::windows::core::PWSTR,
+    pub pszText: ::windows_core::PWSTR,
     pub cchText: i32,
 }
 impl ::core::marker::Copy for TBBUTTONINFOW {}
@@ -28847,8 +28847,8 @@ impl ::core::fmt::Debug for TBBUTTONINFOW {
         f.debug_struct("TBBUTTONINFOW").field("cbSize", &self.cbSize).field("dwMask", &self.dwMask).field("idCommand", &self.idCommand).field("iImage", &self.iImage).field("fsState", &self.fsState).field("fsStyle", &self.fsStyle).field("cx", &self.cx).field("lParam", &self.lParam).field("pszText", &self.pszText).field("cchText", &self.cchText).finish()
     }
 }
-impl ::windows::core::TypeKind for TBBUTTONINFOW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TBBUTTONINFOW {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for TBBUTTONINFOW {
     fn eq(&self, other: &Self) -> bool {
@@ -28878,8 +28878,8 @@ impl ::core::fmt::Debug for TBINSERTMARK {
         f.debug_struct("TBINSERTMARK").field("iButton", &self.iButton).field("dwFlags", &self.dwFlags).finish()
     }
 }
-impl ::windows::core::TypeKind for TBINSERTMARK {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TBINSERTMARK {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for TBINSERTMARK {
     fn eq(&self, other: &Self) -> bool {
@@ -28915,8 +28915,8 @@ impl ::core::fmt::Debug for TBMETRICS {
         f.debug_struct("TBMETRICS").field("cbSize", &self.cbSize).field("dwMask", &self.dwMask).field("cxPad", &self.cxPad).field("cyPad", &self.cyPad).field("cxBarPad", &self.cxBarPad).field("cyBarPad", &self.cyBarPad).field("cxButtonSpacing", &self.cxButtonSpacing).field("cyButtonSpacing", &self.cyButtonSpacing).finish()
     }
 }
-impl ::windows::core::TypeKind for TBMETRICS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TBMETRICS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for TBMETRICS {
     fn eq(&self, other: &Self) -> bool {
@@ -28954,8 +28954,8 @@ impl ::core::fmt::Debug for TBREPLACEBITMAP {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for TBREPLACEBITMAP {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TBREPLACEBITMAP {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TBREPLACEBITMAP {
@@ -28976,8 +28976,8 @@ impl ::core::default::Default for TBREPLACEBITMAP {
 #[cfg(feature = "Win32_System_Registry")]
 pub struct TBSAVEPARAMSA {
     pub hkr: super::super::System::Registry::HKEY,
-    pub pszSubKey: ::windows::core::PCSTR,
-    pub pszValueName: ::windows::core::PCSTR,
+    pub pszSubKey: ::windows_core::PCSTR,
+    pub pszValueName: ::windows_core::PCSTR,
 }
 #[cfg(feature = "Win32_System_Registry")]
 impl ::core::marker::Copy for TBSAVEPARAMSA {}
@@ -28994,8 +28994,8 @@ impl ::core::fmt::Debug for TBSAVEPARAMSA {
     }
 }
 #[cfg(feature = "Win32_System_Registry")]
-impl ::windows::core::TypeKind for TBSAVEPARAMSA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TBSAVEPARAMSA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Registry")]
 impl ::core::cmp::PartialEq for TBSAVEPARAMSA {
@@ -29016,8 +29016,8 @@ impl ::core::default::Default for TBSAVEPARAMSA {
 #[cfg(feature = "Win32_System_Registry")]
 pub struct TBSAVEPARAMSW {
     pub hkr: super::super::System::Registry::HKEY,
-    pub pszSubKey: ::windows::core::PCWSTR,
-    pub pszValueName: ::windows::core::PCWSTR,
+    pub pszSubKey: ::windows_core::PCWSTR,
+    pub pszValueName: ::windows_core::PCWSTR,
 }
 #[cfg(feature = "Win32_System_Registry")]
 impl ::core::marker::Copy for TBSAVEPARAMSW {}
@@ -29034,8 +29034,8 @@ impl ::core::fmt::Debug for TBSAVEPARAMSW {
     }
 }
 #[cfg(feature = "Win32_System_Registry")]
-impl ::windows::core::TypeKind for TBSAVEPARAMSW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TBSAVEPARAMSW {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Registry")]
 impl ::core::cmp::PartialEq for TBSAVEPARAMSW {
@@ -29073,8 +29073,8 @@ impl ::core::fmt::Debug for TCHITTESTINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for TCHITTESTINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TCHITTESTINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TCHITTESTINFO {
@@ -29097,7 +29097,7 @@ pub struct TCITEMA {
     pub mask: TCITEMHEADERA_MASK,
     pub dwState: TAB_CONTROL_ITEM_STATE,
     pub dwStateMask: TAB_CONTROL_ITEM_STATE,
-    pub pszText: ::windows::core::PSTR,
+    pub pszText: ::windows_core::PSTR,
     pub cchTextMax: i32,
     pub iImage: i32,
     pub lParam: super::super::Foundation::LPARAM,
@@ -29117,8 +29117,8 @@ impl ::core::fmt::Debug for TCITEMA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for TCITEMA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TCITEMA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TCITEMA {
@@ -29140,7 +29140,7 @@ pub struct TCITEMHEADERA {
     pub mask: TCITEMHEADERA_MASK,
     pub lpReserved1: u32,
     pub lpReserved2: u32,
-    pub pszText: ::windows::core::PSTR,
+    pub pszText: ::windows_core::PSTR,
     pub cchTextMax: i32,
     pub iImage: i32,
 }
@@ -29155,8 +29155,8 @@ impl ::core::fmt::Debug for TCITEMHEADERA {
         f.debug_struct("TCITEMHEADERA").field("mask", &self.mask).field("lpReserved1", &self.lpReserved1).field("lpReserved2", &self.lpReserved2).field("pszText", &self.pszText).field("cchTextMax", &self.cchTextMax).field("iImage", &self.iImage).finish()
     }
 }
-impl ::windows::core::TypeKind for TCITEMHEADERA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TCITEMHEADERA {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for TCITEMHEADERA {
     fn eq(&self, other: &Self) -> bool {
@@ -29175,7 +29175,7 @@ pub struct TCITEMHEADERW {
     pub mask: TCITEMHEADERA_MASK,
     pub lpReserved1: u32,
     pub lpReserved2: u32,
-    pub pszText: ::windows::core::PWSTR,
+    pub pszText: ::windows_core::PWSTR,
     pub cchTextMax: i32,
     pub iImage: i32,
 }
@@ -29190,8 +29190,8 @@ impl ::core::fmt::Debug for TCITEMHEADERW {
         f.debug_struct("TCITEMHEADERW").field("mask", &self.mask).field("lpReserved1", &self.lpReserved1).field("lpReserved2", &self.lpReserved2).field("pszText", &self.pszText).field("cchTextMax", &self.cchTextMax).field("iImage", &self.iImage).finish()
     }
 }
-impl ::windows::core::TypeKind for TCITEMHEADERW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TCITEMHEADERW {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for TCITEMHEADERW {
     fn eq(&self, other: &Self) -> bool {
@@ -29211,7 +29211,7 @@ pub struct TCITEMW {
     pub mask: TCITEMHEADERA_MASK,
     pub dwState: TAB_CONTROL_ITEM_STATE,
     pub dwStateMask: TAB_CONTROL_ITEM_STATE,
-    pub pszText: ::windows::core::PWSTR,
+    pub pszText: ::windows_core::PWSTR,
     pub cchTextMax: i32,
     pub iImage: i32,
     pub lParam: super::super::Foundation::LPARAM,
@@ -29231,8 +29231,8 @@ impl ::core::fmt::Debug for TCITEMW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for TCITEMW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TCITEMW {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TCITEMW {
@@ -29273,8 +29273,8 @@ impl ::core::fmt::Debug for TOUCH_HIT_TESTING_INPUT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for TOUCH_HIT_TESTING_INPUT {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TOUCH_HIT_TESTING_INPUT {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TOUCH_HIT_TESTING_INPUT {
@@ -29312,8 +29312,8 @@ impl ::core::fmt::Debug for TOUCH_HIT_TESTING_PROXIMITY_EVALUATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for TOUCH_HIT_TESTING_PROXIMITY_EVALUATION {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TOUCH_HIT_TESTING_PROXIMITY_EVALUATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TOUCH_HIT_TESTING_PROXIMITY_EVALUATION {
@@ -29335,7 +29335,7 @@ pub struct TTGETTITLE {
     pub dwSize: u32,
     pub uTitleBitmap: u32,
     pub cch: u32,
-    pub pszTitle: ::windows::core::PWSTR,
+    pub pszTitle: ::windows_core::PWSTR,
 }
 impl ::core::marker::Copy for TTGETTITLE {}
 impl ::core::clone::Clone for TTGETTITLE {
@@ -29348,8 +29348,8 @@ impl ::core::fmt::Debug for TTGETTITLE {
         f.debug_struct("TTGETTITLE").field("dwSize", &self.dwSize).field("uTitleBitmap", &self.uTitleBitmap).field("cch", &self.cch).field("pszTitle", &self.pszTitle).finish()
     }
 }
-impl ::windows::core::TypeKind for TTGETTITLE {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TTGETTITLE {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for TTGETTITLE {
     fn eq(&self, other: &Self) -> bool {
@@ -29385,8 +29385,8 @@ impl ::core::fmt::Debug for TTHITTESTINFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for TTHITTESTINFOA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TTHITTESTINFOA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TTHITTESTINFOA {
@@ -29425,8 +29425,8 @@ impl ::core::fmt::Debug for TTHITTESTINFOW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for TTHITTESTINFOW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TTHITTESTINFOW {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TTHITTESTINFOW {
@@ -29452,7 +29452,7 @@ pub struct TTTOOLINFOA {
     pub uId: usize,
     pub rect: super::super::Foundation::RECT,
     pub hinst: super::super::Foundation::HMODULE,
-    pub lpszText: ::windows::core::PSTR,
+    pub lpszText: ::windows_core::PSTR,
     pub lParam: super::super::Foundation::LPARAM,
     pub lpReserved: *mut ::core::ffi::c_void,
 }
@@ -29471,8 +29471,8 @@ impl ::core::fmt::Debug for TTTOOLINFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for TTTOOLINFOA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TTTOOLINFOA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TTTOOLINFOA {
@@ -29498,7 +29498,7 @@ pub struct TTTOOLINFOW {
     pub uId: usize,
     pub rect: super::super::Foundation::RECT,
     pub hinst: super::super::Foundation::HMODULE,
-    pub lpszText: ::windows::core::PWSTR,
+    pub lpszText: ::windows_core::PWSTR,
     pub lParam: super::super::Foundation::LPARAM,
     pub lpReserved: *mut ::core::ffi::c_void,
 }
@@ -29517,8 +29517,8 @@ impl ::core::fmt::Debug for TTTOOLINFOW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for TTTOOLINFOW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TTTOOLINFOW {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TTTOOLINFOW {
@@ -29557,8 +29557,8 @@ impl ::core::fmt::Debug for TVGETITEMPARTRECTINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for TVGETITEMPARTRECTINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TVGETITEMPARTRECTINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TVGETITEMPARTRECTINFO {
@@ -29597,8 +29597,8 @@ impl ::core::fmt::Debug for TVHITTESTINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for TVHITTESTINFO {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TVHITTESTINFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TVHITTESTINFO {
@@ -29631,8 +29631,8 @@ impl ::core::clone::Clone for TVINSERTSTRUCTA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for TVINSERTSTRUCTA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TVINSERTSTRUCTA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for TVINSERTSTRUCTA {
@@ -29656,8 +29656,8 @@ impl ::core::clone::Clone for TVINSERTSTRUCTA_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for TVINSERTSTRUCTA_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TVINSERTSTRUCTA_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for TVINSERTSTRUCTA_0 {
@@ -29682,8 +29682,8 @@ impl ::core::clone::Clone for TVINSERTSTRUCTW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for TVINSERTSTRUCTW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TVINSERTSTRUCTW {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for TVINSERTSTRUCTW {
@@ -29707,8 +29707,8 @@ impl ::core::clone::Clone for TVINSERTSTRUCTW_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for TVINSERTSTRUCTW_0 {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TVINSERTSTRUCTW_0 {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for TVINSERTSTRUCTW_0 {
@@ -29724,7 +29724,7 @@ pub struct TVITEMA {
     pub hItem: HTREEITEM,
     pub state: TREE_VIEW_ITEM_STATE_FLAGS,
     pub stateMask: TREE_VIEW_ITEM_STATE_FLAGS,
-    pub pszText: ::windows::core::PSTR,
+    pub pszText: ::windows_core::PSTR,
     pub cchTextMax: i32,
     pub iImage: i32,
     pub iSelectedImage: i32,
@@ -29746,8 +29746,8 @@ impl ::core::fmt::Debug for TVITEMA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for TVITEMA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TVITEMA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TVITEMA {
@@ -29771,7 +29771,7 @@ pub struct TVITEMEXA {
     pub hItem: HTREEITEM,
     pub state: u32,
     pub stateMask: u32,
-    pub pszText: ::windows::core::PSTR,
+    pub pszText: ::windows_core::PSTR,
     pub cchTextMax: i32,
     pub iImage: i32,
     pub iSelectedImage: i32,
@@ -29814,8 +29814,8 @@ impl ::core::fmt::Debug for TVITEMEXA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for TVITEMEXA {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TVITEMEXA {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TVITEMEXA {
@@ -29839,7 +29839,7 @@ pub struct TVITEMEXW {
     pub hItem: HTREEITEM,
     pub state: u32,
     pub stateMask: u32,
-    pub pszText: ::windows::core::PWSTR,
+    pub pszText: ::windows_core::PWSTR,
     pub cchTextMax: i32,
     pub iImage: i32,
     pub iSelectedImage: i32,
@@ -29882,8 +29882,8 @@ impl ::core::fmt::Debug for TVITEMEXW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for TVITEMEXW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TVITEMEXW {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TVITEMEXW {
@@ -29907,7 +29907,7 @@ pub struct TVITEMW {
     pub hItem: HTREEITEM,
     pub state: TREE_VIEW_ITEM_STATE_FLAGS,
     pub stateMask: TREE_VIEW_ITEM_STATE_FLAGS,
-    pub pszText: ::windows::core::PWSTR,
+    pub pszText: ::windows_core::PWSTR,
     pub cchTextMax: i32,
     pub iImage: i32,
     pub iSelectedImage: i32,
@@ -29929,8 +29929,8 @@ impl ::core::fmt::Debug for TVITEMW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for TVITEMW {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TVITEMW {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TVITEMW {
@@ -29969,8 +29969,8 @@ impl ::core::fmt::Debug for TVSORTCB {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::TypeKind for TVSORTCB {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for TVSORTCB {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for TVSORTCB {
@@ -29995,8 +29995,8 @@ impl ::core::fmt::Debug for UDACCEL {
         f.debug_struct("UDACCEL").field("nSec", &self.nSec).field("nInc", &self.nInc).finish()
     }
 }
-impl ::windows::core::TypeKind for UDACCEL {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for UDACCEL {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for UDACCEL {
     fn eq(&self, other: &Self) -> bool {
@@ -30034,8 +30034,8 @@ impl ::core::fmt::Debug for USAGE_PROPERTIES {
         f.debug_struct("USAGE_PROPERTIES").field("level", &self.level).field("page", &self.page).field("usage", &self.usage).field("logicalMinimum", &self.logicalMinimum).field("logicalMaximum", &self.logicalMaximum).field("unit", &self.unit).field("exponent", &self.exponent).field("count", &self.count).field("physicalMinimum", &self.physicalMinimum).field("physicalMaximum", &self.physicalMaximum).finish()
     }
 }
-impl ::windows::core::TypeKind for USAGE_PROPERTIES {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for USAGE_PROPERTIES {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for USAGE_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
@@ -30065,8 +30065,8 @@ impl ::core::fmt::Debug for WTA_OPTIONS {
         f.debug_struct("WTA_OPTIONS").field("dwFlags", &self.dwFlags).field("dwMask", &self.dwMask).finish()
     }
 }
-impl ::windows::core::TypeKind for WTA_OPTIONS {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for WTA_OPTIONS {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::cmp::PartialEq for WTA_OPTIONS {
     fn eq(&self, other: &Self) -> bool {
@@ -30081,11 +30081,11 @@ impl ::core::default::Default for WTA_OPTIONS {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-pub type DTT_CALLBACK_PROC = ::core::option::Option<unsafe extern "system" fn(hdc: super::super::Graphics::Gdi::HDC, psztext: ::windows::core::PWSTR, cchtext: i32, prc: *mut super::super::Foundation::RECT, dwflags: u32, lparam: super::super::Foundation::LPARAM) -> i32>;
+pub type DTT_CALLBACK_PROC = ::core::option::Option<unsafe extern "system" fn(hdc: super::super::Graphics::Gdi::HDC, psztext: ::windows_core::PWSTR, cchtext: i32, prc: *mut super::super::Foundation::RECT, dwflags: u32, lparam: super::super::Foundation::LPARAM) -> i32>;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub type EDITWORDBREAKPROCA = ::core::option::Option<unsafe extern "system" fn(lpch: ::windows::core::PCSTR, ichcurrent: i32, cch: i32, code: WORD_BREAK_ACTION) -> i32>;
+pub type EDITWORDBREAKPROCA = ::core::option::Option<unsafe extern "system" fn(lpch: ::windows_core::PCSTR, ichcurrent: i32, cch: i32, code: WORD_BREAK_ACTION) -> i32>;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub type EDITWORDBREAKPROCW = ::core::option::Option<unsafe extern "system" fn(lpch: ::windows::core::PCWSTR, ichcurrent: i32, cch: i32, code: WORD_BREAK_ACTION) -> i32>;
+pub type EDITWORDBREAKPROCW = ::core::option::Option<unsafe extern "system" fn(lpch: ::windows_core::PCWSTR, ichcurrent: i32, cch: i32, code: WORD_BREAK_ACTION) -> i32>;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFNADDPROPSHEETPAGES = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: LPFNSVADDPROPSHEETPAGE, param2: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
@@ -30097,10 +30097,10 @@ pub type LPFNCCINFOA = ::core::option::Option<unsafe extern "system" fn(acci: *m
 pub type LPFNCCINFOW = ::core::option::Option<unsafe extern "system" fn(acci: *mut CCINFOW) -> u32>;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type LPFNCCSIZETOTEXTA = ::core::option::Option<unsafe extern "system" fn(flstyle: u32, flextstyle: u32, hfont: super::super::Graphics::Gdi::HFONT, psztext: ::windows::core::PCSTR) -> i32>;
+pub type LPFNCCSIZETOTEXTA = ::core::option::Option<unsafe extern "system" fn(flstyle: u32, flextstyle: u32, hfont: super::super::Graphics::Gdi::HFONT, psztext: ::windows_core::PCSTR) -> i32>;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type LPFNCCSIZETOTEXTW = ::core::option::Option<unsafe extern "system" fn(flstyle: u32, flextstyle: u32, hfont: super::super::Graphics::Gdi::HFONT, psztext: ::windows::core::PCWSTR) -> i32>;
+pub type LPFNCCSIZETOTEXTW = ::core::option::Option<unsafe extern "system" fn(flstyle: u32, flextstyle: u32, hfont: super::super::Graphics::Gdi::HFONT, psztext: ::windows_core::PCWSTR) -> i32>;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFNCCSTYLEA = ::core::option::Option<unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pccs: *mut CCSTYLEA) -> super::super::Foundation::BOOL>;
@@ -30134,7 +30134,7 @@ pub type PFNDPAMERGE = ::core::option::Option<unsafe extern "system" fn(umsg: DP
 pub type PFNDPAMERGECONST = ::core::option::Option<unsafe extern "system" fn(umsg: DPAMM_MESSAGE, pvdest: *const ::core::ffi::c_void, pvsrc: *const ::core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> *mut ::core::ffi::c_void>;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
-pub type PFNDPASTREAM = ::core::option::Option<unsafe extern "system" fn(pinfo: *const DPASTREAMINFO, pstream: ::core::option::Option<super::super::System::Com::IStream>, pvinstdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT>;
+pub type PFNDPASTREAM = ::core::option::Option<unsafe extern "system" fn(pinfo: *const DPASTREAMINFO, pstream: ::core::option::Option<super::super::System::Com::IStream>, pvinstdata: *const ::core::ffi::c_void) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNLVCOMPARE = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::LPARAM, param1: super::super::Foundation::LPARAM, param2: super::super::Foundation::LPARAM) -> i32>;
@@ -30148,6 +30148,6 @@ pub type PFNPROPSHEETCALLBACK = ::core::option::Option<unsafe extern "system" fn
 pub type PFNTVCOMPARE = ::core::option::Option<unsafe extern "system" fn(lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM, lparamsort: super::super::Foundation::LPARAM) -> i32>;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFTASKDIALOGCALLBACK = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, lprefdata: isize) -> ::windows::core::HRESULT>;
+pub type PFTASKDIALOGCALLBACK = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, lprefdata: isize) -> ::windows_core::HRESULT>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

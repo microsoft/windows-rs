@@ -1,7 +1,7 @@
 #[doc(hidden)]
 #[repr(transparent)]
-pub struct IAnimationDescription(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAnimationDescription {
+pub struct IAnimationDescription(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for IAnimationDescription {
     type Vtable = IAnimationDescription_Vtbl;
 }
 impl ::core::clone::Clone for IAnimationDescription {
@@ -9,32 +9,32 @@ impl ::core::clone::Clone for IAnimationDescription {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IAnimationDescription {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d11a549_be3d_41de_b081_05c149962f9b);
+unsafe impl ::windows_core::ComInterface for IAnimationDescription {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7d11a549_be3d_41de_b081_05c149962f9b);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAnimationDescription_Vtbl {
-    pub base__: ::windows::core::IInspectable_Vtbl,
+    pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
-    pub Animations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Animations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     Animations: usize,
     #[cfg(feature = "Foundation")]
-    pub StaggerDelay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
+    pub StaggerDelay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     StaggerDelay: usize,
-    pub StaggerDelayFactor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
+    pub StaggerDelayFactor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub DelayLimit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
+    pub DelayLimit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     DelayLimit: usize,
-    pub ZOrder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
+    pub ZOrder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
-pub struct IAnimationDescriptionFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAnimationDescriptionFactory {
+pub struct IAnimationDescriptionFactory(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for IAnimationDescriptionFactory {
     type Vtable = IAnimationDescriptionFactory_Vtbl;
 }
 impl ::core::clone::Clone for IAnimationDescriptionFactory {
@@ -42,19 +42,19 @@ impl ::core::clone::Clone for IAnimationDescriptionFactory {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IAnimationDescriptionFactory {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6e27abe_c1fb_48b5_9271_ecc70ac86ef0);
+unsafe impl ::windows_core::ComInterface for IAnimationDescriptionFactory {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc6e27abe_c1fb_48b5_9271_ecc70ac86ef0);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAnimationDescriptionFactory_Vtbl {
-    pub base__: ::windows::core::IInspectable_Vtbl,
-    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, effect: AnimationEffect, target: AnimationEffectTarget, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, effect: AnimationEffect, target: AnimationEffectTarget, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
-pub struct IOpacityAnimation(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IOpacityAnimation {
+pub struct IOpacityAnimation(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for IOpacityAnimation {
     type Vtable = IOpacityAnimation_Vtbl;
 }
 impl ::core::clone::Clone for IOpacityAnimation {
@@ -62,68 +62,68 @@ impl ::core::clone::Clone for IOpacityAnimation {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IOpacityAnimation {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x803aabe5_ee7e_455f_84e9_2506afb8d2b4);
+unsafe impl ::windows_core::ComInterface for IOpacityAnimation {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x803aabe5_ee7e_455f_84e9_2506afb8d2b4);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpacityAnimation_Vtbl {
-    pub base__: ::windows::core::IInspectable_Vtbl,
+    pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
-    pub InitialOpacity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub InitialOpacity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     InitialOpacity: usize,
-    pub FinalOpacity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
+    pub FinalOpacity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`*"]
 #[repr(transparent)]
-pub struct IPropertyAnimation(::windows::core::IUnknown);
+pub struct IPropertyAnimation(::windows_core::IUnknown);
 impl IPropertyAnimation {
-    pub fn Type(&self) -> ::windows::core::Result<PropertyAnimationType> {
+    pub fn Type(&self) -> ::windows_core::Result<PropertyAnimationType> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<PropertyAnimationType>();
-            (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<PropertyAnimationType>();
+            (::windows_core::Interface::vtable(this).Type)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Delay(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn Delay(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::TimeSpan>();
-            (::windows::core::Interface::vtable(this).Delay)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::TimeSpan>();
+            (::windows_core::Interface::vtable(this).Delay)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Duration(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn Duration(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::TimeSpan>();
-            (::windows::core::Interface::vtable(this).Duration)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::TimeSpan>();
+            (::windows_core::Interface::vtable(this).Duration)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Control1(&self) -> ::windows::core::Result<super::super::super::Foundation::Point> {
+    pub fn Control1(&self) -> ::windows_core::Result<super::super::super::Foundation::Point> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Point>();
-            (::windows::core::Interface::vtable(this).Control1)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Point>();
+            (::windows_core::Interface::vtable(this).Control1)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Control2(&self) -> ::windows::core::Result<super::super::super::Foundation::Point> {
+    pub fn Control2(&self) -> ::windows_core::Result<super::super::super::Foundation::Point> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Point>();
-            (::windows::core::Interface::vtable(this).Control2)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Point>();
+            (::windows_core::Interface::vtable(this).Control2)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows::imp::interface_hierarchy!(IPropertyAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows_core::imp::interface_hierarchy!(IPropertyAnimation, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::core::cmp::PartialEq for IPropertyAnimation {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -135,10 +135,10 @@ impl ::core::fmt::Debug for IPropertyAnimation {
         f.debug_tuple("IPropertyAnimation").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for IPropertyAnimation {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{3a01b4da-4d8c-411e-b615-1ade683a9903}");
+impl ::windows_core::RuntimeType for IPropertyAnimation {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{3a01b4da-4d8c-411e-b615-1ade683a9903}");
 }
-unsafe impl ::windows::core::Interface for IPropertyAnimation {
+unsafe impl ::windows_core::Interface for IPropertyAnimation {
     type Vtable = IPropertyAnimation_Vtbl;
 }
 impl ::core::clone::Clone for IPropertyAnimation {
@@ -146,35 +146,35 @@ impl ::core::clone::Clone for IPropertyAnimation {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IPropertyAnimation {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a01b4da_4d8c_411e_b615_1ade683a9903);
+unsafe impl ::windows_core::ComInterface for IPropertyAnimation {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3a01b4da_4d8c_411e_b615_1ade683a9903);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPropertyAnimation_Vtbl {
-    pub base__: ::windows::core::IInspectable_Vtbl,
-    pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PropertyAnimationType) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PropertyAnimationType) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub Delay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
+    pub Delay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     Delay: usize,
     #[cfg(feature = "Foundation")]
-    pub Duration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
+    pub Duration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     Duration: usize,
     #[cfg(feature = "Foundation")]
-    pub Control1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Point) -> ::windows::core::HRESULT,
+    pub Control1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Point) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     Control1: usize,
     #[cfg(feature = "Foundation")]
-    pub Control2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Point) -> ::windows::core::HRESULT,
+    pub Control2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Point) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     Control2: usize,
 }
 #[doc(hidden)]
 #[repr(transparent)]
-pub struct IScaleAnimation(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IScaleAnimation {
+pub struct IScaleAnimation(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for IScaleAnimation {
     type Vtable = IScaleAnimation_Vtbl;
 }
 impl ::core::clone::Clone for IScaleAnimation {
@@ -182,82 +182,82 @@ impl ::core::clone::Clone for IScaleAnimation {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IScaleAnimation {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x023552c7_71ab_428c_9c9f_d31780964995);
+unsafe impl ::windows_core::ComInterface for IScaleAnimation {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x023552c7_71ab_428c_9c9f_d31780964995);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IScaleAnimation_Vtbl {
-    pub base__: ::windows::core::IInspectable_Vtbl,
+    pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
-    pub InitialScaleX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub InitialScaleX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     InitialScaleX: usize,
     #[cfg(feature = "Foundation")]
-    pub InitialScaleY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub InitialScaleY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     InitialScaleY: usize,
-    pub FinalScaleX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
-    pub FinalScaleY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
+    pub FinalScaleX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows_core::HRESULT,
+    pub FinalScaleY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub NormalizedOrigin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Point) -> ::windows::core::HRESULT,
+    pub NormalizedOrigin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Point) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     NormalizedOrigin: usize,
 }
 #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`*"]
 #[repr(transparent)]
-pub struct AnimationDescription(::windows::core::IUnknown);
+pub struct AnimationDescription(::windows_core::IUnknown);
 impl AnimationDescription {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Animations(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<IPropertyAnimation>> {
+    pub fn Animations(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<IPropertyAnimation>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Collections::IVectorView<IPropertyAnimation>>();
-            (::windows::core::Interface::vtable(this).Animations)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Collections::IVectorView<IPropertyAnimation>>();
+            (::windows_core::Interface::vtable(this).Animations)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StaggerDelay(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn StaggerDelay(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::TimeSpan>();
-            (::windows::core::Interface::vtable(this).StaggerDelay)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::TimeSpan>();
+            (::windows_core::Interface::vtable(this).StaggerDelay)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn StaggerDelayFactor(&self) -> ::windows::core::Result<f32> {
+    pub fn StaggerDelayFactor(&self) -> ::windows_core::Result<f32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<f32>();
-            (::windows::core::Interface::vtable(this).StaggerDelayFactor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<f32>();
+            (::windows_core::Interface::vtable(this).StaggerDelayFactor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DelayLimit(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn DelayLimit(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::TimeSpan>();
-            (::windows::core::Interface::vtable(this).DelayLimit)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::TimeSpan>();
+            (::windows_core::Interface::vtable(this).DelayLimit)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn ZOrder(&self) -> ::windows::core::Result<i32> {
+    pub fn ZOrder(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<i32>();
-            (::windows::core::Interface::vtable(this).ZOrder)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<i32>();
+            (::windows_core::Interface::vtable(this).ZOrder)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn CreateInstance(effect: AnimationEffect, target: AnimationEffectTarget) -> ::windows::core::Result<AnimationDescription> {
+    pub fn CreateInstance(effect: AnimationEffect, target: AnimationEffectTarget) -> ::windows_core::Result<AnimationDescription> {
         Self::IAnimationDescriptionFactory(|this| unsafe {
-            let mut result__ = ::windows::core::zeroed::<AnimationDescription>();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), effect, target, &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<AnimationDescription>();
+            (::windows_core::Interface::vtable(this).CreateInstance)(::windows_core::Interface::as_raw(this), effect, target, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
-    pub fn IAnimationDescriptionFactory<R, F: FnOnce(&IAnimationDescriptionFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::imp::FactoryCache<AnimationDescription, IAnimationDescriptionFactory> = ::windows::imp::FactoryCache::new();
+    pub fn IAnimationDescriptionFactory<R, F: FnOnce(&IAnimationDescriptionFactory) -> ::windows_core::Result<R>>(callback: F) -> ::windows_core::Result<R> {
+        static SHARED: ::windows_core::imp::FactoryCache<AnimationDescription, IAnimationDescriptionFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -272,87 +272,87 @@ impl ::core::fmt::Debug for AnimationDescription {
         f.debug_tuple("AnimationDescription").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for AnimationDescription {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.AnimationMetrics.AnimationDescription;{7d11a549-be3d-41de-b081-05c149962f9b})");
+impl ::windows_core::RuntimeType for AnimationDescription {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.AnimationMetrics.AnimationDescription;{7d11a549-be3d-41de-b081-05c149962f9b})");
 }
 impl ::core::clone::Clone for AnimationDescription {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for AnimationDescription {
+unsafe impl ::windows_core::Interface for AnimationDescription {
     type Vtable = IAnimationDescription_Vtbl;
 }
-unsafe impl ::windows::core::ComInterface for AnimationDescription {
-    const IID: ::windows::core::GUID = <IAnimationDescription as ::windows::core::ComInterface>::IID;
+unsafe impl ::windows_core::ComInterface for AnimationDescription {
+    const IID: ::windows_core::GUID = <IAnimationDescription as ::windows_core::ComInterface>::IID;
 }
-impl ::windows::core::RuntimeName for AnimationDescription {
+impl ::windows_core::RuntimeName for AnimationDescription {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.AnimationDescription";
 }
-::windows::imp::interface_hierarchy!(AnimationDescription, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows_core::imp::interface_hierarchy!(AnimationDescription, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AnimationDescription {}
 unsafe impl ::core::marker::Sync for AnimationDescription {}
 #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`*"]
 #[repr(transparent)]
-pub struct OpacityAnimation(::windows::core::IUnknown);
+pub struct OpacityAnimation(::windows_core::IUnknown);
 impl OpacityAnimation {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn InitialOpacity(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<f32>> {
+    pub fn InitialOpacity(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<f32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IReference<f32>>();
-            (::windows::core::Interface::vtable(this).InitialOpacity)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IReference<f32>>();
+            (::windows_core::Interface::vtable(this).InitialOpacity)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn FinalOpacity(&self) -> ::windows::core::Result<f32> {
+    pub fn FinalOpacity(&self) -> ::windows_core::Result<f32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<f32>();
-            (::windows::core::Interface::vtable(this).FinalOpacity)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<f32>();
+            (::windows_core::Interface::vtable(this).FinalOpacity)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn Type(&self) -> ::windows::core::Result<PropertyAnimationType> {
-        let this = &::windows::core::ComInterface::cast::<IPropertyAnimation>(self)?;
+    pub fn Type(&self) -> ::windows_core::Result<PropertyAnimationType> {
+        let this = &::windows_core::ComInterface::cast::<IPropertyAnimation>(self)?;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<PropertyAnimationType>();
-            (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn Delay(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
-        let this = &::windows::core::ComInterface::cast::<IPropertyAnimation>(self)?;
-        unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::TimeSpan>();
-            (::windows::core::Interface::vtable(this).Delay)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<PropertyAnimationType>();
+            (::windows_core::Interface::vtable(this).Type)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Duration(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
-        let this = &::windows::core::ComInterface::cast::<IPropertyAnimation>(self)?;
+    pub fn Delay(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
+        let this = &::windows_core::ComInterface::cast::<IPropertyAnimation>(self)?;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::TimeSpan>();
-            (::windows::core::Interface::vtable(this).Duration)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::TimeSpan>();
+            (::windows_core::Interface::vtable(this).Delay)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Control1(&self) -> ::windows::core::Result<super::super::super::Foundation::Point> {
-        let this = &::windows::core::ComInterface::cast::<IPropertyAnimation>(self)?;
+    pub fn Duration(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
+        let this = &::windows_core::ComInterface::cast::<IPropertyAnimation>(self)?;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Point>();
-            (::windows::core::Interface::vtable(this).Control1)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::TimeSpan>();
+            (::windows_core::Interface::vtable(this).Duration)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Control2(&self) -> ::windows::core::Result<super::super::super::Foundation::Point> {
-        let this = &::windows::core::ComInterface::cast::<IPropertyAnimation>(self)?;
+    pub fn Control1(&self) -> ::windows_core::Result<super::super::super::Foundation::Point> {
+        let this = &::windows_core::ComInterface::cast::<IPropertyAnimation>(self)?;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Point>();
-            (::windows::core::Interface::vtable(this).Control2)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Point>();
+            (::windows_core::Interface::vtable(this).Control1)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn Control2(&self) -> ::windows_core::Result<super::super::super::Foundation::Point> {
+        let this = &::windows_core::ComInterface::cast::<IPropertyAnimation>(self)?;
+        unsafe {
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Point>();
+            (::windows_core::Interface::vtable(this).Control2)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -367,72 +367,72 @@ impl ::core::fmt::Debug for OpacityAnimation {
         f.debug_tuple("OpacityAnimation").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for OpacityAnimation {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.AnimationMetrics.OpacityAnimation;{803aabe5-ee7e-455f-84e9-2506afb8d2b4})");
+impl ::windows_core::RuntimeType for OpacityAnimation {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.AnimationMetrics.OpacityAnimation;{803aabe5-ee7e-455f-84e9-2506afb8d2b4})");
 }
 impl ::core::clone::Clone for OpacityAnimation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for OpacityAnimation {
+unsafe impl ::windows_core::Interface for OpacityAnimation {
     type Vtable = IOpacityAnimation_Vtbl;
 }
-unsafe impl ::windows::core::ComInterface for OpacityAnimation {
-    const IID: ::windows::core::GUID = <IOpacityAnimation as ::windows::core::ComInterface>::IID;
+unsafe impl ::windows_core::ComInterface for OpacityAnimation {
+    const IID: ::windows_core::GUID = <IOpacityAnimation as ::windows_core::ComInterface>::IID;
 }
-impl ::windows::core::RuntimeName for OpacityAnimation {
+impl ::windows_core::RuntimeName for OpacityAnimation {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.OpacityAnimation";
 }
-::windows::imp::interface_hierarchy!(OpacityAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::windows::core::CanTryInto<IPropertyAnimation> for OpacityAnimation {}
+::windows_core::imp::interface_hierarchy!(OpacityAnimation, ::windows_core::IUnknown, ::windows_core::IInspectable);
+impl ::windows_core::CanTryInto<IPropertyAnimation> for OpacityAnimation {}
 unsafe impl ::core::marker::Send for OpacityAnimation {}
 unsafe impl ::core::marker::Sync for OpacityAnimation {}
 #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`*"]
 #[repr(transparent)]
-pub struct PropertyAnimation(::windows::core::IUnknown);
+pub struct PropertyAnimation(::windows_core::IUnknown);
 impl PropertyAnimation {
-    pub fn Type(&self) -> ::windows::core::Result<PropertyAnimationType> {
+    pub fn Type(&self) -> ::windows_core::Result<PropertyAnimationType> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<PropertyAnimationType>();
-            (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<PropertyAnimationType>();
+            (::windows_core::Interface::vtable(this).Type)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Delay(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn Delay(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::TimeSpan>();
-            (::windows::core::Interface::vtable(this).Delay)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::TimeSpan>();
+            (::windows_core::Interface::vtable(this).Delay)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Duration(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn Duration(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::TimeSpan>();
-            (::windows::core::Interface::vtable(this).Duration)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::TimeSpan>();
+            (::windows_core::Interface::vtable(this).Duration)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Control1(&self) -> ::windows::core::Result<super::super::super::Foundation::Point> {
+    pub fn Control1(&self) -> ::windows_core::Result<super::super::super::Foundation::Point> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Point>();
-            (::windows::core::Interface::vtable(this).Control1)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Point>();
+            (::windows_core::Interface::vtable(this).Control1)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Control2(&self) -> ::windows::core::Result<super::super::super::Foundation::Point> {
+    pub fn Control2(&self) -> ::windows_core::Result<super::super::super::Foundation::Point> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Point>();
-            (::windows::core::Interface::vtable(this).Control2)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Point>();
+            (::windows_core::Interface::vtable(this).Control2)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -447,113 +447,113 @@ impl ::core::fmt::Debug for PropertyAnimation {
         f.debug_tuple("PropertyAnimation").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for PropertyAnimation {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.AnimationMetrics.PropertyAnimation;{3a01b4da-4d8c-411e-b615-1ade683a9903})");
+impl ::windows_core::RuntimeType for PropertyAnimation {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.AnimationMetrics.PropertyAnimation;{3a01b4da-4d8c-411e-b615-1ade683a9903})");
 }
 impl ::core::clone::Clone for PropertyAnimation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for PropertyAnimation {
+unsafe impl ::windows_core::Interface for PropertyAnimation {
     type Vtable = IPropertyAnimation_Vtbl;
 }
-unsafe impl ::windows::core::ComInterface for PropertyAnimation {
-    const IID: ::windows::core::GUID = <IPropertyAnimation as ::windows::core::ComInterface>::IID;
+unsafe impl ::windows_core::ComInterface for PropertyAnimation {
+    const IID: ::windows_core::GUID = <IPropertyAnimation as ::windows_core::ComInterface>::IID;
 }
-impl ::windows::core::RuntimeName for PropertyAnimation {
+impl ::windows_core::RuntimeName for PropertyAnimation {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.PropertyAnimation";
 }
-::windows::imp::interface_hierarchy!(PropertyAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::windows::core::CanTryInto<IPropertyAnimation> for PropertyAnimation {}
+::windows_core::imp::interface_hierarchy!(PropertyAnimation, ::windows_core::IUnknown, ::windows_core::IInspectable);
+impl ::windows_core::CanTryInto<IPropertyAnimation> for PropertyAnimation {}
 unsafe impl ::core::marker::Send for PropertyAnimation {}
 unsafe impl ::core::marker::Sync for PropertyAnimation {}
 #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`*"]
 #[repr(transparent)]
-pub struct ScaleAnimation(::windows::core::IUnknown);
+pub struct ScaleAnimation(::windows_core::IUnknown);
 impl ScaleAnimation {
-    pub fn Type(&self) -> ::windows::core::Result<PropertyAnimationType> {
-        let this = &::windows::core::ComInterface::cast::<IPropertyAnimation>(self)?;
+    pub fn Type(&self) -> ::windows_core::Result<PropertyAnimationType> {
+        let this = &::windows_core::ComInterface::cast::<IPropertyAnimation>(self)?;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<PropertyAnimationType>();
-            (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<PropertyAnimationType>();
+            (::windows_core::Interface::vtable(this).Type)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Delay(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
-        let this = &::windows::core::ComInterface::cast::<IPropertyAnimation>(self)?;
+    pub fn Delay(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
+        let this = &::windows_core::ComInterface::cast::<IPropertyAnimation>(self)?;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::TimeSpan>();
-            (::windows::core::Interface::vtable(this).Delay)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::TimeSpan>();
+            (::windows_core::Interface::vtable(this).Delay)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Duration(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
-        let this = &::windows::core::ComInterface::cast::<IPropertyAnimation>(self)?;
+    pub fn Duration(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
+        let this = &::windows_core::ComInterface::cast::<IPropertyAnimation>(self)?;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::TimeSpan>();
-            (::windows::core::Interface::vtable(this).Duration)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::TimeSpan>();
+            (::windows_core::Interface::vtable(this).Duration)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Control1(&self) -> ::windows::core::Result<super::super::super::Foundation::Point> {
-        let this = &::windows::core::ComInterface::cast::<IPropertyAnimation>(self)?;
+    pub fn Control1(&self) -> ::windows_core::Result<super::super::super::Foundation::Point> {
+        let this = &::windows_core::ComInterface::cast::<IPropertyAnimation>(self)?;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Point>();
-            (::windows::core::Interface::vtable(this).Control1)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Point>();
+            (::windows_core::Interface::vtable(this).Control1)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Control2(&self) -> ::windows::core::Result<super::super::super::Foundation::Point> {
-        let this = &::windows::core::ComInterface::cast::<IPropertyAnimation>(self)?;
+    pub fn Control2(&self) -> ::windows_core::Result<super::super::super::Foundation::Point> {
+        let this = &::windows_core::ComInterface::cast::<IPropertyAnimation>(self)?;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Point>();
-            (::windows::core::Interface::vtable(this).Control2)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Point>();
+            (::windows_core::Interface::vtable(this).Control2)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn InitialScaleX(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<f32>> {
+    pub fn InitialScaleX(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<f32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IReference<f32>>();
-            (::windows::core::Interface::vtable(this).InitialScaleX)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IReference<f32>>();
+            (::windows_core::Interface::vtable(this).InitialScaleX)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn InitialScaleY(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<f32>> {
+    pub fn InitialScaleY(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<f32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IReference<f32>>();
-            (::windows::core::Interface::vtable(this).InitialScaleY)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IReference<f32>>();
+            (::windows_core::Interface::vtable(this).InitialScaleY)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn FinalScaleX(&self) -> ::windows::core::Result<f32> {
+    pub fn FinalScaleX(&self) -> ::windows_core::Result<f32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<f32>();
-            (::windows::core::Interface::vtable(this).FinalScaleX)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<f32>();
+            (::windows_core::Interface::vtable(this).FinalScaleX)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn FinalScaleY(&self) -> ::windows::core::Result<f32> {
+    pub fn FinalScaleY(&self) -> ::windows_core::Result<f32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<f32>();
-            (::windows::core::Interface::vtable(this).FinalScaleY)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<f32>();
+            (::windows_core::Interface::vtable(this).FinalScaleY)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn NormalizedOrigin(&self) -> ::windows::core::Result<super::super::super::Foundation::Point> {
+    pub fn NormalizedOrigin(&self) -> ::windows_core::Result<super::super::super::Foundation::Point> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Point>();
-            (::windows::core::Interface::vtable(this).NormalizedOrigin)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Point>();
+            (::windows_core::Interface::vtable(this).NormalizedOrigin)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -568,72 +568,72 @@ impl ::core::fmt::Debug for ScaleAnimation {
         f.debug_tuple("ScaleAnimation").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for ScaleAnimation {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.AnimationMetrics.ScaleAnimation;{023552c7-71ab-428c-9c9f-d31780964995})");
+impl ::windows_core::RuntimeType for ScaleAnimation {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.AnimationMetrics.ScaleAnimation;{023552c7-71ab-428c-9c9f-d31780964995})");
 }
 impl ::core::clone::Clone for ScaleAnimation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ScaleAnimation {
+unsafe impl ::windows_core::Interface for ScaleAnimation {
     type Vtable = IScaleAnimation_Vtbl;
 }
-unsafe impl ::windows::core::ComInterface for ScaleAnimation {
-    const IID: ::windows::core::GUID = <IScaleAnimation as ::windows::core::ComInterface>::IID;
+unsafe impl ::windows_core::ComInterface for ScaleAnimation {
+    const IID: ::windows_core::GUID = <IScaleAnimation as ::windows_core::ComInterface>::IID;
 }
-impl ::windows::core::RuntimeName for ScaleAnimation {
+impl ::windows_core::RuntimeName for ScaleAnimation {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.ScaleAnimation";
 }
-::windows::imp::interface_hierarchy!(ScaleAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::windows::core::CanTryInto<IPropertyAnimation> for ScaleAnimation {}
+::windows_core::imp::interface_hierarchy!(ScaleAnimation, ::windows_core::IUnknown, ::windows_core::IInspectable);
+impl ::windows_core::CanTryInto<IPropertyAnimation> for ScaleAnimation {}
 unsafe impl ::core::marker::Send for ScaleAnimation {}
 unsafe impl ::core::marker::Sync for ScaleAnimation {}
 #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`*"]
 #[repr(transparent)]
-pub struct TranslationAnimation(::windows::core::IUnknown);
+pub struct TranslationAnimation(::windows_core::IUnknown);
 impl TranslationAnimation {
-    pub fn Type(&self) -> ::windows::core::Result<PropertyAnimationType> {
+    pub fn Type(&self) -> ::windows_core::Result<PropertyAnimationType> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<PropertyAnimationType>();
-            (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<PropertyAnimationType>();
+            (::windows_core::Interface::vtable(this).Type)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Delay(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn Delay(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::TimeSpan>();
-            (::windows::core::Interface::vtable(this).Delay)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::TimeSpan>();
+            (::windows_core::Interface::vtable(this).Delay)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Duration(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn Duration(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::TimeSpan>();
-            (::windows::core::Interface::vtable(this).Duration)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::TimeSpan>();
+            (::windows_core::Interface::vtable(this).Duration)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Control1(&self) -> ::windows::core::Result<super::super::super::Foundation::Point> {
+    pub fn Control1(&self) -> ::windows_core::Result<super::super::super::Foundation::Point> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Point>();
-            (::windows::core::Interface::vtable(this).Control1)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Point>();
+            (::windows_core::Interface::vtable(this).Control1)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Control2(&self) -> ::windows::core::Result<super::super::super::Foundation::Point> {
+    pub fn Control2(&self) -> ::windows_core::Result<super::super::super::Foundation::Point> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Point>();
-            (::windows::core::Interface::vtable(this).Control2)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Point>();
+            (::windows_core::Interface::vtable(this).Control2)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -648,25 +648,25 @@ impl ::core::fmt::Debug for TranslationAnimation {
         f.debug_tuple("TranslationAnimation").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for TranslationAnimation {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.AnimationMetrics.TranslationAnimation;{3a01b4da-4d8c-411e-b615-1ade683a9903})");
+impl ::windows_core::RuntimeType for TranslationAnimation {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Core.AnimationMetrics.TranslationAnimation;{3a01b4da-4d8c-411e-b615-1ade683a9903})");
 }
 impl ::core::clone::Clone for TranslationAnimation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for TranslationAnimation {
+unsafe impl ::windows_core::Interface for TranslationAnimation {
     type Vtable = IPropertyAnimation_Vtbl;
 }
-unsafe impl ::windows::core::ComInterface for TranslationAnimation {
-    const IID: ::windows::core::GUID = <IPropertyAnimation as ::windows::core::ComInterface>::IID;
+unsafe impl ::windows_core::ComInterface for TranslationAnimation {
+    const IID: ::windows_core::GUID = <IPropertyAnimation as ::windows_core::ComInterface>::IID;
 }
-impl ::windows::core::RuntimeName for TranslationAnimation {
+impl ::windows_core::RuntimeName for TranslationAnimation {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.TranslationAnimation";
 }
-::windows::imp::interface_hierarchy!(TranslationAnimation, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::windows::core::CanTryInto<IPropertyAnimation> for TranslationAnimation {}
+::windows_core::imp::interface_hierarchy!(TranslationAnimation, ::windows_core::IUnknown, ::windows_core::IInspectable);
+impl ::windows_core::CanTryInto<IPropertyAnimation> for TranslationAnimation {}
 unsafe impl ::core::marker::Send for TranslationAnimation {}
 unsafe impl ::core::marker::Sync for TranslationAnimation {}
 #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`*"]
@@ -722,16 +722,16 @@ impl ::core::default::Default for AnimationEffect {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for AnimationEffect {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for AnimationEffect {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for AnimationEffect {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AnimationEffect").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for AnimationEffect {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.AnimationMetrics.AnimationEffect;i4)");
+impl ::windows_core::RuntimeType for AnimationEffect {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.AnimationMetrics.AnimationEffect;i4)");
 }
 #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`*"]
 #[repr(transparent)]
@@ -770,16 +770,16 @@ impl ::core::default::Default for AnimationEffectTarget {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for AnimationEffectTarget {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for AnimationEffectTarget {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for AnimationEffectTarget {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AnimationEffectTarget").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for AnimationEffectTarget {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.AnimationMetrics.AnimationEffectTarget;i4)");
+impl ::windows_core::RuntimeType for AnimationEffectTarget {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.AnimationMetrics.AnimationEffectTarget;i4)");
 }
 #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`*"]
 #[repr(transparent)]
@@ -801,16 +801,16 @@ impl ::core::default::Default for PropertyAnimationType {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for PropertyAnimationType {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for PropertyAnimationType {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for PropertyAnimationType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PropertyAnimationType").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for PropertyAnimationType {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.AnimationMetrics.PropertyAnimationType;i4)");
+impl ::windows_core::RuntimeType for PropertyAnimationType {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.AnimationMetrics.PropertyAnimationType;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

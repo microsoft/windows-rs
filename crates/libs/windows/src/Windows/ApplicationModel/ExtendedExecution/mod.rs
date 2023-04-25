@@ -2,8 +2,8 @@
 pub mod Foreground;
 #[doc(hidden)]
 #[repr(transparent)]
-pub struct IExtendedExecutionRevokedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IExtendedExecutionRevokedEventArgs {
+pub struct IExtendedExecutionRevokedEventArgs(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for IExtendedExecutionRevokedEventArgs {
     type Vtable = IExtendedExecutionRevokedEventArgs_Vtbl;
 }
 impl ::core::clone::Clone for IExtendedExecutionRevokedEventArgs {
@@ -11,19 +11,19 @@ impl ::core::clone::Clone for IExtendedExecutionRevokedEventArgs {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IExtendedExecutionRevokedEventArgs {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbfbc9f16_63b5_4c0b_aad6_828af5373ec3);
+unsafe impl ::windows_core::ComInterface for IExtendedExecutionRevokedEventArgs {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbfbc9f16_63b5_4c0b_aad6_828af5373ec3);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IExtendedExecutionRevokedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectable_Vtbl,
-    pub Reason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ExtendedExecutionRevokedReason) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub Reason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ExtendedExecutionRevokedReason) -> ::windows_core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
-pub struct IExtendedExecutionSession(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IExtendedExecutionSession {
+pub struct IExtendedExecutionSession(::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for IExtendedExecutionSession {
     type Vtable = IExtendedExecutionSession_Vtbl;
 }
 impl ::core::clone::Clone for IExtendedExecutionSession {
@@ -31,41 +31,41 @@ impl ::core::clone::Clone for IExtendedExecutionSession {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::ComInterface for IExtendedExecutionSession {
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf908a2d_118b_48f1_9308_0c4fc41e200f);
+unsafe impl ::windows_core::ComInterface for IExtendedExecutionSession {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaf908a2d_118b_48f1_9308_0c4fc41e200f);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IExtendedExecutionSession_Vtbl {
-    pub base__: ::windows::core::IInspectable_Vtbl,
-    pub Reason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ExtendedExecutionReason) -> ::windows::core::HRESULT,
-    pub SetReason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ExtendedExecutionReason) -> ::windows::core::HRESULT,
-    pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub PercentProgress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
-    pub SetPercentProgress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT,
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub Reason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ExtendedExecutionReason) -> ::windows_core::HRESULT,
+    pub SetReason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ExtendedExecutionReason) -> ::windows_core::HRESULT,
+    pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub SetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub PercentProgress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
+    pub SetPercentProgress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub Revoked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub Revoked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     Revoked: usize,
     #[cfg(feature = "Foundation")]
-    pub RemoveRevoked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub RemoveRevoked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     RemoveRevoked: usize,
     #[cfg(feature = "Foundation")]
-    pub RequestExtensionAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub RequestExtensionAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     RequestExtensionAsync: usize,
 }
 #[doc = "*Required features: `\"ApplicationModel_ExtendedExecution\"`*"]
 #[repr(transparent)]
-pub struct ExtendedExecutionRevokedEventArgs(::windows::core::IUnknown);
+pub struct ExtendedExecutionRevokedEventArgs(::windows_core::IUnknown);
 impl ExtendedExecutionRevokedEventArgs {
-    pub fn Reason(&self) -> ::windows::core::Result<ExtendedExecutionRevokedReason> {
+    pub fn Reason(&self) -> ::windows_core::Result<ExtendedExecutionRevokedReason> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<ExtendedExecutionRevokedReason>();
-            (::windows::core::Interface::vtable(this).Reason)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<ExtendedExecutionRevokedReason>();
+            (::windows_core::Interface::vtable(this).Reason)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -80,98 +80,98 @@ impl ::core::fmt::Debug for ExtendedExecutionRevokedEventArgs {
         f.debug_tuple("ExtendedExecutionRevokedEventArgs").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for ExtendedExecutionRevokedEventArgs {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionRevokedEventArgs;{bfbc9f16-63b5-4c0b-aad6-828af5373ec3})");
+impl ::windows_core::RuntimeType for ExtendedExecutionRevokedEventArgs {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionRevokedEventArgs;{bfbc9f16-63b5-4c0b-aad6-828af5373ec3})");
 }
 impl ::core::clone::Clone for ExtendedExecutionRevokedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ExtendedExecutionRevokedEventArgs {
+unsafe impl ::windows_core::Interface for ExtendedExecutionRevokedEventArgs {
     type Vtable = IExtendedExecutionRevokedEventArgs_Vtbl;
 }
-unsafe impl ::windows::core::ComInterface for ExtendedExecutionRevokedEventArgs {
-    const IID: ::windows::core::GUID = <IExtendedExecutionRevokedEventArgs as ::windows::core::ComInterface>::IID;
+unsafe impl ::windows_core::ComInterface for ExtendedExecutionRevokedEventArgs {
+    const IID: ::windows_core::GUID = <IExtendedExecutionRevokedEventArgs as ::windows_core::ComInterface>::IID;
 }
-impl ::windows::core::RuntimeName for ExtendedExecutionRevokedEventArgs {
+impl ::windows_core::RuntimeName for ExtendedExecutionRevokedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionRevokedEventArgs";
 }
-::windows::imp::interface_hierarchy!(ExtendedExecutionRevokedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows_core::imp::interface_hierarchy!(ExtendedExecutionRevokedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for ExtendedExecutionRevokedEventArgs {}
 unsafe impl ::core::marker::Sync for ExtendedExecutionRevokedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_ExtendedExecution\"`*"]
 #[repr(transparent)]
-pub struct ExtendedExecutionSession(::windows::core::IUnknown);
+pub struct ExtendedExecutionSession(::windows_core::IUnknown);
 impl ExtendedExecutionSession {
-    pub fn new() -> ::windows::core::Result<Self> {
+    pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::imp::FactoryCache<ExtendedExecutionSession, ::windows::imp::IGenericFactory> = ::windows::imp::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows_core::imp::IGenericFactory) -> ::windows_core::Result<R>>(callback: F) -> ::windows_core::Result<R> {
+        static SHARED: ::windows_core::imp::FactoryCache<ExtendedExecutionSession, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Close(&self) -> ::windows::core::Result<()> {
-        let this = &::windows::core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
+    pub fn Close(&self) -> ::windows_core::Result<()> {
+        let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Reason(&self) -> ::windows::core::Result<ExtendedExecutionReason> {
+    pub fn Reason(&self) -> ::windows_core::Result<ExtendedExecutionReason> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<ExtendedExecutionReason>();
-            (::windows::core::Interface::vtable(this).Reason)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<ExtendedExecutionReason>();
+            (::windows_core::Interface::vtable(this).Reason)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn SetReason(&self, value: ExtendedExecutionReason) -> ::windows::core::Result<()> {
+    pub fn SetReason(&self, value: ExtendedExecutionReason) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetReason)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetReason)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn Description(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
-            (::windows::core::Interface::vtable(this).Description)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            (::windows_core::Interface::vtable(this).Description)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn SetDescription(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
+    pub fn SetDescription(&self, value: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDescription)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetDescription)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    pub fn PercentProgress(&self) -> ::windows::core::Result<u32> {
+    pub fn PercentProgress(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<u32>();
-            (::windows::core::Interface::vtable(this).PercentProgress)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<u32>();
+            (::windows_core::Interface::vtable(this).PercentProgress)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn SetPercentProgress(&self, value: u32) -> ::windows::core::Result<()> {
+    pub fn SetPercentProgress(&self, value: u32) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPercentProgress)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetPercentProgress)(::windows_core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Revoked(&self, handler: &super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, ExtendedExecutionRevokedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Revoked(&self, handler: &super::super::Foundation::TypedEventHandler<::windows_core::IInspectable, ExtendedExecutionRevokedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
-            (::windows::core::Interface::vtable(this).Revoked)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            (::windows_core::Interface::vtable(this).Revoked)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveRevoked(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+    pub fn RemoveRevoked(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveRevoked)(::windows::core::Interface::as_raw(this), token).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).RemoveRevoked)(::windows_core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestExtensionAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ExtendedExecutionResult>> {
+    pub fn RequestExtensionAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ExtendedExecutionResult>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<ExtendedExecutionResult>>();
-            (::windows::core::Interface::vtable(this).RequestExtensionAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<ExtendedExecutionResult>>();
+            (::windows_core::Interface::vtable(this).RequestExtensionAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
@@ -186,26 +186,26 @@ impl ::core::fmt::Debug for ExtendedExecutionSession {
         f.debug_tuple("ExtendedExecutionSession").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for ExtendedExecutionSession {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionSession;{af908a2d-118b-48f1-9308-0c4fc41e200f})");
+impl ::windows_core::RuntimeType for ExtendedExecutionSession {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionSession;{af908a2d-118b-48f1-9308-0c4fc41e200f})");
 }
 impl ::core::clone::Clone for ExtendedExecutionSession {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Interface for ExtendedExecutionSession {
+unsafe impl ::windows_core::Interface for ExtendedExecutionSession {
     type Vtable = IExtendedExecutionSession_Vtbl;
 }
-unsafe impl ::windows::core::ComInterface for ExtendedExecutionSession {
-    const IID: ::windows::core::GUID = <IExtendedExecutionSession as ::windows::core::ComInterface>::IID;
+unsafe impl ::windows_core::ComInterface for ExtendedExecutionSession {
+    const IID: ::windows_core::GUID = <IExtendedExecutionSession as ::windows_core::ComInterface>::IID;
 }
-impl ::windows::core::RuntimeName for ExtendedExecutionSession {
+impl ::windows_core::RuntimeName for ExtendedExecutionSession {
     const NAME: &'static str = "Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionSession";
 }
-::windows::imp::interface_hierarchy!(ExtendedExecutionSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows_core::imp::interface_hierarchy!(ExtendedExecutionSession, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[cfg(feature = "Foundation")]
-impl ::windows::core::CanTryInto<super::super::Foundation::IClosable> for ExtendedExecutionSession {}
+impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for ExtendedExecutionSession {}
 unsafe impl ::core::marker::Send for ExtendedExecutionSession {}
 unsafe impl ::core::marker::Sync for ExtendedExecutionSession {}
 #[doc = "*Required features: `\"ApplicationModel_ExtendedExecution\"`*"]
@@ -228,16 +228,16 @@ impl ::core::default::Default for ExtendedExecutionReason {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for ExtendedExecutionReason {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for ExtendedExecutionReason {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for ExtendedExecutionReason {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ExtendedExecutionReason").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for ExtendedExecutionReason {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionReason;i4)");
+impl ::windows_core::RuntimeType for ExtendedExecutionReason {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionReason;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_ExtendedExecution\"`*"]
 #[repr(transparent)]
@@ -258,16 +258,16 @@ impl ::core::default::Default for ExtendedExecutionResult {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for ExtendedExecutionResult {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for ExtendedExecutionResult {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for ExtendedExecutionResult {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ExtendedExecutionResult").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for ExtendedExecutionResult {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionResult;i4)");
+impl ::windows_core::RuntimeType for ExtendedExecutionResult {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionResult;i4)");
 }
 #[doc = "*Required features: `\"ApplicationModel_ExtendedExecution\"`*"]
 #[repr(transparent)]
@@ -288,16 +288,16 @@ impl ::core::default::Default for ExtendedExecutionRevokedReason {
         Self(0)
     }
 }
-impl ::windows::core::TypeKind for ExtendedExecutionRevokedReason {
-    type TypeKind = ::windows::core::CopyType;
+impl ::windows_core::TypeKind for ExtendedExecutionRevokedReason {
+    type TypeKind = ::windows_core::CopyType;
 }
 impl ::core::fmt::Debug for ExtendedExecutionRevokedReason {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ExtendedExecutionRevokedReason").field(&self.0).finish()
     }
 }
-impl ::windows::core::RuntimeType for ExtendedExecutionRevokedReason {
-    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionRevokedReason;i4)");
+impl ::windows_core::RuntimeType for ExtendedExecutionRevokedReason {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionRevokedReason;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
