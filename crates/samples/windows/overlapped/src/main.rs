@@ -35,28 +35,23 @@ fn main() -> Result<()> {
 
         let mut buffer: [u8; 12] = Default::default();
 
-        let read_ok = ReadFile(
+        if let Err(error) = ReadFile(
             file,
             Some(buffer.as_mut_ptr() as _),
             buffer.len() as _,
             None,
             Some(&mut overlapped),
-        );
-
-        if !read_ok.as_bool() {
-            assert_eq!(GetLastError(), ERROR_IO_PENDING);
+        ) {
+            assert_eq!(error.code(), ERROR_IO_PENDING.into());
         }
 
-        let wait_ok = WaitForSingleObject(overlapped.hEvent, 2000);
-        assert!(wait_ok == WAIT_OBJECT_0);
+        WaitForSingleObject(overlapped.hEvent, 2000)?;
 
         let mut bytes_copied = 0;
-        let overlapped_ok = GetOverlappedResult(file, &overlapped, &mut bytes_copied, false);
-        assert!(overlapped_ok.as_bool());
+        GetOverlappedResult(file, &overlapped, &mut bytes_copied, false)?;
         assert!(bytes_copied == 12);
 
-        let closed_ok = CloseHandle(file);
-        assert!(closed_ok.as_bool());
+        CloseHandle(file)?;
 
         println!("{}", String::from_utf8_lossy(&buffer));
     }

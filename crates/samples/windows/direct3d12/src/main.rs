@@ -75,7 +75,7 @@ where
         right: size.0,
         bottom: size.1,
     };
-    unsafe { AdjustWindowRect(&mut window_rect, WS_OVERLAPPEDWINDOW, false) };
+    unsafe { AdjustWindowRect(&mut window_rect, WS_OVERLAPPEDWINDOW, false)? };
 
     let mut title = sample.title();
 
@@ -782,7 +782,7 @@ mod d3d12_hello_triangle {
             .ok()
             .unwrap();
 
-            unsafe { WaitForSingleObject(resources.fence_event, INFINITE) };
+            unsafe { WaitForSingleObject(resources.fence_event, INFINITE).unwrap() };
         }
 
         resources.frame_index = unsafe { resources.swap_chain.GetCurrentBackBufferIndex() };

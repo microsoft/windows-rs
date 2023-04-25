@@ -9,9 +9,9 @@ fn keyboard_state() {
     unsafe {
         let zeroed: [u8; 256] = std::mem::zeroed();
         let mut state: [u8; 256] = std::mem::zeroed();
-        assert!(GetKeyboardState(&mut state).as_bool());
+        GetKeyboardState(&mut state).unwrap();
         assert!(state != zeroed);
-        assert!(SetKeyboardState(&state).as_bool());
+        SetKeyboardState(&state).unwrap();
     }
 }
 
