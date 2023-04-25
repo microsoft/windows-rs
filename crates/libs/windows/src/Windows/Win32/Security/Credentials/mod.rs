@@ -1,62 +1,62 @@
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredDeleteA<P0>(targetname: P0, r#type: u32, flags: u32) -> super::super::Foundation::BOOL
+pub unsafe fn CredDeleteA<P0>(targetname: P0, r#type: u32, flags: u32) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("advapi32.dll" "system" fn CredDeleteA(targetname : ::windows_core::PCSTR, r#type : u32, flags : u32) -> super::super::Foundation:: BOOL);
-    CredDeleteA(targetname.into_param().abi(), r#type, flags)
+    CredDeleteA(targetname.into_param().abi(), r#type, flags).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredDeleteW<P0>(targetname: P0, r#type: u32, flags: u32) -> super::super::Foundation::BOOL
+pub unsafe fn CredDeleteW<P0>(targetname: P0, r#type: u32, flags: u32) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("advapi32.dll" "system" fn CredDeleteW(targetname : ::windows_core::PCWSTR, r#type : u32, flags : u32) -> super::super::Foundation:: BOOL);
-    CredDeleteW(targetname.into_param().abi(), r#type, flags)
+    CredDeleteW(targetname.into_param().abi(), r#type, flags).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredEnumerateA<P0>(filter: P0, flags: CRED_ENUMERATE_FLAGS, count: *mut u32, credential: *mut *mut *mut CREDENTIALA) -> super::super::Foundation::BOOL
+pub unsafe fn CredEnumerateA<P0>(filter: P0, flags: CRED_ENUMERATE_FLAGS, count: *mut u32, credential: *mut *mut *mut CREDENTIALA) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("advapi32.dll" "system" fn CredEnumerateA(filter : ::windows_core::PCSTR, flags : CRED_ENUMERATE_FLAGS, count : *mut u32, credential : *mut *mut *mut CREDENTIALA) -> super::super::Foundation:: BOOL);
-    CredEnumerateA(filter.into_param().abi(), flags, count, credential)
+    CredEnumerateA(filter.into_param().abi(), flags, count, credential).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredEnumerateW<P0>(filter: P0, flags: CRED_ENUMERATE_FLAGS, count: *mut u32, credential: *mut *mut *mut CREDENTIALW) -> super::super::Foundation::BOOL
+pub unsafe fn CredEnumerateW<P0>(filter: P0, flags: CRED_ENUMERATE_FLAGS, count: *mut u32, credential: *mut *mut *mut CREDENTIALW) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("advapi32.dll" "system" fn CredEnumerateW(filter : ::windows_core::PCWSTR, flags : CRED_ENUMERATE_FLAGS, count : *mut u32, credential : *mut *mut *mut CREDENTIALW) -> super::super::Foundation:: BOOL);
-    CredEnumerateW(filter.into_param().abi(), flags, count, credential)
+    CredEnumerateW(filter.into_param().abi(), flags, count, credential).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredFindBestCredentialA<P0>(targetname: P0, r#type: u32, flags: u32, credential: *mut *mut CREDENTIALA) -> super::super::Foundation::BOOL
+pub unsafe fn CredFindBestCredentialA<P0>(targetname: P0, r#type: u32, flags: u32, credential: *mut *mut CREDENTIALA) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("advapi32.dll" "system" fn CredFindBestCredentialA(targetname : ::windows_core::PCSTR, r#type : u32, flags : u32, credential : *mut *mut CREDENTIALA) -> super::super::Foundation:: BOOL);
-    CredFindBestCredentialA(targetname.into_param().abi(), r#type, flags, credential)
+    CredFindBestCredentialA(targetname.into_param().abi(), r#type, flags, credential).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredFindBestCredentialW<P0>(targetname: P0, r#type: u32, flags: u32, credential: *mut *mut CREDENTIALW) -> super::super::Foundation::BOOL
+pub unsafe fn CredFindBestCredentialW<P0>(targetname: P0, r#type: u32, flags: u32, credential: *mut *mut CREDENTIALW) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("advapi32.dll" "system" fn CredFindBestCredentialW(targetname : ::windows_core::PCWSTR, r#type : u32, flags : u32, credential : *mut *mut CREDENTIALW) -> super::super::Foundation:: BOOL);
-    CredFindBestCredentialW(targetname.into_param().abi(), r#type, flags, credential)
+    CredFindBestCredentialW(targetname.into_param().abi(), r#type, flags, credential).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 #[inline]
@@ -67,29 +67,29 @@ pub unsafe fn CredFree(buffer: *const ::core::ffi::c_void) {
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredGetSessionTypes(maximumpersist: &mut [u32]) -> super::super::Foundation::BOOL {
+pub unsafe fn CredGetSessionTypes(maximumpersist: &mut [u32]) -> ::windows_core::Result<()> {
     ::windows_targets::link!("advapi32.dll" "system" fn CredGetSessionTypes(maximumpersistcount : u32, maximumpersist : *mut u32) -> super::super::Foundation:: BOOL);
-    CredGetSessionTypes(maximumpersist.len() as _, ::core::mem::transmute(maximumpersist.as_ptr()))
+    CredGetSessionTypes(maximumpersist.len() as _, ::core::mem::transmute(maximumpersist.as_ptr())).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredGetTargetInfoA<P0>(targetname: P0, flags: u32, targetinfo: *mut *mut CREDENTIAL_TARGET_INFORMATIONA) -> super::super::Foundation::BOOL
+pub unsafe fn CredGetTargetInfoA<P0>(targetname: P0, flags: u32, targetinfo: *mut *mut CREDENTIAL_TARGET_INFORMATIONA) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("advapi32.dll" "system" fn CredGetTargetInfoA(targetname : ::windows_core::PCSTR, flags : u32, targetinfo : *mut *mut CREDENTIAL_TARGET_INFORMATIONA) -> super::super::Foundation:: BOOL);
-    CredGetTargetInfoA(targetname.into_param().abi(), flags, targetinfo)
+    CredGetTargetInfoA(targetname.into_param().abi(), flags, targetinfo).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredGetTargetInfoW<P0>(targetname: P0, flags: u32, targetinfo: *mut *mut CREDENTIAL_TARGET_INFORMATIONW) -> super::super::Foundation::BOOL
+pub unsafe fn CredGetTargetInfoW<P0>(targetname: P0, flags: u32, targetinfo: *mut *mut CREDENTIAL_TARGET_INFORMATIONW) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("advapi32.dll" "system" fn CredGetTargetInfoW(targetname : ::windows_core::PCWSTR, flags : u32, targetinfo : *mut *mut CREDENTIAL_TARGET_INFORMATIONW) -> super::super::Foundation:: BOOL);
-    CredGetTargetInfoW(targetname.into_param().abi(), flags, targetinfo)
+    CredGetTargetInfoW(targetname.into_param().abi(), flags, targetinfo).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -114,134 +114,134 @@ where
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredIsProtectedA<P0>(pszprotectedcredentials: P0, pprotectiontype: *mut CRED_PROTECTION_TYPE) -> super::super::Foundation::BOOL
+pub unsafe fn CredIsProtectedA<P0>(pszprotectedcredentials: P0, pprotectiontype: *mut CRED_PROTECTION_TYPE) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("advapi32.dll" "system" fn CredIsProtectedA(pszprotectedcredentials : ::windows_core::PCSTR, pprotectiontype : *mut CRED_PROTECTION_TYPE) -> super::super::Foundation:: BOOL);
-    CredIsProtectedA(pszprotectedcredentials.into_param().abi(), pprotectiontype)
+    CredIsProtectedA(pszprotectedcredentials.into_param().abi(), pprotectiontype).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredIsProtectedW<P0>(pszprotectedcredentials: P0, pprotectiontype: *mut CRED_PROTECTION_TYPE) -> super::super::Foundation::BOOL
+pub unsafe fn CredIsProtectedW<P0>(pszprotectedcredentials: P0, pprotectiontype: *mut CRED_PROTECTION_TYPE) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("advapi32.dll" "system" fn CredIsProtectedW(pszprotectedcredentials : ::windows_core::PCWSTR, pprotectiontype : *mut CRED_PROTECTION_TYPE) -> super::super::Foundation:: BOOL);
-    CredIsProtectedW(pszprotectedcredentials.into_param().abi(), pprotectiontype)
+    CredIsProtectedW(pszprotectedcredentials.into_param().abi(), pprotectiontype).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredMarshalCredentialA(credtype: CRED_MARSHAL_TYPE, credential: *const ::core::ffi::c_void, marshaledcredential: *mut ::windows_core::PSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn CredMarshalCredentialA(credtype: CRED_MARSHAL_TYPE, credential: *const ::core::ffi::c_void, marshaledcredential: *mut ::windows_core::PSTR) -> ::windows_core::Result<()> {
     ::windows_targets::link!("advapi32.dll" "system" fn CredMarshalCredentialA(credtype : CRED_MARSHAL_TYPE, credential : *const ::core::ffi::c_void, marshaledcredential : *mut ::windows_core::PSTR) -> super::super::Foundation:: BOOL);
-    CredMarshalCredentialA(credtype, credential, marshaledcredential)
+    CredMarshalCredentialA(credtype, credential, marshaledcredential).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredMarshalCredentialW(credtype: CRED_MARSHAL_TYPE, credential: *const ::core::ffi::c_void, marshaledcredential: *mut ::windows_core::PWSTR) -> super::super::Foundation::BOOL {
+pub unsafe fn CredMarshalCredentialW(credtype: CRED_MARSHAL_TYPE, credential: *const ::core::ffi::c_void, marshaledcredential: *mut ::windows_core::PWSTR) -> ::windows_core::Result<()> {
     ::windows_targets::link!("advapi32.dll" "system" fn CredMarshalCredentialW(credtype : CRED_MARSHAL_TYPE, credential : *const ::core::ffi::c_void, marshaledcredential : *mut ::windows_core::PWSTR) -> super::super::Foundation:: BOOL);
-    CredMarshalCredentialW(credtype, credential, marshaledcredential)
+    CredMarshalCredentialW(credtype, credential, marshaledcredential).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredPackAuthenticationBufferA<P0, P1>(dwflags: CRED_PACK_FLAGS, pszusername: P0, pszpassword: P1, ppackedcredentials: ::core::option::Option<*mut u8>, pcbpackedcredentials: *mut u32) -> super::super::Foundation::BOOL
+pub unsafe fn CredPackAuthenticationBufferA<P0, P1>(dwflags: CRED_PACK_FLAGS, pszusername: P0, pszpassword: P1, ppackedcredentials: ::core::option::Option<*mut u8>, pcbpackedcredentials: *mut u32) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("credui.dll" "system" fn CredPackAuthenticationBufferA(dwflags : CRED_PACK_FLAGS, pszusername : ::windows_core::PCSTR, pszpassword : ::windows_core::PCSTR, ppackedcredentials : *mut u8, pcbpackedcredentials : *mut u32) -> super::super::Foundation:: BOOL);
-    CredPackAuthenticationBufferA(dwflags, pszusername.into_param().abi(), pszpassword.into_param().abi(), ::core::mem::transmute(ppackedcredentials.unwrap_or(::std::ptr::null_mut())), pcbpackedcredentials)
+    CredPackAuthenticationBufferA(dwflags, pszusername.into_param().abi(), pszpassword.into_param().abi(), ::core::mem::transmute(ppackedcredentials.unwrap_or(::std::ptr::null_mut())), pcbpackedcredentials).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredPackAuthenticationBufferW<P0, P1>(dwflags: CRED_PACK_FLAGS, pszusername: P0, pszpassword: P1, ppackedcredentials: ::core::option::Option<*mut u8>, pcbpackedcredentials: *mut u32) -> super::super::Foundation::BOOL
+pub unsafe fn CredPackAuthenticationBufferW<P0, P1>(dwflags: CRED_PACK_FLAGS, pszusername: P0, pszpassword: P1, ppackedcredentials: ::core::option::Option<*mut u8>, pcbpackedcredentials: *mut u32) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("credui.dll" "system" fn CredPackAuthenticationBufferW(dwflags : CRED_PACK_FLAGS, pszusername : ::windows_core::PCWSTR, pszpassword : ::windows_core::PCWSTR, ppackedcredentials : *mut u8, pcbpackedcredentials : *mut u32) -> super::super::Foundation:: BOOL);
-    CredPackAuthenticationBufferW(dwflags, pszusername.into_param().abi(), pszpassword.into_param().abi(), ::core::mem::transmute(ppackedcredentials.unwrap_or(::std::ptr::null_mut())), pcbpackedcredentials)
+    CredPackAuthenticationBufferW(dwflags, pszusername.into_param().abi(), pszpassword.into_param().abi(), ::core::mem::transmute(ppackedcredentials.unwrap_or(::std::ptr::null_mut())), pcbpackedcredentials).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredProtectA<P0>(fasself: P0, pszcredentials: &[u8], pszprotectedcredentials: ::windows_core::PSTR, pcchmaxchars: *mut u32, protectiontype: ::core::option::Option<*mut CRED_PROTECTION_TYPE>) -> super::super::Foundation::BOOL
+pub unsafe fn CredProtectA<P0>(fasself: P0, pszcredentials: &[u8], pszprotectedcredentials: ::windows_core::PSTR, pcchmaxchars: *mut u32, protectiontype: ::core::option::Option<*mut CRED_PROTECTION_TYPE>) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("advapi32.dll" "system" fn CredProtectA(fasself : super::super::Foundation:: BOOL, pszcredentials : ::windows_core::PCSTR, cchcredentials : u32, pszprotectedcredentials : ::windows_core::PSTR, pcchmaxchars : *mut u32, protectiontype : *mut CRED_PROTECTION_TYPE) -> super::super::Foundation:: BOOL);
-    CredProtectA(fasself.into_param().abi(), ::core::mem::transmute(pszcredentials.as_ptr()), pszcredentials.len() as _, ::core::mem::transmute(pszprotectedcredentials), pcchmaxchars, ::core::mem::transmute(protectiontype.unwrap_or(::std::ptr::null_mut())))
+    CredProtectA(fasself.into_param().abi(), ::core::mem::transmute(pszcredentials.as_ptr()), pszcredentials.len() as _, ::core::mem::transmute(pszprotectedcredentials), pcchmaxchars, ::core::mem::transmute(protectiontype.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredProtectW<P0>(fasself: P0, pszcredentials: &[u16], pszprotectedcredentials: ::windows_core::PWSTR, pcchmaxchars: *mut u32, protectiontype: ::core::option::Option<*mut CRED_PROTECTION_TYPE>) -> super::super::Foundation::BOOL
+pub unsafe fn CredProtectW<P0>(fasself: P0, pszcredentials: &[u16], pszprotectedcredentials: ::windows_core::PWSTR, pcchmaxchars: *mut u32, protectiontype: ::core::option::Option<*mut CRED_PROTECTION_TYPE>) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("advapi32.dll" "system" fn CredProtectW(fasself : super::super::Foundation:: BOOL, pszcredentials : ::windows_core::PCWSTR, cchcredentials : u32, pszprotectedcredentials : ::windows_core::PWSTR, pcchmaxchars : *mut u32, protectiontype : *mut CRED_PROTECTION_TYPE) -> super::super::Foundation:: BOOL);
-    CredProtectW(fasself.into_param().abi(), ::core::mem::transmute(pszcredentials.as_ptr()), pszcredentials.len() as _, ::core::mem::transmute(pszprotectedcredentials), pcchmaxchars, ::core::mem::transmute(protectiontype.unwrap_or(::std::ptr::null_mut())))
+    CredProtectW(fasself.into_param().abi(), ::core::mem::transmute(pszcredentials.as_ptr()), pszcredentials.len() as _, ::core::mem::transmute(pszprotectedcredentials), pcchmaxchars, ::core::mem::transmute(protectiontype.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredReadA<P0>(targetname: P0, r#type: u32, flags: u32, credential: *mut *mut CREDENTIALA) -> super::super::Foundation::BOOL
+pub unsafe fn CredReadA<P0>(targetname: P0, r#type: u32, flags: u32, credential: *mut *mut CREDENTIALA) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("advapi32.dll" "system" fn CredReadA(targetname : ::windows_core::PCSTR, r#type : u32, flags : u32, credential : *mut *mut CREDENTIALA) -> super::super::Foundation:: BOOL);
-    CredReadA(targetname.into_param().abi(), r#type, flags, credential)
+    CredReadA(targetname.into_param().abi(), r#type, flags, credential).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredReadDomainCredentialsA(targetinfo: *const CREDENTIAL_TARGET_INFORMATIONA, flags: u32, count: *mut u32, credential: *mut *mut *mut CREDENTIALA) -> super::super::Foundation::BOOL {
+pub unsafe fn CredReadDomainCredentialsA(targetinfo: *const CREDENTIAL_TARGET_INFORMATIONA, flags: u32, count: *mut u32, credential: *mut *mut *mut CREDENTIALA) -> ::windows_core::Result<()> {
     ::windows_targets::link!("advapi32.dll" "system" fn CredReadDomainCredentialsA(targetinfo : *const CREDENTIAL_TARGET_INFORMATIONA, flags : u32, count : *mut u32, credential : *mut *mut *mut CREDENTIALA) -> super::super::Foundation:: BOOL);
-    CredReadDomainCredentialsA(targetinfo, flags, count, credential)
+    CredReadDomainCredentialsA(targetinfo, flags, count, credential).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredReadDomainCredentialsW(targetinfo: *const CREDENTIAL_TARGET_INFORMATIONW, flags: u32, count: *mut u32, credential: *mut *mut *mut CREDENTIALW) -> super::super::Foundation::BOOL {
+pub unsafe fn CredReadDomainCredentialsW(targetinfo: *const CREDENTIAL_TARGET_INFORMATIONW, flags: u32, count: *mut u32, credential: *mut *mut *mut CREDENTIALW) -> ::windows_core::Result<()> {
     ::windows_targets::link!("advapi32.dll" "system" fn CredReadDomainCredentialsW(targetinfo : *const CREDENTIAL_TARGET_INFORMATIONW, flags : u32, count : *mut u32, credential : *mut *mut *mut CREDENTIALW) -> super::super::Foundation:: BOOL);
-    CredReadDomainCredentialsW(targetinfo, flags, count, credential)
+    CredReadDomainCredentialsW(targetinfo, flags, count, credential).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredReadW<P0>(targetname: P0, r#type: u32, flags: u32, credential: *mut *mut CREDENTIALW) -> super::super::Foundation::BOOL
+pub unsafe fn CredReadW<P0>(targetname: P0, r#type: u32, flags: u32, credential: *mut *mut CREDENTIALW) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("advapi32.dll" "system" fn CredReadW(targetname : ::windows_core::PCWSTR, r#type : u32, flags : u32, credential : *mut *mut CREDENTIALW) -> super::super::Foundation:: BOOL);
-    CredReadW(targetname.into_param().abi(), r#type, flags, credential)
+    CredReadW(targetname.into_param().abi(), r#type, flags, credential).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredRenameA<P0, P1>(oldtargetname: P0, newtargetname: P1, r#type: u32, flags: u32) -> super::super::Foundation::BOOL
+pub unsafe fn CredRenameA<P0, P1>(oldtargetname: P0, newtargetname: P1, r#type: u32, flags: u32) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("advapi32.dll" "system" fn CredRenameA(oldtargetname : ::windows_core::PCSTR, newtargetname : ::windows_core::PCSTR, r#type : u32, flags : u32) -> super::super::Foundation:: BOOL);
-    CredRenameA(oldtargetname.into_param().abi(), newtargetname.into_param().abi(), r#type, flags)
+    CredRenameA(oldtargetname.into_param().abi(), newtargetname.into_param().abi(), r#type, flags).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredRenameW<P0, P1>(oldtargetname: P0, newtargetname: P1, r#type: u32, flags: u32) -> super::super::Foundation::BOOL
+pub unsafe fn CredRenameW<P0, P1>(oldtargetname: P0, newtargetname: P1, r#type: u32, flags: u32) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("advapi32.dll" "system" fn CredRenameW(oldtargetname : ::windows_core::PCWSTR, newtargetname : ::windows_core::PCWSTR, r#type : u32, flags : u32) -> super::super::Foundation:: BOOL);
-    CredRenameW(oldtargetname.into_param().abi(), newtargetname.into_param().abi(), r#type, flags)
+    CredRenameW(oldtargetname.into_param().abi(), newtargetname.into_param().abi(), r#type, flags).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -362,84 +362,84 @@ where
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredUnPackAuthenticationBufferA(dwflags: CRED_PACK_FLAGS, pauthbuffer: *const ::core::ffi::c_void, cbauthbuffer: u32, pszusername: ::windows_core::PSTR, pcchlmaxusername: *mut u32, pszdomainname: ::windows_core::PSTR, pcchmaxdomainname: ::core::option::Option<*mut u32>, pszpassword: ::windows_core::PSTR, pcchmaxpassword: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn CredUnPackAuthenticationBufferA(dwflags: CRED_PACK_FLAGS, pauthbuffer: *const ::core::ffi::c_void, cbauthbuffer: u32, pszusername: ::windows_core::PSTR, pcchlmaxusername: *mut u32, pszdomainname: ::windows_core::PSTR, pcchmaxdomainname: ::core::option::Option<*mut u32>, pszpassword: ::windows_core::PSTR, pcchmaxpassword: *mut u32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("credui.dll" "system" fn CredUnPackAuthenticationBufferA(dwflags : CRED_PACK_FLAGS, pauthbuffer : *const ::core::ffi::c_void, cbauthbuffer : u32, pszusername : ::windows_core::PSTR, pcchlmaxusername : *mut u32, pszdomainname : ::windows_core::PSTR, pcchmaxdomainname : *mut u32, pszpassword : ::windows_core::PSTR, pcchmaxpassword : *mut u32) -> super::super::Foundation:: BOOL);
-    CredUnPackAuthenticationBufferA(dwflags, pauthbuffer, cbauthbuffer, ::core::mem::transmute(pszusername), pcchlmaxusername, ::core::mem::transmute(pszdomainname), ::core::mem::transmute(pcchmaxdomainname.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pszpassword), pcchmaxpassword)
+    CredUnPackAuthenticationBufferA(dwflags, pauthbuffer, cbauthbuffer, ::core::mem::transmute(pszusername), pcchlmaxusername, ::core::mem::transmute(pszdomainname), ::core::mem::transmute(pcchmaxdomainname.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pszpassword), pcchmaxpassword).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredUnPackAuthenticationBufferW(dwflags: CRED_PACK_FLAGS, pauthbuffer: *const ::core::ffi::c_void, cbauthbuffer: u32, pszusername: ::windows_core::PWSTR, pcchmaxusername: *mut u32, pszdomainname: ::windows_core::PWSTR, pcchmaxdomainname: ::core::option::Option<*mut u32>, pszpassword: ::windows_core::PWSTR, pcchmaxpassword: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn CredUnPackAuthenticationBufferW(dwflags: CRED_PACK_FLAGS, pauthbuffer: *const ::core::ffi::c_void, cbauthbuffer: u32, pszusername: ::windows_core::PWSTR, pcchmaxusername: *mut u32, pszdomainname: ::windows_core::PWSTR, pcchmaxdomainname: ::core::option::Option<*mut u32>, pszpassword: ::windows_core::PWSTR, pcchmaxpassword: *mut u32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("credui.dll" "system" fn CredUnPackAuthenticationBufferW(dwflags : CRED_PACK_FLAGS, pauthbuffer : *const ::core::ffi::c_void, cbauthbuffer : u32, pszusername : ::windows_core::PWSTR, pcchmaxusername : *mut u32, pszdomainname : ::windows_core::PWSTR, pcchmaxdomainname : *mut u32, pszpassword : ::windows_core::PWSTR, pcchmaxpassword : *mut u32) -> super::super::Foundation:: BOOL);
-    CredUnPackAuthenticationBufferW(dwflags, pauthbuffer, cbauthbuffer, ::core::mem::transmute(pszusername), pcchmaxusername, ::core::mem::transmute(pszdomainname), ::core::mem::transmute(pcchmaxdomainname.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pszpassword), pcchmaxpassword)
+    CredUnPackAuthenticationBufferW(dwflags, pauthbuffer, cbauthbuffer, ::core::mem::transmute(pszusername), pcchmaxusername, ::core::mem::transmute(pszdomainname), ::core::mem::transmute(pcchmaxdomainname.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pszpassword), pcchmaxpassword).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredUnmarshalCredentialA<P0>(marshaledcredential: P0, credtype: *mut CRED_MARSHAL_TYPE, credential: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
+pub unsafe fn CredUnmarshalCredentialA<P0>(marshaledcredential: P0, credtype: *mut CRED_MARSHAL_TYPE, credential: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("advapi32.dll" "system" fn CredUnmarshalCredentialA(marshaledcredential : ::windows_core::PCSTR, credtype : *mut CRED_MARSHAL_TYPE, credential : *mut *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    CredUnmarshalCredentialA(marshaledcredential.into_param().abi(), credtype, credential)
+    CredUnmarshalCredentialA(marshaledcredential.into_param().abi(), credtype, credential).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredUnmarshalCredentialW<P0>(marshaledcredential: P0, credtype: *mut CRED_MARSHAL_TYPE, credential: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
+pub unsafe fn CredUnmarshalCredentialW<P0>(marshaledcredential: P0, credtype: *mut CRED_MARSHAL_TYPE, credential: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("advapi32.dll" "system" fn CredUnmarshalCredentialW(marshaledcredential : ::windows_core::PCWSTR, credtype : *mut CRED_MARSHAL_TYPE, credential : *mut *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    CredUnmarshalCredentialW(marshaledcredential.into_param().abi(), credtype, credential)
+    CredUnmarshalCredentialW(marshaledcredential.into_param().abi(), credtype, credential).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredUnprotectA<P0>(fasself: P0, pszprotectedcredentials: &[u8], pszcredentials: ::windows_core::PSTR, pcchmaxchars: *mut u32) -> super::super::Foundation::BOOL
+pub unsafe fn CredUnprotectA<P0>(fasself: P0, pszprotectedcredentials: &[u8], pszcredentials: ::windows_core::PSTR, pcchmaxchars: *mut u32) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("advapi32.dll" "system" fn CredUnprotectA(fasself : super::super::Foundation:: BOOL, pszprotectedcredentials : ::windows_core::PCSTR, cchprotectedcredentials : u32, pszcredentials : ::windows_core::PSTR, pcchmaxchars : *mut u32) -> super::super::Foundation:: BOOL);
-    CredUnprotectA(fasself.into_param().abi(), ::core::mem::transmute(pszprotectedcredentials.as_ptr()), pszprotectedcredentials.len() as _, ::core::mem::transmute(pszcredentials), pcchmaxchars)
+    CredUnprotectA(fasself.into_param().abi(), ::core::mem::transmute(pszprotectedcredentials.as_ptr()), pszprotectedcredentials.len() as _, ::core::mem::transmute(pszcredentials), pcchmaxchars).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredUnprotectW<P0>(fasself: P0, pszprotectedcredentials: &[u16], pszcredentials: ::windows_core::PWSTR, pcchmaxchars: *mut u32) -> super::super::Foundation::BOOL
+pub unsafe fn CredUnprotectW<P0>(fasself: P0, pszprotectedcredentials: &[u16], pszcredentials: ::windows_core::PWSTR, pcchmaxchars: *mut u32) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("advapi32.dll" "system" fn CredUnprotectW(fasself : super::super::Foundation:: BOOL, pszprotectedcredentials : ::windows_core::PCWSTR, cchprotectedcredentials : u32, pszcredentials : ::windows_core::PWSTR, pcchmaxchars : *mut u32) -> super::super::Foundation:: BOOL);
-    CredUnprotectW(fasself.into_param().abi(), ::core::mem::transmute(pszprotectedcredentials.as_ptr()), pszprotectedcredentials.len() as _, ::core::mem::transmute(pszcredentials), pcchmaxchars)
+    CredUnprotectW(fasself.into_param().abi(), ::core::mem::transmute(pszprotectedcredentials.as_ptr()), pszprotectedcredentials.len() as _, ::core::mem::transmute(pszcredentials), pcchmaxchars).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredWriteA(credential: *const CREDENTIALA, flags: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn CredWriteA(credential: *const CREDENTIALA, flags: u32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("advapi32.dll" "system" fn CredWriteA(credential : *const CREDENTIALA, flags : u32) -> super::super::Foundation:: BOOL);
-    CredWriteA(credential, flags)
+    CredWriteA(credential, flags).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredWriteDomainCredentialsA(targetinfo: *const CREDENTIAL_TARGET_INFORMATIONA, credential: *const CREDENTIALA, flags: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn CredWriteDomainCredentialsA(targetinfo: *const CREDENTIAL_TARGET_INFORMATIONA, credential: *const CREDENTIALA, flags: u32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("advapi32.dll" "system" fn CredWriteDomainCredentialsA(targetinfo : *const CREDENTIAL_TARGET_INFORMATIONA, credential : *const CREDENTIALA, flags : u32) -> super::super::Foundation:: BOOL);
-    CredWriteDomainCredentialsA(targetinfo, credential, flags)
+    CredWriteDomainCredentialsA(targetinfo, credential, flags).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredWriteDomainCredentialsW(targetinfo: *const CREDENTIAL_TARGET_INFORMATIONW, credential: *const CREDENTIALW, flags: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn CredWriteDomainCredentialsW(targetinfo: *const CREDENTIAL_TARGET_INFORMATIONW, credential: *const CREDENTIALW, flags: u32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("advapi32.dll" "system" fn CredWriteDomainCredentialsW(targetinfo : *const CREDENTIAL_TARGET_INFORMATIONW, credential : *const CREDENTIALW, flags : u32) -> super::super::Foundation:: BOOL);
-    CredWriteDomainCredentialsW(targetinfo, credential, flags)
+    CredWriteDomainCredentialsW(targetinfo, credential, flags).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredWriteW(credential: *const CREDENTIALW, flags: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn CredWriteW(credential: *const CREDENTIALW, flags: u32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("advapi32.dll" "system" fn CredWriteW(credential : *const CREDENTIALW, flags : u32) -> super::super::Foundation:: BOOL);
-    CredWriteW(credential, flags)
+    CredWriteW(credential, flags).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

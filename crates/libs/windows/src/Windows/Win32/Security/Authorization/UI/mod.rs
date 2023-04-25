@@ -12,13 +12,13 @@ where
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EditSecurity<P0, P1>(hwndowner: P0, psi: P1) -> super::super::super::Foundation::BOOL
+pub unsafe fn EditSecurity<P0, P1>(hwndowner: P0, psi: P1) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::super::super::Foundation::HWND>,
     P1: ::windows_core::IntoParam<ISecurityInformation>,
 {
     ::windows_targets::link!("aclui.dll" "system" fn EditSecurity(hwndowner : super::super::super::Foundation:: HWND, psi : * mut::core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    EditSecurity(hwndowner.into_param().abi(), psi.into_param().abi())
+    EditSecurity(hwndowner.into_param().abi(), psi.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

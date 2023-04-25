@@ -1,22 +1,22 @@
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddERExcludedApplicationA<P0>(szapplication: P0) -> super::super::Foundation::BOOL
+pub unsafe fn AddERExcludedApplicationA<P0>(szapplication: P0) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("faultrep.dll" "system" fn AddERExcludedApplicationA(szapplication : ::windows_core::PCSTR) -> super::super::Foundation:: BOOL);
-    AddERExcludedApplicationA(szapplication.into_param().abi())
+    AddERExcludedApplicationA(szapplication.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddERExcludedApplicationW<P0>(wszapplication: P0) -> super::super::Foundation::BOOL
+pub unsafe fn AddERExcludedApplicationW<P0>(wszapplication: P0) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("faultrep.dll" "system" fn AddERExcludedApplicationW(wszapplication : ::windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
-    AddERExcludedApplicationW(wszapplication.into_param().abi())
+    AddERExcludedApplicationW(wszapplication.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`, `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]

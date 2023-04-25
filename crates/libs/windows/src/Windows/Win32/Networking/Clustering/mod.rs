@@ -126,37 +126,37 @@ pub unsafe fn CloseClusterCryptProvider(hcluscryptprovider: *const _HCLUSCRYPTPR
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CloseClusterGroup(hgroup: *const _HGROUP) -> super::super::Foundation::BOOL {
+pub unsafe fn CloseClusterGroup(hgroup: *const _HGROUP) -> ::windows_core::Result<()> {
     ::windows_targets::link!("clusapi.dll" "system" fn CloseClusterGroup(hgroup : *const _HGROUP) -> super::super::Foundation:: BOOL);
-    CloseClusterGroup(hgroup)
+    CloseClusterGroup(hgroup).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CloseClusterGroupSet(hgroupset: *const _HGROUPSET) -> super::super::Foundation::BOOL {
+pub unsafe fn CloseClusterGroupSet(hgroupset: *const _HGROUPSET) -> ::windows_core::Result<()> {
     ::windows_targets::link!("clusapi.dll" "system" fn CloseClusterGroupSet(hgroupset : *const _HGROUPSET) -> super::super::Foundation:: BOOL);
-    CloseClusterGroupSet(hgroupset)
+    CloseClusterGroupSet(hgroupset).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CloseClusterNetInterface(hnetinterface: *const _HNETINTERFACE) -> super::super::Foundation::BOOL {
+pub unsafe fn CloseClusterNetInterface(hnetinterface: *const _HNETINTERFACE) -> ::windows_core::Result<()> {
     ::windows_targets::link!("clusapi.dll" "system" fn CloseClusterNetInterface(hnetinterface : *const _HNETINTERFACE) -> super::super::Foundation:: BOOL);
-    CloseClusterNetInterface(hnetinterface)
+    CloseClusterNetInterface(hnetinterface).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CloseClusterNetwork(hnetwork: *const _HNETWORK) -> super::super::Foundation::BOOL {
+pub unsafe fn CloseClusterNetwork(hnetwork: *const _HNETWORK) -> ::windows_core::Result<()> {
     ::windows_targets::link!("clusapi.dll" "system" fn CloseClusterNetwork(hnetwork : *const _HNETWORK) -> super::super::Foundation:: BOOL);
-    CloseClusterNetwork(hnetwork)
+    CloseClusterNetwork(hnetwork).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CloseClusterNode(hnode: *const _HNODE) -> super::super::Foundation::BOOL {
+pub unsafe fn CloseClusterNode(hnode: *const _HNODE) -> ::windows_core::Result<()> {
     ::windows_targets::link!("clusapi.dll" "system" fn CloseClusterNode(hnode : *const _HNODE) -> super::super::Foundation:: BOOL);
-    CloseClusterNode(hnode)
+    CloseClusterNode(hnode).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -168,9 +168,9 @@ pub unsafe fn CloseClusterNotifyPort(hchange: *const _HCHANGE) -> super::super::
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CloseClusterResource(hresource: *const _HRESOURCE) -> super::super::Foundation::BOOL {
+pub unsafe fn CloseClusterResource(hresource: *const _HRESOURCE) -> ::windows_core::Result<()> {
     ::windows_targets::link!("clusapi.dll" "system" fn CloseClusterResource(hresource : *const _HRESOURCE) -> super::super::Foundation:: BOOL);
-    CloseClusterResource(hresource)
+    CloseClusterResource(hresource).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
@@ -339,22 +339,22 @@ pub unsafe fn ClusterGetEnumCountEx(hclusterenum: *const _HCLUSENUMEX) -> u32 {
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ClusterGetVolumeNameForVolumeMountPoint<P0>(lpszvolumemountpoint: P0, lpszvolumename: ::windows_core::PWSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL
+pub unsafe fn ClusterGetVolumeNameForVolumeMountPoint<P0>(lpszvolumemountpoint: P0, lpszvolumename: ::windows_core::PWSTR, cchbufferlength: u32) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("resutils.dll" "system" fn ClusterGetVolumeNameForVolumeMountPoint(lpszvolumemountpoint : ::windows_core::PCWSTR, lpszvolumename : ::windows_core::PWSTR, cchbufferlength : u32) -> super::super::Foundation:: BOOL);
-    ClusterGetVolumeNameForVolumeMountPoint(lpszvolumemountpoint.into_param().abi(), ::core::mem::transmute(lpszvolumename), cchbufferlength)
+    ClusterGetVolumeNameForVolumeMountPoint(lpszvolumemountpoint.into_param().abi(), ::core::mem::transmute(lpszvolumename), cchbufferlength).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ClusterGetVolumePathName<P0>(lpszfilename: P0, lpszvolumepathname: ::windows_core::PWSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL
+pub unsafe fn ClusterGetVolumePathName<P0>(lpszfilename: P0, lpszvolumepathname: ::windows_core::PWSTR, cchbufferlength: u32) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("resutils.dll" "system" fn ClusterGetVolumePathName(lpszfilename : ::windows_core::PCWSTR, lpszvolumepathname : ::windows_core::PWSTR, cchbufferlength : u32) -> super::super::Foundation:: BOOL);
-    ClusterGetVolumePathName(lpszfilename.into_param().abi(), ::core::mem::transmute(lpszvolumepathname), cchbufferlength)
+    ClusterGetVolumePathName(lpszfilename.into_param().abi(), ::core::mem::transmute(lpszvolumepathname), cchbufferlength).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]
@@ -1363,9 +1363,9 @@ pub unsafe fn GetClusterResourceKey(hresource: *const _HRESOURCE, samdesired: u3
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetClusterResourceNetworkName(hresource: *const _HRESOURCE, lpbuffer: ::windows_core::PWSTR, nsize: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetClusterResourceNetworkName(hresource: *const _HRESOURCE, lpbuffer: ::windows_core::PWSTR, nsize: *mut u32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("clusapi.dll" "system" fn GetClusterResourceNetworkName(hresource : *const _HRESOURCE, lpbuffer : ::windows_core::PWSTR, nsize : *mut u32) -> super::super::Foundation:: BOOL);
-    GetClusterResourceNetworkName(hresource, ::core::mem::transmute(lpbuffer), nsize)
+    GetClusterResourceNetworkName(hresource, ::core::mem::transmute(lpbuffer), nsize).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[inline]

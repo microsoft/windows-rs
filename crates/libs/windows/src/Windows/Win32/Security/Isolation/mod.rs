@@ -56,13 +56,13 @@ where
 #[doc = "*Required features: `\"Win32_Security_Isolation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetAppContainerNamedObjectPath<P0, P1>(token: P0, appcontainersid: P1, objectpath: ::core::option::Option<&mut [u16]>, returnlength: *mut u32) -> super::super::Foundation::BOOL
+pub unsafe fn GetAppContainerNamedObjectPath<P0, P1>(token: P0, appcontainersid: P1, objectpath: ::core::option::Option<&mut [u16]>, returnlength: *mut u32) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows_core::IntoParam<super::super::Foundation::PSID>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn GetAppContainerNamedObjectPath(token : super::super::Foundation:: HANDLE, appcontainersid : super::super::Foundation:: PSID, objectpathlength : u32, objectpath : ::windows_core::PWSTR, returnlength : *mut u32) -> super::super::Foundation:: BOOL);
-    GetAppContainerNamedObjectPath(token.into_param().abi(), appcontainersid.into_param().abi(), objectpath.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(objectpath.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), returnlength)
+    GetAppContainerNamedObjectPath(token.into_param().abi(), appcontainersid.into_param().abi(), objectpath.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(objectpath.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), returnlength).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Isolation\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]

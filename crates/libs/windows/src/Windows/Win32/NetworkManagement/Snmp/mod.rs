@@ -192,9 +192,9 @@ pub unsafe fn SnmpMgrClose(session: *mut ::core::ffi::c_void) -> super::super::F
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SnmpMgrCtl(session: *mut ::core::ffi::c_void, dwctlcode: u32, lpvinbuffer: *mut ::core::ffi::c_void, cbinbuffer: u32, lpvoutbuffer: *mut ::core::ffi::c_void, cboutbuffer: u32, lpcbbytesreturned: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn SnmpMgrCtl(session: *mut ::core::ffi::c_void, dwctlcode: u32, lpvinbuffer: *mut ::core::ffi::c_void, cbinbuffer: u32, lpvoutbuffer: *mut ::core::ffi::c_void, cboutbuffer: u32, lpcbbytesreturned: *mut u32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("mgmtapi.dll" "system" fn SnmpMgrCtl(session : *mut ::core::ffi::c_void, dwctlcode : u32, lpvinbuffer : *mut ::core::ffi::c_void, cbinbuffer : u32, lpvoutbuffer : *mut ::core::ffi::c_void, cboutbuffer : u32, lpcbbytesreturned : *mut u32) -> super::super::Foundation:: BOOL);
-    SnmpMgrCtl(session, dwctlcode, lpvinbuffer, cbinbuffer, lpvoutbuffer, cboutbuffer, lpcbbytesreturned)
+    SnmpMgrCtl(session, dwctlcode, lpvinbuffer, cbinbuffer, lpvoutbuffer, cboutbuffer, lpcbbytesreturned).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -247,9 +247,9 @@ where
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SnmpMgrTrapListen(phtrapavailable: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL {
+pub unsafe fn SnmpMgrTrapListen(phtrapavailable: *mut super::super::Foundation::HANDLE) -> ::windows_core::Result<()> {
     ::windows_targets::link!("mgmtapi.dll" "system" fn SnmpMgrTrapListen(phtrapavailable : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-    SnmpMgrTrapListen(phtrapavailable)
+    SnmpMgrTrapListen(phtrapavailable).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 #[inline]

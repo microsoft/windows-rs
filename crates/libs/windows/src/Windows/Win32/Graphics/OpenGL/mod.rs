@@ -41,22 +41,22 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn SetPixelFormat<P0>(hdc: P0, format: i32, ppfd: *const PIXELFORMATDESCRIPTOR) -> super::super::Foundation::BOOL
+pub unsafe fn SetPixelFormat<P0>(hdc: P0, format: i32, ppfd: *const PIXELFORMATDESCRIPTOR) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::Gdi::HDC>,
 {
     ::windows_targets::link!("gdi32.dll" "system" fn SetPixelFormat(hdc : super::Gdi:: HDC, format : i32, ppfd : *const PIXELFORMATDESCRIPTOR) -> super::super::Foundation:: BOOL);
-    SetPixelFormat(hdc.into_param().abi(), format, ppfd)
+    SetPixelFormat(hdc.into_param().abi(), format, ppfd).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn SwapBuffers<P0>(param0: P0) -> super::super::Foundation::BOOL
+pub unsafe fn SwapBuffers<P0>(param0: P0) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::Gdi::HDC>,
 {
     ::windows_targets::link!("gdi32.dll" "system" fn SwapBuffers(param0 : super::Gdi:: HDC) -> super::super::Foundation:: BOOL);
-    SwapBuffers(param0.into_param().abi())
+    SwapBuffers(param0.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
@@ -2389,13 +2389,13 @@ pub unsafe fn gluUnProject(winx: f64, winy: f64, winz: f64, modelmatrix: *const 
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn wglCopyContext<P0, P1>(param0: P0, param1: P1, param2: u32) -> super::super::Foundation::BOOL
+pub unsafe fn wglCopyContext<P0, P1>(param0: P0, param1: P1, param2: u32) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<HGLRC>,
     P1: ::windows_core::IntoParam<HGLRC>,
 {
     ::windows_targets::link!("opengl32.dll" "system" fn wglCopyContext(param0 : HGLRC, param1 : HGLRC, param2 : u32) -> super::super::Foundation:: BOOL);
-    wglCopyContext(param0.into_param().abi(), param1.into_param().abi(), param2)
+    wglCopyContext(param0.into_param().abi(), param1.into_param().abi(), param2).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -2422,12 +2422,12 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn wglDeleteContext<P0>(param0: P0) -> super::super::Foundation::BOOL
+pub unsafe fn wglDeleteContext<P0>(param0: P0) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<HGLRC>,
 {
     ::windows_targets::link!("opengl32.dll" "system" fn wglDeleteContext(param0 : HGLRC) -> super::super::Foundation:: BOOL);
-    wglDeleteContext(param0.into_param().abi())
+    wglDeleteContext(param0.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2475,24 +2475,24 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn wglMakeCurrent<P0, P1>(param0: P0, param1: P1) -> super::super::Foundation::BOOL
+pub unsafe fn wglMakeCurrent<P0, P1>(param0: P0, param1: P1) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::Gdi::HDC>,
     P1: ::windows_core::IntoParam<HGLRC>,
 {
     ::windows_targets::link!("opengl32.dll" "system" fn wglMakeCurrent(param0 : super::Gdi:: HDC, param1 : HGLRC) -> super::super::Foundation:: BOOL);
-    wglMakeCurrent(param0.into_param().abi(), param1.into_param().abi())
+    wglMakeCurrent(param0.into_param().abi(), param1.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn wglRealizeLayerPalette<P0, P1>(param0: P0, param1: i32, param2: P1) -> super::super::Foundation::BOOL
+pub unsafe fn wglRealizeLayerPalette<P0, P1>(param0: P0, param1: i32, param2: P1) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::Gdi::HDC>,
     P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("opengl32.dll" "system" fn wglRealizeLayerPalette(param0 : super::Gdi:: HDC, param1 : i32, param2 : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    wglRealizeLayerPalette(param0.into_param().abi(), param1, param2.into_param().abi())
+    wglRealizeLayerPalette(param0.into_param().abi(), param1, param2.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2507,63 +2507,63 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn wglShareLists<P0, P1>(param0: P0, param1: P1) -> super::super::Foundation::BOOL
+pub unsafe fn wglShareLists<P0, P1>(param0: P0, param1: P1) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<HGLRC>,
     P1: ::windows_core::IntoParam<HGLRC>,
 {
     ::windows_targets::link!("opengl32.dll" "system" fn wglShareLists(param0 : HGLRC, param1 : HGLRC) -> super::super::Foundation:: BOOL);
-    wglShareLists(param0.into_param().abi(), param1.into_param().abi())
+    wglShareLists(param0.into_param().abi(), param1.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn wglSwapLayerBuffers<P0>(param0: P0, param1: u32) -> super::super::Foundation::BOOL
+pub unsafe fn wglSwapLayerBuffers<P0>(param0: P0, param1: u32) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::Gdi::HDC>,
 {
     ::windows_targets::link!("opengl32.dll" "system" fn wglSwapLayerBuffers(param0 : super::Gdi:: HDC, param1 : u32) -> super::super::Foundation:: BOOL);
-    wglSwapLayerBuffers(param0.into_param().abi(), param1)
+    wglSwapLayerBuffers(param0.into_param().abi(), param1).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn wglUseFontBitmapsA<P0>(param0: P0, param1: u32, param2: u32, param3: u32) -> super::super::Foundation::BOOL
+pub unsafe fn wglUseFontBitmapsA<P0>(param0: P0, param1: u32, param2: u32, param3: u32) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::Gdi::HDC>,
 {
     ::windows_targets::link!("opengl32.dll" "system" fn wglUseFontBitmapsA(param0 : super::Gdi:: HDC, param1 : u32, param2 : u32, param3 : u32) -> super::super::Foundation:: BOOL);
-    wglUseFontBitmapsA(param0.into_param().abi(), param1, param2, param3)
+    wglUseFontBitmapsA(param0.into_param().abi(), param1, param2, param3).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn wglUseFontBitmapsW<P0>(param0: P0, param1: u32, param2: u32, param3: u32) -> super::super::Foundation::BOOL
+pub unsafe fn wglUseFontBitmapsW<P0>(param0: P0, param1: u32, param2: u32, param3: u32) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::Gdi::HDC>,
 {
     ::windows_targets::link!("opengl32.dll" "system" fn wglUseFontBitmapsW(param0 : super::Gdi:: HDC, param1 : u32, param2 : u32, param3 : u32) -> super::super::Foundation:: BOOL);
-    wglUseFontBitmapsW(param0.into_param().abi(), param1, param2, param3)
+    wglUseFontBitmapsW(param0.into_param().abi(), param1, param2, param3).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn wglUseFontOutlinesA<P0>(param0: P0, param1: u32, param2: u32, param3: u32, param4: f32, param5: f32, param6: i32, param7: *mut GLYPHMETRICSFLOAT) -> super::super::Foundation::BOOL
+pub unsafe fn wglUseFontOutlinesA<P0>(param0: P0, param1: u32, param2: u32, param3: u32, param4: f32, param5: f32, param6: i32, param7: *mut GLYPHMETRICSFLOAT) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::Gdi::HDC>,
 {
     ::windows_targets::link!("opengl32.dll" "system" fn wglUseFontOutlinesA(param0 : super::Gdi:: HDC, param1 : u32, param2 : u32, param3 : u32, param4 : f32, param5 : f32, param6 : i32, param7 : *mut GLYPHMETRICSFLOAT) -> super::super::Foundation:: BOOL);
-    wglUseFontOutlinesA(param0.into_param().abi(), param1, param2, param3, param4, param5, param6, param7)
+    wglUseFontOutlinesA(param0.into_param().abi(), param1, param2, param3, param4, param5, param6, param7).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn wglUseFontOutlinesW<P0>(param0: P0, param1: u32, param2: u32, param3: u32, param4: f32, param5: f32, param6: i32, param7: *mut GLYPHMETRICSFLOAT) -> super::super::Foundation::BOOL
+pub unsafe fn wglUseFontOutlinesW<P0>(param0: P0, param1: u32, param2: u32, param3: u32, param4: f32, param5: f32, param6: i32, param7: *mut GLYPHMETRICSFLOAT) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::Gdi::HDC>,
 {
     ::windows_targets::link!("opengl32.dll" "system" fn wglUseFontOutlinesW(param0 : super::Gdi:: HDC, param1 : u32, param2 : u32, param3 : u32, param4 : f32, param5 : f32, param6 : i32, param7 : *mut GLYPHMETRICSFLOAT) -> super::super::Foundation:: BOOL);
-    wglUseFontOutlinesW(param0.into_param().abi(), param1, param2, param3, param4, param5, param6, param7)
+    wglUseFontOutlinesW(param0.into_param().abi(), param1, param2, param3, param4, param5, param6, param7).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 pub const GLU_AUTO_LOAD_MATRIX: u32 = 100200u32;

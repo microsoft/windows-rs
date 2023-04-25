@@ -69,16 +69,16 @@ where
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FreeGPOListA(pgpolist: *const GROUP_POLICY_OBJECTA) -> super::super::Foundation::BOOL {
+pub unsafe fn FreeGPOListA(pgpolist: *const GROUP_POLICY_OBJECTA) -> ::windows_core::Result<()> {
     ::windows_targets::link!("userenv.dll" "system" fn FreeGPOListA(pgpolist : *const GROUP_POLICY_OBJECTA) -> super::super::Foundation:: BOOL);
-    FreeGPOListA(pgpolist)
+    FreeGPOListA(pgpolist).ok()
 }
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FreeGPOListW(pgpolist: *const GROUP_POLICY_OBJECTW) -> super::super::Foundation::BOOL {
+pub unsafe fn FreeGPOListW(pgpolist: *const GROUP_POLICY_OBJECTW) -> ::windows_core::Result<()> {
     ::windows_targets::link!("userenv.dll" "system" fn FreeGPOListW(pgpolist : *const GROUP_POLICY_OBJECTW) -> super::super::Foundation:: BOOL);
-    FreeGPOListW(pgpolist)
+    FreeGPOListW(pgpolist).ok()
 }
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -116,7 +116,7 @@ where
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetGPOListA<P0, P1, P2, P3>(htoken: P0, lpname: P1, lphostname: P2, lpcomputername: P3, dwflags: u32, pgpolist: *mut *mut GROUP_POLICY_OBJECTA) -> super::super::Foundation::BOOL
+pub unsafe fn GetGPOListA<P0, P1, P2, P3>(htoken: P0, lpname: P1, lphostname: P2, lpcomputername: P3, dwflags: u32, pgpolist: *mut *mut GROUP_POLICY_OBJECTA) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
@@ -124,12 +124,12 @@ where
     P3: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("userenv.dll" "system" fn GetGPOListA(htoken : super::super::Foundation:: HANDLE, lpname : ::windows_core::PCSTR, lphostname : ::windows_core::PCSTR, lpcomputername : ::windows_core::PCSTR, dwflags : u32, pgpolist : *mut *mut GROUP_POLICY_OBJECTA) -> super::super::Foundation:: BOOL);
-    GetGPOListA(htoken.into_param().abi(), lpname.into_param().abi(), lphostname.into_param().abi(), lpcomputername.into_param().abi(), dwflags, pgpolist)
+    GetGPOListA(htoken.into_param().abi(), lpname.into_param().abi(), lphostname.into_param().abi(), lpcomputername.into_param().abi(), dwflags, pgpolist).ok()
 }
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetGPOListW<P0, P1, P2, P3>(htoken: P0, lpname: P1, lphostname: P2, lpcomputername: P3, dwflags: u32, pgpolist: *mut *mut GROUP_POLICY_OBJECTW) -> super::super::Foundation::BOOL
+pub unsafe fn GetGPOListW<P0, P1, P2, P3>(htoken: P0, lpname: P1, lphostname: P2, lpcomputername: P3, dwflags: u32, pgpolist: *mut *mut GROUP_POLICY_OBJECTW) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
@@ -137,7 +137,7 @@ where
     P3: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("userenv.dll" "system" fn GetGPOListW(htoken : super::super::Foundation:: HANDLE, lpname : ::windows_core::PCWSTR, lphostname : ::windows_core::PCWSTR, lpcomputername : ::windows_core::PCWSTR, dwflags : u32, pgpolist : *mut *mut GROUP_POLICY_OBJECTW) -> super::super::Foundation:: BOOL);
-    GetGPOListW(htoken.into_param().abi(), lpname.into_param().abi(), lphostname.into_param().abi(), lpcomputername.into_param().abi(), dwflags, pgpolist)
+    GetGPOListW(htoken.into_param().abi(), lpname.into_param().abi(), lphostname.into_param().abi(), lpcomputername.into_param().abi(), dwflags, pgpolist).ok()
 }
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[inline]
@@ -191,12 +191,12 @@ pub unsafe fn InstallApplication(pinstallinfo: *const INSTALLDATA) -> u32 {
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LeaveCriticalPolicySection<P0>(hsection: P0) -> super::super::Foundation::BOOL
+pub unsafe fn LeaveCriticalPolicySection<P0>(hsection: P0) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("userenv.dll" "system" fn LeaveCriticalPolicySection(hsection : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-    LeaveCriticalPolicySection(hsection.into_param().abi())
+    LeaveCriticalPolicySection(hsection.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[inline]
@@ -213,33 +213,33 @@ pub unsafe fn ProcessGroupPolicyCompletedEx(extensionid: *const ::windows_core::
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RefreshPolicy<P0>(bmachine: P0) -> super::super::Foundation::BOOL
+pub unsafe fn RefreshPolicy<P0>(bmachine: P0) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("userenv.dll" "system" fn RefreshPolicy(bmachine : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    RefreshPolicy(bmachine.into_param().abi())
+    RefreshPolicy(bmachine.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RefreshPolicyEx<P0>(bmachine: P0, dwoptions: u32) -> super::super::Foundation::BOOL
+pub unsafe fn RefreshPolicyEx<P0>(bmachine: P0, dwoptions: u32) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("userenv.dll" "system" fn RefreshPolicyEx(bmachine : super::super::Foundation:: BOOL, dwoptions : u32) -> super::super::Foundation:: BOOL);
-    RefreshPolicyEx(bmachine.into_param().abi(), dwoptions)
+    RefreshPolicyEx(bmachine.into_param().abi(), dwoptions).ok()
 }
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegisterGPNotification<P0, P1>(hevent: P0, bmachine: P1) -> super::super::Foundation::BOOL
+pub unsafe fn RegisterGPNotification<P0, P1>(hevent: P0, bmachine: P1) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("userenv.dll" "system" fn RegisterGPNotification(hevent : super::super::Foundation:: HANDLE, bmachine : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    RegisterGPNotification(hevent.into_param().abi(), bmachine.into_param().abi())
+    RegisterGPNotification(hevent.into_param().abi(), bmachine.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -295,12 +295,12 @@ where
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UnregisterGPNotification<P0>(hevent: P0) -> super::super::Foundation::BOOL
+pub unsafe fn UnregisterGPNotification<P0>(hevent: P0) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("userenv.dll" "system" fn UnregisterGPNotification(hevent : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-    UnregisterGPNotification(hevent.into_param().abi())
+    UnregisterGPNotification(hevent.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[repr(transparent)]

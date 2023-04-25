@@ -1093,16 +1093,16 @@ where
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn QueryPerformanceCounter(lpperformancecount: *mut i64) -> super::super::Foundation::BOOL {
+pub unsafe fn QueryPerformanceCounter(lpperformancecount: *mut i64) -> ::windows_core::Result<()> {
     ::windows_targets::link!("kernel32.dll" "system" fn QueryPerformanceCounter(lpperformancecount : *mut i64) -> super::super::Foundation:: BOOL);
-    QueryPerformanceCounter(lpperformancecount)
+    QueryPerformanceCounter(lpperformancecount).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn QueryPerformanceFrequency(lpfrequency: *mut i64) -> super::super::Foundation::BOOL {
+pub unsafe fn QueryPerformanceFrequency(lpfrequency: *mut i64) -> ::windows_core::Result<()> {
     ::windows_targets::link!("kernel32.dll" "system" fn QueryPerformanceFrequency(lpfrequency : *mut i64) -> super::super::Foundation:: BOOL);
-    QueryPerformanceFrequency(lpfrequency)
+    QueryPerformanceFrequency(lpfrequency).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
