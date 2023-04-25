@@ -18,3 +18,7 @@ targets = []
 [dependencies.windows-targets]
 version = "0.48.0"
 path = "../targets"
+
+[features]
+default = []
+implement = []

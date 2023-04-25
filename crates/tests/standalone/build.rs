@@ -79,12 +79,7 @@ fn main() {
         ],
     );
 
-    write_win(
-        "src/b_uri.rs",
-        &[
-            "Windows.Foundation.Uri",
-        ],
-    );
+    write_win("src/b_uri.rs", &["Windows.Foundation.Uri"]);
     write_win("src/b_stringable.rs", &["Windows.Foundation.IStringable"]);
     write_win("src/b_calendar.rs", &["Windows.Globalization.Calendar"]);
 
