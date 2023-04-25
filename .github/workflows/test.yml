@@ -95,8 +95,8 @@ jobs:
           cargo test -p test_does_not_return &&
           cargo test -p test_enums &&
           cargo test -p test_error &&
-          cargo clean &&
           cargo test -p test_event &&
+          cargo clean &&
           cargo test -p test_extensions &&
           cargo test -p test_handles &&
           cargo test -p test_helpers &&
@@ -130,6 +130,7 @@ jobs:
           cargo test -p test_win32_arrays &&
           cargo test -p test_window_long &&
           cargo test -p test_winrt &&
+          cargo test -p tool_core &&
           cargo test -p tool_gnu &&
           cargo test -p tool_lib &&
           cargo test -p tool_license &&
@@ -139,6 +140,7 @@ jobs:
           cargo test -p tool_yml &&
           cargo test -p windows &&
           cargo test -p windows-bindgen &&
+          cargo test -p windows-core &&
           cargo test -p windows-implement &&
           cargo test -p windows-interface &&
           cargo test -p windows-metadata &&
