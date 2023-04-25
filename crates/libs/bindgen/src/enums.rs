@@ -124,8 +124,8 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
         let name = type_name.name;
         tokens.combine(&quote! {
             #features
-            impl ::windows::core::TypeKind for #ident {
-                type TypeKind = ::windows::core::CopyType;
+            impl ::windows_core::TypeKind for #ident {
+                type TypeKind = ::windows_core::CopyType;
             }
             #features
             impl ::core::fmt::Debug for #ident {
@@ -192,8 +192,8 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
 
             tokens.combine(&quote! {
                 #features
-                impl ::windows::core::RuntimeType for #ident {
-                    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(#signature);
+                impl ::windows_core::RuntimeType for #ident {
+                    const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(#signature);
                 }
             });
         }

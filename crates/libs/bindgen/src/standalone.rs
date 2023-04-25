@@ -1,10 +1,19 @@
 use super::*;
 
-/// Generates standalone Windows bindings.
-pub fn standalone(names: &[&str]) -> String {
+/// Generates standalone Windows bindings based on the `windows` crate's bindings.
+pub fn standalone_win(names: &[&str]) -> String {
     let files = &File::with_default(&[]).unwrap();
     let reader = &Reader::new(files);
     let gen = &mut Gen::new(reader);
+    standalone_imp(gen, names)
+}
+
+/// Generates standalone Windows bindings based on the `windows-sys` crate's bindings.
+pub fn standalone_sys(names: &[&str]) -> String {
+    let files = &File::with_default(&[]).unwrap();
+    let reader = &Reader::new(files);
+    let gen = &mut Gen::new(reader);
+    gen.sys = true;
     standalone_imp(gen, names)
 }
 
@@ -14,124 +23,118 @@ pub fn standalone_std(names: &[&str]) -> String {
     let reader = &Reader::new(files);
     let gen = &mut Gen::new(reader);
     gen.std = true;
+    gen.sys = true;
     standalone_imp(gen, names)
 }
 
 fn standalone_imp(gen: &mut Gen, names: &[&str]) -> String {
     gen.namespace = "Windows.";
     gen.standalone = true;
-    gen.sys = true;
 
-    let mut type_names = BTreeSet::new();
-    let mut core_types = BTreeSet::new();
-    let mut enums = BTreeSet::new();
+    let mut types = BTreeSet::new();
+    let mut functions = BTreeSet::new();
+    let mut constants = BTreeSet::new();
 
     for name in names {
         let type_name = TypeName::parse(name);
+
+        // We can't simply use `if let` here to find the types and functions as there may be multiple definitions
+        // to cover multi-arch support.
         let mut found = false;
 
-        if let Some(def) = gen.reader.get(type_name).next() {
+        for def in gen.reader.get(type_name) {
+            gen.reader
+                .type_collect_standalone(&Type::TypeDef((def, vec![])), &mut types);
             found = true;
-            type_names.insert(type_name);
-            let mut cfg = gen.reader.type_def_cfg(def, &[]);
-            core_types.append(&mut cfg.core_types);
-            for def in cfg.types.values().flatten() {
-                type_names.insert(gen.reader.type_def_type_name(*def));
-            }
-            if gen.reader.type_def_kind(def) == TypeKind::Struct
-                && gen.reader.type_def_fields(def).next().is_none()
-                && gen.reader.type_def_guid(def).is_some()
-            {
-                core_types.insert(Type::GUID);
-            }
         }
 
-        if !found {
-            for method in gen.reader.namespace_functions(type_name.namespace) {
-                if found {
-                    break;
-                }
-                let name = gen.reader.method_def_name(method);
-                if name == type_name.name {
-                    found = true;
-                    type_names.insert(type_name);
-                    let mut cfg = gen
-                        .reader
-                        .signature_cfg(&gen.reader.method_def_signature(method, &[]));
-                    core_types.append(&mut cfg.core_types);
-                    for def in cfg.types.values().flatten() {
-                        type_names.insert(gen.reader.type_def_type_name(*def));
-                    }
-                }
-            }
-            for field in gen.reader.namespace_constants(type_name.namespace) {
-                if found {
-                    break;
-                }
-                let name = gen.reader.field_name(field);
-                if name == type_name.name {
-                    found = true;
-                    type_names.insert(type_name);
-                    let mut cfg = gen.reader.field_cfg(field);
-                    core_types.append(&mut cfg.core_types);
-                    for def in cfg.types.values().flatten() {
-                        type_names.insert(gen.reader.type_def_type_name(*def));
-                    }
-                }
-            }
+        if found {
+            continue;
         }
 
-        if !found {
-            for def in gen
-                .reader
-                .namespace_types(type_name.namespace, &Default::default())
-            {
-                if found {
-                    break;
-                }
+        for method in gen
+            .reader
+            .namespace_functions(type_name.namespace)
+            .filter(|method| gen.reader.method_def_name(*method) == type_name.name)
+        {
+            functions.insert(method);
+            let signature = gen.reader.method_def_signature(method, &[]);
+            signature
+                .return_type
+                .iter()
+                .for_each(|ty| gen.reader.type_collect_standalone(ty, &mut types));
+            signature
+                .params
+                .iter()
+                .for_each(|param| gen.reader.type_collect_standalone(&param.ty, &mut types));
+            found = true;
+        }
+
+        if found {
+            continue;
+        }
+
+        if let Some(field) = gen
+            .reader
+            .namespace_constants(type_name.namespace)
+            .find(|field| gen.reader.field_name(*field) == type_name.name)
+        {
+            constants.insert(field);
+            gen.reader
+                .type_collect_standalone(&gen.reader.field_type(field, None), &mut types);
+        }
+
+        if let Some(field) = gen
+            .reader
+            .namespace_types(type_name.namespace, &Default::default())
+            .find_map(|def| {
                 if gen.reader.type_def_kind(def) == TypeKind::Enum {
-                    for field in gen.reader.type_def_fields(def) {
-                        if found {
-                            break;
-                        }
-                        let name = gen.reader.field_name(field);
-                        if name == type_name.name {
-                            found = true;
-                            let enum_name = gen.reader.type_def_type_name(def);
-                            type_names.insert(enum_name);
-                            enums.insert((enum_name, type_name.name));
-                        }
-                    }
+                    return gen
+                        .reader
+                        .type_def_fields(def)
+                        .find(|field| gen.reader.field_name(*field) == type_name.name);
                 }
-            }
+                None
+            })
+        {
+            constants.insert(field);
+            gen.reader
+                .type_collect_standalone(&gen.reader.field_type(field, None), &mut types);
         }
     }
 
     let mut sorted = SortedTokens::default();
 
-    for ty in core_types {
+    for ty in types {
         match ty {
-            Type::HRESULT => sorted.insert("HRESULT", quote! { pub type HRESULT = i32; }),
-            Type::String => sorted.insert(
+            Type::HRESULT if gen.sys => {
+                sorted.insert("HRESULT", quote! { pub type HRESULT = i32; })
+            }
+            Type::String if gen.sys => sorted.insert(
                 "HSTRING",
                 quote! { pub type HSTRING = *mut ::core::ffi::c_void; },
             ),
-            Type::IUnknown => sorted.insert(
+            Type::IUnknown if gen.sys => sorted.insert(
                 "IUnknown",
                 quote! { pub type IUnknown = *mut ::core::ffi::c_void; },
             ),
-            Type::IInspectable => sorted.insert(
+            Type::IInspectable if gen.sys => sorted.insert(
                 "IInspectable",
                 quote! { pub type IInspectable = *mut ::core::ffi::c_void; },
             ),
-            Type::PSTR => sorted.insert("PSTR", quote! { pub type PSTR = *mut u8; }),
-            Type::PWSTR => sorted.insert("PWSTR", quote! { pub type PWSTR = *mut u16; }),
-            Type::PCSTR => sorted.insert("PCSTR", quote! { pub type PCSTR = *const u8; }),
-            Type::PCWSTR => sorted.insert("PCWSTR", quote! { pub type PCWSTR = *const u16; }),
-            Type::BSTR => sorted.insert("BSTR", quote! { pub type BSTR = *const u16; }),
-            Type::GUID => {
+            Type::PSTR if gen.sys => sorted.insert("PSTR", quote! { pub type PSTR = *mut u8; }),
+            Type::PWSTR if gen.sys => sorted.insert("PWSTR", quote! { pub type PWSTR = *mut u16; }),
+            Type::PCSTR if gen.sys => {
+                sorted.insert("PCSTR", quote! { pub type PCSTR = *const u8; })
+            }
+            Type::PCWSTR if gen.sys => {
+                sorted.insert("PCWSTR", quote! { pub type PCWSTR = *const u16; })
+            }
+            Type::BSTR if gen.sys => sorted.insert("BSTR", quote! { pub type BSTR = *const u16; }),
+            Type::GUID if gen.sys => {
                 sorted.insert("GUID", quote! {
                     #[repr(C)]
+                    #[derive(::core::marker::Copy, ::core::clone::Clone, ::core::default::Default, ::core::cmp::PartialEq, ::core::cmp::Eq, ::core::hash::Hash)]
                     pub struct GUID {
                         pub data1: u32,
                         pub data2: u16,
@@ -143,100 +146,75 @@ fn standalone_imp(gen: &mut Gen, names: &[&str]) -> String {
                             Self { data1: (uuid >> 96) as u32, data2: (uuid >> 80 & 0xffff) as u16, data3: (uuid >> 64 & 0xffff) as u16, data4: (uuid as u64).to_be_bytes() }
                         }
                     }
-                    impl ::core::marker::Copy for GUID {}
-                    impl ::core::clone::Clone for GUID {
-                        fn clone(&self) -> Self {
-                            *self
+                });
+            }
+            Type::TypeDef((def, _)) => {
+                let kind = gen.reader.type_def_kind(def);
+                match kind {
+                    TypeKind::Class => {
+                        let name = gen.reader.type_def_name(def);
+                        if gen.sys {
+                            let ident = to_ident(name);
+                            sorted.insert(name, quote! { type #ident = *mut ::core::ffi::c_void; });
+                        } else {
+                            sorted.insert(name, classes::gen(gen, def));
                         }
                     }
-                });
+                    TypeKind::Interface => {
+                        let name = gen.reader.type_def_name(def);
+                        if gen.sys {
+                            let ident = to_ident(name);
+                            sorted.insert(name, quote! { type #ident = *mut ::core::ffi::c_void; });
+                        } else {
+                            sorted.insert(name, interfaces::gen(gen, def));
+                        }
+                    }
+                    TypeKind::Enum => {
+                        sorted.insert(gen.reader.type_def_name(def), enums::gen(gen, def));
+                    }
+                    TypeKind::Struct => {
+                        if gen.reader.type_def_fields(def).next().is_none() {
+                            if let Some(guid) = gen.reader.type_def_guid(def) {
+                                let name = gen.reader.type_def_name(def);
+                                let ident = to_ident(name);
+                                let value = gen.guid(&guid);
+                                let guid = gen.type_name(&Type::GUID);
+                                sorted.insert(
+                                    name,
+                                    quote! {
+                                        pub const #ident: #guid = #value;
+                                    },
+                                );
+                                continue;
+                            }
+                        }
+                        sorted.insert(gen.reader.type_def_name(def), structs::gen(gen, def));
+                    }
+                    TypeKind::Delegate => {
+                        sorted.insert(gen.reader.type_def_name(def), delegates::gen(gen, def));
+                    }
+                }
             }
             _ => {}
         }
     }
 
-    for type_name in type_names {
-        let mut found = false;
-
-        for def in gen.reader.get(type_name) {
-            found = true;
-            let kind = gen.reader.type_def_kind(def);
-
-            match kind {
-                TypeKind::Class | TypeKind::Interface => unimplemented!(),
-                TypeKind::Enum => {
-                    sorted.insert(gen.reader.type_def_name(def), enums::gen(gen, def));
-                }
-                TypeKind::Struct => {
-                    if gen.reader.type_def_fields(def).next().is_none() {
-                        if let Some(guid) = gen.reader.type_def_guid(def) {
-                            let ident = to_ident(type_name.name);
-                            let value = gen.guid(&guid);
-                            let guid = gen.type_name(&Type::GUID);
-                            sorted.insert(
-                                type_name.name,
-                                quote! {
-                                    pub const #ident: #guid = #value;
-                                },
-                            );
-                            continue;
-                        }
-                    }
-                    sorted.insert(gen.reader.type_def_name(def), structs::gen(gen, def));
-                }
-                TypeKind::Delegate => {
-                    sorted.insert(gen.reader.type_def_name(def), delegates::gen(gen, def));
-                }
-            }
-        }
-
-        if !found {
-            for method in gen.reader.namespace_functions(type_name.namespace) {
-                if found {
-                    break;
-                }
-                let name = gen.reader.method_def_name(method);
-                if name == type_name.name {
-                    found = true;
-                    sorted.insert(
-                        &format!(".{}.{name}", gen.reader.method_def_module_name(method)),
-                        functions::gen(gen, method),
-                    );
-                }
-            }
-            for field in gen.reader.namespace_constants(type_name.namespace) {
-                if found {
-                    break;
-                }
-                let name = gen.reader.field_name(field);
-                if name == type_name.name {
-                    found = true;
-                    sorted.insert(name, constants::gen(gen, field));
-                }
-            }
-        }
+    for function in functions {
+        sorted.insert(
+            &format!(
+                ".{}.{}",
+                gen.reader.method_def_module_name(function),
+                gen.reader.method_def_name(function)
+            ),
+            functions::gen(gen, function),
+        );
     }
 
-    for (enum_type, field_name) in enums {
-        if let Some(def) = gen.reader.get(enum_type).next() {
-            for field in gen.reader.type_def_fields(def) {
-                if gen.reader.field_name(field) == field_name {
-                    let ident = to_ident(field_name);
-                    let ty = to_ident(enum_type.name);
-                    let constant = gen.reader.field_constant(field).unwrap();
-                    let value = gen.value(&gen.reader.constant_value(constant));
-
-                    sorted.insert(
-                        field_name,
-                        quote! {
-                            pub const #ident: #ty = #value;
-                        },
-                    );
-
-                    break;
-                }
-            }
-        }
+    for constant in constants {
+        sorted.insert(
+            &format!("{}", gen.reader.field_name(constant)),
+            constants::gen(gen, constant),
+        );
     }
 
     let mut tokens: TokenStream = format!(
@@ -248,11 +226,7 @@ fn standalone_imp(gen: &mut Gen, names: &[&str]) -> String {
     .into();
 
     tokens.combine(&allow());
-
-    for value in sorted.0.values() {
-        tokens.combine(value);
-    }
-
+    sorted.0.values().for_each(|value| tokens.combine(value));
     try_format(tokens.into_string())
 }
 

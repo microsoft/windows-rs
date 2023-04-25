@@ -34,13 +34,13 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
             let params = gen.win32_params(&signature.params, kind);
             let generics = expand_generics(generics, quote!(T));
             let where_clause =
-                expand_where_clause(where_clause, quote!(T: ::windows::core::ComInterface));
+                expand_where_clause(where_clause, quote!(T: ::windows_core::ComInterface));
 
             quote! {
                 #doc
                 #features
                 #[inline]
-                pub unsafe fn #name<#generics>(#params) -> ::windows::core::Result<T> #where_clause {
+                pub unsafe fn #name<#generics>(#params) -> ::windows_core::Result<T> #where_clause {
                     #link
                     let mut result__ = ::std::ptr::null_mut();
                     #name(#args).from_abi(result__)
@@ -52,13 +52,13 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
             let params = gen.win32_params(&signature.params, kind);
             let generics = expand_generics(generics, quote!(T));
             let where_clause =
-                expand_where_clause(where_clause, quote!(T: ::windows::core::ComInterface));
+                expand_where_clause(where_clause, quote!(T: ::windows_core::ComInterface));
 
             quote! {
                 #doc
                 #features
                 #[inline]
-                pub unsafe fn #name<#generics>(#params result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> #where_clause {
+                pub unsafe fn #name<#generics>(#params result__: *mut ::core::option::Option<T>) -> ::windows_core::Result<()> #where_clause {
                     #link
                     #name(#args).ok()
                 }
@@ -74,9 +74,9 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
                 #doc
                 #features
                 #[inline]
-                pub unsafe fn #name<#generics>(#params) -> ::windows::core::Result<#return_type> #where_clause {
+                pub unsafe fn #name<#generics>(#params) -> ::windows_core::Result<#return_type> #where_clause {
                     #link
-                    let mut result__ = ::windows::core::zeroed::<#return_type>();
+                    let mut result__ = ::windows_core::zeroed::<#return_type>();
                     #name(#args).from_abi(result__)
                 }
             }
@@ -89,7 +89,7 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
                 #doc
                 #features
                 #[inline]
-                pub unsafe fn #name<#generics>(#params) -> ::windows::core::Result<()> #where_clause {
+                pub unsafe fn #name<#generics>(#params) -> ::windows_core::Result<()> #where_clause {
                     #link
                     #name(#args).ok()
                 }
@@ -107,11 +107,11 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
                     #doc
                     #features
                     #[inline]
-                    pub unsafe fn #name<#generics>(#params) -> ::windows::core::Result<#return_type> #where_clause {
+                    pub unsafe fn #name<#generics>(#params) -> ::windows_core::Result<#return_type> #where_clause {
                         #link
-                        let mut result__ = ::windows::core::zeroed::<#return_type>();
+                        let mut result__ = ::windows_core::zeroed::<#return_type>();
                         #name(#args);
-                        ::windows::core::from_abi(result__.assume_init())
+                        ::windows_core::from_abi(result__.assume_init())
                     }
                 }
             } else {
@@ -121,7 +121,7 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
                     #[inline]
                     pub unsafe fn #name<#generics>(#params) -> #return_type #where_clause {
                         #link
-                        let mut result__ = ::windows::core::zeroed::<#return_type>();
+                        let mut result__ = ::windows_core::zeroed::<#return_type>();
                         #name(#args);
                         ::std::mem::transmute(result__)
                     }
@@ -138,10 +138,10 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
                     #doc
                     #features
                     #[inline]
-                    pub unsafe fn #name<#generics>(#params) -> ::windows::core::Result<#return_type> #where_clause {
+                    pub unsafe fn #name<#generics>(#params) -> ::windows_core::Result<#return_type> #where_clause {
                         #link
                         let result__ = #name(#args);
-                        ::windows::imp::then(!result__.is_invalid(), ||result__).ok_or_else(::windows::core::Error::from_win32)
+                        ::windows_core::imp::then(!result__.is_invalid(), ||result__).ok_or_else(::windows_core::Error::from_win32)
                     }
                 }
             } else {

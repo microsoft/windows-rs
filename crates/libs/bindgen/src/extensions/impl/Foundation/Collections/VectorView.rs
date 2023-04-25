@@ -1,18 +1,18 @@
-#[windows::core::implement(IVectorView<T>, IIterable<T>)]
+#[::windows_implement::implement(IVectorView<T>, IIterable<T>)]
 struct StockVectorView<T>
 where
-    T: windows::core::RuntimeType + 'static,
-    <T as windows::core::Type<T>>::Default: std::clone::Clone + std::cmp::PartialEq,
+    T: ::windows_core::RuntimeType + 'static,
+    <T as ::windows_core::Type<T>>::Default: std::clone::Clone + std::cmp::PartialEq,
 {
     values: std::vec::Vec<T::Default>,
 }
 
 impl<T> IIterable_Impl<T> for StockVectorView<T>
 where
-    T: windows::core::RuntimeType,
-    <T as windows::core::Type<T>>::Default: std::clone::Clone + std::cmp::PartialEq,
+    T: ::windows_core::RuntimeType,
+    <T as ::windows_core::Type<T>>::Default: std::clone::Clone + std::cmp::PartialEq,
 {
-    fn First(&self) -> windows::core::Result<IIterator<T>> {
+    fn First(&self) -> ::windows_core::Result<IIterator<T>> {
         unsafe {
             // TODO: ideally we can do an AddRef rather than a QI here (via cast)...
             // and then we can get rid of the unsafe as well.
@@ -27,20 +27,20 @@ where
 
 impl<T> IVectorView_Impl<T> for StockVectorView<T>
 where
-    T: windows::core::RuntimeType,
-    <T as windows::core::Type<T>>::Default: std::clone::Clone + std::cmp::PartialEq,
+    T: ::windows_core::RuntimeType,
+    <T as ::windows_core::Type<T>>::Default: std::clone::Clone + std::cmp::PartialEq,
 {
-    fn GetAt(&self, index: u32) -> windows::core::Result<T> {
+    fn GetAt(&self, index: u32) -> ::windows_core::Result<T> {
         let item = self
             .values
             .get(index as usize)
-            .ok_or_else(|| windows::core::Error::from(windows::imp::E_BOUNDS))?;
+            .ok_or_else(|| ::windows_core::Error::from(::windows_core::HRESULT(::windows_core::imp::E_BOUNDS)))?;
         T::from_default(item)
     }
-    fn Size(&self) -> windows::core::Result<u32> {
+    fn Size(&self) -> ::windows_core::Result<u32> {
         Ok(self.values.len() as _)
     }
-    fn IndexOf(&self, value: &T::Default, result: &mut u32) -> windows::core::Result<bool> {
+    fn IndexOf(&self, value: &T::Default, result: &mut u32) -> ::windows_core::Result<bool> {
         match self.values.iter().position(|element| element == value) {
             Some(index) => {
                 *result = index as _;
@@ -49,7 +49,7 @@ where
             None => Ok(false),
         }
     }
-    fn GetMany(&self, current: u32, values: &mut [T::Default]) -> windows::core::Result<u32> {
+    fn GetMany(&self, current: u32, values: &mut [T::Default]) -> ::windows_core::Result<u32> {
         let current = current as usize;
         if current >= self.values.len() {
             return Ok(0);
@@ -61,11 +61,11 @@ where
     }
 }
 
-#[::windows::core::implement(IIterator<T>)]
+#[::windows_implement::implement(IIterator<T>)]
 struct StockVectorViewIterator<T>
 where
-    T: ::windows::core::RuntimeType + 'static,
-    <T as ::windows::core::Type<T>>::Default: std::clone::Clone + std::cmp::PartialEq,
+    T: ::windows_core::RuntimeType + 'static,
+    <T as ::windows_core::Type<T>>::Default: std::clone::Clone + std::cmp::PartialEq,
 {
     owner: IIterable<T>,
     current: ::std::sync::atomic::AtomicUsize,
@@ -73,29 +73,29 @@ where
 
 impl<T> IIterator_Impl<T> for StockVectorViewIterator<T>
 where
-    T: ::windows::core::RuntimeType,
-    <T as ::windows::core::Type<T>>::Default: std::clone::Clone + std::cmp::PartialEq,
+    T: ::windows_core::RuntimeType,
+    <T as ::windows_core::Type<T>>::Default: std::clone::Clone + std::cmp::PartialEq,
 {
-    fn Current(&self) -> ::windows::core::Result<T> {
-        let owner: &StockVectorView<T> = ::windows::core::AsImpl::as_impl(&self.owner);
+    fn Current(&self) -> ::windows_core::Result<T> {
+        let owner: &StockVectorView<T> = ::windows_core::AsImpl::as_impl(&self.owner);
         let current = self.current.load(::std::sync::atomic::Ordering::Relaxed);
 
         if owner.values.len() > current {
             T::from_default(&owner.values[current])
         } else {
-            Err(windows::core::Error::from(windows::imp::E_BOUNDS))
+            Err(::windows_core::Error::from(::windows_core::HRESULT(::windows_core::imp::E_BOUNDS)))
         }
     }
 
-    fn HasCurrent(&self) -> ::windows::core::Result<bool> {
-        let owner: &StockVectorView<T> = ::windows::core::AsImpl::as_impl(&self.owner);
+    fn HasCurrent(&self) -> ::windows_core::Result<bool> {
+        let owner: &StockVectorView<T> = ::windows_core::AsImpl::as_impl(&self.owner);
         let current = self.current.load(::std::sync::atomic::Ordering::Relaxed);
 
         Ok(owner.values.len() > current)
     }
 
-    fn MoveNext(&self) -> ::windows::core::Result<bool> {
-        let owner: &StockVectorView<T> = ::windows::core::AsImpl::as_impl(&self.owner);
+    fn MoveNext(&self) -> ::windows_core::Result<bool> {
+        let owner: &StockVectorView<T> = ::windows_core::AsImpl::as_impl(&self.owner);
         let current = self.current.load(::std::sync::atomic::Ordering::Relaxed);
 
         if current < owner.values.len() {
@@ -106,8 +106,8 @@ where
         Ok(owner.values.len() > current + 1)
     }
 
-    fn GetMany(&self, values: &mut [T::Default]) -> ::windows::core::Result<u32> {
-        let owner: &StockVectorView<T> = ::windows::core::AsImpl::as_impl(&self.owner);
+    fn GetMany(&self, values: &mut [T::Default]) -> ::windows_core::Result<u32> {
+        let owner: &StockVectorView<T> = ::windows_core::AsImpl::as_impl(&self.owner);
         let current = self.current.load(::std::sync::atomic::Ordering::Relaxed);
 
         let actual = std::cmp::min(owner.values.len() - current, values.len());
@@ -121,11 +121,11 @@ where
 
 impl<T> ::core::convert::TryFrom<::std::vec::Vec<T::Default>> for IVectorView<T>
 where
-    T: ::windows::core::RuntimeType,
-    <T as ::windows::core::Type<T>>::Default: std::clone::Clone + std::cmp::PartialEq,
+    T: ::windows_core::RuntimeType,
+    <T as ::windows_core::Type<T>>::Default: std::clone::Clone + std::cmp::PartialEq,
 {
-    type Error = ::windows::core::Error;
-    fn try_from(values: ::std::vec::Vec<T::Default>) -> ::windows::core::Result<Self> {
+    type Error = ::windows_core::Error;
+    fn try_from(values: ::std::vec::Vec<T::Default>) -> ::windows_core::Result<Self> {
         // TODO: should provide a fallible try_into or more explicit allocator
         Ok(StockVectorView { values }.into())
     }

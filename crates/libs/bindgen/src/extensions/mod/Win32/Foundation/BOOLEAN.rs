@@ -4,11 +4,11 @@ impl BOOLEAN {
         self.0 != 0
     }
     #[inline]
-    pub fn ok(self) -> ::windows::core::Result<()> {
+    pub fn ok(self) -> ::windows_core::Result<()> {
         if self.as_bool() {
             Ok(())
         } else {
-            Err(::windows::core::Error::from_win32())
+            Err(::windows_core::Error::from_win32())
         }
     }
     #[inline]
