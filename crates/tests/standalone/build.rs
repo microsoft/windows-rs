@@ -83,7 +83,6 @@ fn main() {
         "src/b_uri.rs",
         &[
             "Windows.Foundation.Uri",
-            "Windows.Foundation.WwwFormUrlDecoder",
         ],
     );
     write_win("src/b_stringable.rs", &["Windows.Foundation.IStringable"]);
