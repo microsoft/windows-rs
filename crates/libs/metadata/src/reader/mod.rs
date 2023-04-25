@@ -1491,6 +1491,40 @@ impl<'a> Reader<'a> {
             }
         }
     }
+    pub fn type_collect_standalone(&self, ty: &Type, set: &mut BTreeSet<Type>) {
+        let ty = ty.to_underlying_type();
+        if set.insert(ty.clone()) {
+            if let Type::TypeDef((def, generics)) = &ty {
+                for generic in generics {
+                    self.type_collect_standalone(generic, set);
+                }
+                for field in self.type_def_fields(*def) {
+                    let ty = self.field_type(field, Some(*def));
+                    if let Type::TypeDef((def, _)) = &ty {
+                        if self.type_def_namespace(*def).is_empty() {
+                            continue;
+                        }
+                    }
+                    self.type_collect_standalone(&ty, set);
+                }
+                for method in self.type_def_methods(*def) {
+                    // Skip delegate pseudo-constructors.
+                    if self.method_def_name(method) == ".ctor" {
+                        continue;
+                    }
+                    let signature = self.method_def_signature(method, generics);
+                    signature.return_type.iter().for_each(|ty| self.type_collect_standalone(ty, set));
+                    signature.params.iter().for_each(|param| self.type_collect_standalone(&param.ty, set));
+                }
+                for interface in self.type_interfaces(&ty) {
+                    self.type_collect_standalone(&interface.ty, set);
+                }
+                if self.type_def_kind(*def) == TypeKind::Struct && self.type_def_fields(*def).next().is_none() && self.type_def_guid(*def).is_some() {
+                    set.insert(Type::GUID);
+                }
+            }
+        }
+    }
     pub fn type_cfg(&self, ty: &Type) -> Cfg {
         let mut cfg = Cfg::default();
         self.type_cfg_combine(ty, &mut cfg);
