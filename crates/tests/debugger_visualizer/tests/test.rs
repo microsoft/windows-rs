@@ -47,8 +47,8 @@ dx out_of_memory_error
 dx invalid_argument_error
     ",
     expected_statements = r#"
-array            : { len=0xd } [Type: windows::core::array::Array<u8>]
-    [<Raw View>]     [Type: windows::core::array::Array<u8>]
+array            : { len=0xd } [Type: windows_core::array::Array<u8>]
+    [<Raw View>]     [Type: windows_core::array::Array<u8>]
     [len]            : 0xd
     [0]              : 0x48 [Type: unsigned char]
     [1]              : 0x65 [Type: unsigned char]
@@ -64,8 +64,8 @@ array            : { len=0xd } [Type: windows::core::array::Array<u8>]
     [11]             : 0x21 [Type: unsigned char]
     [12]             : 0x0 [Type: unsigned char]
 
-pstr             : "This is a PSTR" [Type: windows::core::strings::pstr::PSTR]
-    [<Raw View>]     [Type: windows::core::strings::pstr::PSTR]
+pstr             : "This is a PSTR" [Type: windows_core::strings::pstr::PSTR]
+    [<Raw View>]     [Type: windows_core::strings::pstr::PSTR]
     [len]            : 0xe
     [chars]
         [0]              : 84 'T' [Type: char]
@@ -83,8 +83,8 @@ pstr             : "This is a PSTR" [Type: windows::core::strings::pstr::PSTR]
         [12]             : 84 'T' [Type: char]
         [13]             : 82 'R' [Type: char]
 
-pcstr            : "This is a PCSTR" [Type: windows::core::strings::pcstr::PCSTR]
-    [<Raw View>]     [Type: windows::core::strings::pcstr::PCSTR]
+pcstr            : "This is a PCSTR" [Type: windows_core::strings::pcstr::PCSTR]
+    [<Raw View>]     [Type: windows_core::strings::pcstr::PCSTR]
     [len]            : 0xf
     [chars]
         [0]              : 84 'T' [Type: char]
@@ -103,8 +103,8 @@ pcstr            : "This is a PCSTR" [Type: windows::core::strings::pcstr::PCSTR
         [13]             : 84 'T' [Type: char]
         [14]             : 82 'R' [Type: char]
 
-pwstr            : "This is a PWSTR" [Type: windows::core::strings::pwstr::PWSTR]
-    [<Raw View>]     [Type: windows::core::strings::pwstr::PWSTR]
+pwstr            : "This is a PWSTR" [Type: windows_core::strings::pwstr::PWSTR]
+    [<Raw View>]     [Type: windows_core::strings::pwstr::PWSTR]
     [len]            : 0xf
     [chars]
         [0]              : 0x54 'T' [Type: char16_t]
@@ -123,8 +123,8 @@ pwstr            : "This is a PWSTR" [Type: windows::core::strings::pwstr::PWSTR
         [13]             : 0x54 'T' [Type: char16_t]
         [14]             : 0x52 'R' [Type: char16_t]
 
-pcwstr           : "This is a PCWSTR" [Type: windows::core::strings::pcwstr::PCWSTR]
-    [<Raw View>]     [Type: windows::core::strings::pcwstr::PCWSTR]
+pcwstr           : "This is a PCWSTR" [Type: windows_core::strings::pcwstr::PCWSTR]
+    [<Raw View>]     [Type: windows_core::strings::pcwstr::PCWSTR]
     [len]            : 0x10
     [chars]
         [0]              : 0x54 'T' [Type: char16_t]
@@ -144,14 +144,14 @@ pcwstr           : "This is a PCWSTR" [Type: windows::core::strings::pcwstr::PCW
         [14]             : 0x54 'T' [Type: char16_t]
         [15]             : 0x52 'R' [Type: char16_t]
 
-empty            : "" [Type: windows::core::strings::hstring::HSTRING]
-    [<Raw View>]     [Type: windows::core::strings::hstring::HSTRING]
+empty            : "" [Type: windows_core::strings::hstring::HSTRING]
+    [<Raw View>]     [Type: windows_core::strings::hstring::HSTRING]
     [len]            : 0x0 [Type: unsigned int]
 
-hstring          : "This is an HSTRING" [Type: windows::core::strings::hstring::HSTRING]
-    [<Raw View>]     [Type: windows::core::strings::hstring::HSTRING]
+hstring          : "This is an HSTRING" [Type: windows_core::strings::hstring::HSTRING]
+    [<Raw View>]     [Type: windows_core::strings::hstring::HSTRING]
     [len]            : 0x12 [Type: unsigned int]
-    [ref_count]      : 1 [Type: windows::imp::ref_count::RefCount]
+    [ref_count]      : 1 [Type: windows_core::imp::ref_count::RefCount]
     [flags]          : 0x0 [Type: unsigned int]
     [chars]
         [0]              : 0x54 'T' [Type: char16_t]
@@ -173,13 +173,13 @@ hstring          : "This is an HSTRING" [Type: windows::core::strings::hstring::
         [16]             : 0x4e 'N' [Type: char16_t]
         [17]             : 0x47 'G' [Type: char16_t]
 
-out_of_memory_error : 0x8007000e (Not enough memory resources are available to complete this operation.) [Type: windows::core::error::Error]
-    [<Raw View>]     [Type: windows::core::error::Error]
-    [info]           : Some [Type: enum2$<core::option::Option<windows::imp::bindings::IRestrictedErrorInfo> >]
+out_of_memory_error : 0x8007000e (Not enough memory resources are available to complete this operation.) [Type: windows_core::error::Error]
+    [<Raw View>]     [Type: windows_core::error::Error]
+    [info]           : Some [Type: enum2$<core::option::Option<windows_core::imp::com_bindings::IRestrictedErrorInfo> >]
 
-invalid_argument_error : 0x80070057 (The parameter is incorrect.) [Type: windows::core::error::Error]
-    [<Raw View>]     [Type: windows::core::error::Error]
-    [info]           : Some [Type: enum2$<core::option::Option<windows::imp::bindings::IRestrictedErrorInfo> >]
+invalid_argument_error : 0x80070057 (The parameter is incorrect.) [Type: windows_core::error::Error]
+    [<Raw View>]     [Type: windows_core::error::Error]
+    [info]           : Some [Type: enum2$<core::option::Option<windows_core::imp::com_bindings::IRestrictedErrorInfo> >]
     "#
 )]
 fn test_debugger_visualizer() {
