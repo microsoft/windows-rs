@@ -23,22 +23,22 @@ where
 #[doc = "*Required features: `\"Win32_System_Mailslots\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetMailslotInfo<P0>(hmailslot: P0, lpmaxmessagesize: ::core::option::Option<*mut u32>, lpnextsize: ::core::option::Option<*mut u32>, lpmessagecount: ::core::option::Option<*mut u32>, lpreadtimeout: ::core::option::Option<*mut u32>) -> super::super::Foundation::BOOL
+pub unsafe fn GetMailslotInfo<P0>(hmailslot: P0, lpmaxmessagesize: ::core::option::Option<*mut u32>, lpnextsize: ::core::option::Option<*mut u32>, lpmessagecount: ::core::option::Option<*mut u32>, lpreadtimeout: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn GetMailslotInfo(hmailslot : super::super::Foundation:: HANDLE, lpmaxmessagesize : *mut u32, lpnextsize : *mut u32, lpmessagecount : *mut u32, lpreadtimeout : *mut u32) -> super::super::Foundation:: BOOL);
-    GetMailslotInfo(hmailslot.into_param().abi(), ::core::mem::transmute(lpmaxmessagesize.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpnextsize.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpmessagecount.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpreadtimeout.unwrap_or(::std::ptr::null_mut())))
+    GetMailslotInfo(hmailslot.into_param().abi(), ::core::mem::transmute(lpmaxmessagesize.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpnextsize.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpmessagecount.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpreadtimeout.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Mailslots\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetMailslotInfo<P0>(hmailslot: P0, lreadtimeout: u32) -> super::super::Foundation::BOOL
+pub unsafe fn SetMailslotInfo<P0>(hmailslot: P0, lreadtimeout: u32) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn SetMailslotInfo(hmailslot : super::super::Foundation:: HANDLE, lreadtimeout : u32) -> super::super::Foundation:: BOOL);
-    SetMailslotInfo(hmailslot.into_param().abi(), lreadtimeout)
+    SetMailslotInfo(hmailslot.into_param().abi(), lreadtimeout).ok()
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

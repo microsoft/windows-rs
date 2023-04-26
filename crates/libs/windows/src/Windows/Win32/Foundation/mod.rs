@@ -1,11 +1,11 @@
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn CloseHandle<P0>(hobject: P0) -> BOOL
+pub unsafe fn CloseHandle<P0>(hobject: P0) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn CloseHandle(hobject : HANDLE) -> BOOL);
-    CloseHandle(hobject.into_param().abi())
+    CloseHandle(hobject.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
@@ -19,7 +19,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn DuplicateHandle<P0, P1, P2, P3>(hsourceprocesshandle: P0, hsourcehandle: P1, htargetprocesshandle: P2, lptargethandle: *mut HANDLE, dwdesiredaccess: u32, binherithandle: P3, dwoptions: DUPLICATE_HANDLE_OPTIONS) -> BOOL
+pub unsafe fn DuplicateHandle<P0, P1, P2, P3>(hsourceprocesshandle: P0, hsourcehandle: P1, htargetprocesshandle: P2, lptargethandle: *mut HANDLE, dwdesiredaccess: u32, binherithandle: P3, dwoptions: DUPLICATE_HANDLE_OPTIONS) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<HANDLE>,
     P1: ::windows_core::IntoParam<HANDLE>,
@@ -27,22 +27,22 @@ where
     P3: ::windows_core::IntoParam<BOOL>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn DuplicateHandle(hsourceprocesshandle : HANDLE, hsourcehandle : HANDLE, htargetprocesshandle : HANDLE, lptargethandle : *mut HANDLE, dwdesiredaccess : u32, binherithandle : BOOL, dwoptions : DUPLICATE_HANDLE_OPTIONS) -> BOOL);
-    DuplicateHandle(hsourceprocesshandle.into_param().abi(), hsourcehandle.into_param().abi(), htargetprocesshandle.into_param().abi(), lptargethandle, dwdesiredaccess, binherithandle.into_param().abi(), dwoptions)
+    DuplicateHandle(hsourceprocesshandle.into_param().abi(), hsourcehandle.into_param().abi(), htargetprocesshandle.into_param().abi(), lptargethandle, dwdesiredaccess, binherithandle.into_param().abi(), dwoptions).ok()
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn GetHandleInformation<P0>(hobject: P0, lpdwflags: *mut u32) -> BOOL
+pub unsafe fn GetHandleInformation<P0>(hobject: P0, lpdwflags: *mut u32) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn GetHandleInformation(hobject : HANDLE, lpdwflags : *mut u32) -> BOOL);
-    GetHandleInformation(hobject.into_param().abi(), lpdwflags)
+    GetHandleInformation(hobject.into_param().abi(), lpdwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn GetLastError() -> WIN32_ERROR {
+pub unsafe fn GetLastError() -> ::windows_core::Result<()> {
     ::windows_targets::link!("kernel32.dll" "system" fn GetLastError() -> WIN32_ERROR);
-    GetLastError()
+    GetLastError().ok()
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
@@ -55,12 +55,12 @@ where
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn SetHandleInformation<P0>(hobject: P0, dwmask: u32, dwflags: HANDLE_FLAGS) -> BOOL
+pub unsafe fn SetHandleInformation<P0>(hobject: P0, dwmask: u32, dwflags: HANDLE_FLAGS) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn SetHandleInformation(hobject : HANDLE, dwmask : u32, dwflags : HANDLE_FLAGS) -> BOOL);
-    SetHandleInformation(hobject.into_param().abi(), dwmask, dwflags)
+    SetHandleInformation(hobject.into_param().abi(), dwmask, dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]

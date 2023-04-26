@@ -72,7 +72,7 @@ impl Window {
         unsafe { factory.GetDesktopDpi(&mut dpi, &mut dpiy) };
 
         let mut frequency = 0;
-        unsafe { QueryPerformanceFrequency(&mut frequency).ok()? };
+        unsafe { QueryPerformanceFrequency(&mut frequency)? };
 
         let variable = unsafe {
             let variable = manager.CreateAnimationVariable(0.0)?;
@@ -466,7 +466,7 @@ impl Window {
 fn get_time(frequency: i64) -> Result<f64> {
     unsafe {
         let mut time = 0;
-        QueryPerformanceCounter(&mut time).ok()?;
+        QueryPerformanceCounter(&mut time)?;
         Ok(time as f64 / frequency as f64)
     }
 }

@@ -12,12 +12,12 @@ where
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AllJoynCloseBusHandle<P0>(bushandle: P0) -> super::super::Foundation::BOOL
+pub unsafe fn AllJoynCloseBusHandle<P0>(bushandle: P0) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("msajapi.dll" "system" fn AllJoynCloseBusHandle(bushandle : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-    AllJoynCloseBusHandle(bushandle.into_param().abi())
+    AllJoynCloseBusHandle(bushandle.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -40,44 +40,44 @@ pub unsafe fn AllJoynCreateBus(outbuffersize: u32, inbuffersize: u32, lpsecurity
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AllJoynEnumEvents<P0, P1>(connectedbushandle: P0, eventtoreset: P1, eventtypes: *mut u32) -> super::super::Foundation::BOOL
+pub unsafe fn AllJoynEnumEvents<P0, P1>(connectedbushandle: P0, eventtoreset: P1, eventtypes: *mut u32) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("msajapi.dll" "system" fn AllJoynEnumEvents(connectedbushandle : super::super::Foundation:: HANDLE, eventtoreset : super::super::Foundation:: HANDLE, eventtypes : *mut u32) -> super::super::Foundation:: BOOL);
-    AllJoynEnumEvents(connectedbushandle.into_param().abi(), eventtoreset.into_param().abi(), eventtypes)
+    AllJoynEnumEvents(connectedbushandle.into_param().abi(), eventtoreset.into_param().abi(), eventtypes).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AllJoynEventSelect<P0, P1>(connectedbushandle: P0, eventhandle: P1, eventtypes: u32) -> super::super::Foundation::BOOL
+pub unsafe fn AllJoynEventSelect<P0, P1>(connectedbushandle: P0, eventhandle: P1, eventtypes: u32) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("msajapi.dll" "system" fn AllJoynEventSelect(connectedbushandle : super::super::Foundation:: HANDLE, eventhandle : super::super::Foundation:: HANDLE, eventtypes : u32) -> super::super::Foundation:: BOOL);
-    AllJoynEventSelect(connectedbushandle.into_param().abi(), eventhandle.into_param().abi(), eventtypes)
+    AllJoynEventSelect(connectedbushandle.into_param().abi(), eventhandle.into_param().abi(), eventtypes).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AllJoynReceiveFromBus<P0>(connectedbushandle: P0, buffer: ::core::option::Option<*mut ::core::ffi::c_void>, bytestoread: u32, bytestransferred: ::core::option::Option<*mut u32>, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
+pub unsafe fn AllJoynReceiveFromBus<P0>(connectedbushandle: P0, buffer: ::core::option::Option<*mut ::core::ffi::c_void>, bytestoread: u32, bytestransferred: ::core::option::Option<*mut u32>, reserved: *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("msajapi.dll" "system" fn AllJoynReceiveFromBus(connectedbushandle : super::super::Foundation:: HANDLE, buffer : *mut ::core::ffi::c_void, bytestoread : u32, bytestransferred : *mut u32, reserved : *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    AllJoynReceiveFromBus(connectedbushandle.into_param().abi(), ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), bytestoread, ::core::mem::transmute(bytestransferred.unwrap_or(::std::ptr::null_mut())), reserved)
+    AllJoynReceiveFromBus(connectedbushandle.into_param().abi(), ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), bytestoread, ::core::mem::transmute(bytestransferred.unwrap_or(::std::ptr::null_mut())), reserved).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AllJoynSendToBus<P0>(connectedbushandle: P0, buffer: ::core::option::Option<*const ::core::ffi::c_void>, bytestowrite: u32, bytestransferred: ::core::option::Option<*mut u32>, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
+pub unsafe fn AllJoynSendToBus<P0>(connectedbushandle: P0, buffer: ::core::option::Option<*const ::core::ffi::c_void>, bytestowrite: u32, bytestransferred: ::core::option::Option<*mut u32>, reserved: *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("msajapi.dll" "system" fn AllJoynSendToBus(connectedbushandle : super::super::Foundation:: HANDLE, buffer : *const ::core::ffi::c_void, bytestowrite : u32, bytestransferred : *mut u32, reserved : *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    AllJoynSendToBus(connectedbushandle.into_param().abi(), ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null())), bytestowrite, ::core::mem::transmute(bytestransferred.unwrap_or(::std::ptr::null_mut())), reserved)
+    AllJoynSendToBus(connectedbushandle.into_param().abi(), ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null())), bytestowrite, ::core::mem::transmute(bytestransferred.unwrap_or(::std::ptr::null_mut())), reserved).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]

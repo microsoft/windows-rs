@@ -1,6 +1,6 @@
 use windows::{
     core::*,
-    Win32::Foundation::{CloseHandle, BOOL, HANDLE, HWND, RECT, WAIT_OBJECT_0},
+    Win32::Foundation::{CloseHandle, BOOL, HANDLE, HWND, RECT},
     Win32::Gaming::HasExpandedResources,
     Win32::Graphics::Direct3D::Fxc::*,
     Win32::Graphics::{
@@ -120,12 +120,11 @@ fn constant() {
 fn function() -> windows::core::Result<()> {
     unsafe {
         let event = CreateEventW(None, true, false, None)?;
-        SetEvent(event).ok()?;
+        SetEvent(event)?;
 
-        let result = WaitForSingleObject(event, 0);
-        assert!(result == WAIT_OBJECT_0);
+        WaitForSingleObject(event, 0)?;
 
-        CloseHandle(event).ok()?;
+        CloseHandle(event)?;
         Ok(())
     }
 }
@@ -134,12 +133,8 @@ fn function() -> windows::core::Result<()> {
 fn bool_as_error() {
     unsafe {
         assert!(helpers::set_thread_ui_language());
-        assert!(!SetEvent(HANDLE(0)).as_bool());
+        let error = SetEvent(HANDLE(0)).unwrap_err();
 
-        let result: windows::core::Result<()> = SetEvent(HANDLE(0)).ok();
-        assert!(result.is_err());
-
-        let error: windows::core::Error = result.unwrap_err();
         assert_eq!(error.code(), windows::core::HRESULT(-2147024890));
         let message: String = error.message().try_into().unwrap();
         assert_eq!(message, "The handle is invalid.");
@@ -217,8 +212,7 @@ fn onecore_imports() -> windows::core::Result<()> {
         let port = uri.GetPort()?;
         assert!(port == 80);
 
-        let result = MiniDumpWriteDump(None, 0, None, MiniDumpNormal, None, None, None);
-        assert!(!result.as_bool());
+        MiniDumpWriteDump(None, 0, None, MiniDumpNormal, None, None, None).unwrap_err();
 
         assert!(D3DDisassemble11Trace(std::ptr::null(), 0, None, 0, 0, 0).is_err());
 

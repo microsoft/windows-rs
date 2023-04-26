@@ -7,9 +7,9 @@ pub unsafe fn LdapGetLastError() -> u32 {
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LdapMapErrorToWin32(ldaperror: LDAP_RETCODE) -> super::super::Foundation::WIN32_ERROR {
+pub unsafe fn LdapMapErrorToWin32(ldaperror: LDAP_RETCODE) -> ::windows_core::Result<()> {
     ::windows_targets::link!("wldap32.dll" "cdecl" fn LdapMapErrorToWin32(ldaperror : LDAP_RETCODE) -> super::super::Foundation:: WIN32_ERROR);
-    LdapMapErrorToWin32(ldaperror)
+    LdapMapErrorToWin32(ldaperror).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]

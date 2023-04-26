@@ -9,23 +9,22 @@ fn test() -> Result<()> {
     unsafe {
         assert_eq!(InSendMessageEx(None), ISMEX_NOSEND);
         assert!(CreateThreadpool(None).0 != 0);
-        assert_eq!(
-            TrackPopupMenu(
-                HMENU(0),
-                TPM_LEFTBUTTON,
-                1,
-                2,
-                0,
-                HWND(0),
-                Default::default()
-            ),
-            false
-        );
+
+        TrackPopupMenu(
+            HMENU(0),
+            TPM_LEFTBUTTON,
+            1,
+            2,
+            0,
+            HWND(0),
+            Default::default(),
+        )
+        .unwrap_err();
 
         let mut key = HKEY::default();
-        RegOpenKeyExA(HKEY_CLASSES_ROOT, s!(r".txt"), 0, KEY_QUERY_VALUE, &mut key).ok()?;
+        RegOpenKeyExA(HKEY_CLASSES_ROOT, s!(r".txt"), 0, KEY_QUERY_VALUE, &mut key)?;
         let mut len = 0;
-        RegQueryValueExA(key, s!("Content Type"), None, None, None, Some(&mut len)).ok()?;
+        RegQueryValueExA(key, s!("Content Type"), None, None, None, Some(&mut len))?;
         let mut buffer = vec![0u8; (len) as usize];
         RegQueryValueExA(
             key,
@@ -34,8 +33,7 @@ fn test() -> Result<()> {
             None,
             Some(buffer.as_mut_ptr() as _),
             Some(&mut len),
-        )
-        .ok()?;
+        )?;
         assert_eq!(String::from_utf8_lossy(&buffer), "text/plain\0");
         Ok(())
     }

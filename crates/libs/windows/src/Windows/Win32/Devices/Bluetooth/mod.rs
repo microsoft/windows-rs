@@ -34,12 +34,12 @@ where
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BluetoothDisplayDeviceProperties<P0>(hwndparent: P0, pbtdi: *mut BLUETOOTH_DEVICE_INFO) -> super::super::Foundation::BOOL
+pub unsafe fn BluetoothDisplayDeviceProperties<P0>(hwndparent: P0, pbtdi: *mut BLUETOOTH_DEVICE_INFO) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("bthprops.cpl" "system" fn BluetoothDisplayDeviceProperties(hwndparent : super::super::Foundation:: HWND, pbtdi : *mut BLUETOOTH_DEVICE_INFO) -> super::super::Foundation:: BOOL);
-    BluetoothDisplayDeviceProperties(hwndparent.into_param().abi(), pbtdi)
+    BluetoothDisplayDeviceProperties(hwndparent.into_param().abi(), pbtdi).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -76,12 +76,12 @@ where
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BluetoothFindDeviceClose<P0>(hfind: P0) -> super::super::Foundation::BOOL
+pub unsafe fn BluetoothFindDeviceClose<P0>(hfind: P0) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<HBLUETOOTH_DEVICE_FIND>,
 {
     ::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothFindDeviceClose(hfind : HBLUETOOTH_DEVICE_FIND) -> super::super::Foundation:: BOOL);
-    BluetoothFindDeviceClose(hfind.into_param().abi())
+    BluetoothFindDeviceClose(hfind.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -102,32 +102,32 @@ pub unsafe fn BluetoothFindFirstRadio(pbtfrp: *const BLUETOOTH_FIND_RADIO_PARAMS
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BluetoothFindNextDevice<P0>(hfind: P0, pbtdi: *mut BLUETOOTH_DEVICE_INFO) -> super::super::Foundation::BOOL
+pub unsafe fn BluetoothFindNextDevice<P0>(hfind: P0, pbtdi: *mut BLUETOOTH_DEVICE_INFO) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<HBLUETOOTH_DEVICE_FIND>,
 {
     ::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothFindNextDevice(hfind : HBLUETOOTH_DEVICE_FIND, pbtdi : *mut BLUETOOTH_DEVICE_INFO) -> super::super::Foundation:: BOOL);
-    BluetoothFindNextDevice(hfind.into_param().abi(), pbtdi)
+    BluetoothFindNextDevice(hfind.into_param().abi(), pbtdi).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BluetoothFindNextRadio<P0>(hfind: P0, phradio: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL
+pub unsafe fn BluetoothFindNextRadio<P0>(hfind: P0, phradio: *mut super::super::Foundation::HANDLE) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<HBLUETOOTH_RADIO_FIND>,
 {
     ::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothFindNextRadio(hfind : HBLUETOOTH_RADIO_FIND, phradio : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-    BluetoothFindNextRadio(hfind.into_param().abi(), phradio)
+    BluetoothFindNextRadio(hfind.into_param().abi(), phradio).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BluetoothFindRadioClose<P0>(hfind: P0) -> super::super::Foundation::BOOL
+pub unsafe fn BluetoothFindRadioClose<P0>(hfind: P0) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<HBLUETOOTH_RADIO_FIND>,
 {
     ::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothFindRadioClose(hfind : HBLUETOOTH_RADIO_FIND) -> super::super::Foundation:: BOOL);
-    BluetoothFindRadioClose(hfind.into_param().abi())
+    BluetoothFindRadioClose(hfind.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -325,9 +325,9 @@ pub unsafe fn BluetoothRemoveDevice(paddress: *const BLUETOOTH_ADDRESS) -> u32 {
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BluetoothSdpEnumAttributes(psdpstream: &[u8], pfncallback: PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK, pvparam: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn BluetoothSdpEnumAttributes(psdpstream: &[u8], pfncallback: PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK, pvparam: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
     ::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothSdpEnumAttributes(psdpstream : *const u8, cbstreamsize : u32, pfncallback : PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK, pvparam : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    BluetoothSdpEnumAttributes(::core::mem::transmute(psdpstream.as_ptr()), psdpstream.len() as _, pfncallback, pvparam)
+    BluetoothSdpEnumAttributes(::core::mem::transmute(psdpstream.as_ptr()), psdpstream.len() as _, pfncallback, pvparam).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 #[inline]
@@ -356,9 +356,9 @@ pub unsafe fn BluetoothSdpGetString(precordstream: &[u8], pstringdata: ::core::o
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BluetoothSelectDevices(pbtsdp: *mut BLUETOOTH_SELECT_DEVICE_PARAMS) -> super::super::Foundation::BOOL {
+pub unsafe fn BluetoothSelectDevices(pbtsdp: *mut BLUETOOTH_SELECT_DEVICE_PARAMS) -> ::windows_core::Result<()> {
     ::windows_targets::link!("bthprops.cpl" "system" fn BluetoothSelectDevices(pbtsdp : *mut BLUETOOTH_SELECT_DEVICE_PARAMS) -> super::super::Foundation:: BOOL);
-    BluetoothSelectDevices(pbtsdp)
+    BluetoothSelectDevices(pbtsdp).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -411,9 +411,9 @@ where
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BluetoothUnregisterAuthentication(hreghandle: isize) -> super::super::Foundation::BOOL {
+pub unsafe fn BluetoothUnregisterAuthentication(hreghandle: isize) -> ::windows_core::Result<()> {
     ::windows_targets::link!("bluetoothapis.dll" "system" fn BluetoothUnregisterAuthentication(hreghandle : isize) -> super::super::Foundation:: BOOL);
-    BluetoothUnregisterAuthentication(hreghandle)
+    BluetoothUnregisterAuthentication(hreghandle).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

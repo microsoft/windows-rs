@@ -21,7 +21,7 @@ const WINDOW_HEIGHT: f32 = CARD_ROWS as f32 * (CARD_HEIGHT + CARD_MARGIN) + CARD
 fn main() -> Result<()> {
     unsafe {
         CoInitializeEx(None, COINIT_MULTITHREADED)?;
-        SetProcessDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2).ok()?;
+        SetProcessDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2)?;
     }
     let mut window = Window::new()?;
     window.run()
@@ -219,8 +219,7 @@ impl Window {
                 &mut rect,
                 WINDOW_STYLE(GetWindowLongW(self.handle, GWL_STYLE) as _),
                 false,
-            )
-            .ok()?;
+            )?;
 
             Ok((rect.right - rect.left, rect.bottom - rect.top))
         }
@@ -356,8 +355,7 @@ impl Window {
                 size.0,
                 size.1,
                 SWP_NOACTIVATE | SWP_NOZORDER,
-            )
-            .ok()?;
+            )?;
 
             self.device = None;
             Ok(())
@@ -386,7 +384,6 @@ impl Window {
                 size.1,
                 SWP_NOACTIVATE | SWP_NOMOVE | SWP_NOZORDER,
             )
-            .ok()
         }
     }
 
@@ -515,7 +512,7 @@ fn create_image() -> Result<IWICFormatConverter> {
             CoCreateInstance(&CLSID_WICImagingFactory, None, CLSCTX_INPROC_SERVER)?;
 
         // Just a little hack to make it simpler to run the sample from the root of the workspace.
-        let path = if PathFileExistsW(w!("image.jpg")).into() {
+        let path = if PathFileExistsW(w!("image.jpg")).is_ok() {
             w!("image.jpg")
         } else {
             w!("crates/samples/windows/dcomp/image.jpg")
