@@ -18,6 +18,7 @@ pub fn standalone_sys(names: &[&str]) -> String {
 }
 
 /// Generates standalone Windows bindings for the Rust Standard Library.
+#[doc(hidden)]
 pub fn standalone_std(names: &[&str]) -> String {
     let files = &File::with_default(&[]).unwrap();
     let reader = &Reader::new(files);
