@@ -16,6 +16,12 @@ pub unsafe trait ComInterface: Interface + Clone {
     /// A unique identifier representing this interface.
     const IID: GUID;
 
+    // Casts the `ComInterface` to a `IUnknown`.
+    fn as_unknown(&self) -> &IUnknown {
+        // SAFETY: it is always safe to treat a `ComInterface` as an `IUnknown`.
+        unsafe { std::mem::transmute(self) }
+    }
+
     /// Attempts to cast the current interface to another interface using `QueryInterface`.
     ///
     /// The name `cast` is preferred to `query` because there is a WinRT method named query but not one

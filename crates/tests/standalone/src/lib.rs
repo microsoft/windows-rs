@@ -12,6 +12,7 @@ mod b_guid;
 mod b_hresult;
 mod b_hstring;
 mod b_inspectable;
+mod b_nested;
 mod b_none;
 mod b_pcstr;
 mod b_pcwstr;
