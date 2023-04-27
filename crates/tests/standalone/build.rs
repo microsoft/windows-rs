@@ -97,6 +97,15 @@ fn main() {
             "Windows.Win32.UI.WindowsAndMessaging.wsprintfA",
         ],
     );
+
+    // Ensures nested records write out all the types they depend on
+    write_sys(
+        "src/b_nested.rs",
+        &[
+            "Windows.Win32.System.Com.STGMEDIUM",
+            "Windows.Win32.Graphics.Gdi.DEVMODEW",
+        ],
+    );
 }
 
 fn write_sys(filename: &str, apis: &[&str]) {
