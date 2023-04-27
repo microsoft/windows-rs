@@ -1535,9 +1535,31 @@ impl<'a> Reader<'a> {
                 if self.type_def_kind(*def) == TypeKind::Struct && self.type_def_fields(*def).next().is_none() && self.type_def_guid(*def).is_some() {
                     set.insert(Type::GUID);
                 }
+
+                self.type_collect_standalone_nested(*def, set);
             }
         }
     }
+
+    fn type_collect_standalone_nested(&self, td: TypeDef, set: &mut BTreeSet<Type>) {
+        for nested in self.nested_types(td) {
+            self.type_collect_standalone_nested(nested, set);
+
+            for field in self.type_def_fields(nested) {
+                let ty = self.field_type(field, Some(nested));
+                if let Type::TypeDef((def, _)) = &ty {
+                    // Skip the fields that actually refer to the anonymous nested
+                    // type, otherwise it will get added to the typeset and emitted
+                    if self.type_def_namespace(*def).is_empty() {
+                        continue;
+                    }
+
+                    self.type_collect_standalone(&ty, set);
+                }
+            }
+        }
+    }
+
     pub fn type_cfg(&self, ty: &Type) -> Cfg {
         let mut cfg = Cfg::default();
         self.type_cfg_combine(ty, &mut cfg);

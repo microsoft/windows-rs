@@ -156,7 +156,10 @@ fn standalone_imp(gen: &mut Gen, names: &[&str]) -> String {
                         let name = gen.reader.type_def_name(def);
                         if gen.sys {
                             let ident = to_ident(name);
-                            sorted.insert(name, quote! { type #ident = *mut ::core::ffi::c_void; });
+                            sorted.insert(
+                                name,
+                                quote! { pub type #ident = *mut ::core::ffi::c_void; },
+                            );
                         } else {
                             sorted.insert(name, classes::gen(gen, def));
                         }
@@ -165,7 +168,10 @@ fn standalone_imp(gen: &mut Gen, names: &[&str]) -> String {
                         let name = gen.reader.type_def_name(def);
                         if gen.sys {
                             let ident = to_ident(name);
-                            sorted.insert(name, quote! { type #ident = *mut ::core::ffi::c_void; });
+                            sorted.insert(
+                                name,
+                                quote! { pub type #ident = *mut ::core::ffi::c_void; },
+                            );
                         } else {
                             sorted.insert(name, interfaces::gen(gen, def));
                         }

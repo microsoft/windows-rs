@@ -9,7 +9,7 @@ mod sha1;
 mod waiter;
 mod weak_ref_count;
 
-pub use bindings::*;
+pub use bindings::{CloseHandle, CoCreateGuid, CoTaskMemAlloc, CoTaskMemFree, CreateEventW, EncodePointer, FormatMessageW, FreeLibrary, GetErrorInfo, GetLastError, GetProcAddress, GetProcessHeap, HeapAlloc, HeapFree, LoadLibraryExA, RoGetAgileReference, SetErrorInfo, SetEvent, SysAllocStringLen, SysFreeString, SysStringLen, WaitForSingleObject, AGILEREFERENCE_DEFAULT, CLASS_E_CLASSNOTAVAILABLE, CO_E_NOTINITIALIZED, ERROR_NO_UNICODE_TRANSLATION, E_BOUNDS, E_NOINTERFACE, E_OUTOFMEMORY, FORMAT_MESSAGE_ALLOCATE_BUFFER, FORMAT_MESSAGE_FROM_SYSTEM, FORMAT_MESSAGE_IGNORE_INSERTS, GUID, HRESULT, JSCRIPT_E_CANTEXECUTE, LOAD_LIBRARY_SEARCH_DEFAULT_DIRS, RPC_E_DISCONNECTED, S_OK};
 pub use com_bindings::*;
 pub use delay_load::*;
 pub use factory_cache::*;
