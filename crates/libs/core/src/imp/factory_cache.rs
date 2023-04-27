@@ -75,8 +75,6 @@ pub fn factory<C: crate::RuntimeName, I: crate::ComInterface>() -> crate::Result
         CLASS_E_CLASSNOTAVAILABLE
     };
 
-    let code = crate::HRESULT(code);
-
     // If this succeeded then return the resulting factory interface.
     if code.is_ok() {
         return code.and_some(factory);
@@ -127,7 +125,7 @@ unsafe fn get_activation_factory(library: crate::PCSTR, name: &crate::HSTRING) -
 }
 
 type CoIncrementMTAUsage = extern "system" fn(cookie: *mut *mut std::ffi::c_void) -> crate::HRESULT;
-type RoGetActivationFactory = extern "system" fn(hstring: *mut std::ffi::c_void, interface: &crate::GUID, result: *mut *mut std::ffi::c_void) -> HRESULT;
+type RoGetActivationFactory = extern "system" fn(hstring: *mut std::ffi::c_void, interface: &crate::GUID, result: *mut *mut std::ffi::c_void) -> crate::HRESULT;
 type DllGetActivationFactory = extern "system" fn(name: *mut std::ffi::c_void, factory: *mut *mut std::ffi::c_void) -> crate::HRESULT;
 
 #[cfg(test)]

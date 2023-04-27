@@ -4,13 +4,19 @@ use super::*;
 
 /// A globally unique identifier ([GUID](https://docs.microsoft.com/en-us/windows/win32/api/guiddef/ns-guiddef-guid))
 /// used to identify COM and WinRT interfaces.
-pub type GUID = imp::GUID;
+#[repr(C)]
+#[derive(Clone, Copy, Default, PartialEq, Eq, Hash)]
+pub struct GUID {
+    pub data1: u32,
+    pub data2: u16,
+    pub data3: u16,
+    pub data4: [u8; 8],
+}
 
 impl GUID {
     /// Creates a unique `GUID` value.
     pub fn new() -> Result<Self> {
-        let mut result = Self::zeroed();
-        unsafe { HRESULT(crate::imp::CoCreateGuid(&mut result)).and_then(|| result) }
+        unsafe { imp::CoCreateGuid() }
     }
 
     /// Creates a `GUID` represented by the all-zero byte-pattern.
@@ -23,18 +29,23 @@ impl GUID {
         Self { data1, data2, data3, data4 }
     }
 
+    /// Creates a `GUID` from a `u128` value.
+    pub const fn from_u128(uuid: u128) -> Self {
+        Self { data1: (uuid >> 96) as u32, data2: (uuid >> 80 & 0xffff) as u16, data3: (uuid >> 64 & 0xffff) as u16, data4: (uuid as u64).to_be_bytes() }
+    }
+
     /// Converts a `GUID` to a `u128` value.
     pub const fn to_u128(&self) -> u128 {
         ((self.data1 as u128) << 96) + ((self.data2 as u128) << 80) + ((self.data3 as u128) << 64) + u64::from_be_bytes(self.data4) as u128
     }
 
     /// Creates a `GUID` for a "generic" WinRT type.
-    pub const fn from_signature(signature: crate::imp::ConstBuffer) -> Self {
-        let data = crate::imp::ConstBuffer::from_slice(&[0x11, 0xf4, 0x7a, 0xd5, 0x7b, 0x73, 0x42, 0xc0, 0xab, 0xae, 0x87, 0x8b, 0x1e, 0x16, 0xad, 0xee]);
+    pub const fn from_signature(signature: imp::ConstBuffer) -> Self {
+        let data = imp::ConstBuffer::from_slice(&[0x11, 0xf4, 0x7a, 0xd5, 0x7b, 0x73, 0x42, 0xc0, 0xab, 0xae, 0x87, 0x8b, 0x1e, 0x16, 0xad, 0xee]);
 
         let data = data.push_other(signature);
 
-        let bytes = crate::imp::sha1(&data).bytes();
+        let bytes = imp::sha1(&data).bytes();
         let first = u32::from_be_bytes([bytes[0], bytes[1], bytes[2], bytes[3]]);
 
         let second = u16::from_be_bytes([bytes[4], bytes[5]]);
@@ -47,7 +58,7 @@ impl GUID {
 }
 
 impl RuntimeType for GUID {
-    const SIGNATURE: crate::imp::ConstBuffer = crate::imp::ConstBuffer::from_slice(b"g16");
+    const SIGNATURE: imp::ConstBuffer = imp::ConstBuffer::from_slice(b"g16");
 }
 
 impl TypeKind for GUID {

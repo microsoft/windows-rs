@@ -2,6 +2,12 @@
 
 #![allow(non_snake_case, non_upper_case_globals, non_camel_case_types, dead_code, clippy::all)]
 #[inline]
+pub unsafe fn CoCreateGuid() -> ::windows_core::Result<::windows_core::GUID> {
+    ::windows_targets::link!("ole32.dll" "system" fn CoCreateGuid(pguid : *mut ::windows_core::GUID) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
+    CoCreateGuid(&mut result__).from_abi(result__)
+}
+#[inline]
 pub unsafe fn RoGetAgileReference<P0>(options: AgileReferenceOptions, riid: *const ::windows_core::GUID, punk: P0) -> ::windows_core::Result<IAgileReference>
 where
     P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
@@ -47,6 +53,8 @@ impl ::core::fmt::Debug for AgileReferenceOptions {
         f.debug_tuple("AgileReferenceOptions").field(&self.0).finish()
     }
 }
+pub const CLASS_E_CLASSNOTAVAILABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147221231i32);
+pub const CO_E_NOTINITIALIZED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147221008i32);
 #[repr(C)]
 pub struct DateTime {
     pub UniversalTime: i64,
@@ -79,6 +87,9 @@ impl ::core::default::Default for DateTime {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const E_BOUNDS: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147483637i32);
+pub const E_NOINTERFACE: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147467262i32);
+pub const E_OUTOFMEMORY: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147024882i32);
 #[repr(transparent)]
 pub struct IAgileObject(::windows_core::IUnknown);
 impl IAgileObject {}
@@ -1075,6 +1086,7 @@ pub struct IWeakReferenceSource_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetWeakReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, weakreference: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
+pub const JSCRIPT_E_CANTEXECUTE: ::windows_core::HRESULT = ::windows_core::HRESULT(-1996357631i32);
 #[repr(C)]
 pub struct Point {
     pub X: f32,
@@ -1423,6 +1435,7 @@ impl PropertyValue {
 impl ::windows_core::RuntimeName for PropertyValue {
     const NAME: &'static str = "Windows.Foundation.PropertyValue";
 }
+pub const RPC_E_DISCONNECTED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147417848i32);
 #[repr(C)]
 pub struct Rect {
     pub X: f32,

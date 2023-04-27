@@ -47,7 +47,7 @@ where
         if owner.values.len() > current {
             T::from_default(&owner.values[current])
         } else {
-            Err(::windows_core::HRESULT(::windows_core::imp::E_BOUNDS).into())
+            Err(::windows_core::Error::from(::windows_core::imp::E_BOUNDS))
         }
     }
 

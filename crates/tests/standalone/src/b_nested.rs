@@ -113,19 +113,17 @@ impl ::core::clone::Clone for FILETIME {
     }
 }
 #[repr(C)]
-#[derive(
-    ::core::marker::Copy,
-    ::core::clone::Clone,
-    ::core::default::Default,
-    ::core::cmp::PartialEq,
-    ::core::cmp::Eq,
-    ::core::hash::Hash,
-)]
 pub struct GUID {
     pub data1: u32,
     pub data2: u16,
     pub data3: u16,
     pub data4: [u8; 8],
+}
+impl ::core::marker::Copy for GUID {}
+impl ::core::clone::Clone for GUID {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 impl GUID {
     pub const fn from_u128(uuid: u128) -> Self {

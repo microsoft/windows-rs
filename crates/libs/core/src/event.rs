@@ -98,8 +98,8 @@ impl<T: ComInterface> Event<T> {
         };
         for delegate in lock_free_calls.as_slice() {
             if let Err(error) = delegate.call(&mut callback) {
-                const RPC_E_SERVER_UNAVAILABLE: i32 = -2147023174; // HRESULT_FROM_WIN32(RPC_S_SERVER_UNAVAILABLE)
-                if matches!(error.code().0, crate::imp::RPC_E_DISCONNECTED | crate::imp::JSCRIPT_E_CANTEXECUTE | RPC_E_SERVER_UNAVAILABLE) {
+                const RPC_E_SERVER_UNAVAILABLE: HRESULT = HRESULT(-2147023174); // HRESULT_FROM_WIN32(RPC_S_SERVER_UNAVAILABLE)
+                if matches!(error.code(), crate::imp::RPC_E_DISCONNECTED | crate::imp::JSCRIPT_E_CANTEXECUTE | RPC_E_SERVER_UNAVAILABLE) {
                     self.remove(delegate.to_token())?;
                 }
             }
