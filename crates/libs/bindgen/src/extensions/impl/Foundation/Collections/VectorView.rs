@@ -34,7 +34,7 @@ where
         let item = self
             .values
             .get(index as usize)
-            .ok_or_else(|| ::windows_core::Error::from(::windows_core::HRESULT(::windows_core::imp::E_BOUNDS)))?;
+            .ok_or_else(|| ::windows_core::Error::from(::windows_core::imp::E_BOUNDS))?;
         T::from_default(item)
     }
     fn Size(&self) -> ::windows_core::Result<u32> {
@@ -83,7 +83,7 @@ where
         if owner.values.len() > current {
             T::from_default(&owner.values[current])
         } else {
-            Err(::windows_core::Error::from(::windows_core::HRESULT(::windows_core::imp::E_BOUNDS)))
+            Err(::windows_core::Error::from(::windows_core::imp::E_BOUNDS))
         }
     }
 

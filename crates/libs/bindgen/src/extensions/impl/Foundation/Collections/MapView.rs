@@ -40,7 +40,7 @@ where
         let value = self
             .map
             .get(key)
-            .ok_or_else(|| ::windows_core::Error::from(::windows_core::HRESULT(::windows_core::imp::E_BOUNDS)))?;
+            .ok_or_else(|| ::windows_core::Error::from(::windows_core::imp::E_BOUNDS))?;
         V::from_default(value)
     }
     fn Size(&self) -> ::windows_core::Result<u32> {
@@ -89,7 +89,7 @@ where
             }
             .into())
         } else {
-            Err(::windows_core::Error::from(::windows_core::HRESULT(::windows_core::imp::E_BOUNDS)))
+            Err(::windows_core::Error::from(::windows_core::imp::E_BOUNDS))
         }
     }
 

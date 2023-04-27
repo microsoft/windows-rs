@@ -784,7 +784,7 @@ where
         if owner.values.len() > current {
             T::from_default(&owner.values[current])
         } else {
-            Err(::windows_core::HRESULT(::windows_core::imp::E_BOUNDS).into())
+            Err(::windows_core::Error::from(::windows_core::imp::E_BOUNDS))
         }
     }
 
@@ -864,7 +864,7 @@ where
     <V as ::windows_core::Type<V>>::Default: std::clone::Clone,
 {
     fn Lookup(&self, key: &K::Default) -> ::windows_core::Result<V> {
-        let value = self.map.get(key).ok_or_else(|| ::windows_core::Error::from(::windows_core::HRESULT(::windows_core::imp::E_BOUNDS)))?;
+        let value = self.map.get(key).ok_or_else(|| ::windows_core::Error::from(::windows_core::imp::E_BOUNDS))?;
         V::from_default(value)
     }
     fn Size(&self) -> ::windows_core::Result<u32> {
@@ -905,7 +905,7 @@ where
         if let Some((key, value)) = current.peek() {
             Ok(StockKeyValuePair { key: (*key).clone(), value: (*value).clone() }.into())
         } else {
-            Err(::windows_core::Error::from(::windows_core::HRESULT(::windows_core::imp::E_BOUNDS)))
+            Err(::windows_core::Error::from(::windows_core::imp::E_BOUNDS))
         }
     }
 
@@ -1008,7 +1008,7 @@ where
     <T as ::windows_core::Type<T>>::Default: std::clone::Clone + std::cmp::PartialEq,
 {
     fn GetAt(&self, index: u32) -> ::windows_core::Result<T> {
-        let item = self.values.get(index as usize).ok_or_else(|| ::windows_core::Error::from(::windows_core::HRESULT(::windows_core::imp::E_BOUNDS)))?;
+        let item = self.values.get(index as usize).ok_or_else(|| ::windows_core::Error::from(::windows_core::imp::E_BOUNDS))?;
         T::from_default(item)
     }
     fn Size(&self) -> ::windows_core::Result<u32> {
@@ -1057,7 +1057,7 @@ where
         if owner.values.len() > current {
             T::from_default(&owner.values[current])
         } else {
-            Err(::windows_core::Error::from(::windows_core::HRESULT(::windows_core::imp::E_BOUNDS)))
+            Err(::windows_core::Error::from(::windows_core::imp::E_BOUNDS))
         }
     }
 

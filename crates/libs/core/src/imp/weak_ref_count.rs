@@ -32,7 +32,7 @@ impl WeakRefCount {
     }
 
     /// # Safety
-    pub unsafe fn query(&self, iid: &GUID, object: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
+    pub unsafe fn query(&self, iid: &crate::GUID, object: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
         if iid != &IWeakReferenceSource::IID {
             return std::ptr::null_mut();
         }
@@ -119,11 +119,11 @@ impl TearOff {
         std::mem::transmute(value << 1)
     }
 
-    unsafe fn query_interface(&self, iid: &GUID, interface: *mut *const std::ffi::c_void) -> crate::HRESULT {
+    unsafe fn query_interface(&self, iid: &crate::GUID, interface: *mut *const std::ffi::c_void) -> crate::HRESULT {
         ((*(*(self.object as *mut *mut _) as *mut crate::IUnknown_Vtbl)).QueryInterface)(self.object, iid, interface)
     }
 
-    unsafe extern "system" fn StrongQueryInterface(ptr: *mut std::ffi::c_void, iid: &GUID, interface: *mut *const std::ffi::c_void) -> crate::HRESULT {
+    unsafe extern "system" fn StrongQueryInterface(ptr: *mut std::ffi::c_void, iid: &crate::GUID, interface: *mut *const std::ffi::c_void) -> crate::HRESULT {
         let this = Self::from_strong_ptr(ptr);
 
         // Only directly respond to queries for the the tear-off's strong interface. This is
@@ -139,7 +139,7 @@ impl TearOff {
         this.query_interface(iid, interface)
     }
 
-    unsafe extern "system" fn WeakQueryInterface(ptr: *mut std::ffi::c_void, iid: &GUID, interface: *mut *const std::ffi::c_void) -> crate::HRESULT {
+    unsafe extern "system" fn WeakQueryInterface(ptr: *mut std::ffi::c_void, iid: &crate::GUID, interface: *mut *const std::ffi::c_void) -> crate::HRESULT {
         let this = Self::from_weak_ptr(ptr);
 
         // While the weak vtable is packed into the same allocation as the strong vtable and
@@ -151,7 +151,7 @@ impl TearOff {
         // TODO: implement IMarshal
 
         if (*interface).is_null() {
-            crate::HRESULT(E_NOINTERFACE)
+            E_NOINTERFACE
         } else {
             this.weak_count.add_ref();
             crate::HRESULT(0)
@@ -206,7 +206,7 @@ impl TearOff {
         crate::HRESULT(0)
     }
 
-    unsafe extern "system" fn WeakUpgrade(ptr: *mut std::ffi::c_void, iid: *const GUID, interface: *mut *mut std::ffi::c_void) -> crate::HRESULT {
+    unsafe extern "system" fn WeakUpgrade(ptr: *mut std::ffi::c_void, iid: *const crate::GUID, interface: *mut *mut std::ffi::c_void) -> crate::HRESULT {
         let this = Self::from_weak_ptr(ptr);
 
         this.strong_count

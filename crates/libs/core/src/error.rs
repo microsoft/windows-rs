@@ -9,7 +9,7 @@ pub struct Error {
 
 impl Error {
     /// An error object without any failure information.
-    pub const OK: Self = Self { code: HRESULT(crate::imp::S_OK), info: None };
+    pub const OK: Self = Self { code: HRESULT(0), info: None };
 
     /// This creates a new WinRT error object, capturing the stack and other information about the
     /// point of failure.

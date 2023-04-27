@@ -45,7 +45,7 @@ impl BSTR {
         let result = unsafe { Self(crate::imp::SysAllocStringLen(value.as_ptr(), value.len() as _)) };
 
         if result.is_empty() {
-            Err(HRESULT(crate::imp::E_OUTOFMEMORY).into())
+            Err(crate::imp::E_OUTOFMEMORY.into())
         } else {
             Ok(result)
         }
