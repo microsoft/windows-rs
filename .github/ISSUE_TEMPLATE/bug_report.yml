@@ -14,6 +14,9 @@ body:
       options:
         - "windows"
         - "windows-sys"
+        - "windows-bindgen"
+        - "windows-core"
+        - "windows-targets"
         - "other (please share in the comments)"
   - type: input
     attributes:
