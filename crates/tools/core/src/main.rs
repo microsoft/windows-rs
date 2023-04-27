@@ -17,8 +17,6 @@ fn main() {
         "Windows.Win32.System.Com.CoCreateGuid",
         "Windows.Win32.System.Com.CoTaskMemAlloc",
         "Windows.Win32.System.Com.CoTaskMemFree",
-        "Windows.Win32.System.Com.GetErrorInfo",
-        "Windows.Win32.System.Com.SetErrorInfo",
         "Windows.Win32.System.Diagnostics.Debug.EncodePointer",
         "Windows.Win32.System.Diagnostics.Debug.FORMAT_MESSAGE_ALLOCATE_BUFFER",
         "Windows.Win32.System.Diagnostics.Debug.FORMAT_MESSAGE_FROM_SYSTEM",
@@ -34,14 +32,26 @@ fn main() {
         "Windows.Win32.System.Threading.CreateEventW",
         "Windows.Win32.System.Threading.SetEvent",
         "Windows.Win32.System.Threading.WaitForSingleObject",
-        "Windows.Win32.System.WinRT.AGILEREFERENCE_DEFAULT",
-        "Windows.Win32.System.WinRT.RoGetAgileReference",
     ];
 
     let bindings = windows_bindgen::standalone_sys(&bindings);
     std::fs::write("crates/libs/core/src/imp/bindings.rs", bindings).unwrap();
 
-    let bindings = ["Windows.Foundation.IReference", "Windows.Foundation.IStringable", "Windows.Foundation.PropertyValue", "Windows.Win32.System.Com.IAgileObject", "Windows.Win32.System.Com.IErrorInfo", "Windows.Win32.System.WinRT.IAgileReference", "Windows.Win32.System.WinRT.ILanguageExceptionErrorInfo2", "Windows.Win32.System.WinRT.IRestrictedErrorInfo", "Windows.Win32.System.WinRT.IWeakReferenceSource"];
+    let bindings = [
+        "Windows.Foundation.IReference",
+        "Windows.Foundation.IStringable",
+        "Windows.Foundation.PropertyValue",
+        "Windows.Win32.System.Com.GetErrorInfo",
+        "Windows.Win32.System.Com.IAgileObject",
+        "Windows.Win32.System.Com.IErrorInfo",
+        "Windows.Win32.System.Com.SetErrorInfo",
+        "Windows.Win32.System.WinRT.IAgileReference",
+        "Windows.Win32.System.WinRT.ILanguageExceptionErrorInfo2",
+        "Windows.Win32.System.WinRT.IRestrictedErrorInfo",
+        "Windows.Win32.System.WinRT.IWeakReferenceSource",
+        "Windows.Win32.System.WinRT.RoGetAgileReference",
+        "Windows.Win32.System.WinRT.AGILEREFERENCE_DEFAULT",
+    ];
 
     let bindings = windows_bindgen::standalone_win(&bindings);
     std::fs::write("crates/libs/core/src/imp/com_bindings.rs", bindings).unwrap();

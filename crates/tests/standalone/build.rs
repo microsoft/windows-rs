@@ -65,6 +65,14 @@ fn main() {
         ],
     );
 
+    write_win(
+        "src/b_win_enumerator.rs",
+        &[
+            "Windows.Win32.Foundation.WAIT_IO_COMPLETION",
+            "Windows.Win32.Foundation.WAIT_TIMEOUT",
+        ],
+    );
+
     write_std(
         "src/b_std.rs",
         &[

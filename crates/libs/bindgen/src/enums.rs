@@ -55,46 +55,46 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
         }
     };
 
-    tokens.combine(&if is_scoped {
+    if is_scoped {
         let fields = fields.iter().map(|(field_name, value)| {
             quote! {
                 pub const #field_name: Self = Self(#value);
             }
         });
 
-        quote! {
+        tokens.combine(&quote! {
             #features
             impl #ident {
                 #(#fields)*
             }
-        }
-    } else if !gen.sys {
-        let fields = fields.iter().map(|(field_name, value)| {
-            quote! {
-                #doc
-                #features
-                pub const #field_name: #ident = #ident(#value);
-            }
         });
-
-        quote! {
-            #(#fields)*
-        }
     } else if !gen.standalone {
-        let fields = fields.iter().map(|(field_name, value)| {
-            quote! {
-                #doc
-                #features
-                pub const #field_name: #ident = #value;
-            }
-        });
+        if gen.sys {
+            let fields = fields.iter().map(|(field_name, value)| {
+                quote! {
+                    #doc
+                    #features
+                    pub const #field_name: #ident = #value;
+                }
+            });
 
-        quote! {
-            #(#fields)*
+            tokens.combine(&quote! {
+                #(#fields)*
+            });
+        } else {
+            let fields = fields.iter().map(|(field_name, value)| {
+                quote! {
+                    #doc
+                    #features
+                    pub const #field_name: #ident = #ident(#value);
+                }
+            });
+
+            tokens.combine(&quote! {
+                #(#fields)*
+            });
         }
-    } else {
-        quote! {}
-    });
+    }
 
     if is_scoped || !gen.sys {
         tokens.combine(&quote! {
