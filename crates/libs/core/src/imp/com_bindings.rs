@@ -24,11 +24,10 @@ where
     ::windows_targets::link!("oleaut32.dll" "system" fn SetErrorInfo(dwreserved : u32, perrinfo : * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
     SetErrorInfo(dwreserved, perrinfo.into_param().abi()).ok()
 }
+pub const AGILEREFERENCE_DEFAULT: AgileReferenceOptions = AgileReferenceOptions(0i32);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AgileReferenceOptions(pub i32);
-pub const AGILEREFERENCE_DEFAULT: AgileReferenceOptions = AgileReferenceOptions(0i32);
-pub const AGILEREFERENCE_DELAYEDMARSHAL: AgileReferenceOptions = AgileReferenceOptions(1i32);
 impl ::core::marker::Copy for AgileReferenceOptions {}
 impl ::core::clone::Clone for AgileReferenceOptions {
     fn clone(&self) -> Self {

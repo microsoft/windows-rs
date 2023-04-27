@@ -50,6 +50,7 @@ fn main() {
         "Windows.Win32.System.WinRT.IRestrictedErrorInfo",
         "Windows.Win32.System.WinRT.IWeakReferenceSource",
         "Windows.Win32.System.WinRT.RoGetAgileReference",
+        "Windows.Win32.System.WinRT.AGILEREFERENCE_DEFAULT",
     ];
 
     let bindings = windows_bindgen::standalone_win(&bindings);

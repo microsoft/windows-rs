@@ -1892,7 +1892,7 @@ impl<'a> Reader<'a> {
     pub fn type_has_replacement(&self, ty: &Type) -> bool {
         match ty {
             Type::HRESULT | Type::PCSTR | Type::PCWSTR => true,
-            Type::TypeDef((row, _)) => self.type_def_is_handle(*row),
+            Type::TypeDef((row, _)) => self.type_def_is_handle(*row) || self.type_def_kind(*row) == TypeKind::Enum,
             _ => false,
         }
     }
