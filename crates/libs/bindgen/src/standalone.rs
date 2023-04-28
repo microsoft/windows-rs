@@ -5,7 +5,9 @@ pub fn standalone_win(names: &[&str]) -> String {
     let files = &File::with_default(&[]).unwrap();
     let reader = &Reader::new(files);
     let gen = &mut Gen::new(reader);
-    standalone_imp(gen, names)
+
+    let items = gather_items(gen, names.iter().map(|s| (*s, None)));
+    standalone_imp(gen, items)
 }
 
 /// Generates standalone Windows bindings based on the `windows-sys` crate's bindings.
@@ -14,7 +16,9 @@ pub fn standalone_sys(names: &[&str]) -> String {
     let reader = &Reader::new(files);
     let gen = &mut Gen::new(reader);
     gen.sys = true;
-    standalone_imp(gen, names)
+
+    let items = gather_items(gen, names.iter().map(|s| (*s, None)));
+    standalone_imp(gen, items)
 }
 
 /// Generates standalone Windows bindings for the Rust Standard Library.
@@ -25,53 +29,88 @@ pub fn standalone_std(names: &[&str]) -> String {
     let gen = &mut Gen::new(reader);
     gen.std = true;
     gen.sys = true;
-    standalone_imp(gen, names)
+
+    let items = gather_items(gen, names.iter().map(|s| (*s, None)));
+    standalone_imp(gen, items)
 }
 
-fn standalone_imp(gen: &mut Gen, names: &[&str]) -> String {
-    gen.namespace = "Windows.";
-    gen.standalone = true;
+/// All of the unique items gathered based on a root list of names
+pub struct ItemSet {
+    /// Set of structs, unions, interfaces, classes, enums, type aliases, and function pointers
+    pub types: BTreeSet<Type>,
+    /// Set of functions
+    pub functions: BTreeSet<MethodDef>,
+    /// Set of constants, including individual enum values
+    pub constants: BTreeSet<Field>,
+}
 
+/// Disambiguates items during gathering.
+///
+/// In [some](https://docs.rs/windows-sys/0.48.0/windows_sys/Win32/UI/Input/KeyboardAndMouse/struct.VK_F.html)
+/// [cases](https://docs.rs/windows-sys/0.48.0/windows_sys/Win32/UI/Input/KeyboardAndMouse/constant.VK_F.html)
+/// items with the exact same name can be located within the same namespace,
+/// which can cause the incorrect item to be emitted and the desired item to be
+/// skipped.
+#[derive(Copy, Clone, Debug)]
+pub enum Disambiguate {
+    /// The item is a constant or enum variant
+    Constant,
+    /// The item is a function
+    Function,
+    /// The item is a struct or union
+    Record,
+}
+
+/// Takes a list of fully qualified type names and recursively gathers all of
+/// the items needed to fully define them.
+pub fn gather_items<'names>(
+    gen: &mut Gen,
+    names: impl Iterator<Item = (&'names str, Option<Disambiguate>)>,
+) -> ItemSet {
     let mut types = BTreeSet::new();
     let mut functions = BTreeSet::new();
     let mut constants = BTreeSet::new();
 
-    for name in names {
+    for (name, dis) in names {
         let type_name = TypeName::parse(name);
 
         // We can't simply use `if let` here to find the types and functions as there may be multiple definitions
         // to cover multi-arch support.
         let mut found = false;
 
-        for def in gen.reader.get(type_name) {
-            gen.reader
-                .type_collect_standalone(&Type::TypeDef((def, vec![])), &mut types);
-            found = true;
+        if matches!(dis, None | Some(Disambiguate::Record)) {
+            for def in gen.reader.get(type_name) {
+                gen.reader
+                    .type_collect_standalone(&Type::TypeDef((def, vec![])), &mut types);
+                found = true;
+            }
         }
 
         if found {
             continue;
         }
 
-        for method in gen
-            .reader
-            .namespace_functions(type_name.namespace)
-            .filter(|method| gen.reader.method_def_name(*method) == type_name.name)
-        {
-            functions.insert(method);
-            let signature = gen.reader.method_def_signature(method, &[]);
-            signature
-                .return_type
-                .iter()
-                .for_each(|ty| gen.reader.type_collect_standalone(ty, &mut types));
-            signature
-                .params
-                .iter()
-                .for_each(|param| gen.reader.type_collect_standalone(&param.ty, &mut types));
-            found = true;
+        if matches!(dis, None | Some(Disambiguate::Function)) {
+            for method in gen
+                .reader
+                .namespace_functions(type_name.namespace)
+                .filter(|method| gen.reader.method_def_name(*method) == type_name.name)
+            {
+                functions.insert(method);
+                let signature = gen.reader.method_def_signature(method, &[]);
+                signature
+                    .return_type
+                    .iter()
+                    .for_each(|ty| gen.reader.type_collect_standalone(ty, &mut types));
+                signature
+                    .params
+                    .iter()
+                    .for_each(|param| gen.reader.type_collect_standalone(&param.ty, &mut types));
+                found = true;
+            }
         }
 
-        if found {
+        if found || !matches!(dis, None | Some(Disambiguate::Constant)) {
             continue;
         }
 
@@ -104,9 +143,26 @@ fn standalone_imp(gen: &mut Gen, names: &[&str]) -> String {
         }
     }
 
+    ItemSet {
+        types,
+        functions,
+        constants,
+    }
+}
+
+/// Generates Rust code for every item in the provided set.
+///
+/// This is the actual implementation of the following helper functions
+///
+/// * [`standalone_sys`]
+/// * [`standalone_win`]
+pub fn standalone_imp(gen: &mut Gen, items: ItemSet) -> String {
+    gen.namespace = "Windows.";
+    gen.standalone = true;
+
     let mut sorted = SortedTokens::default();
 
-    for ty in types {
+    for ty in items.types {
         match ty {
             Type::HRESULT if gen.sys => {
                 sorted.insert("HRESULT", quote! { pub type HRESULT = i32; })
@@ -211,7 +267,7 @@ fn standalone_imp(gen: &mut Gen, names: &[&str]) -> String {
         }
     }
 
-    for function in functions {
+    for function in items.functions {
         sorted.insert(
             &format!(
                 ".{}.{}",
@@ -222,7 +278,7 @@ fn standalone_imp(gen: &mut Gen, names: &[&str]) -> String {
         );
     }
 
-    for constant in constants {
+    for constant in items.constants {
         sorted.insert(
             &format!("{}", gen.reader.field_name(constant)),
             constants::gen(gen, constant),
