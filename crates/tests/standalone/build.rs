@@ -114,6 +114,13 @@ fn main() {
             "Windows.Win32.Graphics.Gdi.DEVMODEW",
         ],
     );
+
+    write_sys(
+        "src/b_overloads.rs",
+        &[
+            "Windows.Win32.NetworkManagement.NetManagement.AE_RESACCESS",
+        ],
+    )
 }
 
 fn write_sys(filename: &str, apis: &[&str]) {
