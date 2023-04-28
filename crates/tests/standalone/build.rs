@@ -117,9 +117,7 @@ fn main() {
 
     write_sys(
         "src/b_overloads.rs",
-        &[
-            "Windows.Win32.NetworkManagement.NetManagement.AE_RESACCESS",
-        ],
+        &["Windows.Win32.NetworkManagement.NetManagement.AE_RESACCESS"],
     )
 }
 

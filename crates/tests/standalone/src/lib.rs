@@ -14,6 +14,7 @@ mod b_hstring;
 mod b_inspectable;
 mod b_nested;
 mod b_none;
+mod b_overloads;
 mod b_pcstr;
 mod b_pcwstr;
 mod b_pstr;
@@ -24,7 +25,6 @@ mod b_test;
 mod b_unknown;
 mod b_uri;
 mod b_win_enumerator;
-mod b_overloads;
 
 #[test]
 fn bstr() {
