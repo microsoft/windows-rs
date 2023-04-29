@@ -39,18 +39,9 @@ fn standalone_imp(gen: &mut Gen, names: &[&str]) -> String {
     for name in names {
         let type_name = TypeName::parse(name);
 
-        // We can't simply use `if let` here to find the types and functions as there may be multiple definitions
-        // to cover multi-arch support.
-        let mut found = false;
-
         for def in gen.reader.get(type_name) {
             gen.reader
                 .type_collect_standalone(&Type::TypeDef((def, vec![])), &mut types);
-            found = true;
-        }
-
-        if found {
-            continue;
         }
 
         for method in gen
@@ -68,11 +59,6 @@ fn standalone_imp(gen: &mut Gen, names: &[&str]) -> String {
                 .params
                 .iter()
                 .for_each(|param| gen.reader.type_collect_standalone(&param.ty, &mut types));
-            found = true;
-        }
-
-        if found {
-            continue;
         }
 
         if let Some(field) = gen

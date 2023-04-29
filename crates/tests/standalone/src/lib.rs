@@ -14,6 +14,7 @@ mod b_hstring;
 mod b_inspectable;
 mod b_nested;
 mod b_none;
+mod b_overloads;
 mod b_pcstr;
 mod b_pcwstr;
 mod b_pstr;
