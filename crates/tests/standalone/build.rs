@@ -44,6 +44,7 @@ fn main() {
         &[
             "Windows.Win32.Networking.WinSock.WSADATA",
             "Windows.Win32.UI.WindowsAndMessaging.GetWindowLongPtrW",
+            "Windows.Win32.System.Diagnostics.Debug.RtlCaptureContext",
         ],
     );
 
@@ -118,7 +119,7 @@ fn main() {
     write_sys(
         "src/b_overloads.rs",
         &["Windows.Win32.NetworkManagement.NetManagement.AE_RESACCESS"],
-    )
+    );
 }
 
 fn write_sys(filename: &str, apis: &[&str]) {

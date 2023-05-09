@@ -1506,39 +1506,58 @@ impl<'a> Reader<'a> {
     }
     pub fn type_collect_standalone(&self, ty: &Type, set: &mut BTreeSet<Type>) {
         let ty = ty.to_underlying_type();
-        if set.insert(ty.clone()) {
-            if let Type::TypeDef((def, generics)) = &ty {
-                for generic in generics {
-                    self.type_collect_standalone(generic, set);
-                }
-                for field in self.type_def_fields(*def) {
-                    let ty = self.field_type(field, Some(*def));
-                    if let Type::TypeDef((def, _)) = &ty {
-                        if self.type_def_namespace(*def).is_empty() {
-                            continue;
-                        }
-                    }
-                    self.type_collect_standalone(&ty, set);
-                }
-                for method in self.type_def_methods(*def) {
-                    // Skip delegate pseudo-constructors.
-                    if self.method_def_name(method) == ".ctor" {
-                        continue;
-                    }
-                    let signature = self.method_def_signature(method, generics);
-                    signature.return_type.iter().for_each(|ty| self.type_collect_standalone(ty, set));
-                    signature.params.iter().for_each(|param| self.type_collect_standalone(&param.ty, set));
-                }
-                for interface in self.type_interfaces(&ty) {
-                    self.type_collect_standalone(&interface.ty, set);
-                }
-                if self.type_def_kind(*def) == TypeKind::Struct && self.type_def_fields(*def).next().is_none() && self.type_def_guid(*def).is_some() {
-                    set.insert(Type::GUID);
-                }
+        if !set.insert(ty.clone()) {
+            return;
+        }
 
-                self.type_collect_standalone_nested(*def, set);
+        let Type::TypeDef((def, generics)) = &ty else { return; };
+        let def = *def;
+
+        // Ensure that we collect all the typedefs of the same name. We need to
+        // do this in the case where the user specifies a top level item that
+        // references a typedef by name, but that name resolves to more than 1
+        // Type based on target architecture (typically)
+        //
+        // Note this is a bit overeager as we can collect a typedef that is used
+        // by one architcecture but not by another
+        let type_name = self.type_def_type_name(def);
+        if !type_name.namespace.is_empty() {
+            for row in self.get(type_name) {
+                if def != row {
+                    self.type_collect_standalone(&Type::TypeDef((row, Vec::new())), set);
+                }
             }
         }
+
+        for generic in generics {
+            self.type_collect_standalone(generic, set);
+        }
+        for field in self.type_def_fields(def) {
+            let ty = self.field_type(field, Some(def));
+            if let Type::TypeDef((def, _)) = &ty {
+                if self.type_def_namespace(*def).is_empty() {
+                    continue;
+                }
+            }
+            self.type_collect_standalone(&ty, set);
+        }
+        for method in self.type_def_methods(def) {
+            // Skip delegate pseudo-constructors.
+            if self.method_def_name(method) == ".ctor" {
+                continue;
+            }
+            let signature = self.method_def_signature(method, generics);
+            signature.return_type.iter().for_each(|ty| self.type_collect_standalone(ty, set));
+            signature.params.iter().for_each(|param| self.type_collect_standalone(&param.ty, set));
+        }
+        for interface in self.type_interfaces(&ty) {
+            self.type_collect_standalone(&interface.ty, set);
+        }
+        if self.type_def_kind(def) == TypeKind::Struct && self.type_def_fields(def).next().is_none() && self.type_def_guid(def).is_some() {
+            set.insert(Type::GUID);
+        }
+
+        self.type_collect_standalone_nested(def, set);
     }
 
     fn type_collect_standalone_nested(&self, td: TypeDef, set: &mut BTreeSet<Type>) {
