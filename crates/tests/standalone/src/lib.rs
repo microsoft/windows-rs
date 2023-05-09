@@ -2,6 +2,7 @@
 #![allow(clashing_extern_declarations)]
 
 mod b_arch;
+mod b_arch_dependencies;
 mod b_bstr;
 mod b_calendar;
 mod b_depends;
