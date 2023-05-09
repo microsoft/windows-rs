@@ -44,7 +44,6 @@ fn main() {
         &[
             "Windows.Win32.Networking.WinSock.WSADATA",
             "Windows.Win32.UI.WindowsAndMessaging.GetWindowLongPtrW",
-            "Windows.Win32.System.Diagnostics.Debug.RtlCaptureContext",
         ],
     );
 
