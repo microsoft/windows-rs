@@ -66,7 +66,7 @@ impl HSTRING {
             return Ok(Self::new());
         }
 
-        let mut ptr = Header::alloc(len)?;
+        let ptr = Header::alloc(len)?;
 
         // Place each utf-16 character into the buffer and
         // increase len as we go along.
