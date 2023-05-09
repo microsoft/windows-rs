@@ -1,5 +1,4 @@
 #![cfg(test)]
-#![cfg_attr(windows_raw_dylib, feature(raw_dylib))]
 #![allow(clashing_extern_declarations)]
 
 mod b_arch;
