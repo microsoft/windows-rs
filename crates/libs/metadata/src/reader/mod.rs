@@ -1519,7 +1519,7 @@ impl<'a> Reader<'a> {
         // Type based on target architecture (typically)
         //
         // Note this is a bit overeager as we can collect a typedef that is used
-        // by one architcecture but not by another
+        // by one architecture but not by another
         let type_name = self.type_def_type_name(def);
         if !type_name.namespace.is_empty() {
             for row in self.get(type_name) {
