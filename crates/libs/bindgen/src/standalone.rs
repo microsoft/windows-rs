@@ -67,8 +67,15 @@ fn standalone_imp(gen: &mut Gen, names: &[&str]) -> String {
             .find(|field| gen.reader.field_name(*field) == type_name.name)
         {
             constants.insert(field);
-            gen.reader
-                .type_collect_standalone(&gen.reader.field_type(field, None), &mut types);
+
+            let ft = gen.reader.field_type(field, None);
+
+            // String normally gets resolved to HSTRING, but since macros
+            // from windows_core/windows_sys::core are used to create the
+            // string literals we can skip the type collection
+            if ft != Type::String {
+                gen.reader.type_collect_standalone(&ft, &mut types);
+            }
         }
 
         if let Some(field) = gen

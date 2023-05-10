@@ -12,7 +12,11 @@ pub fn gen(gen: &Gen, def: Field) -> TokenStream {
 
         if ty == constant_type {
             if ty == Type::String {
-                let crate_name = gen.crate_name();
+                let crate_name: TokenStream = if gen.sys && !gen.standalone {
+                    "::windows_sys::core::".into()
+                } else {
+                    "::windows_core::".into()
+                };
                 if gen.reader.field_is_ansi(def) {
                     let value = gen.value(&gen.reader.constant_value(constant));
                     quote! {

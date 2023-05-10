@@ -19,6 +19,7 @@ mod b_pcwstr;
 mod b_pstr;
 mod b_pwstr;
 mod b_std;
+mod b_string_constants;
 mod b_stringable;
 mod b_test;
 mod b_unknown;

@@ -118,7 +118,18 @@ fn main() {
     write_sys(
         "src/b_overloads.rs",
         &["Windows.Win32.NetworkManagement.NetManagement.AE_RESACCESS"],
-    )
+    );
+
+    // Ensures that string constants are written correctly
+    write_sys(
+        "src/b_string_constants.rs",
+        &[
+            // utf-16
+            "Windows.Win32.Devices.Enumeration.Pnp.ADDRESS_FAMILY_VALUE_NAME",
+            // ansi
+            "Windows.Win32.Media.Multimedia.JOY_CONFIGCHANGED_MSGSTRING",
+        ],
+    );
 }
 
 fn write_sys(filename: &str, apis: &[&str]) {
