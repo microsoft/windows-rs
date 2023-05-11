@@ -489,11 +489,29 @@ impl ::core::clone::Clone for AsnAny_0 {
 }
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct AsnObjectIdentifier {
     pub idLength: u32,
     pub ids: *mut u32,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for AsnObjectIdentifier {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::clone::Clone for AsnObjectIdentifier {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+#[cfg(target_arch = "x86")]
+pub struct AsnObjectIdentifier {
+    pub idLength: u32,
+    pub ids: *mut u32,
+}
+#[cfg(target_arch = "x86")]
+impl ::core::marker::Copy for AsnObjectIdentifier {}
+#[cfg(target_arch = "x86")]
 impl ::core::clone::Clone for AsnObjectIdentifier {
     fn clone(&self) -> Self {
         *self
@@ -501,14 +519,36 @@ impl ::core::clone::Clone for AsnObjectIdentifier {
 }
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`, `\"Win32_Foundation\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct AsnOctetString {
     pub stream: *mut u8,
     pub length: u32,
     pub dynamic: super::super::Foundation::BOOL,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for AsnOctetString {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for AsnOctetString {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`, `\"Win32_Foundation\"`*"]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+pub struct AsnOctetString {
+    pub stream: *mut u8,
+    pub length: u32,
+    pub dynamic: super::super::Foundation::BOOL,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for AsnOctetString {}
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for AsnOctetString {
     fn clone(&self) -> Self {
@@ -532,13 +572,34 @@ impl ::core::clone::Clone for SnmpVarBind {
 }
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`, `\"Win32_Foundation\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SnmpVarBindList {
     pub list: *mut SnmpVarBind,
     pub len: u32,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SnmpVarBindList {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SnmpVarBindList {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`, `\"Win32_Foundation\"`*"]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+pub struct SnmpVarBindList {
+    pub list: *mut SnmpVarBind,
+    pub len: u32,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SnmpVarBindList {}
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SnmpVarBindList {
     fn clone(&self) -> Self {

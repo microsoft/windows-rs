@@ -3,12 +3,17 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("webauthn.dll" "system" #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"] fn WebAuthNAuthenticatorMakeCredential(hwnd : super::super::Foundation:: HWND, prpinformation : *const WEBAUTHN_RP_ENTITY_INFORMATION, puserinformation : *const WEBAUTHN_USER_ENTITY_INFORMATION, ppubkeycredparams : *const WEBAUTHN_COSE_CREDENTIAL_PARAMETERS, pwebauthnclientdata : *const WEBAUTHN_CLIENT_DATA, pwebauthnmakecredentialoptions : *const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS, ppwebauthncredentialattestation : *mut *mut WEBAUTHN_CREDENTIAL_ATTESTATION) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("webauthn.dll" "system" #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"] fn WebAuthNCancelCurrentOperation(pcancellationid : *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("webauthn.dll" "system" #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"] fn WebAuthNDeletePlatformCredential(cbcredentialid : u32, pbcredentialid : *const u8) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("webauthn.dll" "system" #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"] fn WebAuthNFreeAssertion(pwebauthnassertion : *const WEBAUTHN_ASSERTION) -> ());
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("webauthn.dll" "system" #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"] fn WebAuthNFreeCredentialAttestation(pwebauthncredentialattestation : *const WEBAUTHN_CREDENTIAL_ATTESTATION) -> ());
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("webauthn.dll" "system" #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"] fn WebAuthNFreePlatformCredentialList(pcredentialdetailslist : *const WEBAUTHN_CREDENTIAL_DETAILS_LIST) -> ());
 ::windows_targets::link!("webauthn.dll" "system" #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"] fn WebAuthNGetApiVersionNumber() -> u32);
 ::windows_targets::link!("webauthn.dll" "system" #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"] fn WebAuthNGetCancellationId(pcancellationid : *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("webauthn.dll" "system" #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"] fn WebAuthNGetErrorName(hr : ::windows_sys::core::HRESULT) -> ::windows_sys::core::PCWSTR);
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("webauthn.dll" "system" #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"] fn WebAuthNGetPlatformCredentialList(pgetcredentialsoptions : *const WEBAUTHN_GET_CREDENTIALS_OPTIONS, ppcredentialdetailslist : *mut *mut WEBAUTHN_CREDENTIAL_DETAILS_LIST) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("webauthn.dll" "system" #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"] fn WebAuthNGetW3CExceptionDOMError(hr : ::windows_sys::core::HRESULT) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("webauthn.dll" "system" #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"] fn WebAuthNIsUserVerifyingPlatformAuthenticatorAvailable(pbisuserverifyingplatformauthenticatoravailable : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
@@ -3049,14 +3054,7 @@ impl ::core::clone::Clone for WS_CERT_SIGNED_SAML_AUTHENTICATOR {
         *self
     }
 }
-#[repr(C)]
-pub struct WS_CHANNEL(pub u8);
-impl ::core::marker::Copy for WS_CHANNEL {}
-impl ::core::clone::Clone for WS_CHANNEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WS_CHANNEL = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub struct WS_CHANNEL_DECODER {
@@ -3513,14 +3511,7 @@ impl ::core::clone::Clone for WS_ENUM_VALUE {
         *self
     }
 }
-#[repr(C)]
-pub struct WS_ERROR(pub u8);
-impl ::core::marker::Copy for WS_ERROR {}
-impl ::core::clone::Clone for WS_ERROR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WS_ERROR = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub struct WS_ERROR_PROPERTY {
@@ -3654,14 +3645,7 @@ impl ::core::clone::Clone for WS_GUID_DESCRIPTION {
         *self
     }
 }
-#[repr(C)]
-pub struct WS_HEAP(pub u8);
-impl ::core::marker::Copy for WS_HEAP {}
-impl ::core::clone::Clone for WS_HEAP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WS_HEAP = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub struct WS_HEAP_PROPERTIES {
@@ -4187,14 +4171,7 @@ impl ::core::clone::Clone for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TEMPLAT
         *self
     }
 }
-#[repr(C)]
-pub struct WS_LISTENER(pub u8);
-impl ::core::marker::Copy for WS_LISTENER {}
-impl ::core::clone::Clone for WS_LISTENER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WS_LISTENER = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub struct WS_LISTENER_PROPERTIES {
@@ -4220,14 +4197,7 @@ impl ::core::clone::Clone for WS_LISTENER_PROPERTY {
         *self
     }
 }
-#[repr(C)]
-pub struct WS_MESSAGE(pub u8);
-impl ::core::marker::Copy for WS_MESSAGE {}
-impl ::core::clone::Clone for WS_MESSAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WS_MESSAGE = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4268,14 +4238,7 @@ impl ::core::clone::Clone for WS_MESSAGE_PROPERTY {
         *self
     }
 }
-#[repr(C)]
-pub struct WS_METADATA(pub u8);
-impl ::core::marker::Copy for WS_METADATA {}
-impl ::core::clone::Clone for WS_METADATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WS_METADATA = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4399,14 +4362,7 @@ impl ::core::clone::Clone for WS_OPAQUE_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
         *self
     }
 }
-#[repr(C)]
-pub struct WS_OPERATION_CONTEXT(pub u8);
-impl ::core::marker::Copy for WS_OPERATION_CONTEXT {}
-impl ::core::clone::Clone for WS_OPERATION_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WS_OPERATION_CONTEXT = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4442,14 +4398,7 @@ impl ::core::clone::Clone for WS_PARAMETER_DESCRIPTION {
         *self
     }
 }
-#[repr(C)]
-pub struct WS_POLICY(pub u8);
-impl ::core::marker::Copy for WS_POLICY {}
-impl ::core::clone::Clone for WS_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WS_POLICY = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub struct WS_POLICY_CONSTRAINTS {
@@ -4741,14 +4690,7 @@ impl ::core::clone::Clone for WS_SECURITY_CONSTRAINTS {
         *self
     }
 }
-#[repr(C)]
-pub struct WS_SECURITY_CONTEXT(pub u8);
-impl ::core::marker::Copy for WS_SECURITY_CONTEXT {}
-impl ::core::clone::Clone for WS_SECURITY_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WS_SECURITY_CONTEXT = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub struct WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING {
@@ -4910,14 +4852,7 @@ impl ::core::clone::Clone for WS_SECURITY_PROPERTY_CONSTRAINT_0 {
         *self
     }
 }
-#[repr(C)]
-pub struct WS_SECURITY_TOKEN(pub u8);
-impl ::core::marker::Copy for WS_SECURITY_TOKEN {}
-impl ::core::clone::Clone for WS_SECURITY_TOKEN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WS_SECURITY_TOKEN = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4985,14 +4920,7 @@ impl ::core::clone::Clone for WS_SERVICE_ENDPOINT_PROPERTY {
         *self
     }
 }
-#[repr(C)]
-pub struct WS_SERVICE_HOST(pub u8);
-impl ::core::marker::Copy for WS_SERVICE_HOST {}
-impl ::core::clone::Clone for WS_SERVICE_HOST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WS_SERVICE_HOST = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5060,14 +4988,7 @@ impl ::core::clone::Clone for WS_SERVICE_PROPERTY_CLOSE_CALLBACK {
         *self
     }
 }
-#[repr(C)]
-pub struct WS_SERVICE_PROXY(pub u8);
-impl ::core::marker::Copy for WS_SERVICE_PROXY {}
-impl ::core::clone::Clone for WS_SERVICE_PROXY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WS_SERVICE_PROXY = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub struct WS_SERVICE_SECURITY_IDENTITIES {
@@ -5807,14 +5728,7 @@ impl ::core::clone::Clone for WS_XML_BOOL_TEXT {
         *self
     }
 }
-#[repr(C)]
-pub struct WS_XML_BUFFER(pub u8);
-impl ::core::marker::Copy for WS_XML_BUFFER {}
-impl ::core::clone::Clone for WS_XML_BUFFER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WS_XML_BUFFER = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub struct WS_XML_BUFFER_PROPERTY {
@@ -6077,14 +5991,7 @@ impl ::core::clone::Clone for WS_XML_QNAME_TEXT {
         *self
     }
 }
-#[repr(C)]
-pub struct WS_XML_READER(pub u8);
-impl ::core::marker::Copy for WS_XML_READER {}
-impl ::core::clone::Clone for WS_XML_READER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WS_XML_READER = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6358,14 +6265,7 @@ impl ::core::clone::Clone for WS_XML_UTF8_TEXT {
         *self
     }
 }
-#[repr(C)]
-pub struct WS_XML_WRITER(pub u8);
-impl ::core::marker::Copy for WS_XML_WRITER {}
-impl ::core::clone::Clone for WS_XML_WRITER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WS_XML_WRITER = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

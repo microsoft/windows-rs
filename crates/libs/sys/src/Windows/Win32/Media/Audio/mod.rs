@@ -1,5 +1,5 @@
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-::windows_targets::link!("mmdevapi.dll" "system" #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"] fn ActivateAudioInterfaceAsync(deviceinterfacepath : ::windows_sys::core::PCWSTR, riid : *const ::windows_sys::core::GUID, activationparams : *const super::super::System::Com::StructuredStorage:: PROPVARIANT, completionhandler : IActivateAudioInterfaceCompletionHandler, activationoperation : *mut IActivateAudioInterfaceAsyncOperation) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+::windows_targets::link!("mmdevapi.dll" "system" #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"] fn ActivateAudioInterfaceAsync(deviceinterfacepath : ::windows_sys::core::PCWSTR, riid : *const ::windows_sys::core::GUID, activationparams : *const super::super::System::Com::StructuredStorage:: PROPVARIANT, completionhandler : IActivateAudioInterfaceCompletionHandler, activationoperation : *mut IActivateAudioInterfaceAsyncOperation) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn CoRegisterMessageFilter(lpmessagefilter : IMessageFilter, lplpmessagefilter : *mut IMessageFilter) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("windows.media.mediacontrol.dll" "system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn CreateCaptureAudioStateMonitor(audiostatemonitor : *mut IAudioStateMonitor) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("windows.media.mediacontrol.dll" "system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn CreateCaptureAudioStateMonitorForCategory(category : AUDIO_STREAM_CATEGORY, audiostatemonitor : *mut IAudioStateMonitor) -> ::windows_sys::core::HRESULT);
@@ -14,9 +14,9 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("winmm.dll" "system" #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"] fn PlaySoundW(pszsound : ::windows_sys::core::PCWSTR, hmod : super::super::Foundation:: HMODULE, fdwsound : SND_FLAGS) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("msacm32.dll" "system" #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"] fn acmDriverAddA(phadid : *mut isize, hinstmodule : super::super::Foundation:: HMODULE, lparam : super::super::Foundation:: LPARAM, dwpriority : u32, fdwadd : u32) -> u32);
+::windows_targets::link!("msacm32.dll" "system" #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"] fn acmDriverAddA(phadid : *mut HACMDRIVERID, hinstmodule : super::super::Foundation:: HMODULE, lparam : super::super::Foundation:: LPARAM, dwpriority : u32, fdwadd : u32) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("msacm32.dll" "system" #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"] fn acmDriverAddW(phadid : *mut isize, hinstmodule : super::super::Foundation:: HMODULE, lparam : super::super::Foundation:: LPARAM, dwpriority : u32, fdwadd : u32) -> u32);
+::windows_targets::link!("msacm32.dll" "system" #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"] fn acmDriverAddW(phadid : *mut HACMDRIVERID, hinstmodule : super::super::Foundation:: HMODULE, lparam : super::super::Foundation:: LPARAM, dwpriority : u32, fdwadd : u32) -> u32);
 ::windows_targets::link!("msacm32.dll" "system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn acmDriverClose(had : HACMDRIVER, fdwclose : u32) -> u32);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 ::windows_targets::link!("msacm32.dll" "system" #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn acmDriverDetailsA(hadid : HACMDRIVERID, padd : *mut ACMDRIVERDETAILSA, fdwdetails : u32) -> u32);
@@ -24,10 +24,10 @@
 ::windows_targets::link!("msacm32.dll" "system" #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn acmDriverDetailsW(hadid : HACMDRIVERID, padd : *mut ACMDRIVERDETAILSW, fdwdetails : u32) -> u32);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("msacm32.dll" "system" #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"] fn acmDriverEnum(fncallback : ACMDRIVERENUMCB, dwinstance : usize, fdwenum : u32) -> u32);
-::windows_targets::link!("msacm32.dll" "system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn acmDriverID(hao : HACMOBJ, phadid : *mut isize, fdwdriverid : u32) -> u32);
+::windows_targets::link!("msacm32.dll" "system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn acmDriverID(hao : HACMOBJ, phadid : *mut HACMDRIVERID, fdwdriverid : u32) -> u32);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("msacm32.dll" "system" #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"] fn acmDriverMessage(had : HACMDRIVER, umsg : u32, lparam1 : super::super::Foundation:: LPARAM, lparam2 : super::super::Foundation:: LPARAM) -> super::super::Foundation:: LRESULT);
-::windows_targets::link!("msacm32.dll" "system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn acmDriverOpen(phad : *mut isize, hadid : HACMDRIVERID, fdwopen : u32) -> u32);
+::windows_targets::link!("msacm32.dll" "system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn acmDriverOpen(phad : *mut HACMDRIVER, hadid : HACMDRIVERID, fdwopen : u32) -> u32);
 ::windows_targets::link!("msacm32.dll" "system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn acmDriverPriority(hadid : HACMDRIVERID, dwpriority : u32, fdwpriority : u32) -> u32);
 ::windows_targets::link!("msacm32.dll" "system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn acmDriverRemove(hadid : HACMDRIVERID, fdwremove : u32) -> u32);
 #[cfg(feature = "Win32_Foundation")]
@@ -69,7 +69,7 @@
 ::windows_targets::link!("msacm32.dll" "system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn acmStreamConvert(has : HACMSTREAM, pash : *mut ACMSTREAMHEADER, fdwconvert : u32) -> u32);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("msacm32.dll" "system" #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"] fn acmStreamMessage(has : HACMSTREAM, umsg : u32, lparam1 : super::super::Foundation:: LPARAM, lparam2 : super::super::Foundation:: LPARAM) -> u32);
-::windows_targets::link!("msacm32.dll" "system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn acmStreamOpen(phas : *mut isize, had : HACMDRIVER, pwfxsrc : *mut WAVEFORMATEX, pwfxdst : *mut WAVEFORMATEX, pwfltr : *mut WAVEFILTER, dwcallback : usize, dwinstance : usize, fdwopen : u32) -> u32);
+::windows_targets::link!("msacm32.dll" "system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn acmStreamOpen(phas : *mut HACMSTREAM, had : HACMDRIVER, pwfxsrc : *mut WAVEFORMATEX, pwfxdst : *mut WAVEFORMATEX, pwfltr : *mut WAVEFILTER, dwcallback : usize, dwinstance : usize, fdwopen : u32) -> u32);
 ::windows_targets::link!("msacm32.dll" "system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn acmStreamPrepareHeader(has : HACMSTREAM, pash : *mut ACMSTREAMHEADER, fdwprepare : u32) -> u32);
 ::windows_targets::link!("msacm32.dll" "system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn acmStreamReset(has : HACMSTREAM, fdwreset : u32) -> u32);
 ::windows_targets::link!("msacm32.dll" "system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn acmStreamSize(has : HACMSTREAM, cbinput : u32, pdwoutputbytes : *mut u32, fdwsize : u32) -> u32);
@@ -137,7 +137,7 @@
 ::windows_targets::link!("winmm.dll" "system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn mixerGetLineInfoW(hmxobj : HMIXEROBJ, pmxl : *mut MIXERLINEW, fdwinfo : u32) -> u32);
 ::windows_targets::link!("winmm.dll" "system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn mixerGetNumDevs() -> u32);
 ::windows_targets::link!("winmm.dll" "system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn mixerMessage(hmx : HMIXER, umsg : u32, dwparam1 : usize, dwparam2 : usize) -> u32);
-::windows_targets::link!("winmm.dll" "system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn mixerOpen(phmx : *mut isize, umxid : u32, dwcallback : usize, dwinstance : usize, fdwopen : u32) -> u32);
+::windows_targets::link!("winmm.dll" "system" #[doc = "*Required features: `\"Win32_Media_Audio\"`*"] fn mixerOpen(phmx : *mut HMIXER, umxid : u32, dwcallback : usize, dwinstance : usize, fdwopen : u32) -> u32);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("winmm.dll" "system" #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"] fn mixerSetControlDetails(hmxobj : HMIXEROBJ, pmxcd : *const MIXERCONTROLDETAILS, fdwdetails : u32) -> u32);
 #[cfg(feature = "Win32_Foundation")]
@@ -229,7 +229,6 @@ pub type IControlChangeNotify = *mut ::core::ffi::c_void;
 pub type IControlInterface = *mut ::core::ffi::c_void;
 pub type IDeviceSpecificProperty = *mut ::core::ffi::c_void;
 pub type IDeviceTopology = *mut ::core::ffi::c_void;
-pub type IKsJackDescription3 = *mut ::core::ffi::c_void;
 pub type IMMDevice = *mut ::core::ffi::c_void;
 pub type IMMDeviceActivator = *mut ::core::ffi::c_void;
 pub type IMMDeviceCollection = *mut ::core::ffi::c_void;
@@ -3179,8 +3178,8 @@ impl ::core::clone::Clone for SpatialAudioObjectRenderStreamActivationParams2 {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams {
     pub ObjectFormat: *const WAVEFORMATEX,
     pub StaticObjectTypeMask: AudioObjectType,
@@ -3193,17 +3192,17 @@ pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams {
     pub MetadataActivationParams: *const super::super::System::Com::StructuredStorage::PROPVARIANT,
     pub NotifyObject: ISpatialAudioObjectRenderStreamNotify,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::core::marker::Copy for SpatialAudioObjectRenderStreamForMetadataActivationParams {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for SpatialAudioObjectRenderStreamForMetadataActivationParams {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams2 {
     pub ObjectFormat: *const WAVEFORMATEX,
     pub StaticObjectTypeMask: AudioObjectType,
@@ -3217,9 +3216,9 @@ pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams2 {
     pub NotifyObject: ISpatialAudioObjectRenderStreamNotify,
     pub Options: SPATIAL_AUDIO_STREAM_OPTIONS,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::core::marker::Copy for SpatialAudioObjectRenderStreamForMetadataActivationParams2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for SpatialAudioObjectRenderStreamForMetadataActivationParams2 {
     fn clone(&self) -> Self {
         *self

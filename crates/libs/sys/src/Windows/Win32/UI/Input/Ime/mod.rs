@@ -74,8 +74,8 @@
 ::windows_targets::link!("imm32.dll" "system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Globalization\"`*"] fn ImmGetGuideLineA(param0 : super::super::super::Globalization:: HIMC, dwindex : GET_GUIDE_LINE_TYPE, lpbuf : ::windows_sys::core::PSTR, dwbuflen : u32) -> u32);
 #[cfg(feature = "Win32_Globalization")]
 ::windows_targets::link!("imm32.dll" "system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Globalization\"`*"] fn ImmGetGuideLineW(param0 : super::super::super::Globalization:: HIMC, dwindex : GET_GUIDE_LINE_TYPE, lpbuf : ::windows_sys::core::PWSTR, dwbuflen : u32) -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("imm32.dll" "system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`*"] fn ImmGetHotKey(param0 : u32, lpumodifiers : *mut u32, lpuvkey : *mut u32, phkl : *mut isize) -> super::super::super::Foundation:: BOOL);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+::windows_targets::link!("imm32.dll" "system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_UI_TextServices\"`*"] fn ImmGetHotKey(param0 : u32, lpumodifiers : *mut u32, lpuvkey : *mut u32, phkl : *mut super::super::TextServices:: HKL) -> super::super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Globalization")]
 ::windows_targets::link!("imm32.dll" "system" #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Globalization\"`*"] fn ImmGetIMCCLockCount(param0 : super::super::super::Globalization:: HIMCC) -> u32);
 #[cfg(feature = "Win32_Globalization")]

@@ -1976,8 +1976,8 @@ pub struct MIDL_STUB_MESSAGE {
     pub pArgQueue: *mut ::core::ffi::c_void,
     pub dwStubPhase: u32,
     pub LowStackMark: *mut ::core::ffi::c_void,
-    pub pAsyncMsg: *mut _NDR_ASYNC_MESSAGE,
-    pub pCorrInfo: *mut _NDR_CORRELATION_INFO,
+    pub pAsyncMsg: PNDR_ASYNC_MESSAGE,
+    pub pCorrInfo: PNDR_CORRELATION_INFO,
     pub pCorrMemory: *mut u8,
     pub pMemoryList: *mut ::core::ffi::c_void,
     pub pCSInfo: isize,
@@ -2945,14 +2945,7 @@ impl ::core::clone::Clone for NDR64_VAR_ARRAY_HEADER_FORMAT {
         *self
     }
 }
-#[repr(C)]
-pub struct NDR_ALLOC_ALL_NODES_CONTEXT(pub u8);
-impl ::core::marker::Copy for NDR_ALLOC_ALL_NODES_CONTEXT {}
-impl ::core::clone::Clone for NDR_ALLOC_ALL_NODES_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type NDR_ALLOC_ALL_NODES_CONTEXT = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 pub struct NDR_CS_ROUTINES {
@@ -2991,14 +2984,7 @@ impl ::core::clone::Clone for NDR_EXPR_DESC {
         *self
     }
 }
-#[repr(C)]
-pub struct NDR_POINTER_QUEUE_STATE(pub u8);
-impl ::core::marker::Copy for NDR_POINTER_QUEUE_STATE {}
-impl ::core::clone::Clone for NDR_POINTER_QUEUE_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type NDR_POINTER_QUEUE_STATE = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 pub struct NDR_SCONTEXT {
@@ -3059,6 +3045,8 @@ impl ::core::clone::Clone for NDR_USER_MARSHAL_INFO_LEVEL1 {
         *self
     }
 }
+pub type PNDR_ASYNC_MESSAGE = isize;
+pub type PNDR_CORRELATION_INFO = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 pub struct RDR_CALLOUT_STATE {
@@ -4386,30 +4374,7 @@ impl ::core::clone::Clone for XMIT_ROUTINE_QUINTUPLE {
         *self
     }
 }
-#[repr(C)]
-pub struct _NDR_ASYNC_MESSAGE(pub u8);
-impl ::core::marker::Copy for _NDR_ASYNC_MESSAGE {}
-impl ::core::clone::Clone for _NDR_ASYNC_MESSAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct _NDR_CORRELATION_INFO(pub u8);
-impl ::core::marker::Copy for _NDR_CORRELATION_INFO {}
-impl ::core::clone::Clone for _NDR_CORRELATION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct _NDR_PROC_CONTEXT(pub u8);
-impl ::core::marker::Copy for _NDR_PROC_CONTEXT {}
-impl ::core::clone::Clone for _NDR_PROC_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type _NDR_PROC_CONTEXT = isize;
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 pub type CS_TAG_GETTING_ROUTINE = ::core::option::Option<unsafe extern "system" fn(hbinding: *mut ::core::ffi::c_void, fserverside: i32, pulsendingtag: *mut u32, puldesiredreceivingtag: *mut u32, pulreceivingtag: *mut u32, pstatus: *mut u32) -> ()>;
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]

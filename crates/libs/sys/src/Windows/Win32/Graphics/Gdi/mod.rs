@@ -2660,8 +2660,6 @@ pub const DISPLAYCONFIG_COLOR_ENCODING_YCBCR420: DISPLAYCONFIG_COLOR_ENCODING = 
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DISPLAYCONFIG_COLOR_ENCODING_INTENSITY: DISPLAYCONFIG_COLOR_ENCODING = 4i32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DISPLAYCONFIG_COLOR_ENCODING_FORCE_UINT32: DISPLAYCONFIG_COLOR_ENCODING = -1i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub type DISP_CHANGE = i32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DISP_CHANGE_SUCCESSFUL: DISP_CHANGE = 0i32;
@@ -4502,7 +4500,17 @@ impl ::core::clone::Clone for COLORADJUSTMENT {
         *self
     }
 }
-pub type CreatedHDC = isize;
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub struct CreatedHDC {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for CreatedHDC {}
+impl ::core::clone::Clone for CreatedHDC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct DESIGNVECTOR {
@@ -6280,8 +6288,28 @@ pub type HMONITOR = isize;
 pub type HPALETTE = isize;
 pub type HPEN = isize;
 pub type HRGN = isize;
-pub type HdcMetdataEnhFileHandle = isize;
-pub type HdcMetdataFileHandle = isize;
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub struct HdcMetdataEnhFileHandle {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for HdcMetdataEnhFileHandle {}
+impl ::core::clone::Clone for HdcMetdataEnhFileHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub struct HdcMetdataFileHandle {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for HdcMetdataFileHandle {}
+impl ::core::clone::Clone for HdcMetdataFileHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct KERNINGPAIR {

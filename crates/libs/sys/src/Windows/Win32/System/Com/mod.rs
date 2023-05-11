@@ -162,6 +162,7 @@ pub type IClientSecurity = *mut ::core::ffi::c_void;
 pub type IComThreadingInfo = *mut ::core::ffi::c_void;
 pub type IConnectionPoint = *mut ::core::ffi::c_void;
 pub type IConnectionPointContainer = *mut ::core::ffi::c_void;
+pub type IContext = *mut ::core::ffi::c_void;
 pub type IContextCallback = *mut ::core::ffi::c_void;
 pub type IDataAdviseHolder = *mut ::core::ffi::c_void;
 pub type IDataObject = *mut ::core::ffi::c_void;
@@ -169,6 +170,7 @@ pub type IDispatch = *mut ::core::ffi::c_void;
 pub type IEnumCATEGORYINFO = *mut ::core::ffi::c_void;
 pub type IEnumConnectionPoints = *mut ::core::ffi::c_void;
 pub type IEnumConnections = *mut ::core::ffi::c_void;
+pub type IEnumContextProps = *mut ::core::ffi::c_void;
 pub type IEnumFORMATETC = *mut ::core::ffi::c_void;
 pub type IEnumGUID = *mut ::core::ffi::c_void;
 pub type IEnumMoniker = *mut ::core::ffi::c_void;
@@ -1244,112 +1246,6 @@ pub const Uri_PROPERTY_ZONE: Uri_PROPERTY = 18i32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const Uri_PROPERTY_DWORD_LAST: Uri_PROPERTY = 18i32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub type VARENUM = u16;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VT_EMPTY: VARENUM = 0u16;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VT_NULL: VARENUM = 1u16;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VT_I2: VARENUM = 2u16;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VT_I4: VARENUM = 3u16;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VT_R4: VARENUM = 4u16;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VT_R8: VARENUM = 5u16;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VT_CY: VARENUM = 6u16;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VT_DATE: VARENUM = 7u16;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VT_BSTR: VARENUM = 8u16;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VT_DISPATCH: VARENUM = 9u16;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VT_ERROR: VARENUM = 10u16;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VT_BOOL: VARENUM = 11u16;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VT_VARIANT: VARENUM = 12u16;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VT_UNKNOWN: VARENUM = 13u16;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VT_DECIMAL: VARENUM = 14u16;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VT_I1: VARENUM = 16u16;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VT_UI1: VARENUM = 17u16;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VT_UI2: VARENUM = 18u16;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VT_UI4: VARENUM = 19u16;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VT_I8: VARENUM = 20u16;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VT_UI8: VARENUM = 21u16;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VT_INT: VARENUM = 22u16;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VT_UINT: VARENUM = 23u16;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VT_VOID: VARENUM = 24u16;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VT_HRESULT: VARENUM = 25u16;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VT_PTR: VARENUM = 26u16;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VT_SAFEARRAY: VARENUM = 27u16;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VT_CARRAY: VARENUM = 28u16;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VT_USERDEFINED: VARENUM = 29u16;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VT_LPSTR: VARENUM = 30u16;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VT_LPWSTR: VARENUM = 31u16;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VT_RECORD: VARENUM = 36u16;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VT_INT_PTR: VARENUM = 37u16;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VT_UINT_PTR: VARENUM = 38u16;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VT_FILETIME: VARENUM = 64u16;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VT_BLOB: VARENUM = 65u16;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VT_STREAM: VARENUM = 66u16;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VT_STORAGE: VARENUM = 67u16;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VT_STREAMED_OBJECT: VARENUM = 68u16;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VT_STORED_OBJECT: VARENUM = 69u16;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VT_BLOB_OBJECT: VARENUM = 70u16;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VT_CF: VARENUM = 71u16;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VT_CLSID: VARENUM = 72u16;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VT_VERSIONED_STREAM: VARENUM = 73u16;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VT_BSTR_BLOB: VARENUM = 4095u16;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VT_VECTOR: VARENUM = 4096u16;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VT_ARRAY: VARENUM = 8192u16;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VT_BYREF: VARENUM = 16384u16;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VT_RESERVED: VARENUM = 32768u16;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VT_ILLEGAL: VARENUM = 65535u16;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VT_ILLEGALMASKED: VARENUM = 4095u16;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VT_TYPEMASK: VARENUM = 4095u16;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub type VARFLAGS = u16;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const VARFLAG_FREADONLY: VARFLAGS = 1u16;
@@ -1427,16 +1323,16 @@ impl ::core::clone::Clone for BINDINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub union BINDPTR {
     pub lpfuncdesc: *mut FUNCDESC,
     pub lpvardesc: *mut VARDESC,
     pub lptcomp: ITypeComp,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::marker::Copy for BINDPTR {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for BINDPTR {
     fn clone(&self) -> Self {
         *self
@@ -1612,30 +1508,30 @@ impl ::core::clone::Clone for CSPLATFORM {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct CUSTDATA {
     pub cCustData: u32,
     pub prgCustData: *mut CUSTDATAITEM,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::marker::Copy for CUSTDATA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for CUSTDATA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct CUSTDATAITEM {
     pub guid: ::windows_sys::core::GUID,
-    pub varValue: VARIANT,
+    pub varValue: super::Variant::VARIANT,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::marker::Copy for CUSTDATAITEM {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for CUSTDATAITEM {
     fn clone(&self) -> Self {
         *self
@@ -1679,17 +1575,30 @@ impl ::core::clone::Clone for ComCallData {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub struct ContextProperty {
+    pub policyId: ::windows_sys::core::GUID,
+    pub flags: u32,
+    pub pUnk: ::windows_sys::core::IUnknown,
+}
+impl ::core::marker::Copy for ContextProperty {}
+impl ::core::clone::Clone for ContextProperty {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct DISPPARAMS {
-    pub rgvarg: *mut VARIANT,
+    pub rgvarg: *mut super::Variant::VARIANT,
     pub rgdispidNamedArgs: *mut i32,
     pub cArgs: u32,
     pub cNamedArgs: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::marker::Copy for DISPPARAMS {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for DISPPARAMS {
     fn clone(&self) -> Self {
         *self
@@ -1736,30 +1645,30 @@ impl ::core::clone::Clone for DWORD_SIZEDARR {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct ELEMDESC {
     pub tdesc: TYPEDESC,
     pub Anonymous: ELEMDESC_0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::marker::Copy for ELEMDESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for ELEMDESC {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub union ELEMDESC_0 {
     pub idldesc: IDLDESC,
     pub paramdesc: super::Ole::PARAMDESC,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::marker::Copy for ELEMDESC_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for ELEMDESC_0 {
     fn clone(&self) -> Self {
         *self
@@ -1842,8 +1751,8 @@ impl ::core::clone::Clone for FORMATETC {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct FUNCDESC {
     pub memid: i32,
     pub lprgscode: *mut i32,
@@ -1858,9 +1767,9 @@ pub struct FUNCDESC {
     pub elemdescFunc: ELEMDESC,
     pub wFuncFlags: FUNCFLAGS,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::marker::Copy for FUNCDESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for FUNCDESC {
     fn clone(&self) -> Self {
         *self
@@ -1910,14 +1819,6 @@ impl ::core::clone::Clone for HYPER_SIZEDARR {
     }
 }
 #[repr(C)]
-pub struct IContext(pub u8);
-impl ::core::marker::Copy for IContext {}
-impl ::core::clone::Clone for IContext {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub struct IDLDESC {
     pub dwReserved: usize,
@@ -1925,14 +1826,6 @@ pub struct IDLDESC {
 }
 impl ::core::marker::Copy for IDLDESC {}
 impl ::core::clone::Clone for IDLDESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct IEnumContextProps(pub u8);
-impl ::core::marker::Copy for IEnumContextProps {}
-impl ::core::clone::Clone for IEnumContextProps {
     fn clone(&self) -> Self {
         *self
     }
@@ -1963,17 +1856,7 @@ impl ::core::clone::Clone for MULTI_QI {
         *self
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub struct MachineGlobalObjectTableRegistrationToken__ {
-    pub unused: i32,
-}
-impl ::core::marker::Copy for MachineGlobalObjectTableRegistrationToken__ {}
-impl ::core::clone::Clone for MachineGlobalObjectTableRegistrationToken__ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type MachineGlobalObjectTableRegistrationToken = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub struct QUERYCONTEXT {
@@ -2210,8 +2093,8 @@ impl ::core::clone::Clone for TLIBATTR {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(feature = "Win32_System_Ole")]
+#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct TYPEATTR {
     pub guid: ::windows_sys::core::GUID,
     pub lcid: u32,
@@ -2232,48 +2115,48 @@ pub struct TYPEATTR {
     pub tdescAlias: TYPEDESC,
     pub idldescType: IDLDESC,
 }
-#[cfg(feature = "Win32_System_Ole")]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::marker::Copy for TYPEATTR {}
-#[cfg(feature = "Win32_System_Ole")]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for TYPEATTR {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(feature = "Win32_System_Ole")]
+#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct TYPEDESC {
     pub Anonymous: TYPEDESC_0,
-    pub vt: VARENUM,
+    pub vt: super::Variant::VARENUM,
 }
-#[cfg(feature = "Win32_System_Ole")]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::marker::Copy for TYPEDESC {}
-#[cfg(feature = "Win32_System_Ole")]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for TYPEDESC {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(feature = "Win32_System_Ole")]
+#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub union TYPEDESC_0 {
     pub lptdesc: *mut TYPEDESC,
     pub lpadesc: *mut super::Ole::ARRAYDESC,
     pub hreftype: u32,
 }
-#[cfg(feature = "Win32_System_Ole")]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::marker::Copy for TYPEDESC_0 {}
-#[cfg(feature = "Win32_System_Ole")]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for TYPEDESC_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct VARDESC {
     pub memid: i32,
     pub lpstrSchema: ::windows_sys::core::PWSTR,
@@ -2282,146 +2165,25 @@ pub struct VARDESC {
     pub wVarFlags: VARFLAGS,
     pub varkind: VARKIND,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::marker::Copy for VARDESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for VARDESC {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub union VARDESC_0 {
     pub oInst: u32,
-    pub lpvarValue: *mut VARIANT,
+    pub lpvarValue: *mut super::Variant::VARIANT,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::marker::Copy for VARDESC_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for VARDESC_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-pub struct VARIANT {
-    pub Anonymous: VARIANT_0,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::marker::Copy for VARIANT {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::clone::Clone for VARIANT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-pub union VARIANT_0 {
-    pub Anonymous: VARIANT_0_0,
-    pub decVal: super::super::Foundation::DECIMAL,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::marker::Copy for VARIANT_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::clone::Clone for VARIANT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-pub struct VARIANT_0_0 {
-    pub vt: VARENUM,
-    pub wReserved1: u16,
-    pub wReserved2: u16,
-    pub wReserved3: u16,
-    pub Anonymous: VARIANT_0_0_0,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::marker::Copy for VARIANT_0_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::clone::Clone for VARIANT_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-pub union VARIANT_0_0_0 {
-    pub llVal: i64,
-    pub lVal: i32,
-    pub bVal: u8,
-    pub iVal: i16,
-    pub fltVal: f32,
-    pub dblVal: f64,
-    pub boolVal: super::super::Foundation::VARIANT_BOOL,
-    pub __OBSOLETE__VARIANT_BOOL: super::super::Foundation::VARIANT_BOOL,
-    pub scode: i32,
-    pub cyVal: CY,
-    pub date: f64,
-    pub bstrVal: ::windows_sys::core::BSTR,
-    pub punkVal: ::windows_sys::core::IUnknown,
-    pub pdispVal: IDispatch,
-    pub parray: *mut SAFEARRAY,
-    pub pbVal: *mut u8,
-    pub piVal: *mut i16,
-    pub plVal: *mut i32,
-    pub pllVal: *mut i64,
-    pub pfltVal: *mut f32,
-    pub pdblVal: *mut f64,
-    pub pboolVal: *mut super::super::Foundation::VARIANT_BOOL,
-    pub __OBSOLETE__VARIANT_PBOOL: *mut super::super::Foundation::VARIANT_BOOL,
-    pub pscode: *mut i32,
-    pub pcyVal: *mut CY,
-    pub pdate: *mut f64,
-    pub pbstrVal: *mut ::windows_sys::core::BSTR,
-    pub ppunkVal: *mut ::windows_sys::core::IUnknown,
-    pub ppdispVal: *mut IDispatch,
-    pub pparray: *mut *mut SAFEARRAY,
-    pub pvarVal: *mut VARIANT,
-    pub byref: *mut ::core::ffi::c_void,
-    pub cVal: u8,
-    pub uiVal: u16,
-    pub ulVal: u32,
-    pub ullVal: u64,
-    pub intVal: i32,
-    pub uintVal: u32,
-    pub pdecVal: *mut super::super::Foundation::DECIMAL,
-    pub pcVal: ::windows_sys::core::PSTR,
-    pub puiVal: *mut u16,
-    pub pulVal: *mut u32,
-    pub pullVal: *mut u64,
-    pub pintVal: *mut i32,
-    pub puintVal: *mut u32,
-    pub Anonymous: VARIANT_0_0_0_0,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::marker::Copy for VARIANT_0_0_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::clone::Clone for VARIANT_0_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-pub struct VARIANT_0_0_0_0 {
-    pub pvRecord: *mut ::core::ffi::c_void,
-    pub pRecInfo: super::Ole::IRecordInfo,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::marker::Copy for VARIANT_0_0_0_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::clone::Clone for VARIANT_0_0_0_0 {
     fn clone(&self) -> Self {
         *self
     }

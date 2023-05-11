@@ -100,9 +100,12 @@
 ::windows_targets::link!("tapi32.dll" "system" #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"] fn lineGetID(hline : u32, dwaddressid : u32, hcall : u32, dwselect : u32, lpdeviceid : *mut VARSTRING, lpszdeviceclass : ::windows_sys::core::PCSTR) -> i32);
 ::windows_targets::link!("tapi32.dll" "system" #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"] fn lineGetIDA(hline : u32, dwaddressid : u32, hcall : u32, dwselect : u32, lpdeviceid : *mut VARSTRING, lpszdeviceclass : ::windows_sys::core::PCSTR) -> i32);
 ::windows_targets::link!("tapi32.dll" "system" #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"] fn lineGetIDW(hline : u32, dwaddressid : u32, hcall : u32, dwselect : u32, lpdeviceid : *mut VARSTRING, lpszdeviceclass : ::windows_sys::core::PCWSTR) -> i32);
-::windows_targets::link!("tapi32.dll" "system" #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"] fn lineGetIcon(dwdeviceid : u32, lpszdeviceclass : ::windows_sys::core::PCSTR, lphicon : *mut isize) -> i32);
-::windows_targets::link!("tapi32.dll" "system" #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"] fn lineGetIconA(dwdeviceid : u32, lpszdeviceclass : ::windows_sys::core::PCSTR, lphicon : *mut isize) -> i32);
-::windows_targets::link!("tapi32.dll" "system" #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"] fn lineGetIconW(dwdeviceid : u32, lpszdeviceclass : ::windows_sys::core::PCWSTR, lphicon : *mut isize) -> i32);
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+::windows_targets::link!("tapi32.dll" "system" #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn lineGetIcon(dwdeviceid : u32, lpszdeviceclass : ::windows_sys::core::PCSTR, lphicon : *mut super::super::UI::WindowsAndMessaging:: HICON) -> i32);
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+::windows_targets::link!("tapi32.dll" "system" #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn lineGetIconA(dwdeviceid : u32, lpszdeviceclass : ::windows_sys::core::PCSTR, lphicon : *mut super::super::UI::WindowsAndMessaging:: HICON) -> i32);
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+::windows_targets::link!("tapi32.dll" "system" #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn lineGetIconW(dwdeviceid : u32, lpszdeviceclass : ::windows_sys::core::PCWSTR, lphicon : *mut super::super::UI::WindowsAndMessaging:: HICON) -> i32);
 ::windows_targets::link!("tapi32.dll" "system" #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"] fn lineGetLineDevStatus(hline : u32, lplinedevstatus : *mut LINEDEVSTATUS) -> i32);
 ::windows_targets::link!("tapi32.dll" "system" #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"] fn lineGetLineDevStatusA(hline : u32, lplinedevstatus : *mut LINEDEVSTATUS) -> i32);
 ::windows_targets::link!("tapi32.dll" "system" #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"] fn lineGetLineDevStatusW(hline : u32, lplinedevstatus : *mut LINEDEVSTATUS) -> i32);
@@ -238,9 +241,12 @@
 ::windows_targets::link!("tapi32.dll" "system" #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"] fn phoneGetID(hphone : u32, lpdeviceid : *mut VARSTRING, lpszdeviceclass : ::windows_sys::core::PCSTR) -> i32);
 ::windows_targets::link!("tapi32.dll" "system" #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"] fn phoneGetIDA(hphone : u32, lpdeviceid : *mut VARSTRING, lpszdeviceclass : ::windows_sys::core::PCSTR) -> i32);
 ::windows_targets::link!("tapi32.dll" "system" #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"] fn phoneGetIDW(hphone : u32, lpdeviceid : *mut VARSTRING, lpszdeviceclass : ::windows_sys::core::PCWSTR) -> i32);
-::windows_targets::link!("tapi32.dll" "system" #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"] fn phoneGetIcon(dwdeviceid : u32, lpszdeviceclass : ::windows_sys::core::PCSTR, lphicon : *mut isize) -> i32);
-::windows_targets::link!("tapi32.dll" "system" #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"] fn phoneGetIconA(dwdeviceid : u32, lpszdeviceclass : ::windows_sys::core::PCSTR, lphicon : *mut isize) -> i32);
-::windows_targets::link!("tapi32.dll" "system" #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"] fn phoneGetIconW(dwdeviceid : u32, lpszdeviceclass : ::windows_sys::core::PCWSTR, lphicon : *mut isize) -> i32);
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+::windows_targets::link!("tapi32.dll" "system" #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn phoneGetIcon(dwdeviceid : u32, lpszdeviceclass : ::windows_sys::core::PCSTR, lphicon : *mut super::super::UI::WindowsAndMessaging:: HICON) -> i32);
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+::windows_targets::link!("tapi32.dll" "system" #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn phoneGetIconA(dwdeviceid : u32, lpszdeviceclass : ::windows_sys::core::PCSTR, lphicon : *mut super::super::UI::WindowsAndMessaging:: HICON) -> i32);
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+::windows_targets::link!("tapi32.dll" "system" #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn phoneGetIconW(dwdeviceid : u32, lpszdeviceclass : ::windows_sys::core::PCWSTR, lphicon : *mut super::super::UI::WindowsAndMessaging:: HICON) -> i32);
 ::windows_targets::link!("tapi32.dll" "system" #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"] fn phoneGetLamp(hphone : u32, dwbuttonlampid : u32, lpdwlampmode : *mut u32) -> i32);
 ::windows_targets::link!("tapi32.dll" "system" #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"] fn phoneGetMessage(hphoneapp : u32, lpmessage : *mut PHONEMESSAGE, dwtimeout : u32) -> i32);
 ::windows_targets::link!("tapi32.dll" "system" #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"] fn phoneGetRing(hphone : u32, lpdwringmode : *mut u32, lpdwvolume : *mut u32) -> i32);
@@ -3713,105 +3719,15 @@ impl ::core::clone::Clone for DTR {
         *self
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub struct HDRVCALL__ {
-    pub unused: i32,
-}
-impl ::core::marker::Copy for HDRVCALL__ {}
-impl ::core::clone::Clone for HDRVCALL__ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub struct HDRVDIALOGINSTANCE__ {
-    pub unused: i32,
-}
-impl ::core::marker::Copy for HDRVDIALOGINSTANCE__ {}
-impl ::core::clone::Clone for HDRVDIALOGINSTANCE__ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub struct HDRVLINE__ {
-    pub unused: i32,
-}
-impl ::core::marker::Copy for HDRVLINE__ {}
-impl ::core::clone::Clone for HDRVLINE__ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub struct HDRVMSPLINE__ {
-    pub unused: i32,
-}
-impl ::core::marker::Copy for HDRVMSPLINE__ {}
-impl ::core::clone::Clone for HDRVMSPLINE__ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub struct HDRVPHONE__ {
-    pub unused: i32,
-}
-impl ::core::marker::Copy for HDRVPHONE__ {}
-impl ::core::clone::Clone for HDRVPHONE__ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub struct HPROVIDER__ {
-    pub unused: i32,
-}
-impl ::core::marker::Copy for HPROVIDER__ {}
-impl ::core::clone::Clone for HPROVIDER__ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub struct HTAPICALL__ {
-    pub unused: i32,
-}
-impl ::core::marker::Copy for HTAPICALL__ {}
-impl ::core::clone::Clone for HTAPICALL__ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub struct HTAPILINE__ {
-    pub unused: i32,
-}
-impl ::core::marker::Copy for HTAPILINE__ {}
-impl ::core::clone::Clone for HTAPILINE__ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub struct HTAPIPHONE__ {
-    pub unused: i32,
-}
-impl ::core::marker::Copy for HTAPIPHONE__ {}
-impl ::core::clone::Clone for HTAPIPHONE__ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HDRVCALL = isize;
+pub type HDRVDIALOGINSTANCE = isize;
+pub type HDRVLINE = isize;
+pub type HDRVMSPLINE = isize;
+pub type HDRVPHONE = isize;
+pub type HPROVIDER = isize;
+pub type HTAPICALL = isize;
+pub type HTAPILINE = isize;
+pub type HTAPIPHONE = isize;
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub struct LINEADDRESSCAPS {
@@ -5774,7 +5690,7 @@ impl ::core::clone::Clone for TRP {
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub struct TUISPICREATEDIALOGINSTANCEPARAMS {
     pub dwRequestID: u32,
-    pub hdDlgInst: *mut HDRVDIALOGINSTANCE__,
+    pub hdDlgInst: HDRVDIALOGINSTANCE,
     pub htDlgInst: u32,
     pub lpszUIDLLName: ::windows_sys::core::PCWSTR,
     pub lpParams: *mut ::core::ffi::c_void,
@@ -5807,7 +5723,7 @@ pub type ASYNC_COMPLETION = ::core::option::Option<unsafe extern "system" fn(dwr
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub type LINECALLBACK = ::core::option::Option<unsafe extern "system" fn(hdevice: u32, dwmessage: u32, dwinstance: usize, dwparam1: usize, dwparam2: usize, dwparam3: usize) -> ()>;
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub type LINEEVENT = ::core::option::Option<unsafe extern "system" fn(htline: *mut HTAPILINE__, htcall: *mut HTAPICALL__, dwmsg: u32, dwparam1: usize, dwparam2: usize, dwparam3: usize) -> ()>;
+pub type LINEEVENT = ::core::option::Option<unsafe extern "system" fn(htline: HTAPILINE, htcall: HTAPICALL, dwmsg: u32, dwparam1: usize, dwparam2: usize, dwparam3: usize) -> ()>;
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub type LPGETTNEFSTREAMCODEPAGE = ::core::option::Option<unsafe extern "system" fn(lpstream: super::super::System::Com::IStream, lpulcodepage: *mut u32, lpulsubcodepage: *mut u32) -> ::windows_sys::core::HRESULT>;
@@ -5820,6 +5736,6 @@ pub type LPOPENTNEFSTREAMEX = ::core::option::Option<unsafe extern "system" fn(l
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub type PHONECALLBACK = ::core::option::Option<unsafe extern "system" fn(hdevice: u32, dwmessage: u32, dwinstance: usize, dwparam1: usize, dwparam2: usize, dwparam3: usize) -> ()>;
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub type PHONEEVENT = ::core::option::Option<unsafe extern "system" fn(htphone: *mut HTAPIPHONE__, dwmsg: u32, dwparam1: usize, dwparam2: usize, dwparam3: usize) -> ()>;
+pub type PHONEEVENT = ::core::option::Option<unsafe extern "system" fn(htphone: HTAPIPHONE, dwmsg: u32, dwparam1: usize, dwparam2: usize, dwparam3: usize) -> ()>;
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub type TUISPIDLLCALLBACK = ::core::option::Option<unsafe extern "system" fn(dwobjectid: usize, dwobjecttype: u32, lpparams: *mut ::core::ffi::c_void, dwsize: u32) -> i32>;

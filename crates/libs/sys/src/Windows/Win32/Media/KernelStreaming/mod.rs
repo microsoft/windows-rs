@@ -14,15 +14,40 @@
 ::windows_targets::link!("ksuser.dll" "system" #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"] fn KsCreateTopologyNode(parenthandle : super::super::Foundation:: HANDLE, nodecreate : *const KSNODE_CREATE, desiredaccess : u32, nodehandle : *mut super::super::Foundation:: HANDLE) -> u32);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("ksuser.dll" "system" #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"] fn KsCreateTopologyNode2(parenthandle : super::super::Foundation:: HANDLE, nodecreate : *const KSNODE_CREATE, desiredaccess : u32, nodehandle : *mut super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
+::windows_targets::link!("ksproxy.ax" "system" #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"] fn KsGetMediaType(position : i32, ammediatype : *mut super::MediaFoundation:: AM_MEDIA_TYPE, filterhandle : super::super::Foundation:: HANDLE, pinfactoryid : u32) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("ksproxy.ax" "system" #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"] fn KsGetMediaTypeCount(filterhandle : super::super::Foundation:: HANDLE, pinfactoryid : u32, mediatypecount : *mut u32) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("ksproxy.ax" "system" #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"] fn KsGetMultiplePinFactoryItems(filterhandle : super::super::Foundation:: HANDLE, pinfactoryid : u32, propertyid : u32, items : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("ksproxy.ax" "system" #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"] fn KsOpenDefaultDevice(category : *const ::windows_sys::core::GUID, access : u32, devicehandle : *mut super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ksproxy.ax" "system" #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"] fn KsResolveRequiredAttributes(datarange : *const KSDATAFORMAT, attributes : *const KSMULTIPLE_ITEM) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("ksproxy.ax" "system" #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"] fn KsSynchronousDeviceControl(handle : super::super::Foundation:: HANDLE, iocontrol : u32, inbuffer : *const ::core::ffi::c_void, inlength : u32, outbuffer : *mut ::core::ffi::c_void, outlength : u32, bytesreturned : *mut u32) -> ::windows_sys::core::HRESULT);
 pub type IKsAggregateControl = *mut ::core::ffi::c_void;
+pub type IKsAllocator = *mut ::core::ffi::c_void;
+pub type IKsAllocatorEx = *mut ::core::ffi::c_void;
+pub type IKsClockPropertySet = *mut ::core::ffi::c_void;
 pub type IKsControl = *mut ::core::ffi::c_void;
+pub type IKsDataTypeCompletion = *mut ::core::ffi::c_void;
+pub type IKsDataTypeHandler = *mut ::core::ffi::c_void;
 pub type IKsFormatSupport = *mut ::core::ffi::c_void;
+pub type IKsInterfaceHandler = *mut ::core::ffi::c_void;
 pub type IKsJackContainerId = *mut ::core::ffi::c_void;
 pub type IKsJackDescription = *mut ::core::ffi::c_void;
 pub type IKsJackDescription2 = *mut ::core::ffi::c_void;
+pub type IKsJackDescription3 = *mut ::core::ffi::c_void;
 pub type IKsJackSinkInformation = *mut ::core::ffi::c_void;
-pub type IKsPropertySet = *mut ::core::ffi::c_void;
+pub type IKsNotifyEvent = *mut ::core::ffi::c_void;
+pub type IKsObject = *mut ::core::ffi::c_void;
+pub type IKsPin = *mut ::core::ffi::c_void;
+pub type IKsPinEx = *mut ::core::ffi::c_void;
+pub type IKsPinFactory = *mut ::core::ffi::c_void;
+pub type IKsPinPipe = *mut ::core::ffi::c_void;
+pub type IKsQualityForwarder = *mut ::core::ffi::c_void;
 pub type IKsTopology = *mut ::core::ffi::c_void;
+pub type IKsTopologyInfo = *mut ::core::ffi::c_void;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const AEC_MODE_FULL_DUPLEX: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
@@ -2777,6 +2802,12 @@ pub const KSINTERFACE_STANDARD_LOOPED_STREAMING: KSINTERFACE_STANDARD = 1i32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSINTERFACE_STANDARD_CONTROL: KSINTERFACE_STANDARD = 2i32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub type KSIOOPERATION = i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KsIoOperation_Write: KSIOOPERATION = 0i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KsIoOperation_Read: KSIOOPERATION = 1i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub type KSJACK_SINK_CONNECTIONTYPE = i32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSJACK_SINK_CONNECTIONTYPE_HDMI: KSJACK_SINK_CONNECTIONTYPE = 0i32;
@@ -2828,6 +2859,12 @@ pub const KSMICARRAY_MICTYPE_HYPERCARDIOID: KSMICARRAY_MICTYPE = 4i32;
 pub const KSMICARRAY_MICTYPE_8SHAPED: KSMICARRAY_MICTYPE = 5i32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSMICARRAY_MICTYPE_VENDORDEFINED: KSMICARRAY_MICTYPE = 15i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub type KSPEEKOPERATION = i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KsPeekOperation_PeekOnly: KSPEEKOPERATION = 0i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KsPeekOperation_AddRef: KSPEEKOPERATION = 1i32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub type KSPIN_COMMUNICATION = i32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
@@ -4355,9 +4392,9 @@ pub struct ALLOCATOR_PROPERTIES_EX {
     pub AllocatorPlace: PIPE_ALLOCATOR_PLACE,
     pub Dimensions: PIPE_DIMENSIONS,
     pub PhysicalRange: KS_FRAMING_RANGE,
-    pub PrevSegment: *mut IKsAllocatorEx,
+    pub PrevSegment: IKsAllocatorEx,
     pub CountNextSegments: u32,
-    pub NextSegments: *mut *mut IKsAllocatorEx,
+    pub NextSegments: *mut IKsAllocatorEx,
     pub InsideFactors: u32,
     pub NumberPins: u32,
 }
@@ -4486,30 +4523,6 @@ pub union DS3DVECTOR_2 {
 }
 impl ::core::marker::Copy for DS3DVECTOR_2 {}
 impl ::core::clone::Clone for DS3DVECTOR_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct IKsAllocator(pub u8);
-impl ::core::marker::Copy for IKsAllocator {}
-impl ::core::clone::Clone for IKsAllocator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct IKsAllocatorEx(pub u8);
-impl ::core::marker::Copy for IKsAllocatorEx {}
-impl ::core::clone::Clone for IKsAllocatorEx {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct IKsPin(pub u8);
-impl ::core::marker::Copy for IKsPin {}
-impl ::core::clone::Clone for IKsPin {
     fn clone(&self) -> Self {
         *self
     }
@@ -8292,6 +8305,23 @@ pub struct KSSTREAM_METADATA_INFO {
 }
 impl ::core::marker::Copy for KSSTREAM_METADATA_INFO {}
 impl ::core::clone::Clone for KSSTREAM_METADATA_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct KSSTREAM_SEGMENT {
+    pub KsInterfaceHandler: IKsInterfaceHandler,
+    pub KsDataTypeHandler: IKsDataTypeHandler,
+    pub IoOperation: KSIOOPERATION,
+    pub CompletionEvent: super::super::Foundation::HANDLE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for KSSTREAM_SEGMENT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for KSSTREAM_SEGMENT {
     fn clone(&self) -> Self {
         *self
     }

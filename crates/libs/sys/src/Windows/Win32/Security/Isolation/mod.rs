@@ -11,6 +11,8 @@
 #[cfg(feature = "Win32_System_Registry")]
 ::windows_targets::link!("userenv.dll" "system" #[doc = "*Required features: `\"Win32_Security_Isolation\"`, `\"Win32_System_Registry\"`*"] fn GetAppContainerRegistryLocation(desiredaccess : u32, phappcontainerkey : *mut super::super::System::Registry:: HKEY) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("isolatedwindowsenvironmentutils.dll" "system" #[doc = "*Required features: `\"Win32_Security_Isolation\"`, `\"Win32_Foundation\"`*"] fn IsCrossIsolatedEnvironmentClipboardContent(iscrossisolatedenvironmentclipboardcontent : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("api-ms-win-security-isolatedcontainer-l1-1-0.dll" "system" #[doc = "*Required features: `\"Win32_Security_Isolation\"`, `\"Win32_Foundation\"`*"] fn IsProcessInIsolatedContainer(isprocessinisolatedcontainer : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("isolatedwindowsenvironmentutils.dll" "system" #[doc = "*Required features: `\"Win32_Security_Isolation\"`, `\"Win32_Foundation\"`*"] fn IsProcessInIsolatedWindowsEnvironment(isprocessinisolatedwindowsenvironment : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);

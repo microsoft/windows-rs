@@ -5,7 +5,6 @@
 pub type IITDatabase = *mut ::core::ffi::c_void;
 pub type IITPropList = *mut ::core::ffi::c_void;
 pub type IITResultSet = *mut ::core::ffi::c_void;
-pub type IITWordWheel = *mut ::core::ffi::c_void;
 pub type IStemSink = *mut ::core::ffi::c_void;
 pub type IStemmerConfig = *mut ::core::ffi::c_void;
 pub type IWordBreakerConfig = *mut ::core::ffi::c_void;
@@ -591,10 +590,6 @@ pub const PRIORITY_LOW: PRIORITY = 0i32;
 pub const PRIORITY_NORMAL: PRIORITY = 1i32;
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
 pub const PRIORITY_HIGH: PRIORITY = 2i32;
-#[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
-pub type WORD_WHEEL_OPEN_FLAGS = u32;
-#[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
-pub const ITWW_OPEN_CONNECT: WORD_WHEEL_OPEN_FLAGS = 0u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
 pub struct COLUMNSTATUS {
@@ -744,15 +739,15 @@ impl ::core::clone::Clone for HH_FTS_QUERY {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct HH_GLOBAL_PROPERTY {
     pub id: HH_GPROPID,
-    pub var: super::super::System::Com::VARIANT,
+    pub var: super::super::System::Variant::VARIANT,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::marker::Copy for HH_GLOBAL_PROPERTY {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for HH_GLOBAL_PROPERTY {
     fn clone(&self) -> Self {
         *self
@@ -838,30 +833,6 @@ pub struct HH_WINTYPE {
 impl ::core::marker::Copy for HH_WINTYPE {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HH_WINTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct IITGroup(pub u8);
-impl ::core::marker::Copy for IITGroup {}
-impl ::core::clone::Clone for IITGroup {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct IITQuery(pub u8);
-impl ::core::marker::Copy for IITQuery {}
-impl ::core::clone::Clone for IITQuery {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct IITStopWordList(pub u8);
-impl ::core::marker::Copy for IITStopWordList {}
-impl ::core::clone::Clone for IITStopWordList {
     fn clone(&self) -> Self {
         *self
     }

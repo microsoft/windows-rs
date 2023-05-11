@@ -1,9 +1,9 @@
 #[cfg(feature = "Win32_System_Com")]
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"] fn BstrFromVector(psa : *const super::Com:: SAFEARRAY, pbstr : *mut ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn ClearCustData(pcustdata : *mut super::Com:: CUSTDATA) -> ());
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"] fn CreateDispTypeInfo(pidata : *mut INTERFACEDATA, lcid : u32, pptinfo : *mut super::Com:: ITypeInfo) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"] fn ClearCustData(pcustdata : *mut super::Com:: CUSTDATA) -> ());
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"] fn CreateDispTypeInfo(pidata : *mut INTERFACEDATA, lcid : u32, pptinfo : *mut super::Com:: ITypeInfo) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`*"] fn CreateErrorInfo(pperrinfo : *mut ICreateErrorInfo) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`*"] fn CreateOleAdviseHolder(ppoaholder : *mut IOleAdviseHolder) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
@@ -12,17 +12,16 @@
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"] fn CreateTypeLib(syskind : super::Com:: SYSKIND, szfile : ::windows_sys::core::PCWSTR, ppctlib : *mut ICreateTypeLib) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"] fn CreateTypeLib2(syskind : super::Com:: SYSKIND, szfile : ::windows_sys::core::PCWSTR, ppctlib : *mut ICreateTypeLib2) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn DispCallFunc(pvinstance : *const ::core::ffi::c_void, ovft : usize, cc : super::Com:: CALLCONV, vtreturn : super::Com:: VARENUM, cactuals : u32, prgvt : *const u16, prgpvarg : *const *const super::Com:: VARIANT, pvargresult : *mut super::Com:: VARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"] fn DispCallFunc(pvinstance : *const ::core::ffi::c_void, ovft : usize, cc : super::Com:: CALLCONV, vtreturn : super::Variant:: VARENUM, cactuals : u32, prgvt : *const u16, prgpvarg : *const *const super::Variant:: VARIANT, pvargresult : *mut super::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"] fn DispGetIDsOfNames(ptinfo : super::Com:: ITypeInfo, rgsznames : *const ::windows_sys::core::PCWSTR, cnames : u32, rgdispid : *mut i32) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn DispGetParam(pdispparams : *const super::Com:: DISPPARAMS, position : u32, vttarg : super::Com:: VARENUM, pvarresult : *mut super::Com:: VARIANT, puargerr : *mut u32) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn DispInvoke(_this : *mut ::core::ffi::c_void, ptinfo : super::Com:: ITypeInfo, dispidmember : i32, wflags : u16, pparams : *mut super::Com:: DISPPARAMS, pvarresult : *mut super::Com:: VARIANT, pexcepinfo : *mut super::Com:: EXCEPINFO, puargerr : *mut u32) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"] fn DispGetParam(pdispparams : *const super::Com:: DISPPARAMS, position : u32, vttarg : super::Variant:: VARENUM, pvarresult : *mut super::Variant:: VARIANT, puargerr : *mut u32) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"] fn DispInvoke(_this : *mut ::core::ffi::c_void, ptinfo : super::Com:: ITypeInfo, dispidmember : i32, wflags : u16, pparams : *mut super::Com:: DISPPARAMS, pvarresult : *mut super::Variant:: VARIANT, pexcepinfo : *mut super::Com:: EXCEPINFO, puargerr : *mut u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_targets::link!("ole32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"] fn DoDragDrop(pdataobj : super::Com:: IDataObject, pdropsource : IDropSource, dwokeffects : DROPEFFECT, pdweffect : *mut DROPEFFECT) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`*"] fn DosDateTimeToVariantTime(wdosdate : u16, wdostime : u16, pvtime : *mut f64) -> i32);
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`*"] fn GetActiveObject(rclsid : *const ::windows_sys::core::GUID, pvreserved : *mut ::core::ffi::c_void, ppunk : *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`*"] fn GetAltMonthNames(lcid : u32, prgp : *mut *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`*"] fn GetRecordInfoFromGuids(rguidtypelib : *const ::windows_sys::core::GUID, uvermajor : u32, uverminor : u32, lcid : u32, rguidtypeinfo : *const ::windows_sys::core::GUID, pprecinfo : *mut IRecordInfo) -> ::windows_sys::core::HRESULT);
@@ -93,7 +92,7 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn OleCreatePictureIndirect(lppictdesc : *const PICTDESC, riid : *const ::windows_sys::core::GUID, fown : super::super::Foundation:: BOOL, lplpvobj : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"] fn OleCreatePropertyFrame(hwndowner : super::super::Foundation:: HWND, x : u32, y : u32, lpszcaption : ::windows_sys::core::PCWSTR, cobjects : u32, ppunk : *const ::windows_sys::core::IUnknown, cpages : u32, ppageclsid : *const ::windows_sys::core::GUID, lcid : u32, dwreserved : u32, pvreserved : *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"] fn OleCreatePropertyFrame(hwndowner : super::super::Foundation:: HWND, x : u32, y : u32, lpszcaption : ::windows_sys::core::PCWSTR, cobjects : u32, ppunk : *const ::windows_sys::core::IUnknown, cpages : u32, ppageclsid : *const ::windows_sys::core::GUID, lcid : u32, dwreserved : u32, pvreserved : *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"] fn OleCreatePropertyFrameIndirect(lpparams : *const OCPFIPARAMS) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -130,10 +129,10 @@
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn OleLoadPicture(lpstream : super::Com:: IStream, lsize : i32, frunmode : super::super::Foundation:: BOOL, riid : *const ::windows_sys::core::GUID, lplpvobj : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn OleLoadPictureEx(lpstream : super::Com:: IStream, lsize : i32, frunmode : super::super::Foundation:: BOOL, riid : *const ::windows_sys::core::GUID, xsizedesired : u32, ysizedesired : u32, dwflags : LOAD_PICTURE_FLAGS, lplpvobj : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn OleLoadPictureFile(varfilename : super::Com:: VARIANT, lplpdisppicture : *mut super::Com:: IDispatch) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn OleLoadPictureFileEx(varfilename : super::Com:: VARIANT, xsizedesired : u32, ysizedesired : u32, dwflags : LOAD_PICTURE_FLAGS, lplpdisppicture : *mut super::Com:: IDispatch) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"] fn OleLoadPictureFile(varfilename : super::Variant:: VARIANT, lplpdisppicture : *mut super::Com:: IDispatch) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"] fn OleLoadPictureFileEx(varfilename : super::Variant:: VARIANT, xsizedesired : u32, ysizedesired : u32, dwflags : LOAD_PICTURE_FLAGS, lplpdisppicture : *mut super::Com:: IDispatch) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`*"] fn OleLoadPicturePath(szurlorpath : ::windows_sys::core::PCWSTR, punkcaller : ::windows_sys::core::IUnknown, dwreserved : u32, clrreserved : u32, riid : *const ::windows_sys::core::GUID, ppvret : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("ole32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"] fn OleLockRunning(punknown : ::windows_sys::core::IUnknown, flock : super::super::Foundation:: BOOL, flastunlockcloses : super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
@@ -236,20 +235,20 @@
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"] fn SafeArrayAllocData(psa : *const super::Com:: SAFEARRAY) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"] fn SafeArrayAllocDescriptor(cdims : u32, ppsaout : *mut *mut super::Com:: SAFEARRAY) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"] fn SafeArrayAllocDescriptorEx(vt : super::Com:: VARENUM, cdims : u32, ppsaout : *mut *mut super::Com:: SAFEARRAY) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"] fn SafeArrayAllocDescriptorEx(vt : super::Variant:: VARENUM, cdims : u32, ppsaout : *mut *mut super::Com:: SAFEARRAY) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"] fn SafeArrayCopy(psa : *const super::Com:: SAFEARRAY, ppsaout : *mut *mut super::Com:: SAFEARRAY) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"] fn SafeArrayCopyData(psasource : *const super::Com:: SAFEARRAY, psatarget : *const super::Com:: SAFEARRAY) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"] fn SafeArrayCreate(vt : super::Com:: VARENUM, cdims : u32, rgsabound : *const super::Com:: SAFEARRAYBOUND) -> *mut super::Com:: SAFEARRAY);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"] fn SafeArrayCreateEx(vt : super::Com:: VARENUM, cdims : u32, rgsabound : *const super::Com:: SAFEARRAYBOUND, pvextra : *const ::core::ffi::c_void) -> *mut super::Com:: SAFEARRAY);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"] fn SafeArrayCreateVector(vt : super::Com:: VARENUM, llbound : i32, celements : u32) -> *mut super::Com:: SAFEARRAY);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"] fn SafeArrayCreateVectorEx(vt : super::Com:: VARENUM, llbound : i32, celements : u32, pvextra : *const ::core::ffi::c_void) -> *mut super::Com:: SAFEARRAY);
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"] fn SafeArrayCreate(vt : super::Variant:: VARENUM, cdims : u32, rgsabound : *const super::Com:: SAFEARRAYBOUND) -> *mut super::Com:: SAFEARRAY);
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"] fn SafeArrayCreateEx(vt : super::Variant:: VARENUM, cdims : u32, rgsabound : *const super::Com:: SAFEARRAYBOUND, pvextra : *const ::core::ffi::c_void) -> *mut super::Com:: SAFEARRAY);
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"] fn SafeArrayCreateVector(vt : super::Variant:: VARENUM, llbound : i32, celements : u32) -> *mut super::Com:: SAFEARRAY);
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"] fn SafeArrayCreateVectorEx(vt : super::Variant:: VARENUM, llbound : i32, celements : u32, pvextra : *const ::core::ffi::c_void) -> *mut super::Com:: SAFEARRAY);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"] fn SafeArrayDestroy(psa : *const super::Com:: SAFEARRAY) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
@@ -270,8 +269,8 @@
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"] fn SafeArrayGetRecordInfo(psa : *const super::Com:: SAFEARRAY, prinfo : *mut IRecordInfo) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"] fn SafeArrayGetUBound(psa : *const super::Com:: SAFEARRAY, ndim : u32, plubound : *mut i32) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"] fn SafeArrayGetVartype(psa : *const super::Com:: SAFEARRAY, pvt : *mut super::Com:: VARENUM) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"] fn SafeArrayGetVartype(psa : *const super::Com:: SAFEARRAY, pvt : *mut super::Variant:: VARENUM) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"] fn SafeArrayLock(psa : *const super::Com:: SAFEARRAY) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
@@ -291,18 +290,16 @@
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"] fn SafeArrayUnaccessData(psa : *const super::Com:: SAFEARRAY) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"] fn SafeArrayUnlock(psa : *const super::Com:: SAFEARRAY) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"] fn SystemTimeToVariantTime(lpsystemtime : *const super::super::Foundation:: SYSTEMTIME, pvtime : *mut f64) -> i32);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"] fn UnRegisterTypeLib(libid : *const ::windows_sys::core::GUID, wvermajor : u16, wverminor : u16, lcid : u32, syskind : super::Com:: SYSKIND) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"] fn UnRegisterTypeLibForUser(libid : *const ::windows_sys::core::GUID, wmajorvernum : u16, wminorvernum : u16, lcid : u32, syskind : super::Com:: SYSKIND) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn VarAbs(pvarin : *const super::Com:: VARIANT, pvarresult : *mut super::Com:: VARIANT) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn VarAdd(pvarleft : *const super::Com:: VARIANT, pvarright : *const super::Com:: VARIANT, pvarresult : *mut super::Com:: VARIANT) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn VarAnd(pvarleft : *const super::Com:: VARIANT, pvarright : *const super::Com:: VARIANT, pvarresult : *mut super::Com:: VARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"] fn VarAbs(pvarin : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"] fn VarAdd(pvarleft : *const super::Variant:: VARIANT, pvarright : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"] fn VarAnd(pvarleft : *const super::Variant:: VARIANT, pvarright : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn VarBoolFromCy(cyin : super::Com:: CY, pboolout : *mut super::super::Foundation:: VARIANT_BOOL) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
@@ -354,10 +351,10 @@
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`*"] fn VarBstrFromUI2(uiin : u16, lcid : u32, dwflags : u32, pbstrout : *mut ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`*"] fn VarBstrFromUI4(ulin : u32, lcid : u32, dwflags : u32, pbstrout : *mut ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`*"] fn VarBstrFromUI8(ui64in : u64, lcid : u32, dwflags : u32, pbstrout : *mut ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn VarCat(pvarleft : *const super::Com:: VARIANT, pvarright : *const super::Com:: VARIANT, pvarresult : *mut super::Com:: VARIANT) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn VarCmp(pvarleft : *const super::Com:: VARIANT, pvarright : *const super::Com:: VARIANT, lcid : u32, dwflags : u32) -> VARCMP);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"] fn VarCat(pvarleft : *const super::Variant:: VARIANT, pvarright : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"] fn VarCmp(pvarleft : *const super::Variant:: VARIANT, pvarright : *const super::Variant:: VARIANT, lcid : u32, dwflags : u32) -> VARCMP);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"] fn VarCyAbs(cyin : super::Com:: CY, pcyresult : *mut super::Com:: CY) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
@@ -487,24 +484,24 @@
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"] fn VarDecRound(pdecin : *const super::super::Foundation:: DECIMAL, cdecimals : i32, pdecresult : *mut super::super::Foundation:: DECIMAL) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"] fn VarDecSub(pdecleft : *const super::super::Foundation:: DECIMAL, pdecright : *const super::super::Foundation:: DECIMAL, pdecresult : *mut super::super::Foundation:: DECIMAL) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn VarDiv(pvarleft : *const super::Com:: VARIANT, pvarright : *const super::Com:: VARIANT, pvarresult : *mut super::Com:: VARIANT) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn VarEqv(pvarleft : *const super::Com:: VARIANT, pvarright : *const super::Com:: VARIANT, pvarresult : *mut super::Com:: VARIANT) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn VarFix(pvarin : *const super::Com:: VARIANT, pvarresult : *mut super::Com:: VARIANT) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn VarFormat(pvarin : *const super::Com:: VARIANT, pstrformat : ::windows_sys::core::PCWSTR, ifirstday : VARFORMAT_FIRST_DAY, ifirstweek : VARFORMAT_FIRST_WEEK, dwflags : u32, pbstrout : *mut ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn VarFormatCurrency(pvarin : *const super::Com:: VARIANT, inumdig : i32, iinclead : i32, iuseparens : i32, igroup : i32, dwflags : u32, pbstrout : *mut ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn VarFormatDateTime(pvarin : *const super::Com:: VARIANT, inamedformat : VARFORMAT_NAMED_FORMAT, dwflags : u32, pbstrout : *mut ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn VarFormatFromTokens(pvarin : *const super::Com:: VARIANT, pstrformat : ::windows_sys::core::PCWSTR, pbtokcur : *const u8, dwflags : u32, pbstrout : *mut ::windows_sys::core::BSTR, lcid : u32) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn VarFormatNumber(pvarin : *const super::Com:: VARIANT, inumdig : i32, iinclead : VARFORMAT_LEADING_DIGIT, iuseparens : VARFORMAT_PARENTHESES, igroup : VARFORMAT_GROUP, dwflags : u32, pbstrout : *mut ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn VarFormatPercent(pvarin : *const super::Com:: VARIANT, inumdig : i32, iinclead : VARFORMAT_LEADING_DIGIT, iuseparens : VARFORMAT_PARENTHESES, igroup : VARFORMAT_GROUP, dwflags : u32, pbstrout : *mut ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"] fn VarDiv(pvarleft : *const super::Variant:: VARIANT, pvarright : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"] fn VarEqv(pvarleft : *const super::Variant:: VARIANT, pvarright : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"] fn VarFix(pvarin : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"] fn VarFormat(pvarin : *const super::Variant:: VARIANT, pstrformat : ::windows_sys::core::PCWSTR, ifirstday : VARFORMAT_FIRST_DAY, ifirstweek : VARFORMAT_FIRST_WEEK, dwflags : u32, pbstrout : *mut ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"] fn VarFormatCurrency(pvarin : *const super::Variant:: VARIANT, inumdig : i32, iinclead : i32, iuseparens : i32, igroup : i32, dwflags : u32, pbstrout : *mut ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"] fn VarFormatDateTime(pvarin : *const super::Variant:: VARIANT, inamedformat : VARFORMAT_NAMED_FORMAT, dwflags : u32, pbstrout : *mut ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"] fn VarFormatFromTokens(pvarin : *const super::Variant:: VARIANT, pstrformat : ::windows_sys::core::PCWSTR, pbtokcur : *const u8, dwflags : u32, pbstrout : *mut ::windows_sys::core::BSTR, lcid : u32) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"] fn VarFormatNumber(pvarin : *const super::Variant:: VARIANT, inumdig : i32, iinclead : VARFORMAT_LEADING_DIGIT, iuseparens : VARFORMAT_PARENTHESES, igroup : VARFORMAT_GROUP, dwflags : u32, pbstrout : *mut ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"] fn VarFormatPercent(pvarin : *const super::Variant:: VARIANT, inumdig : i32, iinclead : VARFORMAT_LEADING_DIGIT, iuseparens : VARFORMAT_PARENTHESES, igroup : VARFORMAT_GROUP, dwflags : u32, pbstrout : *mut ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"] fn VarI1FromBool(boolin : super::super::Foundation:: VARIANT_BOOL, pcout : ::windows_sys::core::PSTR) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
@@ -580,28 +577,28 @@
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`*"] fn VarI8FromUI2(uiin : u16, pi64out : *mut i64) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`*"] fn VarI8FromUI4(ulin : u32, pi64out : *mut i64) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`*"] fn VarI8FromUI8(ui64in : u64, pi64out : *mut i64) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn VarIdiv(pvarleft : *const super::Com:: VARIANT, pvarright : *const super::Com:: VARIANT, pvarresult : *mut super::Com:: VARIANT) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn VarImp(pvarleft : *const super::Com:: VARIANT, pvarright : *const super::Com:: VARIANT, pvarresult : *mut super::Com:: VARIANT) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn VarInt(pvarin : *const super::Com:: VARIANT, pvarresult : *mut super::Com:: VARIANT) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn VarMod(pvarleft : *const super::Com:: VARIANT, pvarright : *const super::Com:: VARIANT, pvarresult : *mut super::Com:: VARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"] fn VarIdiv(pvarleft : *const super::Variant:: VARIANT, pvarright : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"] fn VarImp(pvarleft : *const super::Variant:: VARIANT, pvarright : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"] fn VarInt(pvarin : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"] fn VarMod(pvarleft : *const super::Variant:: VARIANT, pvarright : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`*"] fn VarMonthName(imonth : i32, fabbrev : i32, dwflags : u32, pbstrout : *mut ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn VarMul(pvarleft : *const super::Com:: VARIANT, pvarright : *const super::Com:: VARIANT, pvarresult : *mut super::Com:: VARIANT) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn VarNeg(pvarin : *const super::Com:: VARIANT, pvarresult : *mut super::Com:: VARIANT) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn VarNot(pvarin : *const super::Com:: VARIANT, pvarresult : *mut super::Com:: VARIANT) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn VarNumFromParseNum(pnumprs : *const NUMPARSE, rgbdig : *const u8, dwvtbits : u32, pvar : *mut super::Com:: VARIANT) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn VarOr(pvarleft : *const super::Com:: VARIANT, pvarright : *const super::Com:: VARIANT, pvarresult : *mut super::Com:: VARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"] fn VarMul(pvarleft : *const super::Variant:: VARIANT, pvarright : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"] fn VarNeg(pvarin : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"] fn VarNot(pvarin : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"] fn VarNumFromParseNum(pnumprs : *const NUMPARSE, rgbdig : *const u8, dwvtbits : u32, pvar : *mut super::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"] fn VarOr(pvarleft : *const super::Variant:: VARIANT, pvarright : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`*"] fn VarParseNumFromStr(strin : ::windows_sys::core::PCWSTR, lcid : u32, dwflags : u32, pnumprs : *mut NUMPARSE, rgbdig : *mut u8) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn VarPow(pvarleft : *const super::Com:: VARIANT, pvarright : *const super::Com:: VARIANT, pvarresult : *mut super::Com:: VARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"] fn VarPow(pvarleft : *const super::Variant:: VARIANT, pvarright : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`*"] fn VarR4CmpR8(fltleft : f32, dblright : f64) -> VARCMP);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"] fn VarR4FromBool(boolin : super::super::Foundation:: VARIANT_BOOL, pfltout : *mut f32) -> ::windows_sys::core::HRESULT);
@@ -643,10 +640,10 @@
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`*"] fn VarR8FromUI8(ui64in : u64, pdblout : *mut f64) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`*"] fn VarR8Pow(dblleft : f64, dblright : f64, pdblresult : *mut f64) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`*"] fn VarR8Round(dblin : f64, cdecimals : i32, pdblresult : *mut f64) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn VarRound(pvarin : *const super::Com:: VARIANT, cdecimals : i32, pvarresult : *mut super::Com:: VARIANT) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn VarSub(pvarleft : *const super::Com:: VARIANT, pvarright : *const super::Com:: VARIANT, pvarresult : *mut super::Com:: VARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"] fn VarRound(pvarin : *const super::Variant:: VARIANT, cdecimals : i32, pvarresult : *mut super::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"] fn VarSub(pvarleft : *const super::Variant:: VARIANT, pvarright : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`*"] fn VarTokenizeFormatString(pstrformat : ::windows_sys::core::PCWSTR, rgbtok : *mut u8, cbtok : i32, ifirstday : VARFORMAT_FIRST_DAY, ifirstweek : VARFORMAT_FIRST_WEEK, lcid : u32, pcbactual : *const i32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"] fn VarUI1FromBool(boolin : super::super::Foundation:: VARIANT_BOOL, pbout : *mut u8) -> ::windows_sys::core::HRESULT);
@@ -726,23 +723,8 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"] fn VarUdateFromDate(datein : f64, dwflags : u32, pudateout : *mut UDATE) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`*"] fn VarWeekdayName(iweekday : i32, fabbrev : i32, ifirstday : i32, dwflags : u32, pbstrout : *mut ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn VarXor(pvarleft : *const super::Com:: VARIANT, pvarright : *const super::Com:: VARIANT, pvarresult : *mut super::Com:: VARIANT) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn VariantChangeType(pvargdest : *mut super::Com:: VARIANT, pvarsrc : *const super::Com:: VARIANT, wflags : u16, vt : super::Com:: VARENUM) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn VariantChangeTypeEx(pvargdest : *mut super::Com:: VARIANT, pvarsrc : *const super::Com:: VARIANT, lcid : u32, wflags : u16, vt : super::Com:: VARENUM) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn VariantClear(pvarg : *mut super::Com:: VARIANT) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn VariantCopy(pvargdest : *mut super::Com:: VARIANT, pvargsrc : *const super::Com:: VARIANT) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn VariantCopyInd(pvardest : *mut super::Com:: VARIANT, pvargsrc : *const super::Com:: VARIANT) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"] fn VariantInit(pvarg : *mut super::Com:: VARIANT) -> ());
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`*"] fn VariantTimeToDosDateTime(vtime : f64, pwdosdate : *mut u16, pwdostime : *mut u16) -> i32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"] fn VariantTimeToSystemTime(vtime : f64, lpsystemtime : *mut super::super::Foundation:: SYSTEMTIME) -> i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"] fn VarXor(pvarleft : *const super::Variant:: VARIANT, pvarright : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"] fn VectorFromBstr(bstr : ::windows_sys::core::BSTR, ppsa : *mut *mut super::Com:: SAFEARRAY) -> ::windows_sys::core::HRESULT);
 pub type IAdviseSinkEx = *mut ::core::ffi::c_void;
@@ -1738,22 +1720,6 @@ pub const SZOLEUI_MSG_ENDDIALOG: ::windows_sys::core::PCWSTR = ::windows_sys::co
 pub const SZOLEUI_MSG_HELP: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("OLEUI_MSG_HELP");
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const TIFLAGS_EXTENDDISPATCHONLY: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARIANT_ALPHABOOL: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARIANT_CALENDAR_GREGORIAN: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARIANT_CALENDAR_HIJRI: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARIANT_CALENDAR_THAI: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARIANT_LOCALBOOL: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARIANT_NOUSEROVERRIDE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARIANT_NOVALUEPROP: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARIANT_USE_NLS: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const VAR_CALENDAR_GREGORIAN: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -3099,16 +3065,16 @@ pub const XFORMCOORDS_CONTAINERTOHIMETRIC: XFORMCOORDS = 8i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const XFORMCOORDS_EVENTCOMPAT: XFORMCOORDS = 16i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 pub struct ARRAYDESC {
     pub tdescElem: super::Com::TYPEDESC,
     pub cDims: u16,
     pub rgbounds: [super::Com::SAFEARRAYBOUND; 1],
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl ::core::marker::Copy for ARRAYDESC {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for ARRAYDESC {
     fn clone(&self) -> Self {
         *self
@@ -3230,15 +3196,15 @@ impl ::core::clone::Clone for FONTDESC {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 pub struct INTERFACEDATA {
     pub pmethdata: *mut METHODDATA,
     pub cMembers: u32,
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl ::core::marker::Copy for INTERFACEDATA {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for INTERFACEDATA {
     fn clone(&self) -> Self {
         *self
@@ -3261,8 +3227,8 @@ impl ::core::clone::Clone for LICINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 pub struct METHODDATA {
     pub szName: ::windows_sys::core::PWSTR,
     pub ppdata: *mut PARAMDATA,
@@ -3271,11 +3237,11 @@ pub struct METHODDATA {
     pub cc: super::Com::CALLCONV,
     pub cArgs: u32,
     pub wFlags: u16,
-    pub vtReturn: super::Com::VARENUM,
+    pub vtReturn: super::Variant::VARENUM,
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl ::core::marker::Copy for METHODDATA {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for METHODDATA {
     fn clone(&self) -> Self {
         *self
@@ -4064,45 +4030,45 @@ impl ::core::clone::Clone for PAGESET {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(feature = "Win32_System_Variant")]
 pub struct PARAMDATA {
     pub szName: ::windows_sys::core::PWSTR,
-    pub vt: super::Com::VARENUM,
+    pub vt: super::Variant::VARENUM,
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::marker::Copy for PARAMDATA {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::clone::Clone for PARAMDATA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 pub struct PARAMDESC {
     pub pparamdescex: *mut PARAMDESCEX,
     pub wParamFlags: PARAMFLAGS,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl ::core::marker::Copy for PARAMDESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for PARAMDESC {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 pub struct PARAMDESCEX {
     pub cBytes: u32,
-    pub varDefaultValue: super::Com::VARIANT,
+    pub varDefaultValue: super::Variant::VARIANT,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl ::core::marker::Copy for PARAMDESCEX {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for PARAMDESCEX {
     fn clone(&self) -> Self {
         *self

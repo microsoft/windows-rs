@@ -701,7 +701,25 @@ pub mod UI;
 ::windows_targets::link!("crypt32.dll" "system" #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"] fn PFXIsPFXBlob(ppfx : *const CRYPT_INTEGER_BLOB) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("crypt32.dll" "system" #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"] fn PFXVerifyPassword(ppfx : *const CRYPT_INTEGER_BLOB, szpassword : ::windows_sys::core::PCWSTR, dwflags : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("mssign32.dll" "system" #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"] fn SignError() -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("infocardapi.dll" "system" #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"] fn SignHash(hcrypto : *const INFORMATIONCARD_CRYPTO_HANDLE, cbhash : u32, phash : *const u8, hashalgoid : ::windows_sys::core::PCWSTR, pcbsig : *mut u32, ppsig : *mut *mut u8) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("mssign32.dll" "system" #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"] fn SignerFreeSignerContext(psignercontext : *const SIGNER_CONTEXT) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("mssign32.dll" "system" #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"] fn SignerSign(psubjectinfo : *const SIGNER_SUBJECT_INFO, psignercert : *const SIGNER_CERT, psignatureinfo : *const SIGNER_SIGNATURE_INFO, pproviderinfo : *const SIGNER_PROVIDER_INFO, pwszhttptimestamp : ::windows_sys::core::PCWSTR, psrequest : *const CRYPT_ATTRIBUTES, psipdata : *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("mssign32.dll" "system" #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"] fn SignerSignEx(dwflags : SIGNER_SIGN_FLAGS, psubjectinfo : *const SIGNER_SUBJECT_INFO, psignercert : *const SIGNER_CERT, psignatureinfo : *const SIGNER_SIGNATURE_INFO, pproviderinfo : *const SIGNER_PROVIDER_INFO, pwszhttptimestamp : ::windows_sys::core::PCWSTR, psrequest : *const CRYPT_ATTRIBUTES, psipdata : *const ::core::ffi::c_void, ppsignercontext : *mut *mut SIGNER_CONTEXT) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("mssign32.dll" "system" #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"] fn SignerSignEx2(dwflags : SIGNER_SIGN_FLAGS, psubjectinfo : *const SIGNER_SUBJECT_INFO, psignercert : *const SIGNER_CERT, psignatureinfo : *const SIGNER_SIGNATURE_INFO, pproviderinfo : *const SIGNER_PROVIDER_INFO, dwtimestampflags : SIGNER_TIMESTAMP_FLAGS, psztimestampalgorithmoid : ::windows_sys::core::PCSTR, pwszhttptimestamp : ::windows_sys::core::PCWSTR, psrequest : *const CRYPT_ATTRIBUTES, psipdata : *const ::core::ffi::c_void, ppsignercontext : *mut *mut SIGNER_CONTEXT, pcryptopolicy : *const CERT_STRONG_SIGN_PARA, preserved : *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("mssign32.dll" "system" #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"] fn SignerSignEx3(dwflags : SIGNER_SIGN_FLAGS, psubjectinfo : *const SIGNER_SUBJECT_INFO, psignercert : *const SIGNER_CERT, psignatureinfo : *const SIGNER_SIGNATURE_INFO, pproviderinfo : *const SIGNER_PROVIDER_INFO, dwtimestampflags : SIGNER_TIMESTAMP_FLAGS, psztimestampalgorithmoid : ::windows_sys::core::PCSTR, pwszhttptimestamp : ::windows_sys::core::PCWSTR, psrequest : *const CRYPT_ATTRIBUTES, psipdata : *const ::core::ffi::c_void, ppsignercontext : *mut *mut SIGNER_CONTEXT, pcryptopolicy : *const CERT_STRONG_SIGN_PARA, pdigestsigninfo : *const SIGNER_DIGEST_SIGN_INFO, preserved : *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("mssign32.dll" "system" #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"] fn SignerTimeStamp(psubjectinfo : *const SIGNER_SUBJECT_INFO, pwszhttptimestamp : ::windows_sys::core::PCWSTR, psrequest : *const CRYPT_ATTRIBUTES, psipdata : *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("mssign32.dll" "system" #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"] fn SignerTimeStampEx(dwflags : u32, psubjectinfo : *const SIGNER_SUBJECT_INFO, pwszhttptimestamp : ::windows_sys::core::PCWSTR, psrequest : *const CRYPT_ATTRIBUTES, psipdata : *const ::core::ffi::c_void, ppsignercontext : *mut *mut SIGNER_CONTEXT) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("mssign32.dll" "system" #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"] fn SignerTimeStampEx2(dwflags : SIGNER_TIMESTAMP_FLAGS, psubjectinfo : *const SIGNER_SUBJECT_INFO, pwszhttptimestamp : ::windows_sys::core::PCWSTR, dwalgid : u32, psrequest : *const CRYPT_ATTRIBUTES, psipdata : *const ::core::ffi::c_void, ppsignercontext : *mut *mut SIGNER_CONTEXT) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("mssign32.dll" "system" #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"] fn SignerTimeStampEx3(dwflags : SIGNER_TIMESTAMP_FLAGS, dwindex : u32, psubjectinfo : *const SIGNER_SUBJECT_INFO, pwszhttptimestamp : ::windows_sys::core::PCWSTR, pszalgorithmoid : ::windows_sys::core::PCWSTR, psrequest : *const CRYPT_ATTRIBUTES, psipdata : *const ::core::ffi::c_void, ppsignercontext : *mut *mut SIGNER_CONTEXT, pcryptopolicy : *const CERT_STRONG_SIGN_PARA, preserved : *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("infocardapi.dll" "system" #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"] fn TransformBlock(hcrypto : *const INFORMATIONCARD_CRYPTO_HANDLE, cbindata : u32, pindata : *const u8, pcboutdata : *mut u32, ppoutdata : *mut *mut u8) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("infocardapi.dll" "system" #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"] fn TransformFinalBlock(hcrypto : *const INFORMATIONCARD_CRYPTO_HANDLE, cbindata : u32, pindata : *const u8, pcboutdata : *mut u32, ppoutdata : *mut *mut u8) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
@@ -7647,6 +7665,68 @@ impl ::core::clone::Clone for PaddingMode {
         *self
     }
 }
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub type SIGNER_CERT_CHOICE = u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const SIGNER_CERT_SPC_FILE: SIGNER_CERT_CHOICE = 1u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const SIGNER_CERT_STORE: SIGNER_CERT_CHOICE = 2u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const SIGNER_CERT_SPC_CHAIN: SIGNER_CERT_CHOICE = 3u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub type SIGNER_CERT_POLICY = u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const SIGNER_CERT_POLICY_STORE: SIGNER_CERT_POLICY = 1u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const SIGNER_CERT_POLICY_CHAIN: SIGNER_CERT_POLICY = 2u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const SIGNER_CERT_POLICY_SPC: SIGNER_CERT_POLICY = 4u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const SIGNER_CERT_POLICY_CHAIN_NO_ROOT: SIGNER_CERT_POLICY = 8u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub type SIGNER_PRIVATE_KEY_CHOICE = u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const PVK_TYPE_FILE_NAME: SIGNER_PRIVATE_KEY_CHOICE = 1u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const PVK_TYPE_KEYCONTAINER: SIGNER_PRIVATE_KEY_CHOICE = 2u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub type SIGNER_SIGNATURE_ATTRIBUTE_CHOICE = u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const SIGNER_NO_ATTR: SIGNER_SIGNATURE_ATTRIBUTE_CHOICE = 0u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const SIGNER_AUTHCODE_ATTR: SIGNER_SIGNATURE_ATTRIBUTE_CHOICE = 1u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub type SIGNER_SIGN_FLAGS = u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const SIG_APPEND: SIGNER_SIGN_FLAGS = 4096u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const SPC_INC_PE_RESOURCES_FLAG: SIGNER_SIGN_FLAGS = 128u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const SPC_INC_PE_DEBUG_INFO_FLAG: SIGNER_SIGN_FLAGS = 64u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const SPC_INC_PE_IMPORT_ADDR_TABLE_FLAG: SIGNER_SIGN_FLAGS = 32u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const SPC_EXC_PE_PAGE_HASHES_FLAG: SIGNER_SIGN_FLAGS = 16u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const SPC_INC_PE_PAGE_HASHES_FLAG: SIGNER_SIGN_FLAGS = 256u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const SPC_DIGEST_GENERATE_FLAG: SIGNER_SIGN_FLAGS = 512u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const SPC_DIGEST_SIGN_FLAG: SIGNER_SIGN_FLAGS = 1024u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const SPC_DIGEST_SIGN_EX_FLAG: SIGNER_SIGN_FLAGS = 16384u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub type SIGNER_SUBJECT_CHOICE = u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const SIGNER_SUBJECT_FILE: SIGNER_SUBJECT_CHOICE = 1u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const SIGNER_SUBJECT_BLOB: SIGNER_SUBJECT_CHOICE = 2u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub type SIGNER_TIMESTAMP_FLAGS = u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const SIGNER_TIMESTAMP_AUTHENTICODE: SIGNER_TIMESTAMP_FLAGS = 1u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const SIGNER_TIMESTAMP_RFC3161: SIGNER_TIMESTAMP_FLAGS = 2u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub struct AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_PARA {
@@ -7704,7 +7784,7 @@ impl ::core::clone::Clone for BCRYPT_ALGORITHM_IDENTIFIER {
         *self
     }
 }
-pub type BCRYPT_ALG_HANDLE = isize;
+pub type BCRYPT_ALG_HANDLE = *mut ::core::ffi::c_void;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub struct BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO {
@@ -7861,8 +7941,8 @@ impl ::core::clone::Clone for BCRYPT_ECC_CURVE_NAMES {
         *self
     }
 }
-pub type BCRYPT_HANDLE = isize;
-pub type BCRYPT_HASH_HANDLE = isize;
+pub type BCRYPT_HANDLE = *mut ::core::ffi::c_void;
+pub type BCRYPT_HASH_HANDLE = *mut ::core::ffi::c_void;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub struct BCRYPT_INTERFACE_VERSION {
@@ -7899,7 +7979,7 @@ impl ::core::clone::Clone for BCRYPT_KEY_DATA_BLOB_HEADER {
         *self
     }
 }
-pub type BCRYPT_KEY_HANDLE = isize;
+pub type BCRYPT_KEY_HANDLE = *mut ::core::ffi::c_void;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub struct BCRYPT_KEY_LENGTHS_STRUCT {
@@ -8026,7 +8106,7 @@ impl ::core::clone::Clone for BCRYPT_RSAKEY_BLOB {
         *self
     }
 }
-pub type BCRYPT_SECRET_HANDLE = isize;
+pub type BCRYPT_SECRET_HANDLE = *mut ::core::ffi::c_void;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub struct BCryptBuffer {
@@ -13554,6 +13634,295 @@ impl ::core::clone::Clone for SCHANNEL_ALG {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct SIGNER_ATTR_AUTHCODE {
+    pub cbSize: u32,
+    pub fCommercial: super::super::Foundation::BOOL,
+    pub fIndividual: super::super::Foundation::BOOL,
+    pub pwszName: ::windows_sys::core::PCWSTR,
+    pub pwszInfo: ::windows_sys::core::PCWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SIGNER_ATTR_AUTHCODE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SIGNER_ATTR_AUTHCODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub struct SIGNER_BLOB_INFO {
+    pub cbSize: u32,
+    pub pGuidSubject: *mut ::windows_sys::core::GUID,
+    pub cbBlob: u32,
+    pub pbBlob: *mut u8,
+    pub pwszDisplayName: ::windows_sys::core::PCWSTR,
+}
+impl ::core::marker::Copy for SIGNER_BLOB_INFO {}
+impl ::core::clone::Clone for SIGNER_BLOB_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct SIGNER_CERT {
+    pub cbSize: u32,
+    pub dwCertChoice: SIGNER_CERT_CHOICE,
+    pub Anonymous: SIGNER_CERT_0,
+    pub hwnd: super::super::Foundation::HWND,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SIGNER_CERT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SIGNER_CERT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub union SIGNER_CERT_0 {
+    pub pwszSpcFile: ::windows_sys::core::PCWSTR,
+    pub pCertStoreInfo: *mut SIGNER_CERT_STORE_INFO,
+    pub pSpcChainInfo: *mut SIGNER_SPC_CHAIN_INFO,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SIGNER_CERT_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SIGNER_CERT_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct SIGNER_CERT_STORE_INFO {
+    pub cbSize: u32,
+    pub pSigningCert: *const CERT_CONTEXT,
+    pub dwCertPolicy: SIGNER_CERT_POLICY,
+    pub hCertStore: HCERTSTORE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SIGNER_CERT_STORE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SIGNER_CERT_STORE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub struct SIGNER_CONTEXT {
+    pub cbSize: u32,
+    pub cbBlob: u32,
+    pub pbBlob: *mut u8,
+}
+impl ::core::marker::Copy for SIGNER_CONTEXT {}
+impl ::core::clone::Clone for SIGNER_CONTEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct SIGNER_DIGEST_SIGN_INFO {
+    pub cbSize: u32,
+    pub dwDigestSignChoice: u32,
+    pub Anonymous: SIGNER_DIGEST_SIGN_INFO_0,
+    pub pMetadataBlob: *mut CRYPT_INTEGER_BLOB,
+    pub dwReserved: u32,
+    pub dwReserved2: u32,
+    pub dwReserved3: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SIGNER_DIGEST_SIGN_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SIGNER_DIGEST_SIGN_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub union SIGNER_DIGEST_SIGN_INFO_0 {
+    pub pfnAuthenticodeDigestSign: PFN_AUTHENTICODE_DIGEST_SIGN,
+    pub pfnAuthenticodeDigestSignWithFileHandle: PFN_AUTHENTICODE_DIGEST_SIGN_WITHFILEHANDLE,
+    pub pfnAuthenticodeDigestSignEx: PFN_AUTHENTICODE_DIGEST_SIGN_EX,
+    pub pfnAuthenticodeDigestSignExWithFileHandle: PFN_AUTHENTICODE_DIGEST_SIGN_EX_WITHFILEHANDLE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SIGNER_DIGEST_SIGN_INFO_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SIGNER_DIGEST_SIGN_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct SIGNER_DIGEST_SIGN_INFO_V1 {
+    pub cbSize: u32,
+    pub pfnAuthenticodeDigestSign: PFN_AUTHENTICODE_DIGEST_SIGN,
+    pub pMetadataBlob: *mut CRYPT_INTEGER_BLOB,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SIGNER_DIGEST_SIGN_INFO_V1 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SIGNER_DIGEST_SIGN_INFO_V1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct SIGNER_DIGEST_SIGN_INFO_V2 {
+    pub cbSize: u32,
+    pub pfnAuthenticodeDigestSign: PFN_AUTHENTICODE_DIGEST_SIGN,
+    pub pfnAuthenticodeDigestSignEx: PFN_AUTHENTICODE_DIGEST_SIGN_EX,
+    pub pMetadataBlob: *mut CRYPT_INTEGER_BLOB,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SIGNER_DIGEST_SIGN_INFO_V2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SIGNER_DIGEST_SIGN_INFO_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct SIGNER_FILE_INFO {
+    pub cbSize: u32,
+    pub pwszFileName: ::windows_sys::core::PCWSTR,
+    pub hFile: super::super::Foundation::HANDLE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SIGNER_FILE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SIGNER_FILE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub struct SIGNER_PROVIDER_INFO {
+    pub cbSize: u32,
+    pub pwszProviderName: ::windows_sys::core::PCWSTR,
+    pub dwProviderType: u32,
+    pub dwKeySpec: u32,
+    pub dwPvkChoice: SIGNER_PRIVATE_KEY_CHOICE,
+    pub Anonymous: SIGNER_PROVIDER_INFO_0,
+}
+impl ::core::marker::Copy for SIGNER_PROVIDER_INFO {}
+impl ::core::clone::Clone for SIGNER_PROVIDER_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub union SIGNER_PROVIDER_INFO_0 {
+    pub pwszPvkFileName: ::windows_sys::core::PWSTR,
+    pub pwszKeyContainer: ::windows_sys::core::PWSTR,
+}
+impl ::core::marker::Copy for SIGNER_PROVIDER_INFO_0 {}
+impl ::core::clone::Clone for SIGNER_PROVIDER_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct SIGNER_SIGNATURE_INFO {
+    pub cbSize: u32,
+    pub algidHash: u32,
+    pub dwAttrChoice: SIGNER_SIGNATURE_ATTRIBUTE_CHOICE,
+    pub Anonymous: SIGNER_SIGNATURE_INFO_0,
+    pub psAuthenticated: *mut CRYPT_ATTRIBUTES,
+    pub psUnauthenticated: *mut CRYPT_ATTRIBUTES,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SIGNER_SIGNATURE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SIGNER_SIGNATURE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub union SIGNER_SIGNATURE_INFO_0 {
+    pub pAttrAuthcode: *mut SIGNER_ATTR_AUTHCODE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SIGNER_SIGNATURE_INFO_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SIGNER_SIGNATURE_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub struct SIGNER_SPC_CHAIN_INFO {
+    pub cbSize: u32,
+    pub pwszSpcFile: ::windows_sys::core::PCWSTR,
+    pub dwCertPolicy: u32,
+    pub hCertStore: HCERTSTORE,
+}
+impl ::core::marker::Copy for SIGNER_SPC_CHAIN_INFO {}
+impl ::core::clone::Clone for SIGNER_SPC_CHAIN_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct SIGNER_SUBJECT_INFO {
+    pub cbSize: u32,
+    pub pdwIndex: *mut u32,
+    pub dwSubjectChoice: SIGNER_SUBJECT_CHOICE,
+    pub Anonymous: SIGNER_SUBJECT_INFO_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SIGNER_SUBJECT_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SIGNER_SUBJECT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub union SIGNER_SUBJECT_INFO_0 {
+    pub pSignerFileInfo: *mut SIGNER_FILE_INFO,
+    pub pSignerBlobInfo: *mut SIGNER_BLOB_INFO,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SIGNER_SUBJECT_INFO_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SIGNER_SUBJECT_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub struct SSL_ECCKEY_BLOB {
     pub dwCurveType: u32,
@@ -13657,6 +14026,18 @@ pub type PFNCryptStreamOutputCallback = ::core::option::Option<unsafe extern "sy
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNCryptStreamOutputCallbackEx = ::core::option::Option<unsafe extern "system" fn(pvcallbackctxt: *const ::core::ffi::c_void, pbdata: *const u8, cbdata: usize, hdescriptor: super::NCRYPT_DESCRIPTOR_HANDLE, ffinal: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_AUTHENTICODE_DIGEST_SIGN = ::core::option::Option<unsafe extern "system" fn(psigningcert: *const CERT_CONTEXT, pmetadatablob: *const CRYPT_INTEGER_BLOB, digestalgid: u32, pbtobesigneddigest: *const u8, cbtobesigneddigest: u32, psigneddigest: *mut CRYPT_INTEGER_BLOB) -> ::windows_sys::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_AUTHENTICODE_DIGEST_SIGN_EX = ::core::option::Option<unsafe extern "system" fn(pmetadatablob: *const CRYPT_INTEGER_BLOB, digestalgid: u32, pbtobesigneddigest: *const u8, cbtobesigneddigest: u32, psigneddigest: *mut CRYPT_INTEGER_BLOB, ppsignercert: *mut *mut CERT_CONTEXT, hcertchainstore: HCERTSTORE) -> ::windows_sys::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_AUTHENTICODE_DIGEST_SIGN_EX_WITHFILEHANDLE = ::core::option::Option<unsafe extern "system" fn(pmetadatablob: *const CRYPT_INTEGER_BLOB, digestalgid: u32, pbtobesigneddigest: *const u8, cbtobesigneddigest: u32, hfile: super::super::Foundation::HANDLE, psigneddigest: *mut CRYPT_INTEGER_BLOB, ppsignercert: *mut *mut CERT_CONTEXT, hcertchainstore: HCERTSTORE) -> ::windows_sys::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_AUTHENTICODE_DIGEST_SIGN_WITHFILEHANDLE = ::core::option::Option<unsafe extern "system" fn(psigningcert: *const CERT_CONTEXT, pmetadatablob: *const CRYPT_INTEGER_BLOB, digestalgid: u32, pbtobesigneddigest: *const u8, cbtobesigneddigest: u32, hfile: super::super::Foundation::HANDLE, psigneddigest: *mut CRYPT_INTEGER_BLOB) -> ::windows_sys::core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_CANCEL_ASYNC_RETRIEVAL_FUNC = ::core::option::Option<unsafe extern "system" fn(hasyncretrieve: HCRYPTASYNC) -> super::super::Foundation::BOOL>;

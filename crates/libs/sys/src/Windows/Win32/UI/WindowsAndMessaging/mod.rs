@@ -514,9 +514,9 @@
 ::windows_targets::link!("mrmsupport.dll" "system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"] fn MrmIndexString(indexer : MrmResourceIndexerHandle, resourceuri : ::windows_sys::core::PCWSTR, resourcestring : ::windows_sys::core::PCWSTR, qualifiers : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("mrmsupport.dll" "system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"] fn MrmPeekResourceIndexerMessages(handle : MrmResourceIndexerHandle, messages : *mut *mut MrmResourceIndexerMessage, nummsgs : *mut u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("user32.dll" "system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn MsgWaitForMultipleObjects(ncount : u32, phandles : *const super::super::Foundation:: HANDLE, fwaitall : super::super::Foundation:: BOOL, dwmilliseconds : u32, dwwakemask : QUEUE_STATUS_FLAGS) -> u32);
+::windows_targets::link!("user32.dll" "system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn MsgWaitForMultipleObjects(ncount : u32, phandles : *const super::super::Foundation:: HANDLE, fwaitall : super::super::Foundation:: BOOL, dwmilliseconds : u32, dwwakemask : QUEUE_STATUS_FLAGS) -> super::super::Foundation:: WAIT_EVENT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("user32.dll" "system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn MsgWaitForMultipleObjectsEx(ncount : u32, phandles : *const super::super::Foundation:: HANDLE, dwmilliseconds : u32, dwwakemask : QUEUE_STATUS_FLAGS, dwflags : MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS) -> u32);
+::windows_targets::link!("user32.dll" "system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn MsgWaitForMultipleObjectsEx(ncount : u32, phandles : *const super::super::Foundation:: HANDLE, dwmilliseconds : u32, dwwakemask : QUEUE_STATUS_FLAGS, dwflags : MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS) -> super::super::Foundation:: WAIT_EVENT);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("user32.dll" "system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn OemToCharA(psrc : ::windows_sys::core::PCSTR, pdst : ::windows_sys::core::PSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
@@ -563,6 +563,8 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("user32.dll" "system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn RegisterDeviceNotificationW(hrecipient : super::super::Foundation:: HANDLE, notificationfilter : *const ::core::ffi::c_void, flags : REGISTER_NOTIFICATION_FLAGS) -> HDEVNOTIFY);
 #[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("user32.dll" "system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn RegisterForTooltipDismissNotification(hwnd : super::super::Foundation:: HWND, tdflags : TOOLTIP_DISMISS_FLAGS) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("user32.dll" "system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn RegisterShellHookWindow(hwnd : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"] fn RegisterWindowMessageA(lpstring : ::windows_sys::core::PCSTR) -> u32);
 ::windows_targets::link!("user32.dll" "system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"] fn RegisterWindowMessageW(lpstring : ::windows_sys::core::PCWSTR) -> u32);
@@ -600,6 +602,8 @@
 ::windows_targets::link!("user32.dll" "system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn SendNotifyMessageA(hwnd : super::super::Foundation:: HWND, msg : u32, wparam : super::super::Foundation:: WPARAM, lparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("user32.dll" "system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn SendNotifyMessageW(hwnd : super::super::Foundation:: HWND, msg : u32, wparam : super::super::Foundation:: WPARAM, lparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("user32.dll" "system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn SetAdditionalForegroundBoostProcesses(toplevelwindow : super::super::Foundation:: HWND, processhandlecount : u32, processhandlearray : *const super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("user32.dll" "system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn SetCaretBlinkTime(umseconds : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
@@ -6296,6 +6300,34 @@ impl ::core::clone::Clone for MENUBARINFO {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub struct MENUEX_TEMPLATE_HEADER {
+    pub wVersion: u16,
+    pub wOffset: u16,
+    pub dwHelpId: u32,
+}
+impl ::core::marker::Copy for MENUEX_TEMPLATE_HEADER {}
+impl ::core::clone::Clone for MENUEX_TEMPLATE_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub struct MENUEX_TEMPLATE_ITEM {
+    pub dwType: u32,
+    pub dwState: u32,
+    pub uId: u32,
+    pub wFlags: u16,
+    pub szText: [u16; 1],
+}
+impl ::core::marker::Copy for MENUEX_TEMPLATE_ITEM {}
+impl ::core::clone::Clone for MENUEX_TEMPLATE_ITEM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub struct MENUGETOBJECTINFO {
     pub dwFlags: MENUGETOBJECTINFO_FLAGS,
     pub uPos: u32,
@@ -6400,6 +6432,53 @@ pub struct MENUITEMTEMPLATEHEADER {
 }
 impl ::core::marker::Copy for MENUITEMTEMPLATEHEADER {}
 impl ::core::clone::Clone for MENUITEMTEMPLATEHEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub struct MENUTEMPLATEEX {
+    pub Anonymous: MENUTEMPLATEEX_0,
+}
+impl ::core::marker::Copy for MENUTEMPLATEEX {}
+impl ::core::clone::Clone for MENUTEMPLATEEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub union MENUTEMPLATEEX_0 {
+    pub Menu: MENUTEMPLATEEX_0_1,
+    pub MenuEx: MENUTEMPLATEEX_0_0,
+}
+impl ::core::marker::Copy for MENUTEMPLATEEX_0 {}
+impl ::core::clone::Clone for MENUTEMPLATEEX_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub struct MENUTEMPLATEEX_0_0 {
+    pub mexHeader: MENUEX_TEMPLATE_HEADER,
+    pub mexItem: [MENUEX_TEMPLATE_ITEM; 1],
+}
+impl ::core::marker::Copy for MENUTEMPLATEEX_0_0 {}
+impl ::core::clone::Clone for MENUTEMPLATEEX_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub struct MENUTEMPLATEEX_0_1 {
+    pub mitHeader: MENUITEMTEMPLATEHEADER,
+    pub miTemplate: [MENUITEMTEMPLATE; 1],
+}
+impl ::core::marker::Copy for MENUTEMPLATEEX_0_1 {}
+impl ::core::clone::Clone for MENUTEMPLATEEX_0_1 {
     fn clone(&self) -> Self {
         *self
     }

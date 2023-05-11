@@ -8,6 +8,8 @@
 ::windows_targets::link!("tbs.dll" "system" #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"] fn Tbsi_Get_OwnerAuth(hcontext : *const ::core::ffi::c_void, ownerauthtype : u32, poutputbuf : *mut u8, poutputbuflen : *mut u32) -> u32);
 ::windows_targets::link!("tbs.dll" "system" #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"] fn Tbsi_Get_TCG_Log(hcontext : *const ::core::ffi::c_void, poutputbuf : *mut u8, poutputbuflen : *mut u32) -> u32);
 ::windows_targets::link!("tbs.dll" "system" #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"] fn Tbsi_Get_TCG_Log_Ex(logtype : u32, pboutput : *mut u8, pcboutput : *mut u32) -> u32);
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("tbs.dll" "system" #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`, `\"Win32_Foundation\"`*"] fn Tbsi_Is_Tpm_Present() -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("tbs.dll" "system" #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"] fn Tbsi_Physical_Presence_Command(hcontext : *const ::core::ffi::c_void, pabinput : *const u8, cbinput : u32, paboutput : *mut u8, pcboutput : *mut u32) -> u32);
 ::windows_targets::link!("tbs.dll" "system" #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"] fn Tbsi_Revoke_Attestation() -> u32);
 ::windows_targets::link!("tbs.dll" "system" #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"] fn Tbsip_Cancel_Commands(hcontext : *const ::core::ffi::c_void) -> u32);

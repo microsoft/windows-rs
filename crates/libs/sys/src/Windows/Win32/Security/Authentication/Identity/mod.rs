@@ -148,8 +148,8 @@
 ::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"] fn LsaLookupSids2(policyhandle : LSA_HANDLE, lookupoptions : u32, count : u32, sids : *const super::super::super::Foundation:: PSID, referenceddomains : *mut *mut LSA_REFERENCED_DOMAIN_LIST, names : *mut *mut LSA_TRANSLATED_NAME) -> super::super::super::Foundation:: NTSTATUS);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"] fn LsaNtStatusToWinError(status : super::super::super::Foundation:: NTSTATUS) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`, `\"Win32_System_WindowsProgramming\"`*"] fn LsaOpenPolicy(systemname : *const super::super::super::Foundation:: UNICODE_STRING, objectattributes : *const super::super::super::System::WindowsProgramming:: OBJECT_ATTRIBUTES, desiredaccess : u32, policyhandle : *mut LSA_HANDLE) -> super::super::super::Foundation:: NTSTATUS);
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"] fn LsaOpenPolicy(systemname : *const super::super::super::Foundation:: UNICODE_STRING, objectattributes : *const super::super::super::Foundation:: OBJECT_ATTRIBUTES, desiredaccess : u32, policyhandle : *mut LSA_HANDLE) -> super::super::super::Foundation:: NTSTATUS);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"] fn LsaOpenTrustedDomainByName(policyhandle : LSA_HANDLE, trusteddomainname : *const super::super::super::Foundation:: UNICODE_STRING, desiredaccess : u32, trusteddomainhandle : *mut LSA_HANDLE) -> super::super::super::Foundation:: NTSTATUS);
 #[cfg(feature = "Win32_Foundation")]
@@ -158,6 +158,8 @@
 ::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"] fn LsaQueryDomainInformationPolicy(policyhandle : LSA_HANDLE, informationclass : POLICY_DOMAIN_INFORMATION_CLASS, buffer : *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation:: NTSTATUS);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"] fn LsaQueryForestTrustInformation(policyhandle : LSA_HANDLE, trusteddomainname : *const super::super::super::Foundation:: UNICODE_STRING, foresttrustinfo : *mut *mut LSA_FOREST_TRUST_INFORMATION) -> super::super::super::Foundation:: NTSTATUS);
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"] fn LsaQueryForestTrustInformation2(policyhandle : LSA_HANDLE, trusteddomainname : *const super::super::super::Foundation:: UNICODE_STRING, highestrecordtype : LSA_FOREST_TRUST_RECORD_TYPE, foresttrustinfo : *mut *mut LSA_FOREST_TRUST_INFORMATION2) -> super::super::super::Foundation:: NTSTATUS);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"] fn LsaQueryInformationPolicy(policyhandle : LSA_HANDLE, informationclass : POLICY_INFORMATION_CLASS, buffer : *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation:: NTSTATUS);
 #[cfg(feature = "Win32_Foundation")]
@@ -178,6 +180,8 @@
 ::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"] fn LsaSetDomainInformationPolicy(policyhandle : LSA_HANDLE, informationclass : POLICY_DOMAIN_INFORMATION_CLASS, buffer : *const ::core::ffi::c_void) -> super::super::super::Foundation:: NTSTATUS);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"] fn LsaSetForestTrustInformation(policyhandle : LSA_HANDLE, trusteddomainname : *const super::super::super::Foundation:: UNICODE_STRING, foresttrustinfo : *const LSA_FOREST_TRUST_INFORMATION, checkonly : super::super::super::Foundation:: BOOLEAN, collisioninfo : *mut *mut LSA_FOREST_TRUST_COLLISION_INFORMATION) -> super::super::super::Foundation:: NTSTATUS);
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"] fn LsaSetForestTrustInformation2(policyhandle : LSA_HANDLE, trusteddomainname : *const super::super::super::Foundation:: UNICODE_STRING, highestrecordtype : LSA_FOREST_TRUST_RECORD_TYPE, foresttrustinfo : *const LSA_FOREST_TRUST_INFORMATION2, checkonly : super::super::super::Foundation:: BOOLEAN, collisioninfo : *mut *mut LSA_FOREST_TRUST_COLLISION_INFORMATION) -> super::super::super::Foundation:: NTSTATUS);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"] fn LsaSetInformationPolicy(policyhandle : LSA_HANDLE, informationclass : POLICY_INFORMATION_CLASS, buffer : *const ::core::ffi::c_void) -> super::super::super::Foundation:: NTSTATUS);
 #[cfg(feature = "Win32_Foundation")]
@@ -286,6 +290,8 @@
 ::windows_targets::link!("secur32.dll" "system" #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"] fn SetCredentialsAttributesW(phcredential : *const super::super::Credentials:: SecHandle, ulattribute : u32, pbuffer : *const ::core::ffi::c_void, cbbuffer : u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("schannel.dll" "system" #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"] fn SslCrackCertificate(pbcertificate : *mut u8, cbcertificate : u32, dwflags : u32, ppcertificate : *mut *mut X509Certificate) -> super::super::super::Foundation:: BOOL);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+::windows_targets::link!("schannel.dll" "system" #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"] fn SslDeserializeCertificateStore(serializedcertificatestore : super::super::Cryptography:: CRYPT_INTEGER_BLOB, ppcertcontext : *mut *mut super::super::Cryptography:: CERT_CONTEXT) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("schannel.dll" "system" #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"] fn SslEmptyCacheA(psztargetname : ::windows_sys::core::PCSTR, dwflags : u32) -> super::super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
@@ -9888,14 +9894,7 @@ impl ::core::clone::Clone for X509Certificate {
         *self
     }
 }
-#[repr(C)]
-pub struct _HMAPPER(pub u8);
-impl ::core::marker::Copy for _HMAPPER {}
-impl ::core::clone::Clone for _HMAPPER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type _HMAPPER = isize;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type ACCEPT_SECURITY_CONTEXT_FN = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: *mut super::super::Credentials::SecHandle, param2: *mut SecBufferDesc, param3: u32, param4: u32, param5: *mut super::super::Credentials::SecHandle, param6: *mut SecBufferDesc, param7: *mut u32, param8: *mut i64) -> ::windows_sys::core::HRESULT>;

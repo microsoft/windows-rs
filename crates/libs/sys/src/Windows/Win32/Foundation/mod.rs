@@ -13600,21 +13600,23 @@ pub const STATUS_SEVERITY_WARNING: NTSTATUS_SEVERITY_CODE = 2u32;
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const STATUS_SEVERITY_ERROR: NTSTATUS_SEVERITY_CODE = 3u32;
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub type WAIT_EVENT = u32;
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WAIT_OBJECT_0: WAIT_EVENT = 0u32;
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WAIT_ABANDONED: WAIT_EVENT = 128u32;
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WAIT_ABANDONED_0: WAIT_EVENT = 128u32;
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WAIT_IO_COMPLETION: WAIT_EVENT = 192u32;
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WAIT_TIMEOUT: WAIT_EVENT = 258u32;
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WAIT_FAILED: WAIT_EVENT = 4294967295u32;
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub type WIN32_ERROR = u32;
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const NO_ERROR: WIN32_ERROR = 0u32;
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WAIT_OBJECT_0: WIN32_ERROR = 0u32;
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WAIT_ABANDONED: WIN32_ERROR = 128u32;
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WAIT_ABANDONED_0: WIN32_ERROR = 128u32;
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WAIT_IO_COMPLETION: WIN32_ERROR = 192u32;
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WAIT_TIMEOUT: WIN32_ERROR = 258u32;
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WAIT_FAILED: WIN32_ERROR = 4294967295u32;
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const ERROR_SUCCESS: WIN32_ERROR = 0u32;
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -20175,54 +20177,14 @@ impl ::core::clone::Clone for FLOAT128 {
 }
 pub type HANDLE = isize;
 pub type HANDLE_PTR = usize;
-pub type HGLOBAL = isize;
-pub type HLOCAL = isize;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub struct HLSURF__ {
-    pub unused: i32,
-}
-impl ::core::marker::Copy for HLSURF__ {}
-impl ::core::clone::Clone for HLSURF__ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HGLOBAL = *mut ::core::ffi::c_void;
+pub type HLOCAL = *mut ::core::ffi::c_void;
+pub type HLSURF = isize;
 pub type HMODULE = isize;
 pub type HRSRC = isize;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub struct HSPRITE__ {
-    pub unused: i32,
-}
-impl ::core::marker::Copy for HSPRITE__ {}
-impl ::core::clone::Clone for HSPRITE__ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub struct HSTR__ {
-    pub unused: i32,
-}
-impl ::core::marker::Copy for HSTR__ {}
-impl ::core::clone::Clone for HSTR__ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub struct HUMPD__ {
-    pub unused: i32,
-}
-impl ::core::marker::Copy for HUMPD__ {}
-impl ::core::clone::Clone for HUMPD__ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HSPRITE = isize;
+pub type HSTR = isize;
+pub type HUMPD = isize;
 pub type HWND = isize;
 pub type LPARAM = isize;
 pub type LRESULT = isize;
@@ -20239,6 +20201,22 @@ impl ::core::clone::Clone for LUID {
     }
 }
 pub type NTSTATUS = i32;
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub struct OBJECT_ATTRIBUTES {
+    pub Length: u32,
+    pub RootDirectory: HANDLE,
+    pub ObjectName: *mut UNICODE_STRING,
+    pub Attributes: u32,
+    pub SecurityDescriptor: *mut ::core::ffi::c_void,
+    pub SecurityQualityOfService: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for OBJECT_ATTRIBUTES {}
+impl ::core::clone::Clone for OBJECT_ATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub struct POINT {

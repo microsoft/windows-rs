@@ -293,7 +293,7 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("gdi32.dll" "system" #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"] fn D3DKMTSetVidPnSourceOwner2(param0 : *const D3DKMT_SETVIDPNSOURCEOWNER2) -> super::super::super::Win32::Foundation:: NTSTATUS);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdi32.dll" "system" #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"] fn D3DKMTShareObjects(cobjects : u32, hobjects : *const u32, pobjectattributes : *const OBJECT_ATTRIBUTES, dwdesiredaccess : u32, phsharednthandle : *mut super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
+::windows_targets::link!("gdi32.dll" "system" #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"] fn D3DKMTShareObjects(cobjects : u32, hobjects : *const u32, pobjectattributes : *const super::super::super::Win32::Foundation:: OBJECT_ATTRIBUTES, dwdesiredaccess : u32, phsharednthandle : *mut super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("gdi32.dll" "system" #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"] fn D3DKMTSharedPrimaryLockNotification(param0 : *const D3DKMT_SHAREDPRIMARYLOCKNOTIFICATION) -> super::super::super::Win32::Foundation:: NTSTATUS);
 #[cfg(feature = "Win32_Foundation")]
@@ -879,8 +879,6 @@ pub const D3DDDIFMT_DXVACOMPBUFFER_MAX: D3DDDIFORMAT = 181u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3DDDIFMT_BINARYBUFFER: D3DDDIFORMAT = 199u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_FORCE_UINT: D3DDDIFORMAT = 2147483647u32;
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub type D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE = i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3DDDIGPUVIRTUALADDRESS_RESERVE_NO_ACCESS: D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE = 0i32;
@@ -924,8 +922,6 @@ pub const D3DDDIMULTISAMPLE_14_SAMPLES: D3DDDIMULTISAMPLE_TYPE = 14i32;
 pub const D3DDDIMULTISAMPLE_15_SAMPLES: D3DDDIMULTISAMPLE_TYPE = 15i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3DDDIMULTISAMPLE_16_SAMPLES: D3DDDIMULTISAMPLE_TYPE = 16i32;
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIMULTISAMPLE_FORCE_UINT: D3DDDIMULTISAMPLE_TYPE = 2147483647i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub type D3DDDI_COLOR_SPACE_TYPE = i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
@@ -2485,8 +2481,6 @@ pub const DXGKMDT_OPM_DVI_CHARACTERISTIC_1_0: DXGKDT_OPM_DVI_CHARACTERISTICS = 1
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const DXGKMDT_OPM_DVI_CHARACTERISTIC_1_1_OR_ABOVE: DXGKDT_OPM_DVI_CHARACTERISTICS = 2i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_DVI_CHARACTERISTICS_FORCE_ULONG: DXGKDT_OPM_DVI_CHARACTERISTICS = -1i32;
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub type DXGKMDT_CERTIFICATE_TYPE = i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const DXGKMDT_OPM_CERTIFICATE: DXGKMDT_CERTIFICATE_TYPE = 0i32;
@@ -2497,8 +2491,6 @@ pub const DXGKMDT_UAB_CERTIFICATE: DXGKMDT_CERTIFICATE_TYPE = 2i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const DXGKMDT_INDIRECT_DISPLAY_CERTIFICATE: DXGKMDT_CERTIFICATE_TYPE = 3i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_FORCE_ULONG: DXGKMDT_CERTIFICATE_TYPE = -1i32;
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub type DXGKMDT_OPM_ACP_PROTECTION_LEVEL = i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const DXGKMDT_OPM_ACP_OFF: DXGKMDT_OPM_ACP_PROTECTION_LEVEL = 0i32;
@@ -2508,8 +2500,6 @@ pub const DXGKMDT_OPM_ACP_LEVEL_ONE: DXGKMDT_OPM_ACP_PROTECTION_LEVEL = 1i32;
 pub const DXGKMDT_OPM_ACP_LEVEL_TWO: DXGKMDT_OPM_ACP_PROTECTION_LEVEL = 2i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const DXGKMDT_OPM_ACP_LEVEL_THREE: DXGKMDT_OPM_ACP_PROTECTION_LEVEL = 3i32;
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_ACP_FORCE_ULONG: DXGKMDT_OPM_ACP_PROTECTION_LEVEL = 2147483647i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub type DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION = i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
@@ -2597,8 +2587,6 @@ pub const DXGKMDT_OPM_DPCP_OFF: DXGKMDT_OPM_DPCP_PROTECTION_LEVEL = 0i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const DXGKMDT_OPM_DPCP_ON: DXGKMDT_OPM_DPCP_PROTECTION_LEVEL = 1i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_DPCP_FORCE_ULONG: DXGKMDT_OPM_DPCP_PROTECTION_LEVEL = 2147483647i32;
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub type DXGKMDT_OPM_HDCP_FLAG = i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const DXGKMDT_OPM_HDCP_FLAG_NONE: DXGKMDT_OPM_HDCP_FLAG = 0i32;
@@ -2610,8 +2598,6 @@ pub type DXGKMDT_OPM_HDCP_PROTECTION_LEVEL = i32;
 pub const DXGKMDT_OPM_HDCP_OFF: DXGKMDT_OPM_HDCP_PROTECTION_LEVEL = 0i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const DXGKMDT_OPM_HDCP_ON: DXGKMDT_OPM_HDCP_PROTECTION_LEVEL = 1i32;
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_HDCP_FORCE_ULONG: DXGKMDT_OPM_HDCP_PROTECTION_LEVEL = 2147483647i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub type DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294 = i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
@@ -2631,8 +2617,6 @@ pub const DXGKMDT_OPM_ASPECT_RATIO_EN300294_FULL_FORMAT_4_BY_3_PROTECTED_CENTER:
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const DXGKMDT_OPM_ASPECT_RATIO_EN300294_FULL_FORMAT_16_BY_9_ANAMORPHIC: DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294 = 7i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_ASPECT_RATIO_FORCE_ULONG: DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294 = 2147483647i32;
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub type DXGKMDT_OPM_INTERLEAVE_FORMAT = i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const DXGKMDT_OPM_INTERLEAVE_FORMAT_OTHER: DXGKMDT_OPM_INTERLEAVE_FORMAT = 0i32;
@@ -2642,8 +2626,6 @@ pub const DXGKMDT_OPM_INTERLEAVE_FORMAT_PROGRESSIVE: DXGKMDT_OPM_INTERLEAVE_FORM
 pub const DXGKMDT_OPM_INTERLEAVE_FORMAT_INTERLEAVED_EVEN_FIRST: DXGKMDT_OPM_INTERLEAVE_FORMAT = 3i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const DXGKMDT_OPM_INTERLEAVE_FORMAT_INTERLEAVED_ODD_FIRST: DXGKMDT_OPM_INTERLEAVE_FORMAT = 4i32;
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_INTERLEAVE_FORMAT_FORCE_ULONG: DXGKMDT_OPM_INTERLEAVE_FORMAT = -1i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub type DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION = i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
@@ -2726,8 +2708,6 @@ pub const DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_OFF: DXGKMDT_OPM_TYPE_ENFORCEMENT_HD
 pub const DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_ON_WITH_NO_TYPE_RESTRICTION: DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL = 1i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_ON_WITH_TYPE1_RESTRICTION: DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL = 2i32;
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_FORCE_ULONG: DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL = 2147483647i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub type DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS = i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
@@ -3112,8 +3092,6 @@ pub const OUTPUTDUPL_CONTEXT_DEBUG_STATUS_INACTIVE: OUTPUTDUPL_CONTEXT_DEBUG_STA
 pub const OUTPUTDUPL_CONTEXT_DEBUG_STATUS_ACTIVE: OUTPUTDUPL_CONTEXT_DEBUG_STATUS = 1i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const OUTPUTDUPL_CONTEXT_DEBUG_STATUS_PENDING_DESTROY: OUTPUTDUPL_CONTEXT_DEBUG_STATUS = 2i32;
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const OUTPUTDUPL_CONTEXT_DEBUG_STATUS_FORCE_UINT32: OUTPUTDUPL_CONTEXT_DEBUG_STATUS = -1i32;
 #[repr(C)]
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4965,105 +4943,6 @@ pub struct D3DKMDT_GRAPHICS_RENDERING_FORMAT {
 }
 impl ::core::marker::Copy for D3DKMDT_GRAPHICS_RENDERING_FORMAT {}
 impl ::core::clone::Clone for D3DKMDT_GRAPHICS_RENDERING_FORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub struct D3DKMDT_HMONITORDESCRIPTORSET__ {
-    pub unused: i32,
-}
-impl ::core::marker::Copy for D3DKMDT_HMONITORDESCRIPTORSET__ {}
-impl ::core::clone::Clone for D3DKMDT_HMONITORDESCRIPTORSET__ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub struct D3DKMDT_HMONITORFREQUENCYRANGESET__ {
-    pub unused: i32,
-}
-impl ::core::marker::Copy for D3DKMDT_HMONITORFREQUENCYRANGESET__ {}
-impl ::core::clone::Clone for D3DKMDT_HMONITORFREQUENCYRANGESET__ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub struct D3DKMDT_HMONITORSOURCEMODESET__ {
-    pub unused: i32,
-}
-impl ::core::marker::Copy for D3DKMDT_HMONITORSOURCEMODESET__ {}
-impl ::core::clone::Clone for D3DKMDT_HMONITORSOURCEMODESET__ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub struct D3DKMDT_HVIDEOPRESENTSOURCESET__ {
-    pub unused: i32,
-}
-impl ::core::marker::Copy for D3DKMDT_HVIDEOPRESENTSOURCESET__ {}
-impl ::core::clone::Clone for D3DKMDT_HVIDEOPRESENTSOURCESET__ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub struct D3DKMDT_HVIDEOPRESENTTARGETSET__ {
-    pub unused: i32,
-}
-impl ::core::marker::Copy for D3DKMDT_HVIDEOPRESENTTARGETSET__ {}
-impl ::core::clone::Clone for D3DKMDT_HVIDEOPRESENTTARGETSET__ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub struct D3DKMDT_HVIDPNSOURCEMODESET__ {
-    pub unused: i32,
-}
-impl ::core::marker::Copy for D3DKMDT_HVIDPNSOURCEMODESET__ {}
-impl ::core::clone::Clone for D3DKMDT_HVIDPNSOURCEMODESET__ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub struct D3DKMDT_HVIDPNTARGETMODESET__ {
-    pub unused: i32,
-}
-impl ::core::marker::Copy for D3DKMDT_HVIDPNTARGETMODESET__ {}
-impl ::core::clone::Clone for D3DKMDT_HVIDPNTARGETMODESET__ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub struct D3DKMDT_HVIDPNTOPOLOGY__ {
-    pub unused: i32,
-}
-impl ::core::marker::Copy for D3DKMDT_HVIDPNTOPOLOGY__ {}
-impl ::core::clone::Clone for D3DKMDT_HVIDPNTOPOLOGY__ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub struct D3DKMDT_HVIDPN__ {
-    pub unused: i32,
-}
-impl ::core::marker::Copy for D3DKMDT_HVIDPN__ {}
-impl ::core::clone::Clone for D3DKMDT_HVIDPN__ {
     fn clone(&self) -> Self {
         *self
     }
@@ -8948,7 +8827,7 @@ impl ::core::clone::Clone for D3DKMT_OPENNATIVEFENCEFROMNTHANDLE {
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_OPENNTHANDLEFROMNAME {
     pub dwDesiredAccess: u32,
-    pub pObjAttrib: *mut OBJECT_ATTRIBUTES,
+    pub pObjAttrib: *mut super::super::super::Win32::Foundation::OBJECT_ATTRIBUTES,
     pub hNtHandle: super::super::super::Win32::Foundation::HANDLE,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9117,7 +8996,7 @@ impl ::core::clone::Clone for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME {
     pub dwDesiredAccess: u32,
-    pub pObjAttrib: *mut OBJECT_ATTRIBUTES,
+    pub pObjAttrib: *mut super::super::super::Win32::Foundation::OBJECT_ATTRIBUTES,
     pub hNtHandle: super::super::super::Win32::Foundation::HANDLE,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14247,14 +14126,6 @@ impl ::core::clone::Clone for GPUP_DRIVER_ESCAPE_INPUT {
     }
 }
 #[repr(C)]
-pub struct OBJECT_ATTRIBUTES(pub u8);
-impl ::core::marker::Copy for OBJECT_ATTRIBUTES {}
-impl ::core::clone::Clone for OBJECT_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OUTPUTDUPL_CONTEXT_DEBUG_INFO {
@@ -14756,7 +14627,7 @@ pub type PFND3DKMT_SHAREDPRIMARYLOCKNOTIFICATION = ::core::option::Option<unsafe
 pub type PFND3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFND3DKMT_SHAREOBJECTS = ::core::option::Option<unsafe extern "system" fn(cobjects: u32, hobjects: *const u32, pobjectattributes: *const OBJECT_ATTRIBUTES, dwdesiredaccess: u32, phsharednthandle: *mut super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SHAREOBJECTS = ::core::option::Option<unsafe extern "system" fn(cobjects: u32, hobjects: *const u32, pobjectattributes: *const super::super::super::Win32::Foundation::OBJECT_ATTRIBUTES, dwdesiredaccess: u32, phsharednthandle: *mut super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECT = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation::NTSTATUS>;

@@ -166,30 +166,6 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("advpack.dll" "system" #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"] fn NeedReboot(dwrebootcheck : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("advpack.dll" "system" #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"] fn NeedRebootInit() -> u32);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdll.dll" "system" #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"] fn NtClose(handle : super::super::Foundation:: HANDLE) -> super::super::Foundation:: NTSTATUS);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdll.dll" "system" #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"] fn NtDeviceIoControlFile(filehandle : super::super::Foundation:: HANDLE, event : super::super::Foundation:: HANDLE, apcroutine : PIO_APC_ROUTINE, apccontext : *mut ::core::ffi::c_void, iostatusblock : *mut IO_STATUS_BLOCK, iocontrolcode : u32, inputbuffer : *mut ::core::ffi::c_void, inputbufferlength : u32, outputbuffer : *mut ::core::ffi::c_void, outputbufferlength : u32) -> super::super::Foundation:: NTSTATUS);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdll.dll" "system" #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"] fn NtNotifyChangeMultipleKeys(masterkeyhandle : super::super::Foundation:: HANDLE, count : u32, subordinateobjects : *const OBJECT_ATTRIBUTES, event : super::super::Foundation:: HANDLE, apcroutine : PIO_APC_ROUTINE, apccontext : *const ::core::ffi::c_void, iostatusblock : *mut IO_STATUS_BLOCK, completionfilter : u32, watchtree : super::super::Foundation:: BOOLEAN, buffer : *mut ::core::ffi::c_void, buffersize : u32, asynchronous : super::super::Foundation:: BOOLEAN) -> super::super::Foundation:: NTSTATUS);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdll.dll" "system" #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"] fn NtOpenFile(filehandle : *mut super::super::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *mut OBJECT_ATTRIBUTES, iostatusblock : *mut IO_STATUS_BLOCK, shareaccess : u32, openoptions : u32) -> super::super::Foundation:: NTSTATUS);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdll.dll" "system" #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"] fn NtQueryMultipleValueKey(keyhandle : super::super::Foundation:: HANDLE, valueentries : *mut KEY_VALUE_ENTRY, entrycount : u32, valuebuffer : *mut ::core::ffi::c_void, bufferlength : *mut u32, requiredbufferlength : *mut u32) -> super::super::Foundation:: NTSTATUS);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdll.dll" "system" #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"] fn NtQueryObject(handle : super::super::Foundation:: HANDLE, objectinformationclass : OBJECT_INFORMATION_CLASS, objectinformation : *mut ::core::ffi::c_void, objectinformationlength : u32, returnlength : *mut u32) -> super::super::Foundation:: NTSTATUS);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdll.dll" "system" #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"] fn NtQuerySystemInformation(systeminformationclass : SYSTEM_INFORMATION_CLASS, systeminformation : *mut ::core::ffi::c_void, systeminformationlength : u32, returnlength : *mut u32) -> super::super::Foundation:: NTSTATUS);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdll.dll" "system" #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"] fn NtQuerySystemTime(systemtime : *mut i64) -> super::super::Foundation:: NTSTATUS);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdll.dll" "system" #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"] fn NtQueryTimerResolution(maximumtime : *mut u32, minimumtime : *mut u32, currenttime : *mut u32) -> super::super::Foundation:: NTSTATUS);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdll.dll" "system" #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"] fn NtRenameKey(keyhandle : super::super::Foundation:: HANDLE, newname : *const super::super::Foundation:: UNICODE_STRING) -> super::super::Foundation:: NTSTATUS);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdll.dll" "system" #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"] fn NtSetInformationKey(keyhandle : super::super::Foundation:: HANDLE, keysetinformationclass : KEY_SET_INFORMATION_CLASS, keysetinformation : *const ::core::ffi::c_void, keysetinformationlength : u32) -> super::super::Foundation:: NTSTATUS);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdll.dll" "system" #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"] fn NtWaitForSingleObject(handle : super::super::Foundation:: HANDLE, alertable : super::super::Foundation:: BOOLEAN, timeout : *mut i64) -> super::super::Foundation:: NTSTATUS);
 ::windows_targets::link!("advpack.dll" "system" #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"] fn OpenINFEngineA(pszinffilename : ::windows_sys::core::PCSTR, pszinstallsection : ::windows_sys::core::PCSTR, dwflags : u32, phinf : *mut *mut ::core::ffi::c_void, pvreserved : *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("advpack.dll" "system" #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"] fn OpenINFEngineW(pszinffilename : ::windows_sys::core::PCWSTR, pszinstallsection : ::windows_sys::core::PCWSTR, dwflags : u32, phinf : *mut *mut ::core::ffi::c_void, pvreserved : *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
@@ -299,8 +275,6 @@
 ::windows_targets::link!("advpack.dll" "system" #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"] fn SetPerUserSecValuesA(pperuser : *mut PERUSERSECTIONA) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("advpack.dll" "system" #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"] fn SetPerUserSecValuesW(pperuser : *mut PERUSERSECTIONW) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"] fn SignalObjectAndWait(hobjecttosignal : super::super::Foundation:: HANDLE, hobjecttowaiton : super::super::Foundation:: HANDLE, dwmilliseconds : u32, balertable : super::super::Foundation:: BOOL) -> super::super::Foundation:: WIN32_ERROR);
 ::windows_targets::link!("api-ms-win-core-featurestaging-l1-1-0.dll" "system" #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"] fn SubscribeFeatureStateChangeNotification(subscription : *mut FEATURE_STATE_CHANGE_SUBSCRIPTION, callback : PFEATURE_STATE_CHANGE_CALLBACK, context : *const ::core::ffi::c_void) -> ());
 ::windows_targets::link!("advpack.dll" "system" #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"] fn TranslateInfStringA(pszinffilename : ::windows_sys::core::PCSTR, pszinstallsection : ::windows_sys::core::PCSTR, psztranslatesection : ::windows_sys::core::PCSTR, psztranslatekey : ::windows_sys::core::PCSTR, pszbuffer : ::windows_sys::core::PSTR, cchbuffer : u32, pdwrequiredsize : *mut u32, pvreserved : *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("advpack.dll" "system" #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"] fn TranslateInfStringExA(hinf : *mut ::core::ffi::c_void, pszinffilename : ::windows_sys::core::PCSTR, psztranslatesection : ::windows_sys::core::PCSTR, psztranslatekey : ::windows_sys::core::PCSTR, pszbuffer : ::windows_sys::core::PSTR, dwbuffersize : u32, pdwrequiredsize : *mut u32, pvreserved : *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
@@ -330,6 +304,11 @@
 ::windows_targets::link!("dciman32.dll" "system" #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"] fn WinWatchNotify(hww : HWINWATCH, notifycallback : WINWATCHNOTIFYPROC, notifyparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("dciman32.dll" "system" #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"] fn WinWatchOpen(hwnd : super::super::Foundation:: HWND) -> HWINWATCH);
+::windows_targets::link!("wldp.dll" "system" #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"] fn WldpCanExecuteBuffer(host : *const ::windows_sys::core::GUID, options : WLDP_EXECUTION_EVALUATION_OPTIONS, buffer : *const u8, buffersize : u32, auditinfo : ::windows_sys::core::PCWSTR, result : *mut WLDP_EXECUTION_POLICY) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("wldp.dll" "system" #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"] fn WldpCanExecuteFile(host : *const ::windows_sys::core::GUID, options : WLDP_EXECUTION_EVALUATION_OPTIONS, filehandle : super::super::Foundation:: HANDLE, auditinfo : ::windows_sys::core::PCWSTR, result : *mut WLDP_EXECUTION_POLICY) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
+::windows_targets::link!("wldp.dll" "system" #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_System_Com\"`*"] fn WldpCanExecuteStream(host : *const ::windows_sys::core::GUID, options : WLDP_EXECUTION_EVALUATION_OPTIONS, stream : super::Com:: IStream, auditinfo : ::windows_sys::core::PCWSTR, result : *mut WLDP_EXECUTION_POLICY) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("wldp.dll" "system" #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"] fn WldpGetLockdownPolicy(hostinformation : *const WLDP_HOST_INFORMATION, lockdownstate : *mut u32, lockdownflags : u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
@@ -1752,71 +1731,9 @@ pub const FEATURE_ENABLED_STATE_DISABLED: FEATURE_ENABLED_STATE = 1i32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const FEATURE_ENABLED_STATE_ENABLED: FEATURE_ENABLED_STATE = 2i32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub type FILE_FLUSH_MODE = i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_FLUSH_DEFAULT: FILE_FLUSH_MODE = 0i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_FLUSH_DATA: FILE_FLUSH_MODE = 1i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_FLUSH_MIN_METADATA: FILE_FLUSH_MODE = 2i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_FLUSH_NO_SYNC: FILE_FLUSH_MODE = 3i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub type FILE_INFORMATION_CLASS = i32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const FileDirectoryInformation: FILE_INFORMATION_CLASS = 1i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub type FILE_WRITE_FLAGS = i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_WRITE_FLAGS_NONE: FILE_WRITE_FLAGS = 0i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_WRITE_FLAGS_WRITE_THROUGH: FILE_WRITE_FLAGS = 1i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub type KEY_SET_INFORMATION_CLASS = i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const KeyWriteTimeInformation: KEY_SET_INFORMATION_CLASS = 0i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const KeyWow64FlagsInformation: KEY_SET_INFORMATION_CLASS = 1i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const KeyControlFlagsInformation: KEY_SET_INFORMATION_CLASS = 2i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const KeySetVirtualizationInformation: KEY_SET_INFORMATION_CLASS = 3i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const KeySetDebugInformation: KEY_SET_INFORMATION_CLASS = 4i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const KeySetHandleTagsInformation: KEY_SET_INFORMATION_CLASS = 5i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const MaxKeySetInfoClass: KEY_SET_INFORMATION_CLASS = 6i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub type OBJECT_INFORMATION_CLASS = i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const ObjectBasicInformation: OBJECT_INFORMATION_CLASS = 0i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const ObjectTypeInformation: OBJECT_INFORMATION_CLASS = 2i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub type SYSTEM_INFORMATION_CLASS = i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const SystemBasicInformation: SYSTEM_INFORMATION_CLASS = 0i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const SystemPerformanceInformation: SYSTEM_INFORMATION_CLASS = 2i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const SystemTimeOfDayInformation: SYSTEM_INFORMATION_CLASS = 3i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const SystemProcessInformation: SYSTEM_INFORMATION_CLASS = 5i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const SystemProcessorPerformanceInformation: SYSTEM_INFORMATION_CLASS = 8i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const SystemInterruptInformation: SYSTEM_INFORMATION_CLASS = 23i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const SystemExceptionInformation: SYSTEM_INFORMATION_CLASS = 33i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const SystemRegistryQuotaInformation: SYSTEM_INFORMATION_CLASS = 37i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const SystemLookasideInformation: SYSTEM_INFORMATION_CLASS = 45i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const SystemCodeIntegrityInformation: SYSTEM_INFORMATION_CLASS = 103i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const SystemPolicyInformation: SYSTEM_INFORMATION_CLASS = 134i32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub type TDIENTITY_ENTITY_TYPE = u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -2445,36 +2362,6 @@ impl ::core::clone::Clone for IMESTRUCT {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub struct IO_STATUS_BLOCK {
-    pub Anonymous: IO_STATUS_BLOCK_0,
-    pub Information: usize,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for IO_STATUS_BLOCK {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for IO_STATUS_BLOCK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub union IO_STATUS_BLOCK_0 {
-    pub Status: super::super::Foundation::NTSTATUS,
-    pub Pointer: *mut ::core::ffi::c_void,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for IO_STATUS_BLOCK_0 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for IO_STATUS_BLOCK_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct JAVA_TRUST {
     pub cbSize: u32,
     pub flag: u32,
@@ -2515,23 +2402,6 @@ impl ::core::clone::Clone for JIT_DEBUG_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct KEY_VALUE_ENTRY {
-    pub ValueName: *mut super::super::Foundation::UNICODE_STRING,
-    pub DataLength: u32,
-    pub DataOffset: u32,
-    pub Type: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for KEY_VALUE_ENTRY {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for KEY_VALUE_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct LDR_DATA_TABLE_ENTRY {
@@ -2565,25 +2435,6 @@ pub union LDR_DATA_TABLE_ENTRY_0 {
 impl ::core::marker::Copy for LDR_DATA_TABLE_ENTRY_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::clone::Clone for LDR_DATA_TABLE_ENTRY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct OBJECT_ATTRIBUTES {
-    pub Length: u32,
-    pub RootDirectory: super::super::Foundation::HANDLE,
-    pub ObjectName: *mut super::super::Foundation::UNICODE_STRING,
-    pub Attributes: u32,
-    pub SecurityDescriptor: *mut ::core::ffi::c_void,
-    pub SecurityQualityOfService: *mut ::core::ffi::c_void,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for OBJECT_ATTRIBUTES {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for OBJECT_ATTRIBUTES {
     fn clone(&self) -> Self {
         *self
     }
@@ -3090,22 +2941,6 @@ impl ::core::clone::Clone for WLDP_HOST_INFORMATION {
         *self
     }
 }
-#[repr(C)]
-pub struct _D3DHAL_CALLBACKS(pub u8);
-impl ::core::marker::Copy for _D3DHAL_CALLBACKS {}
-impl ::core::clone::Clone for _D3DHAL_CALLBACKS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct _D3DHAL_GLOBALDRIVERDATA(pub u8);
-impl ::core::marker::Copy for _D3DHAL_GLOBALDRIVERDATA {}
-impl ::core::clone::Clone for _D3DHAL_GLOBALDRIVERDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub type APPLICATION_RECOVERY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pvparameter: *mut ::core::ffi::c_void) -> u32>;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -3116,9 +2951,6 @@ pub type PDELAYLOAD_FAILURE_DLL_CALLBACK = ::core::option::Option<unsafe extern 
 pub type PFEATURE_STATE_CHANGE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void) -> ()>;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub type PFIBER_CALLOUT_ROUTINE = ::core::option::Option<unsafe extern "system" fn(lpparameter: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void>;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type PIO_APC_ROUTINE = ::core::option::Option<unsafe extern "system" fn(apccontext: *mut ::core::ffi::c_void, iostatusblock: *mut IO_STATUS_BLOCK, reserved: u32) -> ()>;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PQUERYACTCTXW_FUNC = ::core::option::Option<unsafe extern "system" fn(dwflags: u32, hactctx: super::super::Foundation::HANDLE, pvsubinstance: *const ::core::ffi::c_void, ulinfoclass: u32, pvbuffer: *mut ::core::ffi::c_void, cbbuffer: usize, pcbwrittenorrequired: *mut usize) -> super::super::Foundation::BOOL>;

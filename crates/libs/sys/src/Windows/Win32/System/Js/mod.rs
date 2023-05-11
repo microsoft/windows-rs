@@ -93,10 +93,10 @@
 ::windows_targets::link!("chakra.dll" "system" #[doc = "*Required features: `\"Win32_System_Js\"`*"] fn JsStopProfiling(reason : ::windows_sys::core::HRESULT) -> JsErrorCode);
 ::windows_targets::link!("chakra.dll" "system" #[doc = "*Required features: `\"Win32_System_Js\"`*"] fn JsStrictEquals(object1 : *const ::core::ffi::c_void, object2 : *const ::core::ffi::c_void, result : *mut bool) -> JsErrorCode);
 ::windows_targets::link!("chakra.dll" "system" #[doc = "*Required features: `\"Win32_System_Js\"`*"] fn JsStringToPointer(value : *const ::core::ffi::c_void, stringvalue : *mut *mut u16, stringlength : *mut usize) -> JsErrorCode);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-::windows_targets::link!("chakra.dll" "system" #[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"] fn JsValueToVariant(object : *const ::core::ffi::c_void, variant : *mut super::Com:: VARIANT) -> JsErrorCode);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-::windows_targets::link!("chakra.dll" "system" #[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"] fn JsVariantToValue(variant : *const super::Com:: VARIANT, value : *mut *mut ::core::ffi::c_void) -> JsErrorCode);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+::windows_targets::link!("chakra.dll" "system" #[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"] fn JsValueToVariant(object : *const ::core::ffi::c_void, variant : *mut super::Variant:: VARIANT) -> JsErrorCode);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+::windows_targets::link!("chakra.dll" "system" #[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"] fn JsVariantToValue(variant : *const super::Variant:: VARIANT, value : *mut *mut ::core::ffi::c_void) -> JsErrorCode);
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JS_SOURCE_CONTEXT_NONE: u64 = 18446744073709551615u64;
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]

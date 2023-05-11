@@ -5,7 +5,7 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("cabinet.dll" "system" #[doc = "*Required features: `\"Win32_Storage_Compression\"`, `\"Win32_Foundation\"`*"] fn Compress(compressorhandle : COMPRESSOR_HANDLE, uncompresseddata : *const ::core::ffi::c_void, uncompresseddatasize : usize, compressedbuffer : *mut ::core::ffi::c_void, compressedbuffersize : usize, compresseddatasize : *mut usize) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("cabinet.dll" "system" #[doc = "*Required features: `\"Win32_Storage_Compression\"`, `\"Win32_Foundation\"`*"] fn CreateCompressor(algorithm : COMPRESS_ALGORITHM, allocationroutines : *const COMPRESS_ALLOCATION_ROUTINES, compressorhandle : *mut isize) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("cabinet.dll" "system" #[doc = "*Required features: `\"Win32_Storage_Compression\"`, `\"Win32_Foundation\"`*"] fn CreateCompressor(algorithm : COMPRESS_ALGORITHM, allocationroutines : *const COMPRESS_ALLOCATION_ROUTINES, compressorhandle : *mut COMPRESSOR_HANDLE) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("cabinet.dll" "system" #[doc = "*Required features: `\"Win32_Storage_Compression\"`, `\"Win32_Foundation\"`*"] fn CreateDecompressor(algorithm : COMPRESS_ALGORITHM, allocationroutines : *const COMPRESS_ALLOCATION_ROUTINES, decompressorhandle : *mut isize) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]

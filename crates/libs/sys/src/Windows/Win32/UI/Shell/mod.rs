@@ -3,8 +3,8 @@ pub mod PropertiesSystem;
 ::windows_targets::link!("shlwapi.dll" "system" #[doc = "*Required features: `\"Win32_UI_Shell\"`*"] fn AssocCreate(clsid : ::windows_sys::core::GUID, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Registry")]
 ::windows_targets::link!("shell32.dll" "system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Registry\"`*"] fn AssocCreateForClasses(rgclasses : *const ASSOCIATIONELEMENT, cclasses : u32, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_UI_Shell_Common\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"] fn AssocGetDetailsOfPropKey(psf : IShellFolder, pidl : *const Common:: ITEMIDLIST, pkey : *const PropertiesSystem:: PROPERTYKEY, pv : *mut super::super::System::Com:: VARIANT, pffoundpropkey : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
+::windows_targets::link!("shell32.dll" "system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_Common\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"] fn AssocGetDetailsOfPropKey(psf : IShellFolder, pidl : *const Common:: ITEMIDLIST, pkey : *const PropertiesSystem:: PROPERTYKEY, pv : *mut super::super::System::Variant:: VARIANT, pffoundpropkey : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
 ::windows_targets::link!("shlwapi.dll" "system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_Shell_Common\"`*"] fn AssocGetPerceivedType(pszext : ::windows_sys::core::PCWSTR, ptype : *mut Common:: PERCEIVED, pflag : *mut u32, ppsztype : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
@@ -245,6 +245,10 @@ pub mod PropertiesSystem;
 ::windows_targets::link!("shdocvw.dll" "system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"] fn ImportPrivacySettings(pszfilename : ::windows_sys::core::PCWSTR, pfparseprivacypreferences : *mut super::super::Foundation:: BOOL, pfparsepersiterules : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("shell32.dll" "system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"] fn InitNetworkAddressControl() -> super::super::Foundation:: BOOL);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_Common"))]
+::windows_targets::link!("propsys.dll" "system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_Common\"`*"] fn InitPropVariantFromStrRet(pstrret : *mut Common:: STRRET, pidl : *const Common:: ITEMIDLIST, ppropvar : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_Common"))]
+::windows_targets::link!("propsys.dll" "system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_Common\"`*"] fn InitVariantFromStrRet(pstrret : *const Common:: STRRET, pidl : *const Common:: ITEMIDLIST, pvar : *mut super::super::System::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("shlwapi.dll" "system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"] fn IntlStrEqWorkerA(fcasesens : super::super::Foundation:: BOOL, lpstring1 : ::windows_sys::core::PCSTR, lpstring2 : ::windows_sys::core::PCSTR, nchar : i32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
@@ -497,15 +501,17 @@ pub mod PropertiesSystem;
 ::windows_targets::link!("shell32.dll" "system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"] fn PathYetAnotherMakeUniqueName(pszuniquename : ::windows_sys::core::PWSTR, pszpath : ::windows_sys::core::PCWSTR, pszshort : ::windows_sys::core::PCWSTR, pszfilespec : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("shell32.dll" "system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"] fn PickIconDlg(hwnd : super::super::Foundation:: HWND, psziconpath : ::windows_sys::core::PWSTR, cchiconpath : u32, piiconindex : *mut i32) -> i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_Common"))]
+::windows_targets::link!("propsys.dll" "system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_Common\"`*"] fn PropVariantToStrRet(propvar : *const super::super::System::Com::StructuredStorage:: PROPVARIANT, pstrret : *mut Common:: STRRET) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shlwapi.dll" "system" #[doc = "*Required features: `\"Win32_UI_Shell\"`*"] fn QISearch(that : *mut ::core::ffi::c_void, pqit : *const QITAB, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("shell32.dll" "system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"] fn ReadCabinetState(pcs : *mut CABINETSTATE, clength : i32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("shell32.dll" "system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"] fn RealDriveType(idrive : i32, foktohitnet : super::super::Foundation:: BOOL) -> i32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("api-ms-win-core-psm-appnotify-l1-1-1.dll" "system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"] fn RegisterAppConstrainedChangeNotification(routine : PAPPCONSTRAIN_CHANGE_ROUTINE, context : *const ::core::ffi::c_void, registration : *mut *mut _APPCONSTRAIN_REGISTRATION) -> u32);
+::windows_targets::link!("api-ms-win-core-psm-appnotify-l1-1-1.dll" "system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"] fn RegisterAppConstrainedChangeNotification(routine : PAPPCONSTRAIN_CHANGE_ROUTINE, context : *const ::core::ffi::c_void, registration : *mut PAPPCONSTRAIN_REGISTRATION) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("api-ms-win-core-psm-appnotify-l1-1-0.dll" "system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"] fn RegisterAppStateChangeNotification(routine : PAPPSTATE_CHANGE_ROUTINE, context : *const ::core::ffi::c_void, registration : *mut *mut _APPSTATE_REGISTRATION) -> u32);
+::windows_targets::link!("api-ms-win-core-psm-appnotify-l1-1-0.dll" "system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"] fn RegisterAppStateChangeNotification(routine : PAPPSTATE_CHANGE_ROUTINE, context : *const ::core::ffi::c_void, registration : *mut PAPPSTATE_REGISTRATION) -> u32);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("api-ms-win-shcore-scaling-l1-1-1.dll" "system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"] fn RegisterScaleChangeEvent(hevent : super::super::Foundation:: HANDLE, pdwcookie : *mut usize) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
@@ -745,8 +751,8 @@ pub mod PropertiesSystem;
 ::windows_targets::link!("shell32.dll" "system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"] fn SHGetSpecialFolderPathW(hwnd : super::super::Foundation:: HWND, pszpath : ::windows_sys::core::PWSTR, csidl : i32, fcreate : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 ::windows_targets::link!("shell32.dll" "system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn SHGetStockIconInfo(siid : SHSTOCKICONID, uflags : SHGSI_FLAGS, psii : *mut SHSTOCKICONINFO) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"] fn SHGetTemporaryPropertyForItem(psi : IShellItem, propkey : *const PropertiesSystem:: PROPERTYKEY, ppropvar : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
+::windows_targets::link!("shell32.dll" "system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"] fn SHGetTemporaryPropertyForItem(psi : IShellItem, propkey : *const PropertiesSystem:: PROPERTYKEY, ppropvar : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shlwapi.dll" "system" #[doc = "*Required features: `\"Win32_UI_Shell\"`*"] fn SHGetThreadRef(ppunk : *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 ::windows_targets::link!("shell32.dll" "system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"] fn SHGetUnreadMailCountW(hkeyuser : super::super::System::Registry:: HKEY, pszmailaddress : ::windows_sys::core::PCWSTR, pdwcount : *mut u32, pfiletime : *mut super::super::Foundation:: FILETIME, pszshellexecutecommand : ::windows_sys::core::PWSTR, cchshellexecutecommand : i32) -> ::windows_sys::core::HRESULT);
@@ -906,8 +912,8 @@ pub mod PropertiesSystem;
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("shell32.dll" "system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"] fn SHSetKnownFolderPath(rfid : *const ::windows_sys::core::GUID, dwflags : u32, htoken : super::super::Foundation:: HANDLE, pszpath : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shell32.dll" "system" #[doc = "*Required features: `\"Win32_UI_Shell\"`*"] fn SHSetLocalizedName(pszpath : ::windows_sys::core::PCWSTR, pszresmodule : ::windows_sys::core::PCWSTR, idsres : i32) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"] fn SHSetTemporaryPropertyForItem(psi : IShellItem, propkey : *const PropertiesSystem:: PROPERTYKEY, propvar : *const super::super::System::Com::StructuredStorage:: PROPVARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
+::windows_targets::link!("shell32.dll" "system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"] fn SHSetTemporaryPropertyForItem(psi : IShellItem, propkey : *const PropertiesSystem:: PROPERTYKEY, propvar : *const super::super::System::Com::StructuredStorage:: PROPVARIANT) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shlwapi.dll" "system" #[doc = "*Required features: `\"Win32_UI_Shell\"`*"] fn SHSetThreadRef(punk : ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shell32.dll" "system" #[doc = "*Required features: `\"Win32_UI_Shell\"`*"] fn SHSetUnreadMailCountW(pszmailaddress : ::windows_sys::core::PCWSTR, dwcount : u32, pszshellexecutecommand : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Registry")]
@@ -1069,8 +1075,8 @@ pub mod PropertiesSystem;
 ::windows_targets::link!("shlwapi.dll" "system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"] fn StrTrimW(psz : ::windows_sys::core::PWSTR, psztrimchars : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("userenv.dll" "system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"] fn UnloadUserProfile(htoken : super::super::Foundation:: HANDLE, hprofile : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("api-ms-win-core-psm-appnotify-l1-1-1.dll" "system" #[doc = "*Required features: `\"Win32_UI_Shell\"`*"] fn UnregisterAppConstrainedChangeNotification(registration : *mut _APPCONSTRAIN_REGISTRATION) -> ());
-::windows_targets::link!("api-ms-win-core-psm-appnotify-l1-1-0.dll" "system" #[doc = "*Required features: `\"Win32_UI_Shell\"`*"] fn UnregisterAppStateChangeNotification(registration : *mut _APPSTATE_REGISTRATION) -> ());
+::windows_targets::link!("api-ms-win-core-psm-appnotify-l1-1-1.dll" "system" #[doc = "*Required features: `\"Win32_UI_Shell\"`*"] fn UnregisterAppConstrainedChangeNotification(registration : PAPPCONSTRAIN_REGISTRATION) -> ());
+::windows_targets::link!("api-ms-win-core-psm-appnotify-l1-1-0.dll" "system" #[doc = "*Required features: `\"Win32_UI_Shell\"`*"] fn UnregisterAppStateChangeNotification(registration : PAPPSTATE_REGISTRATION) -> ());
 ::windows_targets::link!("api-ms-win-shcore-scaling-l1-1-1.dll" "system" #[doc = "*Required features: `\"Win32_UI_Shell\"`*"] fn UnregisterScaleChangeEvent(dwcookie : usize) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shlwapi.dll" "system" #[doc = "*Required features: `\"Win32_UI_Shell\"`*"] fn UrlApplySchemeA(pszin : ::windows_sys::core::PCSTR, pszout : ::windows_sys::core::PSTR, pcchout : *mut u32, dwflags : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shlwapi.dll" "system" #[doc = "*Required features: `\"Win32_UI_Shell\"`*"] fn UrlApplySchemeW(pszin : ::windows_sys::core::PCWSTR, pszout : ::windows_sys::core::PWSTR, pcchout : *mut u32, dwflags : u32) -> ::windows_sys::core::HRESULT);
@@ -1107,6 +1113,8 @@ pub mod PropertiesSystem;
 ::windows_targets::link!("shlwapi.dll" "system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"] fn UrlIsW(pszurl : ::windows_sys::core::PCWSTR, urlis : URLIS) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("shlwapi.dll" "system" #[doc = "*Required features: `\"Win32_UI_Shell\"`*"] fn UrlUnescapeA(pszurl : ::windows_sys::core::PSTR, pszunescaped : ::windows_sys::core::PSTR, pcchunescaped : *mut u32, dwflags : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shlwapi.dll" "system" #[doc = "*Required features: `\"Win32_UI_Shell\"`*"] fn UrlUnescapeW(pszurl : ::windows_sys::core::PWSTR, pszunescaped : ::windows_sys::core::PWSTR, pcchunescaped : *mut u32, dwflags : u32) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_Common"))]
+::windows_targets::link!("propsys.dll" "system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_Common\"`*"] fn VariantToStrRet(varin : *const super::super::System::Variant:: VARIANT, pstrret : *mut Common:: STRRET) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shlwapi.dll" "system" #[doc = "*Required features: `\"Win32_UI_Shell\"`*"] fn WhichPlatform() -> u32);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("shell32.dll" "system" #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"] fn Win32DeleteFile(pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
@@ -10886,22 +10894,17 @@ impl ::core::clone::Clone for MULTIKEYHELPW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+#[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(all(feature = "Win32_NetworkManagement_IpHelper", feature = "Win32_Networking_WinSock"))]
 pub struct NC_ADDRESS {
-    pub pAddrInfo: *mut NC_ADDRESS_0,
+    pub pAddrInfo: *mut super::super::NetworkManagement::IpHelper::NET_ADDRESS_INFO,
     pub PortNumber: u16,
     pub PrefixLength: u8,
 }
+#[cfg(all(feature = "Win32_NetworkManagement_IpHelper", feature = "Win32_Networking_WinSock"))]
 impl ::core::marker::Copy for NC_ADDRESS {}
+#[cfg(all(feature = "Win32_NetworkManagement_IpHelper", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for NC_ADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct NC_ADDRESS_0(pub u8);
-impl ::core::marker::Copy for NC_ADDRESS_0 {}
-impl ::core::clone::Clone for NC_ADDRESS_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -11363,6 +11366,8 @@ impl ::core::clone::Clone for OPEN_PRINTER_PROPS_INFOW {
         *self
     }
 }
+pub type PAPPCONSTRAIN_REGISTRATION = isize;
+pub type PAPPSTATE_REGISTRATION = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub struct PARSEDURLA {
@@ -11659,20 +11664,20 @@ impl ::core::clone::Clone for SHCOLUMNDATA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Com\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(all(feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub struct SHCOLUMNINFO {
     pub scid: PropertiesSystem::PROPERTYKEY,
-    pub vt: super::super::System::Com::VARENUM,
+    pub vt: super::super::System::Variant::VARENUM,
     pub fmt: u32,
     pub cChars: u32,
     pub csFlags: u32,
     pub wszTitle: [u16; 80],
     pub wszDescription: [u16; 128],
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[cfg(all(feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ::core::marker::Copy for SHCOLUMNINFO {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[cfg(all(feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ::core::clone::Clone for SHCOLUMNINFO {
     fn clone(&self) -> Self {
         *self
@@ -12629,7 +12634,17 @@ impl ::core::clone::Clone for SYNCMGR_CONFLICT_ID_INFO {
         *self
     }
 }
-pub type ShFindChangeNotificationHandle = isize;
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub struct ShFindChangeNotificationHandle {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for ShFindChangeNotificationHandle {}
+impl ::core::clone::Clone for ShFindChangeNotificationHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub struct TBINFO {
@@ -12739,22 +12754,6 @@ pub struct WTS_THUMBNAILID {
 }
 impl ::core::marker::Copy for WTS_THUMBNAILID {}
 impl ::core::clone::Clone for WTS_THUMBNAILID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct _APPCONSTRAIN_REGISTRATION(pub u8);
-impl ::core::marker::Copy for _APPCONSTRAIN_REGISTRATION {}
-impl ::core::clone::Clone for _APPCONSTRAIN_REGISTRATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct _APPSTATE_REGISTRATION(pub u8);
-impl ::core::marker::Copy for _APPSTATE_REGISTRATION {}
-impl ::core::clone::Clone for _APPSTATE_REGISTRATION {
     fn clone(&self) -> Self {
         *self
     }

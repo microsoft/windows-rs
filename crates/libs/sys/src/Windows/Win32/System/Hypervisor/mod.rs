@@ -37,6 +37,8 @@
 ::windows_targets::link!("vmdevicehost.dll" "system" #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"] fn HdvDestroySectionBackedMmioRange(requestor : *const ::core::ffi::c_void, barindex : HDV_PCI_BAR_SELECTOR, offsetinpages : u64) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_HostComputeSystem")]
 ::windows_targets::link!("vmdevicehost.dll" "system" #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_System_HostComputeSystem\"`*"] fn HdvInitializeDeviceHost(computesystem : super::HostComputeSystem:: HCS_SYSTEM, devicehosthandle : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_HostComputeSystem")]
+::windows_targets::link!("vmdevicehost.dll" "system" #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_System_HostComputeSystem\"`*"] fn HdvInitializeDeviceHostEx(computesystem : super::HostComputeSystem:: HCS_SYSTEM, flags : HDV_DEVICE_HOST_FLAGS, devicehosthandle : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("vmdevicehost.dll" "system" #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"] fn HdvReadGuestMemory(requestor : *const ::core::ffi::c_void, guestphysicaladdress : u64, bytecount : u32, buffer : *mut u8) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("vmdevicehost.dll" "system" #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_Foundation\"`*"] fn HdvRegisterDoorbell(requestor : *const ::core::ffi::c_void, barindex : HDV_PCI_BAR_SELECTOR, baroffset : u64, triggervalue : u64, flags : u64, doorbellevent : super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);

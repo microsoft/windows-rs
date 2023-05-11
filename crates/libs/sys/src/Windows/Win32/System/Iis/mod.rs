@@ -2688,14 +2688,6 @@ impl ::core::clone::Clone for PRE_PROCESS_PARAMETERS {
         *self
     }
 }
-#[repr(C)]
-pub struct _IIS_CRYPTO_BLOB(pub u8);
-impl ::core::marker::Copy for _IIS_CRYPTO_BLOB {}
-impl ::core::clone::Clone for _IIS_CRYPTO_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_GETEXTENSIONVERSION = ::core::option::Option<unsafe extern "system" fn(pver: *mut HSE_VERSION_INFO) -> super::super::Foundation::BOOL>;

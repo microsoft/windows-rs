@@ -201,7 +201,7 @@
 ::windows_targets::link!("ws2_32.dll" "system" #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"] fn WSAUnadvertiseProvider(puuidproviderid : *const ::windows_sys::core::GUID) -> i32);
 ::windows_targets::link!("ws2_32.dll" "system" #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"] fn WSAUnhookBlockingHook() -> i32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ws2_32.dll" "system" #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"] fn WSAWaitForMultipleEvents(cevents : u32, lphevents : *const super::super::Foundation:: HANDLE, fwaitall : super::super::Foundation:: BOOL, dwtimeout : u32, falertable : super::super::Foundation:: BOOL) -> u32);
+::windows_targets::link!("ws2_32.dll" "system" #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"] fn WSAWaitForMultipleEvents(cevents : u32, lphevents : *const super::super::Foundation:: HANDLE, fwaitall : super::super::Foundation:: BOOL, dwtimeout : u32, falertable : super::super::Foundation:: BOOL) -> super::super::Foundation:: WAIT_EVENT);
 ::windows_targets::link!("ws2_32.dll" "system" #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"] fn WSCDeinstallProvider(lpproviderid : *const ::windows_sys::core::GUID, lperrno : *mut i32) -> i32);
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 ::windows_targets::link!("ws2_32.dll" "system" #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"] fn WSCDeinstallProvider32(lpproviderid : *const ::windows_sys::core::GUID, lperrno : *mut i32) -> i32);
@@ -4517,7 +4517,6 @@ impl ::core::clone::Clone for HOSTENT {
         *self
     }
 }
-pub type HWSAEVENT = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub struct ICMPV4_ADDRESS_MASK_MESSAGE {
@@ -6356,7 +6355,7 @@ impl ::core::clone::Clone for RIORESULT {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub struct RIO_BUF {
-    pub BufferId: *mut RIO_BUFFERID_t,
+    pub BufferId: RIO_BUFFERID,
     pub Offset: u32,
     pub Length: u32,
 }
@@ -6366,14 +6365,7 @@ impl ::core::clone::Clone for RIO_BUF {
         *self
     }
 }
-#[repr(C)]
-pub struct RIO_BUFFERID_t(pub u8);
-impl ::core::marker::Copy for RIO_BUFFERID_t {}
-impl ::core::clone::Clone for RIO_BUFFERID_t {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type RIO_BUFFERID = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub struct RIO_CMSG_BUFFER {
@@ -6385,14 +6377,7 @@ impl ::core::clone::Clone for RIO_CMSG_BUFFER {
         *self
     }
 }
-#[repr(C)]
-pub struct RIO_CQ_t(pub u8);
-impl ::core::marker::Copy for RIO_CQ_t {}
-impl ::core::clone::Clone for RIO_CQ_t {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type RIO_CQ = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6481,14 +6466,7 @@ impl ::core::clone::Clone for RIO_NOTIFICATION_COMPLETION_0_1 {
         *self
     }
 }
-#[repr(C)]
-pub struct RIO_RQ_t(pub u8);
-impl ::core::marker::Copy for RIO_RQ_t {}
-impl ::core::clone::Clone for RIO_RQ_t {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type RIO_RQ = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7896,6 +7874,7 @@ impl ::core::clone::Clone for WSADATA {
         *self
     }
 }
+pub type WSAEVENT = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub struct WSAMSG {
@@ -8432,7 +8411,17 @@ impl ::core::clone::Clone for netent {
         *self
     }
 }
-pub type sa_family_t = u16;
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub struct sa_family_t {
+    pub Value: u16,
+}
+impl ::core::marker::Copy for sa_family_t {}
+impl ::core::clone::Clone for sa_family_t {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub union sockaddr_gen {
@@ -8505,37 +8494,37 @@ pub type LPFN_GETACCEPTEXSOCKADDRS = ::core::option::Option<unsafe extern "syste
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub type LPFN_NSPAPI = ::core::option::Option<unsafe extern "system" fn() -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub type LPFN_RIOCLOSECOMPLETIONQUEUE = ::core::option::Option<unsafe extern "system" fn(cq: *const RIO_CQ_t) -> ()>;
+pub type LPFN_RIOCLOSECOMPLETIONQUEUE = ::core::option::Option<unsafe extern "system" fn(cq: RIO_CQ) -> ()>;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type LPFN_RIOCREATECOMPLETIONQUEUE = ::core::option::Option<unsafe extern "system" fn(queuesize: u32, notificationcompletion: *const RIO_NOTIFICATION_COMPLETION) -> *mut RIO_CQ_t>;
+pub type LPFN_RIOCREATECOMPLETIONQUEUE = ::core::option::Option<unsafe extern "system" fn(queuesize: u32, notificationcompletion: *const RIO_NOTIFICATION_COMPLETION) -> RIO_CQ>;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub type LPFN_RIOCREATEREQUESTQUEUE = ::core::option::Option<unsafe extern "system" fn(socket: SOCKET, maxoutstandingreceive: u32, maxreceivedatabuffers: u32, maxoutstandingsend: u32, maxsenddatabuffers: u32, receivecq: *const RIO_CQ_t, sendcq: *const RIO_CQ_t, socketcontext: *const ::core::ffi::c_void) -> *mut RIO_RQ_t>;
+pub type LPFN_RIOCREATEREQUESTQUEUE = ::core::option::Option<unsafe extern "system" fn(socket: SOCKET, maxoutstandingreceive: u32, maxreceivedatabuffers: u32, maxoutstandingsend: u32, maxsenddatabuffers: u32, receivecq: RIO_CQ, sendcq: RIO_CQ, socketcontext: *const ::core::ffi::c_void) -> RIO_RQ>;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub type LPFN_RIODEQUEUECOMPLETION = ::core::option::Option<unsafe extern "system" fn(cq: *const RIO_CQ_t, array: *mut RIORESULT, arraysize: u32) -> u32>;
+pub type LPFN_RIODEQUEUECOMPLETION = ::core::option::Option<unsafe extern "system" fn(cq: RIO_CQ, array: *mut RIORESULT, arraysize: u32) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub type LPFN_RIODEREGISTERBUFFER = ::core::option::Option<unsafe extern "system" fn(bufferid: *const RIO_BUFFERID_t) -> ()>;
+pub type LPFN_RIODEREGISTERBUFFER = ::core::option::Option<unsafe extern "system" fn(bufferid: RIO_BUFFERID) -> ()>;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub type LPFN_RIONOTIFY = ::core::option::Option<unsafe extern "system" fn(cq: *const RIO_CQ_t) -> i32>;
+pub type LPFN_RIONOTIFY = ::core::option::Option<unsafe extern "system" fn(cq: RIO_CQ) -> i32>;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type LPFN_RIORECEIVE = ::core::option::Option<unsafe extern "system" fn(socketqueue: *const RIO_RQ_t, pdata: *const RIO_BUF, databuffercount: u32, flags: u32, requestcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type LPFN_RIORECEIVE = ::core::option::Option<unsafe extern "system" fn(socketqueue: RIO_RQ, pdata: *const RIO_BUF, databuffercount: u32, flags: u32, requestcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub type LPFN_RIORECEIVEEX = ::core::option::Option<unsafe extern "system" fn(socketqueue: *const RIO_RQ_t, pdata: *const RIO_BUF, databuffercount: u32, plocaladdress: *const RIO_BUF, premoteaddress: *const RIO_BUF, pcontrolcontext: *const RIO_BUF, pflags: *const RIO_BUF, flags: u32, requestcontext: *const ::core::ffi::c_void) -> i32>;
+pub type LPFN_RIORECEIVEEX = ::core::option::Option<unsafe extern "system" fn(socketqueue: RIO_RQ, pdata: *const RIO_BUF, databuffercount: u32, plocaladdress: *const RIO_BUF, premoteaddress: *const RIO_BUF, pcontrolcontext: *const RIO_BUF, pflags: *const RIO_BUF, flags: u32, requestcontext: *const ::core::ffi::c_void) -> i32>;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub type LPFN_RIOREGISTERBUFFER = ::core::option::Option<unsafe extern "system" fn(databuffer: ::windows_sys::core::PCSTR, datalength: u32) -> *mut RIO_BUFFERID_t>;
+pub type LPFN_RIOREGISTERBUFFER = ::core::option::Option<unsafe extern "system" fn(databuffer: ::windows_sys::core::PCSTR, datalength: u32) -> RIO_BUFFERID>;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type LPFN_RIORESIZECOMPLETIONQUEUE = ::core::option::Option<unsafe extern "system" fn(cq: *const RIO_CQ_t, queuesize: u32) -> super::super::Foundation::BOOL>;
+pub type LPFN_RIORESIZECOMPLETIONQUEUE = ::core::option::Option<unsafe extern "system" fn(cq: RIO_CQ, queuesize: u32) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type LPFN_RIORESIZEREQUESTQUEUE = ::core::option::Option<unsafe extern "system" fn(rq: *const RIO_RQ_t, maxoutstandingreceive: u32, maxoutstandingsend: u32) -> super::super::Foundation::BOOL>;
+pub type LPFN_RIORESIZEREQUESTQUEUE = ::core::option::Option<unsafe extern "system" fn(rq: RIO_RQ, maxoutstandingreceive: u32, maxoutstandingsend: u32) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type LPFN_RIOSEND = ::core::option::Option<unsafe extern "system" fn(socketqueue: *const RIO_RQ_t, pdata: *const RIO_BUF, databuffercount: u32, flags: u32, requestcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type LPFN_RIOSEND = ::core::option::Option<unsafe extern "system" fn(socketqueue: RIO_RQ, pdata: *const RIO_BUF, databuffercount: u32, flags: u32, requestcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type LPFN_RIOSENDEX = ::core::option::Option<unsafe extern "system" fn(socketqueue: *const RIO_RQ_t, pdata: *const RIO_BUF, databuffercount: u32, plocaladdress: *const RIO_BUF, premoteaddress: *const RIO_BUF, pcontrolcontext: *const RIO_BUF, pflags: *const RIO_BUF, flags: u32, requestcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type LPFN_RIOSENDEX = ::core::option::Option<unsafe extern "system" fn(socketqueue: RIO_RQ, pdata: *const RIO_BUF, databuffercount: u32, plocaladdress: *const RIO_BUF, premoteaddress: *const RIO_BUF, pcontrolcontext: *const RIO_BUF, pflags: *const RIO_BUF, flags: u32, requestcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub type LPFN_TRANSMITFILE = ::core::option::Option<unsafe extern "system" fn(hsocket: SOCKET, hfile: super::super::Foundation::HANDLE, nnumberofbytestowrite: u32, nnumberofbytespersend: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lptransmitbuffers: *const TRANSMIT_FILE_BUFFERS, dwreserved: u32) -> super::super::Foundation::BOOL>;

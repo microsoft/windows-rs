@@ -289,10 +289,6 @@ impl ::core::clone::Clone for VBS_ENCLAVE_REPORT_VARDATA_HEADER {
 #[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 pub type VBS_BASIC_ENCLAVE_BASIC_CALL_COMMIT_PAGES = ::core::option::Option<unsafe extern "system" fn(enclaveaddress: *const ::core::ffi::c_void, numberofbytes: usize, sourceaddress: *const ::core::ffi::c_void, pageprotection: u32) -> i32>;
 #[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-pub type VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD = ::core::option::Option<unsafe extern "system" fn(threaddescriptor: *const VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64) -> i32>;
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-#[cfg(target_arch = "x86")]
 pub type VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD = ::core::option::Option<unsafe extern "system" fn(threaddescriptor: *const VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32) -> i32>;
 #[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 pub type VBS_BASIC_ENCLAVE_BASIC_CALL_DECOMMIT_PAGES = ::core::option::Option<unsafe extern "system" fn(enclaveaddress: *const ::core::ffi::c_void, numberofbytes: usize) -> i32>;
@@ -305,26 +301,14 @@ pub type VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_REPORT = ::core::option::Option<u
 #[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 pub type VBS_BASIC_ENCLAVE_BASIC_CALL_GET_ENCLAVE_INFORMATION = ::core::option::Option<unsafe extern "system" fn(enclaveinfo: *mut ENCLAVE_INFORMATION) -> i32>;
 #[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-pub type VBS_BASIC_ENCLAVE_BASIC_CALL_INTERRUPT_THREAD = ::core::option::Option<unsafe extern "system" fn(threaddescriptor: *const VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64) -> i32>;
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-#[cfg(target_arch = "x86")]
 pub type VBS_BASIC_ENCLAVE_BASIC_CALL_INTERRUPT_THREAD = ::core::option::Option<unsafe extern "system" fn(threaddescriptor: *const VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32) -> i32>;
 #[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 pub type VBS_BASIC_ENCLAVE_BASIC_CALL_PROTECT_PAGES = ::core::option::Option<unsafe extern "system" fn(enclaveaddress: *const ::core::ffi::c_void, numberofytes: usize, pageprotection: u32) -> i32>;
 #[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 pub type VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_ENCLAVE = ::core::option::Option<unsafe extern "system" fn(returnvalue: usize) -> ()>;
 #[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-#[cfg(target_arch = "x86_64")]
-pub type VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTION = ::core::option::Option<unsafe extern "system" fn(exceptionrecord: *const VBS_BASIC_ENCLAVE_EXCEPTION_AMD64) -> i32>;
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
 pub type VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTION = ::core::option::Option<unsafe extern "system" fn(exceptionrecord: *const ::core::ffi::c_void) -> i32>;
 #[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-pub type VBS_BASIC_ENCLAVE_BASIC_CALL_TERMINATE_THREAD = ::core::option::Option<unsafe extern "system" fn(threaddescriptor: *const VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64) -> i32>;
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-#[cfg(target_arch = "x86")]
 pub type VBS_BASIC_ENCLAVE_BASIC_CALL_TERMINATE_THREAD = ::core::option::Option<unsafe extern "system" fn(threaddescriptor: *const VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32) -> i32>;
 #[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 pub type VBS_BASIC_ENCLAVE_BASIC_CALL_VERIFY_REPORT = ::core::option::Option<unsafe extern "system" fn(report: *const ::core::ffi::c_void, reportsize: u32) -> i32>;

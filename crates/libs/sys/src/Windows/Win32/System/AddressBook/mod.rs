@@ -933,6 +933,7 @@ impl ::core::clone::Clone for FlagList {
         *self
     }
 }
+pub type LPWABACTIONITEM = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 pub struct MAPIERROR {
@@ -1641,14 +1642,6 @@ pub struct WAB_PARAM {
 impl ::core::marker::Copy for WAB_PARAM {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WAB_PARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct _WABACTIONITEM(pub u8);
-impl ::core::marker::Copy for _WABACTIONITEM {}
-impl ::core::clone::Clone for _WABACTIONITEM {
     fn clone(&self) -> Self {
         *self
     }

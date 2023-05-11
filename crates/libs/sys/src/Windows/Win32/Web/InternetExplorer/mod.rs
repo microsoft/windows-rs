@@ -1238,14 +1238,6 @@ pub const SCMP_RIGHT: SCROLLABLECONTEXTMENU_PLACEMENT = 3i32;
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 pub const SCMP_FULL: SCROLLABLECONTEXTMENU_PLACEMENT = 4i32;
 #[repr(C)]
-pub struct HTMLPersistEvents(pub u8);
-impl ::core::marker::Copy for HTMLPersistEvents {}
-impl ::core::clone::Clone for HTMLPersistEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 pub struct IELAUNCHURLINFO {
     pub cbSize: u32,
@@ -1254,14 +1246,6 @@ pub struct IELAUNCHURLINFO {
 }
 impl ::core::marker::Copy for IELAUNCHURLINFO {}
 impl ::core::clone::Clone for IELAUNCHURLINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct LayoutRectEvents(pub u8);
-impl ::core::marker::Copy for LayoutRectEvents {}
-impl ::core::clone::Clone for LayoutRectEvents {
     fn clone(&self) -> Self {
         *self
     }

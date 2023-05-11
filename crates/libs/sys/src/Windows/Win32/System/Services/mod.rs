@@ -101,8 +101,11 @@
 ::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`*"] fn StartServiceCtrlDispatcherW(lpservicestarttable : *const SERVICE_TABLE_ENTRYW) -> super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 ::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn StartServiceW(hservice : super::super::Security:: SC_HANDLE, dwnumserviceargs : u32, lpserviceargvectors : *const ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_Security")]
+::windows_targets::link!("sechost.dll" "system" #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Security\"`*"] fn SubscribeServiceChangeNotifications(hservice : super::super::Security:: SC_HANDLE, eeventtype : SC_EVENT_TYPE, pcallback : PSC_NOTIFICATION_CALLBACK, pcallbackcontext : *const ::core::ffi::c_void, psubscription : *mut PSC_NOTIFICATION_REGISTRATION) -> u32);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`*"] fn UnlockServiceDatabase(sclock : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("sechost.dll" "system" #[doc = "*Required features: `\"Win32_System_Services\"`*"] fn UnsubscribeServiceChangeNotifications(psubscription : PSC_NOTIFICATION_REGISTRATION) -> ());
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 ::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn WaitServiceState(hservice : super::super::Security:: SC_HANDLE, dwnotify : u32, dwtimeout : u32, hcancelevent : super::super::Foundation:: HANDLE) -> u32);
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
@@ -621,6 +624,7 @@ impl ::core::clone::Clone for ENUM_SERVICE_STATUS_PROCESSW {
         *self
     }
 }
+pub type PSC_NOTIFICATION_REGISTRATION = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub struct QUERY_SERVICE_CONFIGA {
@@ -1089,14 +1093,6 @@ pub struct SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {
 }
 impl ::core::marker::Copy for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {}
 impl ::core::clone::Clone for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct _SC_NOTIFICATION_REGISTRATION(pub u8);
-impl ::core::marker::Copy for _SC_NOTIFICATION_REGISTRATION {}
-impl ::core::clone::Clone for _SC_NOTIFICATION_REGISTRATION {
     fn clone(&self) -> Self {
         *self
     }

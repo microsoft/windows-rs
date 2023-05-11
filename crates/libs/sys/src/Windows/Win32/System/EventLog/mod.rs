@@ -658,7 +658,27 @@ impl ::core::clone::Clone for EVT_VARIANT_0 {
         *self
     }
 }
-pub type EventLogHandle = isize;
-pub type EventSourceHandle = isize;
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
+pub struct EventLogHandle {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for EventLogHandle {}
+impl ::core::clone::Clone for EventLogHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
+pub struct EventSourceHandle {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for EventSourceHandle {}
+impl ::core::clone::Clone for EventSourceHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub type EVT_SUBSCRIBE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(action: EVT_SUBSCRIBE_NOTIFY_ACTION, usercontext: *const ::core::ffi::c_void, event: EVT_HANDLE) -> u32>;

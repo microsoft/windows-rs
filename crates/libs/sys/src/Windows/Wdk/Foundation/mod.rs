@@ -1,3 +1,7 @@
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("ntdll.dll" "system" #[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`*"] fn NtClose(handle : super::super::Win32::Foundation:: HANDLE) -> super::super::Win32::Foundation:: NTSTATUS);
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("ntdll.dll" "system" #[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`*"] fn NtQueryObject(handle : super::super::Win32::Foundation:: HANDLE, objectinformationclass : OBJECT_INFORMATION_CLASS, objectinformation : *mut ::core::ffi::c_void, objectinformationlength : u32, returnlength : *mut u32) -> super::super::Win32::Foundation:: NTSTATUS);
 #[doc = "*Required features: `\"Wdk_Foundation\"`*"]
 pub type IO_PRIORITY_HINT = i32;
 #[doc = "*Required features: `\"Wdk_Foundation\"`*"]
@@ -50,6 +54,12 @@ pub const LockQueueUnusedSpare15: KSPIN_LOCK_QUEUE_NUMBER = 15i32;
 pub const LockQueueUnusedSpare16: KSPIN_LOCK_QUEUE_NUMBER = 16i32;
 #[doc = "*Required features: `\"Wdk_Foundation\"`*"]
 pub const LockQueueMaximumLock: KSPIN_LOCK_QUEUE_NUMBER = 17i32;
+#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
+pub type OBJECT_INFORMATION_CLASS = i32;
+#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
+pub const ObjectBasicInformation: OBJECT_INFORMATION_CLASS = 0i32;
+#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
+pub const ObjectTypeInformation: OBJECT_INFORMATION_CLASS = 2i32;
 #[doc = "*Required features: `\"Wdk_Foundation\"`*"]
 pub type POOL_TYPE = i32;
 #[doc = "*Required features: `\"Wdk_Foundation\"`*"]
@@ -143,8 +153,8 @@ impl ::core::clone::Clone for ACCESS_STATE_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub struct DEVICE_OBJECT {
     pub Type: i16,
     pub Size: u16,
@@ -153,7 +163,7 @@ pub struct DEVICE_OBJECT {
     pub NextDevice: *mut DEVICE_OBJECT,
     pub AttachedDevice: *mut DEVICE_OBJECT,
     pub CurrentIrp: *mut IRP,
-    pub Timer: *mut IO_TIMER,
+    pub Timer: PIO_TIMER,
     pub Flags: u32,
     pub Characteristics: u32,
     pub Vpb: *mut VPB,
@@ -172,46 +182,38 @@ pub struct DEVICE_OBJECT {
     pub DeviceObjectExtension: *mut DEVOBJ_EXTENSION,
     pub Reserved: *mut ::core::ffi::c_void,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for DEVICE_OBJECT {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for DEVICE_OBJECT {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub union DEVICE_OBJECT_0 {
     pub ListEntry: super::super::Win32::System::Kernel::LIST_ENTRY,
     pub Wcb: super::System::SystemServices::WAIT_CONTEXT_BLOCK,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for DEVICE_OBJECT_0 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for DEVICE_OBJECT_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-pub struct DEVICE_OBJECT_POWER_EXTENSION(pub u8);
-impl ::core::marker::Copy for DEVICE_OBJECT_POWER_EXTENSION {}
-impl ::core::clone::Clone for DEVICE_OBJECT_POWER_EXTENSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub struct DEVOBJ_EXTENSION {
     pub Type: i16,
     pub Size: u16,
     pub DeviceObject: *mut DEVICE_OBJECT,
     pub PowerFlags: u32,
-    pub Dope: *mut DEVICE_OBJECT_POWER_EXTENSION,
+    pub Dope: *mut _DEVICE_OBJECT_POWER_EXTENSION,
     pub ExtensionFlags: u32,
     pub DeviceNode: *mut ::core::ffi::c_void,
     pub AttachedTo: *mut DEVICE_OBJECT,
@@ -224,9 +226,9 @@ pub struct DEVOBJ_EXTENSION {
     pub InterruptCount: i32,
     pub VerifierContext: *mut ::core::ffi::c_void,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for DEVOBJ_EXTENSION {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for DEVOBJ_EXTENSION {
     fn clone(&self) -> Self {
         *self
@@ -544,26 +546,27 @@ impl ::core::clone::Clone for DISPATCHER_HEADER_0_6 {
         *self
     }
 }
+pub type DMA_COMMON_BUFFER_VECTOR = isize;
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub struct DRIVER_EXTENSION {
     pub DriverObject: *mut DRIVER_OBJECT,
     pub AddDevice: PDRIVER_ADD_DEVICE,
     pub Count: u32,
     pub ServiceKeyName: super::super::Win32::Foundation::UNICODE_STRING,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for DRIVER_EXTENSION {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for DRIVER_EXTENSION {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub struct DRIVER_OBJECT {
     pub Type: i16,
     pub Size: i16,
@@ -581,30 +584,16 @@ pub struct DRIVER_OBJECT {
     pub DriverUnload: PDRIVER_UNLOAD,
     pub MajorFunction: [PDRIVER_DISPATCH; 28],
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for DRIVER_OBJECT {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for DRIVER_OBJECT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[repr(C)]
-pub struct ECP_LIST(pub u8);
-impl ::core::marker::Copy for ECP_LIST {}
-impl ::core::clone::Clone for ECP_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct EJOB(pub u8);
-impl ::core::marker::Copy for EJOB {}
-impl ::core::clone::Clone for EJOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ECP_HEADER = isize;
+pub type ECP_LIST = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(feature = "Win32_System_Kernel")]
@@ -736,8 +725,8 @@ impl ::core::clone::Clone for FAST_MUTEX {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub struct FILE_OBJECT {
     pub Type: i16,
     pub Size: i16,
@@ -770,14 +759,16 @@ pub struct FILE_OBJECT {
     pub IrpList: super::super::Win32::System::Kernel::LIST_ENTRY,
     pub FileObjectExtension: *mut ::core::ffi::c_void,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for FILE_OBJECT {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for FILE_OBJECT {
     fn clone(&self) -> Self {
         *self
     }
 }
+pub type IOMMU_DMA_DEVICE = isize;
+pub type IOMMU_DMA_DOMAIN = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Wdk_Foundation\"`*"]
 pub struct IO_COMPLETION_CONTEXT {
@@ -809,8 +800,8 @@ impl ::core::clone::Clone for IO_SECURITY_CONTEXT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub struct IO_STACK_LOCATION {
     pub MajorFunction: u8,
     pub MinorFunction: u8,
@@ -822,17 +813,17 @@ pub struct IO_STACK_LOCATION {
     pub CompletionRoutine: PIO_COMPLETION_ROUTINE,
     pub Context: *mut ::core::ffi::c_void,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IO_STACK_LOCATION {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IO_STACK_LOCATION {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub union IO_STACK_LOCATION_0 {
     pub Create: IO_STACK_LOCATION_0_2,
     pub CreatePipe: IO_STACK_LOCATION_0_1,
@@ -874,17 +865,17 @@ pub union IO_STACK_LOCATION_0 {
     pub WMI: IO_STACK_LOCATION_0_36,
     pub Others: IO_STACK_LOCATION_0_11,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IO_STACK_LOCATION_0 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IO_STACK_LOCATION_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub struct IO_STACK_LOCATION_0_0 {
     pub SecurityContext: *mut IO_SECURITY_CONTEXT,
     pub Options: u32,
@@ -892,17 +883,17 @@ pub struct IO_STACK_LOCATION_0_0 {
     pub ShareAccess: u16,
     pub Parameters: *mut super::System::SystemServices::MAILSLOT_CREATE_PARAMETERS,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IO_STACK_LOCATION_0_0 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IO_STACK_LOCATION_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub struct IO_STACK_LOCATION_0_1 {
     pub SecurityContext: *mut IO_SECURITY_CONTEXT,
     pub Options: u32,
@@ -910,17 +901,17 @@ pub struct IO_STACK_LOCATION_0_1 {
     pub ShareAccess: u16,
     pub Parameters: *mut super::System::SystemServices::NAMED_PIPE_CREATE_PARAMETERS,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IO_STACK_LOCATION_0_1 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IO_STACK_LOCATION_0_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub struct IO_STACK_LOCATION_0_2 {
     pub SecurityContext: *mut IO_SECURITY_CONTEXT,
     pub Options: u32,
@@ -928,296 +919,296 @@ pub struct IO_STACK_LOCATION_0_2 {
     pub ShareAccess: u16,
     pub EaLength: u32,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IO_STACK_LOCATION_0_2 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IO_STACK_LOCATION_0_2 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub struct IO_STACK_LOCATION_0_3 {
     pub Capabilities: *mut super::System::SystemServices::DEVICE_CAPABILITIES,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IO_STACK_LOCATION_0_3 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IO_STACK_LOCATION_0_3 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub struct IO_STACK_LOCATION_0_4 {
     pub OutputBufferLength: u32,
     pub InputBufferLength: u32,
     pub IoControlCode: u32,
     pub Type3InputBuffer: *mut ::core::ffi::c_void,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IO_STACK_LOCATION_0_4 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IO_STACK_LOCATION_0_4 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub struct IO_STACK_LOCATION_0_5 {
     pub OutputBufferLength: u32,
     pub InputBufferLength: u32,
     pub FsControlCode: u32,
     pub Type3InputBuffer: *mut ::core::ffi::c_void,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IO_STACK_LOCATION_0_5 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IO_STACK_LOCATION_0_5 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub struct IO_STACK_LOCATION_0_6 {
     pub IoResourceRequirementList: *mut super::System::SystemServices::IO_RESOURCE_REQUIREMENTS_LIST,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IO_STACK_LOCATION_0_6 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IO_STACK_LOCATION_0_6 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C, packed(4))]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub struct IO_STACK_LOCATION_0_7 {
     pub Length: *mut i64,
     pub Key: u32,
     pub ByteOffset: i64,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IO_STACK_LOCATION_0_7 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IO_STACK_LOCATION_0_7 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub struct IO_STACK_LOCATION_0_8 {
     pub Vpb: *mut VPB,
     pub DeviceObject: *mut DEVICE_OBJECT,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IO_STACK_LOCATION_0_8 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IO_STACK_LOCATION_0_8 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub struct IO_STACK_LOCATION_0_9 {
     pub Length: u32,
     pub CompletionFilter: u32,
     pub DirectoryNotifyInformationClass: super::System::SystemServices::DIRECTORY_NOTIFY_INFORMATION_CLASS,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IO_STACK_LOCATION_0_9 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IO_STACK_LOCATION_0_9 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub struct IO_STACK_LOCATION_0_10 {
     pub Length: u32,
     pub CompletionFilter: u32,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IO_STACK_LOCATION_0_10 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IO_STACK_LOCATION_0_10 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub struct IO_STACK_LOCATION_0_11 {
     pub Argument1: *mut ::core::ffi::c_void,
     pub Argument2: *mut ::core::ffi::c_void,
     pub Argument3: *mut ::core::ffi::c_void,
     pub Argument4: *mut ::core::ffi::c_void,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IO_STACK_LOCATION_0_11 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IO_STACK_LOCATION_0_11 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub struct IO_STACK_LOCATION_0_12 {
     pub PowerSequence: *mut super::System::SystemServices::POWER_SEQUENCE,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IO_STACK_LOCATION_0_12 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IO_STACK_LOCATION_0_12 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub struct IO_STACK_LOCATION_0_13 {
     pub Anonymous: IO_STACK_LOCATION_0_13_0,
     pub Type: super::System::SystemServices::POWER_STATE_TYPE,
     pub State: super::System::SystemServices::POWER_STATE,
     pub ShutdownType: super::super::Win32::System::Power::POWER_ACTION,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IO_STACK_LOCATION_0_13 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IO_STACK_LOCATION_0_13 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub union IO_STACK_LOCATION_0_13_0 {
     pub SystemContext: u32,
     pub SystemPowerStateContext: super::System::SystemServices::SYSTEM_POWER_STATE_CONTEXT,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IO_STACK_LOCATION_0_13_0 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IO_STACK_LOCATION_0_13_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub struct IO_STACK_LOCATION_0_14 {
     pub Type: super::System::SystemServices::DEVICE_RELATION_TYPE,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IO_STACK_LOCATION_0_14 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IO_STACK_LOCATION_0_14 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub struct IO_STACK_LOCATION_0_15 {
     pub DeviceTextType: super::System::SystemServices::DEVICE_TEXT_TYPE,
     pub LocaleId: u32,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IO_STACK_LOCATION_0_15 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IO_STACK_LOCATION_0_15 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub struct IO_STACK_LOCATION_0_16 {
     pub Length: u32,
     pub FileName: *mut super::super::Win32::Foundation::UNICODE_STRING,
     pub FileInformationClass: super::super::Win32::System::WindowsProgramming::FILE_INFORMATION_CLASS,
     pub FileIndex: u32,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IO_STACK_LOCATION_0_16 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IO_STACK_LOCATION_0_16 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub struct IO_STACK_LOCATION_0_17 {
     pub Length: u32,
     pub EaList: *mut ::core::ffi::c_void,
     pub EaListLength: u32,
     pub EaIndex: u32,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IO_STACK_LOCATION_0_17 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IO_STACK_LOCATION_0_17 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub struct IO_STACK_LOCATION_0_18 {
     pub Length: u32,
     pub FileInformationClass: super::super::Win32::System::WindowsProgramming::FILE_INFORMATION_CLASS,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IO_STACK_LOCATION_0_18 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IO_STACK_LOCATION_0_18 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub struct IO_STACK_LOCATION_0_19 {
     pub IdType: super::System::SystemServices::BUS_QUERY_ID_TYPE,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IO_STACK_LOCATION_0_19 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IO_STACK_LOCATION_0_19 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub struct IO_STACK_LOCATION_0_20 {
     pub InterfaceType: *const ::windows_sys::core::GUID,
     pub Size: u16,
@@ -1225,332 +1216,324 @@ pub struct IO_STACK_LOCATION_0_20 {
     pub Interface: *mut super::System::SystemServices::INTERFACE,
     pub InterfaceSpecificData: *mut ::core::ffi::c_void,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IO_STACK_LOCATION_0_20 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IO_STACK_LOCATION_0_20 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub struct IO_STACK_LOCATION_0_21 {
     pub Length: u32,
     pub StartSid: super::super::Win32::Foundation::PSID,
     pub SidList: *mut super::Storage::FileSystem::FILE_GET_QUOTA_INFORMATION,
     pub SidListLength: u32,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IO_STACK_LOCATION_0_21 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IO_STACK_LOCATION_0_21 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub struct IO_STACK_LOCATION_0_22 {
     pub SecurityInformation: u32,
     pub Length: u32,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IO_STACK_LOCATION_0_22 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IO_STACK_LOCATION_0_22 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub struct IO_STACK_LOCATION_0_23 {
     pub Length: u32,
     pub FsInformationClass: super::Storage::FileSystem::FS_INFORMATION_CLASS,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IO_STACK_LOCATION_0_23 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IO_STACK_LOCATION_0_23 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub struct IO_STACK_LOCATION_0_24 {
     pub WhichSpace: u32,
     pub Buffer: *mut ::core::ffi::c_void,
     pub Offset: u32,
     pub Length: u32,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IO_STACK_LOCATION_0_24 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IO_STACK_LOCATION_0_24 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C, packed(4))]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub struct IO_STACK_LOCATION_0_25 {
     pub Length: u32,
     pub Key: u32,
     pub ByteOffset: i64,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IO_STACK_LOCATION_0_25 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IO_STACK_LOCATION_0_25 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub struct IO_STACK_LOCATION_0_26 {
-    pub Srb: *mut super::System::SystemServices::_SCSI_REQUEST_BLOCK,
+    pub Srb: *mut _SCSI_REQUEST_BLOCK,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IO_STACK_LOCATION_0_26 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IO_STACK_LOCATION_0_26 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub struct IO_STACK_LOCATION_0_27 {
     pub Length: u32,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IO_STACK_LOCATION_0_27 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IO_STACK_LOCATION_0_27 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub struct IO_STACK_LOCATION_0_28 {
     pub Length: u32,
     pub FileInformationClass: super::super::Win32::System::WindowsProgramming::FILE_INFORMATION_CLASS,
     pub FileObject: *mut FILE_OBJECT,
     pub Anonymous: IO_STACK_LOCATION_0_28_0,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IO_STACK_LOCATION_0_28 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IO_STACK_LOCATION_0_28 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub union IO_STACK_LOCATION_0_28_0 {
     pub Anonymous: IO_STACK_LOCATION_0_28_0_0,
     pub ClusterCount: u32,
     pub DeleteHandle: super::super::Win32::Foundation::HANDLE,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IO_STACK_LOCATION_0_28_0 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IO_STACK_LOCATION_0_28_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub struct IO_STACK_LOCATION_0_28_0_0 {
     pub ReplaceIfExists: super::super::Win32::Foundation::BOOLEAN,
     pub AdvanceOnly: super::super::Win32::Foundation::BOOLEAN,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IO_STACK_LOCATION_0_28_0_0 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IO_STACK_LOCATION_0_28_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub struct IO_STACK_LOCATION_0_29 {
     pub Lock: super::super::Win32::Foundation::BOOLEAN,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IO_STACK_LOCATION_0_29 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IO_STACK_LOCATION_0_29 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub struct IO_STACK_LOCATION_0_30 {
     pub Length: u32,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IO_STACK_LOCATION_0_30 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IO_STACK_LOCATION_0_30 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub struct IO_STACK_LOCATION_0_31 {
     pub SecurityInformation: u32,
     pub SecurityDescriptor: super::super::Win32::Security::PSECURITY_DESCRIPTOR,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IO_STACK_LOCATION_0_31 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IO_STACK_LOCATION_0_31 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub struct IO_STACK_LOCATION_0_32 {
     pub Length: u32,
     pub FsInformationClass: super::Storage::FileSystem::FS_INFORMATION_CLASS,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IO_STACK_LOCATION_0_32 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IO_STACK_LOCATION_0_32 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub struct IO_STACK_LOCATION_0_33 {
     pub AllocatedResources: *mut super::System::SystemServices::CM_RESOURCE_LIST,
     pub AllocatedResourcesTranslated: *mut super::System::SystemServices::CM_RESOURCE_LIST,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IO_STACK_LOCATION_0_33 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IO_STACK_LOCATION_0_33 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub struct IO_STACK_LOCATION_0_34 {
     pub InPath: super::super::Win32::Foundation::BOOLEAN,
     pub Reserved: [super::super::Win32::Foundation::BOOLEAN; 3],
     pub Type: super::System::SystemServices::DEVICE_USAGE_NOTIFICATION_TYPE,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IO_STACK_LOCATION_0_34 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IO_STACK_LOCATION_0_34 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub struct IO_STACK_LOCATION_0_35 {
     pub Vpb: *mut VPB,
     pub DeviceObject: *mut DEVICE_OBJECT,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IO_STACK_LOCATION_0_35 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IO_STACK_LOCATION_0_35 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub struct IO_STACK_LOCATION_0_36 {
     pub ProviderId: usize,
     pub DataPath: *mut ::core::ffi::c_void,
     pub BufferSize: u32,
     pub Buffer: *mut ::core::ffi::c_void,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IO_STACK_LOCATION_0_36 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IO_STACK_LOCATION_0_36 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub struct IO_STACK_LOCATION_0_37 {
     pub PowerState: super::super::Win32::System::Power::SYSTEM_POWER_STATE,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IO_STACK_LOCATION_0_37 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IO_STACK_LOCATION_0_37 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C, packed(4))]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub struct IO_STACK_LOCATION_0_38 {
     pub Length: u32,
     pub Key: u32,
     pub ByteOffset: i64,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IO_STACK_LOCATION_0_38 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IO_STACK_LOCATION_0_38 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-pub struct IO_TIMER(pub u8);
-impl ::core::marker::Copy for IO_TIMER {}
-impl ::core::clone::Clone for IO_TIMER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub struct IRP {
     pub Type: i16,
     pub Size: u16,
@@ -1558,7 +1541,7 @@ pub struct IRP {
     pub Flags: u32,
     pub AssociatedIrp: IRP_1,
     pub ThreadListEntry: super::super::Win32::System::Kernel::LIST_ENTRY,
-    pub IoStatus: super::super::Win32::System::WindowsProgramming::IO_STATUS_BLOCK,
+    pub IoStatus: super::super::Win32::System::IO::IO_STATUS_BLOCK,
     pub RequestorMode: i8,
     pub PendingReturned: super::super::Win32::Foundation::BOOLEAN,
     pub StackCount: u8,
@@ -1574,201 +1557,193 @@ pub struct IRP {
     pub UserBuffer: *mut ::core::ffi::c_void,
     pub Tail: IRP_3,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IRP {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IRP {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub union IRP_0 {
-    pub UserIosb: *mut super::super::Win32::System::WindowsProgramming::IO_STATUS_BLOCK,
+    pub UserIosb: *mut super::super::Win32::System::IO::IO_STATUS_BLOCK,
     pub IoRingContext: *mut ::core::ffi::c_void,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IRP_0 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IRP_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub union IRP_1 {
     pub MasterIrp: *mut IRP,
     pub IrpCount: i32,
     pub SystemBuffer: *mut ::core::ffi::c_void,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IRP_1 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IRP_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub union IRP_2 {
     pub AsynchronousParameters: IRP_2_0,
     pub AllocationSize: i64,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IRP_2 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IRP_2 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub struct IRP_2_0 {
     pub Anonymous1: IRP_2_0_0,
     pub Anonymous2: IRP_2_0_1,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IRP_2_0 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IRP_2_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub union IRP_2_0_0 {
-    pub UserApcRoutine: PIO_APC_ROUTINE,
+    pub UserApcRoutine: super::super::Win32::System::IO::PIO_APC_ROUTINE,
     pub IssuingProcess: *mut ::core::ffi::c_void,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IRP_2_0_0 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IRP_2_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub union IRP_2_0_1 {
     pub UserApcContext: *mut ::core::ffi::c_void,
-    pub IoRing: *mut IRP_2_0_1_0,
+    pub IoRing: *mut _IORING_OBJECT,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IRP_2_0_1 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IRP_2_0_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-pub struct IRP_2_0_1_0(pub u8);
-impl ::core::marker::Copy for IRP_2_0_1_0 {}
-impl ::core::clone::Clone for IRP_2_0_1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub union IRP_3 {
     pub Overlay: IRP_3_0,
     pub Apc: super::System::SystemServices::KAPC,
     pub CompletionKey: *mut ::core::ffi::c_void,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IRP_3 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IRP_3 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub struct IRP_3_0 {
     pub Anonymous1: IRP_3_0_0,
-    pub Thread: *mut super::System::SystemServices::_ETHREAD,
+    pub Thread: PETHREAD,
     pub AuxiliaryBuffer: ::windows_sys::core::PSTR,
     pub Anonymous2: IRP_3_0_1,
     pub OriginalFileObject: *mut FILE_OBJECT,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IRP_3_0 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IRP_3_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub union IRP_3_0_0 {
     pub DeviceQueueEntry: super::System::SystemServices::KDEVICE_QUEUE_ENTRY,
     pub Anonymous: IRP_3_0_0_0,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IRP_3_0_0 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IRP_3_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub struct IRP_3_0_0_0 {
     pub DriverContext: [*mut ::core::ffi::c_void; 4],
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IRP_3_0_0_0 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IRP_3_0_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub struct IRP_3_0_1 {
     pub ListEntry: super::super::Win32::System::Kernel::LIST_ENTRY,
     pub Anonymous: IRP_3_0_1_0,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IRP_3_0_1 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IRP_3_0_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub union IRP_3_0_1_0 {
     pub CurrentStackLocation: *mut IO_STACK_LOCATION,
     pub PacketType: u32,
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for IRP_3_0_1_0 {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for IRP_3_0_1_0 {
     fn clone(&self) -> Self {
         *self
@@ -1844,6 +1819,7 @@ impl ::core::clone::Clone for KDPC_0_0 {
         *self
     }
 }
+pub type KENLISTMENT = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -1858,13 +1834,15 @@ impl ::core::clone::Clone for KEVENT {
         *self
     }
 }
+pub type KGDT = isize;
+pub type KIDT = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct KMUTANT {
     pub Header: DISPATCHER_HEADER,
     pub MutantListEntry: super::super::Win32::System::Kernel::LIST_ENTRY,
-    pub OwnerThread: *mut KTHREAD,
+    pub OwnerThread: *mut isize,
     pub Anonymous: KMUTANT_0,
     pub ApcDisable: u8,
 }
@@ -1905,14 +1883,8 @@ impl ::core::clone::Clone for KMUTANT_0_0 {
         *self
     }
 }
-#[repr(C)]
-pub struct KPROCESS(pub u8);
-impl ::core::marker::Copy for KPROCESS {}
-impl ::core::clone::Clone for KPROCESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type KPCR = isize;
+pub type KPRCB = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -1931,14 +1903,10 @@ impl ::core::clone::Clone for KQUEUE {
         *self
     }
 }
-#[repr(C)]
-pub struct KTHREAD(pub u8);
-impl ::core::marker::Copy for KTHREAD {}
-impl ::core::clone::Clone for KTHREAD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type KRESOURCEMANAGER = isize;
+pub type KTM = isize;
+pub type KTRANSACTION = isize;
+pub type KTSS = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -1963,7 +1931,7 @@ impl ::core::clone::Clone for KWAIT_BLOCK {
 #[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub union KWAIT_BLOCK_0 {
-    pub Thread: *mut KTHREAD,
+    pub Thread: *mut isize,
     pub NotificationQueue: *mut KQUEUE,
     pub Dpc: *mut KDPC,
 }
@@ -1975,6 +1943,7 @@ impl ::core::clone::Clone for KWAIT_BLOCK_0 {
         *self
     }
 }
+pub type LOADER_PARAMETER_BLOCK = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1985,14 +1954,6 @@ pub struct OBJECT_NAME_INFORMATION {
 impl ::core::marker::Copy for OBJECT_NAME_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for OBJECT_NAME_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct OBJECT_TYPE(pub u8);
-impl ::core::marker::Copy for OBJECT_TYPE {}
-impl ::core::clone::Clone for OBJECT_TYPE {
     fn clone(&self) -> Self {
         *self
     }
@@ -2032,6 +1993,31 @@ impl ::core::clone::Clone for OWNER_ENTRY_0_0 {
         *self
     }
 }
+pub type PAFFINITY_TOKEN = isize;
+pub type PBUS_HANDLER = isize;
+pub type PCALLBACK_OBJECT = isize;
+pub type PDEVICE_HANDLER_OBJECT = isize;
+pub type PEJOB = isize;
+pub type PEPROCESS = isize;
+pub type PESILO = isize;
+pub type PETHREAD = isize;
+pub type PEX_RUNDOWN_REF_CACHE_AWARE = isize;
+pub type PEX_TIMER = isize;
+pub type PIO_REMOVE_LOCK_TRACKING_BLOCK = isize;
+pub type PIO_TIMER = isize;
+pub type PIO_WORKITEM = isize;
+pub type PKINTERRUPT = isize;
+pub type PKPROCESS = isize;
+pub type PKTHREAD = isize;
+pub type PNOTIFY_SYNC = isize;
+pub type POBJECT_TYPE = isize;
+pub type POHANDLE = isize;
+pub type PPCW_BUFFER = isize;
+pub type PPCW_INSTANCE = isize;
+pub type PPCW_REGISTRATION = isize;
+pub type PRKPROCESS = isize;
+pub type PRKTHREAD = isize;
+pub type PSILO_MONITOR = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Wdk_Foundation\"`*"]
 pub struct RTL_SPLAY_LINKS {
@@ -2075,9 +2061,10 @@ impl ::core::clone::Clone for SECURITY_SUBJECT_CONTEXT {
         *self
     }
 }
+pub type SspiAsyncContext = isize;
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub struct TARGET_DEVICE_CUSTOM_NOTIFICATION {
     pub Version: u16,
     pub Size: u16,
@@ -2086,17 +2073,17 @@ pub struct TARGET_DEVICE_CUSTOM_NOTIFICATION {
     pub NameBufferOffset: i32,
     pub CustomDataBuffer: [u8; 1],
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for TARGET_DEVICE_CUSTOM_NOTIFICATION {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for TARGET_DEVICE_CUSTOM_NOTIFICATION {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`, `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 pub struct VPB {
     pub Type: i16,
     pub Size: i16,
@@ -2108,9 +2095,9 @@ pub struct VPB {
     pub ReferenceCount: u32,
     pub VolumeLabel: [u16; 32],
 }
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::marker::Copy for VPB {}
-#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl ::core::clone::Clone for VPB {
     fn clone(&self) -> Self {
         *self
@@ -2132,6 +2119,9 @@ impl ::core::clone::Clone for WORK_QUEUE_ITEM {
         *self
     }
 }
+pub type _DEVICE_OBJECT_POWER_EXTENSION = isize;
+pub type _IORING_OBJECT = isize;
+pub type _SCSI_REQUEST_BLOCK = isize;
 #[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDRIVER_ADD_DEVICE = ::core::option::Option<unsafe extern "system" fn() -> super::super::Win32::Foundation::NTSTATUS>;
@@ -2227,9 +2217,6 @@ pub type PFAST_IO_WRITE = ::core::option::Option<unsafe extern "system" fn() -> 
 pub type PFAST_IO_WRITE_COMPRESSED = ::core::option::Option<unsafe extern "system" fn() -> super::super::Win32::Foundation::BOOLEAN>;
 #[doc = "*Required features: `\"Wdk_Foundation\"`*"]
 pub type PFREE_FUNCTION = ::core::option::Option<unsafe extern "system" fn() -> ()>;
-#[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
-pub type PIO_APC_ROUTINE = ::core::option::Option<unsafe extern "system" fn(apccontext: *const ::core::ffi::c_void, iostatusblock: *const super::super::Win32::System::WindowsProgramming::IO_STATUS_BLOCK, reserved: u32) -> ()>;
 #[doc = "*Required features: `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PIO_COMPLETION_ROUTINE = ::core::option::Option<unsafe extern "system" fn() -> super::super::Win32::Foundation::NTSTATUS>;

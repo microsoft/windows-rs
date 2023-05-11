@@ -21,12 +21,16 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn BackupWrite(hfile : super::super::Foundation:: HANDLE, lpbuffer : *const u8, nnumberofbytestowrite : u32, lpnumberofbyteswritten : *mut u32, babort : super::super::Foundation:: BOOL, bprocesssecurity : super::super::Foundation:: BOOL, lpcontext : *mut *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn BuildIoRingCancelRequest(ioring : *const HIORING__, file : IORING_HANDLE_REF, optocancel : usize, userdata : usize) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn BuildIoRingCancelRequest(ioring : HIORING, file : IORING_HANDLE_REF, optocancel : usize, userdata : usize) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn BuildIoRingReadFile(ioring : *const HIORING__, fileref : IORING_HANDLE_REF, dataref : IORING_BUFFER_REF, numberofbytestoread : u32, fileoffset : u64, userdata : usize, sqeflags : IORING_SQE_FLAGS) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"] fn BuildIoRingRegisterBuffers(ioring : *const HIORING__, count : u32, buffers : *const IORING_BUFFER_INFO, userdata : usize) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn BuildIoRingFlushFile(ioring : HIORING, fileref : IORING_HANDLE_REF, flushmode : FILE_FLUSH_MODE, userdata : usize, sqeflags : IORING_SQE_FLAGS) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn BuildIoRingRegisterFileHandles(ioring : *const HIORING__, count : u32, handles : *const super::super::Foundation:: HANDLE, userdata : usize) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn BuildIoRingReadFile(ioring : HIORING, fileref : IORING_HANDLE_REF, dataref : IORING_BUFFER_REF, numberofbytestoread : u32, fileoffset : u64, userdata : usize, sqeflags : IORING_SQE_FLAGS) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"] fn BuildIoRingRegisterBuffers(ioring : HIORING, count : u32, buffers : *const IORING_BUFFER_INFO, userdata : usize) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn BuildIoRingRegisterFileHandles(ioring : HIORING, count : u32, handles : *const super::super::Foundation:: HANDLE, userdata : usize) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn BuildIoRingWriteFile(ioring : HIORING, fileref : IORING_HANDLE_REF, bufferref : IORING_BUFFER_REF, numberofbytestowrite : u32, fileoffset : u64, writeflags : FILE_WRITE_FLAGS, userdata : usize, sqeflags : IORING_SQE_FLAGS) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn CheckNameLegalDOS8Dot3A(lpname : ::windows_sys::core::PCSTR, lpoemname : ::windows_sys::core::PSTR, oemnamesize : u32, pbnamecontainsspaces : *mut super::super::Foundation:: BOOL, pbnamelegal : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
@@ -34,7 +38,7 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("clfsw32.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn CloseAndResetLogFile(hlog : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"] fn CloseEncryptedFileRaw(pvcontext : *const ::core::ffi::c_void) -> ());
-::windows_targets::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"] fn CloseIoRing(ioring : *const HIORING__) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"] fn CloseIoRing(ioring : HIORING) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("ktmw32.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn CommitComplete(enlistmenthandle : super::super::Foundation:: HANDLE, tmvirtualclock : *mut i64) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
@@ -100,7 +104,7 @@
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateHardLinkTransactedW(lpfilename : ::windows_sys::core::PCWSTR, lpexistingfilename : ::windows_sys::core::PCWSTR, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, htransaction : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateHardLinkW(lpfilename : ::windows_sys::core::PCWSTR, lpexistingfilename : ::windows_sys::core::PCWSTR, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"] fn CreateIoRing(ioringversion : IORING_VERSION, flags : IORING_CREATE_FLAGS, submissionqueuesize : u32, completionqueuesize : u32, h : *mut *mut HIORING__) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"] fn CreateIoRing(ioringversion : IORING_VERSION, flags : IORING_CREATE_FLAGS, submissionqueuesize : u32, completionqueuesize : u32, h : *mut HIORING) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 ::windows_targets::link!("clfsw32.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"] fn CreateLogContainerScanContext(hlog : super::super::Foundation:: HANDLE, cfromcontainer : u32, ccontainers : u32, escanmode : u8, pcxscan : *mut CLS_SCAN_CONTEXT, poverlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -311,7 +315,7 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn GetFullPathNameTransactedW(lpfilename : ::windows_sys::core::PCWSTR, nbufferlength : u32, lpbuffer : ::windows_sys::core::PWSTR, lpfilepart : *mut ::windows_sys::core::PWSTR, htransaction : super::super::Foundation:: HANDLE) -> u32);
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"] fn GetFullPathNameW(lpfilename : ::windows_sys::core::PCWSTR, nbufferlength : u32, lpbuffer : ::windows_sys::core::PWSTR, lpfilepart : *mut ::windows_sys::core::PWSTR) -> u32);
-::windows_targets::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"] fn GetIoRingInfo(ioring : *const HIORING__, info : *mut IORING_INFO) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"] fn GetIoRingInfo(ioring : HIORING, info : *mut IORING_INFO) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("clfsw32.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn GetLogContainerName(hlog : super::super::Foundation:: HANDLE, cidlogicalcontainer : u32, pwstrcontainername : ::windows_sys::core::PCWSTR, clencontainername : u32, pcactuallencontainername : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
@@ -378,7 +382,7 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("clfsw32.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn InstallLogPolicy(hlog : super::super::Foundation:: HANDLE, ppolicy : *mut CLFS_MGMT_POLICY) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn IsIoRingOpSupported(ioring : *const HIORING__, op : IORING_OP_CODE) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn IsIoRingOpSupported(ioring : HIORING, op : IORING_OP_CODE) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"] fn LZClose(hfile : i32) -> ());
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"] fn LZCopy(hfsource : i32, hfdest : i32) -> i32);
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"] fn LZDone() -> ());
@@ -464,7 +468,7 @@
 ::windows_targets::link!("ktmw32.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn OpenTransactionManager(logfilename : ::windows_sys::core::PCWSTR, desiredaccess : u32, openoptions : u32) -> super::super::Foundation:: HANDLE);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("ktmw32.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn OpenTransactionManagerById(transactionmanagerid : *const ::windows_sys::core::GUID, desiredaccess : u32, openoptions : u32) -> super::super::Foundation:: HANDLE);
-::windows_targets::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"] fn PopIoRingCompletion(ioring : *const HIORING__, cqe : *mut IORING_CQE) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"] fn PopIoRingCompletion(ioring : HIORING, cqe : *mut IORING_CQE) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("ktmw32.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn PrePrepareComplete(enlistmenthandle : super::super::Foundation:: HANDLE, tmvirtualclock : *mut i64) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
@@ -494,9 +498,9 @@
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"] fn ReadDirectoryChangesW(hdirectory : super::super::Foundation:: HANDLE, lpbuffer : *mut ::core::ffi::c_void, nbufferlength : u32, bwatchsubtree : super::super::Foundation:: BOOL, dwnotifyfilter : FILE_NOTIFY_CHANGE, lpbytesreturned : *mut u32, lpoverlapped : *mut super::super::System::IO:: OVERLAPPED, lpcompletionroutine : super::super::System::IO:: LPOVERLAPPED_COMPLETION_ROUTINE) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"] fn ReadEncryptedFileRaw(pfexportcallback : PFE_EXPORT_FUNC, pvcallbackcontext : *const ::core::ffi::c_void, pvcontext : *const ::core::ffi::c_void) -> u32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"] fn ReadFile(hfile : super::super::Foundation:: HANDLE, lpbuffer : *mut ::core::ffi::c_void, nnumberofbytestoread : u32, lpnumberofbytesread : *mut u32, lpoverlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"] fn ReadFile(hfile : super::super::Foundation:: HANDLE, lpbuffer : *mut u8, nnumberofbytestoread : u32, lpnumberofbytesread : *mut u32, lpoverlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"] fn ReadFileEx(hfile : super::super::Foundation:: HANDLE, lpbuffer : *mut ::core::ffi::c_void, nnumberofbytestoread : u32, lpoverlapped : *mut super::super::System::IO:: OVERLAPPED, lpcompletionroutine : super::super::System::IO:: LPOVERLAPPED_COMPLETION_ROUTINE) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"] fn ReadFileEx(hfile : super::super::Foundation:: HANDLE, lpbuffer : *mut u8, nnumberofbytestoread : u32, lpoverlapped : *mut super::super::System::IO:: OVERLAPPED, lpcompletionroutine : super::super::System::IO:: LPOVERLAPPED_COMPLETION_ROUTINE) -> super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"] fn ReadFileScatter(hfile : super::super::Foundation:: HANDLE, asegmentarray : *const FILE_SEGMENT_ELEMENT, nnumberofbytestoread : u32, lpreserved : *const u32, lpoverlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
@@ -608,7 +612,7 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn SetFileValidData(hfile : super::super::Foundation:: HANDLE, validdatalength : i64) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn SetIoRingCompletionEvent(ioring : *const HIORING__, hevent : super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn SetIoRingCompletionEvent(ioring : HIORING, hevent : super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("clfsw32.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn SetLogArchiveMode(hlog : super::super::Foundation:: HANDLE, emode : CLFS_LOG_ARCHIVE_MODE) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
@@ -639,7 +643,7 @@
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn SetVolumeMountPointW(lpszvolumemountpoint : ::windows_sys::core::PCWSTR, lpszvolumename : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("ktmw32.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn SinglePhaseReject(enlistmenthandle : super::super::Foundation:: HANDLE, tmvirtualclock : *mut i64) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"] fn SubmitIoRing(ioring : *const HIORING__, waitoperations : u32, milliseconds : u32, submittedentries : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"] fn SubmitIoRing(ioring : HIORING, waitoperations : u32, milliseconds : u32, submittedentries : *mut u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("clfsw32.dll" "system" #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"] fn TerminateLogArchive(pvarchivecontext : *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
@@ -1685,6 +1689,16 @@ pub const SECURITY_SQOS_PRESENT: FILE_FLAGS_AND_ATTRIBUTES = 1048576u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SECURITY_VALID_SQOS_FLAGS: FILE_FLAGS_AND_ATTRIBUTES = 2031616u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub type FILE_FLUSH_MODE = i32;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_FLUSH_DEFAULT: FILE_FLUSH_MODE = 0i32;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_FLUSH_DATA: FILE_FLUSH_MODE = 1i32;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_FLUSH_MIN_METADATA: FILE_FLUSH_MODE = 2i32;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_FLUSH_NO_SYNC: FILE_FLUSH_MODE = 3i32;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub type FILE_ID_TYPE = i32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FileIdType: FILE_ID_TYPE = 0i32;
@@ -1796,6 +1810,12 @@ pub const FILE_TYPE_CHAR: FILE_TYPE = 2u32;
 pub const FILE_TYPE_PIPE: FILE_TYPE = 3u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_TYPE_REMOTE: FILE_TYPE = 32768u32;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub type FILE_WRITE_FLAGS = i32;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_WRITE_FLAGS_NONE: FILE_WRITE_FLAGS = 0i32;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_WRITE_FLAGS_WRITE_THROUGH: FILE_WRITE_FLAGS = 1i32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub type FINDEX_INFO_LEVELS = i32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -4284,23 +4304,73 @@ impl ::core::clone::Clone for FIO_CONTEXT {
         *self
     }
 }
-pub type FindChangeNotificationHandle = isize;
-pub type FindFileHandle = isize;
-pub type FindFileNameHandle = isize;
-pub type FindStreamHandle = isize;
-pub type FindVolumeHandle = isize;
-pub type FindVolumeMountPointHandle = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub struct HIORING__ {
-    pub unused: i32,
+pub struct FindChangeNotificationHandle {
+    pub Value: isize,
 }
-impl ::core::marker::Copy for HIORING__ {}
-impl ::core::clone::Clone for HIORING__ {
+impl ::core::marker::Copy for FindChangeNotificationHandle {}
+impl ::core::clone::Clone for FindChangeNotificationHandle {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub struct FindFileHandle {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for FindFileHandle {}
+impl ::core::clone::Clone for FindFileHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub struct FindFileNameHandle {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for FindFileNameHandle {}
+impl ::core::clone::Clone for FindFileNameHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub struct FindStreamHandle {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for FindStreamHandle {}
+impl ::core::clone::Clone for FindStreamHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub struct FindVolumeHandle {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for FindVolumeHandle {}
+impl ::core::clone::Clone for FindVolumeHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub struct FindVolumeMountPointHandle {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for FindVolumeMountPointHandle {}
+impl ::core::clone::Clone for FindVolumeMountPointHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub type HIORING = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct IORING_BUFFER_INFO {

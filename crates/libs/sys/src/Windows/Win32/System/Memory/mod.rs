@@ -8,6 +8,11 @@ pub mod NonVolatile;
 ::windows_targets::link!("api-ms-win-core-memory-l1-1-8.dll" "system" #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"] fn AllocateUserPhysicalPages2(objecthandle : super::super::Foundation:: HANDLE, numberofpages : *mut usize, pagearray : *mut usize, extendedparameters : *mut MEM_EXTENDED_PARAMETER, extendedparametercount : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"] fn AllocateUserPhysicalPagesNuma(hprocess : super::super::Foundation:: HANDLE, numberofpages : *mut usize, pagearray : *mut usize, nndpreferred : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("atlthunk.dll" "system" #[doc = "*Required features: `\"Win32_System_Memory\"`*"] fn AtlThunk_AllocateData() -> *mut AtlThunkData_t);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+::windows_targets::link!("atlthunk.dll" "system" #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn AtlThunk_DataToCode(param0 : *mut AtlThunkData_t) -> super::super::UI::WindowsAndMessaging:: WNDPROC);
+::windows_targets::link!("atlthunk.dll" "system" #[doc = "*Required features: `\"Win32_System_Memory\"`*"] fn AtlThunk_FreeData(thunk : *mut AtlThunkData_t) -> ());
+::windows_targets::link!("atlthunk.dll" "system" #[doc = "*Required features: `\"Win32_System_Memory\"`*"] fn AtlThunk_InitData(thunk : *mut AtlThunkData_t, proc : *mut ::core::ffi::c_void, firstparameter : usize) -> ());
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 ::windows_targets::link!("api-ms-win-core-memory-l1-1-7.dll" "system" #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateFileMapping2(file : super::super::Foundation:: HANDLE, securityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, desiredaccess : u32, pageprotection : PAGE_PROTECTION_FLAGS, allocationattributes : u32, maximumsize : u64, name : ::windows_sys::core::PCWSTR, extendedparameters : *mut MEM_EXTENDED_PARAMETER, parametercount : u32) -> super::super::Foundation:: HANDLE);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -107,19 +112,19 @@ pub mod NonVolatile;
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"] fn MapUserPhysicalPagesScatter(virtualaddresses : *const *const ::core::ffi::c_void, numberofpages : usize, pagearray : *const usize) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"] fn MapViewOfFile(hfilemappingobject : super::super::Foundation:: HANDLE, dwdesiredaccess : FILE_MAP, dwfileoffsethigh : u32, dwfileoffsetlow : u32, dwnumberofbytestomap : usize) -> *mut ::core::ffi::c_void);
+::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"] fn MapViewOfFile(hfilemappingobject : super::super::Foundation:: HANDLE, dwdesiredaccess : FILE_MAP, dwfileoffsethigh : u32, dwfileoffsetlow : u32, dwnumberofbytestomap : usize) -> MEMORY_MAPPED_VIEW_ADDRESS);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("api-ms-win-core-memory-l1-1-6.dll" "system" #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"] fn MapViewOfFile3(filemapping : super::super::Foundation:: HANDLE, process : super::super::Foundation:: HANDLE, baseaddress : *const ::core::ffi::c_void, offset : u64, viewsize : usize, allocationtype : VIRTUAL_ALLOCATION_TYPE, pageprotection : u32, extendedparameters : *mut MEM_EXTENDED_PARAMETER, parametercount : u32) -> *mut ::core::ffi::c_void);
+::windows_targets::link!("api-ms-win-core-memory-l1-1-6.dll" "system" #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"] fn MapViewOfFile3(filemapping : super::super::Foundation:: HANDLE, process : super::super::Foundation:: HANDLE, baseaddress : *const ::core::ffi::c_void, offset : u64, viewsize : usize, allocationtype : VIRTUAL_ALLOCATION_TYPE, pageprotection : u32, extendedparameters : *mut MEM_EXTENDED_PARAMETER, parametercount : u32) -> MEMORY_MAPPED_VIEW_ADDRESS);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("api-ms-win-core-memory-l1-1-6.dll" "system" #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"] fn MapViewOfFile3FromApp(filemapping : super::super::Foundation:: HANDLE, process : super::super::Foundation:: HANDLE, baseaddress : *const ::core::ffi::c_void, offset : u64, viewsize : usize, allocationtype : VIRTUAL_ALLOCATION_TYPE, pageprotection : u32, extendedparameters : *mut MEM_EXTENDED_PARAMETER, parametercount : u32) -> *mut ::core::ffi::c_void);
+::windows_targets::link!("api-ms-win-core-memory-l1-1-6.dll" "system" #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"] fn MapViewOfFile3FromApp(filemapping : super::super::Foundation:: HANDLE, process : super::super::Foundation:: HANDLE, baseaddress : *const ::core::ffi::c_void, offset : u64, viewsize : usize, allocationtype : VIRTUAL_ALLOCATION_TYPE, pageprotection : u32, extendedparameters : *mut MEM_EXTENDED_PARAMETER, parametercount : u32) -> MEMORY_MAPPED_VIEW_ADDRESS);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"] fn MapViewOfFileEx(hfilemappingobject : super::super::Foundation:: HANDLE, dwdesiredaccess : FILE_MAP, dwfileoffsethigh : u32, dwfileoffsetlow : u32, dwnumberofbytestomap : usize, lpbaseaddress : *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void);
+::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"] fn MapViewOfFileEx(hfilemappingobject : super::super::Foundation:: HANDLE, dwdesiredaccess : FILE_MAP, dwfileoffsethigh : u32, dwfileoffsetlow : u32, dwnumberofbytestomap : usize, lpbaseaddress : *const ::core::ffi::c_void) -> MEMORY_MAPPED_VIEW_ADDRESS);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"] fn MapViewOfFileExNuma(hfilemappingobject : super::super::Foundation:: HANDLE, dwdesiredaccess : FILE_MAP, dwfileoffsethigh : u32, dwfileoffsetlow : u32, dwnumberofbytestomap : usize, lpbaseaddress : *const ::core::ffi::c_void, nndpreferred : u32) -> *mut ::core::ffi::c_void);
+::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"] fn MapViewOfFileExNuma(hfilemappingobject : super::super::Foundation:: HANDLE, dwdesiredaccess : FILE_MAP, dwfileoffsethigh : u32, dwfileoffsetlow : u32, dwnumberofbytestomap : usize, lpbaseaddress : *const ::core::ffi::c_void, nndpreferred : u32) -> MEMORY_MAPPED_VIEW_ADDRESS);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"] fn MapViewOfFileFromApp(hfilemappingobject : super::super::Foundation:: HANDLE, desiredaccess : FILE_MAP, fileoffset : u64, numberofbytestomap : usize) -> *mut ::core::ffi::c_void);
+::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"] fn MapViewOfFileFromApp(hfilemappingobject : super::super::Foundation:: HANDLE, desiredaccess : FILE_MAP, fileoffset : u64, numberofbytestomap : usize) -> MEMORY_MAPPED_VIEW_ADDRESS);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("api-ms-win-core-memory-l1-1-5.dll" "system" #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"] fn MapViewOfFileNuma2(filemappinghandle : super::super::Foundation:: HANDLE, processhandle : super::super::Foundation:: HANDLE, offset : u64, baseaddress : *const ::core::ffi::c_void, viewsize : usize, allocationtype : u32, pageprotection : u32, preferrednode : u32) -> *mut ::core::ffi::c_void);
+::windows_targets::link!("api-ms-win-core-memory-l1-1-5.dll" "system" #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"] fn MapViewOfFileNuma2(filemappinghandle : super::super::Foundation:: HANDLE, processhandle : super::super::Foundation:: HANDLE, offset : u64, baseaddress : *const ::core::ffi::c_void, viewsize : usize, allocationtype : u32, pageprotection : u32, preferrednode : u32) -> MEMORY_MAPPED_VIEW_ADDRESS);
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_Memory\"`*"] fn OfferVirtualMemory(virtualaddress : *mut ::core::ffi::c_void, size : usize, priority : OFFER_PRIORITY) -> u32);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("api-ms-win-core-memory-l1-1-8.dll" "system" #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"] fn OpenDedicatedMemoryPartition(partition : super::super::Foundation:: HANDLE, dedicatedmemorytypeid : u64, desiredaccess : u32, inherithandle : super::super::Foundation:: BOOL) -> super::super::Foundation:: HANDLE);
@@ -156,11 +161,11 @@ pub mod NonVolatile;
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"] fn SetSystemFileCacheSize(minimumfilecachesize : usize, maximumfilecachesize : usize, flags : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"] fn UnmapViewOfFile(lpbaseaddress : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"] fn UnmapViewOfFile(lpbaseaddress : MEMORY_MAPPED_VIEW_ADDRESS) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("api-ms-win-core-memory-l1-1-5.dll" "system" #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"] fn UnmapViewOfFile2(process : super::super::Foundation:: HANDLE, baseaddress : *const ::core::ffi::c_void, unmapflags : UNMAP_VIEW_OF_FILE_FLAGS) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("api-ms-win-core-memory-l1-1-5.dll" "system" #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"] fn UnmapViewOfFile2(process : super::super::Foundation:: HANDLE, baseaddress : MEMORY_MAPPED_VIEW_ADDRESS, unmapflags : UNMAP_VIEW_OF_FILE_FLAGS) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"] fn UnmapViewOfFileEx(baseaddress : *const ::core::ffi::c_void, unmapflags : UNMAP_VIEW_OF_FILE_FLAGS) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"] fn UnmapViewOfFileEx(baseaddress : MEMORY_MAPPED_VIEW_ADDRESS, unmapflags : UNMAP_VIEW_OF_FILE_FLAGS) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"] fn UnregisterBadMemoryNotification(registrationhandle : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_Memory\"`*"] fn VirtualAlloc(lpaddress : *const ::core::ffi::c_void, dwsize : usize, flallocationtype : VIRTUAL_ALLOCATION_TYPE, flprotect : PAGE_PROTECTION_FLAGS) -> *mut ::core::ffi::c_void);
@@ -498,6 +503,7 @@ pub type WIN32_MEMORY_PARTITION_INFORMATION_CLASS = i32;
 pub const MemoryPartitionInfo: WIN32_MEMORY_PARTITION_INFORMATION_CLASS = 0i32;
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 pub const MemoryPartitionDedicatedMemoryInfo: WIN32_MEMORY_PARTITION_INFORMATION_CLASS = 1i32;
+pub type AtlThunkData_t = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 pub struct CFG_CALL_TARGET_INFO {
@@ -525,7 +531,17 @@ impl ::core::clone::Clone for HEAP_SUMMARY {
         *self
     }
 }
-pub type HeapHandle = isize;
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Memory\"`*"]
+pub struct HeapHandle {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for HeapHandle {}
+impl ::core::clone::Clone for HeapHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -599,6 +615,17 @@ pub struct MEMORY_BASIC_INFORMATION64 {
 }
 impl ::core::marker::Copy for MEMORY_BASIC_INFORMATION64 {}
 impl ::core::clone::Clone for MEMORY_BASIC_INFORMATION64 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Memory\"`*"]
+pub struct MEMORY_MAPPED_VIEW_ADDRESS {
+    pub Value: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for MEMORY_MAPPED_VIEW_ADDRESS {}
+impl ::core::clone::Clone for MEMORY_MAPPED_VIEW_ADDRESS {
     fn clone(&self) -> Self {
         *self
     }

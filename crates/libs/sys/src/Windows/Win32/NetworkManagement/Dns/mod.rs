@@ -12,6 +12,8 @@
 ::windows_targets::link!("dnsapi.dll" "system" #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"] fn DnsConnectionGetProxyInfo(pwszconnectionname : ::windows_sys::core::PCWSTR, r#type : DNS_CONNECTION_PROXY_TYPE, pproxyinfo : *mut DNS_CONNECTION_PROXY_INFO) -> u32);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("dnsapi.dll" "system" #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"] fn DnsConnectionGetProxyInfoForHostUrl(pwszhosturl : ::windows_sys::core::PCWSTR, pselectioncontext : *const u8, dwselectioncontextlength : u32, dwexplicitinterfaceindex : u32, pproxyinfoex : *mut DNS_CONNECTION_PROXY_INFO_EX) -> u32);
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("dnsapi.dll" "system" #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"] fn DnsConnectionGetProxyInfoForHostUrlEx(pwszhosturl : ::windows_sys::core::PCWSTR, pselectioncontext : *const u8, dwselectioncontextlength : u32, dwexplicitinterfaceindex : u32, pwszconnectionname : ::windows_sys::core::PCWSTR, pproxyinfoex : *mut DNS_CONNECTION_PROXY_INFO_EX) -> u32);
 ::windows_targets::link!("dnsapi.dll" "system" #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"] fn DnsConnectionGetProxyList(pwszconnectionname : ::windows_sys::core::PCWSTR, pproxylist : *mut DNS_CONNECTION_PROXY_LIST) -> u32);
 ::windows_targets::link!("dnsapi.dll" "system" #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"] fn DnsConnectionSetPolicyEntries(policyentrytag : DNS_CONNECTION_POLICY_TAG, ppolicyentrylist : *const DNS_CONNECTION_POLICY_ENTRY_LIST) -> u32);
 ::windows_targets::link!("dnsapi.dll" "system" #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"] fn DnsConnectionSetProxyInfo(pwszconnectionname : ::windows_sys::core::PCWSTR, r#type : DNS_CONNECTION_PROXY_TYPE, pproxyinfo : *const DNS_CONNECTION_PROXY_INFO) -> u32);
@@ -2500,7 +2502,17 @@ impl ::core::clone::Clone for DNS_WKS_DATA {
         *self
     }
 }
-pub type DnsContextHandle = isize;
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub struct DnsContextHandle {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for DnsContextHandle {}
+impl ::core::clone::Clone for DnsContextHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub struct IP4_ARRAY {

@@ -1,3 +1,5 @@
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("computecore.dll" "system" #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`, `\"Win32_Foundation\"`*"] fn HcsAddResourceToOperation(operation : HCS_OPERATION, r#type : HCS_RESOURCE_TYPE, uri : ::windows_sys::core::PCWSTR, handle : super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("computestorage.dll" "system" #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"] fn HcsAttachLayerStorageFilter(layerpath : ::windows_sys::core::PCWSTR, layerdata : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("computecore.dll" "system" #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"] fn HcsCancelOperation(operation : HCS_OPERATION) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("computecore.dll" "system" #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"] fn HcsCloseComputeSystem(computesystem : HCS_SYSTEM) -> ());
@@ -10,6 +12,7 @@
 ::windows_targets::link!("computecore.dll" "system" #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"] fn HcsCreateEmptyGuestStateFile(gueststatefilepath : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("computecore.dll" "system" #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"] fn HcsCreateEmptyRuntimeStateFile(runtimestatefilepath : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("computecore.dll" "system" #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"] fn HcsCreateOperation(context : *const ::core::ffi::c_void, callback : HCS_OPERATION_COMPLETION) -> HCS_OPERATION);
+::windows_targets::link!("computecore.dll" "system" #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"] fn HcsCreateOperationWithNotifications(eventtypes : HCS_OPERATION_OPTIONS, context : *const ::core::ffi::c_void, callback : HCS_EVENT_CALLBACK) -> HCS_OPERATION);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 ::windows_targets::link!("computecore.dll" "system" #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn HcsCreateProcess(computesystem : HCS_SYSTEM, processparameters : ::windows_sys::core::PCWSTR, operation : HCS_OPERATION, securitydescriptor : *const super::super::Security:: SECURITY_DESCRIPTOR, process : *mut HCS_PROCESS) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("computestorage.dll" "system" #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"] fn HcsDestroyLayer(layerpath : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
