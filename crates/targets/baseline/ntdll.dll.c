@@ -12,6 +12,7 @@ void __stdcall NtAccessCheckByTypeResultListAndAuditAlarmByHandle(int p0, int p1
 void __stdcall NtAdjustGroupsToken(int p0, int p1, int p2, int p3, int p4, int p5) {}
 void __stdcall NtAdjustPrivilegesToken(int p0, int p1, int p2, int p3, int p4, int p5) {}
 void __stdcall NtAllocateVirtualMemory(int p0, int p1, int p2, int p3, int p4, int p5) {}
+void __stdcall NtCancelIoFileEx(int p0, int p1, int p2) {}
 void __stdcall NtClose(int p0) {}
 void __stdcall NtCloseObjectAuditAlarm(int p0, int p1, int p2) {}
 void __stdcall NtCommitComplete(int p0, int p1) {}

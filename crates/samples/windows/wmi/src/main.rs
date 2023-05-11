@@ -1,4 +1,7 @@
-use windows::{core::*, Win32::System::Com::*, Win32::System::Ole::*, Win32::System::Wmi::*};
+use windows::{
+    core::*, Win32::System::Com::*, Win32::System::Ole::*, Win32::System::Variant::*,
+    Win32::System::Wmi::*,
+};
 
 fn main() -> Result<()> {
     unsafe {

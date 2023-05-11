@@ -1,3 +1,4 @@
+void __stdcall MFCreateCameraControlMonitor(int p0, int p1, int p2) {}
 void __stdcall MFCreateCameraOcclusionStateMonitor(int p0, int p1, int p2) {}
 void __stdcall MFCreateRelativePanelWatcher(int p0, int p1, int p2) {}
 void __stdcall MFCreateSensorActivityMonitor(int p0, int p1) {}

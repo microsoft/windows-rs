@@ -12,4 +12,5 @@ features = [
     "Win32_System_Wmi",
     "Win32_System_Rpc",
     "Win32_Security",
+    "Win32_System_Variant",
 ]

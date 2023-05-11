@@ -8,9 +8,9 @@ use windows::{
 fn test() {
     assert_eq!(1232, core::mem::size_of::<CONTEXT>());
 
-    use windows::Win32::System::Environment::VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64;
+    use windows::Win32::System::Environment::VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32;
 
-    extern "system" fn callback(_: *const VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64) -> i32 {
+    extern "system" fn callback(_: *const VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32) -> i32 {
         64
     }
 

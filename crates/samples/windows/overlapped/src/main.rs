@@ -35,17 +35,11 @@ fn main() -> Result<()> {
 
         let mut buffer: [u8; 12] = Default::default();
 
-        if let Err(error) = ReadFile(
-            file,
-            Some(buffer.as_mut_ptr() as _),
-            buffer.len() as _,
-            None,
-            Some(&mut overlapped),
-        ) {
+        if let Err(error) = ReadFile(file, Some(&mut buffer), None, Some(&mut overlapped)) {
             assert_eq!(error.code(), ERROR_IO_PENDING.into());
         }
 
-        WaitForSingleObject(overlapped.hEvent, 2000)?;
+        WaitForSingleObject(overlapped.hEvent, 2000);
 
         let mut bytes_copied = 0;
         GetOverlappedResult(file, &overlapped, &mut bytes_copied, false)?;

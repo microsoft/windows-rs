@@ -3,13 +3,13 @@ use windows_sys::{Win32::Foundation::*, Win32::Security::Cryptography::*};
 #[test]
 fn test() {
     unsafe {
-        let mut rng = 0;
+        let mut rng = std::ptr::null_mut();
         assert_eq!(
             STATUS_SUCCESS,
             BCryptOpenAlgorithmProvider(&mut rng, BCRYPT_RNG_ALGORITHM, std::ptr::null(), 0)
         );
 
-        let mut des = 0;
+        let mut des = std::ptr::null_mut();
         assert_eq!(
             STATUS_SUCCESS,
             BCryptOpenAlgorithmProvider(&mut des, BCRYPT_3DES_ALGORITHM, std::ptr::null(), 0)
@@ -36,7 +36,7 @@ fn test() {
             BCryptGenRandom(rng, shared_secret.as_mut_ptr(), shared_secret.len() as _, 0)
         );
 
-        let mut encrypt_key = 0;
+        let mut encrypt_key = std::ptr::null_mut();
         assert_eq!(
             STATUS_SUCCESS,
             BCryptGenerateSymmetricKey(
@@ -103,7 +103,7 @@ fn test() {
             )
         );
 
-        let mut decrypt_key = 0;
+        let mut decrypt_key = std::ptr::null_mut();
         assert_eq!(
             STATUS_SUCCESS,
             BCryptGenerateSymmetricKey(

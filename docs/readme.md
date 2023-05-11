@@ -39,7 +39,7 @@ fn main() -> Result<()> {
     unsafe {
         let event = CreateEventW(None, true, false, None)?;
         SetEvent(event)?;
-        WaitForSingleObject(event, 0)?;
+        WaitForSingleObject(event, 0);
         CloseHandle(event)?;
 
         MessageBoxA(None, s!("Ansi"), s!("Caption"), MB_OK);

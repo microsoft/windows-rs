@@ -32,7 +32,16 @@ extern "system" {
 pub type BCRYPT_ALG_HANDLE = *mut ::core::ffi::c_void;
 pub type BOOL = i32;
 pub type BOOLEAN = u8;
-pub type FindFileHandle = *mut ::core::ffi::c_void;
+#[repr(C)]
+pub struct FindFileHandle {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for FindFileHandle {}
+impl ::core::clone::Clone for FindFileHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type HANDLE = *mut ::core::ffi::c_void;
 pub type HMODULE = *mut ::core::ffi::c_void;
 pub type PCSTR = *const u8;

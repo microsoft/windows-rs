@@ -291,7 +291,6 @@ void __stdcall STGMEDIUM_UserSize64(int p0, int p1, int p2) {}
 void __stdcall STGMEDIUM_UserUnmarshal(int p0, int p1, int p2) {}
 void __stdcall STGMEDIUM_UserUnmarshal64(int p0, int p1, int p2) {}
 void __stdcall SetConvertStg(int p0, int p1) {}
-void __stdcall StgConvertPropertyToVariant(int p0, int p1, int p2, int p3) {}
 void __stdcall StgConvertVariantToProperty(int p0, int p1, int p2, int p3, int p4, int p5, int p6) {}
 void __stdcall StgCreateDocfile(int p0, int p1, int p2, int p3) {}
 void __stdcall StgCreateDocfileOnILockBytes(int p0, int p1, int p2, int p3) {}

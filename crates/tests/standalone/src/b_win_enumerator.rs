@@ -7,27 +7,27 @@
     dead_code,
     clippy::all
 )]
-pub const WAIT_IO_COMPLETION: WIN32_ERROR = WIN32_ERROR(192u32);
-pub const WAIT_TIMEOUT: WIN32_ERROR = WIN32_ERROR(258u32);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WIN32_ERROR(pub u32);
-impl ::core::marker::Copy for WIN32_ERROR {}
-impl ::core::clone::Clone for WIN32_ERROR {
+pub struct WAIT_EVENT(pub u32);
+impl ::core::marker::Copy for WAIT_EVENT {}
+impl ::core::clone::Clone for WAIT_EVENT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::default::Default for WIN32_ERROR {
+impl ::core::default::Default for WAIT_EVENT {
     fn default() -> Self {
         Self(0)
     }
 }
-impl ::windows_core::TypeKind for WIN32_ERROR {
+impl ::windows_core::TypeKind for WAIT_EVENT {
     type TypeKind = ::windows_core::CopyType;
 }
-impl ::core::fmt::Debug for WIN32_ERROR {
+impl ::core::fmt::Debug for WAIT_EVENT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WIN32_ERROR").field(&self.0).finish()
+        f.debug_tuple("WAIT_EVENT").field(&self.0).finish()
     }
 }
+pub const WAIT_IO_COMPLETION: WAIT_EVENT = WAIT_EVENT(192u32);
+pub const WAIT_TIMEOUT: WAIT_EVENT = WAIT_EVENT(258u32);

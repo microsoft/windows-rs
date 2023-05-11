@@ -9,7 +9,7 @@ fn size() {
     let reader = &Reader::new(&files);
 
     assert_eq!(
-        struct_size(reader, "Windows.Win32.System.Com", "VARIANT"),
+        struct_size(reader, "Windows.Win32.System.Variant", "VARIANT"),
         16
     );
     assert_eq!(

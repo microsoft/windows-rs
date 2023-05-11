@@ -137,7 +137,7 @@ impl GUID {
 }
 pub type HBITMAP = isize;
 pub type HENHMETAFILE = isize;
-pub type HGLOBAL = isize;
+pub type HGLOBAL = *mut ::core::ffi::c_void;
 pub type HRESULT = i32;
 pub type IEnumSTATSTG = *mut ::core::ffi::c_void;
 pub type ISequentialStream = *mut ::core::ffi::c_void;

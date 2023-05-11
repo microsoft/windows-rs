@@ -36,7 +36,7 @@ impl ::core::clone::Clone for ARM64_NT_NEON128_0 {
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
 pub struct CONTEXT {
-    pub ContextFlags: u32,
+    pub ContextFlags: CONTEXT_FLAGS,
     pub Cpsr: u32,
     pub Anonymous: CONTEXT_0,
     pub Sp: u64,
@@ -123,7 +123,7 @@ pub struct CONTEXT {
     pub P4Home: u64,
     pub P5Home: u64,
     pub P6Home: u64,
-    pub ContextFlags: u32,
+    pub ContextFlags: CONTEXT_FLAGS,
     pub MxCsr: u32,
     pub SegCs: u16,
     pub SegDs: u16,
@@ -219,7 +219,7 @@ impl ::core::clone::Clone for CONTEXT_0_0 {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 pub struct CONTEXT {
-    pub ContextFlags: u32,
+    pub ContextFlags: CONTEXT_FLAGS,
     pub Dr0: u32,
     pub Dr1: u32,
     pub Dr2: u32,
@@ -253,6 +253,7 @@ impl ::core::clone::Clone for CONTEXT {
         *self
     }
 }
+pub type CONTEXT_FLAGS = u32;
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct FLOATING_SAVE_AREA {

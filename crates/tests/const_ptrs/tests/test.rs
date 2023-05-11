@@ -1,4 +1,4 @@
-use windows::{core::*, Win32::UI::Shell::PropertiesSystem::*, Win32::UI::Shell::*};
+use windows::{core::*, Win32::System::Com::StructuredStorage::*, Win32::UI::Shell::*};
 
 #[test]
 fn path() {
