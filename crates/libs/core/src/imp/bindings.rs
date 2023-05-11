@@ -13,7 +13,7 @@
 ::windows_targets::link!("kernel32.dll" "system" fn HeapFree(hheap : HeapHandle, dwflags : HEAP_FLAGS, lpmem : *const ::core::ffi::c_void) -> BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn LoadLibraryExA(lplibfilename : PCSTR, hfile : HANDLE, dwflags : LOAD_LIBRARY_FLAGS) -> HMODULE);
 ::windows_targets::link!("kernel32.dll" "system" fn SetEvent(hevent : HANDLE) -> BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn WaitForSingleObject(hhandle : HANDLE, dwmilliseconds : u32) -> WIN32_ERROR);
+::windows_targets::link!("kernel32.dll" "system" fn WaitForSingleObject(hhandle : HANDLE, dwmilliseconds : u32) -> WAIT_EVENT);
 ::windows_targets::link!("ole32.dll" "system" fn CoTaskMemAlloc(cb : usize) -> *mut ::core::ffi::c_void);
 ::windows_targets::link!("ole32.dll" "system" fn CoTaskMemFree(pv : *const ::core::ffi::c_void) -> ());
 ::windows_targets::link!("oleaut32.dll" "system" fn SysAllocStringLen(strin : PCWSTR, ui : u32) -> BSTR);
@@ -30,7 +30,16 @@ pub type FORMAT_MESSAGE_OPTIONS = u32;
 pub type HANDLE = isize;
 pub type HEAP_FLAGS = u32;
 pub type HMODULE = isize;
-pub type HeapHandle = isize;
+#[repr(C)]
+pub struct HeapHandle {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for HeapHandle {}
+impl ::core::clone::Clone for HeapHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type LOAD_LIBRARY_FLAGS = u32;
 pub const LOAD_LIBRARY_SEARCH_DEFAULT_DIRS: LOAD_LIBRARY_FLAGS = 4096u32;
 pub type PCSTR = *const u8;
@@ -48,4 +57,5 @@ impl ::core::clone::Clone for SECURITY_ATTRIBUTES {
         *self
     }
 }
+pub type WAIT_EVENT = u32;
 pub type WIN32_ERROR = u32;
