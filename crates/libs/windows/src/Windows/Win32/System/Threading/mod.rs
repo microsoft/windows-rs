@@ -226,9 +226,12 @@ where
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ClosePrivateNamespace(handle: NamespaceHandle, flags: u32) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn ClosePrivateNamespace<P0>(handle: P0, flags: u32) -> super::super::Foundation::BOOLEAN
+where
+    P0: ::windows_core::IntoParam<NamespaceHandle>,
+{
     ::windows_targets::link!("kernel32.dll" "system" fn ClosePrivateNamespace(handle : NamespaceHandle, flags : u32) -> super::super::Foundation:: BOOLEAN);
-    ClosePrivateNamespace(::core::mem::transmute(handle), flags)
+    ClosePrivateNamespace(handle.into_param().abi(), flags)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
@@ -316,12 +319,13 @@ pub unsafe fn ConvertThreadToFiberEx(lpparameter: ::core::option::Option<*const 
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
-pub unsafe fn CreateBoundaryDescriptorA<P0>(name: P0, flags: u32) -> BoundaryDescriptorHandle
+pub unsafe fn CreateBoundaryDescriptorA<P0>(name: P0, flags: u32) -> ::windows_core::Result<BoundaryDescriptorHandle>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn CreateBoundaryDescriptorA(name : ::windows_core::PCSTR, flags : u32) -> BoundaryDescriptorHandle);
-    CreateBoundaryDescriptorA(name.into_param().abi(), flags)
+    let result__ = CreateBoundaryDescriptorA(name.into_param().abi(), flags);
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
@@ -441,12 +445,13 @@ where
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn CreatePrivateNamespaceA<P0>(lpprivatenamespaceattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, lpboundarydescriptor: *const ::core::ffi::c_void, lpaliasprefix: P0) -> NamespaceHandle
+pub unsafe fn CreatePrivateNamespaceA<P0>(lpprivatenamespaceattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, lpboundarydescriptor: *const ::core::ffi::c_void, lpaliasprefix: P0) -> ::windows_core::Result<NamespaceHandle>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn CreatePrivateNamespaceA(lpprivatenamespaceattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lpboundarydescriptor : *const ::core::ffi::c_void, lpaliasprefix : ::windows_core::PCSTR) -> NamespaceHandle);
-    CreatePrivateNamespaceA(::core::mem::transmute(lpprivatenamespaceattributes.unwrap_or(::std::ptr::null())), lpboundarydescriptor, lpaliasprefix.into_param().abi())
+    let result__ = CreatePrivateNamespaceA(::core::mem::transmute(lpprivatenamespaceattributes.unwrap_or(::std::ptr::null())), lpboundarydescriptor, lpaliasprefix.into_param().abi());
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -710,9 +715,12 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
-pub unsafe fn DeleteBoundaryDescriptor(boundarydescriptor: BoundaryDescriptorHandle) {
+pub unsafe fn DeleteBoundaryDescriptor<P0>(boundarydescriptor: P0)
+where
+    P0: ::windows_core::IntoParam<BoundaryDescriptorHandle>,
+{
     ::windows_targets::link!("kernel32.dll" "system" fn DeleteBoundaryDescriptor(boundarydescriptor : BoundaryDescriptorHandle) -> ());
-    DeleteBoundaryDescriptor(::core::mem::transmute(boundarydescriptor))
+    DeleteBoundaryDescriptor(boundarydescriptor.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -4758,35 +4766,32 @@ impl ::core::default::Default for APP_MEMORY_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub struct BoundaryDescriptorHandle {
-    pub Value: isize,
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct BoundaryDescriptorHandle(pub isize);
+impl BoundaryDescriptorHandle {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
 }
-impl ::core::marker::Copy for BoundaryDescriptorHandle {}
+impl ::core::default::Default for BoundaryDescriptorHandle {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for BoundaryDescriptorHandle {
     fn clone(&self) -> Self {
         *self
     }
 }
+impl ::core::marker::Copy for BoundaryDescriptorHandle {}
 impl ::core::fmt::Debug for BoundaryDescriptorHandle {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("BoundaryDescriptorHandle").field("Value", &self.Value).finish()
+        f.debug_tuple("BoundaryDescriptorHandle").field(&self.0).finish()
     }
 }
 impl ::windows_core::TypeKind for BoundaryDescriptorHandle {
     type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::cmp::PartialEq for BoundaryDescriptorHandle {
-    fn eq(&self, other: &Self) -> bool {
-        self.Value == other.Value
-    }
-}
-impl ::core::cmp::Eq for BoundaryDescriptorHandle {}
-impl ::core::default::Default for BoundaryDescriptorHandle {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
@@ -5018,35 +5023,32 @@ impl ::core::default::Default for MEMORY_PRIORITY_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub struct NamespaceHandle {
-    pub Value: isize,
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NamespaceHandle(pub isize);
+impl NamespaceHandle {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
 }
-impl ::core::marker::Copy for NamespaceHandle {}
+impl ::core::default::Default for NamespaceHandle {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for NamespaceHandle {
     fn clone(&self) -> Self {
         *self
     }
 }
+impl ::core::marker::Copy for NamespaceHandle {}
 impl ::core::fmt::Debug for NamespaceHandle {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NamespaceHandle").field("Value", &self.Value).finish()
+        f.debug_tuple("NamespaceHandle").field(&self.0).finish()
     }
 }
 impl ::windows_core::TypeKind for NamespaceHandle {
     type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::cmp::PartialEq for NamespaceHandle {
-    fn eq(&self, other: &Self) -> bool {
-        self.Value == other.Value
-    }
-}
-impl ::core::cmp::Eq for NamespaceHandle {}
-impl ::core::default::Default for NamespaceHandle {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
@@ -6324,35 +6326,32 @@ impl ::core::default::Default for TP_POOL_STACK_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub struct TimerQueueHandle {
-    pub Value: isize,
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TimerQueueHandle(pub isize);
+impl TimerQueueHandle {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == 0
+    }
 }
-impl ::core::marker::Copy for TimerQueueHandle {}
+impl ::core::default::Default for TimerQueueHandle {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for TimerQueueHandle {
     fn clone(&self) -> Self {
         *self
     }
 }
+impl ::core::marker::Copy for TimerQueueHandle {}
 impl ::core::fmt::Debug for TimerQueueHandle {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TimerQueueHandle").field("Value", &self.Value).finish()
+        f.debug_tuple("TimerQueueHandle").field(&self.0).finish()
     }
 }
 impl ::windows_core::TypeKind for TimerQueueHandle {
     type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::cmp::PartialEq for TimerQueueHandle {
-    fn eq(&self, other: &Self) -> bool {
-        self.Value == other.Value
-    }
-}
-impl ::core::cmp::Eq for TimerQueueHandle {}
-impl ::core::default::Default for TimerQueueHandle {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_System_SystemServices\"`*"]

@@ -8411,17 +8411,7 @@ impl ::core::clone::Clone for netent {
         *self
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub struct sa_family_t {
-    pub Value: u16,
-}
-impl ::core::marker::Copy for sa_family_t {}
-impl ::core::clone::Clone for sa_family_t {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type sa_family_t = u16;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub union sockaddr_gen {

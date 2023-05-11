@@ -642,9 +642,12 @@ pub unsafe fn DsFreeSpnArrayW(rpszspn: &mut [::windows_core::PWSTR]) {
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
-pub unsafe fn DsGetDcCloseW(getdccontexthandle: GetDcContextHandle) {
+pub unsafe fn DsGetDcCloseW<P0>(getdccontexthandle: P0)
+where
+    P0: ::windows_core::IntoParam<GetDcContextHandle>,
+{
     ::windows_targets::link!("netapi32.dll" "system" fn DsGetDcCloseW(getdccontexthandle : GetDcContextHandle) -> ());
-    DsGetDcCloseW(::core::mem::transmute(getdccontexthandle))
+    DsGetDcCloseW(getdccontexthandle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
@@ -18540,35 +18543,32 @@ impl ::core::default::Default for DS_SITE_COST_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct GetDcContextHandle {
-    pub Value: isize,
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct GetDcContextHandle(pub isize);
+impl GetDcContextHandle {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
 }
-impl ::core::marker::Copy for GetDcContextHandle {}
+impl ::core::default::Default for GetDcContextHandle {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for GetDcContextHandle {
     fn clone(&self) -> Self {
         *self
     }
 }
+impl ::core::marker::Copy for GetDcContextHandle {}
 impl ::core::fmt::Debug for GetDcContextHandle {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("GetDcContextHandle").field("Value", &self.Value).finish()
+        f.debug_tuple("GetDcContextHandle").field(&self.0).finish()
     }
 }
 impl ::windows_core::TypeKind for GetDcContextHandle {
     type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::cmp::PartialEq for GetDcContextHandle {
-    fn eq(&self, other: &Self) -> bool {
-        self.Value == other.Value
-    }
-}
-impl ::core::cmp::Eq for GetDcContextHandle {}
-impl ::core::default::Default for GetDcContextHandle {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com_StructuredStorage\"`*"]

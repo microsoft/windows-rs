@@ -65792,35 +65792,32 @@ impl ::core::default::Default for SYNCMGR_CONFLICT_ID_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub struct ShFindChangeNotificationHandle {
-    pub Value: isize,
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ShFindChangeNotificationHandle(pub isize);
+impl ShFindChangeNotificationHandle {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
 }
-impl ::core::marker::Copy for ShFindChangeNotificationHandle {}
+impl ::core::default::Default for ShFindChangeNotificationHandle {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for ShFindChangeNotificationHandle {
     fn clone(&self) -> Self {
         *self
     }
 }
+impl ::core::marker::Copy for ShFindChangeNotificationHandle {}
 impl ::core::fmt::Debug for ShFindChangeNotificationHandle {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ShFindChangeNotificationHandle").field("Value", &self.Value).finish()
+        f.debug_tuple("ShFindChangeNotificationHandle").field(&self.0).finish()
     }
 }
 impl ::windows_core::TypeKind for ShFindChangeNotificationHandle {
     type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::cmp::PartialEq for ShFindChangeNotificationHandle {
-    fn eq(&self, other: &Self) -> bool {
-        self.Value == other.Value
-    }
-}
-impl ::core::cmp::Eq for ShFindChangeNotificationHandle {}
-impl ::core::default::Default for ShFindChangeNotificationHandle {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]

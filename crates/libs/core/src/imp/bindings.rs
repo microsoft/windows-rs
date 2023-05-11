@@ -30,16 +30,7 @@ pub type FORMAT_MESSAGE_OPTIONS = u32;
 pub type HANDLE = isize;
 pub type HEAP_FLAGS = u32;
 pub type HMODULE = isize;
-#[repr(C)]
-pub struct HeapHandle {
-    pub Value: isize,
-}
-impl ::core::marker::Copy for HeapHandle {}
-impl ::core::clone::Clone for HeapHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HeapHandle = isize;
 pub type LOAD_LIBRARY_FLAGS = u32;
 pub const LOAD_LIBRARY_SEARCH_DEFAULT_DIRS: LOAD_LIBRARY_FLAGS = 4096u32;
 pub type PCSTR = *const u8;

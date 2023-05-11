@@ -531,17 +531,7 @@ impl ::core::clone::Clone for HEAP_SUMMARY {
         *self
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Memory\"`*"]
-pub struct HeapHandle {
-    pub Value: isize,
-}
-impl ::core::marker::Copy for HeapHandle {}
-impl ::core::clone::Clone for HeapHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HeapHandle = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -619,17 +609,7 @@ impl ::core::clone::Clone for MEMORY_BASIC_INFORMATION64 {
         *self
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Memory\"`*"]
-pub struct MEMORY_MAPPED_VIEW_ADDRESS {
-    pub Value: *mut ::core::ffi::c_void,
-}
-impl ::core::marker::Copy for MEMORY_MAPPED_VIEW_ADDRESS {}
-impl ::core::clone::Clone for MEMORY_MAPPED_VIEW_ADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type MEMORY_MAPPED_VIEW_ADDRESS = *mut ::core::ffi::c_void;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 pub struct MEMORY_PARTITION_DEDICATED_MEMORY_ATTRIBUTE {

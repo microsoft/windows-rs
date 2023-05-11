@@ -591,17 +591,7 @@ pub const RSOPIgnored: SETTINGSTATUS = 2i32;
 pub const RSOPFailed: SETTINGSTATUS = 3i32;
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const RSOPSubsettingFailed: SETTINGSTATUS = 4i32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
-pub struct CriticalPolicySectionHandle {
-    pub Value: isize,
-}
-impl ::core::marker::Copy for CriticalPolicySectionHandle {}
-impl ::core::clone::Clone for CriticalPolicySectionHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type CriticalPolicySectionHandle = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

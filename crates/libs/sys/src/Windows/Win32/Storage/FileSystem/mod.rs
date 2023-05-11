@@ -4304,72 +4304,12 @@ impl ::core::clone::Clone for FIO_CONTEXT {
         *self
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub struct FindChangeNotificationHandle {
-    pub Value: isize,
-}
-impl ::core::marker::Copy for FindChangeNotificationHandle {}
-impl ::core::clone::Clone for FindChangeNotificationHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub struct FindFileHandle {
-    pub Value: isize,
-}
-impl ::core::marker::Copy for FindFileHandle {}
-impl ::core::clone::Clone for FindFileHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub struct FindFileNameHandle {
-    pub Value: isize,
-}
-impl ::core::marker::Copy for FindFileNameHandle {}
-impl ::core::clone::Clone for FindFileNameHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub struct FindStreamHandle {
-    pub Value: isize,
-}
-impl ::core::marker::Copy for FindStreamHandle {}
-impl ::core::clone::Clone for FindStreamHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub struct FindVolumeHandle {
-    pub Value: isize,
-}
-impl ::core::marker::Copy for FindVolumeHandle {}
-impl ::core::clone::Clone for FindVolumeHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub struct FindVolumeMountPointHandle {
-    pub Value: isize,
-}
-impl ::core::marker::Copy for FindVolumeMountPointHandle {}
-impl ::core::clone::Clone for FindVolumeMountPointHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type FindChangeNotificationHandle = isize;
+pub type FindFileHandle = isize;
+pub type FindFileNameHandle = isize;
+pub type FindStreamHandle = isize;
+pub type FindVolumeHandle = isize;
+pub type FindVolumeMountPointHandle = isize;
 pub type HIORING = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]

@@ -1928,28 +1928,8 @@ impl ::core::clone::Clone for PERF_STRING_COUNTER_HEADER {
         *self
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub struct PerfProviderHandle {
-    pub Value: isize,
-}
-impl ::core::marker::Copy for PerfProviderHandle {}
-impl ::core::clone::Clone for PerfProviderHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub struct PerfQueryHandle {
-    pub Value: isize,
-}
-impl ::core::marker::Copy for PerfQueryHandle {}
-impl ::core::clone::Clone for PerfQueryHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type PerfProviderHandle = isize;
+pub type PerfQueryHandle = isize;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub type CounterPathCallBack = ::core::option::Option<unsafe extern "system" fn(param0: usize) -> i32>;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]

@@ -478,50 +478,10 @@ impl ::core::clone::Clone for FILTER_VOLUME_STANDARD_INFORMATION {
         *self
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
-pub struct FilterFindHandle {
-    pub Value: isize,
-}
-impl ::core::marker::Copy for FilterFindHandle {}
-impl ::core::clone::Clone for FilterFindHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
-pub struct FilterInstanceFindHandle {
-    pub Value: isize,
-}
-impl ::core::marker::Copy for FilterInstanceFindHandle {}
-impl ::core::clone::Clone for FilterInstanceFindHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
-pub struct FilterVolumeFindHandle {
-    pub Value: isize,
-}
-impl ::core::marker::Copy for FilterVolumeFindHandle {}
-impl ::core::clone::Clone for FilterVolumeFindHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
-pub struct FilterVolumeInstanceFindHandle {
-    pub Value: isize,
-}
-impl ::core::marker::Copy for FilterVolumeInstanceFindHandle {}
-impl ::core::clone::Clone for FilterVolumeInstanceFindHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type FilterFindHandle = isize;
+pub type FilterInstanceFindHandle = isize;
+pub type FilterVolumeFindHandle = isize;
+pub type FilterVolumeInstanceFindHandle = isize;
 pub type HFILTER = isize;
 pub type HFILTER_INSTANCE = isize;
 #[repr(C)]

@@ -4405,17 +4405,7 @@ impl ::core::clone::Clone for DS_SITE_COST_INFO {
         *self
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct GetDcContextHandle {
-    pub Value: isize,
-}
-impl ::core::marker::Copy for GetDcContextHandle {}
-impl ::core::clone::Clone for GetDcContextHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type GetDcContextHandle = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]

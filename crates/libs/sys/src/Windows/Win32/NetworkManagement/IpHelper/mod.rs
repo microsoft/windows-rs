@@ -2661,17 +2661,7 @@ impl ::core::clone::Clone for IP_UNIDIRECTIONAL_ADAPTER_ADDRESS {
         *self
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub struct IcmpHandle {
-    pub Value: isize,
-}
-impl ::core::marker::Copy for IcmpHandle {}
-impl ::core::clone::Clone for IcmpHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IcmpHandle = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub struct MIBICMPINFO {

@@ -567,22 +567,24 @@ where
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WTSVirtualChannelOpen<P0, P1>(hserver: P0, sessionid: u32, pvirtualname: P1) -> HwtsVirtualChannelHandle
+pub unsafe fn WTSVirtualChannelOpen<P0, P1>(hserver: P0, sessionid: u32, pvirtualname: P1) -> ::windows_core::Result<HwtsVirtualChannelHandle>
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("wtsapi32.dll" "system" fn WTSVirtualChannelOpen(hserver : super::super::Foundation:: HANDLE, sessionid : u32, pvirtualname : ::windows_core::PCSTR) -> HwtsVirtualChannelHandle);
-    WTSVirtualChannelOpen(hserver.into_param().abi(), sessionid, pvirtualname.into_param().abi())
+    let result__ = WTSVirtualChannelOpen(hserver.into_param().abi(), sessionid, pvirtualname.into_param().abi());
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[inline]
-pub unsafe fn WTSVirtualChannelOpenEx<P0>(sessionid: u32, pvirtualname: P0, flags: u32) -> HwtsVirtualChannelHandle
+pub unsafe fn WTSVirtualChannelOpenEx<P0>(sessionid: u32, pvirtualname: P0, flags: u32) -> ::windows_core::Result<HwtsVirtualChannelHandle>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("wtsapi32.dll" "system" fn WTSVirtualChannelOpenEx(sessionid : u32, pvirtualname : ::windows_core::PCSTR, flags : u32) -> HwtsVirtualChannelHandle);
-    WTSVirtualChannelOpenEx(sessionid, pvirtualname.into_param().abi(), flags)
+    let result__ = WTSVirtualChannelOpenEx(sessionid, pvirtualname.into_param().abi(), flags);
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10057,35 +10059,32 @@ impl ::core::default::Default for CLIENT_DISPLAY {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub struct HwtsVirtualChannelHandle {
-    pub Value: isize,
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HwtsVirtualChannelHandle(pub isize);
+impl HwtsVirtualChannelHandle {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
 }
-impl ::core::marker::Copy for HwtsVirtualChannelHandle {}
+impl ::core::default::Default for HwtsVirtualChannelHandle {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for HwtsVirtualChannelHandle {
     fn clone(&self) -> Self {
         *self
     }
 }
+impl ::core::marker::Copy for HwtsVirtualChannelHandle {}
 impl ::core::fmt::Debug for HwtsVirtualChannelHandle {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HwtsVirtualChannelHandle").field("Value", &self.Value).finish()
+        f.debug_tuple("HwtsVirtualChannelHandle").field(&self.0).finish()
     }
 }
 impl ::windows_core::TypeKind for HwtsVirtualChannelHandle {
     type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::cmp::PartialEq for HwtsVirtualChannelHandle {
-    fn eq(&self, other: &Self) -> bool {
-        self.Value == other.Value
-    }
-}
-impl ::core::cmp::Eq for HwtsVirtualChannelHandle {}
-impl ::core::default::Default for HwtsVirtualChannelHandle {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]

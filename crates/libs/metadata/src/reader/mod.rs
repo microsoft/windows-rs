@@ -978,7 +978,7 @@ impl<'a> Reader<'a> {
         self.type_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "DeprecatedAttribute")
     }
     pub fn type_def_is_handle(&self, row: TypeDef) -> bool {
-        self.type_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "NativeTypedefAttribute")
+        self.type_def_attributes(row).any(|attribute| matches!(self.attribute_name(attribute), "NativeTypedefAttribute" | "MetadataTypedefAttribute"))
     }
     pub fn type_def_is_exclusive(&self, row: TypeDef) -> bool {
         self.type_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "ExclusiveToAttribute")

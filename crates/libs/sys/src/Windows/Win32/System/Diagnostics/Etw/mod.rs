@@ -1630,17 +1630,7 @@ impl ::core::clone::Clone for CLASSIC_EVENT_ID {
         *self
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
-pub struct CONTROLTRACE_HANDLE {
-    pub Value: u64,
-}
-impl ::core::marker::Copy for CONTROLTRACE_HANDLE {}
-impl ::core::clone::Clone for CONTROLTRACE_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type CONTROLTRACE_HANDLE = u64;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 pub struct ENABLE_TRACE_PARAMETERS {
@@ -2920,17 +2910,7 @@ impl ::core::clone::Clone for PAYLOAD_FILTER_PREDICATE {
         *self
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
-pub struct PROCESSTRACE_HANDLE {
-    pub Value: u64,
-}
-impl ::core::marker::Copy for PROCESSTRACE_HANDLE {}
-impl ::core::clone::Clone for PROCESSTRACE_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type PROCESSTRACE_HANDLE = u64;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 pub struct PROFILE_SOURCE_INFO {
@@ -3028,17 +3008,7 @@ impl ::core::clone::Clone for PROVIDER_FILTER_INFO {
         *self
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
-pub struct RELOGSTREAM_HANDLE {
-    pub Value: u64,
-}
-impl ::core::marker::Copy for RELOGSTREAM_HANDLE {}
-impl ::core::clone::Clone for RELOGSTREAM_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type RELOGSTREAM_HANDLE = u64;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 pub struct TDH_CONTEXT {

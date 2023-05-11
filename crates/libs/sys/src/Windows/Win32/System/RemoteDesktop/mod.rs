@@ -1520,17 +1520,7 @@ impl ::core::clone::Clone for CLIENT_DISPLAY {
         *self
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub struct HwtsVirtualChannelHandle {
-    pub Value: isize,
-}
-impl ::core::marker::Copy for HwtsVirtualChannelHandle {}
-impl ::core::clone::Clone for HwtsVirtualChannelHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HwtsVirtualChannelHandle = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub struct PRODUCT_INFOA {

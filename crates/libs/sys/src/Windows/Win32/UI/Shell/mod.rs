@@ -12634,17 +12634,7 @@ impl ::core::clone::Clone for SYNCMGR_CONFLICT_ID_INFO {
         *self
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub struct ShFindChangeNotificationHandle {
-    pub Value: isize,
-}
-impl ::core::marker::Copy for ShFindChangeNotificationHandle {}
-impl ::core::clone::Clone for ShFindChangeNotificationHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ShFindChangeNotificationHandle = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub struct TBINFO {

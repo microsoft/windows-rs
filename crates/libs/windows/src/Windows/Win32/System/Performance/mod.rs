@@ -878,9 +878,12 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PerfAddCounters(hquery: PerfQueryHandle, pcounters: *mut PERF_COUNTER_IDENTIFIER, cbcounters: u32) -> u32 {
+pub unsafe fn PerfAddCounters<P0>(hquery: P0, pcounters: *mut PERF_COUNTER_IDENTIFIER, cbcounters: u32) -> u32
+where
+    P0: ::windows_core::IntoParam<PerfQueryHandle>,
+{
     ::windows_targets::link!("advapi32.dll" "system" fn PerfAddCounters(hquery : PerfQueryHandle, pcounters : *mut PERF_COUNTER_IDENTIFIER, cbcounters : u32) -> u32);
-    PerfAddCounters(::core::mem::transmute(hquery), pcounters, cbcounters)
+    PerfAddCounters(hquery.into_param().abi(), pcounters, cbcounters)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -894,12 +897,13 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PerfCreateInstance<P0>(providerhandle: PerfProviderHandle, countersetguid: *const ::windows_core::GUID, name: P0, id: u32) -> *mut PERF_COUNTERSET_INSTANCE
+pub unsafe fn PerfCreateInstance<P0, P1>(providerhandle: P0, countersetguid: *const ::windows_core::GUID, name: P1, id: u32) -> *mut PERF_COUNTERSET_INSTANCE
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: ::windows_core::IntoParam<PerfProviderHandle>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("advapi32.dll" "system" fn PerfCreateInstance(providerhandle : PerfProviderHandle, countersetguid : *const ::windows_core::GUID, name : ::windows_core::PCWSTR, id : u32) -> *mut PERF_COUNTERSET_INSTANCE);
-    PerfCreateInstance(::core::mem::transmute(providerhandle), countersetguid, name.into_param().abi(), id)
+    PerfCreateInstance(providerhandle.into_param().abi(), countersetguid, name.into_param().abi(), id)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -923,15 +927,21 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PerfDeleteCounters(hquery: PerfQueryHandle, pcounters: *mut PERF_COUNTER_IDENTIFIER, cbcounters: u32) -> u32 {
+pub unsafe fn PerfDeleteCounters<P0>(hquery: P0, pcounters: *mut PERF_COUNTER_IDENTIFIER, cbcounters: u32) -> u32
+where
+    P0: ::windows_core::IntoParam<PerfQueryHandle>,
+{
     ::windows_targets::link!("advapi32.dll" "system" fn PerfDeleteCounters(hquery : PerfQueryHandle, pcounters : *mut PERF_COUNTER_IDENTIFIER, cbcounters : u32) -> u32);
-    PerfDeleteCounters(::core::mem::transmute(hquery), pcounters, cbcounters)
+    PerfDeleteCounters(hquery.into_param().abi(), pcounters, cbcounters)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PerfDeleteInstance(provider: PerfProviderHandle, instanceblock: *const PERF_COUNTERSET_INSTANCE) -> u32 {
+pub unsafe fn PerfDeleteInstance<P0>(provider: P0, instanceblock: *const PERF_COUNTERSET_INSTANCE) -> u32
+where
+    P0: ::windows_core::IntoParam<PerfProviderHandle>,
+{
     ::windows_targets::link!("advapi32.dll" "system" fn PerfDeleteInstance(provider : PerfProviderHandle, instanceblock : *const PERF_COUNTERSET_INSTANCE) -> u32);
-    PerfDeleteInstance(::core::mem::transmute(provider), instanceblock)
+    PerfDeleteInstance(provider.into_param().abi(), instanceblock)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -983,15 +993,21 @@ where
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PerfQueryCounterData(hquery: PerfQueryHandle, pcounterblock: ::core::option::Option<*mut PERF_DATA_HEADER>, cbcounterblock: u32, pcbcounterblockactual: *mut u32) -> u32 {
+pub unsafe fn PerfQueryCounterData<P0>(hquery: P0, pcounterblock: ::core::option::Option<*mut PERF_DATA_HEADER>, cbcounterblock: u32, pcbcounterblockactual: *mut u32) -> u32
+where
+    P0: ::windows_core::IntoParam<PerfQueryHandle>,
+{
     ::windows_targets::link!("advapi32.dll" "system" fn PerfQueryCounterData(hquery : PerfQueryHandle, pcounterblock : *mut PERF_DATA_HEADER, cbcounterblock : u32, pcbcounterblockactual : *mut u32) -> u32);
-    PerfQueryCounterData(::core::mem::transmute(hquery), ::core::mem::transmute(pcounterblock.unwrap_or(::std::ptr::null_mut())), cbcounterblock, pcbcounterblockactual)
+    PerfQueryCounterData(hquery.into_param().abi(), ::core::mem::transmute(pcounterblock.unwrap_or(::std::ptr::null_mut())), cbcounterblock, pcbcounterblockactual)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PerfQueryCounterInfo(hquery: PerfQueryHandle, pcounters: ::core::option::Option<*mut PERF_COUNTER_IDENTIFIER>, cbcounters: u32, pcbcountersactual: *mut u32) -> u32 {
+pub unsafe fn PerfQueryCounterInfo<P0>(hquery: P0, pcounters: ::core::option::Option<*mut PERF_COUNTER_IDENTIFIER>, cbcounters: u32, pcbcountersactual: *mut u32) -> u32
+where
+    P0: ::windows_core::IntoParam<PerfQueryHandle>,
+{
     ::windows_targets::link!("advapi32.dll" "system" fn PerfQueryCounterInfo(hquery : PerfQueryHandle, pcounters : *mut PERF_COUNTER_IDENTIFIER, cbcounters : u32, pcbcountersactual : *mut u32) -> u32);
-    PerfQueryCounterInfo(::core::mem::transmute(hquery), ::core::mem::transmute(pcounters.unwrap_or(::std::ptr::null_mut())), cbcounters, pcbcountersactual)
+    PerfQueryCounterInfo(hquery.into_param().abi(), ::core::mem::transmute(pcounters.unwrap_or(::std::ptr::null_mut())), cbcounters, pcbcountersactual)
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -1067,9 +1083,12 @@ pub unsafe fn PerfStartProviderEx(providerguid: *const ::windows_core::GUID, pro
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PerfStopProvider(providerhandle: PerfProviderHandle) -> u32 {
+pub unsafe fn PerfStopProvider<P0>(providerhandle: P0) -> u32
+where
+    P0: ::windows_core::IntoParam<PerfProviderHandle>,
+{
     ::windows_targets::link!("advapi32.dll" "system" fn PerfStopProvider(providerhandle : PerfProviderHandle) -> u32);
-    PerfStopProvider(::core::mem::transmute(providerhandle))
+    PerfStopProvider(providerhandle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10899,65 +10918,59 @@ impl ::core::default::Default for PERF_STRING_COUNTER_HEADER {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub struct PerfProviderHandle {
-    pub Value: isize,
-}
-impl ::core::marker::Copy for PerfProviderHandle {}
-impl ::core::clone::Clone for PerfProviderHandle {
-    fn clone(&self) -> Self {
-        *self
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PerfProviderHandle(pub isize);
+impl PerfProviderHandle {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
     }
 }
-impl ::core::fmt::Debug for PerfProviderHandle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PerfProviderHandle").field("Value", &self.Value).finish()
-    }
-}
-impl ::windows_core::TypeKind for PerfProviderHandle {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::cmp::PartialEq for PerfProviderHandle {
-    fn eq(&self, other: &Self) -> bool {
-        self.Value == other.Value
-    }
-}
-impl ::core::cmp::Eq for PerfProviderHandle {}
 impl ::core::default::Default for PerfProviderHandle {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub struct PerfQueryHandle {
-    pub Value: isize,
+impl ::core::clone::Clone for PerfProviderHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
-impl ::core::marker::Copy for PerfQueryHandle {}
+impl ::core::marker::Copy for PerfProviderHandle {}
+impl ::core::fmt::Debug for PerfProviderHandle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PerfProviderHandle").field(&self.0).finish()
+    }
+}
+impl ::windows_core::TypeKind for PerfProviderHandle {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PerfQueryHandle(pub isize);
+impl PerfQueryHandle {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
+}
+impl ::core::default::Default for PerfQueryHandle {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for PerfQueryHandle {
     fn clone(&self) -> Self {
         *self
     }
 }
+impl ::core::marker::Copy for PerfQueryHandle {}
 impl ::core::fmt::Debug for PerfQueryHandle {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PerfQueryHandle").field("Value", &self.Value).finish()
+        f.debug_tuple("PerfQueryHandle").field(&self.0).finish()
     }
 }
 impl ::windows_core::TypeKind for PerfQueryHandle {
     type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::cmp::PartialEq for PerfQueryHandle {
-    fn eq(&self, other: &Self) -> bool {
-        self.Value == other.Value
-    }
-}
-impl ::core::cmp::Eq for PerfQueryHandle {}
-impl ::core::default::Default for PerfQueryHandle {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub type CounterPathCallBack = ::core::option::Option<unsafe extern "system" fn(param0: usize) -> i32>;

@@ -563,17 +563,7 @@ impl ::core::clone::Clone for NOTIFYINFO {
         *self
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub struct NetEnumHandle {
-    pub Value: isize,
-}
-impl ::core::marker::Copy for NetEnumHandle {}
-impl ::core::clone::Clone for NetEnumHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type NetEnumHandle = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 pub struct REMOTE_NAME_INFOA {

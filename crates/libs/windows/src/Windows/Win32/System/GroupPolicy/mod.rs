@@ -6563,35 +6563,32 @@ impl ::core::fmt::Debug for SETTINGSTATUS {
         f.debug_tuple("SETTINGSTATUS").field(&self.0).finish()
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
-pub struct CriticalPolicySectionHandle {
-    pub Value: isize,
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CriticalPolicySectionHandle(pub isize);
+impl CriticalPolicySectionHandle {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
 }
-impl ::core::marker::Copy for CriticalPolicySectionHandle {}
+impl ::core::default::Default for CriticalPolicySectionHandle {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for CriticalPolicySectionHandle {
     fn clone(&self) -> Self {
         *self
     }
 }
+impl ::core::marker::Copy for CriticalPolicySectionHandle {}
 impl ::core::fmt::Debug for CriticalPolicySectionHandle {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CriticalPolicySectionHandle").field("Value", &self.Value).finish()
+        f.debug_tuple("CriticalPolicySectionHandle").field(&self.0).finish()
     }
 }
 impl ::windows_core::TypeKind for CriticalPolicySectionHandle {
     type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::cmp::PartialEq for CriticalPolicySectionHandle {
-    fn eq(&self, other: &Self) -> bool {
-        self.Value == other.Value
-    }
-}
-impl ::core::cmp::Eq for CriticalPolicySectionHandle {}
-impl ::core::default::Default for CriticalPolicySectionHandle {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`*"]

@@ -929,57 +929,67 @@ pub unsafe fn FileTimeToLocalFileTime(lpfiletime: *const super::super::Foundatio
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindClose(hfindfile: FindFileHandle) -> ::windows_core::Result<()> {
+pub unsafe fn FindClose<P0>(hfindfile: P0) -> ::windows_core::Result<()>
+where
+    P0: ::windows_core::IntoParam<FindFileHandle>,
+{
     ::windows_targets::link!("kernel32.dll" "system" fn FindClose(hfindfile : FindFileHandle) -> super::super::Foundation:: BOOL);
-    FindClose(::core::mem::transmute(hfindfile)).ok()
+    FindClose(hfindfile.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindCloseChangeNotification(hchangehandle: FindChangeNotificationHandle) -> ::windows_core::Result<()> {
+pub unsafe fn FindCloseChangeNotification<P0>(hchangehandle: P0) -> ::windows_core::Result<()>
+where
+    P0: ::windows_core::IntoParam<FindChangeNotificationHandle>,
+{
     ::windows_targets::link!("kernel32.dll" "system" fn FindCloseChangeNotification(hchangehandle : FindChangeNotificationHandle) -> super::super::Foundation:: BOOL);
-    FindCloseChangeNotification(::core::mem::transmute(hchangehandle)).ok()
+    FindCloseChangeNotification(hchangehandle.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindFirstChangeNotificationA<P0, P1>(lppathname: P0, bwatchsubtree: P1, dwnotifyfilter: FILE_NOTIFY_CHANGE) -> FindChangeNotificationHandle
+pub unsafe fn FindFirstChangeNotificationA<P0, P1>(lppathname: P0, bwatchsubtree: P1, dwnotifyfilter: FILE_NOTIFY_CHANGE) -> ::windows_core::Result<FindChangeNotificationHandle>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn FindFirstChangeNotificationA(lppathname : ::windows_core::PCSTR, bwatchsubtree : super::super::Foundation:: BOOL, dwnotifyfilter : FILE_NOTIFY_CHANGE) -> FindChangeNotificationHandle);
-    FindFirstChangeNotificationA(lppathname.into_param().abi(), bwatchsubtree.into_param().abi(), dwnotifyfilter)
+    let result__ = FindFirstChangeNotificationA(lppathname.into_param().abi(), bwatchsubtree.into_param().abi(), dwnotifyfilter);
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindFirstChangeNotificationW<P0, P1>(lppathname: P0, bwatchsubtree: P1, dwnotifyfilter: FILE_NOTIFY_CHANGE) -> FindChangeNotificationHandle
+pub unsafe fn FindFirstChangeNotificationW<P0, P1>(lppathname: P0, bwatchsubtree: P1, dwnotifyfilter: FILE_NOTIFY_CHANGE) -> ::windows_core::Result<FindChangeNotificationHandle>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn FindFirstChangeNotificationW(lppathname : ::windows_core::PCWSTR, bwatchsubtree : super::super::Foundation:: BOOL, dwnotifyfilter : FILE_NOTIFY_CHANGE) -> FindChangeNotificationHandle);
-    FindFirstChangeNotificationW(lppathname.into_param().abi(), bwatchsubtree.into_param().abi(), dwnotifyfilter)
+    let result__ = FindFirstChangeNotificationW(lppathname.into_param().abi(), bwatchsubtree.into_param().abi(), dwnotifyfilter);
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindFirstFileA<P0>(lpfilename: P0, lpfindfiledata: *mut WIN32_FIND_DATAA) -> FindFileHandle
+pub unsafe fn FindFirstFileA<P0>(lpfilename: P0, lpfindfiledata: *mut WIN32_FIND_DATAA) -> ::windows_core::Result<FindFileHandle>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn FindFirstFileA(lpfilename : ::windows_core::PCSTR, lpfindfiledata : *mut WIN32_FIND_DATAA) -> FindFileHandle);
-    FindFirstFileA(lpfilename.into_param().abi(), lpfindfiledata)
+    let result__ = FindFirstFileA(lpfilename.into_param().abi(), lpfindfiledata);
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
-pub unsafe fn FindFirstFileExA<P0>(lpfilename: P0, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: ::core::option::Option<*const ::core::ffi::c_void>, dwadditionalflags: FIND_FIRST_EX_FLAGS) -> FindFileHandle
+pub unsafe fn FindFirstFileExA<P0>(lpfilename: P0, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: ::core::option::Option<*const ::core::ffi::c_void>, dwadditionalflags: FIND_FIRST_EX_FLAGS) -> ::windows_core::Result<FindFileHandle>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn FindFirstFileExA(lpfilename : ::windows_core::PCSTR, finfolevelid : FINDEX_INFO_LEVELS, lpfindfiledata : *mut ::core::ffi::c_void, fsearchop : FINDEX_SEARCH_OPS, lpsearchfilter : *const ::core::ffi::c_void, dwadditionalflags : FIND_FIRST_EX_FLAGS) -> FindFileHandle);
-    FindFirstFileExA(lpfilename.into_param().abi(), finfolevelid, lpfindfiledata, fsearchop, ::core::mem::transmute(lpsearchfilter.unwrap_or(::std::ptr::null())), dwadditionalflags)
+    let result__ = FindFirstFileExA(lpfilename.into_param().abi(), finfolevelid, lpfindfiledata, fsearchop, ::core::mem::transmute(lpsearchfilter.unwrap_or(::std::ptr::null())), dwadditionalflags);
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -993,191 +1003,236 @@ where
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
-pub unsafe fn FindFirstFileExW<P0>(lpfilename: P0, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: ::core::option::Option<*const ::core::ffi::c_void>, dwadditionalflags: FIND_FIRST_EX_FLAGS) -> FindFileHandle
+pub unsafe fn FindFirstFileExW<P0>(lpfilename: P0, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: ::core::option::Option<*const ::core::ffi::c_void>, dwadditionalflags: FIND_FIRST_EX_FLAGS) -> ::windows_core::Result<FindFileHandle>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn FindFirstFileExW(lpfilename : ::windows_core::PCWSTR, finfolevelid : FINDEX_INFO_LEVELS, lpfindfiledata : *mut ::core::ffi::c_void, fsearchop : FINDEX_SEARCH_OPS, lpsearchfilter : *const ::core::ffi::c_void, dwadditionalflags : FIND_FIRST_EX_FLAGS) -> FindFileHandle);
-    FindFirstFileExW(lpfilename.into_param().abi(), finfolevelid, lpfindfiledata, fsearchop, ::core::mem::transmute(lpsearchfilter.unwrap_or(::std::ptr::null())), dwadditionalflags)
+    let result__ = FindFirstFileExW(lpfilename.into_param().abi(), finfolevelid, lpfindfiledata, fsearchop, ::core::mem::transmute(lpsearchfilter.unwrap_or(::std::ptr::null())), dwadditionalflags);
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindFirstFileNameTransactedW<P0, P1>(lpfilename: P0, dwflags: u32, stringlength: *mut u32, linkname: ::windows_core::PWSTR, htransaction: P1) -> FindFileNameHandle
+pub unsafe fn FindFirstFileNameTransactedW<P0, P1>(lpfilename: P0, dwflags: u32, stringlength: *mut u32, linkname: ::windows_core::PWSTR, htransaction: P1) -> ::windows_core::Result<FindFileNameHandle>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn FindFirstFileNameTransactedW(lpfilename : ::windows_core::PCWSTR, dwflags : u32, stringlength : *mut u32, linkname : ::windows_core::PWSTR, htransaction : super::super::Foundation:: HANDLE) -> FindFileNameHandle);
-    FindFirstFileNameTransactedW(lpfilename.into_param().abi(), dwflags, stringlength, ::core::mem::transmute(linkname), htransaction.into_param().abi())
+    let result__ = FindFirstFileNameTransactedW(lpfilename.into_param().abi(), dwflags, stringlength, ::core::mem::transmute(linkname), htransaction.into_param().abi());
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
-pub unsafe fn FindFirstFileNameW<P0>(lpfilename: P0, dwflags: u32, stringlength: *mut u32, linkname: ::windows_core::PWSTR) -> FindFileNameHandle
+pub unsafe fn FindFirstFileNameW<P0>(lpfilename: P0, dwflags: u32, stringlength: *mut u32, linkname: ::windows_core::PWSTR) -> ::windows_core::Result<FindFileNameHandle>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn FindFirstFileNameW(lpfilename : ::windows_core::PCWSTR, dwflags : u32, stringlength : *mut u32, linkname : ::windows_core::PWSTR) -> FindFileNameHandle);
-    FindFirstFileNameW(lpfilename.into_param().abi(), dwflags, stringlength, ::core::mem::transmute(linkname))
+    let result__ = FindFirstFileNameW(lpfilename.into_param().abi(), dwflags, stringlength, ::core::mem::transmute(linkname));
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindFirstFileTransactedA<P0, P1>(lpfilename: P0, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: ::core::option::Option<*const ::core::ffi::c_void>, dwadditionalflags: u32, htransaction: P1) -> FindFileHandle
+pub unsafe fn FindFirstFileTransactedA<P0, P1>(lpfilename: P0, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: ::core::option::Option<*const ::core::ffi::c_void>, dwadditionalflags: u32, htransaction: P1) -> ::windows_core::Result<FindFileHandle>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn FindFirstFileTransactedA(lpfilename : ::windows_core::PCSTR, finfolevelid : FINDEX_INFO_LEVELS, lpfindfiledata : *mut ::core::ffi::c_void, fsearchop : FINDEX_SEARCH_OPS, lpsearchfilter : *const ::core::ffi::c_void, dwadditionalflags : u32, htransaction : super::super::Foundation:: HANDLE) -> FindFileHandle);
-    FindFirstFileTransactedA(lpfilename.into_param().abi(), finfolevelid, lpfindfiledata, fsearchop, ::core::mem::transmute(lpsearchfilter.unwrap_or(::std::ptr::null())), dwadditionalflags, htransaction.into_param().abi())
+    let result__ = FindFirstFileTransactedA(lpfilename.into_param().abi(), finfolevelid, lpfindfiledata, fsearchop, ::core::mem::transmute(lpsearchfilter.unwrap_or(::std::ptr::null())), dwadditionalflags, htransaction.into_param().abi());
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindFirstFileTransactedW<P0, P1>(lpfilename: P0, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: ::core::option::Option<*const ::core::ffi::c_void>, dwadditionalflags: u32, htransaction: P1) -> FindFileHandle
+pub unsafe fn FindFirstFileTransactedW<P0, P1>(lpfilename: P0, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: ::core::option::Option<*const ::core::ffi::c_void>, dwadditionalflags: u32, htransaction: P1) -> ::windows_core::Result<FindFileHandle>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn FindFirstFileTransactedW(lpfilename : ::windows_core::PCWSTR, finfolevelid : FINDEX_INFO_LEVELS, lpfindfiledata : *mut ::core::ffi::c_void, fsearchop : FINDEX_SEARCH_OPS, lpsearchfilter : *const ::core::ffi::c_void, dwadditionalflags : u32, htransaction : super::super::Foundation:: HANDLE) -> FindFileHandle);
-    FindFirstFileTransactedW(lpfilename.into_param().abi(), finfolevelid, lpfindfiledata, fsearchop, ::core::mem::transmute(lpsearchfilter.unwrap_or(::std::ptr::null())), dwadditionalflags, htransaction.into_param().abi())
+    let result__ = FindFirstFileTransactedW(lpfilename.into_param().abi(), finfolevelid, lpfindfiledata, fsearchop, ::core::mem::transmute(lpsearchfilter.unwrap_or(::std::ptr::null())), dwadditionalflags, htransaction.into_param().abi());
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindFirstFileW<P0>(lpfilename: P0, lpfindfiledata: *mut WIN32_FIND_DATAW) -> FindFileHandle
+pub unsafe fn FindFirstFileW<P0>(lpfilename: P0, lpfindfiledata: *mut WIN32_FIND_DATAW) -> ::windows_core::Result<FindFileHandle>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn FindFirstFileW(lpfilename : ::windows_core::PCWSTR, lpfindfiledata : *mut WIN32_FIND_DATAW) -> FindFileHandle);
-    FindFirstFileW(lpfilename.into_param().abi(), lpfindfiledata)
+    let result__ = FindFirstFileW(lpfilename.into_param().abi(), lpfindfiledata);
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindFirstStreamTransactedW<P0, P1>(lpfilename: P0, infolevel: STREAM_INFO_LEVELS, lpfindstreamdata: *mut ::core::ffi::c_void, dwflags: u32, htransaction: P1) -> FindStreamHandle
+pub unsafe fn FindFirstStreamTransactedW<P0, P1>(lpfilename: P0, infolevel: STREAM_INFO_LEVELS, lpfindstreamdata: *mut ::core::ffi::c_void, dwflags: u32, htransaction: P1) -> ::windows_core::Result<FindStreamHandle>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn FindFirstStreamTransactedW(lpfilename : ::windows_core::PCWSTR, infolevel : STREAM_INFO_LEVELS, lpfindstreamdata : *mut ::core::ffi::c_void, dwflags : u32, htransaction : super::super::Foundation:: HANDLE) -> FindStreamHandle);
-    FindFirstStreamTransactedW(lpfilename.into_param().abi(), infolevel, lpfindstreamdata, dwflags, htransaction.into_param().abi())
+    let result__ = FindFirstStreamTransactedW(lpfilename.into_param().abi(), infolevel, lpfindstreamdata, dwflags, htransaction.into_param().abi());
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
-pub unsafe fn FindFirstStreamW<P0>(lpfilename: P0, infolevel: STREAM_INFO_LEVELS, lpfindstreamdata: *mut ::core::ffi::c_void, dwflags: u32) -> FindStreamHandle
+pub unsafe fn FindFirstStreamW<P0>(lpfilename: P0, infolevel: STREAM_INFO_LEVELS, lpfindstreamdata: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows_core::Result<FindStreamHandle>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn FindFirstStreamW(lpfilename : ::windows_core::PCWSTR, infolevel : STREAM_INFO_LEVELS, lpfindstreamdata : *mut ::core::ffi::c_void, dwflags : u32) -> FindStreamHandle);
-    FindFirstStreamW(lpfilename.into_param().abi(), infolevel, lpfindstreamdata, dwflags)
+    let result__ = FindFirstStreamW(lpfilename.into_param().abi(), infolevel, lpfindstreamdata, dwflags);
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
-pub unsafe fn FindFirstVolumeA(lpszvolumename: &mut [u8]) -> FindVolumeHandle {
+pub unsafe fn FindFirstVolumeA(lpszvolumename: &mut [u8]) -> ::windows_core::Result<FindVolumeHandle> {
     ::windows_targets::link!("kernel32.dll" "system" fn FindFirstVolumeA(lpszvolumename : ::windows_core::PSTR, cchbufferlength : u32) -> FindVolumeHandle);
-    FindFirstVolumeA(::core::mem::transmute(lpszvolumename.as_ptr()), lpszvolumename.len() as _)
+    let result__ = FindFirstVolumeA(::core::mem::transmute(lpszvolumename.as_ptr()), lpszvolumename.len() as _);
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
-pub unsafe fn FindFirstVolumeMountPointA<P0>(lpszrootpathname: P0, lpszvolumemountpoint: &mut [u8]) -> FindVolumeMountPointHandle
+pub unsafe fn FindFirstVolumeMountPointA<P0>(lpszrootpathname: P0, lpszvolumemountpoint: &mut [u8]) -> ::windows_core::Result<FindVolumeMountPointHandle>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn FindFirstVolumeMountPointA(lpszrootpathname : ::windows_core::PCSTR, lpszvolumemountpoint : ::windows_core::PSTR, cchbufferlength : u32) -> FindVolumeMountPointHandle);
-    FindFirstVolumeMountPointA(lpszrootpathname.into_param().abi(), ::core::mem::transmute(lpszvolumemountpoint.as_ptr()), lpszvolumemountpoint.len() as _)
+    let result__ = FindFirstVolumeMountPointA(lpszrootpathname.into_param().abi(), ::core::mem::transmute(lpszvolumemountpoint.as_ptr()), lpszvolumemountpoint.len() as _);
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
-pub unsafe fn FindFirstVolumeMountPointW<P0>(lpszrootpathname: P0, lpszvolumemountpoint: &mut [u16]) -> FindVolumeMountPointHandle
+pub unsafe fn FindFirstVolumeMountPointW<P0>(lpszrootpathname: P0, lpszvolumemountpoint: &mut [u16]) -> ::windows_core::Result<FindVolumeMountPointHandle>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn FindFirstVolumeMountPointW(lpszrootpathname : ::windows_core::PCWSTR, lpszvolumemountpoint : ::windows_core::PWSTR, cchbufferlength : u32) -> FindVolumeMountPointHandle);
-    FindFirstVolumeMountPointW(lpszrootpathname.into_param().abi(), ::core::mem::transmute(lpszvolumemountpoint.as_ptr()), lpszvolumemountpoint.len() as _)
+    let result__ = FindFirstVolumeMountPointW(lpszrootpathname.into_param().abi(), ::core::mem::transmute(lpszvolumemountpoint.as_ptr()), lpszvolumemountpoint.len() as _);
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
-pub unsafe fn FindFirstVolumeW(lpszvolumename: &mut [u16]) -> FindVolumeHandle {
+pub unsafe fn FindFirstVolumeW(lpszvolumename: &mut [u16]) -> ::windows_core::Result<FindVolumeHandle> {
     ::windows_targets::link!("kernel32.dll" "system" fn FindFirstVolumeW(lpszvolumename : ::windows_core::PWSTR, cchbufferlength : u32) -> FindVolumeHandle);
-    FindFirstVolumeW(::core::mem::transmute(lpszvolumename.as_ptr()), lpszvolumename.len() as _)
+    let result__ = FindFirstVolumeW(::core::mem::transmute(lpszvolumename.as_ptr()), lpszvolumename.len() as _);
+    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindNextChangeNotification(hchangehandle: FindChangeNotificationHandle) -> ::windows_core::Result<()> {
+pub unsafe fn FindNextChangeNotification<P0>(hchangehandle: P0) -> ::windows_core::Result<()>
+where
+    P0: ::windows_core::IntoParam<FindChangeNotificationHandle>,
+{
     ::windows_targets::link!("kernel32.dll" "system" fn FindNextChangeNotification(hchangehandle : FindChangeNotificationHandle) -> super::super::Foundation:: BOOL);
-    FindNextChangeNotification(::core::mem::transmute(hchangehandle)).ok()
+    FindNextChangeNotification(hchangehandle.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindNextFileA(hfindfile: FindFileHandle, lpfindfiledata: *mut WIN32_FIND_DATAA) -> ::windows_core::Result<()> {
+pub unsafe fn FindNextFileA<P0>(hfindfile: P0, lpfindfiledata: *mut WIN32_FIND_DATAA) -> ::windows_core::Result<()>
+where
+    P0: ::windows_core::IntoParam<FindFileHandle>,
+{
     ::windows_targets::link!("kernel32.dll" "system" fn FindNextFileA(hfindfile : FindFileHandle, lpfindfiledata : *mut WIN32_FIND_DATAA) -> super::super::Foundation:: BOOL);
-    FindNextFileA(::core::mem::transmute(hfindfile), lpfindfiledata).ok()
+    FindNextFileA(hfindfile.into_param().abi(), lpfindfiledata).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindNextFileNameW(hfindstream: FindFileNameHandle, stringlength: *mut u32, linkname: ::windows_core::PWSTR) -> ::windows_core::Result<()> {
+pub unsafe fn FindNextFileNameW<P0>(hfindstream: P0, stringlength: *mut u32, linkname: ::windows_core::PWSTR) -> ::windows_core::Result<()>
+where
+    P0: ::windows_core::IntoParam<FindFileNameHandle>,
+{
     ::windows_targets::link!("kernel32.dll" "system" fn FindNextFileNameW(hfindstream : FindFileNameHandle, stringlength : *mut u32, linkname : ::windows_core::PWSTR) -> super::super::Foundation:: BOOL);
-    FindNextFileNameW(::core::mem::transmute(hfindstream), stringlength, ::core::mem::transmute(linkname)).ok()
+    FindNextFileNameW(hfindstream.into_param().abi(), stringlength, ::core::mem::transmute(linkname)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindNextFileW(hfindfile: FindFileHandle, lpfindfiledata: *mut WIN32_FIND_DATAW) -> ::windows_core::Result<()> {
+pub unsafe fn FindNextFileW<P0>(hfindfile: P0, lpfindfiledata: *mut WIN32_FIND_DATAW) -> ::windows_core::Result<()>
+where
+    P0: ::windows_core::IntoParam<FindFileHandle>,
+{
     ::windows_targets::link!("kernel32.dll" "system" fn FindNextFileW(hfindfile : FindFileHandle, lpfindfiledata : *mut WIN32_FIND_DATAW) -> super::super::Foundation:: BOOL);
-    FindNextFileW(::core::mem::transmute(hfindfile), lpfindfiledata).ok()
+    FindNextFileW(hfindfile.into_param().abi(), lpfindfiledata).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindNextStreamW(hfindstream: FindStreamHandle, lpfindstreamdata: *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
+pub unsafe fn FindNextStreamW<P0>(hfindstream: P0, lpfindstreamdata: *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
+where
+    P0: ::windows_core::IntoParam<FindStreamHandle>,
+{
     ::windows_targets::link!("kernel32.dll" "system" fn FindNextStreamW(hfindstream : FindStreamHandle, lpfindstreamdata : *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    FindNextStreamW(::core::mem::transmute(hfindstream), lpfindstreamdata).ok()
+    FindNextStreamW(hfindstream.into_param().abi(), lpfindstreamdata).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindNextVolumeA(hfindvolume: FindVolumeHandle, lpszvolumename: &mut [u8]) -> ::windows_core::Result<()> {
+pub unsafe fn FindNextVolumeA<P0>(hfindvolume: P0, lpszvolumename: &mut [u8]) -> ::windows_core::Result<()>
+where
+    P0: ::windows_core::IntoParam<FindVolumeHandle>,
+{
     ::windows_targets::link!("kernel32.dll" "system" fn FindNextVolumeA(hfindvolume : FindVolumeHandle, lpszvolumename : ::windows_core::PSTR, cchbufferlength : u32) -> super::super::Foundation:: BOOL);
-    FindNextVolumeA(::core::mem::transmute(hfindvolume), ::core::mem::transmute(lpszvolumename.as_ptr()), lpszvolumename.len() as _).ok()
+    FindNextVolumeA(hfindvolume.into_param().abi(), ::core::mem::transmute(lpszvolumename.as_ptr()), lpszvolumename.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindNextVolumeMountPointA(hfindvolumemountpoint: FindVolumeMountPointHandle, lpszvolumemountpoint: &mut [u8]) -> ::windows_core::Result<()> {
+pub unsafe fn FindNextVolumeMountPointA<P0>(hfindvolumemountpoint: P0, lpszvolumemountpoint: &mut [u8]) -> ::windows_core::Result<()>
+where
+    P0: ::windows_core::IntoParam<FindVolumeMountPointHandle>,
+{
     ::windows_targets::link!("kernel32.dll" "system" fn FindNextVolumeMountPointA(hfindvolumemountpoint : FindVolumeMountPointHandle, lpszvolumemountpoint : ::windows_core::PSTR, cchbufferlength : u32) -> super::super::Foundation:: BOOL);
-    FindNextVolumeMountPointA(::core::mem::transmute(hfindvolumemountpoint), ::core::mem::transmute(lpszvolumemountpoint.as_ptr()), lpszvolumemountpoint.len() as _).ok()
+    FindNextVolumeMountPointA(hfindvolumemountpoint.into_param().abi(), ::core::mem::transmute(lpszvolumemountpoint.as_ptr()), lpszvolumemountpoint.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindNextVolumeMountPointW(hfindvolumemountpoint: FindVolumeMountPointHandle, lpszvolumemountpoint: &mut [u16]) -> ::windows_core::Result<()> {
+pub unsafe fn FindNextVolumeMountPointW<P0>(hfindvolumemountpoint: P0, lpszvolumemountpoint: &mut [u16]) -> ::windows_core::Result<()>
+where
+    P0: ::windows_core::IntoParam<FindVolumeMountPointHandle>,
+{
     ::windows_targets::link!("kernel32.dll" "system" fn FindNextVolumeMountPointW(hfindvolumemountpoint : FindVolumeMountPointHandle, lpszvolumemountpoint : ::windows_core::PWSTR, cchbufferlength : u32) -> super::super::Foundation:: BOOL);
-    FindNextVolumeMountPointW(::core::mem::transmute(hfindvolumemountpoint), ::core::mem::transmute(lpszvolumemountpoint.as_ptr()), lpszvolumemountpoint.len() as _).ok()
+    FindNextVolumeMountPointW(hfindvolumemountpoint.into_param().abi(), ::core::mem::transmute(lpszvolumemountpoint.as_ptr()), lpszvolumemountpoint.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindNextVolumeW(hfindvolume: FindVolumeHandle, lpszvolumename: &mut [u16]) -> ::windows_core::Result<()> {
+pub unsafe fn FindNextVolumeW<P0>(hfindvolume: P0, lpszvolumename: &mut [u16]) -> ::windows_core::Result<()>
+where
+    P0: ::windows_core::IntoParam<FindVolumeHandle>,
+{
     ::windows_targets::link!("kernel32.dll" "system" fn FindNextVolumeW(hfindvolume : FindVolumeHandle, lpszvolumename : ::windows_core::PWSTR, cchbufferlength : u32) -> super::super::Foundation:: BOOL);
-    FindNextVolumeW(::core::mem::transmute(hfindvolume), ::core::mem::transmute(lpszvolumename.as_ptr()), lpszvolumename.len() as _).ok()
+    FindNextVolumeW(hfindvolume.into_param().abi(), ::core::mem::transmute(lpszvolumename.as_ptr()), lpszvolumename.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindVolumeClose(hfindvolume: FindVolumeHandle) -> ::windows_core::Result<()> {
+pub unsafe fn FindVolumeClose<P0>(hfindvolume: P0) -> ::windows_core::Result<()>
+where
+    P0: ::windows_core::IntoParam<FindVolumeHandle>,
+{
     ::windows_targets::link!("kernel32.dll" "system" fn FindVolumeClose(hfindvolume : FindVolumeHandle) -> super::super::Foundation:: BOOL);
-    FindVolumeClose(::core::mem::transmute(hfindvolume)).ok()
+    FindVolumeClose(hfindvolume.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindVolumeMountPointClose(hfindvolumemountpoint: FindVolumeMountPointHandle) -> ::windows_core::Result<()> {
+pub unsafe fn FindVolumeMountPointClose<P0>(hfindvolumemountpoint: P0) -> ::windows_core::Result<()>
+where
+    P0: ::windows_core::IntoParam<FindVolumeMountPointHandle>,
+{
     ::windows_targets::link!("kernel32.dll" "system" fn FindVolumeMountPointClose(hfindvolumemountpoint : FindVolumeMountPointHandle) -> super::super::Foundation:: BOOL);
-    FindVolumeMountPointClose(::core::mem::transmute(hfindvolumemountpoint)).ok()
+    FindVolumeMountPointClose(hfindvolumemountpoint.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13110,185 +13165,167 @@ impl ::core::default::Default for FIO_CONTEXT {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub struct FindChangeNotificationHandle {
-    pub Value: isize,
-}
-impl ::core::marker::Copy for FindChangeNotificationHandle {}
-impl ::core::clone::Clone for FindChangeNotificationHandle {
-    fn clone(&self) -> Self {
-        *self
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FindChangeNotificationHandle(pub isize);
+impl FindChangeNotificationHandle {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
     }
 }
-impl ::core::fmt::Debug for FindChangeNotificationHandle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FindChangeNotificationHandle").field("Value", &self.Value).finish()
-    }
-}
-impl ::windows_core::TypeKind for FindChangeNotificationHandle {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::cmp::PartialEq for FindChangeNotificationHandle {
-    fn eq(&self, other: &Self) -> bool {
-        self.Value == other.Value
-    }
-}
-impl ::core::cmp::Eq for FindChangeNotificationHandle {}
 impl ::core::default::Default for FindChangeNotificationHandle {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub struct FindFileHandle {
-    pub Value: isize,
-}
-impl ::core::marker::Copy for FindFileHandle {}
-impl ::core::clone::Clone for FindFileHandle {
+impl ::core::clone::Clone for FindChangeNotificationHandle {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for FindFileHandle {
+impl ::core::marker::Copy for FindChangeNotificationHandle {}
+impl ::core::fmt::Debug for FindChangeNotificationHandle {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FindFileHandle").field("Value", &self.Value).finish()
+        f.debug_tuple("FindChangeNotificationHandle").field(&self.0).finish()
     }
 }
-impl ::windows_core::TypeKind for FindFileHandle {
+impl ::windows_core::TypeKind for FindChangeNotificationHandle {
     type TypeKind = ::windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for FindFileHandle {
-    fn eq(&self, other: &Self) -> bool {
-        self.Value == other.Value
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FindFileHandle(pub isize);
+impl FindFileHandle {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
     }
 }
-impl ::core::cmp::Eq for FindFileHandle {}
 impl ::core::default::Default for FindFileHandle {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub struct FindFileNameHandle {
-    pub Value: isize,
-}
-impl ::core::marker::Copy for FindFileNameHandle {}
-impl ::core::clone::Clone for FindFileNameHandle {
+impl ::core::clone::Clone for FindFileHandle {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for FindFileNameHandle {
+impl ::core::marker::Copy for FindFileHandle {}
+impl ::core::fmt::Debug for FindFileHandle {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FindFileNameHandle").field("Value", &self.Value).finish()
+        f.debug_tuple("FindFileHandle").field(&self.0).finish()
     }
 }
-impl ::windows_core::TypeKind for FindFileNameHandle {
+impl ::windows_core::TypeKind for FindFileHandle {
     type TypeKind = ::windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for FindFileNameHandle {
-    fn eq(&self, other: &Self) -> bool {
-        self.Value == other.Value
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FindFileNameHandle(pub isize);
+impl FindFileNameHandle {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
     }
 }
-impl ::core::cmp::Eq for FindFileNameHandle {}
 impl ::core::default::Default for FindFileNameHandle {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub struct FindStreamHandle {
-    pub Value: isize,
-}
-impl ::core::marker::Copy for FindStreamHandle {}
-impl ::core::clone::Clone for FindStreamHandle {
+impl ::core::clone::Clone for FindFileNameHandle {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for FindStreamHandle {
+impl ::core::marker::Copy for FindFileNameHandle {}
+impl ::core::fmt::Debug for FindFileNameHandle {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FindStreamHandle").field("Value", &self.Value).finish()
+        f.debug_tuple("FindFileNameHandle").field(&self.0).finish()
     }
 }
-impl ::windows_core::TypeKind for FindStreamHandle {
+impl ::windows_core::TypeKind for FindFileNameHandle {
     type TypeKind = ::windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for FindStreamHandle {
-    fn eq(&self, other: &Self) -> bool {
-        self.Value == other.Value
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FindStreamHandle(pub isize);
+impl FindStreamHandle {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
     }
 }
-impl ::core::cmp::Eq for FindStreamHandle {}
 impl ::core::default::Default for FindStreamHandle {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub struct FindVolumeHandle {
-    pub Value: isize,
-}
-impl ::core::marker::Copy for FindVolumeHandle {}
-impl ::core::clone::Clone for FindVolumeHandle {
+impl ::core::clone::Clone for FindStreamHandle {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for FindVolumeHandle {
+impl ::core::marker::Copy for FindStreamHandle {}
+impl ::core::fmt::Debug for FindStreamHandle {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FindVolumeHandle").field("Value", &self.Value).finish()
+        f.debug_tuple("FindStreamHandle").field(&self.0).finish()
     }
 }
-impl ::windows_core::TypeKind for FindVolumeHandle {
+impl ::windows_core::TypeKind for FindStreamHandle {
     type TypeKind = ::windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for FindVolumeHandle {
-    fn eq(&self, other: &Self) -> bool {
-        self.Value == other.Value
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FindVolumeHandle(pub isize);
+impl FindVolumeHandle {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
     }
 }
-impl ::core::cmp::Eq for FindVolumeHandle {}
 impl ::core::default::Default for FindVolumeHandle {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub struct FindVolumeMountPointHandle {
-    pub Value: isize,
+impl ::core::clone::Clone for FindVolumeHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
-impl ::core::marker::Copy for FindVolumeMountPointHandle {}
+impl ::core::marker::Copy for FindVolumeHandle {}
+impl ::core::fmt::Debug for FindVolumeHandle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FindVolumeHandle").field(&self.0).finish()
+    }
+}
+impl ::windows_core::TypeKind for FindVolumeHandle {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FindVolumeMountPointHandle(pub isize);
+impl FindVolumeMountPointHandle {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
+}
+impl ::core::default::Default for FindVolumeMountPointHandle {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for FindVolumeMountPointHandle {
     fn clone(&self) -> Self {
         *self
     }
 }
+impl ::core::marker::Copy for FindVolumeMountPointHandle {}
 impl ::core::fmt::Debug for FindVolumeMountPointHandle {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FindVolumeMountPointHandle").field("Value", &self.Value).finish()
+        f.debug_tuple("FindVolumeMountPointHandle").field(&self.0).finish()
     }
 }
 impl ::windows_core::TypeKind for FindVolumeMountPointHandle {
     type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::cmp::PartialEq for FindVolumeMountPointHandle {
-    fn eq(&self, other: &Self) -> bool {
-        self.Value == other.Value
-    }
-}
-impl ::core::cmp::Eq for FindVolumeMountPointHandle {}
-impl ::core::default::Default for FindVolumeMountPointHandle {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

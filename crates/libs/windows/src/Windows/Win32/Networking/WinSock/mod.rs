@@ -16825,35 +16825,27 @@ impl ::core::default::Default for netent {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub struct sa_family_t {
-    pub Value: u16,
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct sa_family_t(pub u16);
+impl ::core::default::Default for sa_family_t {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-impl ::core::marker::Copy for sa_family_t {}
 impl ::core::clone::Clone for sa_family_t {
     fn clone(&self) -> Self {
         *self
     }
 }
+impl ::core::marker::Copy for sa_family_t {}
 impl ::core::fmt::Debug for sa_family_t {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("sa_family_t").field("Value", &self.Value).finish()
+        f.debug_tuple("sa_family_t").field(&self.0).finish()
     }
 }
 impl ::windows_core::TypeKind for sa_family_t {
     type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::cmp::PartialEq for sa_family_t {
-    fn eq(&self, other: &Self) -> bool {
-        self.Value == other.Value
-    }
-}
-impl ::core::cmp::Eq for sa_family_t {}
-impl ::core::default::Default for sa_family_t {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]

@@ -2502,17 +2502,7 @@ impl ::core::clone::Clone for DNS_WKS_DATA {
         *self
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub struct DnsContextHandle {
-    pub Value: isize,
-}
-impl ::core::marker::Copy for DnsContextHandle {}
-impl ::core::clone::Clone for DnsContextHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type DnsContextHandle = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub struct IP4_ARRAY {

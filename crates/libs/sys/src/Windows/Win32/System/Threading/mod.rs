@@ -1269,17 +1269,7 @@ impl ::core::clone::Clone for APP_MEMORY_INFORMATION {
         *self
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub struct BoundaryDescriptorHandle {
-    pub Value: isize,
-}
-impl ::core::marker::Copy for BoundaryDescriptorHandle {}
-impl ::core::clone::Clone for BoundaryDescriptorHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type BoundaryDescriptorHandle = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub struct CONDITION_VARIABLE {
@@ -1371,17 +1361,7 @@ impl ::core::clone::Clone for MEMORY_PRIORITY_INFORMATION {
         *self
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub struct NamespaceHandle {
-    pub Value: isize,
-}
-impl ::core::marker::Copy for NamespaceHandle {}
-impl ::core::clone::Clone for NamespaceHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type NamespaceHandle = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -1866,17 +1846,7 @@ impl ::core::clone::Clone for TP_POOL_STACK_INFORMATION {
         *self
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub struct TimerQueueHandle {
-    pub Value: isize,
-}
-impl ::core::marker::Copy for TimerQueueHandle {}
-impl ::core::clone::Clone for TimerQueueHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type TimerQueueHandle = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_System_SystemServices\"`*"]
 #[cfg(feature = "Win32_System_SystemServices")]
