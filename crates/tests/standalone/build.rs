@@ -47,6 +47,14 @@ fn main() {
         ],
     );
 
+    // Ensures that root items that reference architecture independent types
+    // of the same name correctly collect all of those types rather than just
+    // the first one
+    write_sys(
+        "src/b_arch_dependencies.rs",
+        &["Windows.Win32.System.Diagnostics.Debug.RtlCaptureContext"],
+    );
+
     write_sys(
         "src/b_depends.rs",
         &["Windows.Win32.Networking.WinSock.WSASENDMSG"],
@@ -118,7 +126,7 @@ fn main() {
     write_sys(
         "src/b_overloads.rs",
         &["Windows.Win32.NetworkManagement.NetManagement.AE_RESACCESS"],
-    )
+    );
 }
 
 fn write_sys(filename: &str, apis: &[&str]) {
