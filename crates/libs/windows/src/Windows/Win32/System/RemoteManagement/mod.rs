@@ -1,115 +1,153 @@
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 #[inline]
-pub unsafe fn WSManCloseCommand(commandhandle: ::core::option::Option<*mut WSMAN_COMMAND>, flags: u32, r#async: *const WSMAN_SHELL_ASYNC) {
-    ::windows_targets::link!("wsmsvc.dll" "system" fn WSManCloseCommand(commandhandle : *mut WSMAN_COMMAND, flags : u32, r#async : *const WSMAN_SHELL_ASYNC) -> ());
-    WSManCloseCommand(::core::mem::transmute(commandhandle.unwrap_or(::std::ptr::null_mut())), flags, r#async)
+pub unsafe fn WSManCloseCommand<P0>(commandhandle: P0, flags: u32, r#async: *const WSMAN_SHELL_ASYNC)
+where
+    P0: ::windows_core::IntoParam<WSMAN_COMMAND_HANDLE>,
+{
+    ::windows_targets::link!("wsmsvc.dll" "system" fn WSManCloseCommand(commandhandle : WSMAN_COMMAND_HANDLE, flags : u32, r#async : *const WSMAN_SHELL_ASYNC) -> ());
+    WSManCloseCommand(commandhandle.into_param().abi(), flags, r#async)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 #[inline]
-pub unsafe fn WSManCloseOperation(operationhandle: ::core::option::Option<*mut WSMAN_OPERATION>, flags: u32) -> u32 {
-    ::windows_targets::link!("wsmsvc.dll" "system" fn WSManCloseOperation(operationhandle : *mut WSMAN_OPERATION, flags : u32) -> u32);
-    WSManCloseOperation(::core::mem::transmute(operationhandle.unwrap_or(::std::ptr::null_mut())), flags)
+pub unsafe fn WSManCloseOperation<P0>(operationhandle: P0, flags: u32) -> u32
+where
+    P0: ::windows_core::IntoParam<WSMAN_OPERATION_HANDLE>,
+{
+    ::windows_targets::link!("wsmsvc.dll" "system" fn WSManCloseOperation(operationhandle : WSMAN_OPERATION_HANDLE, flags : u32) -> u32);
+    WSManCloseOperation(operationhandle.into_param().abi(), flags)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 #[inline]
-pub unsafe fn WSManCloseSession(session: ::core::option::Option<*mut WSMAN_SESSION>, flags: u32) -> u32 {
-    ::windows_targets::link!("wsmsvc.dll" "system" fn WSManCloseSession(session : *mut WSMAN_SESSION, flags : u32) -> u32);
-    WSManCloseSession(::core::mem::transmute(session.unwrap_or(::std::ptr::null_mut())), flags)
+pub unsafe fn WSManCloseSession<P0>(session: P0, flags: u32) -> u32
+where
+    P0: ::windows_core::IntoParam<WSMAN_SESSION_HANDLE>,
+{
+    ::windows_targets::link!("wsmsvc.dll" "system" fn WSManCloseSession(session : WSMAN_SESSION_HANDLE, flags : u32) -> u32);
+    WSManCloseSession(session.into_param().abi(), flags)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 #[inline]
-pub unsafe fn WSManCloseShell(shellhandle: ::core::option::Option<*mut WSMAN_SHELL>, flags: u32, r#async: *const WSMAN_SHELL_ASYNC) {
-    ::windows_targets::link!("wsmsvc.dll" "system" fn WSManCloseShell(shellhandle : *mut WSMAN_SHELL, flags : u32, r#async : *const WSMAN_SHELL_ASYNC) -> ());
-    WSManCloseShell(::core::mem::transmute(shellhandle.unwrap_or(::std::ptr::null_mut())), flags, r#async)
+pub unsafe fn WSManCloseShell<P0>(shellhandle: P0, flags: u32, r#async: *const WSMAN_SHELL_ASYNC)
+where
+    P0: ::windows_core::IntoParam<WSMAN_SHELL_HANDLE>,
+{
+    ::windows_targets::link!("wsmsvc.dll" "system" fn WSManCloseShell(shellhandle : WSMAN_SHELL_HANDLE, flags : u32, r#async : *const WSMAN_SHELL_ASYNC) -> ());
+    WSManCloseShell(shellhandle.into_param().abi(), flags, r#async)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WSManConnectShell<P0, P1>(session: *mut WSMAN_SESSION, flags: u32, resourceuri: P0, shellid: P1, options: ::core::option::Option<*const WSMAN_OPTION_SET>, connectxml: ::core::option::Option<*const WSMAN_DATA>, r#async: *const WSMAN_SHELL_ASYNC, shell: *mut *mut WSMAN_SHELL)
+pub unsafe fn WSManConnectShell<P0, P1, P2>(session: P0, flags: u32, resourceuri: P1, shellid: P2, options: ::core::option::Option<*const WSMAN_OPTION_SET>, connectxml: ::core::option::Option<*const WSMAN_DATA>, r#async: *const WSMAN_SHELL_ASYNC) -> WSMAN_SHELL_HANDLE
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: ::windows_core::IntoParam<WSMAN_SESSION_HANDLE>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+{
+    ::windows_targets::link!("wsmsvc.dll" "system" fn WSManConnectShell(session : WSMAN_SESSION_HANDLE, flags : u32, resourceuri : ::windows_core::PCWSTR, shellid : ::windows_core::PCWSTR, options : *const WSMAN_OPTION_SET, connectxml : *const WSMAN_DATA, r#async : *const WSMAN_SHELL_ASYNC, shell : *mut WSMAN_SHELL_HANDLE) -> ());
+    let mut result__ = ::windows_core::zeroed::<WSMAN_SHELL_HANDLE>();
+    WSManConnectShell(session.into_param().abi(), flags, resourceuri.into_param().abi(), shellid.into_param().abi(), ::core::mem::transmute(options.unwrap_or(::std::ptr::null())), ::core::mem::transmute(connectxml.unwrap_or(::std::ptr::null())), r#async, &mut result__);
+    ::std::mem::transmute(result__)
+}
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WSManConnectShellCommand<P0, P1>(shell: P0, flags: u32, commandid: P1, options: ::core::option::Option<*const WSMAN_OPTION_SET>, connectxml: ::core::option::Option<*const WSMAN_DATA>, r#async: *const WSMAN_SHELL_ASYNC) -> WSMAN_COMMAND_HANDLE
+where
+    P0: ::windows_core::IntoParam<WSMAN_SHELL_HANDLE>,
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("wsmsvc.dll" "system" fn WSManConnectShell(session : *mut WSMAN_SESSION, flags : u32, resourceuri : ::windows_core::PCWSTR, shellid : ::windows_core::PCWSTR, options : *const WSMAN_OPTION_SET, connectxml : *const WSMAN_DATA, r#async : *const WSMAN_SHELL_ASYNC, shell : *mut *mut WSMAN_SHELL) -> ());
-    WSManConnectShell(session, flags, resourceuri.into_param().abi(), shellid.into_param().abi(), ::core::mem::transmute(options.unwrap_or(::std::ptr::null())), ::core::mem::transmute(connectxml.unwrap_or(::std::ptr::null())), r#async, shell)
-}
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WSManConnectShellCommand<P0>(shell: *mut WSMAN_SHELL, flags: u32, commandid: P0, options: ::core::option::Option<*const WSMAN_OPTION_SET>, connectxml: ::core::option::Option<*const WSMAN_DATA>, r#async: *const WSMAN_SHELL_ASYNC, command: *mut *mut WSMAN_COMMAND)
-where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
-{
-    ::windows_targets::link!("wsmsvc.dll" "system" fn WSManConnectShellCommand(shell : *mut WSMAN_SHELL, flags : u32, commandid : ::windows_core::PCWSTR, options : *const WSMAN_OPTION_SET, connectxml : *const WSMAN_DATA, r#async : *const WSMAN_SHELL_ASYNC, command : *mut *mut WSMAN_COMMAND) -> ());
-    WSManConnectShellCommand(shell, flags, commandid.into_param().abi(), ::core::mem::transmute(options.unwrap_or(::std::ptr::null())), ::core::mem::transmute(connectxml.unwrap_or(::std::ptr::null())), r#async, command)
+    ::windows_targets::link!("wsmsvc.dll" "system" fn WSManConnectShellCommand(shell : WSMAN_SHELL_HANDLE, flags : u32, commandid : ::windows_core::PCWSTR, options : *const WSMAN_OPTION_SET, connectxml : *const WSMAN_DATA, r#async : *const WSMAN_SHELL_ASYNC, command : *mut WSMAN_COMMAND_HANDLE) -> ());
+    let mut result__ = ::windows_core::zeroed::<WSMAN_COMMAND_HANDLE>();
+    WSManConnectShellCommand(shell.into_param().abi(), flags, commandid.into_param().abi(), ::core::mem::transmute(options.unwrap_or(::std::ptr::null())), ::core::mem::transmute(connectxml.unwrap_or(::std::ptr::null())), r#async, &mut result__);
+    ::std::mem::transmute(result__)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 #[inline]
-pub unsafe fn WSManCreateSession<P0>(apihandle: *const WSMAN_API, connection: P0, flags: u32, serverauthenticationcredentials: ::core::option::Option<*const WSMAN_AUTHENTICATION_CREDENTIALS>, proxyinfo: ::core::option::Option<*const WSMAN_PROXY_INFO>, session: *mut *mut WSMAN_SESSION) -> u32
+pub unsafe fn WSManCreateSession<P0, P1>(apihandle: P0, connection: P1, flags: u32, serverauthenticationcredentials: ::core::option::Option<*const WSMAN_AUTHENTICATION_CREDENTIALS>, proxyinfo: ::core::option::Option<*const WSMAN_PROXY_INFO>, session: *mut WSMAN_SESSION_HANDLE) -> u32
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
-{
-    ::windows_targets::link!("wsmsvc.dll" "system" fn WSManCreateSession(apihandle : *const WSMAN_API, connection : ::windows_core::PCWSTR, flags : u32, serverauthenticationcredentials : *const WSMAN_AUTHENTICATION_CREDENTIALS, proxyinfo : *const WSMAN_PROXY_INFO, session : *mut *mut WSMAN_SESSION) -> u32);
-    WSManCreateSession(apihandle, connection.into_param().abi(), flags, ::core::mem::transmute(serverauthenticationcredentials.unwrap_or(::std::ptr::null())), ::core::mem::transmute(proxyinfo.unwrap_or(::std::ptr::null())), session)
-}
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WSManCreateShell<P0>(session: *mut WSMAN_SESSION, flags: u32, resourceuri: P0, startupinfo: ::core::option::Option<*const WSMAN_SHELL_STARTUP_INFO_V11>, options: ::core::option::Option<*const WSMAN_OPTION_SET>, createxml: ::core::option::Option<*const WSMAN_DATA>, r#async: *const WSMAN_SHELL_ASYNC, shell: *mut *mut WSMAN_SHELL)
-where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
-{
-    ::windows_targets::link!("wsmsvc.dll" "system" fn WSManCreateShell(session : *mut WSMAN_SESSION, flags : u32, resourceuri : ::windows_core::PCWSTR, startupinfo : *const WSMAN_SHELL_STARTUP_INFO_V11, options : *const WSMAN_OPTION_SET, createxml : *const WSMAN_DATA, r#async : *const WSMAN_SHELL_ASYNC, shell : *mut *mut WSMAN_SHELL) -> ());
-    WSManCreateShell(session, flags, resourceuri.into_param().abi(), ::core::mem::transmute(startupinfo.unwrap_or(::std::ptr::null())), ::core::mem::transmute(options.unwrap_or(::std::ptr::null())), ::core::mem::transmute(createxml.unwrap_or(::std::ptr::null())), r#async, shell)
-}
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WSManCreateShellEx<P0, P1>(session: *mut WSMAN_SESSION, flags: u32, resourceuri: P0, shellid: P1, startupinfo: ::core::option::Option<*const WSMAN_SHELL_STARTUP_INFO_V11>, options: ::core::option::Option<*const WSMAN_OPTION_SET>, createxml: ::core::option::Option<*const WSMAN_DATA>, r#async: *const WSMAN_SHELL_ASYNC, shell: *mut *mut WSMAN_SHELL)
-where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: ::windows_core::IntoParam<WSMAN_API_HANDLE>,
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("wsmsvc.dll" "system" fn WSManCreateShellEx(session : *mut WSMAN_SESSION, flags : u32, resourceuri : ::windows_core::PCWSTR, shellid : ::windows_core::PCWSTR, startupinfo : *const WSMAN_SHELL_STARTUP_INFO_V11, options : *const WSMAN_OPTION_SET, createxml : *const WSMAN_DATA, r#async : *const WSMAN_SHELL_ASYNC, shell : *mut *mut WSMAN_SHELL) -> ());
-    WSManCreateShellEx(session, flags, resourceuri.into_param().abi(), shellid.into_param().abi(), ::core::mem::transmute(startupinfo.unwrap_or(::std::ptr::null())), ::core::mem::transmute(options.unwrap_or(::std::ptr::null())), ::core::mem::transmute(createxml.unwrap_or(::std::ptr::null())), r#async, shell)
+    ::windows_targets::link!("wsmsvc.dll" "system" fn WSManCreateSession(apihandle : WSMAN_API_HANDLE, connection : ::windows_core::PCWSTR, flags : u32, serverauthenticationcredentials : *const WSMAN_AUTHENTICATION_CREDENTIALS, proxyinfo : *const WSMAN_PROXY_INFO, session : *mut WSMAN_SESSION_HANDLE) -> u32);
+    WSManCreateSession(apihandle.into_param().abi(), connection.into_param().abi(), flags, ::core::mem::transmute(serverauthenticationcredentials.unwrap_or(::std::ptr::null())), ::core::mem::transmute(proxyinfo.unwrap_or(::std::ptr::null())), session)
 }
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WSManDeinitialize(apihandle: ::core::option::Option<*mut WSMAN_API>, flags: u32) -> u32 {
-    ::windows_targets::link!("wsmsvc.dll" "system" fn WSManDeinitialize(apihandle : *mut WSMAN_API, flags : u32) -> u32);
-    WSManDeinitialize(::core::mem::transmute(apihandle.unwrap_or(::std::ptr::null_mut())), flags)
-}
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-#[inline]
-pub unsafe fn WSManDisconnectShell(shell: *mut WSMAN_SHELL, flags: u32, disconnectinfo: *const WSMAN_SHELL_DISCONNECT_INFO, r#async: *const WSMAN_SHELL_ASYNC) {
-    ::windows_targets::link!("wsmsvc.dll" "system" fn WSManDisconnectShell(shell : *mut WSMAN_SHELL, flags : u32, disconnectinfo : *const WSMAN_SHELL_DISCONNECT_INFO, r#async : *const WSMAN_SHELL_ASYNC) -> ());
-    WSManDisconnectShell(shell, flags, disconnectinfo, r#async)
-}
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-#[inline]
-pub unsafe fn WSManGetErrorMessage<P0>(apihandle: *const WSMAN_API, flags: u32, languagecode: P0, errorcode: u32, message: ::core::option::Option<&mut [u16]>, messagelengthused: *mut u32) -> u32
+pub unsafe fn WSManCreateShell<P0, P1>(session: P0, flags: u32, resourceuri: P1, startupinfo: ::core::option::Option<*const WSMAN_SHELL_STARTUP_INFO_V11>, options: ::core::option::Option<*const WSMAN_OPTION_SET>, createxml: ::core::option::Option<*const WSMAN_DATA>, r#async: *const WSMAN_SHELL_ASYNC) -> WSMAN_SHELL_HANDLE
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: ::windows_core::IntoParam<WSMAN_SESSION_HANDLE>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("wsmsvc.dll" "system" fn WSManGetErrorMessage(apihandle : *const WSMAN_API, flags : u32, languagecode : ::windows_core::PCWSTR, errorcode : u32, messagelength : u32, message : ::windows_core::PWSTR, messagelengthused : *mut u32) -> u32);
-    WSManGetErrorMessage(apihandle, flags, languagecode.into_param().abi(), errorcode, message.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(message.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), messagelengthused)
+    ::windows_targets::link!("wsmsvc.dll" "system" fn WSManCreateShell(session : WSMAN_SESSION_HANDLE, flags : u32, resourceuri : ::windows_core::PCWSTR, startupinfo : *const WSMAN_SHELL_STARTUP_INFO_V11, options : *const WSMAN_OPTION_SET, createxml : *const WSMAN_DATA, r#async : *const WSMAN_SHELL_ASYNC, shell : *mut WSMAN_SHELL_HANDLE) -> ());
+    let mut result__ = ::windows_core::zeroed::<WSMAN_SHELL_HANDLE>();
+    WSManCreateShell(session.into_param().abi(), flags, resourceuri.into_param().abi(), ::core::mem::transmute(startupinfo.unwrap_or(::std::ptr::null())), ::core::mem::transmute(options.unwrap_or(::std::ptr::null())), ::core::mem::transmute(createxml.unwrap_or(::std::ptr::null())), r#async, &mut result__);
+    ::std::mem::transmute(result__)
+}
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WSManCreateShellEx<P0, P1, P2>(session: P0, flags: u32, resourceuri: P1, shellid: P2, startupinfo: ::core::option::Option<*const WSMAN_SHELL_STARTUP_INFO_V11>, options: ::core::option::Option<*const WSMAN_OPTION_SET>, createxml: ::core::option::Option<*const WSMAN_DATA>, r#async: *const WSMAN_SHELL_ASYNC) -> WSMAN_SHELL_HANDLE
+where
+    P0: ::windows_core::IntoParam<WSMAN_SESSION_HANDLE>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+{
+    ::windows_targets::link!("wsmsvc.dll" "system" fn WSManCreateShellEx(session : WSMAN_SESSION_HANDLE, flags : u32, resourceuri : ::windows_core::PCWSTR, shellid : ::windows_core::PCWSTR, startupinfo : *const WSMAN_SHELL_STARTUP_INFO_V11, options : *const WSMAN_OPTION_SET, createxml : *const WSMAN_DATA, r#async : *const WSMAN_SHELL_ASYNC, shell : *mut WSMAN_SHELL_HANDLE) -> ());
+    let mut result__ = ::windows_core::zeroed::<WSMAN_SHELL_HANDLE>();
+    WSManCreateShellEx(session.into_param().abi(), flags, resourceuri.into_param().abi(), shellid.into_param().abi(), ::core::mem::transmute(startupinfo.unwrap_or(::std::ptr::null())), ::core::mem::transmute(options.unwrap_or(::std::ptr::null())), ::core::mem::transmute(createxml.unwrap_or(::std::ptr::null())), r#async, &mut result__);
+    ::std::mem::transmute(result__)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 #[inline]
-pub unsafe fn WSManGetSessionOptionAsDword(session: *const WSMAN_SESSION, option: WSManSessionOption, value: *mut u32) -> u32 {
-    ::windows_targets::link!("wsmsvc.dll" "system" fn WSManGetSessionOptionAsDword(session : *const WSMAN_SESSION, option : WSManSessionOption, value : *mut u32) -> u32);
-    WSManGetSessionOptionAsDword(session, option, value)
+pub unsafe fn WSManDeinitialize<P0>(apihandle: P0, flags: u32) -> u32
+where
+    P0: ::windows_core::IntoParam<WSMAN_API_HANDLE>,
+{
+    ::windows_targets::link!("wsmsvc.dll" "system" fn WSManDeinitialize(apihandle : WSMAN_API_HANDLE, flags : u32) -> u32);
+    WSManDeinitialize(apihandle.into_param().abi(), flags)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 #[inline]
-pub unsafe fn WSManGetSessionOptionAsString(session: *const WSMAN_SESSION, option: WSManSessionOption, string: ::core::option::Option<&mut [u16]>, stringlengthused: *mut u32) -> u32 {
-    ::windows_targets::link!("wsmsvc.dll" "system" fn WSManGetSessionOptionAsString(session : *const WSMAN_SESSION, option : WSManSessionOption, stringlength : u32, string : ::windows_core::PWSTR, stringlengthused : *mut u32) -> u32);
-    WSManGetSessionOptionAsString(session, option, string.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(string.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), stringlengthused)
+pub unsafe fn WSManDisconnectShell<P0>(shell: P0, flags: u32, disconnectinfo: *const WSMAN_SHELL_DISCONNECT_INFO, r#async: *const WSMAN_SHELL_ASYNC)
+where
+    P0: ::windows_core::IntoParam<WSMAN_SHELL_HANDLE>,
+{
+    ::windows_targets::link!("wsmsvc.dll" "system" fn WSManDisconnectShell(shell : WSMAN_SHELL_HANDLE, flags : u32, disconnectinfo : *const WSMAN_SHELL_DISCONNECT_INFO, r#async : *const WSMAN_SHELL_ASYNC) -> ());
+    WSManDisconnectShell(shell.into_param().abi(), flags, disconnectinfo, r#async)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 #[inline]
-pub unsafe fn WSManInitialize(flags: u32, apihandle: *mut *mut WSMAN_API) -> u32 {
-    ::windows_targets::link!("wsmsvc.dll" "system" fn WSManInitialize(flags : u32, apihandle : *mut *mut WSMAN_API) -> u32);
+pub unsafe fn WSManGetErrorMessage<P0, P1>(apihandle: P0, flags: u32, languagecode: P1, errorcode: u32, message: ::core::option::Option<&mut [u16]>, messagelengthused: *mut u32) -> u32
+where
+    P0: ::windows_core::IntoParam<WSMAN_API_HANDLE>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+{
+    ::windows_targets::link!("wsmsvc.dll" "system" fn WSManGetErrorMessage(apihandle : WSMAN_API_HANDLE, flags : u32, languagecode : ::windows_core::PCWSTR, errorcode : u32, messagelength : u32, message : ::windows_core::PWSTR, messagelengthused : *mut u32) -> u32);
+    WSManGetErrorMessage(apihandle.into_param().abi(), flags, languagecode.into_param().abi(), errorcode, message.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(message.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), messagelengthused)
+}
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+#[inline]
+pub unsafe fn WSManGetSessionOptionAsDword<P0>(session: P0, option: WSManSessionOption, value: *mut u32) -> u32
+where
+    P0: ::windows_core::IntoParam<WSMAN_SESSION_HANDLE>,
+{
+    ::windows_targets::link!("wsmsvc.dll" "system" fn WSManGetSessionOptionAsDword(session : WSMAN_SESSION_HANDLE, option : WSManSessionOption, value : *mut u32) -> u32);
+    WSManGetSessionOptionAsDword(session.into_param().abi(), option, value)
+}
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+#[inline]
+pub unsafe fn WSManGetSessionOptionAsString<P0>(session: P0, option: WSManSessionOption, string: ::core::option::Option<&mut [u16]>, stringlengthused: *mut u32) -> u32
+where
+    P0: ::windows_core::IntoParam<WSMAN_SESSION_HANDLE>,
+{
+    ::windows_targets::link!("wsmsvc.dll" "system" fn WSManGetSessionOptionAsString(session : WSMAN_SESSION_HANDLE, option : WSManSessionOption, stringlength : u32, string : ::windows_core::PWSTR, stringlengthused : *mut u32) -> u32);
+    WSManGetSessionOptionAsString(session.into_param().abi(), option, string.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(string.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), stringlengthused)
+}
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+#[inline]
+pub unsafe fn WSManInitialize(flags: u32, apihandle: *mut WSMAN_API_HANDLE) -> u32 {
+    ::windows_targets::link!("wsmsvc.dll" "system" fn WSManInitialize(flags : u32, apihandle : *mut WSMAN_API_HANDLE) -> u32);
     WSManInitialize(flags, apihandle)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`*"]
@@ -200,71 +238,96 @@ pub unsafe fn WSManPluginReportContext(requestdetails: *const WSMAN_PLUGIN_REQUE
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 #[inline]
-pub unsafe fn WSManReceiveShellOutput(shell: *mut WSMAN_SHELL, command: ::core::option::Option<*const WSMAN_COMMAND>, flags: u32, desiredstreamset: ::core::option::Option<*const WSMAN_STREAM_ID_SET>, r#async: *const WSMAN_SHELL_ASYNC, receiveoperation: *mut *mut WSMAN_OPERATION) {
-    ::windows_targets::link!("wsmsvc.dll" "system" fn WSManReceiveShellOutput(shell : *mut WSMAN_SHELL, command : *const WSMAN_COMMAND, flags : u32, desiredstreamset : *const WSMAN_STREAM_ID_SET, r#async : *const WSMAN_SHELL_ASYNC, receiveoperation : *mut *mut WSMAN_OPERATION) -> ());
-    WSManReceiveShellOutput(shell, ::core::mem::transmute(command.unwrap_or(::std::ptr::null())), flags, ::core::mem::transmute(desiredstreamset.unwrap_or(::std::ptr::null())), r#async, receiveoperation)
-}
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-#[inline]
-pub unsafe fn WSManReconnectShell(shell: *mut WSMAN_SHELL, flags: u32, r#async: *const WSMAN_SHELL_ASYNC) {
-    ::windows_targets::link!("wsmsvc.dll" "system" fn WSManReconnectShell(shell : *mut WSMAN_SHELL, flags : u32, r#async : *const WSMAN_SHELL_ASYNC) -> ());
-    WSManReconnectShell(shell, flags, r#async)
-}
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-#[inline]
-pub unsafe fn WSManReconnectShellCommand(commandhandle: *mut WSMAN_COMMAND, flags: u32, r#async: *const WSMAN_SHELL_ASYNC) {
-    ::windows_targets::link!("wsmsvc.dll" "system" fn WSManReconnectShellCommand(commandhandle : *mut WSMAN_COMMAND, flags : u32, r#async : *const WSMAN_SHELL_ASYNC) -> ());
-    WSManReconnectShellCommand(commandhandle, flags, r#async)
-}
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WSManRunShellCommand<P0>(shell: *mut WSMAN_SHELL, flags: u32, commandline: P0, args: ::core::option::Option<*const WSMAN_COMMAND_ARG_SET>, options: ::core::option::Option<*const WSMAN_OPTION_SET>, r#async: *const WSMAN_SHELL_ASYNC, command: *mut *mut WSMAN_COMMAND)
+pub unsafe fn WSManReceiveShellOutput<P0, P1>(shell: P0, command: P1, flags: u32, desiredstreamset: ::core::option::Option<*const WSMAN_STREAM_ID_SET>, r#async: *const WSMAN_SHELL_ASYNC) -> WSMAN_OPERATION_HANDLE
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: ::windows_core::IntoParam<WSMAN_SHELL_HANDLE>,
+    P1: ::windows_core::IntoParam<WSMAN_COMMAND_HANDLE>,
 {
-    ::windows_targets::link!("wsmsvc.dll" "system" fn WSManRunShellCommand(shell : *mut WSMAN_SHELL, flags : u32, commandline : ::windows_core::PCWSTR, args : *const WSMAN_COMMAND_ARG_SET, options : *const WSMAN_OPTION_SET, r#async : *const WSMAN_SHELL_ASYNC, command : *mut *mut WSMAN_COMMAND) -> ());
-    WSManRunShellCommand(shell, flags, commandline.into_param().abi(), ::core::mem::transmute(args.unwrap_or(::std::ptr::null())), ::core::mem::transmute(options.unwrap_or(::std::ptr::null())), r#async, command)
-}
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WSManRunShellCommandEx<P0, P1>(shell: *mut WSMAN_SHELL, flags: u32, commandid: P0, commandline: P1, args: ::core::option::Option<*const WSMAN_COMMAND_ARG_SET>, options: ::core::option::Option<*const WSMAN_OPTION_SET>, r#async: *const WSMAN_SHELL_ASYNC, command: *mut *mut WSMAN_COMMAND)
-where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
-    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
-{
-    ::windows_targets::link!("wsmsvc.dll" "system" fn WSManRunShellCommandEx(shell : *mut WSMAN_SHELL, flags : u32, commandid : ::windows_core::PCWSTR, commandline : ::windows_core::PCWSTR, args : *const WSMAN_COMMAND_ARG_SET, options : *const WSMAN_OPTION_SET, r#async : *const WSMAN_SHELL_ASYNC, command : *mut *mut WSMAN_COMMAND) -> ());
-    WSManRunShellCommandEx(shell, flags, commandid.into_param().abi(), commandline.into_param().abi(), ::core::mem::transmute(args.unwrap_or(::std::ptr::null())), ::core::mem::transmute(options.unwrap_or(::std::ptr::null())), r#async, command)
-}
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WSManSendShellInput<P0, P1>(shell: *const WSMAN_SHELL, command: ::core::option::Option<*const WSMAN_COMMAND>, flags: u32, streamid: P0, streamdata: *const WSMAN_DATA, endofstream: P1, r#async: *const WSMAN_SHELL_ASYNC) -> *mut WSMAN_OPERATION
-where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
-    P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
-{
-    ::windows_targets::link!("wsmsvc.dll" "system" fn WSManSendShellInput(shell : *const WSMAN_SHELL, command : *const WSMAN_COMMAND, flags : u32, streamid : ::windows_core::PCWSTR, streamdata : *const WSMAN_DATA, endofstream : super::super::Foundation:: BOOL, r#async : *const WSMAN_SHELL_ASYNC, sendoperation : *mut *mut WSMAN_OPERATION) -> ());
-    let mut result__ = ::windows_core::zeroed::<*mut WSMAN_OPERATION>();
-    WSManSendShellInput(shell, ::core::mem::transmute(command.unwrap_or(::std::ptr::null())), flags, streamid.into_param().abi(), streamdata, endofstream.into_param().abi(), r#async, &mut result__);
+    ::windows_targets::link!("wsmsvc.dll" "system" fn WSManReceiveShellOutput(shell : WSMAN_SHELL_HANDLE, command : WSMAN_COMMAND_HANDLE, flags : u32, desiredstreamset : *const WSMAN_STREAM_ID_SET, r#async : *const WSMAN_SHELL_ASYNC, receiveoperation : *mut WSMAN_OPERATION_HANDLE) -> ());
+    let mut result__ = ::windows_core::zeroed::<WSMAN_OPERATION_HANDLE>();
+    WSManReceiveShellOutput(shell.into_param().abi(), command.into_param().abi(), flags, ::core::mem::transmute(desiredstreamset.unwrap_or(::std::ptr::null())), r#async, &mut result__);
     ::std::mem::transmute(result__)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 #[inline]
-pub unsafe fn WSManSetSessionOption(session: *const WSMAN_SESSION, option: WSManSessionOption, data: *const WSMAN_DATA) -> u32 {
-    ::windows_targets::link!("wsmsvc.dll" "system" fn WSManSetSessionOption(session : *const WSMAN_SESSION, option : WSManSessionOption, data : *const WSMAN_DATA) -> u32);
-    WSManSetSessionOption(session, option, data)
+pub unsafe fn WSManReconnectShell<P0>(shell: P0, flags: u32, r#async: *const WSMAN_SHELL_ASYNC)
+where
+    P0: ::windows_core::IntoParam<WSMAN_SHELL_HANDLE>,
+{
+    ::windows_targets::link!("wsmsvc.dll" "system" fn WSManReconnectShell(shell : WSMAN_SHELL_HANDLE, flags : u32, r#async : *const WSMAN_SHELL_ASYNC) -> ());
+    WSManReconnectShell(shell.into_param().abi(), flags, r#async)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 #[inline]
-pub unsafe fn WSManSignalShell<P0>(shell: *const WSMAN_SHELL, command: ::core::option::Option<*const WSMAN_COMMAND>, flags: u32, code: P0, r#async: *const WSMAN_SHELL_ASYNC) -> *mut WSMAN_OPERATION
+pub unsafe fn WSManReconnectShellCommand<P0>(commandhandle: P0, flags: u32, r#async: *const WSMAN_SHELL_ASYNC)
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P0: ::windows_core::IntoParam<WSMAN_COMMAND_HANDLE>,
 {
-    ::windows_targets::link!("wsmsvc.dll" "system" fn WSManSignalShell(shell : *const WSMAN_SHELL, command : *const WSMAN_COMMAND, flags : u32, code : ::windows_core::PCWSTR, r#async : *const WSMAN_SHELL_ASYNC, signaloperation : *mut *mut WSMAN_OPERATION) -> ());
-    let mut result__ = ::windows_core::zeroed::<*mut WSMAN_OPERATION>();
-    WSManSignalShell(shell, ::core::mem::transmute(command.unwrap_or(::std::ptr::null())), flags, code.into_param().abi(), r#async, &mut result__);
+    ::windows_targets::link!("wsmsvc.dll" "system" fn WSManReconnectShellCommand(commandhandle : WSMAN_COMMAND_HANDLE, flags : u32, r#async : *const WSMAN_SHELL_ASYNC) -> ());
+    WSManReconnectShellCommand(commandhandle.into_param().abi(), flags, r#async)
+}
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WSManRunShellCommand<P0, P1>(shell: P0, flags: u32, commandline: P1, args: ::core::option::Option<*const WSMAN_COMMAND_ARG_SET>, options: ::core::option::Option<*const WSMAN_OPTION_SET>, r#async: *const WSMAN_SHELL_ASYNC) -> WSMAN_COMMAND_HANDLE
+where
+    P0: ::windows_core::IntoParam<WSMAN_SHELL_HANDLE>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+{
+    ::windows_targets::link!("wsmsvc.dll" "system" fn WSManRunShellCommand(shell : WSMAN_SHELL_HANDLE, flags : u32, commandline : ::windows_core::PCWSTR, args : *const WSMAN_COMMAND_ARG_SET, options : *const WSMAN_OPTION_SET, r#async : *const WSMAN_SHELL_ASYNC, command : *mut WSMAN_COMMAND_HANDLE) -> ());
+    let mut result__ = ::windows_core::zeroed::<WSMAN_COMMAND_HANDLE>();
+    WSManRunShellCommand(shell.into_param().abi(), flags, commandline.into_param().abi(), ::core::mem::transmute(args.unwrap_or(::std::ptr::null())), ::core::mem::transmute(options.unwrap_or(::std::ptr::null())), r#async, &mut result__);
+    ::std::mem::transmute(result__)
+}
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WSManRunShellCommandEx<P0, P1, P2>(shell: P0, flags: u32, commandid: P1, commandline: P2, args: ::core::option::Option<*const WSMAN_COMMAND_ARG_SET>, options: ::core::option::Option<*const WSMAN_OPTION_SET>, r#async: *const WSMAN_SHELL_ASYNC) -> WSMAN_COMMAND_HANDLE
+where
+    P0: ::windows_core::IntoParam<WSMAN_SHELL_HANDLE>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+{
+    ::windows_targets::link!("wsmsvc.dll" "system" fn WSManRunShellCommandEx(shell : WSMAN_SHELL_HANDLE, flags : u32, commandid : ::windows_core::PCWSTR, commandline : ::windows_core::PCWSTR, args : *const WSMAN_COMMAND_ARG_SET, options : *const WSMAN_OPTION_SET, r#async : *const WSMAN_SHELL_ASYNC, command : *mut WSMAN_COMMAND_HANDLE) -> ());
+    let mut result__ = ::windows_core::zeroed::<WSMAN_COMMAND_HANDLE>();
+    WSManRunShellCommandEx(shell.into_param().abi(), flags, commandid.into_param().abi(), commandline.into_param().abi(), ::core::mem::transmute(args.unwrap_or(::std::ptr::null())), ::core::mem::transmute(options.unwrap_or(::std::ptr::null())), r#async, &mut result__);
+    ::std::mem::transmute(result__)
+}
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WSManSendShellInput<P0, P1, P2, P3>(shell: P0, command: P1, flags: u32, streamid: P2, streamdata: *const WSMAN_DATA, endofstream: P3, r#async: *const WSMAN_SHELL_ASYNC) -> WSMAN_OPERATION_HANDLE
+where
+    P0: ::windows_core::IntoParam<WSMAN_SHELL_HANDLE>,
+    P1: ::windows_core::IntoParam<WSMAN_COMMAND_HANDLE>,
+    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P3: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
+{
+    ::windows_targets::link!("wsmsvc.dll" "system" fn WSManSendShellInput(shell : WSMAN_SHELL_HANDLE, command : WSMAN_COMMAND_HANDLE, flags : u32, streamid : ::windows_core::PCWSTR, streamdata : *const WSMAN_DATA, endofstream : super::super::Foundation:: BOOL, r#async : *const WSMAN_SHELL_ASYNC, sendoperation : *mut WSMAN_OPERATION_HANDLE) -> ());
+    let mut result__ = ::windows_core::zeroed::<WSMAN_OPERATION_HANDLE>();
+    WSManSendShellInput(shell.into_param().abi(), command.into_param().abi(), flags, streamid.into_param().abi(), streamdata, endofstream.into_param().abi(), r#async, &mut result__);
+    ::std::mem::transmute(result__)
+}
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+#[inline]
+pub unsafe fn WSManSetSessionOption<P0>(session: P0, option: WSManSessionOption, data: *const WSMAN_DATA) -> u32
+where
+    P0: ::windows_core::IntoParam<WSMAN_SESSION_HANDLE>,
+{
+    ::windows_targets::link!("wsmsvc.dll" "system" fn WSManSetSessionOption(session : WSMAN_SESSION_HANDLE, option : WSManSessionOption, data : *const WSMAN_DATA) -> u32);
+    WSManSetSessionOption(session.into_param().abi(), option, data)
+}
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+#[inline]
+pub unsafe fn WSManSignalShell<P0, P1, P2>(shell: P0, command: P1, flags: u32, code: P2, r#async: *const WSMAN_SHELL_ASYNC) -> WSMAN_OPERATION_HANDLE
+where
+    P0: ::windows_core::IntoParam<WSMAN_SHELL_HANDLE>,
+    P1: ::windows_core::IntoParam<WSMAN_COMMAND_HANDLE>,
+    P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+{
+    ::windows_targets::link!("wsmsvc.dll" "system" fn WSManSignalShell(shell : WSMAN_SHELL_HANDLE, command : WSMAN_COMMAND_HANDLE, flags : u32, code : ::windows_core::PCWSTR, r#async : *const WSMAN_SHELL_ASYNC, signaloperation : *mut WSMAN_OPERATION_HANDLE) -> ());
+    let mut result__ = ::windows_core::zeroed::<WSMAN_OPERATION_HANDLE>();
+    WSManSignalShell(shell.into_param().abi(), command.into_param().abi(), flags, code.into_param().abi(), r#async, &mut result__);
     ::std::mem::transmute(result__)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_System_Com\"`*"]
@@ -1181,9 +1244,9 @@ pub struct IWSManEx3_Vtbl {
 pub struct IWSManInternal(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWSManInternal {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ConfigSDDL<P0>(&self, session: P0, resourceuri: super::Com::VARIANT, flags: i32) -> ::windows_core::Result<::windows_core::BSTR>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn ConfigSDDL<P0>(&self, session: P0, resourceuri: super::Variant::VARIANT, flags: i32) -> ::windows_core::Result<::windows_core::BSTR>
     where
         P0: ::windows_core::IntoParam<super::Com::IDispatch>,
     {
@@ -1226,9 +1289,9 @@ unsafe impl ::windows_core::ComInterface for IWSManInternal {
 #[doc(hidden)]
 pub struct IWSManInternal_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub ConfigSDDL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, session: *mut ::core::ffi::c_void, resourceuri: super::Com::VARIANT, flags: i32, resource: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub ConfigSDDL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, session: *mut ::core::ffi::c_void, resourceuri: super::Variant::VARIANT, flags: i32, resource: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     ConfigSDDL: usize,
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_System_Com\"`*"]
@@ -1247,9 +1310,9 @@ impl IWSManResourceLocator {
         let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
         (::windows_core::Interface::vtable(self).ResourceURI)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn AddSelector<P0>(&self, resourceselname: P0, selvalue: super::Com::VARIANT) -> ::windows_core::Result<()>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn AddSelector<P0>(&self, resourceselname: P0, selvalue: super::Variant::VARIANT) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
@@ -1278,9 +1341,9 @@ impl IWSManResourceLocator {
     {
         (::windows_core::Interface::vtable(self).SetFragmentDialect)(::windows_core::Interface::as_raw(self), text.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn AddOption<P0, P1>(&self, optionname: P0, optionvalue: super::Com::VARIANT, mustcomply: P1) -> ::windows_core::Result<()>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn AddOption<P0, P1>(&self, optionname: P0, optionvalue: super::Variant::VARIANT, mustcomply: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
@@ -1346,18 +1409,18 @@ pub struct IWSManResourceLocator_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub SetResourceURI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub ResourceURI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub AddSelector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resourceselname: ::std::mem::MaybeUninit<::windows_core::BSTR>, selvalue: super::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub AddSelector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resourceselname: ::std::mem::MaybeUninit<::windows_core::BSTR>, selvalue: super::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     AddSelector: usize,
     pub ClearSelectors: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub FragmentPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, text: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub SetFragmentPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, text: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub FragmentDialect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, text: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub SetFragmentDialect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, text: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub AddOption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, optionname: ::std::mem::MaybeUninit<::windows_core::BSTR>, optionvalue: super::Com::VARIANT, mustcomply: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub AddOption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, optionname: ::std::mem::MaybeUninit<::windows_core::BSTR>, optionvalue: super::Variant::VARIANT, mustcomply: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     AddOption: usize,
     #[cfg(feature = "Win32_Foundation")]
     pub SetMustUnderstandOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mustunderstand: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
@@ -1408,38 +1471,38 @@ pub struct IWSManResourceLocatorInternal_Vtbl {
 pub struct IWSManSession(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWSManSession {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Get(&self, resourceuri: super::Com::VARIANT, flags: i32) -> ::windows_core::Result<::windows_core::BSTR> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Get(&self, resourceuri: super::Variant::VARIANT, flags: i32) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
         (::windows_core::Interface::vtable(self).Get)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(resourceuri), flags, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Put<P0>(&self, resourceuri: super::Com::VARIANT, resource: P0, flags: i32) -> ::windows_core::Result<::windows_core::BSTR>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Put<P0>(&self, resourceuri: super::Variant::VARIANT, resource: P0, flags: i32) -> ::windows_core::Result<::windows_core::BSTR>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
         (::windows_core::Interface::vtable(self).Put)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(resourceuri), resource.into_param().abi(), flags, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Create<P0>(&self, resourceuri: super::Com::VARIANT, resource: P0, flags: i32) -> ::windows_core::Result<::windows_core::BSTR>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Create<P0>(&self, resourceuri: super::Variant::VARIANT, resource: P0, flags: i32) -> ::windows_core::Result<::windows_core::BSTR>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
         (::windows_core::Interface::vtable(self).Create)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(resourceuri), resource.into_param().abi(), flags, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Delete(&self, resourceuri: super::Com::VARIANT, flags: i32) -> ::windows_core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Delete(&self, resourceuri: super::Variant::VARIANT, flags: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Delete)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(resourceuri), flags).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Invoke2<P0, P1>(&self, actionuri: P0, resourceuri: super::Com::VARIANT, parameters: P1, flags: i32) -> ::windows_core::Result<::windows_core::BSTR>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Invoke2<P0, P1>(&self, actionuri: P0, resourceuri: super::Variant::VARIANT, parameters: P1, flags: i32) -> ::windows_core::Result<::windows_core::BSTR>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
@@ -1447,9 +1510,9 @@ impl IWSManSession {
         let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
         (::windows_core::Interface::vtable(self).Invoke2)(::windows_core::Interface::as_raw(self), actionuri.into_param().abi(), ::core::mem::transmute(resourceuri), parameters.into_param().abi(), flags, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Enumerate<P0, P1>(&self, resourceuri: super::Com::VARIANT, filter: P0, dialect: P1, flags: i32) -> ::windows_core::Result<super::Com::IDispatch>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Enumerate<P0, P1>(&self, resourceuri: super::Variant::VARIANT, filter: P0, dialect: P1, flags: i32) -> ::windows_core::Result<super::Com::IDispatch>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
@@ -1515,29 +1578,29 @@ unsafe impl ::windows_core::ComInterface for IWSManSession {
 #[doc(hidden)]
 pub struct IWSManSession_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Get: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resourceuri: super::Com::VARIANT, flags: i32, resource: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub Get: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resourceuri: super::Variant::VARIANT, flags: i32, resource: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Get: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Put: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resourceuri: super::Com::VARIANT, resource: ::std::mem::MaybeUninit<::windows_core::BSTR>, flags: i32, resultresource: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub Put: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resourceuri: super::Variant::VARIANT, resource: ::std::mem::MaybeUninit<::windows_core::BSTR>, flags: i32, resultresource: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Put: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resourceuri: super::Com::VARIANT, resource: ::std::mem::MaybeUninit<::windows_core::BSTR>, flags: i32, newuri: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resourceuri: super::Variant::VARIANT, resource: ::std::mem::MaybeUninit<::windows_core::BSTR>, flags: i32, newuri: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Create: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resourceuri: super::Com::VARIANT, flags: i32) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resourceuri: super::Variant::VARIANT, flags: i32) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Delete: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Invoke2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, actionuri: ::std::mem::MaybeUninit<::windows_core::BSTR>, resourceuri: super::Com::VARIANT, parameters: ::std::mem::MaybeUninit<::windows_core::BSTR>, flags: i32, result: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub Invoke2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, actionuri: ::std::mem::MaybeUninit<::windows_core::BSTR>, resourceuri: super::Variant::VARIANT, parameters: ::std::mem::MaybeUninit<::windows_core::BSTR>, flags: i32, result: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Invoke2: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Enumerate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resourceuri: super::Com::VARIANT, filter: ::std::mem::MaybeUninit<::windows_core::BSTR>, dialect: ::std::mem::MaybeUninit<::windows_core::BSTR>, flags: i32, resultset: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub Enumerate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resourceuri: super::Variant::VARIANT, filter: ::std::mem::MaybeUninit<::windows_core::BSTR>, dialect: ::std::mem::MaybeUninit<::windows_core::BSTR>, flags: i32, resultset: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Enumerate: usize,
     pub Identify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: i32, result: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub Error: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -3048,15 +3111,26 @@ impl ::core::fmt::Debug for WSManShellFlag {
         f.debug_tuple("WSManShellFlag").field(&self.0).finish()
     }
 }
-#[repr(C)]
-pub struct WSMAN_API(pub u8);
-impl ::core::marker::Copy for WSMAN_API {}
-impl ::core::clone::Clone for WSMAN_API {
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WSMAN_API_HANDLE(pub isize);
+impl ::core::default::Default for WSMAN_API_HANDLE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for WSMAN_API_HANDLE {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::windows_core::TypeKind for WSMAN_API {
+impl ::core::marker::Copy for WSMAN_API_HANDLE {}
+impl ::core::fmt::Debug for WSMAN_API_HANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WSMAN_API_HANDLE").field(&self.0).finish()
+    }
+}
+impl ::windows_core::TypeKind for WSMAN_API_HANDLE {
     type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
@@ -3166,17 +3240,6 @@ impl ::core::default::Default for WSMAN_CERTIFICATE_DETAILS {
     }
 }
 #[repr(C)]
-pub struct WSMAN_COMMAND(pub u8);
-impl ::core::marker::Copy for WSMAN_COMMAND {}
-impl ::core::clone::Clone for WSMAN_COMMAND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::windows_core::TypeKind for WSMAN_COMMAND {
-    type TypeKind = ::windows_core::CopyType;
-}
-#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 pub struct WSMAN_COMMAND_ARG_SET {
     pub argsCount: u32,
@@ -3206,6 +3269,28 @@ impl ::core::default::Default for WSMAN_COMMAND_ARG_SET {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WSMAN_COMMAND_HANDLE(pub isize);
+impl ::core::default::Default for WSMAN_COMMAND_HANDLE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for WSMAN_COMMAND_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for WSMAN_COMMAND_HANDLE {}
+impl ::core::fmt::Debug for WSMAN_COMMAND_HANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WSMAN_COMMAND_HANDLE").field(&self.0).finish()
+    }
+}
+impl ::windows_core::TypeKind for WSMAN_COMMAND_HANDLE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
@@ -3537,15 +3622,26 @@ impl ::core::default::Default for WSMAN_KEY {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-pub struct WSMAN_OPERATION(pub u8);
-impl ::core::marker::Copy for WSMAN_OPERATION {}
-impl ::core::clone::Clone for WSMAN_OPERATION {
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WSMAN_OPERATION_HANDLE(pub isize);
+impl ::core::default::Default for WSMAN_OPERATION_HANDLE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for WSMAN_OPERATION_HANDLE {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::windows_core::TypeKind for WSMAN_OPERATION {
+impl ::core::marker::Copy for WSMAN_OPERATION_HANDLE {}
+impl ::core::fmt::Debug for WSMAN_OPERATION_HANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WSMAN_OPERATION_HANDLE").field(&self.0).finish()
+    }
+}
+impl ::windows_core::TypeKind for WSMAN_OPERATION_HANDLE {
     type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
@@ -3936,26 +4032,26 @@ impl ::core::default::Default for WSMAN_SENDER_DETAILS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-pub struct WSMAN_SESSION(pub u8);
-impl ::core::marker::Copy for WSMAN_SESSION {}
-impl ::core::clone::Clone for WSMAN_SESSION {
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WSMAN_SESSION_HANDLE(pub isize);
+impl ::core::default::Default for WSMAN_SESSION_HANDLE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for WSMAN_SESSION_HANDLE {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::windows_core::TypeKind for WSMAN_SESSION {
-    type TypeKind = ::windows_core::CopyType;
-}
-#[repr(C)]
-pub struct WSMAN_SHELL(pub u8);
-impl ::core::marker::Copy for WSMAN_SHELL {}
-impl ::core::clone::Clone for WSMAN_SHELL {
-    fn clone(&self) -> Self {
-        *self
+impl ::core::marker::Copy for WSMAN_SESSION_HANDLE {}
+impl ::core::fmt::Debug for WSMAN_SESSION_HANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WSMAN_SESSION_HANDLE").field(&self.0).finish()
     }
 }
-impl ::windows_core::TypeKind for WSMAN_SHELL {
+impl ::windows_core::TypeKind for WSMAN_SESSION_HANDLE {
     type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
@@ -4012,6 +4108,28 @@ impl ::core::default::Default for WSMAN_SHELL_DISCONNECT_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WSMAN_SHELL_HANDLE(pub isize);
+impl ::core::default::Default for WSMAN_SHELL_HANDLE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for WSMAN_SHELL_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for WSMAN_SHELL_HANDLE {}
+impl ::core::fmt::Debug for WSMAN_SHELL_HANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WSMAN_SHELL_HANDLE").field(&self.0).finish()
+    }
+}
+impl ::windows_core::TypeKind for WSMAN_SHELL_HANDLE {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
@@ -4178,6 +4296,6 @@ pub type WSMAN_PLUGIN_SIGNAL = ::core::option::Option<unsafe extern "system" fn(
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 pub type WSMAN_PLUGIN_STARTUP = ::core::option::Option<unsafe extern "system" fn(flags: u32, applicationidentification: ::windows_core::PCWSTR, extrainfo: ::windows_core::PCWSTR, plugincontext: *mut *mut ::core::ffi::c_void) -> u32>;
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub type WSMAN_SHELL_COMPLETION_FUNCTION = ::core::option::Option<unsafe extern "system" fn(operationcontext: *const ::core::ffi::c_void, flags: u32, error: *const WSMAN_ERROR, shell: *const WSMAN_SHELL, command: *const WSMAN_COMMAND, operationhandle: *const WSMAN_OPERATION, data: *const WSMAN_RESPONSE_DATA) -> ()>;
+pub type WSMAN_SHELL_COMPLETION_FUNCTION = ::core::option::Option<unsafe extern "system" fn(operationcontext: *const ::core::ffi::c_void, flags: u32, error: *const WSMAN_ERROR, shell: WSMAN_SHELL_HANDLE, command: WSMAN_COMMAND_HANDLE, operationhandle: WSMAN_OPERATION_HANDLE, data: *const WSMAN_RESPONSE_DATA) -> ()>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

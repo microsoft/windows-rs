@@ -226,17 +226,17 @@ impl IRichEditOleCallback_Vtbl {
         iid == &<IRichEditOleCallback as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRicheditUiaOverrides_Impl: Sized {
-    fn GetPropertyOverrideValue(&self, propertyid: i32, pretvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows_core::Result<()>;
+    fn GetPropertyOverrideValue(&self, propertyid: i32, pretvalue: *mut super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IRicheditUiaOverrides {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRicheditUiaOverrides_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IRicheditUiaOverrides_Impl, const OFFSET: isize>() -> IRicheditUiaOverrides_Vtbl {
-        unsafe extern "system" fn GetPropertyOverrideValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IRicheditUiaOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyid: i32, pretvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetPropertyOverrideValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IRicheditUiaOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyid: i32, pretvalue: *mut super::super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetPropertyOverrideValue(::core::mem::transmute_copy(&propertyid), ::core::mem::transmute_copy(&pretvalue)).into()
@@ -247,12 +247,12 @@ impl IRicheditUiaOverrides_Vtbl {
         iid == &<IRicheditUiaOverrides as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITextDisplays_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ITextDisplays {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITextDisplays_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextDisplays_Impl, const OFFSET: isize>() -> ITextDisplays_Vtbl {
         Self { base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -261,8 +261,8 @@ impl ITextDisplays_Vtbl {
         iid == &<ITextDisplays as ::windows_core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITextDocument_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn GetName(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn GetSelection(&self) -> ::windows_core::Result<ITextSelection>;
@@ -273,8 +273,8 @@ pub trait ITextDocument_Impl: Sized + super::super::super::System::Com::IDispatc
     fn GetDefaultTabStop(&self) -> ::windows_core::Result<f32>;
     fn SetDefaultTabStop(&self, value: f32) -> ::windows_core::Result<()>;
     fn New(&self) -> ::windows_core::Result<()>;
-    fn Open(&self, pvar: *const super::super::super::System::Com::VARIANT, flags: tomConstants, codepage: i32) -> ::windows_core::Result<()>;
-    fn Save(&self, pvar: *const super::super::super::System::Com::VARIANT, flags: tomConstants, codepage: i32) -> ::windows_core::Result<()>;
+    fn Open(&self, pvar: *const super::super::super::System::Variant::VARIANT, flags: tomConstants, codepage: i32) -> ::windows_core::Result<()>;
+    fn Save(&self, pvar: *const super::super::super::System::Variant::VARIANT, flags: tomConstants, codepage: i32) -> ::windows_core::Result<()>;
     fn Freeze(&self) -> ::windows_core::Result<i32>;
     fn Unfreeze(&self) -> ::windows_core::Result<i32>;
     fn BeginEditCollection(&self) -> ::windows_core::Result<()>;
@@ -284,9 +284,9 @@ pub trait ITextDocument_Impl: Sized + super::super::super::System::Com::IDispatc
     fn Range(&self, cpactive: i32, cpanchor: i32) -> ::windows_core::Result<ITextRange>;
     fn RangeFromPoint(&self, x: i32, y: i32) -> ::windows_core::Result<ITextRange>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ITextDocument {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITextDocument_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextDocument_Impl, const OFFSET: isize>() -> ITextDocument_Vtbl {
         unsafe extern "system" fn GetName<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -370,12 +370,12 @@ impl ITextDocument_Vtbl {
             let this = (*this).get_impl();
             this.New().into()
         }
-        unsafe extern "system" fn Open<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvar: *const super::super::super::System::Com::VARIANT, flags: tomConstants, codepage: i32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Open<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvar: *const super::super::super::System::Variant::VARIANT, flags: tomConstants, codepage: i32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Open(::core::mem::transmute_copy(&pvar), ::core::mem::transmute_copy(&flags), ::core::mem::transmute_copy(&codepage)).into()
         }
-        unsafe extern "system" fn Save<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvar: *const super::super::super::System::Com::VARIANT, flags: tomConstants, codepage: i32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Save<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvar: *const super::super::super::System::Variant::VARIANT, flags: tomConstants, codepage: i32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Save(::core::mem::transmute_copy(&pvar), ::core::mem::transmute_copy(&flags), ::core::mem::transmute_copy(&codepage)).into()
@@ -483,8 +483,8 @@ impl ITextDocument_Vtbl {
         iid == &<ITextDocument as ::windows_core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITextDocument2_Impl: Sized + ITextDocument_Impl {
     fn GetCaretType(&self) -> ::windows_core::Result<i32>;
     fn SetCaretType(&self, value: i32) -> ::windows_core::Result<()>;
@@ -531,9 +531,9 @@ pub trait ITextDocument2_Impl: Sized + ITextDocument_Impl {
     fn GetNewStory(&self) -> ::windows_core::Result<ITextStory>;
     fn GetStory(&self, index: i32) -> ::windows_core::Result<ITextStory>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ITextDocument2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITextDocument2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextDocument2_Impl, const OFFSET: isize>() -> ITextDocument2_Vtbl {
         unsafe extern "system" fn GetCaretType<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextDocument2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32) -> ::windows_core::HRESULT {
@@ -952,8 +952,8 @@ impl ITextDocument2_Vtbl {
         iid == &<ITextDocument2 as ::windows_core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || iid == &<ITextDocument as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITextDocument2Old_Impl: Sized + ITextDocument_Impl {
     fn AttachMsgFilter(&self, pfilter: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
     fn SetEffectColor(&self, index: i32, cr: super::super::super::Foundation::COLORREF) -> ::windows_core::Result<()>;
@@ -980,9 +980,9 @@ pub trait ITextDocument2Old_Impl: Sized + ITextDocument_Impl {
     fn GetCallManager(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
     fn ReleaseCallManager(&self, pvoid: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ITextDocument2Old {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITextDocument2Old_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextDocument2Old_Impl, const OFFSET: isize>() -> ITextDocument2Old_Vtbl {
         unsafe extern "system" fn AttachMsgFilter<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextDocument2Old_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfilter: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -1197,8 +1197,8 @@ impl ITextDocument2Old_Vtbl {
         iid == &<ITextDocument2Old as ::windows_core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || iid == &<ITextDocument as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITextFont_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn GetDuplicate(&self) -> ::windows_core::Result<ITextFont>;
     fn SetDuplicate(&self, pfont: ::core::option::Option<&ITextFont>) -> ::windows_core::Result<()>;
@@ -1256,9 +1256,9 @@ pub trait ITextFont_Impl: Sized + super::super::super::System::Com::IDispatch_Im
     fn GetWeight(&self) -> ::windows_core::Result<i32>;
     fn SetWeight(&self, value: i32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ITextFont {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITextFont_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextFont_Impl, const OFFSET: isize>() -> ITextFont_Vtbl {
         unsafe extern "system" fn GetDuplicate<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextFont_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppfont: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -1767,8 +1767,8 @@ impl ITextFont_Vtbl {
         iid == &<ITextFont as ::windows_core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITextFont2_Impl: Sized + ITextFont_Impl {
     fn GetCount(&self) -> ::windows_core::Result<i32>;
     fn GetAutoLigatures(&self) -> ::windows_core::Result<i32>;
@@ -1817,9 +1817,9 @@ pub trait ITextFont2_Impl: Sized + ITextFont_Impl {
     fn SetEffects2(&self, value: i32, mask: i32) -> ::windows_core::Result<()>;
     fn SetProperty(&self, r#type: i32, value: i32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ITextFont2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITextFont2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextFont2_Impl, const OFFSET: isize>() -> ITextFont2_Vtbl {
         unsafe extern "system" fn GetCount<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextFont2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcount: *mut i32) -> ::windows_core::HRESULT {
@@ -2635,8 +2635,8 @@ impl ITextHost2_Vtbl {
         iid == &<ITextHost2 as ::windows_core::ComInterface>::IID || iid == &<ITextHost as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITextPara_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn GetDuplicate(&self) -> ::windows_core::Result<ITextPara>;
     fn SetDuplicate(&self, ppara: ::core::option::Option<&ITextPara>) -> ::windows_core::Result<()>;
@@ -2687,9 +2687,9 @@ pub trait ITextPara_Impl: Sized + super::super::super::System::Com::IDispatch_Im
     fn DeleteTab(&self, tbpos: f32) -> ::windows_core::Result<()>;
     fn GetTab(&self, itab: i32, ptbpos: *mut f32, ptbalign: *mut i32, ptbleader: *mut i32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ITextPara {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITextPara_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextPara_Impl, const OFFSET: isize>() -> ITextPara_Vtbl {
         unsafe extern "system" fn GetDuplicate<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextPara_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pppara: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -3132,8 +3132,8 @@ impl ITextPara_Vtbl {
         iid == &<ITextPara as ::windows_core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITextPara2_Impl: Sized + ITextPara_Impl {
     fn GetBorders(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
     fn GetDuplicate2(&self) -> ::windows_core::Result<ITextPara2>;
@@ -3152,9 +3152,9 @@ pub trait ITextPara2_Impl: Sized + ITextPara_Impl {
     fn SetEffects(&self, value: i32, mask: i32) -> ::windows_core::Result<()>;
     fn SetProperty(&self, r#type: i32, value: i32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ITextPara2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITextPara2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextPara2_Impl, const OFFSET: isize>() -> ITextPara2_Vtbl {
         unsafe extern "system" fn GetBorders<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextPara2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppborders: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -3309,8 +3309,8 @@ impl ITextPara2_Vtbl {
         iid == &<ITextPara2 as ::windows_core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || iid == &<ITextPara as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITextRange_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn GetText(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn SetText(&self, bstr: &::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -3343,20 +3343,20 @@ pub trait ITextRange_Impl: Sized + super::super::super::System::Com::IDispatch_I
     fn Move(&self, unit: i32, count: i32) -> ::windows_core::Result<i32>;
     fn MoveStart(&self, unit: i32, count: i32) -> ::windows_core::Result<i32>;
     fn MoveEnd(&self, unit: i32, count: i32) -> ::windows_core::Result<i32>;
-    fn MoveWhile(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows_core::Result<i32>;
-    fn MoveStartWhile(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows_core::Result<i32>;
-    fn MoveEndWhile(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows_core::Result<i32>;
-    fn MoveUntil(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows_core::Result<i32>;
-    fn MoveStartUntil(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows_core::Result<i32>;
-    fn MoveEndUntil(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows_core::Result<i32>;
+    fn MoveWhile(&self, cset: *const super::super::super::System::Variant::VARIANT, count: i32) -> ::windows_core::Result<i32>;
+    fn MoveStartWhile(&self, cset: *const super::super::super::System::Variant::VARIANT, count: i32) -> ::windows_core::Result<i32>;
+    fn MoveEndWhile(&self, cset: *const super::super::super::System::Variant::VARIANT, count: i32) -> ::windows_core::Result<i32>;
+    fn MoveUntil(&self, cset: *const super::super::super::System::Variant::VARIANT, count: i32) -> ::windows_core::Result<i32>;
+    fn MoveStartUntil(&self, cset: *const super::super::super::System::Variant::VARIANT, count: i32) -> ::windows_core::Result<i32>;
+    fn MoveEndUntil(&self, cset: *const super::super::super::System::Variant::VARIANT, count: i32) -> ::windows_core::Result<i32>;
     fn FindText(&self, bstr: &::windows_core::BSTR, count: i32, flags: tomConstants) -> ::windows_core::Result<i32>;
     fn FindTextStart(&self, bstr: &::windows_core::BSTR, count: i32, flags: tomConstants) -> ::windows_core::Result<i32>;
     fn FindTextEnd(&self, bstr: &::windows_core::BSTR, count: i32, flags: tomConstants) -> ::windows_core::Result<i32>;
     fn Delete(&self, unit: i32, count: i32) -> ::windows_core::Result<i32>;
-    fn Cut(&self) -> ::windows_core::Result<super::super::super::System::Com::VARIANT>;
-    fn Copy(&self) -> ::windows_core::Result<super::super::super::System::Com::VARIANT>;
-    fn Paste(&self, pvar: *const super::super::super::System::Com::VARIANT, format: i32) -> ::windows_core::Result<()>;
-    fn CanPaste(&self, pvar: *const super::super::super::System::Com::VARIANT, format: i32) -> ::windows_core::Result<i32>;
+    fn Cut(&self) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT>;
+    fn Copy(&self) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT>;
+    fn Paste(&self, pvar: *const super::super::super::System::Variant::VARIANT, format: i32) -> ::windows_core::Result<()>;
+    fn CanPaste(&self, pvar: *const super::super::super::System::Variant::VARIANT, format: i32) -> ::windows_core::Result<i32>;
     fn CanEdit(&self) -> ::windows_core::Result<i32>;
     fn ChangeCase(&self, r#type: tomConstants) -> ::windows_core::Result<()>;
     fn GetPoint(&self, r#type: tomConstants, px: *mut i32, py: *mut i32) -> ::windows_core::Result<()>;
@@ -3364,9 +3364,9 @@ pub trait ITextRange_Impl: Sized + super::super::super::System::Com::IDispatch_I
     fn ScrollIntoView(&self, value: i32) -> ::windows_core::Result<()>;
     fn GetEmbeddedObject(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ITextRange {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITextRange_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>() -> ITextRange_Vtbl {
         unsafe extern "system" fn GetText<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstr: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -3644,7 +3644,7 @@ impl ITextRange_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MoveWhile<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cset: *const super::super::super::System::Com::VARIANT, count: i32, pdelta: *mut i32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn MoveWhile<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cset: *const super::super::super::System::Variant::VARIANT, count: i32, pdelta: *mut i32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.MoveWhile(::core::mem::transmute_copy(&cset), ::core::mem::transmute_copy(&count)) {
@@ -3655,7 +3655,7 @@ impl ITextRange_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MoveStartWhile<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cset: *const super::super::super::System::Com::VARIANT, count: i32, pdelta: *mut i32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn MoveStartWhile<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cset: *const super::super::super::System::Variant::VARIANT, count: i32, pdelta: *mut i32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.MoveStartWhile(::core::mem::transmute_copy(&cset), ::core::mem::transmute_copy(&count)) {
@@ -3666,7 +3666,7 @@ impl ITextRange_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MoveEndWhile<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cset: *const super::super::super::System::Com::VARIANT, count: i32, pdelta: *mut i32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn MoveEndWhile<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cset: *const super::super::super::System::Variant::VARIANT, count: i32, pdelta: *mut i32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.MoveEndWhile(::core::mem::transmute_copy(&cset), ::core::mem::transmute_copy(&count)) {
@@ -3677,7 +3677,7 @@ impl ITextRange_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MoveUntil<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cset: *const super::super::super::System::Com::VARIANT, count: i32, pdelta: *mut i32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn MoveUntil<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cset: *const super::super::super::System::Variant::VARIANT, count: i32, pdelta: *mut i32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.MoveUntil(::core::mem::transmute_copy(&cset), ::core::mem::transmute_copy(&count)) {
@@ -3688,7 +3688,7 @@ impl ITextRange_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MoveStartUntil<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cset: *const super::super::super::System::Com::VARIANT, count: i32, pdelta: *mut i32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn MoveStartUntil<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cset: *const super::super::super::System::Variant::VARIANT, count: i32, pdelta: *mut i32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.MoveStartUntil(::core::mem::transmute_copy(&cset), ::core::mem::transmute_copy(&count)) {
@@ -3699,7 +3699,7 @@ impl ITextRange_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MoveEndUntil<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cset: *const super::super::super::System::Com::VARIANT, count: i32, pdelta: *mut i32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn MoveEndUntil<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cset: *const super::super::super::System::Variant::VARIANT, count: i32, pdelta: *mut i32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.MoveEndUntil(::core::mem::transmute_copy(&cset), ::core::mem::transmute_copy(&count)) {
@@ -3754,7 +3754,7 @@ impl ITextRange_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Cut<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Cut<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvar: *mut super::super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Cut() {
@@ -3765,7 +3765,7 @@ impl ITextRange_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Copy<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Copy<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvar: *mut super::super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Copy() {
@@ -3776,12 +3776,12 @@ impl ITextRange_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Paste<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvar: *const super::super::super::System::Com::VARIANT, format: i32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Paste<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvar: *const super::super::super::System::Variant::VARIANT, format: i32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Paste(::core::mem::transmute_copy(&pvar), ::core::mem::transmute_copy(&format)).into()
         }
-        unsafe extern "system" fn CanPaste<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvar: *const super::super::super::System::Com::VARIANT, format: i32, pvalue: *mut i32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn CanPaste<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvar: *const super::super::super::System::Variant::VARIANT, format: i32, pvalue: *mut i32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CanPaste(::core::mem::transmute_copy(&pvar), ::core::mem::transmute_copy(&format)) {
@@ -3893,8 +3893,8 @@ impl ITextRange_Vtbl {
         iid == &<ITextRange as ::windows_core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITextRange2_Impl: Sized + ITextSelection_Impl {
     fn GetCch(&self) -> ::windows_core::Result<i32>;
     fn GetCells(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
@@ -3937,9 +3937,9 @@ pub trait ITextRange2_Impl: Sized + ITextSelection_Impl {
     fn GetMathFunctionType(&self, bstr: &::windows_core::BSTR) -> ::windows_core::Result<i32>;
     fn InsertImage(&self, width: i32, height: i32, ascent: i32, r#type: super::super::super::Graphics::Gdi::TEXT_ALIGN_OPTIONS, bstralttext: &::windows_core::BSTR, pstream: ::core::option::Option<&super::super::super::System::Com::IStream>) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ITextRange2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITextRange2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextRange2_Impl, const OFFSET: isize>() -> ITextRange2_Vtbl {
         unsafe extern "system" fn GetCch<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextRange2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcch: *mut i32) -> ::windows_core::HRESULT {
@@ -4292,8 +4292,8 @@ impl ITextRange2_Vtbl {
         iid == &<ITextRange2 as ::windows_core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || iid == &<ITextRange as ::windows_core::ComInterface>::IID || iid == &<ITextSelection as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITextRow_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn GetAlignment(&self) -> ::windows_core::Result<i32>;
     fn SetAlignment(&self, value: i32) -> ::windows_core::Result<()>;
@@ -4342,9 +4342,9 @@ pub trait ITextRow_Impl: Sized + super::super::super::System::Com::IDispatch_Imp
     fn Reset(&self, value: i32) -> ::windows_core::Result<()>;
     fn SetProperty(&self, r#type: i32, value: i32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ITextRow {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITextRow_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextRow_Impl, const OFFSET: isize>() -> ITextRow_Vtbl {
         unsafe extern "system" fn GetAlignment<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextRow_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32) -> ::windows_core::HRESULT {
@@ -4757,8 +4757,8 @@ impl ITextRow_Vtbl {
         iid == &<ITextRow as ::windows_core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITextSelection_Impl: Sized + ITextRange_Impl {
     fn GetFlags(&self) -> ::windows_core::Result<i32>;
     fn SetFlags(&self, flags: i32) -> ::windows_core::Result<()>;
@@ -4771,9 +4771,9 @@ pub trait ITextSelection_Impl: Sized + ITextRange_Impl {
     fn EndKey(&self, unit: i32, extend: i32) -> ::windows_core::Result<i32>;
     fn TypeText(&self, bstr: &::windows_core::BSTR) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ITextSelection {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITextSelection_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextSelection_Impl, const OFFSET: isize>() -> ITextSelection_Vtbl {
         unsafe extern "system" fn GetFlags<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextSelection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pflags: *mut i32) -> ::windows_core::HRESULT {
@@ -4892,12 +4892,12 @@ impl ITextSelection_Vtbl {
         iid == &<ITextSelection as ::windows_core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || iid == &<ITextRange as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITextSelection2_Impl: Sized + ITextRange2_Impl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ITextSelection2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITextSelection2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextSelection2_Impl, const OFFSET: isize>() -> ITextSelection2_Vtbl {
         Self { base__: ITextRange2_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -5243,16 +5243,16 @@ impl ITextStory_Vtbl {
         iid == &<ITextStory as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITextStoryRanges_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
     fn Item(&self, index: i32) -> ::windows_core::Result<ITextRange>;
     fn GetCount(&self) -> ::windows_core::Result<i32>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ITextStoryRanges {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITextStoryRanges_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextStoryRanges_Impl, const OFFSET: isize>() -> ITextStoryRanges_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextStoryRanges_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppunkenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -5299,14 +5299,14 @@ impl ITextStoryRanges_Vtbl {
         iid == &<ITextStoryRanges as ::windows_core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITextStoryRanges2_Impl: Sized + ITextStoryRanges_Impl {
     fn Item2(&self, index: i32) -> ::windows_core::Result<ITextRange2>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ITextStoryRanges2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITextStoryRanges2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextStoryRanges2_Impl, const OFFSET: isize>() -> ITextStoryRanges2_Vtbl {
         unsafe extern "system" fn Item2<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextStoryRanges2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pprange: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -5326,8 +5326,8 @@ impl ITextStoryRanges2_Vtbl {
         iid == &<ITextStoryRanges2 as ::windows_core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || iid == &<ITextStoryRanges as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITextStrings_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Item(&self, index: i32) -> ::windows_core::Result<ITextRange2>;
     fn GetCount(&self) -> ::windows_core::Result<i32>;
@@ -5347,9 +5347,9 @@ pub trait ITextStrings_Impl: Sized + super::super::super::System::Com::IDispatch
     fn SuffixTop(&self, bstr: &::windows_core::BSTR, prange: ::core::option::Option<&ITextRange2>) -> ::windows_core::Result<()>;
     fn Swap(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ITextStrings {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITextStrings_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextStrings_Impl, const OFFSET: isize>() -> ITextStrings_Vtbl {
         unsafe extern "system" fn Item<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextStrings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pprange: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {

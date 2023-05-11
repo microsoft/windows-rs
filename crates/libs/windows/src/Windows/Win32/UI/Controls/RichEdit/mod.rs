@@ -307,9 +307,9 @@ pub struct IRichEditOleCallback_Vtbl {
 #[repr(transparent)]
 pub struct IRicheditUiaOverrides(::windows_core::IUnknown);
 impl IRicheditUiaOverrides {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetPropertyOverrideValue(&self, propertyid: i32, pretvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows_core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetPropertyOverrideValue(&self, propertyid: i32, pretvalue: *mut super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetPropertyOverrideValue)(::windows_core::Interface::as_raw(self), propertyid, pretvalue).ok()
     }
 }
@@ -340,9 +340,9 @@ unsafe impl ::windows_core::ComInterface for IRicheditUiaOverrides {
 #[doc(hidden)]
 pub struct IRicheditUiaOverrides_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetPropertyOverrideValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: i32, pretvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub GetPropertyOverrideValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: i32, pretvalue: *mut super::super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetPropertyOverrideValue: usize,
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
@@ -430,14 +430,14 @@ impl ITextDocument {
     pub unsafe fn New(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).New)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Open(&self, pvar: *const super::super::super::System::Com::VARIANT, flags: tomConstants, codepage: i32) -> ::windows_core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Open(&self, pvar: *const super::super::super::System::Variant::VARIANT, flags: tomConstants, codepage: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Open)(::windows_core::Interface::as_raw(self), pvar, flags, codepage).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Save(&self, pvar: *const super::super::super::System::Com::VARIANT, flags: tomConstants, codepage: i32) -> ::windows_core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Save(&self, pvar: *const super::super::super::System::Variant::VARIANT, flags: tomConstants, codepage: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Save)(::windows_core::Interface::as_raw(self), pvar, flags, codepage).ok()
     }
     pub unsafe fn Freeze(&self) -> ::windows_core::Result<i32> {
@@ -525,13 +525,13 @@ pub struct ITextDocument_Vtbl {
     pub GetDefaultTabStop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut f32) -> ::windows_core::HRESULT,
     pub SetDefaultTabStop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows_core::HRESULT,
     pub New: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *const super::super::super::System::Com::VARIANT, flags: tomConstants, codepage: i32) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *const super::super::super::System::Variant::VARIANT, flags: tomConstants, codepage: i32) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Open: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Save: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *const super::super::super::System::Com::VARIANT, flags: tomConstants, codepage: i32) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub Save: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *const super::super::super::System::Variant::VARIANT, flags: tomConstants, codepage: i32) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Save: usize,
     pub Freeze: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut i32) -> ::windows_core::HRESULT,
     pub Unfreeze: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut i32) -> ::windows_core::HRESULT,
@@ -591,14 +591,14 @@ impl ITextDocument2 {
     pub unsafe fn New(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.New)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Open(&self, pvar: *const super::super::super::System::Com::VARIANT, flags: tomConstants, codepage: i32) -> ::windows_core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Open(&self, pvar: *const super::super::super::System::Variant::VARIANT, flags: tomConstants, codepage: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Open)(::windows_core::Interface::as_raw(self), pvar, flags, codepage).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Save(&self, pvar: *const super::super::super::System::Com::VARIANT, flags: tomConstants, codepage: i32) -> ::windows_core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Save(&self, pvar: *const super::super::super::System::Variant::VARIANT, flags: tomConstants, codepage: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Save)(::windows_core::Interface::as_raw(self), pvar, flags, codepage).ok()
     }
     pub unsafe fn Freeze(&self) -> ::windows_core::Result<i32> {
@@ -980,14 +980,14 @@ impl ITextDocument2Old {
     pub unsafe fn New(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.New)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Open(&self, pvar: *const super::super::super::System::Com::VARIANT, flags: tomConstants, codepage: i32) -> ::windows_core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Open(&self, pvar: *const super::super::super::System::Variant::VARIANT, flags: tomConstants, codepage: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Open)(::windows_core::Interface::as_raw(self), pvar, flags, codepage).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Save(&self, pvar: *const super::super::super::System::Com::VARIANT, flags: tomConstants, codepage: i32) -> ::windows_core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Save(&self, pvar: *const super::super::super::System::Variant::VARIANT, flags: tomConstants, codepage: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Save)(::windows_core::Interface::as_raw(self), pvar, flags, codepage).ok()
     }
     pub unsafe fn Freeze(&self) -> ::windows_core::Result<i32> {
@@ -3421,39 +3421,39 @@ impl ITextRange {
         let mut result__ = ::windows_core::zeroed::<i32>();
         (::windows_core::Interface::vtable(self).MoveEnd)(::windows_core::Interface::as_raw(self), unit, count, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn MoveWhile(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows_core::Result<i32> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn MoveWhile(&self, cset: *const super::super::super::System::Variant::VARIANT, count: i32) -> ::windows_core::Result<i32> {
         let mut result__ = ::windows_core::zeroed::<i32>();
         (::windows_core::Interface::vtable(self).MoveWhile)(::windows_core::Interface::as_raw(self), cset, count, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn MoveStartWhile(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows_core::Result<i32> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn MoveStartWhile(&self, cset: *const super::super::super::System::Variant::VARIANT, count: i32) -> ::windows_core::Result<i32> {
         let mut result__ = ::windows_core::zeroed::<i32>();
         (::windows_core::Interface::vtable(self).MoveStartWhile)(::windows_core::Interface::as_raw(self), cset, count, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn MoveEndWhile(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows_core::Result<i32> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn MoveEndWhile(&self, cset: *const super::super::super::System::Variant::VARIANT, count: i32) -> ::windows_core::Result<i32> {
         let mut result__ = ::windows_core::zeroed::<i32>();
         (::windows_core::Interface::vtable(self).MoveEndWhile)(::windows_core::Interface::as_raw(self), cset, count, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn MoveUntil(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows_core::Result<i32> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn MoveUntil(&self, cset: *const super::super::super::System::Variant::VARIANT, count: i32) -> ::windows_core::Result<i32> {
         let mut result__ = ::windows_core::zeroed::<i32>();
         (::windows_core::Interface::vtable(self).MoveUntil)(::windows_core::Interface::as_raw(self), cset, count, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn MoveStartUntil(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows_core::Result<i32> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn MoveStartUntil(&self, cset: *const super::super::super::System::Variant::VARIANT, count: i32) -> ::windows_core::Result<i32> {
         let mut result__ = ::windows_core::zeroed::<i32>();
         (::windows_core::Interface::vtable(self).MoveStartUntil)(::windows_core::Interface::as_raw(self), cset, count, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn MoveEndUntil(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows_core::Result<i32> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn MoveEndUntil(&self, cset: *const super::super::super::System::Variant::VARIANT, count: i32) -> ::windows_core::Result<i32> {
         let mut result__ = ::windows_core::zeroed::<i32>();
         (::windows_core::Interface::vtable(self).MoveEndUntil)(::windows_core::Interface::as_raw(self), cset, count, &mut result__).from_abi(result__)
     }
@@ -3482,26 +3482,26 @@ impl ITextRange {
         let mut result__ = ::windows_core::zeroed::<i32>();
         (::windows_core::Interface::vtable(self).Delete)(::windows_core::Interface::as_raw(self), unit, count, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Cut(&self) -> ::windows_core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Cut(&self) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).Cut)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Copy(&self) -> ::windows_core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Copy(&self) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).Copy)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Paste(&self, pvar: *const super::super::super::System::Com::VARIANT, format: i32) -> ::windows_core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Paste(&self, pvar: *const super::super::super::System::Variant::VARIANT, format: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Paste)(::windows_core::Interface::as_raw(self), pvar, format).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CanPaste(&self, pvar: *const super::super::super::System::Com::VARIANT, format: i32) -> ::windows_core::Result<i32> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn CanPaste(&self, pvar: *const super::super::super::System::Variant::VARIANT, format: i32) -> ::windows_core::Result<i32> {
         let mut result__ = ::windows_core::zeroed::<i32>();
         (::windows_core::Interface::vtable(self).CanPaste)(::windows_core::Interface::as_raw(self), pvar, format, &mut result__).from_abi(result__)
     }
@@ -3622,49 +3622,49 @@ pub struct ITextRange_Vtbl {
     pub Move: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unit: i32, count: i32, pdelta: *mut i32) -> ::windows_core::HRESULT,
     pub MoveStart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unit: i32, count: i32, pdelta: *mut i32) -> ::windows_core::HRESULT,
     pub MoveEnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unit: i32, count: i32, pdelta: *mut i32) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub MoveWhile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cset: *const super::super::super::System::Com::VARIANT, count: i32, pdelta: *mut i32) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub MoveWhile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cset: *const super::super::super::System::Variant::VARIANT, count: i32, pdelta: *mut i32) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     MoveWhile: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub MoveStartWhile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cset: *const super::super::super::System::Com::VARIANT, count: i32, pdelta: *mut i32) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub MoveStartWhile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cset: *const super::super::super::System::Variant::VARIANT, count: i32, pdelta: *mut i32) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     MoveStartWhile: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub MoveEndWhile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cset: *const super::super::super::System::Com::VARIANT, count: i32, pdelta: *mut i32) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub MoveEndWhile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cset: *const super::super::super::System::Variant::VARIANT, count: i32, pdelta: *mut i32) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     MoveEndWhile: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub MoveUntil: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cset: *const super::super::super::System::Com::VARIANT, count: i32, pdelta: *mut i32) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub MoveUntil: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cset: *const super::super::super::System::Variant::VARIANT, count: i32, pdelta: *mut i32) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     MoveUntil: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub MoveStartUntil: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cset: *const super::super::super::System::Com::VARIANT, count: i32, pdelta: *mut i32) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub MoveStartUntil: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cset: *const super::super::super::System::Variant::VARIANT, count: i32, pdelta: *mut i32) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     MoveStartUntil: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub MoveEndUntil: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cset: *const super::super::super::System::Com::VARIANT, count: i32, pdelta: *mut i32) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub MoveEndUntil: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cset: *const super::super::super::System::Variant::VARIANT, count: i32, pdelta: *mut i32) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     MoveEndUntil: usize,
     pub FindText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstr: ::std::mem::MaybeUninit<::windows_core::BSTR>, count: i32, flags: tomConstants, plength: *mut i32) -> ::windows_core::HRESULT,
     pub FindTextStart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstr: ::std::mem::MaybeUninit<::windows_core::BSTR>, count: i32, flags: tomConstants, plength: *mut i32) -> ::windows_core::HRESULT,
     pub FindTextEnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstr: ::std::mem::MaybeUninit<::windows_core::BSTR>, count: i32, flags: tomConstants, plength: *mut i32) -> ::windows_core::HRESULT,
     pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unit: i32, count: i32, pdelta: *mut i32) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Cut: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub Cut: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *mut super::super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Cut: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Copy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub Copy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *mut super::super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Copy: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Paste: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *const super::super::super::System::Com::VARIANT, format: i32) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub Paste: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *const super::super::super::System::Variant::VARIANT, format: i32) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Paste: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub CanPaste: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *const super::super::super::System::Com::VARIANT, format: i32, pvalue: *mut i32) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub CanPaste: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *const super::super::super::System::Variant::VARIANT, format: i32, pvalue: *mut i32) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     CanPaste: usize,
     pub CanEdit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut i32) -> ::windows_core::HRESULT,
     pub ChangeCase: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: tomConstants) -> ::windows_core::HRESULT,
@@ -3833,39 +3833,39 @@ impl ITextRange2 {
         let mut result__ = ::windows_core::zeroed::<i32>();
         (::windows_core::Interface::vtable(self).base__.base__.MoveEnd)(::windows_core::Interface::as_raw(self), unit, count, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn MoveWhile(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows_core::Result<i32> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn MoveWhile(&self, cset: *const super::super::super::System::Variant::VARIANT, count: i32) -> ::windows_core::Result<i32> {
         let mut result__ = ::windows_core::zeroed::<i32>();
         (::windows_core::Interface::vtable(self).base__.base__.MoveWhile)(::windows_core::Interface::as_raw(self), cset, count, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn MoveStartWhile(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows_core::Result<i32> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn MoveStartWhile(&self, cset: *const super::super::super::System::Variant::VARIANT, count: i32) -> ::windows_core::Result<i32> {
         let mut result__ = ::windows_core::zeroed::<i32>();
         (::windows_core::Interface::vtable(self).base__.base__.MoveStartWhile)(::windows_core::Interface::as_raw(self), cset, count, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn MoveEndWhile(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows_core::Result<i32> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn MoveEndWhile(&self, cset: *const super::super::super::System::Variant::VARIANT, count: i32) -> ::windows_core::Result<i32> {
         let mut result__ = ::windows_core::zeroed::<i32>();
         (::windows_core::Interface::vtable(self).base__.base__.MoveEndWhile)(::windows_core::Interface::as_raw(self), cset, count, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn MoveUntil(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows_core::Result<i32> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn MoveUntil(&self, cset: *const super::super::super::System::Variant::VARIANT, count: i32) -> ::windows_core::Result<i32> {
         let mut result__ = ::windows_core::zeroed::<i32>();
         (::windows_core::Interface::vtable(self).base__.base__.MoveUntil)(::windows_core::Interface::as_raw(self), cset, count, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn MoveStartUntil(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows_core::Result<i32> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn MoveStartUntil(&self, cset: *const super::super::super::System::Variant::VARIANT, count: i32) -> ::windows_core::Result<i32> {
         let mut result__ = ::windows_core::zeroed::<i32>();
         (::windows_core::Interface::vtable(self).base__.base__.MoveStartUntil)(::windows_core::Interface::as_raw(self), cset, count, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn MoveEndUntil(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows_core::Result<i32> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn MoveEndUntil(&self, cset: *const super::super::super::System::Variant::VARIANT, count: i32) -> ::windows_core::Result<i32> {
         let mut result__ = ::windows_core::zeroed::<i32>();
         (::windows_core::Interface::vtable(self).base__.base__.MoveEndUntil)(::windows_core::Interface::as_raw(self), cset, count, &mut result__).from_abi(result__)
     }
@@ -3894,26 +3894,26 @@ impl ITextRange2 {
         let mut result__ = ::windows_core::zeroed::<i32>();
         (::windows_core::Interface::vtable(self).base__.base__.Delete)(::windows_core::Interface::as_raw(self), unit, count, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Cut(&self) -> ::windows_core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Cut(&self) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).base__.base__.Cut)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Copy(&self) -> ::windows_core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Copy(&self) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).base__.base__.Copy)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Paste(&self, pvar: *const super::super::super::System::Com::VARIANT, format: i32) -> ::windows_core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Paste(&self, pvar: *const super::super::super::System::Variant::VARIANT, format: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.Paste)(::windows_core::Interface::as_raw(self), pvar, format).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CanPaste(&self, pvar: *const super::super::super::System::Com::VARIANT, format: i32) -> ::windows_core::Result<i32> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn CanPaste(&self, pvar: *const super::super::super::System::Variant::VARIANT, format: i32) -> ::windows_core::Result<i32> {
         let mut result__ = ::windows_core::zeroed::<i32>();
         (::windows_core::Interface::vtable(self).base__.base__.CanPaste)(::windows_core::Interface::as_raw(self), pvar, format, &mut result__).from_abi(result__)
     }
@@ -4683,39 +4683,39 @@ impl ITextSelection {
         let mut result__ = ::windows_core::zeroed::<i32>();
         (::windows_core::Interface::vtable(self).base__.MoveEnd)(::windows_core::Interface::as_raw(self), unit, count, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn MoveWhile(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows_core::Result<i32> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn MoveWhile(&self, cset: *const super::super::super::System::Variant::VARIANT, count: i32) -> ::windows_core::Result<i32> {
         let mut result__ = ::windows_core::zeroed::<i32>();
         (::windows_core::Interface::vtable(self).base__.MoveWhile)(::windows_core::Interface::as_raw(self), cset, count, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn MoveStartWhile(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows_core::Result<i32> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn MoveStartWhile(&self, cset: *const super::super::super::System::Variant::VARIANT, count: i32) -> ::windows_core::Result<i32> {
         let mut result__ = ::windows_core::zeroed::<i32>();
         (::windows_core::Interface::vtable(self).base__.MoveStartWhile)(::windows_core::Interface::as_raw(self), cset, count, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn MoveEndWhile(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows_core::Result<i32> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn MoveEndWhile(&self, cset: *const super::super::super::System::Variant::VARIANT, count: i32) -> ::windows_core::Result<i32> {
         let mut result__ = ::windows_core::zeroed::<i32>();
         (::windows_core::Interface::vtable(self).base__.MoveEndWhile)(::windows_core::Interface::as_raw(self), cset, count, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn MoveUntil(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows_core::Result<i32> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn MoveUntil(&self, cset: *const super::super::super::System::Variant::VARIANT, count: i32) -> ::windows_core::Result<i32> {
         let mut result__ = ::windows_core::zeroed::<i32>();
         (::windows_core::Interface::vtable(self).base__.MoveUntil)(::windows_core::Interface::as_raw(self), cset, count, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn MoveStartUntil(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows_core::Result<i32> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn MoveStartUntil(&self, cset: *const super::super::super::System::Variant::VARIANT, count: i32) -> ::windows_core::Result<i32> {
         let mut result__ = ::windows_core::zeroed::<i32>();
         (::windows_core::Interface::vtable(self).base__.MoveStartUntil)(::windows_core::Interface::as_raw(self), cset, count, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn MoveEndUntil(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows_core::Result<i32> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn MoveEndUntil(&self, cset: *const super::super::super::System::Variant::VARIANT, count: i32) -> ::windows_core::Result<i32> {
         let mut result__ = ::windows_core::zeroed::<i32>();
         (::windows_core::Interface::vtable(self).base__.MoveEndUntil)(::windows_core::Interface::as_raw(self), cset, count, &mut result__).from_abi(result__)
     }
@@ -4744,26 +4744,26 @@ impl ITextSelection {
         let mut result__ = ::windows_core::zeroed::<i32>();
         (::windows_core::Interface::vtable(self).base__.Delete)(::windows_core::Interface::as_raw(self), unit, count, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Cut(&self) -> ::windows_core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Cut(&self) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).base__.Cut)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Copy(&self) -> ::windows_core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Copy(&self) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).base__.Copy)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Paste(&self, pvar: *const super::super::super::System::Com::VARIANT, format: i32) -> ::windows_core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Paste(&self, pvar: *const super::super::super::System::Variant::VARIANT, format: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Paste)(::windows_core::Interface::as_raw(self), pvar, format).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CanPaste(&self, pvar: *const super::super::super::System::Com::VARIANT, format: i32) -> ::windows_core::Result<i32> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn CanPaste(&self, pvar: *const super::super::super::System::Variant::VARIANT, format: i32) -> ::windows_core::Result<i32> {
         let mut result__ = ::windows_core::zeroed::<i32>();
         (::windows_core::Interface::vtable(self).base__.CanPaste)(::windows_core::Interface::as_raw(self), pvar, format, &mut result__).from_abi(result__)
     }
@@ -5035,39 +5035,39 @@ impl ITextSelection2 {
         let mut result__ = ::windows_core::zeroed::<i32>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.MoveEnd)(::windows_core::Interface::as_raw(self), unit, count, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn MoveWhile(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows_core::Result<i32> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn MoveWhile(&self, cset: *const super::super::super::System::Variant::VARIANT, count: i32) -> ::windows_core::Result<i32> {
         let mut result__ = ::windows_core::zeroed::<i32>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.MoveWhile)(::windows_core::Interface::as_raw(self), cset, count, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn MoveStartWhile(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows_core::Result<i32> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn MoveStartWhile(&self, cset: *const super::super::super::System::Variant::VARIANT, count: i32) -> ::windows_core::Result<i32> {
         let mut result__ = ::windows_core::zeroed::<i32>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.MoveStartWhile)(::windows_core::Interface::as_raw(self), cset, count, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn MoveEndWhile(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows_core::Result<i32> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn MoveEndWhile(&self, cset: *const super::super::super::System::Variant::VARIANT, count: i32) -> ::windows_core::Result<i32> {
         let mut result__ = ::windows_core::zeroed::<i32>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.MoveEndWhile)(::windows_core::Interface::as_raw(self), cset, count, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn MoveUntil(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows_core::Result<i32> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn MoveUntil(&self, cset: *const super::super::super::System::Variant::VARIANT, count: i32) -> ::windows_core::Result<i32> {
         let mut result__ = ::windows_core::zeroed::<i32>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.MoveUntil)(::windows_core::Interface::as_raw(self), cset, count, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn MoveStartUntil(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows_core::Result<i32> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn MoveStartUntil(&self, cset: *const super::super::super::System::Variant::VARIANT, count: i32) -> ::windows_core::Result<i32> {
         let mut result__ = ::windows_core::zeroed::<i32>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.MoveStartUntil)(::windows_core::Interface::as_raw(self), cset, count, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn MoveEndUntil(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows_core::Result<i32> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn MoveEndUntil(&self, cset: *const super::super::super::System::Variant::VARIANT, count: i32) -> ::windows_core::Result<i32> {
         let mut result__ = ::windows_core::zeroed::<i32>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.MoveEndUntil)(::windows_core::Interface::as_raw(self), cset, count, &mut result__).from_abi(result__)
     }
@@ -5096,26 +5096,26 @@ impl ITextSelection2 {
         let mut result__ = ::windows_core::zeroed::<i32>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.Delete)(::windows_core::Interface::as_raw(self), unit, count, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Cut(&self) -> ::windows_core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Cut(&self) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.Cut)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Copy(&self) -> ::windows_core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Copy(&self) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.Copy)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Paste(&self, pvar: *const super::super::super::System::Com::VARIANT, format: i32) -> ::windows_core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Paste(&self, pvar: *const super::super::super::System::Variant::VARIANT, format: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.Paste)(::windows_core::Interface::as_raw(self), pvar, format).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CanPaste(&self, pvar: *const super::super::super::System::Com::VARIANT, format: i32) -> ::windows_core::Result<i32> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn CanPaste(&self, pvar: *const super::super::super::System::Variant::VARIANT, format: i32) -> ::windows_core::Result<i32> {
         let mut result__ = ::windows_core::zeroed::<i32>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.CanPaste)(::windows_core::Interface::as_raw(self), pvar, format, &mut result__).from_abi(result__)
     }
@@ -9941,23 +9941,58 @@ impl ::core::default::Default for CHARRANGE {
 }
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CLIPBOARDFORMAT {
     pub nmhdr: super::NMHDR,
     pub cf: u16,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CLIPBOARDFORMAT {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CLIPBOARDFORMAT {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for CLIPBOARDFORMAT {
     type TypeKind = ::windows_core::CopyType;
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for CLIPBOARDFORMAT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CLIPBOARDFORMAT {
+    pub nmhdr: super::NMHDR,
+    pub cf: u16,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CLIPBOARDFORMAT {}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CLIPBOARDFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows_core::TypeKind for CLIPBOARDFORMAT {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CLIPBOARDFORMAT {
     fn default() -> Self {
@@ -10006,20 +10041,51 @@ impl ::core::default::Default for COMPCOLOR {
 }
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct EDITSTREAM {
     pub dwCookie: usize,
     pub dwError: u32,
     pub pfnCallback: EDITSTREAMCALLBACK,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for EDITSTREAM {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for EDITSTREAM {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::windows_core::TypeKind for EDITSTREAM {
     type TypeKind = ::windows_core::CopyType;
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::default::Default for EDITSTREAM {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
+#[cfg(target_arch = "x86")]
+pub struct EDITSTREAM {
+    pub dwCookie: usize,
+    pub dwError: u32,
+    pub pfnCallback: EDITSTREAMCALLBACK,
+}
+#[cfg(target_arch = "x86")]
+impl ::core::marker::Copy for EDITSTREAM {}
+#[cfg(target_arch = "x86")]
+impl ::core::clone::Clone for EDITSTREAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+impl ::windows_core::TypeKind for EDITSTREAM {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl ::core::default::Default for EDITSTREAM {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -10027,24 +10093,60 @@ impl ::core::default::Default for EDITSTREAM {
 }
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ENCORRECTTEXT {
     pub nmhdr: super::NMHDR,
     pub chrg: CHARRANGE,
     pub seltyp: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ENCORRECTTEXT {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ENCORRECTTEXT {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for ENCORRECTTEXT {
     type TypeKind = ::windows_core::CopyType;
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for ENCORRECTTEXT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ENCORRECTTEXT {
+    pub nmhdr: super::NMHDR,
+    pub chrg: CHARRANGE,
+    pub seltyp: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ENCORRECTTEXT {}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ENCORRECTTEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows_core::TypeKind for ENCORRECTTEXT {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for ENCORRECTTEXT {
     fn default() -> Self {
@@ -10053,23 +10155,58 @@ impl ::core::default::Default for ENCORRECTTEXT {
 }
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ENDCOMPOSITIONNOTIFY {
     pub nmhdr: super::NMHDR,
     pub dwCode: ENDCOMPOSITIONNOTIFY_CODE,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ENDCOMPOSITIONNOTIFY {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ENDCOMPOSITIONNOTIFY {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for ENDCOMPOSITIONNOTIFY {
     type TypeKind = ::windows_core::CopyType;
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for ENDCOMPOSITIONNOTIFY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ENDCOMPOSITIONNOTIFY {
+    pub nmhdr: super::NMHDR,
+    pub dwCode: ENDCOMPOSITIONNOTIFY_CODE,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ENDCOMPOSITIONNOTIFY {}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ENDCOMPOSITIONNOTIFY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows_core::TypeKind for ENDCOMPOSITIONNOTIFY {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for ENDCOMPOSITIONNOTIFY {
     fn default() -> Self {
@@ -10078,6 +10215,7 @@ impl ::core::default::Default for ENDCOMPOSITIONNOTIFY {
 }
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ENDROPFILES {
     pub nmhdr: super::NMHDR,
@@ -10085,18 +10223,54 @@ pub struct ENDROPFILES {
     pub cp: i32,
     pub fProtected: super::super::super::Foundation::BOOL,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ENDROPFILES {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ENDROPFILES {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for ENDROPFILES {
     type TypeKind = ::windows_core::CopyType;
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for ENDROPFILES {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ENDROPFILES {
+    pub nmhdr: super::NMHDR,
+    pub hDrop: super::super::super::Foundation::HANDLE,
+    pub cp: i32,
+    pub fProtected: super::super::super::Foundation::BOOL,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ENDROPFILES {}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ENDROPFILES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows_core::TypeKind for ENDROPFILES {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for ENDROPFILES {
     fn default() -> Self {
@@ -10105,6 +10279,7 @@ impl ::core::default::Default for ENDROPFILES {
 }
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ENLINK {
     pub nmhdr: super::NMHDR,
@@ -10113,18 +10288,55 @@ pub struct ENLINK {
     pub lParam: super::super::super::Foundation::LPARAM,
     pub chrg: CHARRANGE,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ENLINK {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ENLINK {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for ENLINK {
     type TypeKind = ::windows_core::CopyType;
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for ENLINK {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ENLINK {
+    pub nmhdr: super::NMHDR,
+    pub msg: u32,
+    pub wParam: super::super::super::Foundation::WPARAM,
+    pub lParam: super::super::super::Foundation::LPARAM,
+    pub chrg: CHARRANGE,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ENLINK {}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ENLINK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows_core::TypeKind for ENLINK {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for ENLINK {
     fn default() -> Self {
@@ -10133,23 +10345,58 @@ impl ::core::default::Default for ENLINK {
 }
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ENLOWFIRTF {
     pub nmhdr: super::NMHDR,
     pub szControl: ::windows_core::PSTR,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ENLOWFIRTF {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ENLOWFIRTF {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for ENLOWFIRTF {
     type TypeKind = ::windows_core::CopyType;
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for ENLOWFIRTF {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ENLOWFIRTF {
+    pub nmhdr: super::NMHDR,
+    pub szControl: ::windows_core::PSTR,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ENLOWFIRTF {}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ENLOWFIRTF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows_core::TypeKind for ENLOWFIRTF {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for ENLOWFIRTF {
     fn default() -> Self {
@@ -10158,6 +10405,7 @@ impl ::core::default::Default for ENLOWFIRTF {
 }
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ENOLEOPFAILED {
     pub nmhdr: super::NMHDR,
@@ -10165,18 +10413,54 @@ pub struct ENOLEOPFAILED {
     pub lOper: i32,
     pub hr: ::windows_core::HRESULT,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ENOLEOPFAILED {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ENOLEOPFAILED {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for ENOLEOPFAILED {
     type TypeKind = ::windows_core::CopyType;
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for ENOLEOPFAILED {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ENOLEOPFAILED {
+    pub nmhdr: super::NMHDR,
+    pub iob: i32,
+    pub lOper: i32,
+    pub hr: ::windows_core::HRESULT,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ENOLEOPFAILED {}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ENOLEOPFAILED {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows_core::TypeKind for ENOLEOPFAILED {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for ENOLEOPFAILED {
     fn default() -> Self {
@@ -10185,6 +10469,7 @@ impl ::core::default::Default for ENOLEOPFAILED {
 }
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ENPROTECTED {
     pub nmhdr: super::NMHDR,
@@ -10193,18 +10478,55 @@ pub struct ENPROTECTED {
     pub lParam: super::super::super::Foundation::LPARAM,
     pub chrg: CHARRANGE,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ENPROTECTED {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ENPROTECTED {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for ENPROTECTED {
     type TypeKind = ::windows_core::CopyType;
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for ENPROTECTED {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ENPROTECTED {
+    pub nmhdr: super::NMHDR,
+    pub msg: u32,
+    pub wParam: super::super::super::Foundation::WPARAM,
+    pub lParam: super::super::super::Foundation::LPARAM,
+    pub chrg: CHARRANGE,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ENPROTECTED {}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ENPROTECTED {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows_core::TypeKind for ENPROTECTED {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for ENPROTECTED {
     fn default() -> Self {
@@ -10213,24 +10535,60 @@ impl ::core::default::Default for ENPROTECTED {
 }
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ENSAVECLIPBOARD {
     pub nmhdr: super::NMHDR,
     pub cObjectCount: i32,
     pub cch: i32,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ENSAVECLIPBOARD {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ENSAVECLIPBOARD {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for ENSAVECLIPBOARD {
     type TypeKind = ::windows_core::CopyType;
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for ENSAVECLIPBOARD {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ENSAVECLIPBOARD {
+    pub nmhdr: super::NMHDR,
+    pub cObjectCount: i32,
+    pub cch: i32,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ENSAVECLIPBOARD {}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ENSAVECLIPBOARD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows_core::TypeKind for ENSAVECLIPBOARD {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for ENSAVECLIPBOARD {
     fn default() -> Self {
@@ -10239,19 +10597,49 @@ impl ::core::default::Default for ENSAVECLIPBOARD {
 }
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct FINDTEXTA {
     pub chrg: CHARRANGE,
     pub lpstrText: ::windows_core::PCSTR,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for FINDTEXTA {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for FINDTEXTA {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::windows_core::TypeKind for FINDTEXTA {
     type TypeKind = ::windows_core::CopyType;
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::default::Default for FINDTEXTA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
+#[cfg(target_arch = "x86")]
+pub struct FINDTEXTA {
+    pub chrg: CHARRANGE,
+    pub lpstrText: ::windows_core::PCSTR,
+}
+#[cfg(target_arch = "x86")]
+impl ::core::marker::Copy for FINDTEXTA {}
+#[cfg(target_arch = "x86")]
+impl ::core::clone::Clone for FINDTEXTA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+impl ::windows_core::TypeKind for FINDTEXTA {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl ::core::default::Default for FINDTEXTA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -10259,20 +10647,51 @@ impl ::core::default::Default for FINDTEXTA {
 }
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct FINDTEXTEXA {
     pub chrg: CHARRANGE,
     pub lpstrText: ::windows_core::PCSTR,
     pub chrgText: CHARRANGE,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for FINDTEXTEXA {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for FINDTEXTEXA {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::windows_core::TypeKind for FINDTEXTEXA {
     type TypeKind = ::windows_core::CopyType;
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::default::Default for FINDTEXTEXA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
+#[cfg(target_arch = "x86")]
+pub struct FINDTEXTEXA {
+    pub chrg: CHARRANGE,
+    pub lpstrText: ::windows_core::PCSTR,
+    pub chrgText: CHARRANGE,
+}
+#[cfg(target_arch = "x86")]
+impl ::core::marker::Copy for FINDTEXTEXA {}
+#[cfg(target_arch = "x86")]
+impl ::core::clone::Clone for FINDTEXTEXA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+impl ::windows_core::TypeKind for FINDTEXTEXA {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl ::core::default::Default for FINDTEXTEXA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -10280,20 +10699,51 @@ impl ::core::default::Default for FINDTEXTEXA {
 }
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct FINDTEXTEXW {
     pub chrg: CHARRANGE,
     pub lpstrText: ::windows_core::PCWSTR,
     pub chrgText: CHARRANGE,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for FINDTEXTEXW {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for FINDTEXTEXW {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::windows_core::TypeKind for FINDTEXTEXW {
     type TypeKind = ::windows_core::CopyType;
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::default::Default for FINDTEXTEXW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
+#[cfg(target_arch = "x86")]
+pub struct FINDTEXTEXW {
+    pub chrg: CHARRANGE,
+    pub lpstrText: ::windows_core::PCWSTR,
+    pub chrgText: CHARRANGE,
+}
+#[cfg(target_arch = "x86")]
+impl ::core::marker::Copy for FINDTEXTEXW {}
+#[cfg(target_arch = "x86")]
+impl ::core::clone::Clone for FINDTEXTEXW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+impl ::windows_core::TypeKind for FINDTEXTEXW {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl ::core::default::Default for FINDTEXTEXW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -10301,19 +10751,49 @@ impl ::core::default::Default for FINDTEXTEXW {
 }
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct FINDTEXTW {
     pub chrg: CHARRANGE,
     pub lpstrText: ::windows_core::PCWSTR,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for FINDTEXTW {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for FINDTEXTW {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::windows_core::TypeKind for FINDTEXTW {
     type TypeKind = ::windows_core::CopyType;
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::default::Default for FINDTEXTW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
+#[cfg(target_arch = "x86")]
+pub struct FINDTEXTW {
+    pub chrg: CHARRANGE,
+    pub lpstrText: ::windows_core::PCWSTR,
+}
+#[cfg(target_arch = "x86")]
+impl ::core::marker::Copy for FINDTEXTW {}
+#[cfg(target_arch = "x86")]
+impl ::core::clone::Clone for FINDTEXTW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+impl ::windows_core::TypeKind for FINDTEXTW {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl ::core::default::Default for FINDTEXTW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -10321,6 +10801,7 @@ impl ::core::default::Default for FINDTEXTW {
 }
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct FORMATRANGE {
     pub hdc: super::super::super::Graphics::Gdi::HDC,
@@ -10329,18 +10810,55 @@ pub struct FORMATRANGE {
     pub rcPage: super::super::super::Foundation::RECT,
     pub chrg: CHARRANGE,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for FORMATRANGE {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for FORMATRANGE {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::windows_core::TypeKind for FORMATRANGE {
     type TypeKind = ::windows_core::CopyType;
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::default::Default for FORMATRANGE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+pub struct FORMATRANGE {
+    pub hdc: super::super::super::Graphics::Gdi::HDC,
+    pub hdcTarget: super::super::super::Graphics::Gdi::HDC,
+    pub rc: super::super::super::Foundation::RECT,
+    pub rcPage: super::super::super::Foundation::RECT,
+    pub chrg: CHARRANGE,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for FORMATRANGE {}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for FORMATRANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::windows_core::TypeKind for FORMATRANGE {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for FORMATRANGE {
     fn default() -> Self {
@@ -10349,6 +10867,7 @@ impl ::core::default::Default for FORMATRANGE {
 }
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GETCONTEXTMENUEX {
     pub chrg: CHARRANGE,
@@ -10356,18 +10875,54 @@ pub struct GETCONTEXTMENUEX {
     pub pt: super::super::super::Foundation::POINT,
     pub pvReserved: *mut ::core::ffi::c_void,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GETCONTEXTMENUEX {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GETCONTEXTMENUEX {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for GETCONTEXTMENUEX {
     type TypeKind = ::windows_core::CopyType;
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for GETCONTEXTMENUEX {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+pub struct GETCONTEXTMENUEX {
+    pub chrg: CHARRANGE,
+    pub dwFlags: u32,
+    pub pt: super::super::super::Foundation::POINT,
+    pub pvReserved: *mut ::core::ffi::c_void,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GETCONTEXTMENUEX {}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GETCONTEXTMENUEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows_core::TypeKind for GETCONTEXTMENUEX {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GETCONTEXTMENUEX {
     fn default() -> Self {
@@ -10376,6 +10931,7 @@ impl ::core::default::Default for GETCONTEXTMENUEX {
 }
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct GETTEXTEX {
     pub cb: u32,
     pub flags: GETTEXTEX_FLAGS,
@@ -10383,15 +10939,47 @@ pub struct GETTEXTEX {
     pub lpDefaultChar: ::windows_core::PCSTR,
     pub lpUsedDefChar: *mut i32,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for GETTEXTEX {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for GETTEXTEX {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::windows_core::TypeKind for GETTEXTEX {
     type TypeKind = ::windows_core::CopyType;
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::default::Default for GETTEXTEX {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
+#[cfg(target_arch = "x86")]
+pub struct GETTEXTEX {
+    pub cb: u32,
+    pub flags: GETTEXTEX_FLAGS,
+    pub codepage: u32,
+    pub lpDefaultChar: ::windows_core::PCSTR,
+    pub lpUsedDefChar: *mut i32,
+}
+#[cfg(target_arch = "x86")]
+impl ::core::marker::Copy for GETTEXTEX {}
+#[cfg(target_arch = "x86")]
+impl ::core::clone::Clone for GETTEXTEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+impl ::windows_core::TypeKind for GETTEXTEX {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl ::core::default::Default for GETTEXTEX {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -10570,6 +11158,7 @@ impl ::core::default::Default for IMECOMPTEXT {
 }
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MSGFILTER {
     pub nmhdr: super::NMHDR,
@@ -10577,18 +11166,54 @@ pub struct MSGFILTER {
     pub wParam: super::super::super::Foundation::WPARAM,
     pub lParam: super::super::super::Foundation::LPARAM,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MSGFILTER {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MSGFILTER {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for MSGFILTER {
     type TypeKind = ::windows_core::CopyType;
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MSGFILTER {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MSGFILTER {
+    pub nmhdr: super::NMHDR,
+    pub msg: u32,
+    pub wParam: super::super::super::Foundation::WPARAM,
+    pub lParam: super::super::super::Foundation::LPARAM,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MSGFILTER {}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MSGFILTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows_core::TypeKind for MSGFILTER {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MSGFILTER {
     fn default() -> Self {
@@ -10597,24 +11222,60 @@ impl ::core::default::Default for MSGFILTER {
 }
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OBJECTPOSITIONS {
     pub nmhdr: super::NMHDR,
     pub cObjectCount: i32,
     pub pcpPositions: *mut i32,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for OBJECTPOSITIONS {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for OBJECTPOSITIONS {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for OBJECTPOSITIONS {
     type TypeKind = ::windows_core::CopyType;
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for OBJECTPOSITIONS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+pub struct OBJECTPOSITIONS {
+    pub nmhdr: super::NMHDR,
+    pub cObjectCount: i32,
+    pub pcpPositions: *mut i32,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OBJECTPOSITIONS {}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OBJECTPOSITIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows_core::TypeKind for OBJECTPOSITIONS {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OBJECTPOSITIONS {
     fn default() -> Self {
@@ -10704,19 +11365,49 @@ impl ::core::default::Default for PARAFORMAT2 {
 }
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct PUNCTUATION {
     pub iSize: u32,
     pub szPunctuation: ::windows_core::PSTR,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for PUNCTUATION {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for PUNCTUATION {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::windows_core::TypeKind for PUNCTUATION {
     type TypeKind = ::windows_core::CopyType;
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::default::Default for PUNCTUATION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
+#[cfg(target_arch = "x86")]
+pub struct PUNCTUATION {
+    pub iSize: u32,
+    pub szPunctuation: ::windows_core::PSTR,
+}
+#[cfg(target_arch = "x86")]
+impl ::core::marker::Copy for PUNCTUATION {}
+#[cfg(target_arch = "x86")]
+impl ::core::clone::Clone for PUNCTUATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+impl ::windows_core::TypeKind for PUNCTUATION {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl ::core::default::Default for PUNCTUATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -10769,23 +11460,58 @@ impl ::core::default::Default for REOBJECT {
 }
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Com")]
 pub struct REPASTESPECIAL {
     pub dwAspect: super::super::super::System::Com::DVASPECT,
     pub dwParam: usize,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for REPASTESPECIAL {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for REPASTESPECIAL {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::TypeKind for REPASTESPECIAL {
     type TypeKind = ::windows_core::CopyType;
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::default::Default for REPASTESPECIAL {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_Com")]
+pub struct REPASTESPECIAL {
+    pub dwAspect: super::super::super::System::Com::DVASPECT,
+    pub dwParam: usize,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::marker::Copy for REPASTESPECIAL {}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for REPASTESPECIAL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_Com")]
+impl ::windows_core::TypeKind for REPASTESPECIAL {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for REPASTESPECIAL {
     fn default() -> Self {
@@ -10794,23 +11520,58 @@ impl ::core::default::Default for REPASTESPECIAL {
 }
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct REQRESIZE {
     pub nmhdr: super::NMHDR,
     pub rc: super::super::super::Foundation::RECT,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for REQRESIZE {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for REQRESIZE {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for REQRESIZE {
     type TypeKind = ::windows_core::CopyType;
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for REQRESIZE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+pub struct REQRESIZE {
+    pub nmhdr: super::NMHDR,
+    pub rc: super::super::super::Foundation::RECT,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for REQRESIZE {}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for REQRESIZE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows_core::TypeKind for REQRESIZE {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for REQRESIZE {
     fn default() -> Self {
@@ -10819,6 +11580,7 @@ impl ::core::default::Default for REQRESIZE {
 }
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 pub struct RICHEDIT_IMAGE_PARAMETERS {
     pub xWidth: i32,
@@ -10828,10 +11590,43 @@ pub struct RICHEDIT_IMAGE_PARAMETERS {
     pub pwszAlternateText: ::windows_core::PCWSTR,
     pub pIStream: ::std::mem::ManuallyDrop<::core::option::Option<super::super::super::System::Com::IStream>>,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 impl ::windows_core::TypeKind for RICHEDIT_IMAGE_PARAMETERS {
     type TypeKind = ::windows_core::CopyType;
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
+impl ::core::default::Default for RICHEDIT_IMAGE_PARAMETERS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
+pub struct RICHEDIT_IMAGE_PARAMETERS {
+    pub xWidth: i32,
+    pub yHeight: i32,
+    pub Ascent: i32,
+    pub Type: super::super::super::Graphics::Gdi::TEXT_ALIGN_OPTIONS,
+    pub pwszAlternateText: ::windows_core::PCWSTR,
+    pub pIStream: ::std::mem::ManuallyDrop<::core::option::Option<super::super::super::System::Com::IStream>>,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
+impl ::core::clone::Clone for RICHEDIT_IMAGE_PARAMETERS {
+    fn clone(&self) -> Self {
+        unsafe { ::core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
+impl ::windows_core::TypeKind for RICHEDIT_IMAGE_PARAMETERS {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 impl ::core::default::Default for RICHEDIT_IMAGE_PARAMETERS {
     fn default() -> Self {
@@ -10840,24 +11635,60 @@ impl ::core::default::Default for RICHEDIT_IMAGE_PARAMETERS {
 }
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SELCHANGE {
     pub nmhdr: super::NMHDR,
     pub chrg: CHARRANGE,
     pub seltyp: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SELCHANGE {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SELCHANGE {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for SELCHANGE {
     type TypeKind = ::windows_core::CopyType;
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for SELCHANGE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+pub struct SELCHANGE {
+    pub nmhdr: super::NMHDR,
+    pub chrg: CHARRANGE,
+    pub seltyp: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SELCHANGE {}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SELCHANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows_core::TypeKind for SELCHANGE {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SELCHANGE {
     fn default() -> Self {
@@ -11001,19 +11832,49 @@ impl ::core::default::Default for TABLEROWPARMS {
 }
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct TEXTRANGEA {
     pub chrg: CHARRANGE,
     pub lpstrText: ::windows_core::PSTR,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for TEXTRANGEA {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for TEXTRANGEA {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::windows_core::TypeKind for TEXTRANGEA {
     type TypeKind = ::windows_core::CopyType;
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::default::Default for TEXTRANGEA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
+#[cfg(target_arch = "x86")]
+pub struct TEXTRANGEA {
+    pub chrg: CHARRANGE,
+    pub lpstrText: ::windows_core::PSTR,
+}
+#[cfg(target_arch = "x86")]
+impl ::core::marker::Copy for TEXTRANGEA {}
+#[cfg(target_arch = "x86")]
+impl ::core::clone::Clone for TEXTRANGEA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+impl ::windows_core::TypeKind for TEXTRANGEA {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl ::core::default::Default for TEXTRANGEA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -11021,19 +11882,49 @@ impl ::core::default::Default for TEXTRANGEA {
 }
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct TEXTRANGEW {
     pub chrg: CHARRANGE,
     pub lpstrText: ::windows_core::PWSTR,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for TEXTRANGEW {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for TEXTRANGEW {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::windows_core::TypeKind for TEXTRANGEW {
     type TypeKind = ::windows_core::CopyType;
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::default::Default for TEXTRANGEW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
+#[cfg(target_arch = "x86")]
+pub struct TEXTRANGEW {
+    pub chrg: CHARRANGE,
+    pub lpstrText: ::windows_core::PWSTR,
+}
+#[cfg(target_arch = "x86")]
+impl ::core::marker::Copy for TEXTRANGEW {}
+#[cfg(target_arch = "x86")]
+impl ::core::clone::Clone for TEXTRANGEW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+impl ::windows_core::TypeKind for TEXTRANGEW {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl ::core::default::Default for TEXTRANGEW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

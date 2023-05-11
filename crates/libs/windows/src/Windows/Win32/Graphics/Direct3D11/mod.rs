@@ -165,8 +165,6 @@ impl ::core::fmt::Debug for ID3D11Asynchronous {
         f.debug_tuple("ID3D11Asynchronous").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11Asynchronous {}
-unsafe impl ::core::marker::Sync for ID3D11Asynchronous {}
 unsafe impl ::windows_core::Interface for ID3D11Asynchronous {
     type Vtable = ID3D11Asynchronous_Vtbl;
 }
@@ -232,8 +230,6 @@ impl ::core::fmt::Debug for ID3D11AuthenticatedChannel {
         f.debug_tuple("ID3D11AuthenticatedChannel").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11AuthenticatedChannel {}
-unsafe impl ::core::marker::Sync for ID3D11AuthenticatedChannel {}
 unsafe impl ::windows_core::Interface for ID3D11AuthenticatedChannel {
     type Vtable = ID3D11AuthenticatedChannel_Vtbl;
 }
@@ -295,8 +291,6 @@ impl ::core::fmt::Debug for ID3D11BlendState {
         f.debug_tuple("ID3D11BlendState").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11BlendState {}
-unsafe impl ::core::marker::Sync for ID3D11BlendState {}
 unsafe impl ::windows_core::Interface for ID3D11BlendState {
     type Vtable = ID3D11BlendState_Vtbl;
 }
@@ -361,8 +355,6 @@ impl ::core::fmt::Debug for ID3D11BlendState1 {
         f.debug_tuple("ID3D11BlendState1").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11BlendState1 {}
-unsafe impl ::core::marker::Sync for ID3D11BlendState1 {}
 unsafe impl ::windows_core::Interface for ID3D11BlendState1 {
     type Vtable = ID3D11BlendState1_Vtbl;
 }
@@ -431,8 +423,6 @@ impl ::core::fmt::Debug for ID3D11Buffer {
         f.debug_tuple("ID3D11Buffer").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11Buffer {}
-unsafe impl ::core::marker::Sync for ID3D11Buffer {}
 unsafe impl ::windows_core::Interface for ID3D11Buffer {
     type Vtable = ID3D11Buffer_Vtbl;
 }
@@ -500,8 +490,6 @@ impl ::core::fmt::Debug for ID3D11ClassInstance {
         f.debug_tuple("ID3D11ClassInstance").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11ClassInstance {}
-unsafe impl ::core::marker::Sync for ID3D11ClassInstance {}
 unsafe impl ::windows_core::Interface for ID3D11ClassInstance {
     type Vtable = ID3D11ClassInstance_Vtbl;
 }
@@ -573,8 +561,6 @@ impl ::core::fmt::Debug for ID3D11ClassLinkage {
         f.debug_tuple("ID3D11ClassLinkage").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11ClassLinkage {}
-unsafe impl ::core::marker::Sync for ID3D11ClassLinkage {}
 unsafe impl ::windows_core::Interface for ID3D11ClassLinkage {
     type Vtable = ID3D11ClassLinkage_Vtbl;
 }
@@ -630,8 +616,6 @@ impl ::core::fmt::Debug for ID3D11CommandList {
         f.debug_tuple("ID3D11CommandList").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11CommandList {}
-unsafe impl ::core::marker::Sync for ID3D11CommandList {}
 unsafe impl ::windows_core::Interface for ID3D11CommandList {
     type Vtable = ID3D11CommandList_Vtbl;
 }
@@ -683,8 +667,6 @@ impl ::core::fmt::Debug for ID3D11ComputeShader {
         f.debug_tuple("ID3D11ComputeShader").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11ComputeShader {}
-unsafe impl ::core::marker::Sync for ID3D11ComputeShader {}
 unsafe impl ::windows_core::Interface for ID3D11ComputeShader {
     type Vtable = ID3D11ComputeShader_Vtbl;
 }
@@ -743,8 +725,6 @@ impl ::core::fmt::Debug for ID3D11Counter {
         f.debug_tuple("ID3D11Counter").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11Counter {}
-unsafe impl ::core::marker::Sync for ID3D11Counter {}
 unsafe impl ::windows_core::Interface for ID3D11Counter {
     type Vtable = ID3D11Counter_Vtbl;
 }
@@ -820,8 +800,6 @@ impl ::core::fmt::Debug for ID3D11CryptoSession {
         f.debug_tuple("ID3D11CryptoSession").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11CryptoSession {}
-unsafe impl ::core::marker::Sync for ID3D11CryptoSession {}
 unsafe impl ::windows_core::Interface for ID3D11CryptoSession {
     type Vtable = ID3D11CryptoSession_Vtbl;
 }
@@ -904,8 +882,6 @@ impl ::core::fmt::Debug for ID3D11Debug {
         f.debug_tuple("ID3D11Debug").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11Debug {}
-unsafe impl ::core::marker::Sync for ID3D11Debug {}
 unsafe impl ::windows_core::Interface for ID3D11Debug {
     type Vtable = ID3D11Debug_Vtbl;
 }
@@ -976,8 +952,6 @@ impl ::core::fmt::Debug for ID3D11DepthStencilState {
         f.debug_tuple("ID3D11DepthStencilState").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11DepthStencilState {}
-unsafe impl ::core::marker::Sync for ID3D11DepthStencilState {}
 unsafe impl ::windows_core::Interface for ID3D11DepthStencilState {
     type Vtable = ID3D11DepthStencilState_Vtbl;
 }
@@ -1042,8 +1016,6 @@ impl ::core::fmt::Debug for ID3D11DepthStencilView {
         f.debug_tuple("ID3D11DepthStencilView").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11DepthStencilView {}
-unsafe impl ::core::marker::Sync for ID3D11DepthStencilView {}
 unsafe impl ::windows_core::Interface for ID3D11DepthStencilView {
     type Vtable = ID3D11DepthStencilView_Vtbl;
 }
@@ -1290,8 +1262,6 @@ impl ::core::fmt::Debug for ID3D11Device {
         f.debug_tuple("ID3D11Device").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11Device {}
-unsafe impl ::core::marker::Sync for ID3D11Device {}
 unsafe impl ::windows_core::Interface for ID3D11Device {
     type Vtable = ID3D11Device_Vtbl;
 }
@@ -1660,8 +1630,6 @@ impl ::core::fmt::Debug for ID3D11Device1 {
         f.debug_tuple("ID3D11Device1").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11Device1 {}
-unsafe impl ::core::marker::Sync for ID3D11Device1 {}
 unsafe impl ::windows_core::Interface for ID3D11Device1 {
     type Vtable = ID3D11Device1_Vtbl;
 }
@@ -1984,8 +1952,6 @@ impl ::core::fmt::Debug for ID3D11Device2 {
         f.debug_tuple("ID3D11Device2").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11Device2 {}
-unsafe impl ::core::marker::Sync for ID3D11Device2 {}
 unsafe impl ::windows_core::Interface for ID3D11Device2 {
     type Vtable = ID3D11Device2_Vtbl;
 }
@@ -2358,8 +2324,6 @@ impl ::core::fmt::Debug for ID3D11Device3 {
         f.debug_tuple("ID3D11Device3").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11Device3 {}
-unsafe impl ::core::marker::Sync for ID3D11Device3 {}
 unsafe impl ::windows_core::Interface for ID3D11Device3 {
     type Vtable = ID3D11Device3_Vtbl;
 }
@@ -2766,8 +2730,6 @@ impl ::core::fmt::Debug for ID3D11Device4 {
         f.debug_tuple("ID3D11Device4").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11Device4 {}
-unsafe impl ::core::marker::Sync for ID3D11Device4 {}
 unsafe impl ::windows_core::Interface for ID3D11Device4 {
     type Vtable = ID3D11Device4_Vtbl;
 }
@@ -3165,8 +3127,6 @@ impl ::core::fmt::Debug for ID3D11Device5 {
         f.debug_tuple("ID3D11Device5").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11Device5 {}
-unsafe impl ::core::marker::Sync for ID3D11Device5 {}
 unsafe impl ::windows_core::Interface for ID3D11Device5 {
     type Vtable = ID3D11Device5_Vtbl;
 }
@@ -3222,8 +3182,6 @@ impl ::core::fmt::Debug for ID3D11DeviceChild {
         f.debug_tuple("ID3D11DeviceChild").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11DeviceChild {}
-unsafe impl ::core::marker::Sync for ID3D11DeviceChild {}
 unsafe impl ::windows_core::Interface for ID3D11DeviceChild {
     type Vtable = ID3D11DeviceChild_Vtbl;
 }
@@ -3395,11 +3353,11 @@ impl ID3D11DeviceContext {
     {
         (::windows_core::Interface::vtable(self).OMSetRenderTargetsAndUnorderedAccessViews)(::windows_core::Interface::as_raw(self), pprendertargetviews.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pprendertargetviews.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdepthstencilview.into_param().abi(), uavstartslot, numuavs, ::core::mem::transmute(ppunorderedaccessviews.unwrap_or(::std::ptr::null())), ::core::mem::transmute(puavinitialcounts.unwrap_or(::std::ptr::null())))
     }
-    pub unsafe fn OMSetBlendState<P0>(&self, pblendstate: P0, blendfactor: ::core::option::Option<*const f32>, samplemask: u32)
+    pub unsafe fn OMSetBlendState<P0>(&self, pblendstate: P0, blendfactor: ::core::option::Option<&[f32; 4]>, samplemask: u32)
     where
         P0: ::windows_core::IntoParam<ID3D11BlendState>,
     {
-        (::windows_core::Interface::vtable(self).OMSetBlendState)(::windows_core::Interface::as_raw(self), pblendstate.into_param().abi(), ::core::mem::transmute(blendfactor.unwrap_or(::std::ptr::null())), samplemask)
+        (::windows_core::Interface::vtable(self).OMSetBlendState)(::windows_core::Interface::as_raw(self), pblendstate.into_param().abi(), ::core::mem::transmute(blendfactor.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), samplemask)
     }
     pub unsafe fn OMSetDepthStencilState<P0>(&self, pdepthstencilstate: P0, stencilref: u32)
     where
@@ -3475,23 +3433,23 @@ impl ID3D11DeviceContext {
     {
         (::windows_core::Interface::vtable(self).CopyStructureCount)(::windows_core::Interface::as_raw(self), pdstbuffer.into_param().abi(), dstalignedbyteoffset, psrcview.into_param().abi())
     }
-    pub unsafe fn ClearRenderTargetView<P0>(&self, prendertargetview: P0, colorrgba: *const f32)
+    pub unsafe fn ClearRenderTargetView<P0>(&self, prendertargetview: P0, colorrgba: &[f32; 4])
     where
         P0: ::windows_core::IntoParam<ID3D11RenderTargetView>,
     {
-        (::windows_core::Interface::vtable(self).ClearRenderTargetView)(::windows_core::Interface::as_raw(self), prendertargetview.into_param().abi(), colorrgba)
+        (::windows_core::Interface::vtable(self).ClearRenderTargetView)(::windows_core::Interface::as_raw(self), prendertargetview.into_param().abi(), ::core::mem::transmute(colorrgba.as_ptr()))
     }
-    pub unsafe fn ClearUnorderedAccessViewUint<P0>(&self, punorderedaccessview: P0, values: *const u32)
+    pub unsafe fn ClearUnorderedAccessViewUint<P0>(&self, punorderedaccessview: P0, values: &[u32; 4])
     where
         P0: ::windows_core::IntoParam<ID3D11UnorderedAccessView>,
     {
-        (::windows_core::Interface::vtable(self).ClearUnorderedAccessViewUint)(::windows_core::Interface::as_raw(self), punorderedaccessview.into_param().abi(), values)
+        (::windows_core::Interface::vtable(self).ClearUnorderedAccessViewUint)(::windows_core::Interface::as_raw(self), punorderedaccessview.into_param().abi(), ::core::mem::transmute(values.as_ptr()))
     }
-    pub unsafe fn ClearUnorderedAccessViewFloat<P0>(&self, punorderedaccessview: P0, values: *const f32)
+    pub unsafe fn ClearUnorderedAccessViewFloat<P0>(&self, punorderedaccessview: P0, values: &[f32; 4])
     where
         P0: ::windows_core::IntoParam<ID3D11UnorderedAccessView>,
     {
-        (::windows_core::Interface::vtable(self).ClearUnorderedAccessViewFloat)(::windows_core::Interface::as_raw(self), punorderedaccessview.into_param().abi(), values)
+        (::windows_core::Interface::vtable(self).ClearUnorderedAccessViewFloat)(::windows_core::Interface::as_raw(self), punorderedaccessview.into_param().abi(), ::core::mem::transmute(values.as_ptr()))
     }
     pub unsafe fn ClearDepthStencilView<P0>(&self, pdepthstencilview: P0, clearflags: u32, depth: f32, stencil: u8)
     where
@@ -3658,8 +3616,8 @@ impl ID3D11DeviceContext {
             ::core::mem::transmute(ppunorderedaccessviews.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
         )
     }
-    pub unsafe fn OMGetBlendState(&self, ppblendstate: ::core::option::Option<*mut ::core::option::Option<ID3D11BlendState>>, blendfactor: ::core::option::Option<*mut f32>, psamplemask: ::core::option::Option<*mut u32>) {
-        (::windows_core::Interface::vtable(self).OMGetBlendState)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppblendstate.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(blendfactor.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(psamplemask.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn OMGetBlendState(&self, ppblendstate: ::core::option::Option<*mut ::core::option::Option<ID3D11BlendState>>, blendfactor: ::core::option::Option<&mut [f32; 4]>, psamplemask: ::core::option::Option<*mut u32>) {
+        (::windows_core::Interface::vtable(self).OMGetBlendState)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppblendstate.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(blendfactor.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(psamplemask.unwrap_or(::std::ptr::null_mut())))
     }
     pub unsafe fn OMGetDepthStencilState(&self, ppdepthstencilstate: ::core::option::Option<*mut ::core::option::Option<ID3D11DepthStencilState>>, pstencilref: ::core::option::Option<*mut u32>) {
         (::windows_core::Interface::vtable(self).OMGetDepthStencilState)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppdepthstencilstate.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pstencilref.unwrap_or(::std::ptr::null_mut())))
@@ -3752,8 +3710,6 @@ impl ::core::fmt::Debug for ID3D11DeviceContext {
         f.debug_tuple("ID3D11DeviceContext").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11DeviceContext {}
-unsafe impl ::core::marker::Sync for ID3D11DeviceContext {}
 unsafe impl ::windows_core::Interface for ID3D11DeviceContext {
     type Vtable = ID3D11DeviceContext_Vtbl;
 }
@@ -4062,11 +4018,11 @@ impl ID3D11DeviceContext1 {
     {
         (::windows_core::Interface::vtable(self).base__.OMSetRenderTargetsAndUnorderedAccessViews)(::windows_core::Interface::as_raw(self), pprendertargetviews.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pprendertargetviews.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdepthstencilview.into_param().abi(), uavstartslot, numuavs, ::core::mem::transmute(ppunorderedaccessviews.unwrap_or(::std::ptr::null())), ::core::mem::transmute(puavinitialcounts.unwrap_or(::std::ptr::null())))
     }
-    pub unsafe fn OMSetBlendState<P0>(&self, pblendstate: P0, blendfactor: ::core::option::Option<*const f32>, samplemask: u32)
+    pub unsafe fn OMSetBlendState<P0>(&self, pblendstate: P0, blendfactor: ::core::option::Option<&[f32; 4]>, samplemask: u32)
     where
         P0: ::windows_core::IntoParam<ID3D11BlendState>,
     {
-        (::windows_core::Interface::vtable(self).base__.OMSetBlendState)(::windows_core::Interface::as_raw(self), pblendstate.into_param().abi(), ::core::mem::transmute(blendfactor.unwrap_or(::std::ptr::null())), samplemask)
+        (::windows_core::Interface::vtable(self).base__.OMSetBlendState)(::windows_core::Interface::as_raw(self), pblendstate.into_param().abi(), ::core::mem::transmute(blendfactor.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), samplemask)
     }
     pub unsafe fn OMSetDepthStencilState<P0>(&self, pdepthstencilstate: P0, stencilref: u32)
     where
@@ -4142,23 +4098,23 @@ impl ID3D11DeviceContext1 {
     {
         (::windows_core::Interface::vtable(self).base__.CopyStructureCount)(::windows_core::Interface::as_raw(self), pdstbuffer.into_param().abi(), dstalignedbyteoffset, psrcview.into_param().abi())
     }
-    pub unsafe fn ClearRenderTargetView<P0>(&self, prendertargetview: P0, colorrgba: *const f32)
+    pub unsafe fn ClearRenderTargetView<P0>(&self, prendertargetview: P0, colorrgba: &[f32; 4])
     where
         P0: ::windows_core::IntoParam<ID3D11RenderTargetView>,
     {
-        (::windows_core::Interface::vtable(self).base__.ClearRenderTargetView)(::windows_core::Interface::as_raw(self), prendertargetview.into_param().abi(), colorrgba)
+        (::windows_core::Interface::vtable(self).base__.ClearRenderTargetView)(::windows_core::Interface::as_raw(self), prendertargetview.into_param().abi(), ::core::mem::transmute(colorrgba.as_ptr()))
     }
-    pub unsafe fn ClearUnorderedAccessViewUint<P0>(&self, punorderedaccessview: P0, values: *const u32)
+    pub unsafe fn ClearUnorderedAccessViewUint<P0>(&self, punorderedaccessview: P0, values: &[u32; 4])
     where
         P0: ::windows_core::IntoParam<ID3D11UnorderedAccessView>,
     {
-        (::windows_core::Interface::vtable(self).base__.ClearUnorderedAccessViewUint)(::windows_core::Interface::as_raw(self), punorderedaccessview.into_param().abi(), values)
+        (::windows_core::Interface::vtable(self).base__.ClearUnorderedAccessViewUint)(::windows_core::Interface::as_raw(self), punorderedaccessview.into_param().abi(), ::core::mem::transmute(values.as_ptr()))
     }
-    pub unsafe fn ClearUnorderedAccessViewFloat<P0>(&self, punorderedaccessview: P0, values: *const f32)
+    pub unsafe fn ClearUnorderedAccessViewFloat<P0>(&self, punorderedaccessview: P0, values: &[f32; 4])
     where
         P0: ::windows_core::IntoParam<ID3D11UnorderedAccessView>,
     {
-        (::windows_core::Interface::vtable(self).base__.ClearUnorderedAccessViewFloat)(::windows_core::Interface::as_raw(self), punorderedaccessview.into_param().abi(), values)
+        (::windows_core::Interface::vtable(self).base__.ClearUnorderedAccessViewFloat)(::windows_core::Interface::as_raw(self), punorderedaccessview.into_param().abi(), ::core::mem::transmute(values.as_ptr()))
     }
     pub unsafe fn ClearDepthStencilView<P0>(&self, pdepthstencilview: P0, clearflags: u32, depth: f32, stencil: u8)
     where
@@ -4325,8 +4281,8 @@ impl ID3D11DeviceContext1 {
             ::core::mem::transmute(ppunorderedaccessviews.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
         )
     }
-    pub unsafe fn OMGetBlendState(&self, ppblendstate: ::core::option::Option<*mut ::core::option::Option<ID3D11BlendState>>, blendfactor: ::core::option::Option<*mut f32>, psamplemask: ::core::option::Option<*mut u32>) {
-        (::windows_core::Interface::vtable(self).base__.OMGetBlendState)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppblendstate.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(blendfactor.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(psamplemask.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn OMGetBlendState(&self, ppblendstate: ::core::option::Option<*mut ::core::option::Option<ID3D11BlendState>>, blendfactor: ::core::option::Option<&mut [f32; 4]>, psamplemask: ::core::option::Option<*mut u32>) {
+        (::windows_core::Interface::vtable(self).base__.OMGetBlendState)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppblendstate.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(blendfactor.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(psamplemask.unwrap_or(::std::ptr::null_mut())))
     }
     pub unsafe fn OMGetDepthStencilState(&self, ppdepthstencilstate: ::core::option::Option<*mut ::core::option::Option<ID3D11DepthStencilState>>, pstencilref: ::core::option::Option<*mut u32>) {
         (::windows_core::Interface::vtable(self).base__.OMGetDepthStencilState)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppdepthstencilstate.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pstencilref.unwrap_or(::std::ptr::null_mut())))
@@ -4475,11 +4431,11 @@ impl ID3D11DeviceContext1 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ClearView<P0>(&self, pview: P0, color: *const f32, prect: ::core::option::Option<&[super::super::Foundation::RECT]>)
+    pub unsafe fn ClearView<P0>(&self, pview: P0, color: &[f32; 4], prect: ::core::option::Option<&[super::super::Foundation::RECT]>)
     where
         P0: ::windows_core::IntoParam<ID3D11View>,
     {
-        (::windows_core::Interface::vtable(self).ClearView)(::windows_core::Interface::as_raw(self), pview.into_param().abi(), color, ::core::mem::transmute(prect.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), prect.as_deref().map_or(0, |slice| slice.len() as _))
+        (::windows_core::Interface::vtable(self).ClearView)(::windows_core::Interface::as_raw(self), pview.into_param().abi(), ::core::mem::transmute(color.as_ptr()), ::core::mem::transmute(prect.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), prect.as_deref().map_or(0, |slice| slice.len() as _))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4502,8 +4458,6 @@ impl ::core::fmt::Debug for ID3D11DeviceContext1 {
         f.debug_tuple("ID3D11DeviceContext1").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11DeviceContext1 {}
-unsafe impl ::core::marker::Sync for ID3D11DeviceContext1 {}
 unsafe impl ::windows_core::Interface for ID3D11DeviceContext1 {
     type Vtable = ID3D11DeviceContext1_Vtbl;
 }
@@ -4696,11 +4650,11 @@ impl ID3D11DeviceContext2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.OMSetRenderTargetsAndUnorderedAccessViews)(::windows_core::Interface::as_raw(self), pprendertargetviews.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pprendertargetviews.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdepthstencilview.into_param().abi(), uavstartslot, numuavs, ::core::mem::transmute(ppunorderedaccessviews.unwrap_or(::std::ptr::null())), ::core::mem::transmute(puavinitialcounts.unwrap_or(::std::ptr::null())))
     }
-    pub unsafe fn OMSetBlendState<P0>(&self, pblendstate: P0, blendfactor: ::core::option::Option<*const f32>, samplemask: u32)
+    pub unsafe fn OMSetBlendState<P0>(&self, pblendstate: P0, blendfactor: ::core::option::Option<&[f32; 4]>, samplemask: u32)
     where
         P0: ::windows_core::IntoParam<ID3D11BlendState>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.OMSetBlendState)(::windows_core::Interface::as_raw(self), pblendstate.into_param().abi(), ::core::mem::transmute(blendfactor.unwrap_or(::std::ptr::null())), samplemask)
+        (::windows_core::Interface::vtable(self).base__.base__.OMSetBlendState)(::windows_core::Interface::as_raw(self), pblendstate.into_param().abi(), ::core::mem::transmute(blendfactor.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), samplemask)
     }
     pub unsafe fn OMSetDepthStencilState<P0>(&self, pdepthstencilstate: P0, stencilref: u32)
     where
@@ -4776,23 +4730,23 @@ impl ID3D11DeviceContext2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.CopyStructureCount)(::windows_core::Interface::as_raw(self), pdstbuffer.into_param().abi(), dstalignedbyteoffset, psrcview.into_param().abi())
     }
-    pub unsafe fn ClearRenderTargetView<P0>(&self, prendertargetview: P0, colorrgba: *const f32)
+    pub unsafe fn ClearRenderTargetView<P0>(&self, prendertargetview: P0, colorrgba: &[f32; 4])
     where
         P0: ::windows_core::IntoParam<ID3D11RenderTargetView>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.ClearRenderTargetView)(::windows_core::Interface::as_raw(self), prendertargetview.into_param().abi(), colorrgba)
+        (::windows_core::Interface::vtable(self).base__.base__.ClearRenderTargetView)(::windows_core::Interface::as_raw(self), prendertargetview.into_param().abi(), ::core::mem::transmute(colorrgba.as_ptr()))
     }
-    pub unsafe fn ClearUnorderedAccessViewUint<P0>(&self, punorderedaccessview: P0, values: *const u32)
+    pub unsafe fn ClearUnorderedAccessViewUint<P0>(&self, punorderedaccessview: P0, values: &[u32; 4])
     where
         P0: ::windows_core::IntoParam<ID3D11UnorderedAccessView>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.ClearUnorderedAccessViewUint)(::windows_core::Interface::as_raw(self), punorderedaccessview.into_param().abi(), values)
+        (::windows_core::Interface::vtable(self).base__.base__.ClearUnorderedAccessViewUint)(::windows_core::Interface::as_raw(self), punorderedaccessview.into_param().abi(), ::core::mem::transmute(values.as_ptr()))
     }
-    pub unsafe fn ClearUnorderedAccessViewFloat<P0>(&self, punorderedaccessview: P0, values: *const f32)
+    pub unsafe fn ClearUnorderedAccessViewFloat<P0>(&self, punorderedaccessview: P0, values: &[f32; 4])
     where
         P0: ::windows_core::IntoParam<ID3D11UnorderedAccessView>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.ClearUnorderedAccessViewFloat)(::windows_core::Interface::as_raw(self), punorderedaccessview.into_param().abi(), values)
+        (::windows_core::Interface::vtable(self).base__.base__.ClearUnorderedAccessViewFloat)(::windows_core::Interface::as_raw(self), punorderedaccessview.into_param().abi(), ::core::mem::transmute(values.as_ptr()))
     }
     pub unsafe fn ClearDepthStencilView<P0>(&self, pdepthstencilview: P0, clearflags: u32, depth: f32, stencil: u8)
     where
@@ -4959,8 +4913,8 @@ impl ID3D11DeviceContext2 {
             ::core::mem::transmute(ppunorderedaccessviews.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
         )
     }
-    pub unsafe fn OMGetBlendState(&self, ppblendstate: ::core::option::Option<*mut ::core::option::Option<ID3D11BlendState>>, blendfactor: ::core::option::Option<*mut f32>, psamplemask: ::core::option::Option<*mut u32>) {
-        (::windows_core::Interface::vtable(self).base__.base__.OMGetBlendState)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppblendstate.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(blendfactor.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(psamplemask.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn OMGetBlendState(&self, ppblendstate: ::core::option::Option<*mut ::core::option::Option<ID3D11BlendState>>, blendfactor: ::core::option::Option<&mut [f32; 4]>, psamplemask: ::core::option::Option<*mut u32>) {
+        (::windows_core::Interface::vtable(self).base__.base__.OMGetBlendState)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppblendstate.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(blendfactor.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(psamplemask.unwrap_or(::std::ptr::null_mut())))
     }
     pub unsafe fn OMGetDepthStencilState(&self, ppdepthstencilstate: ::core::option::Option<*mut ::core::option::Option<ID3D11DepthStencilState>>, pstencilref: ::core::option::Option<*mut u32>) {
         (::windows_core::Interface::vtable(self).base__.base__.OMGetDepthStencilState)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppdepthstencilstate.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pstencilref.unwrap_or(::std::ptr::null_mut())))
@@ -5109,11 +5063,11 @@ impl ID3D11DeviceContext2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ClearView<P0>(&self, pview: P0, color: *const f32, prect: ::core::option::Option<&[super::super::Foundation::RECT]>)
+    pub unsafe fn ClearView<P0>(&self, pview: P0, color: &[f32; 4], prect: ::core::option::Option<&[super::super::Foundation::RECT]>)
     where
         P0: ::windows_core::IntoParam<ID3D11View>,
     {
-        (::windows_core::Interface::vtable(self).base__.ClearView)(::windows_core::Interface::as_raw(self), pview.into_param().abi(), color, ::core::mem::transmute(prect.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), prect.as_deref().map_or(0, |slice| slice.len() as _))
+        (::windows_core::Interface::vtable(self).base__.ClearView)(::windows_core::Interface::as_raw(self), pview.into_param().abi(), ::core::mem::transmute(color.as_ptr()), ::core::mem::transmute(prect.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), prect.as_deref().map_or(0, |slice| slice.len() as _))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5217,8 +5171,6 @@ impl ::core::fmt::Debug for ID3D11DeviceContext2 {
         f.debug_tuple("ID3D11DeviceContext2").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11DeviceContext2 {}
-unsafe impl ::core::marker::Sync for ID3D11DeviceContext2 {}
 unsafe impl ::windows_core::Interface for ID3D11DeviceContext2 {
     type Vtable = ID3D11DeviceContext2_Vtbl;
 }
@@ -5411,11 +5363,11 @@ impl ID3D11DeviceContext3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.OMSetRenderTargetsAndUnorderedAccessViews)(::windows_core::Interface::as_raw(self), pprendertargetviews.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pprendertargetviews.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdepthstencilview.into_param().abi(), uavstartslot, numuavs, ::core::mem::transmute(ppunorderedaccessviews.unwrap_or(::std::ptr::null())), ::core::mem::transmute(puavinitialcounts.unwrap_or(::std::ptr::null())))
     }
-    pub unsafe fn OMSetBlendState<P0>(&self, pblendstate: P0, blendfactor: ::core::option::Option<*const f32>, samplemask: u32)
+    pub unsafe fn OMSetBlendState<P0>(&self, pblendstate: P0, blendfactor: ::core::option::Option<&[f32; 4]>, samplemask: u32)
     where
         P0: ::windows_core::IntoParam<ID3D11BlendState>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.OMSetBlendState)(::windows_core::Interface::as_raw(self), pblendstate.into_param().abi(), ::core::mem::transmute(blendfactor.unwrap_or(::std::ptr::null())), samplemask)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.OMSetBlendState)(::windows_core::Interface::as_raw(self), pblendstate.into_param().abi(), ::core::mem::transmute(blendfactor.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), samplemask)
     }
     pub unsafe fn OMSetDepthStencilState<P0>(&self, pdepthstencilstate: P0, stencilref: u32)
     where
@@ -5491,23 +5443,23 @@ impl ID3D11DeviceContext3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.CopyStructureCount)(::windows_core::Interface::as_raw(self), pdstbuffer.into_param().abi(), dstalignedbyteoffset, psrcview.into_param().abi())
     }
-    pub unsafe fn ClearRenderTargetView<P0>(&self, prendertargetview: P0, colorrgba: *const f32)
+    pub unsafe fn ClearRenderTargetView<P0>(&self, prendertargetview: P0, colorrgba: &[f32; 4])
     where
         P0: ::windows_core::IntoParam<ID3D11RenderTargetView>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.ClearRenderTargetView)(::windows_core::Interface::as_raw(self), prendertargetview.into_param().abi(), colorrgba)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.ClearRenderTargetView)(::windows_core::Interface::as_raw(self), prendertargetview.into_param().abi(), ::core::mem::transmute(colorrgba.as_ptr()))
     }
-    pub unsafe fn ClearUnorderedAccessViewUint<P0>(&self, punorderedaccessview: P0, values: *const u32)
+    pub unsafe fn ClearUnorderedAccessViewUint<P0>(&self, punorderedaccessview: P0, values: &[u32; 4])
     where
         P0: ::windows_core::IntoParam<ID3D11UnorderedAccessView>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.ClearUnorderedAccessViewUint)(::windows_core::Interface::as_raw(self), punorderedaccessview.into_param().abi(), values)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.ClearUnorderedAccessViewUint)(::windows_core::Interface::as_raw(self), punorderedaccessview.into_param().abi(), ::core::mem::transmute(values.as_ptr()))
     }
-    pub unsafe fn ClearUnorderedAccessViewFloat<P0>(&self, punorderedaccessview: P0, values: *const f32)
+    pub unsafe fn ClearUnorderedAccessViewFloat<P0>(&self, punorderedaccessview: P0, values: &[f32; 4])
     where
         P0: ::windows_core::IntoParam<ID3D11UnorderedAccessView>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.ClearUnorderedAccessViewFloat)(::windows_core::Interface::as_raw(self), punorderedaccessview.into_param().abi(), values)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.ClearUnorderedAccessViewFloat)(::windows_core::Interface::as_raw(self), punorderedaccessview.into_param().abi(), ::core::mem::transmute(values.as_ptr()))
     }
     pub unsafe fn ClearDepthStencilView<P0>(&self, pdepthstencilview: P0, clearflags: u32, depth: f32, stencil: u8)
     where
@@ -5674,8 +5626,8 @@ impl ID3D11DeviceContext3 {
             ::core::mem::transmute(ppunorderedaccessviews.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
         )
     }
-    pub unsafe fn OMGetBlendState(&self, ppblendstate: ::core::option::Option<*mut ::core::option::Option<ID3D11BlendState>>, blendfactor: ::core::option::Option<*mut f32>, psamplemask: ::core::option::Option<*mut u32>) {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.OMGetBlendState)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppblendstate.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(blendfactor.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(psamplemask.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn OMGetBlendState(&self, ppblendstate: ::core::option::Option<*mut ::core::option::Option<ID3D11BlendState>>, blendfactor: ::core::option::Option<&mut [f32; 4]>, psamplemask: ::core::option::Option<*mut u32>) {
+        (::windows_core::Interface::vtable(self).base__.base__.base__.OMGetBlendState)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppblendstate.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(blendfactor.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(psamplemask.unwrap_or(::std::ptr::null_mut())))
     }
     pub unsafe fn OMGetDepthStencilState(&self, ppdepthstencilstate: ::core::option::Option<*mut ::core::option::Option<ID3D11DepthStencilState>>, pstencilref: ::core::option::Option<*mut u32>) {
         (::windows_core::Interface::vtable(self).base__.base__.base__.OMGetDepthStencilState)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppdepthstencilstate.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pstencilref.unwrap_or(::std::ptr::null_mut())))
@@ -5824,11 +5776,11 @@ impl ID3D11DeviceContext3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ClearView<P0>(&self, pview: P0, color: *const f32, prect: ::core::option::Option<&[super::super::Foundation::RECT]>)
+    pub unsafe fn ClearView<P0>(&self, pview: P0, color: &[f32; 4], prect: ::core::option::Option<&[super::super::Foundation::RECT]>)
     where
         P0: ::windows_core::IntoParam<ID3D11View>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.ClearView)(::windows_core::Interface::as_raw(self), pview.into_param().abi(), color, ::core::mem::transmute(prect.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), prect.as_deref().map_or(0, |slice| slice.len() as _))
+        (::windows_core::Interface::vtable(self).base__.base__.ClearView)(::windows_core::Interface::as_raw(self), pview.into_param().abi(), ::core::mem::transmute(color.as_ptr()), ::core::mem::transmute(prect.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), prect.as_deref().map_or(0, |slice| slice.len() as _))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5955,8 +5907,6 @@ impl ::core::fmt::Debug for ID3D11DeviceContext3 {
         f.debug_tuple("ID3D11DeviceContext3").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11DeviceContext3 {}
-unsafe impl ::core::marker::Sync for ID3D11DeviceContext3 {}
 unsafe impl ::windows_core::Interface for ID3D11DeviceContext3 {
     type Vtable = ID3D11DeviceContext3_Vtbl;
 }
@@ -6136,11 +6086,11 @@ impl ID3D11DeviceContext4 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.OMSetRenderTargetsAndUnorderedAccessViews)(::windows_core::Interface::as_raw(self), pprendertargetviews.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pprendertargetviews.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdepthstencilview.into_param().abi(), uavstartslot, numuavs, ::core::mem::transmute(ppunorderedaccessviews.unwrap_or(::std::ptr::null())), ::core::mem::transmute(puavinitialcounts.unwrap_or(::std::ptr::null())))
     }
-    pub unsafe fn OMSetBlendState<P0>(&self, pblendstate: P0, blendfactor: ::core::option::Option<*const f32>, samplemask: u32)
+    pub unsafe fn OMSetBlendState<P0>(&self, pblendstate: P0, blendfactor: ::core::option::Option<&[f32; 4]>, samplemask: u32)
     where
         P0: ::windows_core::IntoParam<ID3D11BlendState>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.OMSetBlendState)(::windows_core::Interface::as_raw(self), pblendstate.into_param().abi(), ::core::mem::transmute(blendfactor.unwrap_or(::std::ptr::null())), samplemask)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.OMSetBlendState)(::windows_core::Interface::as_raw(self), pblendstate.into_param().abi(), ::core::mem::transmute(blendfactor.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), samplemask)
     }
     pub unsafe fn OMSetDepthStencilState<P0>(&self, pdepthstencilstate: P0, stencilref: u32)
     where
@@ -6216,23 +6166,23 @@ impl ID3D11DeviceContext4 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.CopyStructureCount)(::windows_core::Interface::as_raw(self), pdstbuffer.into_param().abi(), dstalignedbyteoffset, psrcview.into_param().abi())
     }
-    pub unsafe fn ClearRenderTargetView<P0>(&self, prendertargetview: P0, colorrgba: *const f32)
+    pub unsafe fn ClearRenderTargetView<P0>(&self, prendertargetview: P0, colorrgba: &[f32; 4])
     where
         P0: ::windows_core::IntoParam<ID3D11RenderTargetView>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.ClearRenderTargetView)(::windows_core::Interface::as_raw(self), prendertargetview.into_param().abi(), colorrgba)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.ClearRenderTargetView)(::windows_core::Interface::as_raw(self), prendertargetview.into_param().abi(), ::core::mem::transmute(colorrgba.as_ptr()))
     }
-    pub unsafe fn ClearUnorderedAccessViewUint<P0>(&self, punorderedaccessview: P0, values: *const u32)
+    pub unsafe fn ClearUnorderedAccessViewUint<P0>(&self, punorderedaccessview: P0, values: &[u32; 4])
     where
         P0: ::windows_core::IntoParam<ID3D11UnorderedAccessView>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.ClearUnorderedAccessViewUint)(::windows_core::Interface::as_raw(self), punorderedaccessview.into_param().abi(), values)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.ClearUnorderedAccessViewUint)(::windows_core::Interface::as_raw(self), punorderedaccessview.into_param().abi(), ::core::mem::transmute(values.as_ptr()))
     }
-    pub unsafe fn ClearUnorderedAccessViewFloat<P0>(&self, punorderedaccessview: P0, values: *const f32)
+    pub unsafe fn ClearUnorderedAccessViewFloat<P0>(&self, punorderedaccessview: P0, values: &[f32; 4])
     where
         P0: ::windows_core::IntoParam<ID3D11UnorderedAccessView>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.ClearUnorderedAccessViewFloat)(::windows_core::Interface::as_raw(self), punorderedaccessview.into_param().abi(), values)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.ClearUnorderedAccessViewFloat)(::windows_core::Interface::as_raw(self), punorderedaccessview.into_param().abi(), ::core::mem::transmute(values.as_ptr()))
     }
     pub unsafe fn ClearDepthStencilView<P0>(&self, pdepthstencilview: P0, clearflags: u32, depth: f32, stencil: u8)
     where
@@ -6399,8 +6349,8 @@ impl ID3D11DeviceContext4 {
             ::core::mem::transmute(ppunorderedaccessviews.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
         )
     }
-    pub unsafe fn OMGetBlendState(&self, ppblendstate: ::core::option::Option<*mut ::core::option::Option<ID3D11BlendState>>, blendfactor: ::core::option::Option<*mut f32>, psamplemask: ::core::option::Option<*mut u32>) {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.OMGetBlendState)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppblendstate.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(blendfactor.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(psamplemask.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn OMGetBlendState(&self, ppblendstate: ::core::option::Option<*mut ::core::option::Option<ID3D11BlendState>>, blendfactor: ::core::option::Option<&mut [f32; 4]>, psamplemask: ::core::option::Option<*mut u32>) {
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.OMGetBlendState)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppblendstate.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(blendfactor.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(psamplemask.unwrap_or(::std::ptr::null_mut())))
     }
     pub unsafe fn OMGetDepthStencilState(&self, ppdepthstencilstate: ::core::option::Option<*mut ::core::option::Option<ID3D11DepthStencilState>>, pstencilref: ::core::option::Option<*mut u32>) {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.OMGetDepthStencilState)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppdepthstencilstate.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pstencilref.unwrap_or(::std::ptr::null_mut())))
@@ -6549,11 +6499,11 @@ impl ID3D11DeviceContext4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ClearView<P0>(&self, pview: P0, color: *const f32, prect: ::core::option::Option<&[super::super::Foundation::RECT]>)
+    pub unsafe fn ClearView<P0>(&self, pview: P0, color: &[f32; 4], prect: ::core::option::Option<&[super::super::Foundation::RECT]>)
     where
         P0: ::windows_core::IntoParam<ID3D11View>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.ClearView)(::windows_core::Interface::as_raw(self), pview.into_param().abi(), color, ::core::mem::transmute(prect.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), prect.as_deref().map_or(0, |slice| slice.len() as _))
+        (::windows_core::Interface::vtable(self).base__.base__.base__.ClearView)(::windows_core::Interface::as_raw(self), pview.into_param().abi(), ::core::mem::transmute(color.as_ptr()), ::core::mem::transmute(prect.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), prect.as_deref().map_or(0, |slice| slice.len() as _))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6692,8 +6642,6 @@ impl ::core::fmt::Debug for ID3D11DeviceContext4 {
         f.debug_tuple("ID3D11DeviceContext4").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11DeviceContext4 {}
-unsafe impl ::core::marker::Sync for ID3D11DeviceContext4 {}
 unsafe impl ::windows_core::Interface for ID3D11DeviceContext4 {
     type Vtable = ID3D11DeviceContext4_Vtbl;
 }
@@ -6746,8 +6694,6 @@ impl ::core::fmt::Debug for ID3D11DomainShader {
         f.debug_tuple("ID3D11DomainShader").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11DomainShader {}
-unsafe impl ::core::marker::Sync for ID3D11DomainShader {}
 unsafe impl ::windows_core::Interface for ID3D11DomainShader {
     type Vtable = ID3D11DomainShader_Vtbl;
 }
@@ -6818,8 +6764,6 @@ impl ::core::fmt::Debug for ID3D11Fence {
         f.debug_tuple("ID3D11Fence").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11Fence {}
-unsafe impl ::core::marker::Sync for ID3D11Fence {}
 unsafe impl ::windows_core::Interface for ID3D11Fence {
     type Vtable = ID3D11Fence_Vtbl;
 }
@@ -6915,8 +6859,6 @@ impl ::core::fmt::Debug for ID3D11FunctionLinkingGraph {
         f.debug_tuple("ID3D11FunctionLinkingGraph").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11FunctionLinkingGraph {}
-unsafe impl ::core::marker::Sync for ID3D11FunctionLinkingGraph {}
 unsafe impl ::windows_core::Interface for ID3D11FunctionLinkingGraph {
     type Vtable = ID3D11FunctionLinkingGraph_Vtbl;
 }
@@ -6977,8 +6919,6 @@ impl ::core::fmt::Debug for ID3D11FunctionParameterReflection {
         f.debug_tuple("ID3D11FunctionParameterReflection").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11FunctionParameterReflection {}
-unsafe impl ::core::marker::Sync for ID3D11FunctionParameterReflection {}
 unsafe impl ::windows_core::Interface for ID3D11FunctionParameterReflection {
     type Vtable = ID3D11FunctionParameterReflection_Vtbl;
 }
@@ -7047,8 +6987,6 @@ impl ::core::fmt::Debug for ID3D11FunctionReflection {
         f.debug_tuple("ID3D11FunctionReflection").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11FunctionReflection {}
-unsafe impl ::core::marker::Sync for ID3D11FunctionReflection {}
 unsafe impl ::windows_core::Interface for ID3D11FunctionReflection {
     type Vtable = ID3D11FunctionReflection_Vtbl;
 }
@@ -7111,8 +7049,6 @@ impl ::core::fmt::Debug for ID3D11GeometryShader {
         f.debug_tuple("ID3D11GeometryShader").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11GeometryShader {}
-unsafe impl ::core::marker::Sync for ID3D11GeometryShader {}
 unsafe impl ::windows_core::Interface for ID3D11GeometryShader {
     type Vtable = ID3D11GeometryShader_Vtbl;
 }
@@ -7163,8 +7099,6 @@ impl ::core::fmt::Debug for ID3D11HullShader {
         f.debug_tuple("ID3D11HullShader").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11HullShader {}
-unsafe impl ::core::marker::Sync for ID3D11HullShader {}
 unsafe impl ::windows_core::Interface for ID3D11HullShader {
     type Vtable = ID3D11HullShader_Vtbl;
 }
@@ -7337,8 +7271,6 @@ impl ::core::fmt::Debug for ID3D11InfoQueue {
         f.debug_tuple("ID3D11InfoQueue").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11InfoQueue {}
-unsafe impl ::core::marker::Sync for ID3D11InfoQueue {}
 unsafe impl ::windows_core::Interface for ID3D11InfoQueue {
     type Vtable = ID3D11InfoQueue_Vtbl;
 }
@@ -7448,8 +7380,6 @@ impl ::core::fmt::Debug for ID3D11InputLayout {
         f.debug_tuple("ID3D11InputLayout").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11InputLayout {}
-unsafe impl ::core::marker::Sync for ID3D11InputLayout {}
 unsafe impl ::windows_core::Interface for ID3D11InputLayout {
     type Vtable = ID3D11InputLayout_Vtbl;
 }
@@ -7490,8 +7420,6 @@ impl ::core::fmt::Debug for ID3D11LibraryReflection {
         f.debug_tuple("ID3D11LibraryReflection").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11LibraryReflection {}
-unsafe impl ::core::marker::Sync for ID3D11LibraryReflection {}
 unsafe impl ::windows_core::Interface for ID3D11LibraryReflection {
     type Vtable = ID3D11LibraryReflection_Vtbl;
 }
@@ -7546,8 +7474,6 @@ impl ::core::fmt::Debug for ID3D11Linker {
         f.debug_tuple("ID3D11Linker").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11Linker {}
-unsafe impl ::core::marker::Sync for ID3D11Linker {}
 unsafe impl ::windows_core::Interface for ID3D11Linker {
     type Vtable = ID3D11Linker_Vtbl;
 }
@@ -7586,8 +7512,6 @@ impl ::core::fmt::Debug for ID3D11LinkingNode {
         f.debug_tuple("ID3D11LinkingNode").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11LinkingNode {}
-unsafe impl ::core::marker::Sync for ID3D11LinkingNode {}
 unsafe impl ::windows_core::Interface for ID3D11LinkingNode {
     type Vtable = ID3D11LinkingNode_Vtbl;
 }
@@ -7628,8 +7552,6 @@ impl ::core::fmt::Debug for ID3D11Module {
         f.debug_tuple("ID3D11Module").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11Module {}
-unsafe impl ::core::marker::Sync for ID3D11Module {}
 unsafe impl ::windows_core::Interface for ID3D11Module {
     type Vtable = ID3D11Module_Vtbl;
 }
@@ -7709,8 +7631,6 @@ impl ::core::fmt::Debug for ID3D11ModuleInstance {
         f.debug_tuple("ID3D11ModuleInstance").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11ModuleInstance {}
-unsafe impl ::core::marker::Sync for ID3D11ModuleInstance {}
 unsafe impl ::windows_core::Interface for ID3D11ModuleInstance {
     type Vtable = ID3D11ModuleInstance_Vtbl;
 }
@@ -7773,8 +7693,6 @@ impl ::core::fmt::Debug for ID3D11Multithread {
         f.debug_tuple("ID3D11Multithread").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11Multithread {}
-unsafe impl ::core::marker::Sync for ID3D11Multithread {}
 unsafe impl ::windows_core::Interface for ID3D11Multithread {
     type Vtable = ID3D11Multithread_Vtbl;
 }
@@ -7835,8 +7753,6 @@ impl ::core::fmt::Debug for ID3D11PixelShader {
         f.debug_tuple("ID3D11PixelShader").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11PixelShader {}
-unsafe impl ::core::marker::Sync for ID3D11PixelShader {}
 unsafe impl ::windows_core::Interface for ID3D11PixelShader {
     type Vtable = ID3D11PixelShader_Vtbl;
 }
@@ -7895,8 +7811,6 @@ impl ::core::fmt::Debug for ID3D11Predicate {
         f.debug_tuple("ID3D11Predicate").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11Predicate {}
-unsafe impl ::core::marker::Sync for ID3D11Predicate {}
 unsafe impl ::windows_core::Interface for ID3D11Predicate {
     type Vtable = ID3D11Predicate_Vtbl;
 }
@@ -7955,8 +7869,6 @@ impl ::core::fmt::Debug for ID3D11Query {
         f.debug_tuple("ID3D11Query").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11Query {}
-unsafe impl ::core::marker::Sync for ID3D11Query {}
 unsafe impl ::windows_core::Interface for ID3D11Query {
     type Vtable = ID3D11Query_Vtbl;
 }
@@ -8021,8 +7933,6 @@ impl ::core::fmt::Debug for ID3D11Query1 {
         f.debug_tuple("ID3D11Query1").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11Query1 {}
-unsafe impl ::core::marker::Sync for ID3D11Query1 {}
 unsafe impl ::windows_core::Interface for ID3D11Query1 {
     type Vtable = ID3D11Query1_Vtbl;
 }
@@ -8079,8 +7989,6 @@ impl ::core::fmt::Debug for ID3D11RasterizerState {
         f.debug_tuple("ID3D11RasterizerState").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11RasterizerState {}
-unsafe impl ::core::marker::Sync for ID3D11RasterizerState {}
 unsafe impl ::windows_core::Interface for ID3D11RasterizerState {
     type Vtable = ID3D11RasterizerState_Vtbl;
 }
@@ -8145,8 +8053,6 @@ impl ::core::fmt::Debug for ID3D11RasterizerState1 {
         f.debug_tuple("ID3D11RasterizerState1").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11RasterizerState1 {}
-unsafe impl ::core::marker::Sync for ID3D11RasterizerState1 {}
 unsafe impl ::windows_core::Interface for ID3D11RasterizerState1 {
     type Vtable = ID3D11RasterizerState1_Vtbl;
 }
@@ -8216,8 +8122,6 @@ impl ::core::fmt::Debug for ID3D11RasterizerState2 {
         f.debug_tuple("ID3D11RasterizerState2").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11RasterizerState2 {}
-unsafe impl ::core::marker::Sync for ID3D11RasterizerState2 {}
 unsafe impl ::windows_core::Interface for ID3D11RasterizerState2 {
     type Vtable = ID3D11RasterizerState2_Vtbl;
 }
@@ -8258,8 +8162,6 @@ impl ::core::fmt::Debug for ID3D11RefDefaultTrackingOptions {
         f.debug_tuple("ID3D11RefDefaultTrackingOptions").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11RefDefaultTrackingOptions {}
-unsafe impl ::core::marker::Sync for ID3D11RefDefaultTrackingOptions {}
 unsafe impl ::windows_core::Interface for ID3D11RefDefaultTrackingOptions {
     type Vtable = ID3D11RefDefaultTrackingOptions_Vtbl;
 }
@@ -8297,8 +8199,6 @@ impl ::core::fmt::Debug for ID3D11RefTrackingOptions {
         f.debug_tuple("ID3D11RefTrackingOptions").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11RefTrackingOptions {}
-unsafe impl ::core::marker::Sync for ID3D11RefTrackingOptions {}
 unsafe impl ::windows_core::Interface for ID3D11RefTrackingOptions {
     type Vtable = ID3D11RefTrackingOptions_Vtbl;
 }
@@ -8360,8 +8260,6 @@ impl ::core::fmt::Debug for ID3D11RenderTargetView {
         f.debug_tuple("ID3D11RenderTargetView").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11RenderTargetView {}
-unsafe impl ::core::marker::Sync for ID3D11RenderTargetView {}
 unsafe impl ::windows_core::Interface for ID3D11RenderTargetView {
     type Vtable = ID3D11RenderTargetView_Vtbl;
 }
@@ -8431,8 +8329,6 @@ impl ::core::fmt::Debug for ID3D11RenderTargetView1 {
         f.debug_tuple("ID3D11RenderTargetView1").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11RenderTargetView1 {}
-unsafe impl ::core::marker::Sync for ID3D11RenderTargetView1 {}
 unsafe impl ::windows_core::Interface for ID3D11RenderTargetView1 {
     type Vtable = ID3D11RenderTargetView1_Vtbl;
 }
@@ -8498,8 +8394,6 @@ impl ::core::fmt::Debug for ID3D11Resource {
         f.debug_tuple("ID3D11Resource").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11Resource {}
-unsafe impl ::core::marker::Sync for ID3D11Resource {}
 unsafe impl ::windows_core::Interface for ID3D11Resource {
     type Vtable = ID3D11Resource_Vtbl;
 }
@@ -8556,8 +8450,6 @@ impl ::core::fmt::Debug for ID3D11SamplerState {
         f.debug_tuple("ID3D11SamplerState").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11SamplerState {}
-unsafe impl ::core::marker::Sync for ID3D11SamplerState {}
 unsafe impl ::windows_core::Interface for ID3D11SamplerState {
     type Vtable = ID3D11SamplerState_Vtbl;
 }
@@ -8677,8 +8569,6 @@ impl ::core::fmt::Debug for ID3D11ShaderReflection {
         f.debug_tuple("ID3D11ShaderReflection").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11ShaderReflection {}
-unsafe impl ::core::marker::Sync for ID3D11ShaderReflection {}
 unsafe impl ::windows_core::Interface for ID3D11ShaderReflection {
     type Vtable = ID3D11ShaderReflection_Vtbl;
 }
@@ -8771,8 +8661,6 @@ impl ::core::fmt::Debug for ID3D11ShaderReflectionConstantBuffer {
         f.debug_tuple("ID3D11ShaderReflectionConstantBuffer").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11ShaderReflectionConstantBuffer {}
-unsafe impl ::core::marker::Sync for ID3D11ShaderReflectionConstantBuffer {}
 unsafe impl ::windows_core::Interface for ID3D11ShaderReflectionConstantBuffer {
     type Vtable = ID3D11ShaderReflectionConstantBuffer_Vtbl;
 }
@@ -8854,8 +8742,6 @@ impl ::core::fmt::Debug for ID3D11ShaderReflectionType {
         f.debug_tuple("ID3D11ShaderReflectionType").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11ShaderReflectionType {}
-unsafe impl ::core::marker::Sync for ID3D11ShaderReflectionType {}
 unsafe impl ::windows_core::Interface for ID3D11ShaderReflectionType {
     type Vtable = ID3D11ShaderReflectionType_Vtbl;
 }
@@ -8910,8 +8796,6 @@ impl ::core::fmt::Debug for ID3D11ShaderReflectionVariable {
         f.debug_tuple("ID3D11ShaderReflectionVariable").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11ShaderReflectionVariable {}
-unsafe impl ::core::marker::Sync for ID3D11ShaderReflectionVariable {}
 unsafe impl ::windows_core::Interface for ID3D11ShaderReflectionVariable {
     type Vtable = ID3D11ShaderReflectionVariable_Vtbl;
 }
@@ -8972,8 +8856,6 @@ impl ::core::fmt::Debug for ID3D11ShaderResourceView {
         f.debug_tuple("ID3D11ShaderResourceView").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11ShaderResourceView {}
-unsafe impl ::core::marker::Sync for ID3D11ShaderResourceView {}
 unsafe impl ::windows_core::Interface for ID3D11ShaderResourceView {
     type Vtable = ID3D11ShaderResourceView_Vtbl;
 }
@@ -9043,8 +8925,6 @@ impl ::core::fmt::Debug for ID3D11ShaderResourceView1 {
         f.debug_tuple("ID3D11ShaderResourceView1").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11ShaderResourceView1 {}
-unsafe impl ::core::marker::Sync for ID3D11ShaderResourceView1 {}
 unsafe impl ::windows_core::Interface for ID3D11ShaderResourceView1 {
     type Vtable = ID3D11ShaderResourceView1_Vtbl;
 }
@@ -9110,8 +8990,6 @@ impl ::core::fmt::Debug for ID3D11ShaderTrace {
         f.debug_tuple("ID3D11ShaderTrace").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11ShaderTrace {}
-unsafe impl ::core::marker::Sync for ID3D11ShaderTrace {}
 unsafe impl ::windows_core::Interface for ID3D11ShaderTrace {
     type Vtable = ID3D11ShaderTrace_Vtbl;
 }
@@ -9166,8 +9044,6 @@ impl ::core::fmt::Debug for ID3D11ShaderTraceFactory {
         f.debug_tuple("ID3D11ShaderTraceFactory").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11ShaderTraceFactory {}
-unsafe impl ::core::marker::Sync for ID3D11ShaderTraceFactory {}
 unsafe impl ::windows_core::Interface for ID3D11ShaderTraceFactory {
     type Vtable = ID3D11ShaderTraceFactory_Vtbl;
 }
@@ -9215,8 +9091,6 @@ impl ::core::fmt::Debug for ID3D11SwitchToRef {
         f.debug_tuple("ID3D11SwitchToRef").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11SwitchToRef {}
-unsafe impl ::core::marker::Sync for ID3D11SwitchToRef {}
 unsafe impl ::windows_core::Interface for ID3D11SwitchToRef {
     type Vtable = ID3D11SwitchToRef_Vtbl;
 }
@@ -9291,8 +9165,6 @@ impl ::core::fmt::Debug for ID3D11Texture1D {
         f.debug_tuple("ID3D11Texture1D").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11Texture1D {}
-unsafe impl ::core::marker::Sync for ID3D11Texture1D {}
 unsafe impl ::windows_core::Interface for ID3D11Texture1D {
     type Vtable = ID3D11Texture1D_Vtbl;
 }
@@ -9363,8 +9235,6 @@ impl ::core::fmt::Debug for ID3D11Texture2D {
         f.debug_tuple("ID3D11Texture2D").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11Texture2D {}
-unsafe impl ::core::marker::Sync for ID3D11Texture2D {}
 unsafe impl ::windows_core::Interface for ID3D11Texture2D {
     type Vtable = ID3D11Texture2D_Vtbl;
 }
@@ -9440,8 +9310,6 @@ impl ::core::fmt::Debug for ID3D11Texture2D1 {
         f.debug_tuple("ID3D11Texture2D1").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11Texture2D1 {}
-unsafe impl ::core::marker::Sync for ID3D11Texture2D1 {}
 unsafe impl ::windows_core::Interface for ID3D11Texture2D1 {
     type Vtable = ID3D11Texture2D1_Vtbl;
 }
@@ -9512,8 +9380,6 @@ impl ::core::fmt::Debug for ID3D11Texture3D {
         f.debug_tuple("ID3D11Texture3D").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11Texture3D {}
-unsafe impl ::core::marker::Sync for ID3D11Texture3D {}
 unsafe impl ::windows_core::Interface for ID3D11Texture3D {
     type Vtable = ID3D11Texture3D_Vtbl;
 }
@@ -9589,8 +9455,6 @@ impl ::core::fmt::Debug for ID3D11Texture3D1 {
         f.debug_tuple("ID3D11Texture3D1").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11Texture3D1 {}
-unsafe impl ::core::marker::Sync for ID3D11Texture3D1 {}
 unsafe impl ::windows_core::Interface for ID3D11Texture3D1 {
     type Vtable = ID3D11Texture3D1_Vtbl;
 }
@@ -9637,8 +9501,6 @@ impl ::core::fmt::Debug for ID3D11TracingDevice {
         f.debug_tuple("ID3D11TracingDevice").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11TracingDevice {}
-unsafe impl ::core::marker::Sync for ID3D11TracingDevice {}
 unsafe impl ::windows_core::Interface for ID3D11TracingDevice {
     type Vtable = ID3D11TracingDevice_Vtbl;
 }
@@ -9701,8 +9563,6 @@ impl ::core::fmt::Debug for ID3D11UnorderedAccessView {
         f.debug_tuple("ID3D11UnorderedAccessView").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11UnorderedAccessView {}
-unsafe impl ::core::marker::Sync for ID3D11UnorderedAccessView {}
 unsafe impl ::windows_core::Interface for ID3D11UnorderedAccessView {
     type Vtable = ID3D11UnorderedAccessView_Vtbl;
 }
@@ -9772,8 +9632,6 @@ impl ::core::fmt::Debug for ID3D11UnorderedAccessView1 {
         f.debug_tuple("ID3D11UnorderedAccessView1").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11UnorderedAccessView1 {}
-unsafe impl ::core::marker::Sync for ID3D11UnorderedAccessView1 {}
 unsafe impl ::windows_core::Interface for ID3D11UnorderedAccessView1 {
     type Vtable = ID3D11UnorderedAccessView1_Vtbl;
 }
@@ -9828,8 +9686,6 @@ impl ::core::fmt::Debug for ID3D11VertexShader {
         f.debug_tuple("ID3D11VertexShader").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11VertexShader {}
-unsafe impl ::core::marker::Sync for ID3D11VertexShader {}
 unsafe impl ::windows_core::Interface for ID3D11VertexShader {
     type Vtable = ID3D11VertexShader_Vtbl;
 }
@@ -10322,8 +10178,6 @@ impl ::core::fmt::Debug for ID3D11VideoContext {
         f.debug_tuple("ID3D11VideoContext").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11VideoContext {}
-unsafe impl ::core::marker::Sync for ID3D11VideoContext {}
 unsafe impl ::windows_core::Interface for ID3D11VideoContext {
     type Vtable = ID3D11VideoContext_Vtbl;
 }
@@ -11086,8 +10940,6 @@ impl ::core::fmt::Debug for ID3D11VideoContext1 {
         f.debug_tuple("ID3D11VideoContext1").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11VideoContext1 {}
-unsafe impl ::core::marker::Sync for ID3D11VideoContext1 {}
 unsafe impl ::windows_core::Interface for ID3D11VideoContext1 {
     type Vtable = ID3D11VideoContext1_Vtbl;
 }
@@ -11778,8 +11630,6 @@ impl ::core::fmt::Debug for ID3D11VideoContext2 {
         f.debug_tuple("ID3D11VideoContext2").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11VideoContext2 {}
-unsafe impl ::core::marker::Sync for ID3D11VideoContext2 {}
 unsafe impl ::windows_core::Interface for ID3D11VideoContext2 {
     type Vtable = ID3D11VideoContext2_Vtbl;
 }
@@ -12452,8 +12302,6 @@ impl ::core::fmt::Debug for ID3D11VideoContext3 {
         f.debug_tuple("ID3D11VideoContext3").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11VideoContext3 {}
-unsafe impl ::core::marker::Sync for ID3D11VideoContext3 {}
 unsafe impl ::windows_core::Interface for ID3D11VideoContext3 {
     type Vtable = ID3D11VideoContext3_Vtbl;
 }
@@ -12517,8 +12365,6 @@ impl ::core::fmt::Debug for ID3D11VideoDecoder {
         f.debug_tuple("ID3D11VideoDecoder").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11VideoDecoder {}
-unsafe impl ::core::marker::Sync for ID3D11VideoDecoder {}
 unsafe impl ::windows_core::Interface for ID3D11VideoDecoder {
     type Vtable = ID3D11VideoDecoder_Vtbl;
 }
@@ -12585,8 +12431,6 @@ impl ::core::fmt::Debug for ID3D11VideoDecoderOutputView {
         f.debug_tuple("ID3D11VideoDecoderOutputView").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11VideoDecoderOutputView {}
-unsafe impl ::core::marker::Sync for ID3D11VideoDecoderOutputView {}
 unsafe impl ::windows_core::Interface for ID3D11VideoDecoderOutputView {
     type Vtable = ID3D11VideoDecoderOutputView_Vtbl;
 }
@@ -12708,8 +12552,6 @@ impl ::core::fmt::Debug for ID3D11VideoDevice {
         f.debug_tuple("ID3D11VideoDevice").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11VideoDevice {}
-unsafe impl ::core::marker::Sync for ID3D11VideoDevice {}
 unsafe impl ::windows_core::Interface for ID3D11VideoDevice {
     type Vtable = ID3D11VideoDevice_Vtbl;
 }
@@ -12882,8 +12724,6 @@ impl ::core::fmt::Debug for ID3D11VideoDevice1 {
         f.debug_tuple("ID3D11VideoDevice1").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11VideoDevice1 {}
-unsafe impl ::core::marker::Sync for ID3D11VideoDevice1 {}
 unsafe impl ::windows_core::Interface for ID3D11VideoDevice1 {
     type Vtable = ID3D11VideoDevice1_Vtbl;
 }
@@ -13046,8 +12886,6 @@ impl ::core::fmt::Debug for ID3D11VideoDevice2 {
         f.debug_tuple("ID3D11VideoDevice2").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11VideoDevice2 {}
-unsafe impl ::core::marker::Sync for ID3D11VideoDevice2 {}
 unsafe impl ::windows_core::Interface for ID3D11VideoDevice2 {
     type Vtable = ID3D11VideoDevice2_Vtbl;
 }
@@ -13108,8 +12946,6 @@ impl ::core::fmt::Debug for ID3D11VideoProcessor {
         f.debug_tuple("ID3D11VideoProcessor").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11VideoProcessor {}
-unsafe impl ::core::marker::Sync for ID3D11VideoProcessor {}
 unsafe impl ::windows_core::Interface for ID3D11VideoProcessor {
     type Vtable = ID3D11VideoProcessor_Vtbl;
 }
@@ -13191,8 +13027,6 @@ impl ::core::fmt::Debug for ID3D11VideoProcessorEnumerator {
         f.debug_tuple("ID3D11VideoProcessorEnumerator").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11VideoProcessorEnumerator {}
-unsafe impl ::core::marker::Sync for ID3D11VideoProcessorEnumerator {}
 unsafe impl ::windows_core::Interface for ID3D11VideoProcessorEnumerator {
     type Vtable = ID3D11VideoProcessorEnumerator_Vtbl;
 }
@@ -13290,8 +13124,6 @@ impl ::core::fmt::Debug for ID3D11VideoProcessorEnumerator1 {
         f.debug_tuple("ID3D11VideoProcessorEnumerator1").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11VideoProcessorEnumerator1 {}
-unsafe impl ::core::marker::Sync for ID3D11VideoProcessorEnumerator1 {}
 unsafe impl ::windows_core::Interface for ID3D11VideoProcessorEnumerator1 {
     type Vtable = ID3D11VideoProcessorEnumerator1_Vtbl;
 }
@@ -13356,8 +13188,6 @@ impl ::core::fmt::Debug for ID3D11VideoProcessorInputView {
         f.debug_tuple("ID3D11VideoProcessorInputView").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11VideoProcessorInputView {}
-unsafe impl ::core::marker::Sync for ID3D11VideoProcessorInputView {}
 unsafe impl ::windows_core::Interface for ID3D11VideoProcessorInputView {
     type Vtable = ID3D11VideoProcessorInputView_Vtbl;
 }
@@ -13419,8 +13249,6 @@ impl ::core::fmt::Debug for ID3D11VideoProcessorOutputView {
         f.debug_tuple("ID3D11VideoProcessorOutputView").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11VideoProcessorOutputView {}
-unsafe impl ::core::marker::Sync for ID3D11VideoProcessorOutputView {}
 unsafe impl ::windows_core::Interface for ID3D11VideoProcessorOutputView {
     type Vtable = ID3D11VideoProcessorOutputView_Vtbl;
 }
@@ -13477,8 +13305,6 @@ impl ::core::fmt::Debug for ID3D11View {
         f.debug_tuple("ID3D11View").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11View {}
-unsafe impl ::core::marker::Sync for ID3D11View {}
 unsafe impl ::windows_core::Interface for ID3D11View {
     type Vtable = ID3D11View_Vtbl;
 }
@@ -13530,8 +13356,6 @@ impl ::core::fmt::Debug for ID3DDeviceContextState {
         f.debug_tuple("ID3DDeviceContextState").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3DDeviceContextState {}
-unsafe impl ::core::marker::Sync for ID3DDeviceContextState {}
 unsafe impl ::windows_core::Interface for ID3DDeviceContextState {
     type Vtable = ID3DDeviceContextState_Vtbl;
 }
@@ -13585,8 +13409,6 @@ impl ::core::fmt::Debug for ID3DUserDefinedAnnotation {
         f.debug_tuple("ID3DUserDefinedAnnotation").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3DUserDefinedAnnotation {}
-unsafe impl ::core::marker::Sync for ID3DUserDefinedAnnotation {}
 unsafe impl ::windows_core::Interface for ID3DUserDefinedAnnotation {
     type Vtable = ID3DUserDefinedAnnotation_Vtbl;
 }
@@ -13654,8 +13476,6 @@ impl ::core::fmt::Debug for ID3DX11FFT {
         f.debug_tuple("ID3DX11FFT").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3DX11FFT {}
-unsafe impl ::core::marker::Sync for ID3DX11FFT {}
 unsafe impl ::windows_core::Interface for ID3DX11FFT {
     type Vtable = ID3DX11FFT_Vtbl;
 }
@@ -13713,8 +13533,6 @@ impl ::core::fmt::Debug for ID3DX11Scan {
         f.debug_tuple("ID3DX11Scan").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3DX11Scan {}
-unsafe impl ::core::marker::Sync for ID3DX11Scan {}
 unsafe impl ::windows_core::Interface for ID3DX11Scan {
     type Vtable = ID3DX11Scan_Vtbl;
 }
@@ -13762,8 +13580,6 @@ impl ::core::fmt::Debug for ID3DX11SegmentedScan {
         f.debug_tuple("ID3DX11SegmentedScan").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3DX11SegmentedScan {}
-unsafe impl ::core::marker::Sync for ID3DX11SegmentedScan {}
 unsafe impl ::windows_core::Interface for ID3DX11SegmentedScan {
     type Vtable = ID3DX11SegmentedScan_Vtbl;
 }
@@ -21441,17 +21257,6 @@ impl ::core::fmt::Debug for D3DX11_SCAN_OPCODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D3DX11_SCAN_OPCODE").field(&self.0).finish()
     }
-}
-#[repr(C)]
-pub struct CD3D11_VIDEO_DEFAULT(pub u8);
-impl ::core::marker::Copy for CD3D11_VIDEO_DEFAULT {}
-impl ::core::clone::Clone for CD3D11_VIDEO_DEFAULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::windows_core::TypeKind for CD3D11_VIDEO_DEFAULT {
-    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]

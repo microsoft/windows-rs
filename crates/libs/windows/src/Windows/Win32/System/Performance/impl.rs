@@ -1,9 +1,9 @@
-#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait DICounterItem_Impl: Sized + super::Com::IDispatch_Impl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for DICounterItem {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl DICounterItem_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: DICounterItem_Impl, const OFFSET: isize>() -> DICounterItem_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -12,12 +12,12 @@ impl DICounterItem_Vtbl {
         iid == &<DICounterItem as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait DILogFileItem_Impl: Sized + super::Com::IDispatch_Impl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for DILogFileItem {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl DILogFileItem_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: DILogFileItem_Impl, const OFFSET: isize>() -> DILogFileItem_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -26,12 +26,12 @@ impl DILogFileItem_Vtbl {
         iid == &<DILogFileItem as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait DISystemMonitor_Impl: Sized + super::Com::IDispatch_Impl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for DISystemMonitor {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl DISystemMonitor_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: DISystemMonitor_Impl, const OFFSET: isize>() -> DISystemMonitor_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -40,12 +40,12 @@ impl DISystemMonitor_Vtbl {
         iid == &<DISystemMonitor as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait DISystemMonitorEvents_Impl: Sized + super::Com::IDispatch_Impl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for DISystemMonitorEvents {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl DISystemMonitorEvents_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: DISystemMonitorEvents_Impl, const OFFSET: isize>() -> DISystemMonitorEvents_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -54,12 +54,12 @@ impl DISystemMonitorEvents_Vtbl {
         iid == &<DISystemMonitorEvents as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait DISystemMonitorInternal_Impl: Sized + super::Com::IDispatch_Impl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for DISystemMonitorInternal {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl DISystemMonitorInternal_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: DISystemMonitorInternal_Impl, const OFFSET: isize>() -> DISystemMonitorInternal_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -68,8 +68,8 @@ impl DISystemMonitorInternal_Vtbl {
         iid == &<DISystemMonitorInternal as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAlertDataCollector_Impl: Sized + IDataCollector_Impl {
     fn AlertThresholds(&self) -> ::windows_core::Result<*mut super::Com::SAFEARRAY>;
     fn SetAlertThresholds(&self, alerts: *const super::Com::SAFEARRAY) -> ::windows_core::Result<()>;
@@ -88,9 +88,9 @@ pub trait IAlertDataCollector_Impl: Sized + IDataCollector_Impl {
     fn TriggerDataCollectorSet(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn SetTriggerDataCollectorSet(&self, name: &::windows_core::BSTR) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IAlertDataCollector {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IAlertDataCollector_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAlertDataCollector_Impl, const OFFSET: isize>() -> IAlertDataCollector_Vtbl {
         unsafe extern "system" fn AlertThresholds<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAlertDataCollector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, alerts: *mut *mut super::Com::SAFEARRAY) -> ::windows_core::HRESULT {
@@ -245,8 +245,8 @@ impl IAlertDataCollector_Vtbl {
         iid == &<IAlertDataCollector as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID || iid == &<IDataCollector as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IApiTracingDataCollector_Impl: Sized + IDataCollector_Impl {
     fn LogApiNamesOnly(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetLogApiNamesOnly(&self, logapinames: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
@@ -263,9 +263,9 @@ pub trait IApiTracingDataCollector_Impl: Sized + IDataCollector_Impl {
     fn ExcludeApis(&self) -> ::windows_core::Result<*mut super::Com::SAFEARRAY>;
     fn SetExcludeApis(&self, excludeapis: *const super::Com::SAFEARRAY) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IApiTracingDataCollector {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IApiTracingDataCollector_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IApiTracingDataCollector_Impl, const OFFSET: isize>() -> IApiTracingDataCollector_Vtbl {
         unsafe extern "system" fn LogApiNamesOnly<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IApiTracingDataCollector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, logapinames: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT {
@@ -402,8 +402,8 @@ impl IApiTracingDataCollector_Vtbl {
         iid == &<IApiTracingDataCollector as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID || iid == &<IDataCollector as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IConfigurationDataCollector_Impl: Sized + IDataCollector_Impl {
     fn FileMaxCount(&self) -> ::windows_core::Result<u32>;
     fn SetFileMaxCount(&self, count: u32) -> ::windows_core::Result<()>;
@@ -424,9 +424,9 @@ pub trait IConfigurationDataCollector_Impl: Sized + IDataCollector_Impl {
     fn SystemStateFile(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn SetSystemStateFile(&self, filename: &::windows_core::BSTR) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IConfigurationDataCollector {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IConfigurationDataCollector_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IConfigurationDataCollector_Impl, const OFFSET: isize>() -> IConfigurationDataCollector_Vtbl {
         unsafe extern "system" fn FileMaxCount<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IConfigurationDataCollector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: *mut u32) -> ::windows_core::HRESULT {
@@ -733,18 +733,18 @@ impl ICounterItem_Vtbl {
         iid == &<ICounterItem as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICounterItem2_Impl: Sized + ICounterItem_Impl {
     fn SetSelected(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
     fn Selected(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetVisible(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
     fn Visible(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn GetDataAt(&self, iindex: i32, iwhich: SysmonDataType) -> ::windows_core::Result<super::Com::VARIANT>;
+    fn GetDataAt(&self, iindex: i32, iwhich: SysmonDataType) -> ::windows_core::Result<super::Variant::VARIANT>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ICounterItem2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICounterItem2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICounterItem2_Impl, const OFFSET: isize>() -> ICounterItem2_Vtbl {
         unsafe extern "system" fn SetSelected<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICounterItem2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstate: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT {
@@ -779,7 +779,7 @@ impl ICounterItem2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDataAt<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICounterItem2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iindex: i32, iwhich: SysmonDataType, pvariant: *mut super::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetDataAt<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICounterItem2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iindex: i32, iwhich: SysmonDataType, pvariant: *mut super::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetDataAt(::core::mem::transmute_copy(&iindex), ::core::mem::transmute_copy(&iwhich)) {
@@ -803,18 +803,18 @@ impl ICounterItem2_Vtbl {
         iid == &<ICounterItem2 as ::windows_core::ComInterface>::IID || iid == &<ICounterItem as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICounters_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
     fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
-    fn get_Item(&self, index: &super::Com::VARIANT) -> ::windows_core::Result<DICounterItem>;
+    fn get_Item(&self, index: &super::Variant::VARIANT) -> ::windows_core::Result<DICounterItem>;
     fn Add(&self, pathname: &::windows_core::BSTR) -> ::windows_core::Result<DICounterItem>;
-    fn Remove(&self, index: &super::Com::VARIANT) -> ::windows_core::Result<()>;
+    fn Remove(&self, index: &super::Variant::VARIANT) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ICounters {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICounters_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICounters_Impl, const OFFSET: isize>() -> ICounters_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICounters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plong: *mut i32) -> ::windows_core::HRESULT {
@@ -839,7 +839,7 @@ impl ICounters_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Item<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICounters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: super::Com::VARIANT, ppi: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICounters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: super::Variant::VARIANT, ppi: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&index)) {
@@ -861,7 +861,7 @@ impl ICounters_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Remove<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICounters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: super::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Remove<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICounters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: super::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Remove(::core::mem::transmute(&index)).into()
@@ -879,8 +879,8 @@ impl ICounters_Vtbl {
         iid == &<ICounters as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDataCollector_Impl: Sized + super::Com::IDispatch_Impl {
     fn DataCollectorSet(&self) -> ::windows_core::Result<IDataCollectorSet>;
     fn SetDataCollectorSet(&self, group: ::core::option::Option<&IDataCollectorSet>) -> ::windows_core::Result<()>;
@@ -908,9 +908,9 @@ pub trait IDataCollector_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetXml(&self, xml: &::windows_core::BSTR) -> ::windows_core::Result<IValueMap>;
     fn CreateOutputLocation(&self, latest: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<::windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IDataCollector {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDataCollector_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataCollector_Impl, const OFFSET: isize>() -> IDataCollector_Vtbl {
         unsafe extern "system" fn DataCollectorSet<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataCollector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, group: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -1161,22 +1161,22 @@ impl IDataCollector_Vtbl {
         iid == &<IDataCollector as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDataCollectorCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
-    fn get_Item(&self, index: &super::Com::VARIANT) -> ::windows_core::Result<IDataCollector>;
+    fn get_Item(&self, index: &super::Variant::VARIANT) -> ::windows_core::Result<IDataCollector>;
     fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
     fn Add(&self, collector: ::core::option::Option<&IDataCollector>) -> ::windows_core::Result<()>;
-    fn Remove(&self, collector: &super::Com::VARIANT) -> ::windows_core::Result<()>;
+    fn Remove(&self, collector: &super::Variant::VARIANT) -> ::windows_core::Result<()>;
     fn Clear(&self) -> ::windows_core::Result<()>;
     fn AddRange(&self, collectors: ::core::option::Option<&IDataCollectorCollection>) -> ::windows_core::Result<()>;
     fn CreateDataCollectorFromXml(&self, bstrxml: &::windows_core::BSTR, pvalidation: *mut ::core::option::Option<IValueMap>, pcollector: *mut ::core::option::Option<IDataCollector>) -> ::windows_core::Result<()>;
     fn CreateDataCollector(&self, r#type: DataCollectorType) -> ::windows_core::Result<IDataCollector>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IDataCollectorCollection {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDataCollectorCollection_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataCollectorCollection_Impl, const OFFSET: isize>() -> IDataCollectorCollection_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataCollectorCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows_core::HRESULT {
@@ -1190,7 +1190,7 @@ impl IDataCollectorCollection_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Item<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataCollectorCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: super::Com::VARIANT, collector: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataCollectorCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: super::Variant::VARIANT, collector: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&index)) {
@@ -1217,7 +1217,7 @@ impl IDataCollectorCollection_Vtbl {
             let this = (*this).get_impl();
             this.Add(::windows_core::from_raw_borrowed(&collector)).into()
         }
-        unsafe extern "system" fn Remove<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataCollectorCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, collector: super::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Remove<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataCollectorCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, collector: super::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Remove(::core::mem::transmute(&collector)).into()
@@ -1265,8 +1265,8 @@ impl IDataCollectorCollection_Vtbl {
         iid == &<IDataCollectorCollection as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDataCollectorSet_Impl: Sized + super::Com::IDispatch_Impl {
     fn DataCollectors(&self) -> ::windows_core::Result<IDataCollectorCollection>;
     fn Duration(&self) -> ::windows_core::Result<u32>;
@@ -1329,9 +1329,9 @@ pub trait IDataCollectorSet_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetValue(&self, key: &::windows_core::BSTR, value: &::windows_core::BSTR) -> ::windows_core::Result<()>;
     fn GetValue(&self, key: &::windows_core::BSTR) -> ::windows_core::Result<::windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IDataCollectorSet {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDataCollectorSet_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataCollectorSet_Impl, const OFFSET: isize>() -> IDataCollectorSet_Vtbl {
         unsafe extern "system" fn DataCollectors<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataCollectorSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, collectors: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -1906,21 +1906,21 @@ impl IDataCollectorSet_Vtbl {
         iid == &<IDataCollectorSet as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDataCollectorSetCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
-    fn get_Item(&self, index: &super::Com::VARIANT) -> ::windows_core::Result<IDataCollectorSet>;
+    fn get_Item(&self, index: &super::Variant::VARIANT) -> ::windows_core::Result<IDataCollectorSet>;
     fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
     fn Add(&self, set: ::core::option::Option<&IDataCollectorSet>) -> ::windows_core::Result<()>;
-    fn Remove(&self, set: &super::Com::VARIANT) -> ::windows_core::Result<()>;
+    fn Remove(&self, set: &super::Variant::VARIANT) -> ::windows_core::Result<()>;
     fn Clear(&self) -> ::windows_core::Result<()>;
     fn AddRange(&self, sets: ::core::option::Option<&IDataCollectorSetCollection>) -> ::windows_core::Result<()>;
     fn GetDataCollectorSets(&self, server: &::windows_core::BSTR, filter: &::windows_core::BSTR) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IDataCollectorSetCollection {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDataCollectorSetCollection_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataCollectorSetCollection_Impl, const OFFSET: isize>() -> IDataCollectorSetCollection_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataCollectorSetCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows_core::HRESULT {
@@ -1934,7 +1934,7 @@ impl IDataCollectorSetCollection_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Item<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataCollectorSetCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: super::Com::VARIANT, set: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataCollectorSetCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: super::Variant::VARIANT, set: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&index)) {
@@ -1961,7 +1961,7 @@ impl IDataCollectorSetCollection_Vtbl {
             let this = (*this).get_impl();
             this.Add(::windows_core::from_raw_borrowed(&set)).into()
         }
-        unsafe extern "system" fn Remove<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataCollectorSetCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, set: super::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Remove<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataCollectorSetCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, set: super::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Remove(::core::mem::transmute(&set)).into()
@@ -1997,8 +1997,8 @@ impl IDataCollectorSetCollection_Vtbl {
         iid == &<IDataCollectorSetCollection as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDataManager_Impl: Sized + super::Com::IDispatch_Impl {
     fn Enabled(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetEnabled(&self, fenabled: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
@@ -2026,9 +2026,9 @@ pub trait IDataManager_Impl: Sized + super::Com::IDispatch_Impl {
     fn Run(&self, steps: DataManagerSteps, bstrfolder: &::windows_core::BSTR) -> ::windows_core::Result<IValueMap>;
     fn Extract(&self, cabfilename: &::windows_core::BSTR, destinationpath: &::windows_core::BSTR) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IDataManager {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDataManager_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataManager_Impl, const OFFSET: isize>() -> IDataManager_Vtbl {
         unsafe extern "system" fn Enabled<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDataManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfenabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT {
@@ -2267,8 +2267,8 @@ impl IDataManager_Vtbl {
         iid == &<IDataManager as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFolderAction_Impl: Sized + super::Com::IDispatch_Impl {
     fn Age(&self) -> ::windows_core::Result<u32>;
     fn SetAge(&self, ulage: u32) -> ::windows_core::Result<()>;
@@ -2279,9 +2279,9 @@ pub trait IFolderAction_Impl: Sized + super::Com::IDispatch_Impl {
     fn SendCabTo(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn SetSendCabTo(&self, bstrdestination: &::windows_core::BSTR) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IFolderAction {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFolderAction_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IFolderAction_Impl, const OFFSET: isize>() -> IFolderAction_Vtbl {
         unsafe extern "system" fn Age<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IFolderAction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pulage: *mut u32) -> ::windows_core::HRESULT {
@@ -2364,21 +2364,21 @@ impl IFolderAction_Vtbl {
         iid == &<IFolderAction as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFolderActionCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<u32>;
-    fn get_Item(&self, index: &super::Com::VARIANT) -> ::windows_core::Result<IFolderAction>;
+    fn get_Item(&self, index: &super::Variant::VARIANT) -> ::windows_core::Result<IFolderAction>;
     fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
     fn Add(&self, action: ::core::option::Option<&IFolderAction>) -> ::windows_core::Result<()>;
-    fn Remove(&self, index: &super::Com::VARIANT) -> ::windows_core::Result<()>;
+    fn Remove(&self, index: &super::Variant::VARIANT) -> ::windows_core::Result<()>;
     fn Clear(&self) -> ::windows_core::Result<()>;
     fn AddRange(&self, actions: ::core::option::Option<&IFolderActionCollection>) -> ::windows_core::Result<()>;
     fn CreateFolderAction(&self) -> ::windows_core::Result<IFolderAction>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IFolderActionCollection {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFolderActionCollection_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IFolderActionCollection_Impl, const OFFSET: isize>() -> IFolderActionCollection_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IFolderActionCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: *mut u32) -> ::windows_core::HRESULT {
@@ -2392,7 +2392,7 @@ impl IFolderActionCollection_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Item<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IFolderActionCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: super::Com::VARIANT, action: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IFolderActionCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: super::Variant::VARIANT, action: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&index)) {
@@ -2419,7 +2419,7 @@ impl IFolderActionCollection_Vtbl {
             let this = (*this).get_impl();
             this.Add(::windows_core::from_raw_borrowed(&action)).into()
         }
-        unsafe extern "system" fn Remove<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IFolderActionCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: super::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Remove<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IFolderActionCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: super::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Remove(::core::mem::transmute(&index)).into()
@@ -2485,18 +2485,18 @@ impl ILogFileItem_Vtbl {
         iid == &<ILogFileItem as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ILogFiles_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
     fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
-    fn get_Item(&self, index: &super::Com::VARIANT) -> ::windows_core::Result<DILogFileItem>;
+    fn get_Item(&self, index: &super::Variant::VARIANT) -> ::windows_core::Result<DILogFileItem>;
     fn Add(&self, pathname: &::windows_core::BSTR) -> ::windows_core::Result<DILogFileItem>;
-    fn Remove(&self, index: &super::Com::VARIANT) -> ::windows_core::Result<()>;
+    fn Remove(&self, index: &super::Variant::VARIANT) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ILogFiles {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ILogFiles_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ILogFiles_Impl, const OFFSET: isize>() -> ILogFiles_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ILogFiles_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plong: *mut i32) -> ::windows_core::HRESULT {
@@ -2521,7 +2521,7 @@ impl ILogFiles_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Item<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ILogFiles_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: super::Com::VARIANT, ppi: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ILogFiles_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: super::Variant::VARIANT, ppi: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&index)) {
@@ -2543,7 +2543,7 @@ impl ILogFiles_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Remove<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ILogFiles_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: super::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Remove<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ILogFiles_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: super::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Remove(::core::mem::transmute(&index)).into()
@@ -2561,8 +2561,8 @@ impl ILogFiles_Vtbl {
         iid == &<ILogFiles as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IPerformanceCounterDataCollector_Impl: Sized + IDataCollector_Impl {
     fn DataSourceName(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn SetDataSourceName(&self, dsn: &::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -2575,9 +2575,9 @@ pub trait IPerformanceCounterDataCollector_Impl: Sized + IDataCollector_Impl {
     fn SegmentMaxRecords(&self) -> ::windows_core::Result<u32>;
     fn SetSegmentMaxRecords(&self, records: u32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IPerformanceCounterDataCollector {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IPerformanceCounterDataCollector_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPerformanceCounterDataCollector_Impl, const OFFSET: isize>() -> IPerformanceCounterDataCollector_Vtbl {
         unsafe extern "system" fn DataSourceName<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPerformanceCounterDataCollector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dsn: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -2678,24 +2678,24 @@ impl IPerformanceCounterDataCollector_Vtbl {
         iid == &<IPerformanceCounterDataCollector as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID || iid == &<IDataCollector as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISchedule_Impl: Sized + super::Com::IDispatch_Impl {
-    fn StartDate(&self) -> ::windows_core::Result<super::Com::VARIANT>;
-    fn SetStartDate(&self, start: &super::Com::VARIANT) -> ::windows_core::Result<()>;
-    fn EndDate(&self) -> ::windows_core::Result<super::Com::VARIANT>;
-    fn SetEndDate(&self, end: &super::Com::VARIANT) -> ::windows_core::Result<()>;
-    fn StartTime(&self) -> ::windows_core::Result<super::Com::VARIANT>;
-    fn SetStartTime(&self, start: &super::Com::VARIANT) -> ::windows_core::Result<()>;
+    fn StartDate(&self) -> ::windows_core::Result<super::Variant::VARIANT>;
+    fn SetStartDate(&self, start: &super::Variant::VARIANT) -> ::windows_core::Result<()>;
+    fn EndDate(&self) -> ::windows_core::Result<super::Variant::VARIANT>;
+    fn SetEndDate(&self, end: &super::Variant::VARIANT) -> ::windows_core::Result<()>;
+    fn StartTime(&self) -> ::windows_core::Result<super::Variant::VARIANT>;
+    fn SetStartTime(&self, start: &super::Variant::VARIANT) -> ::windows_core::Result<()>;
     fn Days(&self) -> ::windows_core::Result<WeekDays>;
     fn SetDays(&self, days: WeekDays) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ISchedule {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISchedule_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISchedule_Impl, const OFFSET: isize>() -> ISchedule_Vtbl {
-        unsafe extern "system" fn StartDate<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISchedule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, start: *mut super::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn StartDate<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISchedule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, start: *mut super::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.StartDate() {
@@ -2706,12 +2706,12 @@ impl ISchedule_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetStartDate<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISchedule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, start: super::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SetStartDate<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISchedule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, start: super::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetStartDate(::core::mem::transmute(&start)).into()
         }
-        unsafe extern "system" fn EndDate<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISchedule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, end: *mut super::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn EndDate<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISchedule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, end: *mut super::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.EndDate() {
@@ -2722,12 +2722,12 @@ impl ISchedule_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEndDate<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISchedule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, end: super::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SetEndDate<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISchedule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, end: super::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetEndDate(::core::mem::transmute(&end)).into()
         }
-        unsafe extern "system" fn StartTime<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISchedule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, start: *mut super::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn StartTime<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISchedule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, start: *mut super::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.StartTime() {
@@ -2738,7 +2738,7 @@ impl ISchedule_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetStartTime<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISchedule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, start: super::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SetStartTime<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISchedule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, start: super::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetStartTime(::core::mem::transmute(&start)).into()
@@ -2775,21 +2775,21 @@ impl ISchedule_Vtbl {
         iid == &<ISchedule as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IScheduleCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
-    fn get_Item(&self, index: &super::Com::VARIANT) -> ::windows_core::Result<ISchedule>;
+    fn get_Item(&self, index: &super::Variant::VARIANT) -> ::windows_core::Result<ISchedule>;
     fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
     fn Add(&self, pschedule: ::core::option::Option<&ISchedule>) -> ::windows_core::Result<()>;
-    fn Remove(&self, vschedule: &super::Com::VARIANT) -> ::windows_core::Result<()>;
+    fn Remove(&self, vschedule: &super::Variant::VARIANT) -> ::windows_core::Result<()>;
     fn Clear(&self) -> ::windows_core::Result<()>;
     fn AddRange(&self, pschedules: ::core::option::Option<&IScheduleCollection>) -> ::windows_core::Result<()>;
     fn CreateSchedule(&self) -> ::windows_core::Result<ISchedule>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IScheduleCollection {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IScheduleCollection_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IScheduleCollection_Impl, const OFFSET: isize>() -> IScheduleCollection_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IScheduleCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows_core::HRESULT {
@@ -2803,7 +2803,7 @@ impl IScheduleCollection_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Item<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IScheduleCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: super::Com::VARIANT, ppschedule: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IScheduleCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: super::Variant::VARIANT, ppschedule: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&index)) {
@@ -2830,7 +2830,7 @@ impl IScheduleCollection_Vtbl {
             let this = (*this).get_impl();
             this.Add(::windows_core::from_raw_borrowed(&pschedule)).into()
         }
-        unsafe extern "system" fn Remove<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IScheduleCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vschedule: super::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Remove<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IScheduleCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vschedule: super::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Remove(::core::mem::transmute(&vschedule)).into()
@@ -3885,8 +3885,8 @@ impl ISystemMonitorEvents_Vtbl {
         iid == &<ISystemMonitorEvents as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITraceDataCollector_Impl: Sized + IDataCollector_Impl {
     fn BufferSize(&self) -> ::windows_core::Result<u32>;
     fn SetBufferSize(&self, size: u32) -> ::windows_core::Result<()>;
@@ -3929,9 +3929,9 @@ pub trait ITraceDataCollector_Impl: Sized + IDataCollector_Impl {
     fn SetStreamMode(&self, mode: StreamMode) -> ::windows_core::Result<()>;
     fn TraceDataProviders(&self) -> ::windows_core::Result<ITraceDataProviderCollection>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ITraceDataCollector {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITraceDataCollector_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITraceDataCollector_Impl, const OFFSET: isize>() -> ITraceDataCollector_Vtbl {
         unsafe extern "system" fn BufferSize<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITraceDataCollector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, size: *mut u32) -> ::windows_core::HRESULT {
@@ -4308,8 +4308,8 @@ impl ITraceDataCollector_Vtbl {
         iid == &<ITraceDataCollector as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID || iid == &<IDataCollector as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITraceDataProvider_Impl: Sized + super::Com::IDispatch_Impl {
     fn DisplayName(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn SetDisplayName(&self, name: &::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -4331,9 +4331,9 @@ pub trait ITraceDataProvider_Impl: Sized + super::Com::IDispatch_Impl {
     fn GetSecurity(&self, securityinfo: u32) -> ::windows_core::Result<::windows_core::BSTR>;
     fn GetRegisteredProcesses(&self) -> ::windows_core::Result<IValueMap>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ITraceDataProvider {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITraceDataProvider_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITraceDataProvider_Impl, const OFFSET: isize>() -> ITraceDataProvider_Vtbl {
         unsafe extern "system" fn DisplayName<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITraceDataProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -4524,23 +4524,23 @@ impl ITraceDataProvider_Vtbl {
         iid == &<ITraceDataProvider as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITraceDataProviderCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
-    fn get_Item(&self, index: &super::Com::VARIANT) -> ::windows_core::Result<ITraceDataProvider>;
+    fn get_Item(&self, index: &super::Variant::VARIANT) -> ::windows_core::Result<ITraceDataProvider>;
     fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
     fn Add(&self, pprovider: ::core::option::Option<&ITraceDataProvider>) -> ::windows_core::Result<()>;
-    fn Remove(&self, vprovider: &super::Com::VARIANT) -> ::windows_core::Result<()>;
+    fn Remove(&self, vprovider: &super::Variant::VARIANT) -> ::windows_core::Result<()>;
     fn Clear(&self) -> ::windows_core::Result<()>;
     fn AddRange(&self, providers: ::core::option::Option<&ITraceDataProviderCollection>) -> ::windows_core::Result<()>;
     fn CreateTraceDataProvider(&self) -> ::windows_core::Result<ITraceDataProvider>;
     fn GetTraceDataProviders(&self, server: &::windows_core::BSTR) -> ::windows_core::Result<()>;
     fn GetTraceDataProvidersByProcess(&self, server: &::windows_core::BSTR, pid: u32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ITraceDataProviderCollection {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITraceDataProviderCollection_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITraceDataProviderCollection_Impl, const OFFSET: isize>() -> ITraceDataProviderCollection_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITraceDataProviderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows_core::HRESULT {
@@ -4554,7 +4554,7 @@ impl ITraceDataProviderCollection_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Item<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITraceDataProviderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: super::Com::VARIANT, ppprovider: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITraceDataProviderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: super::Variant::VARIANT, ppprovider: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&index)) {
@@ -4581,7 +4581,7 @@ impl ITraceDataProviderCollection_Vtbl {
             let this = (*this).get_impl();
             this.Add(::windows_core::from_raw_borrowed(&pprovider)).into()
         }
-        unsafe extern "system" fn Remove<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITraceDataProviderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vprovider: super::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Remove<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITraceDataProviderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vprovider: super::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Remove(::core::mem::transmute(&vprovider)).into()
@@ -4635,27 +4635,27 @@ impl ITraceDataProviderCollection_Vtbl {
         iid == &<ITraceDataProviderCollection as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IValueMap_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
-    fn get_Item(&self, index: &super::Com::VARIANT) -> ::windows_core::Result<IValueMapItem>;
+    fn get_Item(&self, index: &super::Variant::VARIANT) -> ::windows_core::Result<IValueMapItem>;
     fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
     fn Description(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn SetDescription(&self, description: &::windows_core::BSTR) -> ::windows_core::Result<()>;
-    fn Value(&self) -> ::windows_core::Result<super::Com::VARIANT>;
-    fn SetValue(&self, value: &super::Com::VARIANT) -> ::windows_core::Result<()>;
+    fn Value(&self) -> ::windows_core::Result<super::Variant::VARIANT>;
+    fn SetValue(&self, value: &super::Variant::VARIANT) -> ::windows_core::Result<()>;
     fn ValueMapType(&self) -> ::windows_core::Result<ValueMapType>;
     fn SetValueMapType(&self, r#type: ValueMapType) -> ::windows_core::Result<()>;
-    fn Add(&self, value: &super::Com::VARIANT) -> ::windows_core::Result<()>;
-    fn Remove(&self, value: &super::Com::VARIANT) -> ::windows_core::Result<()>;
+    fn Add(&self, value: &super::Variant::VARIANT) -> ::windows_core::Result<()>;
+    fn Remove(&self, value: &super::Variant::VARIANT) -> ::windows_core::Result<()>;
     fn Clear(&self) -> ::windows_core::Result<()>;
     fn AddRange(&self, map: ::core::option::Option<&IValueMap>) -> ::windows_core::Result<()>;
     fn CreateValueMapItem(&self) -> ::windows_core::Result<IValueMapItem>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IValueMap {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IValueMap_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IValueMap_Impl, const OFFSET: isize>() -> IValueMap_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IValueMap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows_core::HRESULT {
@@ -4669,7 +4669,7 @@ impl IValueMap_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Item<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IValueMap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: super::Com::VARIANT, value: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IValueMap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: super::Variant::VARIANT, value: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&index)) {
@@ -4707,7 +4707,7 @@ impl IValueMap_Vtbl {
             let this = (*this).get_impl();
             this.SetDescription(::core::mem::transmute(&description)).into()
         }
-        unsafe extern "system" fn Value<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IValueMap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut super::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Value<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IValueMap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut super::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Value() {
@@ -4718,7 +4718,7 @@ impl IValueMap_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IValueMap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SetValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IValueMap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetValue(::core::mem::transmute(&value)).into()
@@ -4739,12 +4739,12 @@ impl IValueMap_Vtbl {
             let this = (*this).get_impl();
             this.SetValueMapType(::core::mem::transmute_copy(&r#type)).into()
         }
-        unsafe extern "system" fn Add<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IValueMap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Add<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IValueMap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Add(::core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn Remove<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IValueMap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Remove<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IValueMap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Remove(::core::mem::transmute(&value)).into()
@@ -4792,8 +4792,8 @@ impl IValueMap_Vtbl {
         iid == &<IValueMap as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IValueMapItem_Impl: Sized + super::Com::IDispatch_Impl {
     fn Description(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn SetDescription(&self, description: &::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -4801,14 +4801,14 @@ pub trait IValueMapItem_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetEnabled(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
     fn Key(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn SetKey(&self, key: &::windows_core::BSTR) -> ::windows_core::Result<()>;
-    fn Value(&self) -> ::windows_core::Result<super::Com::VARIANT>;
-    fn SetValue(&self, value: &super::Com::VARIANT) -> ::windows_core::Result<()>;
+    fn Value(&self) -> ::windows_core::Result<super::Variant::VARIANT>;
+    fn SetValue(&self, value: &super::Variant::VARIANT) -> ::windows_core::Result<()>;
     fn ValueMapType(&self) -> ::windows_core::Result<ValueMapType>;
     fn SetValueMapType(&self, r#type: ValueMapType) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IValueMapItem {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IValueMapItem_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IValueMapItem_Impl, const OFFSET: isize>() -> IValueMapItem_Vtbl {
         unsafe extern "system" fn Description<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IValueMapItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, description: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -4859,7 +4859,7 @@ impl IValueMapItem_Vtbl {
             let this = (*this).get_impl();
             this.SetKey(::core::mem::transmute(&key)).into()
         }
-        unsafe extern "system" fn Value<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IValueMapItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut super::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Value<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IValueMapItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut super::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Value() {
@@ -4870,7 +4870,7 @@ impl IValueMapItem_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IValueMapItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SetValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IValueMapItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetValue(::core::mem::transmute(&value)).into()
@@ -4909,8 +4909,8 @@ impl IValueMapItem_Vtbl {
         iid == &<IValueMapItem as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait _ICounterItemUnion_Impl: Sized {
     fn Value(&self) -> ::windows_core::Result<f64>;
     fn SetColor(&self, color: u32) -> ::windows_core::Result<()>;
@@ -4928,11 +4928,11 @@ pub trait _ICounterItemUnion_Impl: Sized {
     fn Selected(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetVisible(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
     fn Visible(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn GetDataAt(&self, iindex: i32, iwhich: SysmonDataType) -> ::windows_core::Result<super::Com::VARIANT>;
+    fn GetDataAt(&self, iindex: i32, iwhich: SysmonDataType) -> ::windows_core::Result<super::Variant::VARIANT>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for _ICounterItemUnion {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl _ICounterItemUnion_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: _ICounterItemUnion_Impl, const OFFSET: isize>() -> _ICounterItemUnion_Vtbl {
         unsafe extern "system" fn Value<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: _ICounterItemUnion_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdblvalue: *mut f64) -> ::windows_core::HRESULT {
@@ -5063,7 +5063,7 @@ impl _ICounterItemUnion_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDataAt<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: _ICounterItemUnion_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iindex: i32, iwhich: SysmonDataType, pvariant: *mut super::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetDataAt<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: _ICounterItemUnion_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iindex: i32, iwhich: SysmonDataType, pvariant: *mut super::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetDataAt(::core::mem::transmute_copy(&iindex), ::core::mem::transmute_copy(&iwhich)) {

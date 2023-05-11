@@ -1062,8 +1062,8 @@ pub struct IEnumSyncProviderConfigUIInfos(::windows_core::IUnknown);
 impl IEnumSyncProviderConfigUIInfos {
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub unsafe fn Next(&self, cfactories: u32, ppsyncproviderconfiguiinfo: *mut ::core::option::Option<ISyncProviderConfigUIInfo>, pcfetched: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), cfactories, ::core::mem::transmute(ppsyncproviderconfiguiinfo), pcfetched).ok()
+    pub unsafe fn Next(&self, ppsyncproviderconfiguiinfo: &mut [::core::option::Option<ISyncProviderConfigUIInfo>], pcfetched: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), ppsyncproviderconfiguiinfo.len() as _, ::core::mem::transmute(ppsyncproviderconfiguiinfo.as_ptr()), pcfetched).ok()
     }
     pub unsafe fn Skip(&self, cfactories: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), cfactories).ok()
@@ -1117,8 +1117,8 @@ pub struct IEnumSyncProviderInfos(::windows_core::IUnknown);
 impl IEnumSyncProviderInfos {
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub unsafe fn Next(&self, cinstances: u32, ppsyncproviderinfo: *mut ::core::option::Option<ISyncProviderInfo>, pcfetched: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), cinstances, ::core::mem::transmute(ppsyncproviderinfo), pcfetched).ok()
+    pub unsafe fn Next(&self, ppsyncproviderinfo: &mut [::core::option::Option<ISyncProviderInfo>], pcfetched: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), ppsyncproviderinfo.len() as _, ::core::mem::transmute(ppsyncproviderinfo.as_ptr()), pcfetched).ok()
     }
     pub unsafe fn Skip(&self, cinstances: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), cinstances).ok()
@@ -4396,14 +4396,14 @@ impl ISyncProviderConfigUIInfo {
     pub unsafe fn GetAt(&self, iprop: u32, pkey: *mut super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetAt)(::windows_core::Interface::as_raw(self), iprop, pkey).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn GetValue(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows_core::Result<super::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = ::windows_core::zeroed::<super::Com::StructuredStorage::PROPVARIANT>();
         (::windows_core::Interface::vtable(self).base__.GetValue)(::windows_core::Interface::as_raw(self), key, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn SetValue(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, propvar: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetValue)(::windows_core::Interface::as_raw(self), key, propvar).ok()
     }
@@ -4471,14 +4471,14 @@ impl ISyncProviderInfo {
     pub unsafe fn GetAt(&self, iprop: u32, pkey: *mut super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetAt)(::windows_core::Interface::as_raw(self), iprop, pkey).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn GetValue(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows_core::Result<super::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = ::windows_core::zeroed::<super::Com::StructuredStorage::PROPVARIANT>();
         (::windows_core::Interface::vtable(self).base__.GetValue)(::windows_core::Interface::as_raw(self), key, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn SetValue(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, propvar: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetValue)(::windows_core::Interface::as_raw(self), key, propvar).ok()
     }

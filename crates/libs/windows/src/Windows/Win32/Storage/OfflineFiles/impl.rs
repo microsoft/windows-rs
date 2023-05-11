@@ -1317,22 +1317,22 @@ impl IOfflineFilesServerItem_Vtbl {
         iid == &<IOfflineFilesServerItem as ::windows_core::ComInterface>::IID || iid == &<IOfflineFilesItem as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IOfflineFilesSetting_Impl: Sized {
     fn GetName(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
     fn GetValueType(&self) -> ::windows_core::Result<OFFLINEFILES_SETTING_VALUE_TYPE>;
-    fn GetPreference(&self, pvarvalue: *mut super::super::System::Com::VARIANT, dwscope: u32) -> ::windows_core::Result<()>;
+    fn GetPreference(&self, pvarvalue: *mut super::super::System::Variant::VARIANT, dwscope: u32) -> ::windows_core::Result<()>;
     fn GetPreferenceScope(&self) -> ::windows_core::Result<u32>;
-    fn SetPreference(&self, pvarvalue: *const super::super::System::Com::VARIANT, dwscope: u32) -> ::windows_core::Result<()>;
+    fn SetPreference(&self, pvarvalue: *const super::super::System::Variant::VARIANT, dwscope: u32) -> ::windows_core::Result<()>;
     fn DeletePreference(&self, dwscope: u32) -> ::windows_core::Result<()>;
-    fn GetPolicy(&self, pvarvalue: *mut super::super::System::Com::VARIANT, dwscope: u32) -> ::windows_core::Result<()>;
+    fn GetPolicy(&self, pvarvalue: *mut super::super::System::Variant::VARIANT, dwscope: u32) -> ::windows_core::Result<()>;
     fn GetPolicyScope(&self) -> ::windows_core::Result<u32>;
-    fn GetValue(&self, pvarvalue: *mut super::super::System::Com::VARIANT, pbsetbypolicy: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
+    fn GetValue(&self, pvarvalue: *mut super::super::System::Variant::VARIANT, pbsetbypolicy: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IOfflineFilesSetting {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IOfflineFilesSetting_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IOfflineFilesSetting_Impl, const OFFSET: isize>() -> IOfflineFilesSetting_Vtbl {
         unsafe extern "system" fn GetName<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IOfflineFilesSetting_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszname: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT {
@@ -1357,7 +1357,7 @@ impl IOfflineFilesSetting_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPreference<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IOfflineFilesSetting_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarvalue: *mut super::super::System::Com::VARIANT, dwscope: u32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetPreference<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IOfflineFilesSetting_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarvalue: *mut super::super::System::Variant::VARIANT, dwscope: u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetPreference(::core::mem::transmute_copy(&pvarvalue), ::core::mem::transmute_copy(&dwscope)).into()
@@ -1373,7 +1373,7 @@ impl IOfflineFilesSetting_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPreference<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IOfflineFilesSetting_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarvalue: *const super::super::System::Com::VARIANT, dwscope: u32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SetPreference<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IOfflineFilesSetting_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarvalue: *const super::super::System::Variant::VARIANT, dwscope: u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetPreference(::core::mem::transmute_copy(&pvarvalue), ::core::mem::transmute_copy(&dwscope)).into()
@@ -1383,7 +1383,7 @@ impl IOfflineFilesSetting_Vtbl {
             let this = (*this).get_impl();
             this.DeletePreference(::core::mem::transmute_copy(&dwscope)).into()
         }
-        unsafe extern "system" fn GetPolicy<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IOfflineFilesSetting_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarvalue: *mut super::super::System::Com::VARIANT, dwscope: u32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetPolicy<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IOfflineFilesSetting_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarvalue: *mut super::super::System::Variant::VARIANT, dwscope: u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetPolicy(::core::mem::transmute_copy(&pvarvalue), ::core::mem::transmute_copy(&dwscope)).into()
@@ -1399,7 +1399,7 @@ impl IOfflineFilesSetting_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IOfflineFilesSetting_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarvalue: *mut super::super::System::Com::VARIANT, pbsetbypolicy: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IOfflineFilesSetting_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarvalue: *mut super::super::System::Variant::VARIANT, pbsetbypolicy: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetValue(::core::mem::transmute_copy(&pvarvalue), ::core::mem::transmute_copy(&pbsetbypolicy)).into()

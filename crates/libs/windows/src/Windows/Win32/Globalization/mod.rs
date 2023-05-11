@@ -22154,45 +22154,89 @@ impl ::core::default::Default for TEXTRANGE_PROPERTIES {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-pub struct UBiDi(pub u8);
-impl ::core::marker::Copy for UBiDi {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UBiDi(pub isize);
+impl ::core::default::Default for UBiDi {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for UBiDi {
     fn clone(&self) -> Self {
         *self
     }
 }
+impl ::core::marker::Copy for UBiDi {}
+impl ::core::fmt::Debug for UBiDi {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UBiDi").field(&self.0).finish()
+    }
+}
 impl ::windows_core::TypeKind for UBiDi {
     type TypeKind = ::windows_core::CopyType;
 }
-#[repr(C)]
-pub struct UBiDiTransform(pub u8);
-impl ::core::marker::Copy for UBiDiTransform {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UBiDiTransform(pub isize);
+impl ::core::default::Default for UBiDiTransform {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for UBiDiTransform {
     fn clone(&self) -> Self {
         *self
     }
 }
+impl ::core::marker::Copy for UBiDiTransform {}
+impl ::core::fmt::Debug for UBiDiTransform {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UBiDiTransform").field(&self.0).finish()
+    }
+}
 impl ::windows_core::TypeKind for UBiDiTransform {
     type TypeKind = ::windows_core::CopyType;
 }
-#[repr(C)]
-pub struct UBreakIterator(pub u8);
-impl ::core::marker::Copy for UBreakIterator {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UBreakIterator(pub isize);
+impl ::core::default::Default for UBreakIterator {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for UBreakIterator {
     fn clone(&self) -> Self {
         *self
     }
 }
+impl ::core::marker::Copy for UBreakIterator {}
+impl ::core::fmt::Debug for UBreakIterator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UBreakIterator").field(&self.0).finish()
+    }
+}
 impl ::windows_core::TypeKind for UBreakIterator {
     type TypeKind = ::windows_core::CopyType;
 }
-#[repr(C)]
-pub struct UCPMap(pub u8);
-impl ::core::marker::Copy for UCPMap {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UCPMap(pub isize);
+impl ::core::default::Default for UCPMap {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for UCPMap {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::marker::Copy for UCPMap {}
+impl ::core::fmt::Debug for UCPMap {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UCPMap").field(&self.0).finish()
     }
 }
 impl ::windows_core::TypeKind for UCPMap {
@@ -22251,12 +22295,23 @@ impl ::core::default::Default for UCPTrieData {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-pub struct UCaseMap(pub u8);
-impl ::core::marker::Copy for UCaseMap {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UCaseMap(pub isize);
+impl ::core::default::Default for UCaseMap {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for UCaseMap {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::marker::Copy for UCaseMap {}
+impl ::core::fmt::Debug for UCaseMap {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UCaseMap").field(&self.0).finish()
     }
 }
 impl ::windows_core::TypeKind for UCaseMap {
@@ -22301,67 +22356,133 @@ impl ::core::default::Default for UCharIterator {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-pub struct UCharsetDetector(pub u8);
-impl ::core::marker::Copy for UCharsetDetector {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UCharsetDetector(pub isize);
+impl ::core::default::Default for UCharsetDetector {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for UCharsetDetector {
     fn clone(&self) -> Self {
         *self
     }
 }
+impl ::core::marker::Copy for UCharsetDetector {}
+impl ::core::fmt::Debug for UCharsetDetector {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UCharsetDetector").field(&self.0).finish()
+    }
+}
 impl ::windows_core::TypeKind for UCharsetDetector {
     type TypeKind = ::windows_core::CopyType;
 }
-#[repr(C)]
-pub struct UCharsetMatch(pub u8);
-impl ::core::marker::Copy for UCharsetMatch {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UCharsetMatch(pub isize);
+impl ::core::default::Default for UCharsetMatch {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for UCharsetMatch {
     fn clone(&self) -> Self {
         *self
     }
 }
+impl ::core::marker::Copy for UCharsetMatch {}
+impl ::core::fmt::Debug for UCharsetMatch {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UCharsetMatch").field(&self.0).finish()
+    }
+}
 impl ::windows_core::TypeKind for UCharsetMatch {
     type TypeKind = ::windows_core::CopyType;
 }
-#[repr(C)]
-pub struct UCollationElements(pub u8);
-impl ::core::marker::Copy for UCollationElements {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UCollationElements(pub isize);
+impl ::core::default::Default for UCollationElements {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for UCollationElements {
     fn clone(&self) -> Self {
         *self
     }
 }
+impl ::core::marker::Copy for UCollationElements {}
+impl ::core::fmt::Debug for UCollationElements {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UCollationElements").field(&self.0).finish()
+    }
+}
 impl ::windows_core::TypeKind for UCollationElements {
     type TypeKind = ::windows_core::CopyType;
 }
-#[repr(C)]
-pub struct UCollator(pub u8);
-impl ::core::marker::Copy for UCollator {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UCollator(pub isize);
+impl ::core::default::Default for UCollator {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for UCollator {
     fn clone(&self) -> Self {
         *self
     }
 }
+impl ::core::marker::Copy for UCollator {}
+impl ::core::fmt::Debug for UCollator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UCollator").field(&self.0).finish()
+    }
+}
 impl ::windows_core::TypeKind for UCollator {
     type TypeKind = ::windows_core::CopyType;
 }
-#[repr(C)]
-pub struct UConstrainedFieldPosition(pub u8);
-impl ::core::marker::Copy for UConstrainedFieldPosition {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UConstrainedFieldPosition(pub isize);
+impl ::core::default::Default for UConstrainedFieldPosition {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for UConstrainedFieldPosition {
     fn clone(&self) -> Self {
         *self
     }
 }
+impl ::core::marker::Copy for UConstrainedFieldPosition {}
+impl ::core::fmt::Debug for UConstrainedFieldPosition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UConstrainedFieldPosition").field(&self.0).finish()
+    }
+}
 impl ::windows_core::TypeKind for UConstrainedFieldPosition {
     type TypeKind = ::windows_core::CopyType;
 }
-#[repr(C)]
-pub struct UConverter(pub u8);
-impl ::core::marker::Copy for UConverter {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UConverter(pub isize);
+impl ::core::default::Default for UConverter {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for UConverter {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::marker::Copy for UConverter {}
+impl ::core::fmt::Debug for UConverter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UConverter").field(&self.0).finish()
     }
 }
 impl ::windows_core::TypeKind for UConverter {
@@ -22404,12 +22525,23 @@ impl ::core::default::Default for UConverterFromUnicodeArgs {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-pub struct UConverterSelector(pub u8);
-impl ::core::marker::Copy for UConverterSelector {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UConverterSelector(pub isize);
+impl ::core::default::Default for UConverterSelector {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for UConverterSelector {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::marker::Copy for UConverterSelector {}
+impl ::core::fmt::Debug for UConverterSelector {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UConverterSelector").field(&self.0).finish()
     }
 }
 impl ::windows_core::TypeKind for UConverterSelector {
@@ -22452,34 +22584,67 @@ impl ::core::default::Default for UConverterToUnicodeArgs {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-pub struct UDateFormatSymbols(pub u8);
-impl ::core::marker::Copy for UDateFormatSymbols {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UDateFormatSymbols(pub isize);
+impl ::core::default::Default for UDateFormatSymbols {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for UDateFormatSymbols {
     fn clone(&self) -> Self {
         *self
     }
 }
+impl ::core::marker::Copy for UDateFormatSymbols {}
+impl ::core::fmt::Debug for UDateFormatSymbols {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UDateFormatSymbols").field(&self.0).finish()
+    }
+}
 impl ::windows_core::TypeKind for UDateFormatSymbols {
     type TypeKind = ::windows_core::CopyType;
 }
-#[repr(C)]
-pub struct UDateIntervalFormat(pub u8);
-impl ::core::marker::Copy for UDateIntervalFormat {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UDateIntervalFormat(pub isize);
+impl ::core::default::Default for UDateIntervalFormat {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for UDateIntervalFormat {
     fn clone(&self) -> Self {
         *self
     }
 }
+impl ::core::marker::Copy for UDateIntervalFormat {}
+impl ::core::fmt::Debug for UDateIntervalFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UDateIntervalFormat").field(&self.0).finish()
+    }
+}
 impl ::windows_core::TypeKind for UDateIntervalFormat {
     type TypeKind = ::windows_core::CopyType;
 }
-#[repr(C)]
-pub struct UEnumeration(pub u8);
-impl ::core::marker::Copy for UEnumeration {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UEnumeration(pub isize);
+impl ::core::default::Default for UEnumeration {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for UEnumeration {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::marker::Copy for UEnumeration {}
+impl ::core::fmt::Debug for UEnumeration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UEnumeration").field(&self.0).finish()
     }
 }
 impl ::windows_core::TypeKind for UEnumeration {
@@ -22517,111 +22682,221 @@ impl ::core::default::Default for UFieldPosition {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-pub struct UFieldPositionIterator(pub u8);
-impl ::core::marker::Copy for UFieldPositionIterator {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UFieldPositionIterator(pub isize);
+impl ::core::default::Default for UFieldPositionIterator {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for UFieldPositionIterator {
     fn clone(&self) -> Self {
         *self
     }
 }
+impl ::core::marker::Copy for UFieldPositionIterator {}
+impl ::core::fmt::Debug for UFieldPositionIterator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UFieldPositionIterator").field(&self.0).finish()
+    }
+}
 impl ::windows_core::TypeKind for UFieldPositionIterator {
     type TypeKind = ::windows_core::CopyType;
 }
-#[repr(C)]
-pub struct UFormattedDateInterval(pub u8);
-impl ::core::marker::Copy for UFormattedDateInterval {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UFormattedDateInterval(pub isize);
+impl ::core::default::Default for UFormattedDateInterval {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for UFormattedDateInterval {
     fn clone(&self) -> Self {
         *self
     }
 }
+impl ::core::marker::Copy for UFormattedDateInterval {}
+impl ::core::fmt::Debug for UFormattedDateInterval {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UFormattedDateInterval").field(&self.0).finish()
+    }
+}
 impl ::windows_core::TypeKind for UFormattedDateInterval {
     type TypeKind = ::windows_core::CopyType;
 }
-#[repr(C)]
-pub struct UFormattedList(pub u8);
-impl ::core::marker::Copy for UFormattedList {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UFormattedList(pub isize);
+impl ::core::default::Default for UFormattedList {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for UFormattedList {
     fn clone(&self) -> Self {
         *self
     }
 }
+impl ::core::marker::Copy for UFormattedList {}
+impl ::core::fmt::Debug for UFormattedList {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UFormattedList").field(&self.0).finish()
+    }
+}
 impl ::windows_core::TypeKind for UFormattedList {
     type TypeKind = ::windows_core::CopyType;
 }
-#[repr(C)]
-pub struct UFormattedNumber(pub u8);
-impl ::core::marker::Copy for UFormattedNumber {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UFormattedNumber(pub isize);
+impl ::core::default::Default for UFormattedNumber {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for UFormattedNumber {
     fn clone(&self) -> Self {
         *self
     }
 }
+impl ::core::marker::Copy for UFormattedNumber {}
+impl ::core::fmt::Debug for UFormattedNumber {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UFormattedNumber").field(&self.0).finish()
+    }
+}
 impl ::windows_core::TypeKind for UFormattedNumber {
     type TypeKind = ::windows_core::CopyType;
 }
-#[repr(C)]
-pub struct UFormattedNumberRange(pub u8);
-impl ::core::marker::Copy for UFormattedNumberRange {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UFormattedNumberRange(pub isize);
+impl ::core::default::Default for UFormattedNumberRange {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for UFormattedNumberRange {
     fn clone(&self) -> Self {
         *self
     }
 }
+impl ::core::marker::Copy for UFormattedNumberRange {}
+impl ::core::fmt::Debug for UFormattedNumberRange {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UFormattedNumberRange").field(&self.0).finish()
+    }
+}
 impl ::windows_core::TypeKind for UFormattedNumberRange {
     type TypeKind = ::windows_core::CopyType;
 }
-#[repr(C)]
-pub struct UFormattedRelativeDateTime(pub u8);
-impl ::core::marker::Copy for UFormattedRelativeDateTime {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UFormattedRelativeDateTime(pub isize);
+impl ::core::default::Default for UFormattedRelativeDateTime {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for UFormattedRelativeDateTime {
     fn clone(&self) -> Self {
         *self
     }
 }
+impl ::core::marker::Copy for UFormattedRelativeDateTime {}
+impl ::core::fmt::Debug for UFormattedRelativeDateTime {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UFormattedRelativeDateTime").field(&self.0).finish()
+    }
+}
 impl ::windows_core::TypeKind for UFormattedRelativeDateTime {
     type TypeKind = ::windows_core::CopyType;
 }
-#[repr(C)]
-pub struct UFormattedValue(pub u8);
-impl ::core::marker::Copy for UFormattedValue {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UFormattedValue(pub isize);
+impl ::core::default::Default for UFormattedValue {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for UFormattedValue {
     fn clone(&self) -> Self {
         *self
     }
 }
+impl ::core::marker::Copy for UFormattedValue {}
+impl ::core::fmt::Debug for UFormattedValue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UFormattedValue").field(&self.0).finish()
+    }
+}
 impl ::windows_core::TypeKind for UFormattedValue {
     type TypeKind = ::windows_core::CopyType;
 }
-#[repr(C)]
-pub struct UGenderInfo(pub u8);
-impl ::core::marker::Copy for UGenderInfo {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UGenderInfo(pub isize);
+impl ::core::default::Default for UGenderInfo {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for UGenderInfo {
     fn clone(&self) -> Self {
         *self
     }
 }
+impl ::core::marker::Copy for UGenderInfo {}
+impl ::core::fmt::Debug for UGenderInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UGenderInfo").field(&self.0).finish()
+    }
+}
 impl ::windows_core::TypeKind for UGenderInfo {
     type TypeKind = ::windows_core::CopyType;
 }
-#[repr(C)]
-pub struct UHashtable(pub u8);
-impl ::core::marker::Copy for UHashtable {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UHashtable(pub isize);
+impl ::core::default::Default for UHashtable {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for UHashtable {
     fn clone(&self) -> Self {
         *self
     }
 }
+impl ::core::marker::Copy for UHashtable {}
+impl ::core::fmt::Debug for UHashtable {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UHashtable").field(&self.0).finish()
+    }
+}
 impl ::windows_core::TypeKind for UHashtable {
     type TypeKind = ::windows_core::CopyType;
 }
-#[repr(C)]
-pub struct UIDNA(pub u8);
-impl ::core::marker::Copy for UIDNA {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UIDNA(pub isize);
+impl ::core::default::Default for UIDNA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for UIDNA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::marker::Copy for UIDNA {}
+impl ::core::fmt::Debug for UIDNA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UIDNA").field(&self.0).finish()
     }
 }
 impl ::windows_core::TypeKind for UIDNA {
@@ -22662,45 +22937,89 @@ impl ::core::default::Default for UIDNAInfo {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-pub struct UListFormatter(pub u8);
-impl ::core::marker::Copy for UListFormatter {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UListFormatter(pub isize);
+impl ::core::default::Default for UListFormatter {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for UListFormatter {
     fn clone(&self) -> Self {
         *self
     }
 }
+impl ::core::marker::Copy for UListFormatter {}
+impl ::core::fmt::Debug for UListFormatter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UListFormatter").field(&self.0).finish()
+    }
+}
 impl ::windows_core::TypeKind for UListFormatter {
     type TypeKind = ::windows_core::CopyType;
 }
-#[repr(C)]
-pub struct ULocaleData(pub u8);
-impl ::core::marker::Copy for ULocaleData {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ULocaleData(pub isize);
+impl ::core::default::Default for ULocaleData {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for ULocaleData {
     fn clone(&self) -> Self {
         *self
     }
 }
+impl ::core::marker::Copy for ULocaleData {}
+impl ::core::fmt::Debug for ULocaleData {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ULocaleData").field(&self.0).finish()
+    }
+}
 impl ::windows_core::TypeKind for ULocaleData {
     type TypeKind = ::windows_core::CopyType;
 }
-#[repr(C)]
-pub struct ULocaleDisplayNames(pub u8);
-impl ::core::marker::Copy for ULocaleDisplayNames {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ULocaleDisplayNames(pub isize);
+impl ::core::default::Default for ULocaleDisplayNames {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for ULocaleDisplayNames {
     fn clone(&self) -> Self {
         *self
     }
 }
+impl ::core::marker::Copy for ULocaleDisplayNames {}
+impl ::core::fmt::Debug for ULocaleDisplayNames {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ULocaleDisplayNames").field(&self.0).finish()
+    }
+}
 impl ::windows_core::TypeKind for ULocaleDisplayNames {
     type TypeKind = ::windows_core::CopyType;
 }
-#[repr(C)]
-pub struct UMutableCPTrie(pub u8);
-impl ::core::marker::Copy for UMutableCPTrie {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UMutableCPTrie(pub isize);
+impl ::core::default::Default for UMutableCPTrie {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for UMutableCPTrie {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::marker::Copy for UMutableCPTrie {}
+impl ::core::fmt::Debug for UMutableCPTrie {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UMutableCPTrie").field(&self.0).finish()
     }
 }
 impl ::windows_core::TypeKind for UMutableCPTrie {
@@ -22737,34 +23056,67 @@ impl ::core::default::Default for UNICODERANGE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-pub struct UNormalizer2(pub u8);
-impl ::core::marker::Copy for UNormalizer2 {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UNormalizer2(pub isize);
+impl ::core::default::Default for UNormalizer2 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for UNormalizer2 {
     fn clone(&self) -> Self {
         *self
     }
 }
+impl ::core::marker::Copy for UNormalizer2 {}
+impl ::core::fmt::Debug for UNormalizer2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UNormalizer2").field(&self.0).finish()
+    }
+}
 impl ::windows_core::TypeKind for UNormalizer2 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[repr(C)]
-pub struct UNumberFormatter(pub u8);
-impl ::core::marker::Copy for UNumberFormatter {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UNumberFormatter(pub isize);
+impl ::core::default::Default for UNumberFormatter {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for UNumberFormatter {
     fn clone(&self) -> Self {
         *self
     }
 }
+impl ::core::marker::Copy for UNumberFormatter {}
+impl ::core::fmt::Debug for UNumberFormatter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UNumberFormatter").field(&self.0).finish()
+    }
+}
 impl ::windows_core::TypeKind for UNumberFormatter {
     type TypeKind = ::windows_core::CopyType;
 }
-#[repr(C)]
-pub struct UNumberingSystem(pub u8);
-impl ::core::marker::Copy for UNumberingSystem {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UNumberingSystem(pub isize);
+impl ::core::default::Default for UNumberingSystem {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for UNumberingSystem {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::marker::Copy for UNumberingSystem {}
+impl ::core::fmt::Debug for UNumberingSystem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UNumberingSystem").field(&self.0).finish()
     }
 }
 impl ::windows_core::TypeKind for UNumberingSystem {
@@ -22803,45 +23155,89 @@ impl ::core::default::Default for UParseError {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-pub struct UPluralRules(pub u8);
-impl ::core::marker::Copy for UPluralRules {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UPluralRules(pub isize);
+impl ::core::default::Default for UPluralRules {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for UPluralRules {
     fn clone(&self) -> Self {
         *self
     }
 }
+impl ::core::marker::Copy for UPluralRules {}
+impl ::core::fmt::Debug for UPluralRules {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UPluralRules").field(&self.0).finish()
+    }
+}
 impl ::windows_core::TypeKind for UPluralRules {
     type TypeKind = ::windows_core::CopyType;
 }
-#[repr(C)]
-pub struct URegion(pub u8);
-impl ::core::marker::Copy for URegion {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct URegion(pub isize);
+impl ::core::default::Default for URegion {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for URegion {
     fn clone(&self) -> Self {
         *self
     }
 }
+impl ::core::marker::Copy for URegion {}
+impl ::core::fmt::Debug for URegion {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("URegion").field(&self.0).finish()
+    }
+}
 impl ::windows_core::TypeKind for URegion {
     type TypeKind = ::windows_core::CopyType;
 }
-#[repr(C)]
-pub struct URegularExpression(pub u8);
-impl ::core::marker::Copy for URegularExpression {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct URegularExpression(pub isize);
+impl ::core::default::Default for URegularExpression {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for URegularExpression {
     fn clone(&self) -> Self {
         *self
     }
 }
+impl ::core::marker::Copy for URegularExpression {}
+impl ::core::fmt::Debug for URegularExpression {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("URegularExpression").field(&self.0).finish()
+    }
+}
 impl ::windows_core::TypeKind for URegularExpression {
     type TypeKind = ::windows_core::CopyType;
 }
-#[repr(C)]
-pub struct URelativeDateTimeFormatter(pub u8);
-impl ::core::marker::Copy for URelativeDateTimeFormatter {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct URelativeDateTimeFormatter(pub isize);
+impl ::core::default::Default for URelativeDateTimeFormatter {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for URelativeDateTimeFormatter {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::marker::Copy for URelativeDateTimeFormatter {}
+impl ::core::fmt::Debug for URelativeDateTimeFormatter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("URelativeDateTimeFormatter").field(&self.0).finish()
     }
 }
 impl ::windows_core::TypeKind for URelativeDateTimeFormatter {
@@ -22882,23 +23278,45 @@ impl ::core::default::Default for UReplaceableCallbacks {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-pub struct UResourceBundle(pub u8);
-impl ::core::marker::Copy for UResourceBundle {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UResourceBundle(pub isize);
+impl ::core::default::Default for UResourceBundle {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for UResourceBundle {
     fn clone(&self) -> Self {
         *self
     }
 }
+impl ::core::marker::Copy for UResourceBundle {}
+impl ::core::fmt::Debug for UResourceBundle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UResourceBundle").field(&self.0).finish()
+    }
+}
 impl ::windows_core::TypeKind for UResourceBundle {
     type TypeKind = ::windows_core::CopyType;
 }
-#[repr(C)]
-pub struct USearch(pub u8);
-impl ::core::marker::Copy for USearch {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct USearch(pub isize);
+impl ::core::default::Default for USearch {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for USearch {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::marker::Copy for USearch {}
+impl ::core::fmt::Debug for USearch {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("USearch").field(&self.0).finish()
     }
 }
 impl ::windows_core::TypeKind for USearch {
@@ -22937,56 +23355,111 @@ impl ::core::default::Default for USerializedSet {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-pub struct USet(pub u8);
-impl ::core::marker::Copy for USet {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct USet(pub isize);
+impl ::core::default::Default for USet {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for USet {
     fn clone(&self) -> Self {
         *self
     }
 }
+impl ::core::marker::Copy for USet {}
+impl ::core::fmt::Debug for USet {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("USet").field(&self.0).finish()
+    }
+}
 impl ::windows_core::TypeKind for USet {
     type TypeKind = ::windows_core::CopyType;
 }
-#[repr(C)]
-pub struct USpoofCheckResult(pub u8);
-impl ::core::marker::Copy for USpoofCheckResult {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct USpoofCheckResult(pub isize);
+impl ::core::default::Default for USpoofCheckResult {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for USpoofCheckResult {
     fn clone(&self) -> Self {
         *self
     }
 }
+impl ::core::marker::Copy for USpoofCheckResult {}
+impl ::core::fmt::Debug for USpoofCheckResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("USpoofCheckResult").field(&self.0).finish()
+    }
+}
 impl ::windows_core::TypeKind for USpoofCheckResult {
     type TypeKind = ::windows_core::CopyType;
 }
-#[repr(C)]
-pub struct USpoofChecker(pub u8);
-impl ::core::marker::Copy for USpoofChecker {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct USpoofChecker(pub isize);
+impl ::core::default::Default for USpoofChecker {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for USpoofChecker {
     fn clone(&self) -> Self {
         *self
     }
 }
+impl ::core::marker::Copy for USpoofChecker {}
+impl ::core::fmt::Debug for USpoofChecker {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("USpoofChecker").field(&self.0).finish()
+    }
+}
 impl ::windows_core::TypeKind for USpoofChecker {
     type TypeKind = ::windows_core::CopyType;
 }
-#[repr(C)]
-pub struct UStringPrepProfile(pub u8);
-impl ::core::marker::Copy for UStringPrepProfile {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UStringPrepProfile(pub isize);
+impl ::core::default::Default for UStringPrepProfile {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for UStringPrepProfile {
     fn clone(&self) -> Self {
         *self
     }
 }
+impl ::core::marker::Copy for UStringPrepProfile {}
+impl ::core::fmt::Debug for UStringPrepProfile {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UStringPrepProfile").field(&self.0).finish()
+    }
+}
 impl ::windows_core::TypeKind for UStringPrepProfile {
     type TypeKind = ::windows_core::CopyType;
 }
-#[repr(C)]
-pub struct UStringSearch(pub u8);
-impl ::core::marker::Copy for UStringSearch {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UStringSearch(pub isize);
+impl ::core::default::Default for UStringSearch {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for UStringSearch {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::marker::Copy for UStringSearch {}
+impl ::core::fmt::Debug for UStringSearch {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UStringSearch").field(&self.0).finish()
     }
 }
 impl ::windows_core::TypeKind for UStringSearch {

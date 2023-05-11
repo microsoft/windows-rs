@@ -114,8 +114,6 @@ impl ::core::fmt::Debug for ID3DInclude {
         f.debug_tuple("ID3DInclude").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3DInclude {}
-unsafe impl ::core::marker::Sync for ID3DInclude {}
 unsafe impl ::windows_core::Interface for ID3DInclude {
     type Vtable = ID3DInclude_Vtbl;
 }
@@ -505,8 +503,6 @@ pub const D3D_INCLUDE_SYSTEM: D3D_INCLUDE_TYPE = D3D_INCLUDE_TYPE(1i32);
 pub const D3D10_INCLUDE_LOCAL: D3D_INCLUDE_TYPE = D3D_INCLUDE_TYPE(0i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 pub const D3D10_INCLUDE_SYSTEM: D3D_INCLUDE_TYPE = D3D_INCLUDE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
-pub const D3D_INCLUDE_FORCE_DWORD: D3D_INCLUDE_TYPE = D3D_INCLUDE_TYPE(2147483647i32);
 impl ::core::marker::Copy for D3D_INCLUDE_TYPE {}
 impl ::core::clone::Clone for D3D_INCLUDE_TYPE {
     fn clone(&self) -> Self {
@@ -745,8 +741,6 @@ pub const D3D_PF_NONE: D3D_PARAMETER_FLAGS = D3D_PARAMETER_FLAGS(0i32);
 pub const D3D_PF_IN: D3D_PARAMETER_FLAGS = D3D_PARAMETER_FLAGS(1i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 pub const D3D_PF_OUT: D3D_PARAMETER_FLAGS = D3D_PARAMETER_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
-pub const D3D_PF_FORCE_DWORD: D3D_PARAMETER_FLAGS = D3D_PARAMETER_FLAGS(2147483647i32);
 impl ::core::marker::Copy for D3D_PARAMETER_FLAGS {}
 impl ::core::clone::Clone for D3D_PARAMETER_FLAGS {
     fn clone(&self) -> Self {
@@ -1280,8 +1274,6 @@ pub struct D3D_SHADER_CBUFFER_FLAGS(pub i32);
 pub const D3D_CBF_USERPACKED: D3D_SHADER_CBUFFER_FLAGS = D3D_SHADER_CBUFFER_FLAGS(1i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 pub const D3D10_CBF_USERPACKED: D3D_SHADER_CBUFFER_FLAGS = D3D_SHADER_CBUFFER_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
-pub const D3D_CBF_FORCE_DWORD: D3D_SHADER_CBUFFER_FLAGS = D3D_SHADER_CBUFFER_FLAGS(2147483647i32);
 impl ::core::marker::Copy for D3D_SHADER_CBUFFER_FLAGS {}
 impl ::core::clone::Clone for D3D_SHADER_CBUFFER_FLAGS {
     fn clone(&self) -> Self {
@@ -1327,8 +1319,6 @@ pub const D3D10_SIF_TEXTURE_COMPONENT_0: D3D_SHADER_INPUT_FLAGS = D3D_SHADER_INP
 pub const D3D10_SIF_TEXTURE_COMPONENT_1: D3D_SHADER_INPUT_FLAGS = D3D_SHADER_INPUT_FLAGS(8i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 pub const D3D10_SIF_TEXTURE_COMPONENTS: D3D_SHADER_INPUT_FLAGS = D3D_SHADER_INPUT_FLAGS(12i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
-pub const D3D_SIF_FORCE_DWORD: D3D_SHADER_INPUT_FLAGS = D3D_SHADER_INPUT_FLAGS(2147483647i32);
 impl ::core::marker::Copy for D3D_SHADER_INPUT_FLAGS {}
 impl ::core::clone::Clone for D3D_SHADER_INPUT_FLAGS {
     fn clone(&self) -> Self {
@@ -1459,8 +1449,6 @@ pub const D3D10_SVC_STRUCT: D3D_SHADER_VARIABLE_CLASS = D3D_SHADER_VARIABLE_CLAS
 pub const D3D11_SVC_INTERFACE_CLASS: D3D_SHADER_VARIABLE_CLASS = D3D_SHADER_VARIABLE_CLASS(6i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 pub const D3D11_SVC_INTERFACE_POINTER: D3D_SHADER_VARIABLE_CLASS = D3D_SHADER_VARIABLE_CLASS(7i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
-pub const D3D_SVC_FORCE_DWORD: D3D_SHADER_VARIABLE_CLASS = D3D_SHADER_VARIABLE_CLASS(2147483647i32);
 impl ::core::marker::Copy for D3D_SHADER_VARIABLE_CLASS {}
 impl ::core::clone::Clone for D3D_SHADER_VARIABLE_CLASS {
     fn clone(&self) -> Self {
@@ -1500,8 +1488,6 @@ pub const D3D10_SVF_USED: D3D_SHADER_VARIABLE_FLAGS = D3D_SHADER_VARIABLE_FLAGS(
 pub const D3D11_SVF_INTERFACE_POINTER: D3D_SHADER_VARIABLE_FLAGS = D3D_SHADER_VARIABLE_FLAGS(4i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 pub const D3D11_SVF_INTERFACE_PARAMETER: D3D_SHADER_VARIABLE_FLAGS = D3D_SHADER_VARIABLE_FLAGS(8i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
-pub const D3D_SVF_FORCE_DWORD: D3D_SHADER_VARIABLE_FLAGS = D3D_SHADER_VARIABLE_FLAGS(2147483647i32);
 impl ::core::marker::Copy for D3D_SHADER_VARIABLE_FLAGS {}
 impl ::core::clone::Clone for D3D_SHADER_VARIABLE_FLAGS {
     fn clone(&self) -> Self {
@@ -1755,8 +1741,6 @@ pub const D3D11_SVT_RWSTRUCTURED_BUFFER: D3D_SHADER_VARIABLE_TYPE = D3D_SHADER_V
 pub const D3D11_SVT_APPEND_STRUCTURED_BUFFER: D3D_SHADER_VARIABLE_TYPE = D3D_SHADER_VARIABLE_TYPE(50i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 pub const D3D11_SVT_CONSUME_STRUCTURED_BUFFER: D3D_SHADER_VARIABLE_TYPE = D3D_SHADER_VARIABLE_TYPE(51i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
-pub const D3D_SVT_FORCE_DWORD: D3D_SHADER_VARIABLE_TYPE = D3D_SHADER_VARIABLE_TYPE(2147483647i32);
 impl ::core::marker::Copy for D3D_SHADER_VARIABLE_TYPE {}
 impl ::core::clone::Clone for D3D_SHADER_VARIABLE_TYPE {
     fn clone(&self) -> Self {

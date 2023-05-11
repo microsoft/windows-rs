@@ -3858,6 +3858,28 @@ impl ::core::default::Default for FlagList {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct LPWABACTIONITEM(pub isize);
+impl ::core::default::Default for LPWABACTIONITEM {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for LPWABACTIONITEM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for LPWABACTIONITEM {}
+impl ::core::fmt::Debug for LPWABACTIONITEM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LPWABACTIONITEM").field(&self.0).finish()
+    }
+}
+impl ::windows_core::TypeKind for LPWABACTIONITEM {
+    type TypeKind = ::windows_core::CopyType;
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 pub struct MAPIERROR {
@@ -5495,17 +5517,6 @@ impl ::core::default::Default for WAB_PARAM {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-#[repr(C)]
-pub struct _WABACTIONITEM(pub u8);
-impl ::core::marker::Copy for _WABACTIONITEM {}
-impl ::core::clone::Clone for _WABACTIONITEM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::windows_core::TypeKind for _WABACTIONITEM {
-    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]

@@ -3057,17 +3057,17 @@ impl IManagedObject_Vtbl {
         iid == &<IManagedObject as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IObjectHandle_Impl: Sized {
-    fn Unwrap(&self) -> ::windows_core::Result<super::Com::VARIANT>;
+    fn Unwrap(&self) -> ::windows_core::Result<super::Variant::VARIANT>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IObjectHandle {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IObjectHandle_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IObjectHandle_Impl, const OFFSET: isize>() -> IObjectHandle_Vtbl {
-        unsafe extern "system" fn Unwrap<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IObjectHandle_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppv: *mut super::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Unwrap<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IObjectHandle_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppv: *mut super::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Unwrap() {

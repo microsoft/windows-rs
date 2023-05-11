@@ -92,8 +92,8 @@ where
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn CopyContext(destination: *mut CONTEXT, contextflags: u32, source: *const CONTEXT) -> ::windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn CopyContext(destination : *mut CONTEXT, contextflags : u32, source : *const CONTEXT) -> super::super::super::Foundation:: BOOL);
+pub unsafe fn CopyContext(destination: *mut CONTEXT, contextflags: CONTEXT_FLAGS, source: *const CONTEXT) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("kernel32.dll" "system" fn CopyContext(destination : *mut CONTEXT, contextflags : CONTEXT_FLAGS, source : *const CONTEXT) -> super::super::super::Foundation:: BOOL);
     CopyContext(destination, contextflags, source).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -671,15 +671,15 @@ pub unsafe fn ImagehlpApiVersionEx(appversion: *const API_VERSION) -> *mut API_V
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn InitializeContext(buffer: ::core::option::Option<*mut ::core::ffi::c_void>, contextflags: u32, context: *mut *mut CONTEXT, contextlength: *mut u32) -> ::windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn InitializeContext(buffer : *mut ::core::ffi::c_void, contextflags : u32, context : *mut *mut CONTEXT, contextlength : *mut u32) -> super::super::super::Foundation:: BOOL);
+pub unsafe fn InitializeContext(buffer: ::core::option::Option<*mut ::core::ffi::c_void>, contextflags: CONTEXT_FLAGS, context: *mut *mut CONTEXT, contextlength: *mut u32) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("kernel32.dll" "system" fn InitializeContext(buffer : *mut ::core::ffi::c_void, contextflags : CONTEXT_FLAGS, context : *mut *mut CONTEXT, contextlength : *mut u32) -> super::super::super::Foundation:: BOOL);
     InitializeContext(::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), contextflags, context, contextlength).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn InitializeContext2(buffer: ::core::option::Option<*mut ::core::ffi::c_void>, contextflags: u32, context: *mut *mut CONTEXT, contextlength: *mut u32, xstatecompactionmask: u64) -> ::windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn InitializeContext2(buffer : *mut ::core::ffi::c_void, contextflags : u32, context : *mut *mut CONTEXT, contextlength : *mut u32, xstatecompactionmask : u64) -> super::super::super::Foundation:: BOOL);
+pub unsafe fn InitializeContext2(buffer: ::core::option::Option<*mut ::core::ffi::c_void>, contextflags: CONTEXT_FLAGS, context: *mut *mut CONTEXT, contextlength: *mut u32, xstatecompactionmask: u64) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("kernel32.dll" "system" fn InitializeContext2(buffer : *mut ::core::ffi::c_void, contextflags : CONTEXT_FLAGS, context : *mut *mut CONTEXT, contextlength : *mut u32, xstatecompactionmask : u64) -> super::super::super::Foundation:: BOOL);
     InitializeContext2(::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), contextflags, context, contextlength, xstatecompactionmask).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
@@ -1188,6 +1188,17 @@ where
 {
     ::windows_targets::link!("dbghelp.dll" "system" fn StackWalk(machinetype : u32, hprocess : super::super::super::Foundation:: HANDLE, hthread : super::super::super::Foundation:: HANDLE, stackframe : *mut STACKFRAME, contextrecord : *mut ::core::ffi::c_void, readmemoryroutine : PREAD_PROCESS_MEMORY_ROUTINE, functiontableaccessroutine : PFUNCTION_TABLE_ACCESS_ROUTINE, getmodulebaseroutine : PGET_MODULE_BASE_ROUTINE, translateaddress : PTRANSLATE_ADDRESS_ROUTINE) -> super::super::super::Foundation:: BOOL);
     StackWalk(machinetype, hprocess.into_param().abi(), hthread.into_param().abi(), stackframe, contextrecord, readmemoryroutine, functiontableaccessroutine, getmodulebaseroutine, translateaddress)
+}
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn StackWalk2<P0, P1>(machinetype: u32, hprocess: P0, hthread: P1, stackframe: *mut STACKFRAME_EX, contextrecord: *mut ::core::ffi::c_void, readmemoryroutine: PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine: PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine: PGET_MODULE_BASE_ROUTINE64, translateaddress: PTRANSLATE_ADDRESS_ROUTINE64, gettargetattributevalue: PGET_TARGET_ATTRIBUTE_VALUE64, flags: u32) -> super::super::super::Foundation::BOOL
+where
+    P0: ::windows_core::IntoParam<super::super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<super::super::super::Foundation::HANDLE>,
+{
+    ::windows_targets::link!("dbghelp.dll" "system" fn StackWalk2(machinetype : u32, hprocess : super::super::super::Foundation:: HANDLE, hthread : super::super::super::Foundation:: HANDLE, stackframe : *mut STACKFRAME_EX, contextrecord : *mut ::core::ffi::c_void, readmemoryroutine : PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine : PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine : PGET_MODULE_BASE_ROUTINE64, translateaddress : PTRANSLATE_ADDRESS_ROUTINE64, gettargetattributevalue : PGET_TARGET_ATTRIBUTE_VALUE64, flags : u32) -> super::super::super::Foundation:: BOOL);
+    StackWalk2(machinetype, hprocess.into_param().abi(), hthread.into_param().abi(), stackframe, contextrecord, readmemoryroutine, functiontableaccessroutine, getmodulebaseroutine, translateaddress, gettargetattributevalue, flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3161,9 +3172,9 @@ impl IDebugExtendedProperty {
     pub unsafe fn GetPropertyInfo(&self, dwfieldspec: u32, nradix: u32, ppropertyinfo: *mut DebugPropertyInfo) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetPropertyInfo)(::windows_core::Interface::as_raw(self), dwfieldspec, nradix, ppropertyinfo).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetExtendedInfo(&self, cinfos: u32, rgguidextendedinfo: *const ::windows_core::GUID, rgvar: *mut super::super::Com::VARIANT) -> ::windows_core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetExtendedInfo(&self, cinfos: u32, rgguidextendedinfo: *const ::windows_core::GUID, rgvar: *mut super::super::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetExtendedInfo)(::windows_core::Interface::as_raw(self), cinfos, rgguidextendedinfo, rgvar).ok()
     }
     pub unsafe fn SetValueAsString<P0>(&self, pszvalue: P0, nradix: u32) -> ::windows_core::Result<()>
@@ -3180,8 +3191,8 @@ impl IDebugExtendedProperty {
         let mut result__ = ::windows_core::zeroed::<IDebugProperty>();
         (::windows_core::Interface::vtable(self).base__.GetParent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetExtendedPropertyInfo(&self, dwfieldspec: u32, nradix: u32, pextendedpropertyinfo: *mut ExtendedDebugPropertyInfo) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetExtendedPropertyInfo)(::windows_core::Interface::as_raw(self), dwfieldspec, nradix, pextendedpropertyinfo).ok()
     }
@@ -3217,9 +3228,9 @@ unsafe impl ::windows_core::ComInterface for IDebugExtendedProperty {
 #[doc(hidden)]
 pub struct IDebugExtendedProperty_Vtbl {
     pub base__: IDebugProperty_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub GetExtendedPropertyInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwfieldspec: u32, nradix: u32, pextendedpropertyinfo: *mut ExtendedDebugPropertyInfo) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetExtendedPropertyInfo: usize,
     pub EnumExtendedMembers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwfieldspec: u32, nradix: u32, ppeepi: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
@@ -3230,9 +3241,9 @@ impl IDebugProperty {
     pub unsafe fn GetPropertyInfo(&self, dwfieldspec: u32, nradix: u32, ppropertyinfo: *mut DebugPropertyInfo) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetPropertyInfo)(::windows_core::Interface::as_raw(self), dwfieldspec, nradix, ppropertyinfo).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetExtendedInfo(&self, cinfos: u32, rgguidextendedinfo: *const ::windows_core::GUID, rgvar: *mut super::super::Com::VARIANT) -> ::windows_core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetExtendedInfo(&self, cinfos: u32, rgguidextendedinfo: *const ::windows_core::GUID, rgvar: *mut super::super::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetExtendedInfo)(::windows_core::Interface::as_raw(self), cinfos, rgguidextendedinfo, rgvar).ok()
     }
     pub unsafe fn SetValueAsString<P0>(&self, pszvalue: P0, nradix: u32) -> ::windows_core::Result<()>
@@ -3278,9 +3289,9 @@ unsafe impl ::windows_core::ComInterface for IDebugProperty {
 pub struct IDebugProperty_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetPropertyInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwfieldspec: u32, nradix: u32, ppropertyinfo: *mut DebugPropertyInfo) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetExtendedInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cinfos: u32, rgguidextendedinfo: *const ::windows_core::GUID, rgvar: *mut super::super::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub GetExtendedInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cinfos: u32, rgguidextendedinfo: *const ::windows_core::GUID, rgvar: *mut super::super::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetExtendedInfo: usize,
     pub SetValueAsString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszvalue: ::windows_core::PCWSTR, nradix: u32) -> ::windows_core::HRESULT,
     pub EnumMembers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwfieldspec: u32, nradix: u32, refiid: *const ::windows_core::GUID, ppepi: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -3476,8 +3487,8 @@ pub struct IDebugPropertyEnumType_Registers_Vtbl {
 #[repr(transparent)]
 pub struct IEnumDebugExtendedPropertyInfo(::windows_core::IUnknown);
 impl IEnumDebugExtendedPropertyInfo {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Next(&self, rgextendedpropertyinfo: &mut [ExtendedDebugPropertyInfo], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgextendedpropertyinfo.len() as _, ::core::mem::transmute(rgextendedpropertyinfo.as_ptr()), pceltfetched).ok()
     }
@@ -3523,9 +3534,9 @@ unsafe impl ::windows_core::ComInterface for IEnumDebugExtendedPropertyInfo {
 #[doc(hidden)]
 pub struct IEnumDebugExtendedPropertyInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgextendedpropertyinfo: *mut ExtendedDebugPropertyInfo, pceltfetched: *mut u32) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Next: usize,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows_core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -4340,18 +4351,6 @@ pub const WHEA_XPF_MC_BANK_STATUSFORMAT_AMD64MCA: u32 = 2u32;
 pub const WHEA_XPF_MC_BANK_STATUSFORMAT_IA32MCA: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const WHEA_XPF_MC_BANK_STATUSFORMAT_Intel64MCA: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const WOW64_CONTEXT_EXCEPTION_ACTIVE: u32 = 134217728u32;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const WOW64_CONTEXT_EXCEPTION_REPORTING: u32 = 2147483648u32;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const WOW64_CONTEXT_EXCEPTION_REQUEST: u32 = 1073741824u32;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const WOW64_CONTEXT_SERVICE_ACTIVE: u32 = 268435456u32;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const WOW64_CONTEXT_i386: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const WOW64_CONTEXT_i486: u32 = 65536u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const WOW64_MAXIMUM_SUPPORTED_EXTENSION: u32 = 512u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -5468,6 +5467,174 @@ impl ::windows_core::TypeKind for BUGCHECK_ERROR {
 impl ::core::fmt::Debug for BUGCHECK_ERROR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("BUGCHECK_ERROR").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CONTEXT_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_AMD64: CONTEXT_FLAGS = CONTEXT_FLAGS(1048576u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_CONTROL_AMD64: CONTEXT_FLAGS = CONTEXT_FLAGS(1048577u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_INTEGER_AMD64: CONTEXT_FLAGS = CONTEXT_FLAGS(1048578u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_SEGMENTS_AMD64: CONTEXT_FLAGS = CONTEXT_FLAGS(1048580u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_FLOATING_POINT_AMD64: CONTEXT_FLAGS = CONTEXT_FLAGS(1048584u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_DEBUG_REGISTERS_AMD64: CONTEXT_FLAGS = CONTEXT_FLAGS(1048592u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_FULL_AMD64: CONTEXT_FLAGS = CONTEXT_FLAGS(1048587u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_ALL_AMD64: CONTEXT_FLAGS = CONTEXT_FLAGS(1048607u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_XSTATE_AMD64: CONTEXT_FLAGS = CONTEXT_FLAGS(1048640u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_KERNEL_CET_AMD64: CONTEXT_FLAGS = CONTEXT_FLAGS(1048704u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_KERNEL_DEBUGGER_AMD64: CONTEXT_FLAGS = CONTEXT_FLAGS(67108864u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_EXCEPTION_ACTIVE_AMD64: CONTEXT_FLAGS = CONTEXT_FLAGS(134217728u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_SERVICE_ACTIVE_AMD64: CONTEXT_FLAGS = CONTEXT_FLAGS(268435456u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_EXCEPTION_REQUEST_AMD64: CONTEXT_FLAGS = CONTEXT_FLAGS(1073741824u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_EXCEPTION_REPORTING_AMD64: CONTEXT_FLAGS = CONTEXT_FLAGS(2147483648u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_UNWOUND_TO_CALL_AMD64: CONTEXT_FLAGS = CONTEXT_FLAGS(536870912u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_X86: CONTEXT_FLAGS = CONTEXT_FLAGS(65536u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_CONTROL_X86: CONTEXT_FLAGS = CONTEXT_FLAGS(65537u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_INTEGER_X86: CONTEXT_FLAGS = CONTEXT_FLAGS(65538u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_SEGMENTS_X86: CONTEXT_FLAGS = CONTEXT_FLAGS(65540u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_FLOATING_POINT_X86: CONTEXT_FLAGS = CONTEXT_FLAGS(65544u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_DEBUG_REGISTERS_X86: CONTEXT_FLAGS = CONTEXT_FLAGS(65552u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_EXTENDED_REGISTERS_X86: CONTEXT_FLAGS = CONTEXT_FLAGS(65568u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_FULL_X86: CONTEXT_FLAGS = CONTEXT_FLAGS(65543u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_ALL_X86: CONTEXT_FLAGS = CONTEXT_FLAGS(65599u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_XSTATE_X86: CONTEXT_FLAGS = CONTEXT_FLAGS(65600u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_EXCEPTION_ACTIVE_X86: CONTEXT_FLAGS = CONTEXT_FLAGS(134217728u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_SERVICE_ACTIVE_X86: CONTEXT_FLAGS = CONTEXT_FLAGS(268435456u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_EXCEPTION_REQUEST_X86: CONTEXT_FLAGS = CONTEXT_FLAGS(1073741824u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_EXCEPTION_REPORTING_X86: CONTEXT_FLAGS = CONTEXT_FLAGS(2147483648u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_ARM64: CONTEXT_FLAGS = CONTEXT_FLAGS(4194304u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_CONTROL_ARM64: CONTEXT_FLAGS = CONTEXT_FLAGS(4194305u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_INTEGER_ARM64: CONTEXT_FLAGS = CONTEXT_FLAGS(4194306u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_FLOATING_POINT_ARM64: CONTEXT_FLAGS = CONTEXT_FLAGS(4194308u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_DEBUG_REGISTERS_ARM64: CONTEXT_FLAGS = CONTEXT_FLAGS(4194312u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_X18_ARM64: CONTEXT_FLAGS = CONTEXT_FLAGS(4194320u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_FULL_ARM64: CONTEXT_FLAGS = CONTEXT_FLAGS(4194311u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_ALL_ARM64: CONTEXT_FLAGS = CONTEXT_FLAGS(4194335u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_EXCEPTION_ACTIVE_ARM64: CONTEXT_FLAGS = CONTEXT_FLAGS(134217728u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_SERVICE_ACTIVE_ARM64: CONTEXT_FLAGS = CONTEXT_FLAGS(268435456u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_EXCEPTION_REQUEST_ARM64: CONTEXT_FLAGS = CONTEXT_FLAGS(1073741824u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_EXCEPTION_REPORTING_ARM64: CONTEXT_FLAGS = CONTEXT_FLAGS(2147483648u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_UNWOUND_TO_CALL_ARM64: CONTEXT_FLAGS = CONTEXT_FLAGS(536870912u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_RET_TO_GUEST_ARM64: CONTEXT_FLAGS = CONTEXT_FLAGS(1073741824u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_ARM: CONTEXT_FLAGS = CONTEXT_FLAGS(2097152u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_CONTROL_ARM: CONTEXT_FLAGS = CONTEXT_FLAGS(2097153u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_INTEGER_ARM: CONTEXT_FLAGS = CONTEXT_FLAGS(2097154u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_FLOATING_POINT_ARM: CONTEXT_FLAGS = CONTEXT_FLAGS(2097156u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_DEBUG_REGISTERS_ARM: CONTEXT_FLAGS = CONTEXT_FLAGS(2097160u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_FULL_ARM: CONTEXT_FLAGS = CONTEXT_FLAGS(2097159u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_ALL_ARM: CONTEXT_FLAGS = CONTEXT_FLAGS(2097167u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_EXCEPTION_ACTIVE_ARM: CONTEXT_FLAGS = CONTEXT_FLAGS(134217728u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_SERVICE_ACTIVE_ARM: CONTEXT_FLAGS = CONTEXT_FLAGS(268435456u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_EXCEPTION_REQUEST_ARM: CONTEXT_FLAGS = CONTEXT_FLAGS(1073741824u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_EXCEPTION_REPORTING_ARM: CONTEXT_FLAGS = CONTEXT_FLAGS(2147483648u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const CONTEXT_UNWOUND_TO_CALL_ARM: CONTEXT_FLAGS = CONTEXT_FLAGS(536870912u32);
+impl ::core::marker::Copy for CONTEXT_FLAGS {}
+impl ::core::clone::Clone for CONTEXT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CONTEXT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for CONTEXT_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for CONTEXT_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CONTEXT_FLAGS").field(&self.0).finish()
+    }
+}
+impl CONTEXT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for CONTEXT_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CONTEXT_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CONTEXT_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CONTEXT_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CONTEXT_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -8420,6 +8587,90 @@ impl ::core::fmt::Debug for WHEA_ERROR_SOURCE_TYPE {
         f.debug_tuple("WHEA_ERROR_SOURCE_TYPE").field(&self.0).finish()
     }
 }
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WOW64_CONTEXT_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const WOW64_CONTEXT_X86: WOW64_CONTEXT_FLAGS = WOW64_CONTEXT_FLAGS(65536u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const WOW64_CONTEXT_CONTROL: WOW64_CONTEXT_FLAGS = WOW64_CONTEXT_FLAGS(65537u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const WOW64_CONTEXT_INTEGER: WOW64_CONTEXT_FLAGS = WOW64_CONTEXT_FLAGS(65538u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const WOW64_CONTEXT_SEGMENTS: WOW64_CONTEXT_FLAGS = WOW64_CONTEXT_FLAGS(65540u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const WOW64_CONTEXT_FLOATING_POINT: WOW64_CONTEXT_FLAGS = WOW64_CONTEXT_FLAGS(65544u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const WOW64_CONTEXT_DEBUG_REGISTERS: WOW64_CONTEXT_FLAGS = WOW64_CONTEXT_FLAGS(65552u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const WOW64_CONTEXT_EXTENDED_REGISTERS: WOW64_CONTEXT_FLAGS = WOW64_CONTEXT_FLAGS(65568u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const WOW64_CONTEXT_FULL: WOW64_CONTEXT_FLAGS = WOW64_CONTEXT_FLAGS(65543u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const WOW64_CONTEXT_ALL: WOW64_CONTEXT_FLAGS = WOW64_CONTEXT_FLAGS(65599u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const WOW64_CONTEXT_XSTATE: WOW64_CONTEXT_FLAGS = WOW64_CONTEXT_FLAGS(65600u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const WOW64_CONTEXT_EXCEPTION_ACTIVE: WOW64_CONTEXT_FLAGS = WOW64_CONTEXT_FLAGS(134217728u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const WOW64_CONTEXT_SERVICE_ACTIVE: WOW64_CONTEXT_FLAGS = WOW64_CONTEXT_FLAGS(268435456u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const WOW64_CONTEXT_EXCEPTION_REQUEST: WOW64_CONTEXT_FLAGS = WOW64_CONTEXT_FLAGS(1073741824u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub const WOW64_CONTEXT_EXCEPTION_REPORTING: WOW64_CONTEXT_FLAGS = WOW64_CONTEXT_FLAGS(2147483648u32);
+impl ::core::marker::Copy for WOW64_CONTEXT_FLAGS {}
+impl ::core::clone::Clone for WOW64_CONTEXT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WOW64_CONTEXT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for WOW64_CONTEXT_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for WOW64_CONTEXT_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WOW64_CONTEXT_FLAGS").field(&self.0).finish()
+    }
+}
+impl WOW64_CONTEXT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for WOW64_CONTEXT_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WOW64_CONTEXT_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WOW64_CONTEXT_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WOW64_CONTEXT_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WOW64_CONTEXT_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(target_arch = "x86")]
@@ -8902,7 +9153,7 @@ impl ::core::default::Default for ARM64_NT_NEON128_0 {
 #[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct CONTEXT {
-    pub ContextFlags: u32,
+    pub ContextFlags: CONTEXT_FLAGS,
     pub Cpsr: u32,
     pub Anonymous: CONTEXT_0,
     pub Sp: u64,
@@ -9086,7 +9337,7 @@ pub struct CONTEXT {
     pub P4Home: u64,
     pub P5Home: u64,
     pub P6Home: u64,
-    pub ContextFlags: u32,
+    pub ContextFlags: CONTEXT_FLAGS,
     pub MxCsr: u32,
     pub SegCs: u16,
     pub SegDs: u16,
@@ -9266,7 +9517,7 @@ impl ::core::default::Default for CONTEXT_0_0 {
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct CONTEXT {
-    pub ContextFlags: u32,
+    pub ContextFlags: CONTEXT_FLAGS,
     pub Dr0: u32,
     pub Dr1: u32,
     pub Dr2: u32,
@@ -10176,8 +10427,8 @@ impl ::core::default::Default for EXIT_THREAD_DEBUG_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct ExtendedDebugPropertyInfo {
     pub dwValidFields: u32,
     pub pszName: ::windows_core::PWSTR,
@@ -10188,21 +10439,21 @@ pub struct ExtendedDebugPropertyInfo {
     pub pDebugProp: ::std::mem::ManuallyDrop<::core::option::Option<IDebugProperty>>,
     pub nDISPID: u32,
     pub nType: u32,
-    pub varValue: super::super::Com::VARIANT,
+    pub varValue: super::super::Variant::VARIANT,
     pub plbValue: ::std::mem::ManuallyDrop<::core::option::Option<super::super::Com::StructuredStorage::ILockBytes>>,
     pub pDebugExtProp: ::std::mem::ManuallyDrop<::core::option::Option<IDebugExtendedProperty>>,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for ExtendedDebugPropertyInfo {
     fn clone(&self) -> Self {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::TypeKind for ExtendedDebugPropertyInfo {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::default::Default for ExtendedDebugPropertyInfo {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -13557,23 +13808,58 @@ impl ::core::default::Default for M128A {
 }
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Memory\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
 pub struct MINIDUMP_CALLBACK_INFORMATION {
     pub CallbackRoutine: MINIDUMP_CALLBACK_ROUTINE,
     pub CallbackParam: *mut ::core::ffi::c_void,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
 impl ::core::marker::Copy for MINIDUMP_CALLBACK_INFORMATION {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
 impl ::core::clone::Clone for MINIDUMP_CALLBACK_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
 impl ::windows_core::TypeKind for MINIDUMP_CALLBACK_INFORMATION {
     type TypeKind = ::windows_core::CopyType;
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
+impl ::core::default::Default for MINIDUMP_CALLBACK_INFORMATION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Memory\"`*"]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
+pub struct MINIDUMP_CALLBACK_INFORMATION {
+    pub CallbackRoutine: MINIDUMP_CALLBACK_ROUTINE,
+    pub CallbackParam: *mut ::core::ffi::c_void,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
+impl ::core::marker::Copy for MINIDUMP_CALLBACK_INFORMATION {}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
+impl ::core::clone::Clone for MINIDUMP_CALLBACK_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
+impl ::windows_core::TypeKind for MINIDUMP_CALLBACK_INFORMATION {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
 impl ::core::default::Default for MINIDUMP_CALLBACK_INFORMATION {
     fn default() -> Self {
@@ -13899,24 +14185,60 @@ impl ::core::default::Default for MINIDUMP_EXCEPTION {
 }
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct MINIDUMP_EXCEPTION_INFORMATION {
     pub ThreadId: u32,
     pub ExceptionPointers: *mut EXCEPTION_POINTERS,
     pub ClientPointers: super::super::super::Foundation::BOOL,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::marker::Copy for MINIDUMP_EXCEPTION_INFORMATION {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::clone::Clone for MINIDUMP_EXCEPTION_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::windows_core::TypeKind for MINIDUMP_EXCEPTION_INFORMATION {
     type TypeKind = ::windows_core::CopyType;
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::core::default::Default for MINIDUMP_EXCEPTION_INFORMATION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+pub struct MINIDUMP_EXCEPTION_INFORMATION {
+    pub ThreadId: u32,
+    pub ExceptionPointers: *mut EXCEPTION_POINTERS,
+    pub ClientPointers: super::super::super::Foundation::BOOL,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::core::marker::Copy for MINIDUMP_EXCEPTION_INFORMATION {}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::core::clone::Clone for MINIDUMP_EXCEPTION_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::windows_core::TypeKind for MINIDUMP_EXCEPTION_INFORMATION {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for MINIDUMP_EXCEPTION_INFORMATION {
     fn default() -> Self {
@@ -15586,20 +15908,51 @@ impl ::core::default::Default for MINIDUMP_USER_RECORD {
 }
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct MINIDUMP_USER_STREAM {
     pub Type: u32,
     pub BufferSize: u32,
     pub Buffer: *mut ::core::ffi::c_void,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for MINIDUMP_USER_STREAM {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for MINIDUMP_USER_STREAM {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::windows_core::TypeKind for MINIDUMP_USER_STREAM {
     type TypeKind = ::windows_core::CopyType;
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::default::Default for MINIDUMP_USER_STREAM {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+#[cfg(target_arch = "x86")]
+pub struct MINIDUMP_USER_STREAM {
+    pub Type: u32,
+    pub BufferSize: u32,
+    pub Buffer: *mut ::core::ffi::c_void,
+}
+#[cfg(target_arch = "x86")]
+impl ::core::marker::Copy for MINIDUMP_USER_STREAM {}
+#[cfg(target_arch = "x86")]
+impl ::core::clone::Clone for MINIDUMP_USER_STREAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+impl ::windows_core::TypeKind for MINIDUMP_USER_STREAM {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl ::core::default::Default for MINIDUMP_USER_STREAM {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15607,19 +15960,49 @@ impl ::core::default::Default for MINIDUMP_USER_STREAM {
 }
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct MINIDUMP_USER_STREAM_INFORMATION {
     pub UserStreamCount: u32,
     pub UserStreamArray: *mut MINIDUMP_USER_STREAM,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for MINIDUMP_USER_STREAM_INFORMATION {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for MINIDUMP_USER_STREAM_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::windows_core::TypeKind for MINIDUMP_USER_STREAM_INFORMATION {
     type TypeKind = ::windows_core::CopyType;
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::default::Default for MINIDUMP_USER_STREAM_INFORMATION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+#[cfg(target_arch = "x86")]
+pub struct MINIDUMP_USER_STREAM_INFORMATION {
+    pub UserStreamCount: u32,
+    pub UserStreamArray: *mut MINIDUMP_USER_STREAM,
+}
+#[cfg(target_arch = "x86")]
+impl ::core::marker::Copy for MINIDUMP_USER_STREAM_INFORMATION {}
+#[cfg(target_arch = "x86")]
+impl ::core::clone::Clone for MINIDUMP_USER_STREAM_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+impl ::windows_core::TypeKind for MINIDUMP_USER_STREAM_INFORMATION {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl ::core::default::Default for MINIDUMP_USER_STREAM_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -17872,7 +18255,7 @@ impl ::core::default::Default for WHEA_XPF_NMI_DESCRIPTOR {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct WOW64_CONTEXT {
-    pub ContextFlags: u32,
+    pub ContextFlags: WOW64_CONTEXT_FLAGS,
     pub Dr0: u32,
     pub Dr1: u32,
     pub Dr2: u32,

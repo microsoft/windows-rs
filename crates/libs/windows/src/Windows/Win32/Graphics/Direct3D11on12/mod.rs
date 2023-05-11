@@ -56,8 +56,6 @@ impl ::core::fmt::Debug for ID3D11On12Device {
         f.debug_tuple("ID3D11On12Device").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11On12Device {}
-unsafe impl ::core::marker::Sync for ID3D11On12Device {}
 unsafe impl ::windows_core::Interface for ID3D11On12Device {
     type Vtable = ID3D11On12Device_Vtbl;
 }
@@ -129,8 +127,6 @@ impl ::core::fmt::Debug for ID3D11On12Device1 {
         f.debug_tuple("ID3D11On12Device1").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11On12Device1 {}
-unsafe impl ::core::marker::Sync for ID3D11On12Device1 {}
 unsafe impl ::windows_core::Interface for ID3D11On12Device1 {
     type Vtable = ID3D11On12Device1_Vtbl;
 }
@@ -210,8 +206,6 @@ impl ::core::fmt::Debug for ID3D11On12Device2 {
         f.debug_tuple("ID3D11On12Device2").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D11On12Device2 {}
-unsafe impl ::core::marker::Sync for ID3D11On12Device2 {}
 unsafe impl ::windows_core::Interface for ID3D11On12Device2 {
     type Vtable = ID3D11On12Device2_Vtbl;
 }

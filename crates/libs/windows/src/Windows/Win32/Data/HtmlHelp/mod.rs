@@ -467,112 +467,6 @@ pub struct IITResultSet_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
 #[repr(transparent)]
-pub struct IITWordWheel(::windows_core::IUnknown);
-impl IITWordWheel {
-    pub unsafe fn Open<P0, P1>(&self, lpitdb: P0, lpszmoniker: P1, dwflags: WORD_WHEEL_OPEN_FLAGS) -> ::windows_core::Result<()>
-    where
-        P0: ::windows_core::IntoParam<IITDatabase>,
-        P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
-    {
-        (::windows_core::Interface::vtable(self).Open)(::windows_core::Interface::as_raw(self), lpitdb.into_param().abi(), lpszmoniker.into_param().abi(), dwflags).ok()
-    }
-    pub unsafe fn Close(&self) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Close)(::windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn GetLocaleInfo(&self, pdwcodepageid: *mut u32, plcid: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetLocaleInfo)(::windows_core::Interface::as_raw(self), pdwcodepageid, plcid).ok()
-    }
-    pub unsafe fn GetSorterInstance(&self, pdwobjinstance: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetSorterInstance)(::windows_core::Interface::as_raw(self), pdwobjinstance).ok()
-    }
-    pub unsafe fn Count(&self, pcentries: *mut i32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), pcentries).ok()
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Lookup<P0>(&self, lpcvprefix: *const ::core::ffi::c_void, fexactmatch: P0, plentry: *mut i32) -> ::windows_core::Result<()>
-    where
-        P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
-    {
-        (::windows_core::Interface::vtable(self).Lookup)(::windows_core::Interface::as_raw(self), lpcvprefix, fexactmatch.into_param().abi(), plentry).ok()
-    }
-    pub unsafe fn Lookup2<P0>(&self, lentry: i32, lpitresult: P0, centries: i32) -> ::windows_core::Result<()>
-    where
-        P0: ::windows_core::IntoParam<IITResultSet>,
-    {
-        (::windows_core::Interface::vtable(self).Lookup2)(::windows_core::Interface::as_raw(self), lentry, lpitresult.into_param().abi(), centries).ok()
-    }
-    pub unsafe fn Lookup3(&self, lentry: i32, lpvkeybuf: *mut ::core::ffi::c_void, cbkeybuf: u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Lookup3)(::windows_core::Interface::as_raw(self), lentry, lpvkeybuf, cbkeybuf).ok()
-    }
-    pub unsafe fn SetGroup(&self, piitgroup: *mut IITGroup) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetGroup)(::windows_core::Interface::as_raw(self), piitgroup).ok()
-    }
-    pub unsafe fn GetGroup(&self, ppiitgroup: *mut *mut IITGroup) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetGroup)(::windows_core::Interface::as_raw(self), ppiitgroup).ok()
-    }
-    pub unsafe fn GetDataCount(&self, lentry: i32, pdwcount: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetDataCount)(::windows_core::Interface::as_raw(self), lentry, pdwcount).ok()
-    }
-    pub unsafe fn GetData<P0>(&self, lentry: i32, lpitresult: P0) -> ::windows_core::Result<()>
-    where
-        P0: ::windows_core::IntoParam<IITResultSet>,
-    {
-        (::windows_core::Interface::vtable(self).GetData)(::windows_core::Interface::as_raw(self), lentry, lpitresult.into_param().abi()).ok()
-    }
-    pub unsafe fn GetDataColumns<P0>(&self, prs: P0) -> ::windows_core::Result<()>
-    where
-        P0: ::windows_core::IntoParam<IITResultSet>,
-    {
-        (::windows_core::Interface::vtable(self).GetDataColumns)(::windows_core::Interface::as_raw(self), prs.into_param().abi()).ok()
-    }
-}
-::windows_core::imp::interface_hierarchy!(IITWordWheel, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IITWordWheel {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IITWordWheel {}
-impl ::core::fmt::Debug for IITWordWheel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IITWordWheel").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows_core::Interface for IITWordWheel {
-    type Vtable = IITWordWheel_Vtbl;
-}
-impl ::core::clone::Clone for IITWordWheel {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-unsafe impl ::windows_core::ComInterface for IITWordWheel {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8fa0d5a4_dedf_11d0_9a61_00c04fb68bf7);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IITWordWheel_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpitdb: *mut ::core::ffi::c_void, lpszmoniker: ::windows_core::PCWSTR, dwflags: WORD_WHEEL_OPEN_FLAGS) -> ::windows_core::HRESULT,
-    pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetLocaleInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcodepageid: *mut u32, plcid: *mut u32) -> ::windows_core::HRESULT,
-    pub GetSorterInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwobjinstance: *mut u32) -> ::windows_core::HRESULT,
-    pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcentries: *mut i32) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub Lookup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpcvprefix: *const ::core::ffi::c_void, fexactmatch: super::super::Foundation::BOOL, plentry: *mut i32) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    Lookup: usize,
-    pub Lookup2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lentry: i32, lpitresult: *mut ::core::ffi::c_void, centries: i32) -> ::windows_core::HRESULT,
-    pub Lookup3: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lentry: i32, lpvkeybuf: *mut ::core::ffi::c_void, cbkeybuf: u32) -> ::windows_core::HRESULT,
-    pub SetGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piitgroup: *mut IITGroup) -> ::windows_core::HRESULT,
-    pub GetGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppiitgroup: *mut *mut IITGroup) -> ::windows_core::HRESULT,
-    pub GetDataCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lentry: i32, pdwcount: *mut u32) -> ::windows_core::HRESULT,
-    pub GetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lentry: i32, lpitresult: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetDataColumns: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prs: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-}
-#[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
-#[repr(transparent)]
 pub struct IStemSink(::windows_core::IUnknown);
 impl IStemSink {
     pub unsafe fn PutAltWord<P0>(&self, pwcinbuf: P0, cwc: u32) -> ::windows_core::Result<()>
@@ -1415,64 +1309,6 @@ impl ::core::fmt::Debug for PRIORITY {
         f.debug_tuple("PRIORITY").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WORD_WHEEL_OPEN_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
-pub const ITWW_OPEN_CONNECT: WORD_WHEEL_OPEN_FLAGS = WORD_WHEEL_OPEN_FLAGS(0u32);
-impl ::core::marker::Copy for WORD_WHEEL_OPEN_FLAGS {}
-impl ::core::clone::Clone for WORD_WHEEL_OPEN_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WORD_WHEEL_OPEN_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-impl ::windows_core::TypeKind for WORD_WHEEL_OPEN_FLAGS {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::fmt::Debug for WORD_WHEEL_OPEN_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WORD_WHEEL_OPEN_FLAGS").field(&self.0).finish()
-    }
-}
-impl WORD_WHEEL_OPEN_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl ::core::ops::BitOr for WORD_WHEEL_OPEN_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WORD_WHEEL_OPEN_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WORD_WHEEL_OPEN_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WORD_WHEEL_OPEN_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WORD_WHEEL_OPEN_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
 pub struct COLUMNSTATUS {
@@ -1795,23 +1631,23 @@ impl ::core::default::Default for HH_FTS_QUERY {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct HH_GLOBAL_PROPERTY {
     pub id: HH_GPROPID,
-    pub var: super::super::System::Com::VARIANT,
+    pub var: super::super::System::Variant::VARIANT,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for HH_GLOBAL_PROPERTY {
     fn clone(&self) -> Self {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::TypeKind for HH_GLOBAL_PROPERTY {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::default::Default for HH_GLOBAL_PROPERTY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2039,39 +1875,6 @@ impl ::core::default::Default for HH_WINTYPE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-#[repr(C)]
-pub struct IITGroup(pub u8);
-impl ::core::marker::Copy for IITGroup {}
-impl ::core::clone::Clone for IITGroup {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::windows_core::TypeKind for IITGroup {
-    type TypeKind = ::windows_core::CopyType;
-}
-#[repr(C)]
-pub struct IITQuery(pub u8);
-impl ::core::marker::Copy for IITQuery {}
-impl ::core::clone::Clone for IITQuery {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::windows_core::TypeKind for IITQuery {
-    type TypeKind = ::windows_core::CopyType;
-}
-#[repr(C)]
-pub struct IITStopWordList(pub u8);
-impl ::core::marker::Copy for IITStopWordList {}
-impl ::core::clone::Clone for IITStopWordList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::windows_core::TypeKind for IITStopWordList {
-    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]

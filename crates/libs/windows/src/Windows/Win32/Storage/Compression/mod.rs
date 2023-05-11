@@ -28,8 +28,8 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Compression\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateCompressor(algorithm: COMPRESS_ALGORITHM, allocationroutines: ::core::option::Option<*const COMPRESS_ALLOCATION_ROUTINES>, compressorhandle: *mut isize) -> ::windows_core::Result<()> {
-    ::windows_targets::link!("cabinet.dll" "system" fn CreateCompressor(algorithm : COMPRESS_ALGORITHM, allocationroutines : *const COMPRESS_ALLOCATION_ROUTINES, compressorhandle : *mut isize) -> super::super::Foundation:: BOOL);
+pub unsafe fn CreateCompressor(algorithm: COMPRESS_ALGORITHM, allocationroutines: ::core::option::Option<*const COMPRESS_ALLOCATION_ROUTINES>, compressorhandle: *mut COMPRESSOR_HANDLE) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("cabinet.dll" "system" fn CreateCompressor(algorithm : COMPRESS_ALGORITHM, allocationroutines : *const COMPRESS_ALLOCATION_ROUTINES, compressorhandle : *mut COMPRESSOR_HANDLE) -> super::super::Foundation:: BOOL);
     CreateCompressor(algorithm, ::core::mem::transmute(allocationroutines.unwrap_or(::std::ptr::null())), compressorhandle).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_Compression\"`, `\"Win32_Foundation\"`*"]

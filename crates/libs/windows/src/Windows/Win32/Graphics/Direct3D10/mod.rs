@@ -301,8 +301,6 @@ impl ::core::fmt::Debug for ID3D10Asynchronous {
         f.debug_tuple("ID3D10Asynchronous").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10Asynchronous {}
-unsafe impl ::core::marker::Sync for ID3D10Asynchronous {}
 unsafe impl ::windows_core::Interface for ID3D10Asynchronous {
     type Vtable = ID3D10Asynchronous_Vtbl;
 }
@@ -362,8 +360,6 @@ impl ::core::fmt::Debug for ID3D10BlendState {
         f.debug_tuple("ID3D10BlendState").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10BlendState {}
-unsafe impl ::core::marker::Sync for ID3D10BlendState {}
 unsafe impl ::windows_core::Interface for ID3D10BlendState {
     type Vtable = ID3D10BlendState_Vtbl;
 }
@@ -428,8 +424,6 @@ impl ::core::fmt::Debug for ID3D10BlendState1 {
         f.debug_tuple("ID3D10BlendState1").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10BlendState1 {}
-unsafe impl ::core::marker::Sync for ID3D10BlendState1 {}
 unsafe impl ::windows_core::Interface for ID3D10BlendState1 {
     type Vtable = ID3D10BlendState1_Vtbl;
 }
@@ -504,8 +498,6 @@ impl ::core::fmt::Debug for ID3D10Buffer {
         f.debug_tuple("ID3D10Buffer").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10Buffer {}
-unsafe impl ::core::marker::Sync for ID3D10Buffer {}
 unsafe impl ::windows_core::Interface for ID3D10Buffer {
     type Vtable = ID3D10Buffer_Vtbl;
 }
@@ -576,8 +568,6 @@ impl ::core::fmt::Debug for ID3D10Counter {
         f.debug_tuple("ID3D10Counter").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10Counter {}
-unsafe impl ::core::marker::Sync for ID3D10Counter {}
 unsafe impl ::windows_core::Interface for ID3D10Counter {
     type Vtable = ID3D10Counter_Vtbl;
 }
@@ -641,8 +631,6 @@ impl ::core::fmt::Debug for ID3D10Debug {
         f.debug_tuple("ID3D10Debug").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10Debug {}
-unsafe impl ::core::marker::Sync for ID3D10Debug {}
 unsafe impl ::windows_core::Interface for ID3D10Debug {
     type Vtable = ID3D10Debug_Vtbl;
 }
@@ -711,8 +699,6 @@ impl ::core::fmt::Debug for ID3D10DepthStencilState {
         f.debug_tuple("ID3D10DepthStencilState").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10DepthStencilState {}
-unsafe impl ::core::marker::Sync for ID3D10DepthStencilState {}
 unsafe impl ::windows_core::Interface for ID3D10DepthStencilState {
     type Vtable = ID3D10DepthStencilState_Vtbl;
 }
@@ -777,8 +763,6 @@ impl ::core::fmt::Debug for ID3D10DepthStencilView {
         f.debug_tuple("ID3D10DepthStencilView").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10DepthStencilView {}
-unsafe impl ::core::marker::Sync for ID3D10DepthStencilView {}
 unsafe impl ::windows_core::Interface for ID3D10DepthStencilView {
     type Vtable = ID3D10DepthStencilView_Vtbl;
 }
@@ -897,11 +881,11 @@ impl ID3D10Device {
     {
         (::windows_core::Interface::vtable(self).OMSetRenderTargets)(::windows_core::Interface::as_raw(self), pprendertargetviews.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pprendertargetviews.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdepthstencilview.into_param().abi())
     }
-    pub unsafe fn OMSetBlendState<P0>(&self, pblendstate: P0, blendfactor: *const f32, samplemask: u32)
+    pub unsafe fn OMSetBlendState<P0>(&self, pblendstate: P0, blendfactor: &[f32; 4], samplemask: u32)
     where
         P0: ::windows_core::IntoParam<ID3D10BlendState>,
     {
-        (::windows_core::Interface::vtable(self).OMSetBlendState)(::windows_core::Interface::as_raw(self), pblendstate.into_param().abi(), blendfactor, samplemask)
+        (::windows_core::Interface::vtable(self).OMSetBlendState)(::windows_core::Interface::as_raw(self), pblendstate.into_param().abi(), ::core::mem::transmute(blendfactor.as_ptr()), samplemask)
     }
     pub unsafe fn OMSetDepthStencilState<P0>(&self, pdepthstencilstate: P0, stencilref: u32)
     where
@@ -949,11 +933,11 @@ impl ID3D10Device {
     {
         (::windows_core::Interface::vtable(self).UpdateSubresource)(::windows_core::Interface::as_raw(self), pdstresource.into_param().abi(), dstsubresource, ::core::mem::transmute(pdstbox.unwrap_or(::std::ptr::null())), psrcdata, srcrowpitch, srcdepthpitch)
     }
-    pub unsafe fn ClearRenderTargetView<P0>(&self, prendertargetview: P0, colorrgba: *const f32)
+    pub unsafe fn ClearRenderTargetView<P0>(&self, prendertargetview: P0, colorrgba: &[f32; 4])
     where
         P0: ::windows_core::IntoParam<ID3D10RenderTargetView>,
     {
-        (::windows_core::Interface::vtable(self).ClearRenderTargetView)(::windows_core::Interface::as_raw(self), prendertargetview.into_param().abi(), colorrgba)
+        (::windows_core::Interface::vtable(self).ClearRenderTargetView)(::windows_core::Interface::as_raw(self), prendertargetview.into_param().abi(), ::core::mem::transmute(colorrgba.as_ptr()))
     }
     pub unsafe fn ClearDepthStencilView<P0>(&self, pdepthstencilview: P0, clearflags: u32, depth: f32, stencil: u8)
     where
@@ -1046,8 +1030,8 @@ impl ID3D10Device {
     pub unsafe fn OMGetRenderTargets(&self, pprendertargetviews: ::core::option::Option<&mut [::core::option::Option<ID3D10RenderTargetView>]>, ppdepthstencilview: ::core::option::Option<*mut ::core::option::Option<ID3D10DepthStencilView>>) {
         (::windows_core::Interface::vtable(self).OMGetRenderTargets)(::windows_core::Interface::as_raw(self), pprendertargetviews.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pprendertargetviews.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(ppdepthstencilview.unwrap_or(::std::ptr::null_mut())))
     }
-    pub unsafe fn OMGetBlendState(&self, ppblendstate: ::core::option::Option<*mut ::core::option::Option<ID3D10BlendState>>, blendfactor: ::core::option::Option<*mut f32>, psamplemask: ::core::option::Option<*mut u32>) {
-        (::windows_core::Interface::vtable(self).OMGetBlendState)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppblendstate.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(blendfactor.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(psamplemask.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn OMGetBlendState(&self, ppblendstate: ::core::option::Option<*mut ::core::option::Option<ID3D10BlendState>>, blendfactor: ::core::option::Option<&mut [f32; 4]>, psamplemask: ::core::option::Option<*mut u32>) {
+        (::windows_core::Interface::vtable(self).OMGetBlendState)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppblendstate.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(blendfactor.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(psamplemask.unwrap_or(::std::ptr::null_mut())))
     }
     pub unsafe fn OMGetDepthStencilState(&self, ppdepthstencilstate: ::core::option::Option<*mut ::core::option::Option<ID3D10DepthStencilState>>, pstencilref: ::core::option::Option<*mut u32>) {
         (::windows_core::Interface::vtable(self).OMGetDepthStencilState)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppdepthstencilstate.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pstencilref.unwrap_or(::std::ptr::null_mut())))
@@ -1234,8 +1218,6 @@ impl ::core::fmt::Debug for ID3D10Device {
         f.debug_tuple("ID3D10Device").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10Device {}
-unsafe impl ::core::marker::Sync for ID3D10Device {}
 unsafe impl ::windows_core::Interface for ID3D10Device {
     type Vtable = ID3D10Device_Vtbl;
 }
@@ -1511,11 +1493,11 @@ impl ID3D10Device1 {
     {
         (::windows_core::Interface::vtable(self).base__.OMSetRenderTargets)(::windows_core::Interface::as_raw(self), pprendertargetviews.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pprendertargetviews.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdepthstencilview.into_param().abi())
     }
-    pub unsafe fn OMSetBlendState<P0>(&self, pblendstate: P0, blendfactor: *const f32, samplemask: u32)
+    pub unsafe fn OMSetBlendState<P0>(&self, pblendstate: P0, blendfactor: &[f32; 4], samplemask: u32)
     where
         P0: ::windows_core::IntoParam<ID3D10BlendState>,
     {
-        (::windows_core::Interface::vtable(self).base__.OMSetBlendState)(::windows_core::Interface::as_raw(self), pblendstate.into_param().abi(), blendfactor, samplemask)
+        (::windows_core::Interface::vtable(self).base__.OMSetBlendState)(::windows_core::Interface::as_raw(self), pblendstate.into_param().abi(), ::core::mem::transmute(blendfactor.as_ptr()), samplemask)
     }
     pub unsafe fn OMSetDepthStencilState<P0>(&self, pdepthstencilstate: P0, stencilref: u32)
     where
@@ -1563,11 +1545,11 @@ impl ID3D10Device1 {
     {
         (::windows_core::Interface::vtable(self).base__.UpdateSubresource)(::windows_core::Interface::as_raw(self), pdstresource.into_param().abi(), dstsubresource, ::core::mem::transmute(pdstbox.unwrap_or(::std::ptr::null())), psrcdata, srcrowpitch, srcdepthpitch)
     }
-    pub unsafe fn ClearRenderTargetView<P0>(&self, prendertargetview: P0, colorrgba: *const f32)
+    pub unsafe fn ClearRenderTargetView<P0>(&self, prendertargetview: P0, colorrgba: &[f32; 4])
     where
         P0: ::windows_core::IntoParam<ID3D10RenderTargetView>,
     {
-        (::windows_core::Interface::vtable(self).base__.ClearRenderTargetView)(::windows_core::Interface::as_raw(self), prendertargetview.into_param().abi(), colorrgba)
+        (::windows_core::Interface::vtable(self).base__.ClearRenderTargetView)(::windows_core::Interface::as_raw(self), prendertargetview.into_param().abi(), ::core::mem::transmute(colorrgba.as_ptr()))
     }
     pub unsafe fn ClearDepthStencilView<P0>(&self, pdepthstencilview: P0, clearflags: u32, depth: f32, stencil: u8)
     where
@@ -1660,8 +1642,8 @@ impl ID3D10Device1 {
     pub unsafe fn OMGetRenderTargets(&self, pprendertargetviews: ::core::option::Option<&mut [::core::option::Option<ID3D10RenderTargetView>]>, ppdepthstencilview: ::core::option::Option<*mut ::core::option::Option<ID3D10DepthStencilView>>) {
         (::windows_core::Interface::vtable(self).base__.OMGetRenderTargets)(::windows_core::Interface::as_raw(self), pprendertargetviews.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pprendertargetviews.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(ppdepthstencilview.unwrap_or(::std::ptr::null_mut())))
     }
-    pub unsafe fn OMGetBlendState(&self, ppblendstate: ::core::option::Option<*mut ::core::option::Option<ID3D10BlendState>>, blendfactor: ::core::option::Option<*mut f32>, psamplemask: ::core::option::Option<*mut u32>) {
-        (::windows_core::Interface::vtable(self).base__.OMGetBlendState)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppblendstate.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(blendfactor.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(psamplemask.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn OMGetBlendState(&self, ppblendstate: ::core::option::Option<*mut ::core::option::Option<ID3D10BlendState>>, blendfactor: ::core::option::Option<&mut [f32; 4]>, psamplemask: ::core::option::Option<*mut u32>) {
+        (::windows_core::Interface::vtable(self).base__.OMGetBlendState)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppblendstate.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(blendfactor.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(psamplemask.unwrap_or(::std::ptr::null_mut())))
     }
     pub unsafe fn OMGetDepthStencilState(&self, ppdepthstencilstate: ::core::option::Option<*mut ::core::option::Option<ID3D10DepthStencilState>>, pstencilref: ::core::option::Option<*mut u32>) {
         (::windows_core::Interface::vtable(self).base__.OMGetDepthStencilState)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppdepthstencilstate.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pstencilref.unwrap_or(::std::ptr::null_mut())))
@@ -1864,8 +1846,6 @@ impl ::core::fmt::Debug for ID3D10Device1 {
         f.debug_tuple("ID3D10Device1").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10Device1 {}
-unsafe impl ::core::marker::Sync for ID3D10Device1 {}
 unsafe impl ::windows_core::Interface for ID3D10Device1 {
     type Vtable = ID3D10Device1_Vtbl;
 }
@@ -1925,8 +1905,6 @@ impl ::core::fmt::Debug for ID3D10DeviceChild {
         f.debug_tuple("ID3D10DeviceChild").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10DeviceChild {}
-unsafe impl ::core::marker::Sync for ID3D10DeviceChild {}
 unsafe impl ::windows_core::Interface for ID3D10DeviceChild {
     type Vtable = ID3D10DeviceChild_Vtbl;
 }
@@ -2024,8 +2002,6 @@ impl ::core::fmt::Debug for ID3D10Effect {
         f.debug_tuple("ID3D10Effect").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10Effect {}
-unsafe impl ::core::marker::Sync for ID3D10Effect {}
 unsafe impl ::windows_core::Interface for ID3D10Effect {
     type Vtable = ID3D10Effect_Vtbl;
 }
@@ -2179,8 +2155,6 @@ impl ::core::fmt::Debug for ID3D10EffectBlendVariable {
         f.debug_tuple("ID3D10EffectBlendVariable").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10EffectBlendVariable {}
-unsafe impl ::core::marker::Sync for ID3D10EffectBlendVariable {}
 unsafe impl ::windows_core::Interface for ID3D10EffectBlendVariable {
     type Vtable = ID3D10EffectBlendVariable_Vtbl;
 }
@@ -2322,8 +2296,6 @@ impl ::core::fmt::Debug for ID3D10EffectConstantBuffer {
         f.debug_tuple("ID3D10EffectConstantBuffer").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10EffectConstantBuffer {}
-unsafe impl ::core::marker::Sync for ID3D10EffectConstantBuffer {}
 unsafe impl ::windows_core::Interface for ID3D10EffectConstantBuffer {
     type Vtable = ID3D10EffectConstantBuffer_Vtbl;
 }
@@ -2453,8 +2425,6 @@ impl ::core::fmt::Debug for ID3D10EffectDepthStencilVariable {
         f.debug_tuple("ID3D10EffectDepthStencilVariable").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10EffectDepthStencilVariable {}
-unsafe impl ::core::marker::Sync for ID3D10EffectDepthStencilVariable {}
 unsafe impl ::windows_core::Interface for ID3D10EffectDepthStencilVariable {
     type Vtable = ID3D10EffectDepthStencilVariable_Vtbl;
 }
@@ -2592,8 +2562,6 @@ impl ::core::fmt::Debug for ID3D10EffectDepthStencilViewVariable {
         f.debug_tuple("ID3D10EffectDepthStencilViewVariable").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10EffectDepthStencilViewVariable {}
-unsafe impl ::core::marker::Sync for ID3D10EffectDepthStencilViewVariable {}
 unsafe impl ::windows_core::Interface for ID3D10EffectDepthStencilViewVariable {
     type Vtable = ID3D10EffectDepthStencilViewVariable_Vtbl;
 }
@@ -2738,8 +2706,6 @@ impl ::core::fmt::Debug for ID3D10EffectMatrixVariable {
         f.debug_tuple("ID3D10EffectMatrixVariable").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10EffectMatrixVariable {}
-unsafe impl ::core::marker::Sync for ID3D10EffectMatrixVariable {}
 unsafe impl ::windows_core::Interface for ID3D10EffectMatrixVariable {
     type Vtable = ID3D10EffectMatrixVariable_Vtbl;
 }
@@ -2809,8 +2775,6 @@ impl ::core::fmt::Debug for ID3D10EffectPass {
         f.debug_tuple("ID3D10EffectPass").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10EffectPass {}
-unsafe impl ::core::marker::Sync for ID3D10EffectPass {}
 unsafe impl ::windows_core::Interface for ID3D10EffectPass {
     type Vtable = ID3D10EffectPass_Vtbl;
 }
@@ -2855,8 +2819,6 @@ impl ::core::fmt::Debug for ID3D10EffectPool {
         f.debug_tuple("ID3D10EffectPool").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10EffectPool {}
-unsafe impl ::core::marker::Sync for ID3D10EffectPool {}
 unsafe impl ::windows_core::Interface for ID3D10EffectPool {
     type Vtable = ID3D10EffectPool_Vtbl;
 }
@@ -2986,8 +2948,6 @@ impl ::core::fmt::Debug for ID3D10EffectRasterizerVariable {
         f.debug_tuple("ID3D10EffectRasterizerVariable").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10EffectRasterizerVariable {}
-unsafe impl ::core::marker::Sync for ID3D10EffectRasterizerVariable {}
 unsafe impl ::windows_core::Interface for ID3D10EffectRasterizerVariable {
     type Vtable = ID3D10EffectRasterizerVariable_Vtbl;
 }
@@ -3125,8 +3085,6 @@ impl ::core::fmt::Debug for ID3D10EffectRenderTargetViewVariable {
         f.debug_tuple("ID3D10EffectRenderTargetViewVariable").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10EffectRenderTargetViewVariable {}
-unsafe impl ::core::marker::Sync for ID3D10EffectRenderTargetViewVariable {}
 unsafe impl ::windows_core::Interface for ID3D10EffectRenderTargetViewVariable {
     type Vtable = ID3D10EffectRenderTargetViewVariable_Vtbl;
 }
@@ -3254,8 +3212,6 @@ impl ::core::fmt::Debug for ID3D10EffectSamplerVariable {
         f.debug_tuple("ID3D10EffectSamplerVariable").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10EffectSamplerVariable {}
-unsafe impl ::core::marker::Sync for ID3D10EffectSamplerVariable {}
 unsafe impl ::windows_core::Interface for ID3D10EffectSamplerVariable {
     type Vtable = ID3D10EffectSamplerVariable_Vtbl;
 }
@@ -3424,8 +3380,6 @@ impl ::core::fmt::Debug for ID3D10EffectScalarVariable {
         f.debug_tuple("ID3D10EffectScalarVariable").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10EffectScalarVariable {}
-unsafe impl ::core::marker::Sync for ID3D10EffectScalarVariable {}
 unsafe impl ::windows_core::Interface for ID3D10EffectScalarVariable {
     type Vtable = ID3D10EffectScalarVariable_Vtbl;
 }
@@ -3582,8 +3536,6 @@ impl ::core::fmt::Debug for ID3D10EffectShaderResourceVariable {
         f.debug_tuple("ID3D10EffectShaderResourceVariable").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10EffectShaderResourceVariable {}
-unsafe impl ::core::marker::Sync for ID3D10EffectShaderResourceVariable {}
 unsafe impl ::windows_core::Interface for ID3D10EffectShaderResourceVariable {
     type Vtable = ID3D10EffectShaderResourceVariable_Vtbl;
 }
@@ -3731,8 +3683,6 @@ impl ::core::fmt::Debug for ID3D10EffectShaderVariable {
         f.debug_tuple("ID3D10EffectShaderVariable").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10EffectShaderVariable {}
-unsafe impl ::core::marker::Sync for ID3D10EffectShaderVariable {}
 unsafe impl ::windows_core::Interface for ID3D10EffectShaderVariable {
     type Vtable = ID3D10EffectShaderVariable_Vtbl;
 }
@@ -3871,8 +3821,6 @@ impl ::core::fmt::Debug for ID3D10EffectStringVariable {
         f.debug_tuple("ID3D10EffectStringVariable").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10EffectStringVariable {}
-unsafe impl ::core::marker::Sync for ID3D10EffectStringVariable {}
 unsafe impl ::windows_core::Interface for ID3D10EffectStringVariable {
     type Vtable = ID3D10EffectStringVariable_Vtbl;
 }
@@ -3933,8 +3881,6 @@ impl ::core::fmt::Debug for ID3D10EffectTechnique {
         f.debug_tuple("ID3D10EffectTechnique").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10EffectTechnique {}
-unsafe impl ::core::marker::Sync for ID3D10EffectTechnique {}
 unsafe impl ::windows_core::Interface for ID3D10EffectTechnique {
     type Vtable = ID3D10EffectTechnique_Vtbl;
 }
@@ -4004,8 +3950,6 @@ impl ::core::fmt::Debug for ID3D10EffectType {
         f.debug_tuple("ID3D10EffectType").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10EffectType {}
-unsafe impl ::core::marker::Sync for ID3D10EffectType {}
 unsafe impl ::windows_core::Interface for ID3D10EffectType {
     type Vtable = ID3D10EffectType_Vtbl;
 }
@@ -4133,8 +4077,6 @@ impl ::core::fmt::Debug for ID3D10EffectVariable {
         f.debug_tuple("ID3D10EffectVariable").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10EffectVariable {}
-unsafe impl ::core::marker::Sync for ID3D10EffectVariable {}
 unsafe impl ::windows_core::Interface for ID3D10EffectVariable {
     type Vtable = ID3D10EffectVariable_Vtbl;
 }
@@ -4322,8 +4264,6 @@ impl ::core::fmt::Debug for ID3D10EffectVectorVariable {
         f.debug_tuple("ID3D10EffectVectorVariable").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10EffectVectorVariable {}
-unsafe impl ::core::marker::Sync for ID3D10EffectVectorVariable {}
 unsafe impl ::windows_core::Interface for ID3D10EffectVectorVariable {
     type Vtable = ID3D10EffectVectorVariable_Vtbl;
 }
@@ -4395,8 +4335,6 @@ impl ::core::fmt::Debug for ID3D10GeometryShader {
         f.debug_tuple("ID3D10GeometryShader").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10GeometryShader {}
-unsafe impl ::core::marker::Sync for ID3D10GeometryShader {}
 unsafe impl ::windows_core::Interface for ID3D10GeometryShader {
     type Vtable = ID3D10GeometryShader_Vtbl;
 }
@@ -4569,8 +4507,6 @@ impl ::core::fmt::Debug for ID3D10InfoQueue {
         f.debug_tuple("ID3D10InfoQueue").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10InfoQueue {}
-unsafe impl ::core::marker::Sync for ID3D10InfoQueue {}
 unsafe impl ::windows_core::Interface for ID3D10InfoQueue {
     type Vtable = ID3D10InfoQueue_Vtbl;
 }
@@ -4680,8 +4616,6 @@ impl ::core::fmt::Debug for ID3D10InputLayout {
         f.debug_tuple("ID3D10InputLayout").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10InputLayout {}
-unsafe impl ::core::marker::Sync for ID3D10InputLayout {}
 unsafe impl ::windows_core::Interface for ID3D10InputLayout {
     type Vtable = ID3D10InputLayout_Vtbl;
 }
@@ -4734,8 +4668,6 @@ impl ::core::fmt::Debug for ID3D10Multithread {
         f.debug_tuple("ID3D10Multithread").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10Multithread {}
-unsafe impl ::core::marker::Sync for ID3D10Multithread {}
 unsafe impl ::windows_core::Interface for ID3D10Multithread {
     type Vtable = ID3D10Multithread_Vtbl;
 }
@@ -4796,8 +4728,6 @@ impl ::core::fmt::Debug for ID3D10PixelShader {
         f.debug_tuple("ID3D10PixelShader").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10PixelShader {}
-unsafe impl ::core::marker::Sync for ID3D10PixelShader {}
 unsafe impl ::windows_core::Interface for ID3D10PixelShader {
     type Vtable = ID3D10PixelShader_Vtbl;
 }
@@ -4865,8 +4795,6 @@ impl ::core::fmt::Debug for ID3D10Predicate {
         f.debug_tuple("ID3D10Predicate").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10Predicate {}
-unsafe impl ::core::marker::Sync for ID3D10Predicate {}
 unsafe impl ::windows_core::Interface for ID3D10Predicate {
     type Vtable = ID3D10Predicate_Vtbl;
 }
@@ -4934,8 +4862,6 @@ impl ::core::fmt::Debug for ID3D10Query {
         f.debug_tuple("ID3D10Query").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10Query {}
-unsafe impl ::core::marker::Sync for ID3D10Query {}
 unsafe impl ::windows_core::Interface for ID3D10Query {
     type Vtable = ID3D10Query_Vtbl;
 }
@@ -4992,8 +4918,6 @@ impl ::core::fmt::Debug for ID3D10RasterizerState {
         f.debug_tuple("ID3D10RasterizerState").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10RasterizerState {}
-unsafe impl ::core::marker::Sync for ID3D10RasterizerState {}
 unsafe impl ::windows_core::Interface for ID3D10RasterizerState {
     type Vtable = ID3D10RasterizerState_Vtbl;
 }
@@ -5058,8 +4982,6 @@ impl ::core::fmt::Debug for ID3D10RenderTargetView {
         f.debug_tuple("ID3D10RenderTargetView").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10RenderTargetView {}
-unsafe impl ::core::marker::Sync for ID3D10RenderTargetView {}
 unsafe impl ::windows_core::Interface for ID3D10RenderTargetView {
     type Vtable = ID3D10RenderTargetView_Vtbl;
 }
@@ -5125,8 +5047,6 @@ impl ::core::fmt::Debug for ID3D10Resource {
         f.debug_tuple("ID3D10Resource").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10Resource {}
-unsafe impl ::core::marker::Sync for ID3D10Resource {}
 unsafe impl ::windows_core::Interface for ID3D10Resource {
     type Vtable = ID3D10Resource_Vtbl;
 }
@@ -5183,8 +5103,6 @@ impl ::core::fmt::Debug for ID3D10SamplerState {
         f.debug_tuple("ID3D10SamplerState").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10SamplerState {}
-unsafe impl ::core::marker::Sync for ID3D10SamplerState {}
 unsafe impl ::windows_core::Interface for ID3D10SamplerState {
     type Vtable = ID3D10SamplerState_Vtbl;
 }
@@ -5248,8 +5166,6 @@ impl ::core::fmt::Debug for ID3D10ShaderReflection {
         f.debug_tuple("ID3D10ShaderReflection").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10ShaderReflection {}
-unsafe impl ::core::marker::Sync for ID3D10ShaderReflection {}
 unsafe impl ::windows_core::Interface for ID3D10ShaderReflection {
     type Vtable = ID3D10ShaderReflection_Vtbl;
 }
@@ -5378,8 +5294,6 @@ impl ::core::fmt::Debug for ID3D10ShaderReflection1 {
         f.debug_tuple("ID3D10ShaderReflection1").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10ShaderReflection1 {}
-unsafe impl ::core::marker::Sync for ID3D10ShaderReflection1 {}
 unsafe impl ::windows_core::Interface for ID3D10ShaderReflection1 {
     type Vtable = ID3D10ShaderReflection1_Vtbl;
 }
@@ -5465,8 +5379,6 @@ impl ::core::fmt::Debug for ID3D10ShaderReflectionConstantBuffer {
         f.debug_tuple("ID3D10ShaderReflectionConstantBuffer").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10ShaderReflectionConstantBuffer {}
-unsafe impl ::core::marker::Sync for ID3D10ShaderReflectionConstantBuffer {}
 unsafe impl ::windows_core::Interface for ID3D10ShaderReflectionConstantBuffer {
     type Vtable = ID3D10ShaderReflectionConstantBuffer_Vtbl;
 }
@@ -5518,8 +5430,6 @@ impl ::core::fmt::Debug for ID3D10ShaderReflectionType {
         f.debug_tuple("ID3D10ShaderReflectionType").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10ShaderReflectionType {}
-unsafe impl ::core::marker::Sync for ID3D10ShaderReflectionType {}
 unsafe impl ::windows_core::Interface for ID3D10ShaderReflectionType {
     type Vtable = ID3D10ShaderReflectionType_Vtbl;
 }
@@ -5561,8 +5471,6 @@ impl ::core::fmt::Debug for ID3D10ShaderReflectionVariable {
         f.debug_tuple("ID3D10ShaderReflectionVariable").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10ShaderReflectionVariable {}
-unsafe impl ::core::marker::Sync for ID3D10ShaderReflectionVariable {}
 unsafe impl ::windows_core::Interface for ID3D10ShaderReflectionVariable {
     type Vtable = ID3D10ShaderReflectionVariable_Vtbl;
 }
@@ -5621,8 +5529,6 @@ impl ::core::fmt::Debug for ID3D10ShaderResourceView {
         f.debug_tuple("ID3D10ShaderResourceView").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10ShaderResourceView {}
-unsafe impl ::core::marker::Sync for ID3D10ShaderResourceView {}
 unsafe impl ::windows_core::Interface for ID3D10ShaderResourceView {
     type Vtable = ID3D10ShaderResourceView_Vtbl;
 }
@@ -5692,8 +5598,6 @@ impl ::core::fmt::Debug for ID3D10ShaderResourceView1 {
         f.debug_tuple("ID3D10ShaderResourceView1").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10ShaderResourceView1 {}
-unsafe impl ::core::marker::Sync for ID3D10ShaderResourceView1 {}
 unsafe impl ::windows_core::Interface for ID3D10ShaderResourceView1 {
     type Vtable = ID3D10ShaderResourceView1_Vtbl;
 }
@@ -5744,8 +5648,6 @@ impl ::core::fmt::Debug for ID3D10StateBlock {
         f.debug_tuple("ID3D10StateBlock").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10StateBlock {}
-unsafe impl ::core::marker::Sync for ID3D10StateBlock {}
 unsafe impl ::windows_core::Interface for ID3D10StateBlock {
     type Vtable = ID3D10StateBlock_Vtbl;
 }
@@ -5796,8 +5698,6 @@ impl ::core::fmt::Debug for ID3D10SwitchToRef {
         f.debug_tuple("ID3D10SwitchToRef").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10SwitchToRef {}
-unsafe impl ::core::marker::Sync for ID3D10SwitchToRef {}
 unsafe impl ::windows_core::Interface for ID3D10SwitchToRef {
     type Vtable = ID3D10SwitchToRef_Vtbl;
 }
@@ -5878,8 +5778,6 @@ impl ::core::fmt::Debug for ID3D10Texture1D {
         f.debug_tuple("ID3D10Texture1D").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10Texture1D {}
-unsafe impl ::core::marker::Sync for ID3D10Texture1D {}
 unsafe impl ::windows_core::Interface for ID3D10Texture1D {
     type Vtable = ID3D10Texture1D_Vtbl;
 }
@@ -5959,8 +5857,6 @@ impl ::core::fmt::Debug for ID3D10Texture2D {
         f.debug_tuple("ID3D10Texture2D").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10Texture2D {}
-unsafe impl ::core::marker::Sync for ID3D10Texture2D {}
 unsafe impl ::windows_core::Interface for ID3D10Texture2D {
     type Vtable = ID3D10Texture2D_Vtbl;
 }
@@ -6040,8 +5936,6 @@ impl ::core::fmt::Debug for ID3D10Texture3D {
         f.debug_tuple("ID3D10Texture3D").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10Texture3D {}
-unsafe impl ::core::marker::Sync for ID3D10Texture3D {}
 unsafe impl ::windows_core::Interface for ID3D10Texture3D {
     type Vtable = ID3D10Texture3D_Vtbl;
 }
@@ -6098,8 +5992,6 @@ impl ::core::fmt::Debug for ID3D10VertexShader {
         f.debug_tuple("ID3D10VertexShader").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10VertexShader {}
-unsafe impl ::core::marker::Sync for ID3D10VertexShader {}
 unsafe impl ::windows_core::Interface for ID3D10VertexShader {
     type Vtable = ID3D10VertexShader_Vtbl;
 }
@@ -6155,8 +6047,6 @@ impl ::core::fmt::Debug for ID3D10View {
         f.debug_tuple("ID3D10View").field(&self.0).finish()
     }
 }
-unsafe impl ::core::marker::Send for ID3D10View {}
-unsafe impl ::core::marker::Sync for ID3D10View {}
 unsafe impl ::windows_core::Interface for ID3D10View {
     type Vtable = ID3D10View_Vtbl;
 }
@@ -9031,8 +8921,6 @@ pub const D3D10_SHADER_DEBUG_REG_UNUSED: D3D10_SHADER_DEBUG_REGTYPE = D3D10_SHAD
 pub const D3D11_SHADER_DEBUG_REG_INTERFACE_POINTERS: D3D10_SHADER_DEBUG_REGTYPE = D3D10_SHADER_DEBUG_REGTYPE(11i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D11_SHADER_DEBUG_REG_UAV: D3D10_SHADER_DEBUG_REGTYPE = D3D10_SHADER_DEBUG_REGTYPE(12i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-pub const D3D10_SHADER_DEBUG_REG_FORCE_DWORD: D3D10_SHADER_DEBUG_REGTYPE = D3D10_SHADER_DEBUG_REGTYPE(2147483647i32);
 impl ::core::marker::Copy for D3D10_SHADER_DEBUG_REGTYPE {}
 impl ::core::clone::Clone for D3D10_SHADER_DEBUG_REGTYPE {
     fn clone(&self) -> Self {
@@ -9072,8 +8960,6 @@ pub const D3D10_SHADER_DEBUG_SCOPE_STATEBLOCK: D3D10_SHADER_DEBUG_SCOPETYPE = D3
 pub const D3D10_SHADER_DEBUG_SCOPE_NAMESPACE: D3D10_SHADER_DEBUG_SCOPETYPE = D3D10_SHADER_DEBUG_SCOPETYPE(6i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_SHADER_DEBUG_SCOPE_ANNOTATION: D3D10_SHADER_DEBUG_SCOPETYPE = D3D10_SHADER_DEBUG_SCOPETYPE(7i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-pub const D3D10_SHADER_DEBUG_SCOPE_FORCE_DWORD: D3D10_SHADER_DEBUG_SCOPETYPE = D3D10_SHADER_DEBUG_SCOPETYPE(2147483647i32);
 impl ::core::marker::Copy for D3D10_SHADER_DEBUG_SCOPETYPE {}
 impl ::core::clone::Clone for D3D10_SHADER_DEBUG_SCOPETYPE {
     fn clone(&self) -> Self {
@@ -9101,8 +8987,6 @@ pub struct D3D10_SHADER_DEBUG_VARTYPE(pub i32);
 pub const D3D10_SHADER_DEBUG_VAR_VARIABLE: D3D10_SHADER_DEBUG_VARTYPE = D3D10_SHADER_DEBUG_VARTYPE(0i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_SHADER_DEBUG_VAR_FUNCTION: D3D10_SHADER_DEBUG_VARTYPE = D3D10_SHADER_DEBUG_VARTYPE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-pub const D3D10_SHADER_DEBUG_VAR_FORCE_DWORD: D3D10_SHADER_DEBUG_VARTYPE = D3D10_SHADER_DEBUG_VARTYPE(2147483647i32);
 impl ::core::marker::Copy for D3D10_SHADER_DEBUG_VARTYPE {}
 impl ::core::clone::Clone for D3D10_SHADER_DEBUG_VARTYPE {
     fn clone(&self) -> Self {

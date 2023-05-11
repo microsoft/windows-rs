@@ -6,15 +6,15 @@ pub unsafe fn BstrFromVector(psa: *const super::Com::SAFEARRAY) -> ::windows_cor
     let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
     BstrFromVector(psa, &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn ClearCustData(pcustdata: *mut super::Com::CUSTDATA) {
     ::windows_targets::link!("oleaut32.dll" "system" fn ClearCustData(pcustdata : *mut super::Com:: CUSTDATA) -> ());
     ClearCustData(pcustdata)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn CreateDispTypeInfo(pidata: *mut INTERFACEDATA, lcid: u32, pptinfo: *mut ::core::option::Option<super::Com::ITypeInfo>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("oleaut32.dll" "system" fn CreateDispTypeInfo(pidata : *mut INTERFACEDATA, lcid : u32, pptinfo : *mut * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
@@ -67,12 +67,12 @@ where
     let mut result__ = ::windows_core::zeroed::<ICreateTypeLib2>();
     CreateTypeLib2(syskind, szfile.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn DispCallFunc(pvinstance: ::core::option::Option<*const ::core::ffi::c_void>, ovft: usize, cc: super::Com::CALLCONV, vtreturn: super::Com::VARENUM, cactuals: u32, prgvt: *const u16, prgpvarg: *const *const super::Com::VARIANT) -> ::windows_core::Result<super::Com::VARIANT> {
-    ::windows_targets::link!("oleaut32.dll" "system" fn DispCallFunc(pvinstance : *const ::core::ffi::c_void, ovft : usize, cc : super::Com:: CALLCONV, vtreturn : super::Com:: VARENUM, cactuals : u32, prgvt : *const u16, prgpvarg : *const *const super::Com:: VARIANT, pvargresult : *mut super::Com:: VARIANT) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+pub unsafe fn DispCallFunc(pvinstance: ::core::option::Option<*const ::core::ffi::c_void>, ovft: usize, cc: super::Com::CALLCONV, vtreturn: super::Variant::VARENUM, cactuals: u32, prgvt: *const u16, prgpvarg: *const *const super::Variant::VARIANT) -> ::windows_core::Result<super::Variant::VARIANT> {
+    ::windows_targets::link!("oleaut32.dll" "system" fn DispCallFunc(pvinstance : *const ::core::ffi::c_void, ovft : usize, cc : super::Com:: CALLCONV, vtreturn : super::Variant:: VARENUM, cactuals : u32, prgvt : *const u16, prgpvarg : *const *const super::Variant:: VARIANT, pvargresult : *mut super::Variant:: VARIANT) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<super::Variant::VARIANT>();
     DispCallFunc(::core::mem::transmute(pvinstance.unwrap_or(::std::ptr::null())), ovft, cc, vtreturn, cactuals, prgvt, prgpvarg, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
@@ -85,21 +85,21 @@ where
     ::windows_targets::link!("oleaut32.dll" "system" fn DispGetIDsOfNames(ptinfo : * mut::core::ffi::c_void, rgsznames : *const ::windows_core::PCWSTR, cnames : u32, rgdispid : *mut i32) -> ::windows_core::HRESULT);
     DispGetIDsOfNames(ptinfo.into_param().abi(), rgsznames, cnames, rgdispid).ok()
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn DispGetParam(pdispparams: *const super::Com::DISPPARAMS, position: u32, vttarg: super::Com::VARENUM, pvarresult: *mut super::Com::VARIANT, puargerr: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
-    ::windows_targets::link!("oleaut32.dll" "system" fn DispGetParam(pdispparams : *const super::Com:: DISPPARAMS, position : u32, vttarg : super::Com:: VARENUM, pvarresult : *mut super::Com:: VARIANT, puargerr : *mut u32) -> ::windows_core::HRESULT);
+pub unsafe fn DispGetParam(pdispparams: *const super::Com::DISPPARAMS, position: u32, vttarg: super::Variant::VARENUM, pvarresult: *mut super::Variant::VARIANT, puargerr: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("oleaut32.dll" "system" fn DispGetParam(pdispparams : *const super::Com:: DISPPARAMS, position : u32, vttarg : super::Variant:: VARENUM, pvarresult : *mut super::Variant:: VARIANT, puargerr : *mut u32) -> ::windows_core::HRESULT);
     DispGetParam(pdispparams, position, vttarg, pvarresult, ::core::mem::transmute(puargerr.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn DispInvoke<P0>(_this: *mut ::core::ffi::c_void, ptinfo: P0, dispidmember: i32, wflags: u16, pparams: *mut super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows_core::Result<()>
+pub unsafe fn DispInvoke<P0>(_this: *mut ::core::ffi::c_void, ptinfo: P0, dispidmember: i32, wflags: u16, pparams: *mut super::Com::DISPPARAMS, pvarresult: *mut super::Variant::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::Com::ITypeInfo>,
 {
-    ::windows_targets::link!("oleaut32.dll" "system" fn DispInvoke(_this : *mut ::core::ffi::c_void, ptinfo : * mut::core::ffi::c_void, dispidmember : i32, wflags : u16, pparams : *mut super::Com:: DISPPARAMS, pvarresult : *mut super::Com:: VARIANT, pexcepinfo : *mut super::Com:: EXCEPINFO, puargerr : *mut u32) -> ::windows_core::HRESULT);
+    ::windows_targets::link!("oleaut32.dll" "system" fn DispInvoke(_this : *mut ::core::ffi::c_void, ptinfo : * mut::core::ffi::c_void, dispidmember : i32, wflags : u16, pparams : *mut super::Com:: DISPPARAMS, pvarresult : *mut super::Variant:: VARIANT, pexcepinfo : *mut super::Com:: EXCEPINFO, puargerr : *mut u32) -> ::windows_core::HRESULT);
     DispInvoke(_this, ptinfo.into_param().abi(), dispidmember, wflags, pparams, pvarresult, pexcepinfo, puargerr).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
@@ -112,12 +112,6 @@ where
 {
     ::windows_targets::link!("ole32.dll" "system" fn DoDragDrop(pdataobj : * mut::core::ffi::c_void, pdropsource : * mut::core::ffi::c_void, dwokeffects : DROPEFFECT, pdweffect : *mut DROPEFFECT) -> ::windows_core::HRESULT);
     DoDragDrop(pdataobj.into_param().abi(), pdropsource.into_param().abi(), dwokeffects, pdweffect)
-}
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-#[inline]
-pub unsafe fn DosDateTimeToVariantTime(wdosdate: u16, wdostime: u16, pvtime: *mut f64) -> i32 {
-    ::windows_targets::link!("oleaut32.dll" "system" fn DosDateTimeToVariantTime(wdosdate : u16, wdostime : u16, pvtime : *mut f64) -> i32);
-    DosDateTimeToVariantTime(wdosdate, wdostime, pvtime)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
@@ -484,13 +478,13 @@ where
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OleCreatePropertyFrame<P0, P1>(hwndowner: P0, x: u32, y: u32, lpszcaption: P1, cobjects: u32, ppunk: *const ::core::option::Option<::windows_core::IUnknown>, cpages: u32, ppageclsid: *const ::windows_core::GUID, lcid: u32, dwreserved: u32, pvreserved: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()>
+pub unsafe fn OleCreatePropertyFrame<P0, P1>(hwndowner: P0, x: u32, y: u32, lpszcaption: P1, cobjects: u32, ppunk: *const ::core::option::Option<::windows_core::IUnknown>, cpages: u32, ppageclsid: *const ::windows_core::GUID, lcid: u32, dwreserved: u32, pvreserved: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("oleaut32.dll" "system" fn OleCreatePropertyFrame(hwndowner : super::super::Foundation:: HWND, x : u32, y : u32, lpszcaption : ::windows_core::PCWSTR, cobjects : u32, ppunk : *const * mut::core::ffi::c_void, cpages : u32, ppageclsid : *const ::windows_core::GUID, lcid : u32, dwreserved : u32, pvreserved : *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
-    OleCreatePropertyFrame(hwndowner.into_param().abi(), x, y, lpszcaption.into_param().abi(), cobjects, ::core::mem::transmute(ppunk), cpages, ppageclsid, lcid, dwreserved, ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null_mut()))).ok()
+    ::windows_targets::link!("oleaut32.dll" "system" fn OleCreatePropertyFrame(hwndowner : super::super::Foundation:: HWND, x : u32, y : u32, lpszcaption : ::windows_core::PCWSTR, cobjects : u32, ppunk : *const * mut::core::ffi::c_void, cpages : u32, ppageclsid : *const ::windows_core::GUID, lcid : u32, dwreserved : u32, pvreserved : *const ::core::ffi::c_void) -> ::windows_core::HRESULT);
+    OleCreatePropertyFrame(hwndowner.into_param().abi(), x, y, lpszcaption.into_param().abi(), cobjects, ::core::mem::transmute(ppunk), cpages, ppageclsid, lcid, dwreserved, ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -679,19 +673,19 @@ where
     ::windows_targets::link!("oleaut32.dll" "system" fn OleLoadPictureEx(lpstream : * mut::core::ffi::c_void, lsize : i32, frunmode : super::super::Foundation:: BOOL, riid : *const ::windows_core::GUID, xsizedesired : u32, ysizedesired : u32, dwflags : LOAD_PICTURE_FLAGS, lplpvobj : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     OleLoadPictureEx(lpstream.into_param().abi(), lsize, frunmode.into_param().abi(), riid, xsizedesired, ysizedesired, dwflags, lplpvobj).ok()
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn OleLoadPictureFile(varfilename: super::Com::VARIANT) -> ::windows_core::Result<super::Com::IDispatch> {
-    ::windows_targets::link!("oleaut32.dll" "system" fn OleLoadPictureFile(varfilename : super::Com:: VARIANT, lplpdisppicture : *mut * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
+pub unsafe fn OleLoadPictureFile(varfilename: super::Variant::VARIANT) -> ::windows_core::Result<super::Com::IDispatch> {
+    ::windows_targets::link!("oleaut32.dll" "system" fn OleLoadPictureFile(varfilename : super::Variant:: VARIANT, lplpdisppicture : *mut * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
     let mut result__ = ::windows_core::zeroed::<super::Com::IDispatch>();
     OleLoadPictureFile(::core::mem::transmute(varfilename), &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn OleLoadPictureFileEx(varfilename: super::Com::VARIANT, xsizedesired: u32, ysizedesired: u32, dwflags: LOAD_PICTURE_FLAGS) -> ::windows_core::Result<super::Com::IDispatch> {
-    ::windows_targets::link!("oleaut32.dll" "system" fn OleLoadPictureFileEx(varfilename : super::Com:: VARIANT, xsizedesired : u32, ysizedesired : u32, dwflags : LOAD_PICTURE_FLAGS, lplpdisppicture : *mut * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
+pub unsafe fn OleLoadPictureFileEx(varfilename: super::Variant::VARIANT, xsizedesired: u32, ysizedesired: u32, dwflags: LOAD_PICTURE_FLAGS) -> ::windows_core::Result<super::Com::IDispatch> {
+    ::windows_targets::link!("oleaut32.dll" "system" fn OleLoadPictureFileEx(varfilename : super::Variant:: VARIANT, xsizedesired : u32, ysizedesired : u32, dwflags : LOAD_PICTURE_FLAGS, lplpdisppicture : *mut * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
     let mut result__ = ::windows_core::zeroed::<super::Com::IDispatch>();
     OleLoadPictureFileEx(::core::mem::transmute(varfilename), xsizedesired, ysizedesired, dwflags, &mut result__).from_abi(result__)
 }
@@ -1195,11 +1189,11 @@ pub unsafe fn SafeArrayAllocDescriptor(cdims: u32) -> ::windows_core::Result<*mu
     let mut result__ = ::windows_core::zeroed::<*mut super::Com::SAFEARRAY>();
     SafeArrayAllocDescriptor(cdims, &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn SafeArrayAllocDescriptorEx(vt: super::Com::VARENUM, cdims: u32) -> ::windows_core::Result<*mut super::Com::SAFEARRAY> {
-    ::windows_targets::link!("oleaut32.dll" "system" fn SafeArrayAllocDescriptorEx(vt : super::Com:: VARENUM, cdims : u32, ppsaout : *mut *mut super::Com:: SAFEARRAY) -> ::windows_core::HRESULT);
+pub unsafe fn SafeArrayAllocDescriptorEx(vt: super::Variant::VARENUM, cdims: u32) -> ::windows_core::Result<*mut super::Com::SAFEARRAY> {
+    ::windows_targets::link!("oleaut32.dll" "system" fn SafeArrayAllocDescriptorEx(vt : super::Variant:: VARENUM, cdims : u32, ppsaout : *mut *mut super::Com:: SAFEARRAY) -> ::windows_core::HRESULT);
     let mut result__ = ::windows_core::zeroed::<*mut super::Com::SAFEARRAY>();
     SafeArrayAllocDescriptorEx(vt, cdims, &mut result__).from_abi(result__)
 }
@@ -1218,32 +1212,32 @@ pub unsafe fn SafeArrayCopyData(psasource: *const super::Com::SAFEARRAY, psatarg
     ::windows_targets::link!("oleaut32.dll" "system" fn SafeArrayCopyData(psasource : *const super::Com:: SAFEARRAY, psatarget : *const super::Com:: SAFEARRAY) -> ::windows_core::HRESULT);
     SafeArrayCopyData(psasource, psatarget).ok()
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn SafeArrayCreate(vt: super::Com::VARENUM, cdims: u32, rgsabound: *const super::Com::SAFEARRAYBOUND) -> *mut super::Com::SAFEARRAY {
-    ::windows_targets::link!("oleaut32.dll" "system" fn SafeArrayCreate(vt : super::Com:: VARENUM, cdims : u32, rgsabound : *const super::Com:: SAFEARRAYBOUND) -> *mut super::Com:: SAFEARRAY);
+pub unsafe fn SafeArrayCreate(vt: super::Variant::VARENUM, cdims: u32, rgsabound: *const super::Com::SAFEARRAYBOUND) -> *mut super::Com::SAFEARRAY {
+    ::windows_targets::link!("oleaut32.dll" "system" fn SafeArrayCreate(vt : super::Variant:: VARENUM, cdims : u32, rgsabound : *const super::Com:: SAFEARRAYBOUND) -> *mut super::Com:: SAFEARRAY);
     SafeArrayCreate(vt, cdims, rgsabound)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn SafeArrayCreateEx(vt: super::Com::VARENUM, cdims: u32, rgsabound: *const super::Com::SAFEARRAYBOUND, pvextra: *const ::core::ffi::c_void) -> *mut super::Com::SAFEARRAY {
-    ::windows_targets::link!("oleaut32.dll" "system" fn SafeArrayCreateEx(vt : super::Com:: VARENUM, cdims : u32, rgsabound : *const super::Com:: SAFEARRAYBOUND, pvextra : *const ::core::ffi::c_void) -> *mut super::Com:: SAFEARRAY);
+pub unsafe fn SafeArrayCreateEx(vt: super::Variant::VARENUM, cdims: u32, rgsabound: *const super::Com::SAFEARRAYBOUND, pvextra: *const ::core::ffi::c_void) -> *mut super::Com::SAFEARRAY {
+    ::windows_targets::link!("oleaut32.dll" "system" fn SafeArrayCreateEx(vt : super::Variant:: VARENUM, cdims : u32, rgsabound : *const super::Com:: SAFEARRAYBOUND, pvextra : *const ::core::ffi::c_void) -> *mut super::Com:: SAFEARRAY);
     SafeArrayCreateEx(vt, cdims, rgsabound, pvextra)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn SafeArrayCreateVector(vt: super::Com::VARENUM, llbound: i32, celements: u32) -> *mut super::Com::SAFEARRAY {
-    ::windows_targets::link!("oleaut32.dll" "system" fn SafeArrayCreateVector(vt : super::Com:: VARENUM, llbound : i32, celements : u32) -> *mut super::Com:: SAFEARRAY);
+pub unsafe fn SafeArrayCreateVector(vt: super::Variant::VARENUM, llbound: i32, celements: u32) -> *mut super::Com::SAFEARRAY {
+    ::windows_targets::link!("oleaut32.dll" "system" fn SafeArrayCreateVector(vt : super::Variant:: VARENUM, llbound : i32, celements : u32) -> *mut super::Com:: SAFEARRAY);
     SafeArrayCreateVector(vt, llbound, celements)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn SafeArrayCreateVectorEx(vt: super::Com::VARENUM, llbound: i32, celements: u32, pvextra: *const ::core::ffi::c_void) -> *mut super::Com::SAFEARRAY {
-    ::windows_targets::link!("oleaut32.dll" "system" fn SafeArrayCreateVectorEx(vt : super::Com:: VARENUM, llbound : i32, celements : u32, pvextra : *const ::core::ffi::c_void) -> *mut super::Com:: SAFEARRAY);
+pub unsafe fn SafeArrayCreateVectorEx(vt: super::Variant::VARENUM, llbound: i32, celements: u32, pvextra: *const ::core::ffi::c_void) -> *mut super::Com::SAFEARRAY {
+    ::windows_targets::link!("oleaut32.dll" "system" fn SafeArrayCreateVectorEx(vt : super::Variant:: VARENUM, llbound : i32, celements : u32, pvextra : *const ::core::ffi::c_void) -> *mut super::Com:: SAFEARRAY);
     SafeArrayCreateVectorEx(vt, llbound, celements, pvextra)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
@@ -1320,12 +1314,12 @@ pub unsafe fn SafeArrayGetUBound(psa: *const super::Com::SAFEARRAY, ndim: u32) -
     let mut result__ = ::windows_core::zeroed::<i32>();
     SafeArrayGetUBound(psa, ndim, &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn SafeArrayGetVartype(psa: *const super::Com::SAFEARRAY) -> ::windows_core::Result<super::Com::VARENUM> {
-    ::windows_targets::link!("oleaut32.dll" "system" fn SafeArrayGetVartype(psa : *const super::Com:: SAFEARRAY, pvt : *mut super::Com:: VARENUM) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<super::Com::VARENUM>();
+pub unsafe fn SafeArrayGetVartype(psa: *const super::Com::SAFEARRAY) -> ::windows_core::Result<super::Variant::VARENUM> {
+    ::windows_targets::link!("oleaut32.dll" "system" fn SafeArrayGetVartype(psa : *const super::Com:: SAFEARRAY, pvt : *mut super::Variant:: VARENUM) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<super::Variant::VARENUM>();
     SafeArrayGetVartype(psa, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
@@ -1400,13 +1394,6 @@ pub unsafe fn SafeArrayUnlock(psa: *const super::Com::SAFEARRAY) -> ::windows_co
     ::windows_targets::link!("oleaut32.dll" "system" fn SafeArrayUnlock(psa : *const super::Com:: SAFEARRAY) -> ::windows_core::HRESULT);
     SafeArrayUnlock(psa).ok()
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn SystemTimeToVariantTime(lpsystemtime: *const super::super::Foundation::SYSTEMTIME, pvtime: *mut f64) -> i32 {
-    ::windows_targets::link!("oleaut32.dll" "system" fn SystemTimeToVariantTime(lpsystemtime : *const super::super::Foundation:: SYSTEMTIME, pvtime : *mut f64) -> i32);
-    SystemTimeToVariantTime(lpsystemtime, pvtime)
-}
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
@@ -1421,28 +1408,28 @@ pub unsafe fn UnRegisterTypeLibForUser(libid: *const ::windows_core::GUID, wmajo
     ::windows_targets::link!("oleaut32.dll" "system" fn UnRegisterTypeLibForUser(libid : *const ::windows_core::GUID, wmajorvernum : u16, wminorvernum : u16, lcid : u32, syskind : super::Com:: SYSKIND) -> ::windows_core::HRESULT);
     UnRegisterTypeLibForUser(libid, wmajorvernum, wminorvernum, lcid, syskind).ok()
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn VarAbs(pvarin: *const super::Com::VARIANT) -> ::windows_core::Result<super::Com::VARIANT> {
-    ::windows_targets::link!("oleaut32.dll" "system" fn VarAbs(pvarin : *const super::Com:: VARIANT, pvarresult : *mut super::Com:: VARIANT) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+pub unsafe fn VarAbs(pvarin: *const super::Variant::VARIANT) -> ::windows_core::Result<super::Variant::VARIANT> {
+    ::windows_targets::link!("oleaut32.dll" "system" fn VarAbs(pvarin : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<super::Variant::VARIANT>();
     VarAbs(pvarin, &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn VarAdd(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows_core::Result<super::Com::VARIANT> {
-    ::windows_targets::link!("oleaut32.dll" "system" fn VarAdd(pvarleft : *const super::Com:: VARIANT, pvarright : *const super::Com:: VARIANT, pvarresult : *mut super::Com:: VARIANT) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+pub unsafe fn VarAdd(pvarleft: *const super::Variant::VARIANT, pvarright: *const super::Variant::VARIANT) -> ::windows_core::Result<super::Variant::VARIANT> {
+    ::windows_targets::link!("oleaut32.dll" "system" fn VarAdd(pvarleft : *const super::Variant:: VARIANT, pvarright : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<super::Variant::VARIANT>();
     VarAdd(pvarleft, pvarright, &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn VarAnd(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows_core::Result<super::Com::VARIANT> {
-    ::windows_targets::link!("oleaut32.dll" "system" fn VarAnd(pvarleft : *const super::Com:: VARIANT, pvarright : *const super::Com:: VARIANT, pvarresult : *mut super::Com:: VARIANT) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+pub unsafe fn VarAnd(pvarleft: *const super::Variant::VARIANT, pvarright: *const super::Variant::VARIANT) -> ::windows_core::Result<super::Variant::VARIANT> {
+    ::windows_targets::link!("oleaut32.dll" "system" fn VarAnd(pvarleft : *const super::Variant:: VARIANT, pvarright : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<super::Variant::VARIANT>();
     VarAnd(pvarleft, pvarright, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -1707,19 +1694,19 @@ pub unsafe fn VarBstrFromUI8(ui64in: u64, lcid: u32, dwflags: u32) -> ::windows_
     let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
     VarBstrFromUI8(ui64in, lcid, dwflags, &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn VarCat(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows_core::Result<super::Com::VARIANT> {
-    ::windows_targets::link!("oleaut32.dll" "system" fn VarCat(pvarleft : *const super::Com:: VARIANT, pvarright : *const super::Com:: VARIANT, pvarresult : *mut super::Com:: VARIANT) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+pub unsafe fn VarCat(pvarleft: *const super::Variant::VARIANT, pvarright: *const super::Variant::VARIANT) -> ::windows_core::Result<super::Variant::VARIANT> {
+    ::windows_targets::link!("oleaut32.dll" "system" fn VarCat(pvarleft : *const super::Variant:: VARIANT, pvarright : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<super::Variant::VARIANT>();
     VarCat(pvarleft, pvarright, &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn VarCmp(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT, lcid: u32, dwflags: u32) -> VARCMP {
-    ::windows_targets::link!("oleaut32.dll" "system" fn VarCmp(pvarleft : *const super::Com:: VARIANT, pvarright : *const super::Com:: VARIANT, lcid : u32, dwflags : u32) -> VARCMP);
+pub unsafe fn VarCmp(pvarleft: *const super::Variant::VARIANT, pvarright: *const super::Variant::VARIANT, lcid: u32, dwflags: u32) -> VARCMP {
+    ::windows_targets::link!("oleaut32.dll" "system" fn VarCmp(pvarleft : *const super::Variant:: VARIANT, pvarright : *const super::Variant:: VARIANT, lcid : u32, dwflags : u32) -> VARCMP);
     VarCmp(pvarleft, pvarright, lcid, dwflags)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
@@ -2294,80 +2281,80 @@ pub unsafe fn VarDecSub(pdecleft: *const super::super::Foundation::DECIMAL, pdec
     let mut result__ = ::windows_core::zeroed::<super::super::Foundation::DECIMAL>();
     VarDecSub(pdecleft, pdecright, &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn VarDiv(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows_core::Result<super::Com::VARIANT> {
-    ::windows_targets::link!("oleaut32.dll" "system" fn VarDiv(pvarleft : *const super::Com:: VARIANT, pvarright : *const super::Com:: VARIANT, pvarresult : *mut super::Com:: VARIANT) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+pub unsafe fn VarDiv(pvarleft: *const super::Variant::VARIANT, pvarright: *const super::Variant::VARIANT) -> ::windows_core::Result<super::Variant::VARIANT> {
+    ::windows_targets::link!("oleaut32.dll" "system" fn VarDiv(pvarleft : *const super::Variant:: VARIANT, pvarright : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<super::Variant::VARIANT>();
     VarDiv(pvarleft, pvarright, &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn VarEqv(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows_core::Result<super::Com::VARIANT> {
-    ::windows_targets::link!("oleaut32.dll" "system" fn VarEqv(pvarleft : *const super::Com:: VARIANT, pvarright : *const super::Com:: VARIANT, pvarresult : *mut super::Com:: VARIANT) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+pub unsafe fn VarEqv(pvarleft: *const super::Variant::VARIANT, pvarright: *const super::Variant::VARIANT) -> ::windows_core::Result<super::Variant::VARIANT> {
+    ::windows_targets::link!("oleaut32.dll" "system" fn VarEqv(pvarleft : *const super::Variant:: VARIANT, pvarright : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<super::Variant::VARIANT>();
     VarEqv(pvarleft, pvarright, &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn VarFix(pvarin: *const super::Com::VARIANT) -> ::windows_core::Result<super::Com::VARIANT> {
-    ::windows_targets::link!("oleaut32.dll" "system" fn VarFix(pvarin : *const super::Com:: VARIANT, pvarresult : *mut super::Com:: VARIANT) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+pub unsafe fn VarFix(pvarin: *const super::Variant::VARIANT) -> ::windows_core::Result<super::Variant::VARIANT> {
+    ::windows_targets::link!("oleaut32.dll" "system" fn VarFix(pvarin : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<super::Variant::VARIANT>();
     VarFix(pvarin, &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn VarFormat<P0>(pvarin: *const super::Com::VARIANT, pstrformat: P0, ifirstday: VARFORMAT_FIRST_DAY, ifirstweek: VARFORMAT_FIRST_WEEK, dwflags: u32) -> ::windows_core::Result<::windows_core::BSTR>
+pub unsafe fn VarFormat<P0>(pvarin: *const super::Variant::VARIANT, pstrformat: P0, ifirstday: VARFORMAT_FIRST_DAY, ifirstweek: VARFORMAT_FIRST_WEEK, dwflags: u32) -> ::windows_core::Result<::windows_core::BSTR>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("oleaut32.dll" "system" fn VarFormat(pvarin : *const super::Com:: VARIANT, pstrformat : ::windows_core::PCWSTR, ifirstday : VARFORMAT_FIRST_DAY, ifirstweek : VARFORMAT_FIRST_WEEK, dwflags : u32, pbstrout : *mut ::std::mem::MaybeUninit <::windows_core::BSTR >) -> ::windows_core::HRESULT);
+    ::windows_targets::link!("oleaut32.dll" "system" fn VarFormat(pvarin : *const super::Variant:: VARIANT, pstrformat : ::windows_core::PCWSTR, ifirstday : VARFORMAT_FIRST_DAY, ifirstweek : VARFORMAT_FIRST_WEEK, dwflags : u32, pbstrout : *mut ::std::mem::MaybeUninit <::windows_core::BSTR >) -> ::windows_core::HRESULT);
     let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
     VarFormat(pvarin, pstrformat.into_param().abi(), ifirstday, ifirstweek, dwflags, &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn VarFormatCurrency(pvarin: *const super::Com::VARIANT, inumdig: i32, iinclead: i32, iuseparens: i32, igroup: i32, dwflags: u32) -> ::windows_core::Result<::windows_core::BSTR> {
-    ::windows_targets::link!("oleaut32.dll" "system" fn VarFormatCurrency(pvarin : *const super::Com:: VARIANT, inumdig : i32, iinclead : i32, iuseparens : i32, igroup : i32, dwflags : u32, pbstrout : *mut ::std::mem::MaybeUninit <::windows_core::BSTR >) -> ::windows_core::HRESULT);
+pub unsafe fn VarFormatCurrency(pvarin: *const super::Variant::VARIANT, inumdig: i32, iinclead: i32, iuseparens: i32, igroup: i32, dwflags: u32) -> ::windows_core::Result<::windows_core::BSTR> {
+    ::windows_targets::link!("oleaut32.dll" "system" fn VarFormatCurrency(pvarin : *const super::Variant:: VARIANT, inumdig : i32, iinclead : i32, iuseparens : i32, igroup : i32, dwflags : u32, pbstrout : *mut ::std::mem::MaybeUninit <::windows_core::BSTR >) -> ::windows_core::HRESULT);
     let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
     VarFormatCurrency(pvarin, inumdig, iinclead, iuseparens, igroup, dwflags, &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn VarFormatDateTime(pvarin: *const super::Com::VARIANT, inamedformat: VARFORMAT_NAMED_FORMAT, dwflags: u32) -> ::windows_core::Result<::windows_core::BSTR> {
-    ::windows_targets::link!("oleaut32.dll" "system" fn VarFormatDateTime(pvarin : *const super::Com:: VARIANT, inamedformat : VARFORMAT_NAMED_FORMAT, dwflags : u32, pbstrout : *mut ::std::mem::MaybeUninit <::windows_core::BSTR >) -> ::windows_core::HRESULT);
+pub unsafe fn VarFormatDateTime(pvarin: *const super::Variant::VARIANT, inamedformat: VARFORMAT_NAMED_FORMAT, dwflags: u32) -> ::windows_core::Result<::windows_core::BSTR> {
+    ::windows_targets::link!("oleaut32.dll" "system" fn VarFormatDateTime(pvarin : *const super::Variant:: VARIANT, inamedformat : VARFORMAT_NAMED_FORMAT, dwflags : u32, pbstrout : *mut ::std::mem::MaybeUninit <::windows_core::BSTR >) -> ::windows_core::HRESULT);
     let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
     VarFormatDateTime(pvarin, inamedformat, dwflags, &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn VarFormatFromTokens<P0>(pvarin: *const super::Com::VARIANT, pstrformat: P0, pbtokcur: *const u8, dwflags: u32, pbstrout: *mut ::windows_core::BSTR, lcid: u32) -> ::windows_core::Result<()>
+pub unsafe fn VarFormatFromTokens<P0>(pvarin: *const super::Variant::VARIANT, pstrformat: P0, pbtokcur: *const u8, dwflags: u32, pbstrout: *mut ::windows_core::BSTR, lcid: u32) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("oleaut32.dll" "system" fn VarFormatFromTokens(pvarin : *const super::Com:: VARIANT, pstrformat : ::windows_core::PCWSTR, pbtokcur : *const u8, dwflags : u32, pbstrout : *mut ::std::mem::MaybeUninit <::windows_core::BSTR >, lcid : u32) -> ::windows_core::HRESULT);
+    ::windows_targets::link!("oleaut32.dll" "system" fn VarFormatFromTokens(pvarin : *const super::Variant:: VARIANT, pstrformat : ::windows_core::PCWSTR, pbtokcur : *const u8, dwflags : u32, pbstrout : *mut ::std::mem::MaybeUninit <::windows_core::BSTR >, lcid : u32) -> ::windows_core::HRESULT);
     VarFormatFromTokens(pvarin, pstrformat.into_param().abi(), pbtokcur, dwflags, ::core::mem::transmute(pbstrout), lcid).ok()
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn VarFormatNumber(pvarin: *const super::Com::VARIANT, inumdig: i32, iinclead: VARFORMAT_LEADING_DIGIT, iuseparens: VARFORMAT_PARENTHESES, igroup: VARFORMAT_GROUP, dwflags: u32) -> ::windows_core::Result<::windows_core::BSTR> {
-    ::windows_targets::link!("oleaut32.dll" "system" fn VarFormatNumber(pvarin : *const super::Com:: VARIANT, inumdig : i32, iinclead : VARFORMAT_LEADING_DIGIT, iuseparens : VARFORMAT_PARENTHESES, igroup : VARFORMAT_GROUP, dwflags : u32, pbstrout : *mut ::std::mem::MaybeUninit <::windows_core::BSTR >) -> ::windows_core::HRESULT);
+pub unsafe fn VarFormatNumber(pvarin: *const super::Variant::VARIANT, inumdig: i32, iinclead: VARFORMAT_LEADING_DIGIT, iuseparens: VARFORMAT_PARENTHESES, igroup: VARFORMAT_GROUP, dwflags: u32) -> ::windows_core::Result<::windows_core::BSTR> {
+    ::windows_targets::link!("oleaut32.dll" "system" fn VarFormatNumber(pvarin : *const super::Variant:: VARIANT, inumdig : i32, iinclead : VARFORMAT_LEADING_DIGIT, iuseparens : VARFORMAT_PARENTHESES, igroup : VARFORMAT_GROUP, dwflags : u32, pbstrout : *mut ::std::mem::MaybeUninit <::windows_core::BSTR >) -> ::windows_core::HRESULT);
     let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
     VarFormatNumber(pvarin, inumdig, iinclead, iuseparens, igroup, dwflags, &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn VarFormatPercent(pvarin: *const super::Com::VARIANT, inumdig: i32, iinclead: VARFORMAT_LEADING_DIGIT, iuseparens: VARFORMAT_PARENTHESES, igroup: VARFORMAT_GROUP, dwflags: u32) -> ::windows_core::Result<::windows_core::BSTR> {
-    ::windows_targets::link!("oleaut32.dll" "system" fn VarFormatPercent(pvarin : *const super::Com:: VARIANT, inumdig : i32, iinclead : VARFORMAT_LEADING_DIGIT, iuseparens : VARFORMAT_PARENTHESES, igroup : VARFORMAT_GROUP, dwflags : u32, pbstrout : *mut ::std::mem::MaybeUninit <::windows_core::BSTR >) -> ::windows_core::HRESULT);
+pub unsafe fn VarFormatPercent(pvarin: *const super::Variant::VARIANT, inumdig: i32, iinclead: VARFORMAT_LEADING_DIGIT, iuseparens: VARFORMAT_PARENTHESES, igroup: VARFORMAT_GROUP, dwflags: u32) -> ::windows_core::Result<::windows_core::BSTR> {
+    ::windows_targets::link!("oleaut32.dll" "system" fn VarFormatPercent(pvarin : *const super::Variant:: VARIANT, inumdig : i32, iinclead : VARFORMAT_LEADING_DIGIT, iuseparens : VARFORMAT_PARENTHESES, igroup : VARFORMAT_GROUP, dwflags : u32, pbstrout : *mut ::std::mem::MaybeUninit <::windows_core::BSTR >) -> ::windows_core::HRESULT);
     let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
     VarFormatPercent(pvarin, inumdig, iinclead, iuseparens, igroup, dwflags, &mut result__).from_abi(result__)
 }
@@ -2820,36 +2807,36 @@ pub unsafe fn VarI8FromUI8(ui64in: u64) -> ::windows_core::Result<i64> {
     let mut result__ = ::windows_core::zeroed::<i64>();
     VarI8FromUI8(ui64in, &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn VarIdiv(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows_core::Result<super::Com::VARIANT> {
-    ::windows_targets::link!("oleaut32.dll" "system" fn VarIdiv(pvarleft : *const super::Com:: VARIANT, pvarright : *const super::Com:: VARIANT, pvarresult : *mut super::Com:: VARIANT) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+pub unsafe fn VarIdiv(pvarleft: *const super::Variant::VARIANT, pvarright: *const super::Variant::VARIANT) -> ::windows_core::Result<super::Variant::VARIANT> {
+    ::windows_targets::link!("oleaut32.dll" "system" fn VarIdiv(pvarleft : *const super::Variant:: VARIANT, pvarright : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<super::Variant::VARIANT>();
     VarIdiv(pvarleft, pvarright, &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn VarImp(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows_core::Result<super::Com::VARIANT> {
-    ::windows_targets::link!("oleaut32.dll" "system" fn VarImp(pvarleft : *const super::Com:: VARIANT, pvarright : *const super::Com:: VARIANT, pvarresult : *mut super::Com:: VARIANT) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+pub unsafe fn VarImp(pvarleft: *const super::Variant::VARIANT, pvarright: *const super::Variant::VARIANT) -> ::windows_core::Result<super::Variant::VARIANT> {
+    ::windows_targets::link!("oleaut32.dll" "system" fn VarImp(pvarleft : *const super::Variant:: VARIANT, pvarright : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<super::Variant::VARIANT>();
     VarImp(pvarleft, pvarright, &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn VarInt(pvarin: *const super::Com::VARIANT) -> ::windows_core::Result<super::Com::VARIANT> {
-    ::windows_targets::link!("oleaut32.dll" "system" fn VarInt(pvarin : *const super::Com:: VARIANT, pvarresult : *mut super::Com:: VARIANT) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+pub unsafe fn VarInt(pvarin: *const super::Variant::VARIANT) -> ::windows_core::Result<super::Variant::VARIANT> {
+    ::windows_targets::link!("oleaut32.dll" "system" fn VarInt(pvarin : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<super::Variant::VARIANT>();
     VarInt(pvarin, &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn VarMod(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows_core::Result<super::Com::VARIANT> {
-    ::windows_targets::link!("oleaut32.dll" "system" fn VarMod(pvarleft : *const super::Com:: VARIANT, pvarright : *const super::Com:: VARIANT, pvarresult : *mut super::Com:: VARIANT) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+pub unsafe fn VarMod(pvarleft: *const super::Variant::VARIANT, pvarright: *const super::Variant::VARIANT) -> ::windows_core::Result<super::Variant::VARIANT> {
+    ::windows_targets::link!("oleaut32.dll" "system" fn VarMod(pvarleft : *const super::Variant:: VARIANT, pvarright : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<super::Variant::VARIANT>();
     VarMod(pvarleft, pvarright, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -2859,44 +2846,44 @@ pub unsafe fn VarMonthName(imonth: i32, fabbrev: i32, dwflags: u32) -> ::windows
     let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
     VarMonthName(imonth, fabbrev, dwflags, &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn VarMul(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows_core::Result<super::Com::VARIANT> {
-    ::windows_targets::link!("oleaut32.dll" "system" fn VarMul(pvarleft : *const super::Com:: VARIANT, pvarright : *const super::Com:: VARIANT, pvarresult : *mut super::Com:: VARIANT) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+pub unsafe fn VarMul(pvarleft: *const super::Variant::VARIANT, pvarright: *const super::Variant::VARIANT) -> ::windows_core::Result<super::Variant::VARIANT> {
+    ::windows_targets::link!("oleaut32.dll" "system" fn VarMul(pvarleft : *const super::Variant:: VARIANT, pvarright : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<super::Variant::VARIANT>();
     VarMul(pvarleft, pvarright, &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn VarNeg(pvarin: *const super::Com::VARIANT) -> ::windows_core::Result<super::Com::VARIANT> {
-    ::windows_targets::link!("oleaut32.dll" "system" fn VarNeg(pvarin : *const super::Com:: VARIANT, pvarresult : *mut super::Com:: VARIANT) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+pub unsafe fn VarNeg(pvarin: *const super::Variant::VARIANT) -> ::windows_core::Result<super::Variant::VARIANT> {
+    ::windows_targets::link!("oleaut32.dll" "system" fn VarNeg(pvarin : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<super::Variant::VARIANT>();
     VarNeg(pvarin, &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn VarNot(pvarin: *const super::Com::VARIANT) -> ::windows_core::Result<super::Com::VARIANT> {
-    ::windows_targets::link!("oleaut32.dll" "system" fn VarNot(pvarin : *const super::Com:: VARIANT, pvarresult : *mut super::Com:: VARIANT) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+pub unsafe fn VarNot(pvarin: *const super::Variant::VARIANT) -> ::windows_core::Result<super::Variant::VARIANT> {
+    ::windows_targets::link!("oleaut32.dll" "system" fn VarNot(pvarin : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<super::Variant::VARIANT>();
     VarNot(pvarin, &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn VarNumFromParseNum(pnumprs: *const NUMPARSE, rgbdig: *const u8, dwvtbits: u32) -> ::windows_core::Result<super::Com::VARIANT> {
-    ::windows_targets::link!("oleaut32.dll" "system" fn VarNumFromParseNum(pnumprs : *const NUMPARSE, rgbdig : *const u8, dwvtbits : u32, pvar : *mut super::Com:: VARIANT) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+pub unsafe fn VarNumFromParseNum(pnumprs: *const NUMPARSE, rgbdig: *const u8, dwvtbits: u32) -> ::windows_core::Result<super::Variant::VARIANT> {
+    ::windows_targets::link!("oleaut32.dll" "system" fn VarNumFromParseNum(pnumprs : *const NUMPARSE, rgbdig : *const u8, dwvtbits : u32, pvar : *mut super::Variant:: VARIANT) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<super::Variant::VARIANT>();
     VarNumFromParseNum(pnumprs, rgbdig, dwvtbits, &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn VarOr(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows_core::Result<super::Com::VARIANT> {
-    ::windows_targets::link!("oleaut32.dll" "system" fn VarOr(pvarleft : *const super::Com:: VARIANT, pvarright : *const super::Com:: VARIANT, pvarresult : *mut super::Com:: VARIANT) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+pub unsafe fn VarOr(pvarleft: *const super::Variant::VARIANT, pvarright: *const super::Variant::VARIANT) -> ::windows_core::Result<super::Variant::VARIANT> {
+    ::windows_targets::link!("oleaut32.dll" "system" fn VarOr(pvarleft : *const super::Variant:: VARIANT, pvarright : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<super::Variant::VARIANT>();
     VarOr(pvarleft, pvarright, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -2908,12 +2895,12 @@ where
     ::windows_targets::link!("oleaut32.dll" "system" fn VarParseNumFromStr(strin : ::windows_core::PCWSTR, lcid : u32, dwflags : u32, pnumprs : *mut NUMPARSE, rgbdig : *mut u8) -> ::windows_core::HRESULT);
     VarParseNumFromStr(strin.into_param().abi(), lcid, dwflags, pnumprs, rgbdig).ok()
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn VarPow(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows_core::Result<super::Com::VARIANT> {
-    ::windows_targets::link!("oleaut32.dll" "system" fn VarPow(pvarleft : *const super::Com:: VARIANT, pvarright : *const super::Com:: VARIANT, pvarresult : *mut super::Com:: VARIANT) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+pub unsafe fn VarPow(pvarleft: *const super::Variant::VARIANT, pvarright: *const super::Variant::VARIANT) -> ::windows_core::Result<super::Variant::VARIANT> {
+    ::windows_targets::link!("oleaut32.dll" "system" fn VarPow(pvarleft : *const super::Variant:: VARIANT, pvarright : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<super::Variant::VARIANT>();
     VarPow(pvarleft, pvarright, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -3169,20 +3156,20 @@ pub unsafe fn VarR8Round(dblin: f64, cdecimals: i32) -> ::windows_core::Result<f
     let mut result__ = ::windows_core::zeroed::<f64>();
     VarR8Round(dblin, cdecimals, &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn VarRound(pvarin: *const super::Com::VARIANT, cdecimals: i32) -> ::windows_core::Result<super::Com::VARIANT> {
-    ::windows_targets::link!("oleaut32.dll" "system" fn VarRound(pvarin : *const super::Com:: VARIANT, cdecimals : i32, pvarresult : *mut super::Com:: VARIANT) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+pub unsafe fn VarRound(pvarin: *const super::Variant::VARIANT, cdecimals: i32) -> ::windows_core::Result<super::Variant::VARIANT> {
+    ::windows_targets::link!("oleaut32.dll" "system" fn VarRound(pvarin : *const super::Variant:: VARIANT, cdecimals : i32, pvarresult : *mut super::Variant:: VARIANT) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<super::Variant::VARIANT>();
     VarRound(pvarin, cdecimals, &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn VarSub(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows_core::Result<super::Com::VARIANT> {
-    ::windows_targets::link!("oleaut32.dll" "system" fn VarSub(pvarleft : *const super::Com:: VARIANT, pvarright : *const super::Com:: VARIANT, pvarresult : *mut super::Com:: VARIANT) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+pub unsafe fn VarSub(pvarleft: *const super::Variant::VARIANT, pvarright: *const super::Variant::VARIANT) -> ::windows_core::Result<super::Variant::VARIANT> {
+    ::windows_targets::link!("oleaut32.dll" "system" fn VarSub(pvarleft : *const super::Variant:: VARIANT, pvarright : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<super::Variant::VARIANT>();
     VarSub(pvarleft, pvarright, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -3672,70 +3659,13 @@ pub unsafe fn VarWeekdayName(iweekday: i32, fabbrev: i32, ifirstday: i32, dwflag
     let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
     VarWeekdayName(iweekday, fabbrev, ifirstday, dwflags, &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn VarXor(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows_core::Result<super::Com::VARIANT> {
-    ::windows_targets::link!("oleaut32.dll" "system" fn VarXor(pvarleft : *const super::Com:: VARIANT, pvarright : *const super::Com:: VARIANT, pvarresult : *mut super::Com:: VARIANT) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+pub unsafe fn VarXor(pvarleft: *const super::Variant::VARIANT, pvarright: *const super::Variant::VARIANT) -> ::windows_core::Result<super::Variant::VARIANT> {
+    ::windows_targets::link!("oleaut32.dll" "system" fn VarXor(pvarleft : *const super::Variant:: VARIANT, pvarright : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<super::Variant::VARIANT>();
     VarXor(pvarleft, pvarright, &mut result__).from_abi(result__)
-}
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-#[inline]
-pub unsafe fn VariantChangeType(pvargdest: *mut super::Com::VARIANT, pvarsrc: *const super::Com::VARIANT, wflags: u16, vt: super::Com::VARENUM) -> ::windows_core::Result<()> {
-    ::windows_targets::link!("oleaut32.dll" "system" fn VariantChangeType(pvargdest : *mut super::Com:: VARIANT, pvarsrc : *const super::Com:: VARIANT, wflags : u16, vt : super::Com:: VARENUM) -> ::windows_core::HRESULT);
-    VariantChangeType(pvargdest, pvarsrc, wflags, vt).ok()
-}
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-#[inline]
-pub unsafe fn VariantChangeTypeEx(pvargdest: *mut super::Com::VARIANT, pvarsrc: *const super::Com::VARIANT, lcid: u32, wflags: u16, vt: super::Com::VARENUM) -> ::windows_core::Result<()> {
-    ::windows_targets::link!("oleaut32.dll" "system" fn VariantChangeTypeEx(pvargdest : *mut super::Com:: VARIANT, pvarsrc : *const super::Com:: VARIANT, lcid : u32, wflags : u16, vt : super::Com:: VARENUM) -> ::windows_core::HRESULT);
-    VariantChangeTypeEx(pvargdest, pvarsrc, lcid, wflags, vt).ok()
-}
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-#[inline]
-pub unsafe fn VariantClear(pvarg: *mut super::Com::VARIANT) -> ::windows_core::Result<()> {
-    ::windows_targets::link!("oleaut32.dll" "system" fn VariantClear(pvarg : *mut super::Com:: VARIANT) -> ::windows_core::HRESULT);
-    VariantClear(pvarg).ok()
-}
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-#[inline]
-pub unsafe fn VariantCopy(pvargdest: *mut super::Com::VARIANT, pvargsrc: *const super::Com::VARIANT) -> ::windows_core::Result<()> {
-    ::windows_targets::link!("oleaut32.dll" "system" fn VariantCopy(pvargdest : *mut super::Com:: VARIANT, pvargsrc : *const super::Com:: VARIANT) -> ::windows_core::HRESULT);
-    VariantCopy(pvargdest, pvargsrc).ok()
-}
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-#[inline]
-pub unsafe fn VariantCopyInd(pvardest: *mut super::Com::VARIANT, pvargsrc: *const super::Com::VARIANT) -> ::windows_core::Result<()> {
-    ::windows_targets::link!("oleaut32.dll" "system" fn VariantCopyInd(pvardest : *mut super::Com:: VARIANT, pvargsrc : *const super::Com:: VARIANT) -> ::windows_core::HRESULT);
-    VariantCopyInd(pvardest, pvargsrc).ok()
-}
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-#[inline]
-pub unsafe fn VariantInit() -> super::Com::VARIANT {
-    ::windows_targets::link!("oleaut32.dll" "system" fn VariantInit(pvarg : *mut super::Com:: VARIANT) -> ());
-    let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
-    VariantInit(&mut result__);
-    ::std::mem::transmute(result__)
-}
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-#[inline]
-pub unsafe fn VariantTimeToDosDateTime(vtime: f64, pwdosdate: *mut u16, pwdostime: *mut u16) -> i32 {
-    ::windows_targets::link!("oleaut32.dll" "system" fn VariantTimeToDosDateTime(vtime : f64, pwdosdate : *mut u16, pwdostime : *mut u16) -> i32);
-    VariantTimeToDosDateTime(vtime, pwdosdate, pwdostime)
-}
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn VariantTimeToSystemTime(vtime: f64, lpsystemtime: *mut super::super::Foundation::SYSTEMTIME) -> i32 {
-    ::windows_targets::link!("oleaut32.dll" "system" fn VariantTimeToSystemTime(vtime : f64, lpsystemtime : *mut super::super::Foundation:: SYSTEMTIME) -> i32);
-    VariantTimeToSystemTime(vtime, lpsystemtime)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -3827,9 +3757,9 @@ pub struct IAdviseSinkEx_Vtbl {
 #[repr(transparent)]
 pub struct ICanHandleException(::windows_core::IUnknown);
 impl ICanHandleException {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn CanHandleException(&self, pexcepinfo: *const super::Com::EXCEPINFO, pvar: *const super::Com::VARIANT) -> ::windows_core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+    pub unsafe fn CanHandleException(&self, pexcepinfo: *const super::Com::EXCEPINFO, pvar: *const super::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CanHandleException)(::windows_core::Interface::as_raw(self), pexcepinfo, pvar).ok()
     }
 }
@@ -3860,9 +3790,9 @@ unsafe impl ::windows_core::ComInterface for ICanHandleException {
 #[doc(hidden)]
 pub struct ICanHandleException_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub CanHandleException: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pexcepinfo: *const super::Com::EXCEPINFO, pvar: *const super::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+    pub CanHandleException: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pexcepinfo: *const super::Com::EXCEPINFO, pvar: *const super::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant")))]
     CanHandleException: usize,
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
@@ -4124,8 +4054,8 @@ impl ICreateTypeInfo {
     {
         (::windows_core::Interface::vtable(self).AddRefTypeInfo)(::windows_core::Interface::as_raw(self), ptinfo.into_param().abi(), phreftype).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
     pub unsafe fn AddFuncDesc(&self, index: u32, pfuncdesc: *const super::Com::FUNCDESC) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).AddFuncDesc)(::windows_core::Interface::as_raw(self), index, pfuncdesc).ok()
     }
@@ -4146,8 +4076,8 @@ impl ICreateTypeInfo {
     {
         (::windows_core::Interface::vtable(self).SetSchema)(::windows_core::Interface::as_raw(self), pstrschema.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
     pub unsafe fn AddVarDesc(&self, index: u32, pvardesc: *const super::Com::VARDESC) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).AddVarDesc)(::windows_core::Interface::as_raw(self), index, pvardesc).ok()
     }
@@ -4160,8 +4090,8 @@ impl ICreateTypeInfo {
     {
         (::windows_core::Interface::vtable(self).SetVarName)(::windows_core::Interface::as_raw(self), index, szname.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
     pub unsafe fn SetTypeDescAlias(&self, ptdescalias: *const super::Com::TYPEDESC) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetTypeDescAlias)(::windows_core::Interface::as_raw(self), ptdescalias).ok()
     }
@@ -4241,9 +4171,9 @@ pub struct ICreateTypeInfo_Vtbl {
     pub AddRefTypeInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptinfo: *mut ::core::ffi::c_void, phreftype: *const u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     AddRefTypeInfo: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
     pub AddFuncDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, pfuncdesc: *const super::Com::FUNCDESC) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant")))]
     AddFuncDesc: usize,
     pub AddImplType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, hreftype: u32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -4252,15 +4182,15 @@ pub struct ICreateTypeInfo_Vtbl {
     SetImplTypeFlags: usize,
     pub SetAlignment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbalignment: u16) -> ::windows_core::HRESULT,
     pub SetSchema: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrschema: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
     pub AddVarDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, pvardesc: *const super::Com::VARDESC) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant")))]
     AddVarDesc: usize,
     pub SetFuncAndParamNames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, rgsznames: *const ::windows_core::PCWSTR, cnames: u32) -> ::windows_core::HRESULT,
     pub SetVarName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, szname: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
     pub SetTypeDescAlias: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptdescalias: *const super::Com::TYPEDESC) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Variant")))]
     SetTypeDescAlias: usize,
     pub DefineFuncAsDllEntry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, szdllname: ::windows_core::PCWSTR, szprocname: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
     pub SetFuncDocString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, szdocstring: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
@@ -4304,8 +4234,8 @@ impl ICreateTypeInfo2 {
     {
         (::windows_core::Interface::vtable(self).base__.AddRefTypeInfo)(::windows_core::Interface::as_raw(self), ptinfo.into_param().abi(), phreftype).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
     pub unsafe fn AddFuncDesc(&self, index: u32, pfuncdesc: *const super::Com::FUNCDESC) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.AddFuncDesc)(::windows_core::Interface::as_raw(self), index, pfuncdesc).ok()
     }
@@ -4326,8 +4256,8 @@ impl ICreateTypeInfo2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetSchema)(::windows_core::Interface::as_raw(self), pstrschema.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
     pub unsafe fn AddVarDesc(&self, index: u32, pvardesc: *const super::Com::VARDESC) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.AddVarDesc)(::windows_core::Interface::as_raw(self), index, pvardesc).ok()
     }
@@ -4340,8 +4270,8 @@ impl ICreateTypeInfo2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetVarName)(::windows_core::Interface::as_raw(self), index, szname.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
     pub unsafe fn SetTypeDescAlias(&self, ptdescalias: *const super::Com::TYPEDESC) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetTypeDescAlias)(::windows_core::Interface::as_raw(self), ptdescalias).ok()
     }
@@ -4401,29 +4331,29 @@ impl ICreateTypeInfo2 {
     pub unsafe fn DeleteImplType(&self, index: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).DeleteImplType)(::windows_core::Interface::as_raw(self), index).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn SetCustData(&self, guid: *const ::windows_core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows_core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+    pub unsafe fn SetCustData(&self, guid: *const ::windows_core::GUID, pvarval: *const super::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetCustData)(::windows_core::Interface::as_raw(self), guid, pvarval).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn SetFuncCustData(&self, index: u32, guid: *const ::windows_core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows_core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+    pub unsafe fn SetFuncCustData(&self, index: u32, guid: *const ::windows_core::GUID, pvarval: *const super::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetFuncCustData)(::windows_core::Interface::as_raw(self), index, guid, pvarval).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn SetParamCustData(&self, indexfunc: u32, indexparam: u32, guid: *const ::windows_core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows_core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+    pub unsafe fn SetParamCustData(&self, indexfunc: u32, indexparam: u32, guid: *const ::windows_core::GUID, pvarval: *const super::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetParamCustData)(::windows_core::Interface::as_raw(self), indexfunc, indexparam, guid, pvarval).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn SetVarCustData(&self, index: u32, guid: *const ::windows_core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows_core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+    pub unsafe fn SetVarCustData(&self, index: u32, guid: *const ::windows_core::GUID, pvarval: *const super::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetVarCustData)(::windows_core::Interface::as_raw(self), index, guid, pvarval).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn SetImplTypeCustData(&self, index: u32, guid: *const ::windows_core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows_core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+    pub unsafe fn SetImplTypeCustData(&self, index: u32, guid: *const ::windows_core::GUID, pvarval: *const super::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetImplTypeCustData)(::windows_core::Interface::as_raw(self), index, guid, pvarval).ok()
     }
     pub unsafe fn SetHelpStringContext(&self, dwhelpstringcontext: u32) -> ::windows_core::Result<()> {
@@ -4480,25 +4410,25 @@ pub struct ICreateTypeInfo2_Vtbl {
     pub DeleteVarDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> ::windows_core::HRESULT,
     pub DeleteVarDescByMemId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, memid: i32) -> ::windows_core::HRESULT,
     pub DeleteImplType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub SetCustData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows_core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+    pub SetCustData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows_core::GUID, pvarval: *const super::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant")))]
     SetCustData: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub SetFuncCustData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, guid: *const ::windows_core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+    pub SetFuncCustData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, guid: *const ::windows_core::GUID, pvarval: *const super::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant")))]
     SetFuncCustData: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub SetParamCustData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, indexfunc: u32, indexparam: u32, guid: *const ::windows_core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+    pub SetParamCustData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, indexfunc: u32, indexparam: u32, guid: *const ::windows_core::GUID, pvarval: *const super::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant")))]
     SetParamCustData: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub SetVarCustData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, guid: *const ::windows_core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+    pub SetVarCustData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, guid: *const ::windows_core::GUID, pvarval: *const super::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant")))]
     SetVarCustData: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub SetImplTypeCustData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, guid: *const ::windows_core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+    pub SetImplTypeCustData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, guid: *const ::windows_core::GUID, pvarval: *const super::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant")))]
     SetImplTypeCustData: usize,
     pub SetHelpStringContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwhelpstringcontext: u32) -> ::windows_core::HRESULT,
     pub SetFuncHelpStringContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, dwhelpstringcontext: u32) -> ::windows_core::HRESULT,
@@ -4652,9 +4582,9 @@ impl ICreateTypeLib2 {
     {
         (::windows_core::Interface::vtable(self).DeleteTypeInfo)(::windows_core::Interface::as_raw(self), szname.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn SetCustData(&self, guid: *const ::windows_core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows_core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+    pub unsafe fn SetCustData(&self, guid: *const ::windows_core::GUID, pvarval: *const super::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetCustData)(::windows_core::Interface::as_raw(self), guid, pvarval).ok()
     }
     pub unsafe fn SetHelpStringContext(&self, dwhelpstringcontext: u32) -> ::windows_core::Result<()> {
@@ -4695,9 +4625,9 @@ unsafe impl ::windows_core::ComInterface for ICreateTypeLib2 {
 pub struct ICreateTypeLib2_Vtbl {
     pub base__: ICreateTypeLib_Vtbl,
     pub DeleteTypeInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szname: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub SetCustData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows_core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+    pub SetCustData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows_core::GUID, pvarval: *const super::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant")))]
     SetCustData: usize,
     pub SetHelpStringContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwhelpstringcontext: u32) -> ::windows_core::HRESULT,
     pub SetHelpStringDll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szfilename: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
@@ -4777,9 +4707,9 @@ impl IDispatchEx {
         let mut result__ = ::windows_core::zeroed::<i32>();
         (::windows_core::Interface::vtable(self).GetDispID)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), grfdex, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn InvokeEx<P0>(&self, id: i32, lcid: u32, wflags: u16, pdp: *const super::Com::DISPPARAMS, pvarres: ::core::option::Option<*mut super::Com::VARIANT>, pei: ::core::option::Option<*mut super::Com::EXCEPINFO>, pspcaller: P0) -> ::windows_core::Result<()>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+    pub unsafe fn InvokeEx<P0>(&self, id: i32, lcid: u32, wflags: u16, pdp: *const super::Com::DISPPARAMS, pvarres: ::core::option::Option<*mut super::Variant::VARIANT>, pei: ::core::option::Option<*mut super::Com::EXCEPINFO>, pspcaller: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::Com::IServiceProvider>,
     {
@@ -4847,9 +4777,9 @@ unsafe impl ::windows_core::ComInterface for IDispatchEx {
 pub struct IDispatchEx_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub GetDispID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::std::mem::MaybeUninit<::windows_core::BSTR>, grfdex: u32, pid: *mut i32) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub InvokeEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: i32, lcid: u32, wflags: u16, pdp: *const super::Com::DISPPARAMS, pvarres: *mut super::Com::VARIANT, pei: *mut super::Com::EXCEPINFO, pspcaller: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+    pub InvokeEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: i32, lcid: u32, wflags: u16, pdp: *const super::Com::DISPPARAMS, pvarres: *mut super::Variant::VARIANT, pei: *mut super::Com::EXCEPINFO, pspcaller: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant")))]
     InvokeEx: usize,
     pub DeleteMemberByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::std::mem::MaybeUninit<::windows_core::BSTR>, grfdex: u32) -> ::windows_core::HRESULT,
     pub DeleteMemberByDispID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: i32) -> ::windows_core::HRESULT,
@@ -5235,9 +5165,9 @@ pub struct IEnumOleUndoUnits_Vtbl {
 #[repr(transparent)]
 pub struct IEnumVARIANT(::windows_core::IUnknown);
 impl IEnumVARIANT {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Next(&self, rgvar: &mut [super::Com::VARIANT], pceltfetched: *mut u32) -> ::windows_core::HRESULT {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+    pub unsafe fn Next(&self, rgvar: &mut [super::Variant::VARIANT], pceltfetched: *mut u32) -> ::windows_core::HRESULT {
         (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgvar.len() as _, ::core::mem::transmute(rgvar.as_ptr()), pceltfetched)
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows_core::HRESULT {
@@ -5278,9 +5208,9 @@ unsafe impl ::windows_core::ComInterface for IEnumVARIANT {
 #[doc(hidden)]
 pub struct IEnumVARIANT_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgvar: *mut super::Com::VARIANT, pceltfetched: *mut u32) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgvar: *mut super::Variant::VARIANT, pceltfetched: *mut u32) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant")))]
     Next: usize,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows_core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -6142,9 +6072,9 @@ impl IOleCommandTarget {
     pub unsafe fn QueryStatus(&self, pguidcmdgroup: *const ::windows_core::GUID, ccmds: u32, prgcmds: *mut OLECMD, pcmdtext: *mut OLECMDTEXT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).QueryStatus)(::windows_core::Interface::as_raw(self), pguidcmdgroup, ccmds, prgcmds, pcmdtext).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Exec(&self, pguidcmdgroup: *const ::windows_core::GUID, ncmdid: u32, ncmdexecopt: u32, pvain: *const super::Com::VARIANT, pvaout: *mut super::Com::VARIANT) -> ::windows_core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+    pub unsafe fn Exec(&self, pguidcmdgroup: *const ::windows_core::GUID, ncmdid: u32, ncmdexecopt: u32, pvain: *const super::Variant::VARIANT, pvaout: *mut super::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Exec)(::windows_core::Interface::as_raw(self), pguidcmdgroup, ncmdid, ncmdexecopt, pvain, pvaout).ok()
     }
 }
@@ -6176,9 +6106,9 @@ unsafe impl ::windows_core::ComInterface for IOleCommandTarget {
 pub struct IOleCommandTarget_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub QueryStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidcmdgroup: *const ::windows_core::GUID, ccmds: u32, prgcmds: *mut OLECMD, pcmdtext: *mut OLECMDTEXT) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub Exec: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidcmdgroup: *const ::windows_core::GUID, ncmdid: u32, ncmdexecopt: u32, pvain: *const super::Com::VARIANT, pvaout: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+    pub Exec: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidcmdgroup: *const ::windows_core::GUID, ncmdid: u32, ncmdexecopt: u32, pvain: *const super::Variant::VARIANT, pvaout: *mut super::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant")))]
     Exec: usize,
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -8816,10 +8746,10 @@ impl IPerPropertyBrowsing {
     pub unsafe fn GetPredefinedStrings(&self, dispid: i32, pcastringsout: *mut CALPOLESTR, pcacookiesout: *mut CADWORD) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetPredefinedStrings)(::windows_core::Interface::as_raw(self), dispid, pcastringsout, pcacookiesout).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetPredefinedValue(&self, dispid: i32, dwcookie: u32) -> ::windows_core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetPredefinedValue(&self, dispid: i32, dwcookie: u32) -> ::windows_core::Result<super::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).GetPredefinedValue)(::windows_core::Interface::as_raw(self), dispid, dwcookie, &mut result__).from_abi(result__)
     }
 }
@@ -8853,9 +8783,9 @@ pub struct IPerPropertyBrowsing_Vtbl {
     pub GetDisplayString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispid: i32, pbstr: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub MapPropertyToPage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispid: i32, pclsid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
     pub GetPredefinedStrings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispid: i32, pcastringsout: *mut CALPOLESTR, pcacookiesout: *mut CADWORD) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub GetPredefinedValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispid: i32, dwcookie: u32, pvarout: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+    pub GetPredefinedValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispid: i32, dwcookie: u32, pvarout: *mut super::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant")))]
     GetPredefinedValue: usize,
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
@@ -10151,34 +10081,34 @@ impl IRecordInfo {
         let mut result__ = ::windows_core::zeroed::<super::Com::ITypeInfo>();
         (::windows_core::Interface::vtable(self).GetTypeInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetField<P0>(&self, pvdata: *const ::core::ffi::c_void, szfieldname: P0) -> ::windows_core::Result<super::Com::VARIANT>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetField<P0>(&self, pvdata: *const ::core::ffi::c_void, szfieldname: P0) -> ::windows_core::Result<super::Variant::VARIANT>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        let mut result__ = ::windows_core::zeroed::<super::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).GetField)(::windows_core::Interface::as_raw(self), pvdata, szfieldname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetFieldNoCopy<P0>(&self, pvdata: *const ::core::ffi::c_void, szfieldname: P0, pvarfield: *mut super::Com::VARIANT, ppvdatacarray: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetFieldNoCopy<P0>(&self, pvdata: *const ::core::ffi::c_void, szfieldname: P0, pvarfield: *mut super::Variant::VARIANT, ppvdatacarray: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
         (::windows_core::Interface::vtable(self).GetFieldNoCopy)(::windows_core::Interface::as_raw(self), pvdata, szfieldname.into_param().abi(), pvarfield, ppvdatacarray).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn PutField<P0>(&self, wflags: super::Com::INVOKEKIND, pvdata: *mut ::core::ffi::c_void, szfieldname: P0, pvarfield: *const super::Com::VARIANT) -> ::windows_core::Result<()>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+    pub unsafe fn PutField<P0>(&self, wflags: super::Com::INVOKEKIND, pvdata: *mut ::core::ffi::c_void, szfieldname: P0, pvarfield: *const super::Variant::VARIANT) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
         (::windows_core::Interface::vtable(self).PutField)(::windows_core::Interface::as_raw(self), wflags, pvdata, szfieldname.into_param().abi(), pvarfield).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn PutFieldNoCopy<P0>(&self, wflags: super::Com::INVOKEKIND, pvdata: *mut ::core::ffi::c_void, szfieldname: P0, pvarfield: *const super::Com::VARIANT) -> ::windows_core::Result<()>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+    pub unsafe fn PutFieldNoCopy<P0>(&self, wflags: super::Com::INVOKEKIND, pvdata: *mut ::core::ffi::c_void, szfieldname: P0, pvarfield: *const super::Variant::VARIANT) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
@@ -10242,21 +10172,21 @@ pub struct IRecordInfo_Vtbl {
     pub GetTypeInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pptypeinfo: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetTypeInfo: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub GetField: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvdata: *const ::core::ffi::c_void, szfieldname: ::windows_core::PCWSTR, pvarfield: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+    pub GetField: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvdata: *const ::core::ffi::c_void, szfieldname: ::windows_core::PCWSTR, pvarfield: *mut super::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant")))]
     GetField: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub GetFieldNoCopy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvdata: *const ::core::ffi::c_void, szfieldname: ::windows_core::PCWSTR, pvarfield: *mut super::Com::VARIANT, ppvdatacarray: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+    pub GetFieldNoCopy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvdata: *const ::core::ffi::c_void, szfieldname: ::windows_core::PCWSTR, pvarfield: *mut super::Variant::VARIANT, ppvdatacarray: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant")))]
     GetFieldNoCopy: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub PutField: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wflags: super::Com::INVOKEKIND, pvdata: *mut ::core::ffi::c_void, szfieldname: ::windows_core::PCWSTR, pvarfield: *const super::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+    pub PutField: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wflags: super::Com::INVOKEKIND, pvdata: *mut ::core::ffi::c_void, szfieldname: ::windows_core::PCWSTR, pvarfield: *const super::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant")))]
     PutField: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub PutFieldNoCopy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wflags: super::Com::INVOKEKIND, pvdata: *mut ::core::ffi::c_void, szfieldname: ::windows_core::PCWSTR, pvarfield: *const super::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+    pub PutFieldNoCopy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wflags: super::Com::INVOKEKIND, pvdata: *mut ::core::ffi::c_void, szfieldname: ::windows_core::PCWSTR, pvarfield: *const super::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant")))]
     PutFieldNoCopy: usize,
     pub GetFieldNames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcnames: *mut u32, rgbstrnames: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -10526,9 +10456,9 @@ pub struct ITypeMarshal_Vtbl {
 #[repr(transparent)]
 pub struct IVBFormat(::windows_core::IUnknown);
 impl IVBFormat {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Format<P0>(&self, vdata: *mut super::Com::VARIANT, bstrformat: P0, lpbuffer: *mut ::core::ffi::c_void, cb: u16, lcid: i32, sfirstdayofweek: i16, sfirstweekofyear: u16, rcb: *mut u16) -> ::windows_core::Result<()>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+    pub unsafe fn Format<P0>(&self, vdata: *mut super::Variant::VARIANT, bstrformat: P0, lpbuffer: *mut ::core::ffi::c_void, cb: u16, lcid: i32, sfirstdayofweek: i16, sfirstweekofyear: u16, rcb: *mut u16) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
@@ -10562,9 +10492,9 @@ unsafe impl ::windows_core::ComInterface for IVBFormat {
 #[doc(hidden)]
 pub struct IVBFormat_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub Format: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vdata: *mut super::Com::VARIANT, bstrformat: ::std::mem::MaybeUninit<::windows_core::BSTR>, lpbuffer: *mut ::core::ffi::c_void, cb: u16, lcid: i32, sfirstdayofweek: i16, sfirstweekofyear: u16, rcb: *mut u16) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+    pub Format: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vdata: *mut super::Variant::VARIANT, bstrformat: ::std::mem::MaybeUninit<::windows_core::BSTR>, lpbuffer: *mut ::core::ffi::c_void, cb: u16, lcid: i32, sfirstdayofweek: i16, sfirstweekofyear: u16, rcb: *mut u16) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant")))]
     Format: usize,
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -10614,9 +10544,9 @@ pub struct IVBGetControl_Vtbl {
 #[repr(transparent)]
 pub struct IVariantChangeType(::windows_core::IUnknown);
 impl IVariantChangeType {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn ChangeType(&self, pvardst: *mut super::Com::VARIANT, pvarsrc: *const super::Com::VARIANT, lcid: u32, vtnew: super::Com::VARENUM) -> ::windows_core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+    pub unsafe fn ChangeType(&self, pvardst: *mut super::Variant::VARIANT, pvarsrc: *const super::Variant::VARIANT, lcid: u32, vtnew: super::Variant::VARENUM) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ChangeType)(::windows_core::Interface::as_raw(self), pvardst, pvarsrc, lcid, vtnew).ok()
     }
 }
@@ -10647,9 +10577,9 @@ unsafe impl ::windows_core::ComInterface for IVariantChangeType {
 #[doc(hidden)]
 pub struct IVariantChangeType_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub ChangeType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvardst: *mut super::Com::VARIANT, pvarsrc: *const super::Com::VARIANT, lcid: u32, vtnew: super::Com::VARENUM) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+    pub ChangeType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvardst: *mut super::Variant::VARIANT, pvarsrc: *const super::Variant::VARIANT, lcid: u32, vtnew: super::Variant::VARENUM) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant")))]
     ChangeType: usize,
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -11887,22 +11817,6 @@ pub const SZOLEUI_MSG_ENDDIALOG: ::windows_core::PCWSTR = ::windows_core::w!("OL
 pub const SZOLEUI_MSG_HELP: ::windows_core::PCWSTR = ::windows_core::w!("OLEUI_MSG_HELP");
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const TIFLAGS_EXTENDDISPATCHONLY: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARIANT_ALPHABOOL: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARIANT_CALENDAR_GREGORIAN: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARIANT_CALENDAR_HIJRI: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARIANT_CALENDAR_THAI: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARIANT_LOCALBOOL: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARIANT_NOUSEROVERRIDE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARIANT_NOVALUEPROP: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARIANT_USE_NLS: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const VAR_CALENDAR_GREGORIAN: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -15597,26 +15511,26 @@ impl ::core::fmt::Debug for XFORMCOORDS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 pub struct ARRAYDESC {
     pub tdescElem: super::Com::TYPEDESC,
     pub cDims: u16,
     pub rgbounds: [super::Com::SAFEARRAYBOUND; 1],
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl ::core::marker::Copy for ARRAYDESC {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for ARRAYDESC {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl ::windows_core::TypeKind for ARRAYDESC {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl ::core::default::Default for ARRAYDESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15890,39 +15804,39 @@ impl ::core::default::Default for FONTDESC {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 pub struct INTERFACEDATA {
     pub pmethdata: *mut METHODDATA,
     pub cMembers: u32,
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl ::core::marker::Copy for INTERFACEDATA {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for INTERFACEDATA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl ::core::fmt::Debug for INTERFACEDATA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("INTERFACEDATA").field("pmethdata", &self.pmethdata).field("cMembers", &self.cMembers).finish()
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl ::windows_core::TypeKind for INTERFACEDATA {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl ::core::cmp::PartialEq for INTERFACEDATA {
     fn eq(&self, other: &Self) -> bool {
         self.pmethdata == other.pmethdata && self.cMembers == other.cMembers
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl ::core::cmp::Eq for INTERFACEDATA {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl ::core::default::Default for INTERFACEDATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15969,8 +15883,8 @@ impl ::core::default::Default for LICINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 pub struct METHODDATA {
     pub szName: ::windows_core::PWSTR,
     pub ppdata: *mut PARAMDATA,
@@ -15979,35 +15893,35 @@ pub struct METHODDATA {
     pub cc: super::Com::CALLCONV,
     pub cArgs: u32,
     pub wFlags: u16,
-    pub vtReturn: super::Com::VARENUM,
+    pub vtReturn: super::Variant::VARENUM,
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl ::core::marker::Copy for METHODDATA {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for METHODDATA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl ::core::fmt::Debug for METHODDATA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("METHODDATA").field("szName", &self.szName).field("ppdata", &self.ppdata).field("dispid", &self.dispid).field("iMeth", &self.iMeth).field("cc", &self.cc).field("cArgs", &self.cArgs).field("wFlags", &self.wFlags).field("vtReturn", &self.vtReturn).finish()
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl ::windows_core::TypeKind for METHODDATA {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl ::core::cmp::PartialEq for METHODDATA {
     fn eq(&self, other: &Self) -> bool {
         self.szName == other.szName && self.ppdata == other.ppdata && self.dispid == other.dispid && self.iMeth == other.iMeth && self.cc == other.cc && self.cArgs == other.cArgs && self.wFlags == other.wFlags && self.vtReturn == other.vtReturn
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl ::core::cmp::Eq for METHODDATA {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl ::core::default::Default for METHODDATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -17595,101 +17509,101 @@ impl ::core::default::Default for PAGESET {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(feature = "Win32_System_Variant")]
 pub struct PARAMDATA {
     pub szName: ::windows_core::PWSTR,
-    pub vt: super::Com::VARENUM,
+    pub vt: super::Variant::VARENUM,
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::marker::Copy for PARAMDATA {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::clone::Clone for PARAMDATA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::fmt::Debug for PARAMDATA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("PARAMDATA").field("szName", &self.szName).field("vt", &self.vt).finish()
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::windows_core::TypeKind for PARAMDATA {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::cmp::PartialEq for PARAMDATA {
     fn eq(&self, other: &Self) -> bool {
         self.szName == other.szName && self.vt == other.vt
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::cmp::Eq for PARAMDATA {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::default::Default for PARAMDATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 pub struct PARAMDESC {
     pub pparamdescex: *mut PARAMDESCEX,
     pub wParamFlags: PARAMFLAGS,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl ::core::marker::Copy for PARAMDESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for PARAMDESC {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl ::core::fmt::Debug for PARAMDESC {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("PARAMDESC").field("pparamdescex", &self.pparamdescex).field("wParamFlags", &self.wParamFlags).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl ::windows_core::TypeKind for PARAMDESC {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl ::core::cmp::PartialEq for PARAMDESC {
     fn eq(&self, other: &Self) -> bool {
         self.pparamdescex == other.pparamdescex && self.wParamFlags == other.wParamFlags
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl ::core::cmp::Eq for PARAMDESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl ::core::default::Default for PARAMDESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 pub struct PARAMDESCEX {
     pub cBytes: u32,
-    pub varDefaultValue: super::Com::VARIANT,
+    pub varDefaultValue: super::Variant::VARIANT,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for PARAMDESCEX {
     fn clone(&self) -> Self {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl ::windows_core::TypeKind for PARAMDESCEX {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl ::core::default::Default for PARAMDESCEX {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

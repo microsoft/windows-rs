@@ -1039,8 +1039,8 @@ pub unsafe fn D3DKMTSetVidPnSourceOwner2(param0: *const D3DKMT_SETVIDPNSOURCEOWN
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn D3DKMTShareObjects(hobjects: &[u32], pobjectattributes: *const OBJECT_ATTRIBUTES, dwdesiredaccess: u32, phsharednthandle: *mut super::super::super::Win32::Foundation::HANDLE) -> ::windows_core::Result<()> {
-    ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTShareObjects(cobjects : u32, hobjects : *const u32, pobjectattributes : *const OBJECT_ATTRIBUTES, dwdesiredaccess : u32, phsharednthandle : *mut super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
+pub unsafe fn D3DKMTShareObjects(hobjects: &[u32], pobjectattributes: *const super::super::super::Win32::Foundation::OBJECT_ATTRIBUTES, dwdesiredaccess: u32, phsharednthandle: *mut super::super::super::Win32::Foundation::HANDLE) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTShareObjects(cobjects : u32, hobjects : *const u32, pobjectattributes : *const super::super::super::Win32::Foundation:: OBJECT_ATTRIBUTES, dwdesiredaccess : u32, phsharednthandle : *mut super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTShareObjects(hobjects.len() as _, ::core::mem::transmute(hobjects.as_ptr()), pobjectattributes, dwdesiredaccess, phsharednthandle).ok()
 }
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"]
@@ -1764,8 +1764,6 @@ pub const D3DDDIFMT_DXVA_RESERVED31: D3DDDIFORMAT = D3DDDIFORMAT(181u32);
 pub const D3DDDIFMT_DXVACOMPBUFFER_MAX: D3DDDIFORMAT = D3DDDIFORMAT(181u32);
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3DDDIFMT_BINARYBUFFER: D3DDDIFORMAT = D3DDDIFORMAT(199u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_FORCE_UINT: D3DDDIFORMAT = D3DDDIFORMAT(2147483647u32);
 impl ::core::marker::Copy for D3DDDIFORMAT {}
 impl ::core::clone::Clone for D3DDDIFORMAT {
     fn clone(&self) -> Self {
@@ -1852,8 +1850,6 @@ pub const D3DDDIMULTISAMPLE_14_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMP
 pub const D3DDDIMULTISAMPLE_15_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(15i32);
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3DDDIMULTISAMPLE_16_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(16i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIMULTISAMPLE_FORCE_UINT: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(2147483647i32);
 impl ::core::marker::Copy for D3DDDIMULTISAMPLE_TYPE {}
 impl ::core::clone::Clone for D3DDDIMULTISAMPLE_TYPE {
     fn clone(&self) -> Self {
@@ -5554,8 +5550,6 @@ pub struct DXGKDT_OPM_DVI_CHARACTERISTICS(pub i32);
 pub const DXGKMDT_OPM_DVI_CHARACTERISTIC_1_0: DXGKDT_OPM_DVI_CHARACTERISTICS = DXGKDT_OPM_DVI_CHARACTERISTICS(1i32);
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const DXGKMDT_OPM_DVI_CHARACTERISTIC_1_1_OR_ABOVE: DXGKDT_OPM_DVI_CHARACTERISTICS = DXGKDT_OPM_DVI_CHARACTERISTICS(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_DVI_CHARACTERISTICS_FORCE_ULONG: DXGKDT_OPM_DVI_CHARACTERISTICS = DXGKDT_OPM_DVI_CHARACTERISTICS(-1i32);
 impl ::core::marker::Copy for DXGKDT_OPM_DVI_CHARACTERISTICS {}
 impl ::core::clone::Clone for DXGKDT_OPM_DVI_CHARACTERISTICS {
     fn clone(&self) -> Self {
@@ -5587,8 +5581,6 @@ pub const DXGKMDT_COPP_CERTIFICATE: DXGKMDT_CERTIFICATE_TYPE = DXGKMDT_CERTIFICA
 pub const DXGKMDT_UAB_CERTIFICATE: DXGKMDT_CERTIFICATE_TYPE = DXGKMDT_CERTIFICATE_TYPE(2i32);
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const DXGKMDT_INDIRECT_DISPLAY_CERTIFICATE: DXGKMDT_CERTIFICATE_TYPE = DXGKMDT_CERTIFICATE_TYPE(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_FORCE_ULONG: DXGKMDT_CERTIFICATE_TYPE = DXGKMDT_CERTIFICATE_TYPE(-1i32);
 impl ::core::marker::Copy for DXGKMDT_CERTIFICATE_TYPE {}
 impl ::core::clone::Clone for DXGKMDT_CERTIFICATE_TYPE {
     fn clone(&self) -> Self {
@@ -5620,8 +5612,6 @@ pub const DXGKMDT_OPM_ACP_LEVEL_ONE: DXGKMDT_OPM_ACP_PROTECTION_LEVEL = DXGKMDT_
 pub const DXGKMDT_OPM_ACP_LEVEL_TWO: DXGKMDT_OPM_ACP_PROTECTION_LEVEL = DXGKMDT_OPM_ACP_PROTECTION_LEVEL(2i32);
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const DXGKMDT_OPM_ACP_LEVEL_THREE: DXGKMDT_OPM_ACP_PROTECTION_LEVEL = DXGKMDT_OPM_ACP_PROTECTION_LEVEL(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_ACP_FORCE_ULONG: DXGKMDT_OPM_ACP_PROTECTION_LEVEL = DXGKMDT_OPM_ACP_PROTECTION_LEVEL(2147483647i32);
 impl ::core::marker::Copy for DXGKMDT_OPM_ACP_PROTECTION_LEVEL {}
 impl ::core::clone::Clone for DXGKMDT_OPM_ACP_PROTECTION_LEVEL {
     fn clone(&self) -> Self {
@@ -5792,8 +5782,6 @@ pub struct DXGKMDT_OPM_DPCP_PROTECTION_LEVEL(pub i32);
 pub const DXGKMDT_OPM_DPCP_OFF: DXGKMDT_OPM_DPCP_PROTECTION_LEVEL = DXGKMDT_OPM_DPCP_PROTECTION_LEVEL(0i32);
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const DXGKMDT_OPM_DPCP_ON: DXGKMDT_OPM_DPCP_PROTECTION_LEVEL = DXGKMDT_OPM_DPCP_PROTECTION_LEVEL(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_DPCP_FORCE_ULONG: DXGKMDT_OPM_DPCP_PROTECTION_LEVEL = DXGKMDT_OPM_DPCP_PROTECTION_LEVEL(2147483647i32);
 impl ::core::marker::Copy for DXGKMDT_OPM_DPCP_PROTECTION_LEVEL {}
 impl ::core::clone::Clone for DXGKMDT_OPM_DPCP_PROTECTION_LEVEL {
     fn clone(&self) -> Self {
@@ -5848,8 +5836,6 @@ pub struct DXGKMDT_OPM_HDCP_PROTECTION_LEVEL(pub i32);
 pub const DXGKMDT_OPM_HDCP_OFF: DXGKMDT_OPM_HDCP_PROTECTION_LEVEL = DXGKMDT_OPM_HDCP_PROTECTION_LEVEL(0i32);
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const DXGKMDT_OPM_HDCP_ON: DXGKMDT_OPM_HDCP_PROTECTION_LEVEL = DXGKMDT_OPM_HDCP_PROTECTION_LEVEL(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_HDCP_FORCE_ULONG: DXGKMDT_OPM_HDCP_PROTECTION_LEVEL = DXGKMDT_OPM_HDCP_PROTECTION_LEVEL(2147483647i32);
 impl ::core::marker::Copy for DXGKMDT_OPM_HDCP_PROTECTION_LEVEL {}
 impl ::core::clone::Clone for DXGKMDT_OPM_HDCP_PROTECTION_LEVEL {
     fn clone(&self) -> Self {
@@ -5889,8 +5875,6 @@ pub const DXGKMDT_OPM_ASPECT_RATIO_EN300294_BOX_GT_16_BY_9_CENTER: DXGKMDT_OPM_I
 pub const DXGKMDT_OPM_ASPECT_RATIO_EN300294_FULL_FORMAT_4_BY_3_PROTECTED_CENTER: DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294 = DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294(6i32);
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const DXGKMDT_OPM_ASPECT_RATIO_EN300294_FULL_FORMAT_16_BY_9_ANAMORPHIC: DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294 = DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294(7i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_ASPECT_RATIO_FORCE_ULONG: DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294 = DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294(2147483647i32);
 impl ::core::marker::Copy for DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294 {}
 impl ::core::clone::Clone for DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294 {
     fn clone(&self) -> Self {
@@ -5922,8 +5906,6 @@ pub const DXGKMDT_OPM_INTERLEAVE_FORMAT_PROGRESSIVE: DXGKMDT_OPM_INTERLEAVE_FORM
 pub const DXGKMDT_OPM_INTERLEAVE_FORMAT_INTERLEAVED_EVEN_FIRST: DXGKMDT_OPM_INTERLEAVE_FORMAT = DXGKMDT_OPM_INTERLEAVE_FORMAT(3i32);
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const DXGKMDT_OPM_INTERLEAVE_FORMAT_INTERLEAVED_ODD_FIRST: DXGKMDT_OPM_INTERLEAVE_FORMAT = DXGKMDT_OPM_INTERLEAVE_FORMAT(4i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_INTERLEAVE_FORMAT_FORCE_ULONG: DXGKMDT_OPM_INTERLEAVE_FORMAT = DXGKMDT_OPM_INTERLEAVE_FORMAT(-1i32);
 impl ::core::marker::Copy for DXGKMDT_OPM_INTERLEAVE_FORMAT {}
 impl ::core::clone::Clone for DXGKMDT_OPM_INTERLEAVE_FORMAT {
     fn clone(&self) -> Self {
@@ -6111,8 +6093,6 @@ pub const DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_OFF: DXGKMDT_OPM_TYPE_ENFORCEMENT_HD
 pub const DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_ON_WITH_NO_TYPE_RESTRICTION: DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL = DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL(1i32);
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_ON_WITH_TYPE1_RESTRICTION: DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL = DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_FORCE_ULONG: DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL = DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL(2147483647i32);
 impl ::core::marker::Copy for DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL {}
 impl ::core::clone::Clone for DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL {
     fn clone(&self) -> Self {
@@ -6917,8 +6897,6 @@ pub const OUTPUTDUPL_CONTEXT_DEBUG_STATUS_INACTIVE: OUTPUTDUPL_CONTEXT_DEBUG_STA
 pub const OUTPUTDUPL_CONTEXT_DEBUG_STATUS_ACTIVE: OUTPUTDUPL_CONTEXT_DEBUG_STATUS = OUTPUTDUPL_CONTEXT_DEBUG_STATUS(1i32);
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const OUTPUTDUPL_CONTEXT_DEBUG_STATUS_PENDING_DESTROY: OUTPUTDUPL_CONTEXT_DEBUG_STATUS = OUTPUTDUPL_CONTEXT_DEBUG_STATUS(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const OUTPUTDUPL_CONTEXT_DEBUG_STATUS_FORCE_UINT32: OUTPUTDUPL_CONTEXT_DEBUG_STATUS = OUTPUTDUPL_CONTEXT_DEBUG_STATUS(-1i32);
 impl ::core::marker::Copy for OUTPUTDUPL_CONTEXT_DEBUG_STATUS {}
 impl ::core::clone::Clone for OUTPUTDUPL_CONTEXT_DEBUG_STATUS {
     fn clone(&self) -> Self {
@@ -10696,276 +10674,6 @@ impl ::core::cmp::PartialEq for D3DKMDT_GRAPHICS_RENDERING_FORMAT {
 }
 impl ::core::cmp::Eq for D3DKMDT_GRAPHICS_RENDERING_FORMAT {}
 impl ::core::default::Default for D3DKMDT_GRAPHICS_RENDERING_FORMAT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub struct D3DKMDT_HMONITORDESCRIPTORSET__ {
-    pub unused: i32,
-}
-impl ::core::marker::Copy for D3DKMDT_HMONITORDESCRIPTORSET__ {}
-impl ::core::clone::Clone for D3DKMDT_HMONITORDESCRIPTORSET__ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for D3DKMDT_HMONITORDESCRIPTORSET__ {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D3DKMDT_HMONITORDESCRIPTORSET__").field("unused", &self.unused).finish()
-    }
-}
-impl ::windows_core::TypeKind for D3DKMDT_HMONITORDESCRIPTORSET__ {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::cmp::PartialEq for D3DKMDT_HMONITORDESCRIPTORSET__ {
-    fn eq(&self, other: &Self) -> bool {
-        self.unused == other.unused
-    }
-}
-impl ::core::cmp::Eq for D3DKMDT_HMONITORDESCRIPTORSET__ {}
-impl ::core::default::Default for D3DKMDT_HMONITORDESCRIPTORSET__ {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub struct D3DKMDT_HMONITORFREQUENCYRANGESET__ {
-    pub unused: i32,
-}
-impl ::core::marker::Copy for D3DKMDT_HMONITORFREQUENCYRANGESET__ {}
-impl ::core::clone::Clone for D3DKMDT_HMONITORFREQUENCYRANGESET__ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for D3DKMDT_HMONITORFREQUENCYRANGESET__ {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D3DKMDT_HMONITORFREQUENCYRANGESET__").field("unused", &self.unused).finish()
-    }
-}
-impl ::windows_core::TypeKind for D3DKMDT_HMONITORFREQUENCYRANGESET__ {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::cmp::PartialEq for D3DKMDT_HMONITORFREQUENCYRANGESET__ {
-    fn eq(&self, other: &Self) -> bool {
-        self.unused == other.unused
-    }
-}
-impl ::core::cmp::Eq for D3DKMDT_HMONITORFREQUENCYRANGESET__ {}
-impl ::core::default::Default for D3DKMDT_HMONITORFREQUENCYRANGESET__ {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub struct D3DKMDT_HMONITORSOURCEMODESET__ {
-    pub unused: i32,
-}
-impl ::core::marker::Copy for D3DKMDT_HMONITORSOURCEMODESET__ {}
-impl ::core::clone::Clone for D3DKMDT_HMONITORSOURCEMODESET__ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for D3DKMDT_HMONITORSOURCEMODESET__ {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D3DKMDT_HMONITORSOURCEMODESET__").field("unused", &self.unused).finish()
-    }
-}
-impl ::windows_core::TypeKind for D3DKMDT_HMONITORSOURCEMODESET__ {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::cmp::PartialEq for D3DKMDT_HMONITORSOURCEMODESET__ {
-    fn eq(&self, other: &Self) -> bool {
-        self.unused == other.unused
-    }
-}
-impl ::core::cmp::Eq for D3DKMDT_HMONITORSOURCEMODESET__ {}
-impl ::core::default::Default for D3DKMDT_HMONITORSOURCEMODESET__ {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub struct D3DKMDT_HVIDEOPRESENTSOURCESET__ {
-    pub unused: i32,
-}
-impl ::core::marker::Copy for D3DKMDT_HVIDEOPRESENTSOURCESET__ {}
-impl ::core::clone::Clone for D3DKMDT_HVIDEOPRESENTSOURCESET__ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for D3DKMDT_HVIDEOPRESENTSOURCESET__ {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D3DKMDT_HVIDEOPRESENTSOURCESET__").field("unused", &self.unused).finish()
-    }
-}
-impl ::windows_core::TypeKind for D3DKMDT_HVIDEOPRESENTSOURCESET__ {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::cmp::PartialEq for D3DKMDT_HVIDEOPRESENTSOURCESET__ {
-    fn eq(&self, other: &Self) -> bool {
-        self.unused == other.unused
-    }
-}
-impl ::core::cmp::Eq for D3DKMDT_HVIDEOPRESENTSOURCESET__ {}
-impl ::core::default::Default for D3DKMDT_HVIDEOPRESENTSOURCESET__ {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub struct D3DKMDT_HVIDEOPRESENTTARGETSET__ {
-    pub unused: i32,
-}
-impl ::core::marker::Copy for D3DKMDT_HVIDEOPRESENTTARGETSET__ {}
-impl ::core::clone::Clone for D3DKMDT_HVIDEOPRESENTTARGETSET__ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for D3DKMDT_HVIDEOPRESENTTARGETSET__ {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D3DKMDT_HVIDEOPRESENTTARGETSET__").field("unused", &self.unused).finish()
-    }
-}
-impl ::windows_core::TypeKind for D3DKMDT_HVIDEOPRESENTTARGETSET__ {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::cmp::PartialEq for D3DKMDT_HVIDEOPRESENTTARGETSET__ {
-    fn eq(&self, other: &Self) -> bool {
-        self.unused == other.unused
-    }
-}
-impl ::core::cmp::Eq for D3DKMDT_HVIDEOPRESENTTARGETSET__ {}
-impl ::core::default::Default for D3DKMDT_HVIDEOPRESENTTARGETSET__ {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub struct D3DKMDT_HVIDPNSOURCEMODESET__ {
-    pub unused: i32,
-}
-impl ::core::marker::Copy for D3DKMDT_HVIDPNSOURCEMODESET__ {}
-impl ::core::clone::Clone for D3DKMDT_HVIDPNSOURCEMODESET__ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for D3DKMDT_HVIDPNSOURCEMODESET__ {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D3DKMDT_HVIDPNSOURCEMODESET__").field("unused", &self.unused).finish()
-    }
-}
-impl ::windows_core::TypeKind for D3DKMDT_HVIDPNSOURCEMODESET__ {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::cmp::PartialEq for D3DKMDT_HVIDPNSOURCEMODESET__ {
-    fn eq(&self, other: &Self) -> bool {
-        self.unused == other.unused
-    }
-}
-impl ::core::cmp::Eq for D3DKMDT_HVIDPNSOURCEMODESET__ {}
-impl ::core::default::Default for D3DKMDT_HVIDPNSOURCEMODESET__ {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub struct D3DKMDT_HVIDPNTARGETMODESET__ {
-    pub unused: i32,
-}
-impl ::core::marker::Copy for D3DKMDT_HVIDPNTARGETMODESET__ {}
-impl ::core::clone::Clone for D3DKMDT_HVIDPNTARGETMODESET__ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for D3DKMDT_HVIDPNTARGETMODESET__ {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D3DKMDT_HVIDPNTARGETMODESET__").field("unused", &self.unused).finish()
-    }
-}
-impl ::windows_core::TypeKind for D3DKMDT_HVIDPNTARGETMODESET__ {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::cmp::PartialEq for D3DKMDT_HVIDPNTARGETMODESET__ {
-    fn eq(&self, other: &Self) -> bool {
-        self.unused == other.unused
-    }
-}
-impl ::core::cmp::Eq for D3DKMDT_HVIDPNTARGETMODESET__ {}
-impl ::core::default::Default for D3DKMDT_HVIDPNTARGETMODESET__ {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub struct D3DKMDT_HVIDPNTOPOLOGY__ {
-    pub unused: i32,
-}
-impl ::core::marker::Copy for D3DKMDT_HVIDPNTOPOLOGY__ {}
-impl ::core::clone::Clone for D3DKMDT_HVIDPNTOPOLOGY__ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for D3DKMDT_HVIDPNTOPOLOGY__ {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D3DKMDT_HVIDPNTOPOLOGY__").field("unused", &self.unused).finish()
-    }
-}
-impl ::windows_core::TypeKind for D3DKMDT_HVIDPNTOPOLOGY__ {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::cmp::PartialEq for D3DKMDT_HVIDPNTOPOLOGY__ {
-    fn eq(&self, other: &Self) -> bool {
-        self.unused == other.unused
-    }
-}
-impl ::core::cmp::Eq for D3DKMDT_HVIDPNTOPOLOGY__ {}
-impl ::core::default::Default for D3DKMDT_HVIDPNTOPOLOGY__ {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub struct D3DKMDT_HVIDPN__ {
-    pub unused: i32,
-}
-impl ::core::marker::Copy for D3DKMDT_HVIDPN__ {}
-impl ::core::clone::Clone for D3DKMDT_HVIDPN__ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for D3DKMDT_HVIDPN__ {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D3DKMDT_HVIDPN__").field("unused", &self.unused).finish()
-    }
-}
-impl ::windows_core::TypeKind for D3DKMDT_HVIDPN__ {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::cmp::PartialEq for D3DKMDT_HVIDPN__ {
-    fn eq(&self, other: &Self) -> bool {
-        self.unused == other.unused
-    }
-}
-impl ::core::cmp::Eq for D3DKMDT_HVIDPN__ {}
-impl ::core::default::Default for D3DKMDT_HVIDPN__ {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -19304,7 +19012,7 @@ impl ::core::default::Default for D3DKMT_OPENNATIVEFENCEFROMNTHANDLE {
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_OPENNTHANDLEFROMNAME {
     pub dwDesiredAccess: u32,
-    pub pObjAttrib: *mut OBJECT_ATTRIBUTES,
+    pub pObjAttrib: *mut super::super::super::Win32::Foundation::OBJECT_ATTRIBUTES,
     pub hNtHandle: super::super::super::Win32::Foundation::HANDLE,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -19678,7 +19386,7 @@ impl ::core::default::Default for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME {
     pub dwDesiredAccess: u32,
-    pub pObjAttrib: *mut OBJECT_ATTRIBUTES,
+    pub pObjAttrib: *mut super::super::super::Win32::Foundation::OBJECT_ATTRIBUTES,
     pub hNtHandle: super::super::super::Win32::Foundation::HANDLE,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -30271,17 +29979,6 @@ impl ::core::default::Default for GPUP_DRIVER_ESCAPE_INPUT {
     }
 }
 #[repr(C)]
-pub struct OBJECT_ATTRIBUTES(pub u8);
-impl ::core::marker::Copy for OBJECT_ATTRIBUTES {}
-impl ::core::clone::Clone for OBJECT_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::windows_core::TypeKind for OBJECT_ATTRIBUTES {
-    type TypeKind = ::windows_core::CopyType;
-}
-#[repr(C)]
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OUTPUTDUPL_CONTEXT_DEBUG_INFO {
@@ -30807,7 +30504,7 @@ pub type PFND3DKMT_SHAREDPRIMARYLOCKNOTIFICATION = ::core::option::Option<unsafe
 pub type PFND3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFND3DKMT_SHAREOBJECTS = ::core::option::Option<unsafe extern "system" fn(cobjects: u32, hobjects: *const u32, pobjectattributes: *const OBJECT_ATTRIBUTES, dwdesiredaccess: u32, phsharednthandle: *mut super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFND3DKMT_SHAREOBJECTS = ::core::option::Option<unsafe extern "system" fn(cobjects: u32, hobjects: *const u32, pobjectattributes: *const super::super::super::Win32::Foundation::OBJECT_ATTRIBUTES, dwdesiredaccess: u32, phsharednthandle: *mut super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECT = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation::NTSTATUS>;

@@ -56,8 +56,8 @@ impl IFilter {
     pub unsafe fn GetText(&self, pcwcbuffer: *mut u32, awcbuffer: ::windows_core::PWSTR) -> i32 {
         (::windows_core::Interface::vtable(self).GetText)(::windows_core::Interface::as_raw(self), pcwcbuffer, ::core::mem::transmute(awcbuffer))
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetValue(&self, pppropvalue: *mut *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> i32 {
         (::windows_core::Interface::vtable(self).GetValue)(::windows_core::Interface::as_raw(self), pppropvalue)
     }
@@ -101,9 +101,9 @@ pub struct IFilter_Vtbl {
     #[cfg(not(feature = "Win32_System_Com_StructuredStorage"))]
     GetChunk: usize,
     pub GetText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcwcbuffer: *mut u32, awcbuffer: ::windows_core::PWSTR) -> i32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppropvalue: *mut *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> i32,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
     GetValue: usize,
     pub BindRegion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, origpos: FILTERREGION, riid: *const ::windows_core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> i32,
 }

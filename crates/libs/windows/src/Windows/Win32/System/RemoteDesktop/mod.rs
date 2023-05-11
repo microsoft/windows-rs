@@ -567,24 +567,22 @@ where
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WTSVirtualChannelOpen<P0, P1>(hserver: P0, sessionid: u32, pvirtualname: P1) -> ::windows_core::Result<HwtsVirtualChannelHandle>
+pub unsafe fn WTSVirtualChannelOpen<P0, P1>(hserver: P0, sessionid: u32, pvirtualname: P1) -> HwtsVirtualChannelHandle
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("wtsapi32.dll" "system" fn WTSVirtualChannelOpen(hserver : super::super::Foundation:: HANDLE, sessionid : u32, pvirtualname : ::windows_core::PCSTR) -> HwtsVirtualChannelHandle);
-    let result__ = WTSVirtualChannelOpen(hserver.into_param().abi(), sessionid, pvirtualname.into_param().abi());
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    WTSVirtualChannelOpen(hserver.into_param().abi(), sessionid, pvirtualname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[inline]
-pub unsafe fn WTSVirtualChannelOpenEx<P0>(sessionid: u32, pvirtualname: P0, flags: u32) -> ::windows_core::Result<HwtsVirtualChannelHandle>
+pub unsafe fn WTSVirtualChannelOpenEx<P0>(sessionid: u32, pvirtualname: P0, flags: u32) -> HwtsVirtualChannelHandle
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("wtsapi32.dll" "system" fn WTSVirtualChannelOpenEx(sessionid : u32, pvirtualname : ::windows_core::PCSTR, flags : u32) -> HwtsVirtualChannelHandle);
-    let result__ = WTSVirtualChannelOpenEx(sessionid, pvirtualname.into_param().abi(), flags);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    WTSVirtualChannelOpenEx(sessionid, pvirtualname.into_param().abi(), flags)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1361,18 +1359,18 @@ impl IRemoteDesktopClientSettings {
         let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
         (::windows_core::Interface::vtable(self).RetrieveSettings)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetRdpProperty<P0>(&self, propertyname: P0) -> ::windows_core::Result<super::Com::VARIANT>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetRdpProperty<P0>(&self, propertyname: P0) -> ::windows_core::Result<super::Variant::VARIANT>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        let mut result__ = ::windows_core::zeroed::<super::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).GetRdpProperty)(::windows_core::Interface::as_raw(self), propertyname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetRdpProperty<P0>(&self, propertyname: P0, value: super::Com::VARIANT) -> ::windows_core::Result<()>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn SetRdpProperty<P0>(&self, propertyname: P0, value: super::Variant::VARIANT) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
@@ -1416,13 +1414,13 @@ pub struct IRemoteDesktopClientSettings_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub ApplySettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rdpfilecontents: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub RetrieveSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rdpfilecontents: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetRdpProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::std::mem::MaybeUninit<::windows_core::BSTR>, value: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub GetRdpProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::std::mem::MaybeUninit<::windows_core::BSTR>, value: *mut super::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetRdpProperty: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetRdpProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::std::mem::MaybeUninit<::windows_core::BSTR>, value: super::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub SetRdpProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::std::mem::MaybeUninit<::windows_core::BSTR>, value: super::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     SetRdpProperty: usize,
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_System_Com\"`*"]
@@ -1913,21 +1911,21 @@ impl ITsSbClientConnection {
         let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
         (::windows_core::Interface::vtable(self).FarmName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PutContext<P0>(&self, contextid: P0, context: super::Com::VARIANT, existingcontext: ::core::option::Option<*mut super::Com::VARIANT>) -> ::windows_core::Result<()>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn PutContext<P0>(&self, contextid: P0, context: super::Variant::VARIANT, existingcontext: ::core::option::Option<*mut super::Variant::VARIANT>) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         (::windows_core::Interface::vtable(self).PutContext)(::windows_core::Interface::as_raw(self), contextid.into_param().abi(), ::core::mem::transmute(context), ::core::mem::transmute(existingcontext.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetContext<P0>(&self, contextid: P0) -> ::windows_core::Result<super::Com::VARIANT>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetContext<P0>(&self, contextid: P0) -> ::windows_core::Result<super::Variant::VARIANT>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        let mut result__ = ::windows_core::zeroed::<super::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).GetContext)(::windows_core::Interface::as_raw(self), contextid.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn Environment(&self) -> ::windows_core::Result<ITsSbEnvironment> {
@@ -1998,13 +1996,13 @@ pub struct ITsSbClientConnection_Vtbl {
     pub InitialProgram: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub LoadBalanceResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub FarmName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub PutContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contextid: ::std::mem::MaybeUninit<::windows_core::BSTR>, context: super::Com::VARIANT, existingcontext: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub PutContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contextid: ::std::mem::MaybeUninit<::windows_core::BSTR>, context: super::Variant::VARIANT, existingcontext: *mut super::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     PutContext: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contextid: ::std::mem::MaybeUninit<::windows_core::BSTR>, context: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub GetContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contextid: ::std::mem::MaybeUninit<::windows_core::BSTR>, context: *mut super::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetContext: usize,
     pub Environment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenvironment: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub get_ConnectionError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -2027,18 +2025,18 @@ pub struct ITsSbClientConnection_Vtbl {
 pub struct ITsSbClientConnectionPropertySet(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ITsSbClientConnectionPropertySet {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
-    pub unsafe fn Read<P0, P1>(&self, pszpropname: P0, pvar: *mut super::Com::VARIANT, perrorlog: P1) -> ::windows_core::Result<()>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Read<P0, P1>(&self, pszpropname: P0, pvar: *mut super::Variant::VARIANT, perrorlog: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P1: ::windows_core::IntoParam<super::Com::IErrorLog>,
     {
         (::windows_core::Interface::vtable(self).base__.base__.Read)(::windows_core::Interface::as_raw(self), pszpropname.into_param().abi(), pvar, perrorlog.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
-    pub unsafe fn Write<P0>(&self, pszpropname: P0, pvar: *const super::Com::VARIANT) -> ::windows_core::Result<()>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Write<P0>(&self, pszpropname: P0, pvar: *const super::Variant::VARIANT) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
@@ -2152,18 +2150,18 @@ pub struct ITsSbEnvironment_Vtbl {
 pub struct ITsSbEnvironmentPropertySet(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ITsSbEnvironmentPropertySet {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
-    pub unsafe fn Read<P0, P1>(&self, pszpropname: P0, pvar: *mut super::Com::VARIANT, perrorlog: P1) -> ::windows_core::Result<()>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Read<P0, P1>(&self, pszpropname: P0, pvar: *mut super::Variant::VARIANT, perrorlog: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P1: ::windows_core::IntoParam<super::Com::IErrorLog>,
     {
         (::windows_core::Interface::vtable(self).base__.base__.Read)(::windows_core::Interface::as_raw(self), pszpropname.into_param().abi(), pvar, perrorlog.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
-    pub unsafe fn Write<P0>(&self, pszpropname: P0, pvar: *const super::Com::VARIANT) -> ::windows_core::Result<()>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Write<P0>(&self, pszpropname: P0, pvar: *const super::Variant::VARIANT) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
@@ -2369,9 +2367,9 @@ impl ITsSbGlobalStore {
     {
         (::windows_core::Interface::vtable(self).EnumerateSessions)(::windows_core::Interface::as_raw(self), providername.into_param().abi(), targetname.into_param().abi(), username.into_param().abi(), userdomain.into_param().abi(), poolname.into_param().abi(), initialprogram.into_param().abi(), psessionstate, pdwcount, ppval).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetFarmProperty<P0, P1>(&self, farmname: P0, propertyname: P1, pvarvalue: *const super::Com::VARIANT) -> ::windows_core::Result<()>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetFarmProperty<P0, P1>(&self, farmname: P0, propertyname: P1, pvarvalue: *const super::Variant::VARIANT) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
@@ -2415,9 +2413,9 @@ pub struct ITsSbGlobalStore_Vtbl {
     pub EnumerateTargets: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, providername: ::std::mem::MaybeUninit<::windows_core::BSTR>, farmname: ::std::mem::MaybeUninit<::windows_core::BSTR>, envname: ::std::mem::MaybeUninit<::windows_core::BSTR>, pdwcount: *mut u32, pval: *mut *mut ::core::option::Option<ITsSbTarget>) -> ::windows_core::HRESULT,
     pub EnumerateEnvironmentsByProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, providername: ::std::mem::MaybeUninit<::windows_core::BSTR>, pdwcount: *mut u32, ppval: *mut *mut ::core::option::Option<ITsSbEnvironment>) -> ::windows_core::HRESULT,
     pub EnumerateSessions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, providername: ::std::mem::MaybeUninit<::windows_core::BSTR>, targetname: ::std::mem::MaybeUninit<::windows_core::BSTR>, username: ::std::mem::MaybeUninit<::windows_core::BSTR>, userdomain: ::std::mem::MaybeUninit<::windows_core::BSTR>, poolname: ::std::mem::MaybeUninit<::windows_core::BSTR>, initialprogram: ::std::mem::MaybeUninit<::windows_core::BSTR>, psessionstate: *const TSSESSION_STATE, pdwcount: *mut u32, ppval: *mut *mut ::core::option::Option<ITsSbSession>) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetFarmProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, farmname: ::std::mem::MaybeUninit<::windows_core::BSTR>, propertyname: ::std::mem::MaybeUninit<::windows_core::BSTR>, pvarvalue: *const super::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub GetFarmProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, farmname: ::std::mem::MaybeUninit<::windows_core::BSTR>, propertyname: ::std::mem::MaybeUninit<::windows_core::BSTR>, pvarvalue: *const super::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetFarmProperty: usize,
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
@@ -2868,18 +2866,18 @@ pub struct ITsSbPluginNotifySink_Vtbl {
 pub struct ITsSbPluginPropertySet(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ITsSbPluginPropertySet {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
-    pub unsafe fn Read<P0, P1>(&self, pszpropname: P0, pvar: *mut super::Com::VARIANT, perrorlog: P1) -> ::windows_core::Result<()>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Read<P0, P1>(&self, pszpropname: P0, pvar: *mut super::Variant::VARIANT, perrorlog: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P1: ::windows_core::IntoParam<super::Com::IErrorLog>,
     {
         (::windows_core::Interface::vtable(self).base__.base__.Read)(::windows_core::Interface::as_raw(self), pszpropname.into_param().abi(), pvar, perrorlog.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
-    pub unsafe fn Write<P0>(&self, pszpropname: P0, pvar: *const super::Com::VARIANT) -> ::windows_core::Result<()>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Write<P0>(&self, pszpropname: P0, pvar: *const super::Variant::VARIANT) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
@@ -2928,18 +2926,18 @@ pub struct ITsSbPluginPropertySet_Vtbl {
 pub struct ITsSbPropertySet(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ITsSbPropertySet {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
-    pub unsafe fn Read<P0, P1>(&self, pszpropname: P0, pvar: *mut super::Com::VARIANT, perrorlog: P1) -> ::windows_core::Result<()>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Read<P0, P1>(&self, pszpropname: P0, pvar: *mut super::Variant::VARIANT, perrorlog: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P1: ::windows_core::IntoParam<super::Com::IErrorLog>,
     {
         (::windows_core::Interface::vtable(self).base__.Read)(::windows_core::Interface::as_raw(self), pszpropname.into_param().abi(), pvar, perrorlog.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
-    pub unsafe fn Write<P0>(&self, pszpropname: P0, pvar: *const super::Com::VARIANT) -> ::windows_core::Result<()>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Write<P0>(&self, pszpropname: P0, pvar: *const super::Variant::VARIANT) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
@@ -3502,18 +3500,18 @@ impl ITsSbResourcePluginStore {
     {
         (::windows_core::Interface::vtable(self).SaveSession)(::windows_core::Interface::as_raw(self), psession.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetTargetProperty<P0, P1>(&self, targetname: P0, propertyname: P1, pproperty: *const super::Com::VARIANT) -> ::windows_core::Result<()>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn SetTargetProperty<P0, P1>(&self, targetname: P0, propertyname: P1, pproperty: *const super::Variant::VARIANT) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         (::windows_core::Interface::vtable(self).SetTargetProperty)(::windows_core::Interface::as_raw(self), targetname.into_param().abi(), propertyname.into_param().abi(), pproperty).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetEnvironmentProperty<P0, P1>(&self, environmentname: P0, propertyname: P1, pproperty: *const super::Com::VARIANT) -> ::windows_core::Result<()>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn SetEnvironmentProperty<P0, P1>(&self, environmentname: P0, propertyname: P1, pproperty: *const super::Variant::VARIANT) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
@@ -3551,9 +3549,9 @@ impl ITsSbResourcePluginStore {
     {
         (::windows_core::Interface::vtable(self).EnumerateSessions)(::windows_core::Interface::as_raw(self), targetname.into_param().abi(), username.into_param().abi(), userdomain.into_param().abi(), poolname.into_param().abi(), initialprogram.into_param().abi(), psessionstate, pdwcount, ppval).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetFarmProperty<P0, P1>(&self, farmname: P0, propertyname: P1, pvarvalue: *const super::Com::VARIANT) -> ::windows_core::Result<()>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetFarmProperty<P0, P1>(&self, farmname: P0, propertyname: P1, pvarvalue: *const super::Variant::VARIANT) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
@@ -3567,18 +3565,18 @@ impl ITsSbResourcePluginStore {
     {
         (::windows_core::Interface::vtable(self).DeleteTarget)(::windows_core::Interface::as_raw(self), targetname.into_param().abi(), hostname.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetTargetPropertyWithVersionCheck<P0, P1>(&self, ptarget: P0, propertyname: P1, pproperty: *const super::Com::VARIANT) -> ::windows_core::Result<()>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn SetTargetPropertyWithVersionCheck<P0, P1>(&self, ptarget: P0, propertyname: P1, pproperty: *const super::Variant::VARIANT) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<ITsSbTarget>,
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         (::windows_core::Interface::vtable(self).SetTargetPropertyWithVersionCheck)(::windows_core::Interface::as_raw(self), ptarget.into_param().abi(), propertyname.into_param().abi(), pproperty).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetEnvironmentPropertyWithVersionCheck<P0, P1>(&self, penvironment: P0, propertyname: P1, pproperty: *const super::Com::VARIANT) -> ::windows_core::Result<()>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn SetEnvironmentPropertyWithVersionCheck<P0, P1>(&self, penvironment: P0, propertyname: P1, pproperty: *const super::Variant::VARIANT) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<ITsSbEnvironment>,
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
@@ -3679,30 +3677,30 @@ pub struct ITsSbResourcePluginStore_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SaveEnvironment: usize,
     pub SaveSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psession: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetTargetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targetname: ::std::mem::MaybeUninit<::windows_core::BSTR>, propertyname: ::std::mem::MaybeUninit<::windows_core::BSTR>, pproperty: *const super::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub SetTargetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targetname: ::std::mem::MaybeUninit<::windows_core::BSTR>, propertyname: ::std::mem::MaybeUninit<::windows_core::BSTR>, pproperty: *const super::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     SetTargetProperty: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetEnvironmentProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, environmentname: ::std::mem::MaybeUninit<::windows_core::BSTR>, propertyname: ::std::mem::MaybeUninit<::windows_core::BSTR>, pproperty: *const super::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub SetEnvironmentProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, environmentname: ::std::mem::MaybeUninit<::windows_core::BSTR>, propertyname: ::std::mem::MaybeUninit<::windows_core::BSTR>, pproperty: *const super::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     SetEnvironmentProperty: usize,
     pub SetTargetState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targetname: ::std::mem::MaybeUninit<::windows_core::BSTR>, newstate: TARGET_STATE, poldstate: *mut TARGET_STATE) -> ::windows_core::HRESULT,
     pub SetSessionState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sbsession: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub EnumerateTargets: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, farmname: ::std::mem::MaybeUninit<::windows_core::BSTR>, envname: ::std::mem::MaybeUninit<::windows_core::BSTR>, sortbyfieldid: TS_SB_SORT_BY, sortybypropname: ::std::mem::MaybeUninit<::windows_core::BSTR>, pdwcount: *mut u32, pval: *mut *mut ::core::option::Option<ITsSbTarget>) -> ::windows_core::HRESULT,
     pub EnumerateSessions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targetname: ::std::mem::MaybeUninit<::windows_core::BSTR>, username: ::std::mem::MaybeUninit<::windows_core::BSTR>, userdomain: ::std::mem::MaybeUninit<::windows_core::BSTR>, poolname: ::std::mem::MaybeUninit<::windows_core::BSTR>, initialprogram: ::std::mem::MaybeUninit<::windows_core::BSTR>, psessionstate: *const TSSESSION_STATE, pdwcount: *mut u32, ppval: *mut *mut ::core::option::Option<ITsSbSession>) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetFarmProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, farmname: ::std::mem::MaybeUninit<::windows_core::BSTR>, propertyname: ::std::mem::MaybeUninit<::windows_core::BSTR>, pvarvalue: *const super::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub GetFarmProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, farmname: ::std::mem::MaybeUninit<::windows_core::BSTR>, propertyname: ::std::mem::MaybeUninit<::windows_core::BSTR>, pvarvalue: *const super::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetFarmProperty: usize,
     pub DeleteTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targetname: ::std::mem::MaybeUninit<::windows_core::BSTR>, hostname: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetTargetPropertyWithVersionCheck: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptarget: *mut ::core::ffi::c_void, propertyname: ::std::mem::MaybeUninit<::windows_core::BSTR>, pproperty: *const super::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub SetTargetPropertyWithVersionCheck: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptarget: *mut ::core::ffi::c_void, propertyname: ::std::mem::MaybeUninit<::windows_core::BSTR>, pproperty: *const super::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     SetTargetPropertyWithVersionCheck: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetEnvironmentPropertyWithVersionCheck: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, penvironment: *mut ::core::ffi::c_void, propertyname: ::std::mem::MaybeUninit<::windows_core::BSTR>, pproperty: *const super::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub SetEnvironmentPropertyWithVersionCheck: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, penvironment: *mut ::core::ffi::c_void, propertyname: ::std::mem::MaybeUninit<::windows_core::BSTR>, pproperty: *const super::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     SetEnvironmentPropertyWithVersionCheck: usize,
     pub AcquireTargetLock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targetname: ::std::mem::MaybeUninit<::windows_core::BSTR>, dwtimeout: u32, ppcontext: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub ReleaseTargetLock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontext: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -4042,18 +4040,18 @@ pub struct ITsSbTarget_Vtbl {
 pub struct ITsSbTargetPropertySet(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ITsSbTargetPropertySet {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
-    pub unsafe fn Read<P0, P1>(&self, pszpropname: P0, pvar: *mut super::Com::VARIANT, perrorlog: P1) -> ::windows_core::Result<()>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Read<P0, P1>(&self, pszpropname: P0, pvar: *mut super::Variant::VARIANT, perrorlog: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P1: ::windows_core::IntoParam<super::Com::IErrorLog>,
     {
         (::windows_core::Interface::vtable(self).base__.base__.Read)(::windows_core::Interface::as_raw(self), pszpropname.into_param().abi(), pvar, perrorlog.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
-    pub unsafe fn Write<P0>(&self, pszpropname: P0, pvar: *const super::Com::VARIANT) -> ::windows_core::Result<()>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Write<P0>(&self, pszpropname: P0, pvar: *const super::Variant::VARIANT) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
@@ -7334,12 +7332,12 @@ impl ItsPubPlugin {
         let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
         (::windows_core::Interface::vtable(self).pluginVersion)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn ResolveResource<P0, P1>(&self, resourcetype: *mut u32, resourcelocation: ::windows_core::PWSTR, endpointname: ::windows_core::PWSTR, userid: P0, alias: P1) -> ::windows_core::Result<()>
+    pub unsafe fn ResolveResource<P0, P1>(&self, resourcetype: *mut u32, resourcelocation: &mut [u16; 256], endpointname: &mut [u16; 256], userid: P0, alias: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).ResolveResource)(::windows_core::Interface::as_raw(self), resourcetype, ::core::mem::transmute(resourcelocation), ::core::mem::transmute(endpointname), userid.into_param().abi(), alias.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).ResolveResource)(::windows_core::Interface::as_raw(self), resourcetype, ::core::mem::transmute(resourcelocation.as_ptr()), ::core::mem::transmute(endpointname.as_ptr()), userid.into_param().abi(), alias.into_param().abi()).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(ItsPubPlugin, ::windows_core::IUnknown);
@@ -7404,12 +7402,12 @@ impl ItsPubPlugin2 {
         let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
         (::windows_core::Interface::vtable(self).base__.pluginVersion)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn ResolveResource<P0, P1>(&self, resourcetype: *mut u32, resourcelocation: ::windows_core::PWSTR, endpointname: ::windows_core::PWSTR, userid: P0, alias: P1) -> ::windows_core::Result<()>
+    pub unsafe fn ResolveResource<P0, P1>(&self, resourcetype: *mut u32, resourcelocation: &mut [u16; 256], endpointname: &mut [u16; 256], userid: P0, alias: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).base__.ResolveResource)(::windows_core::Interface::as_raw(self), resourcetype, ::core::mem::transmute(resourcelocation), ::core::mem::transmute(endpointname), userid.into_param().abi(), alias.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).base__.ResolveResource)(::windows_core::Interface::as_raw(self), resourcetype, ::core::mem::transmute(resourcelocation.as_ptr()), ::core::mem::transmute(endpointname.as_ptr()), userid.into_param().abi(), alias.into_param().abi()).ok()
     }
     pub unsafe fn GetResource2List<P0>(&self, userid: P0, pceapplistsize: *mut i32, resourcelist: *mut *mut pluginResource2) -> ::windows_core::Result<()>
     where
@@ -7423,12 +7421,12 @@ impl ItsPubPlugin2 {
     {
         (::windows_core::Interface::vtable(self).GetResource2)(::windows_core::Interface::as_raw(self), alias.into_param().abi(), flags, resource).ok()
     }
-    pub unsafe fn ResolvePersonalDesktop<P0, P1>(&self, userid: P0, poolid: P1, epdresolutiontype: TSPUB_PLUGIN_PD_RESOLUTION_TYPE, ppdassignmenttype: *mut TSPUB_PLUGIN_PD_ASSIGNMENT_TYPE, endpointname: ::windows_core::PWSTR) -> ::windows_core::Result<()>
+    pub unsafe fn ResolvePersonalDesktop<P0, P1>(&self, userid: P0, poolid: P1, epdresolutiontype: TSPUB_PLUGIN_PD_RESOLUTION_TYPE, ppdassignmenttype: *mut TSPUB_PLUGIN_PD_ASSIGNMENT_TYPE, endpointname: &mut [u16; 256]) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).ResolvePersonalDesktop)(::windows_core::Interface::as_raw(self), userid.into_param().abi(), poolid.into_param().abi(), epdresolutiontype, ppdassignmenttype, ::core::mem::transmute(endpointname)).ok()
+        (::windows_core::Interface::vtable(self).ResolvePersonalDesktop)(::windows_core::Interface::as_raw(self), userid.into_param().abi(), poolid.into_param().abi(), epdresolutiontype, ppdassignmenttype, ::core::mem::transmute(endpointname.as_ptr())).ok()
     }
     pub unsafe fn DeletePersonalDesktopAssignment<P0, P1, P2>(&self, userid: P0, poolid: P1, endpointname: P2) -> ::windows_core::Result<()>
     where
@@ -10059,32 +10057,35 @@ impl ::core::default::Default for CLIENT_DISPLAY {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HwtsVirtualChannelHandle(pub isize);
-impl HwtsVirtualChannelHandle {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub struct HwtsVirtualChannelHandle {
+    pub Value: isize,
 }
-impl ::core::default::Default for HwtsVirtualChannelHandle {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
+impl ::core::marker::Copy for HwtsVirtualChannelHandle {}
 impl ::core::clone::Clone for HwtsVirtualChannelHandle {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::marker::Copy for HwtsVirtualChannelHandle {}
 impl ::core::fmt::Debug for HwtsVirtualChannelHandle {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HwtsVirtualChannelHandle").field(&self.0).finish()
+        f.debug_struct("HwtsVirtualChannelHandle").field("Value", &self.Value).finish()
     }
 }
 impl ::windows_core::TypeKind for HwtsVirtualChannelHandle {
     type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::cmp::PartialEq for HwtsVirtualChannelHandle {
+    fn eq(&self, other: &Self) -> bool {
+        self.Value == other.Value
+    }
+}
+impl ::core::cmp::Eq for HwtsVirtualChannelHandle {}
+impl ::core::default::Default for HwtsVirtualChannelHandle {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]

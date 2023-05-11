@@ -285,9 +285,9 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn RoRegisterActivationFactories(activatableclassids: *const ::windows_core::HSTRING, activationfactorycallbacks: *const PFNGETACTIVATIONFACTORY, count: u32) -> ::windows_core::Result<isize> {
-    ::windows_targets::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoRegisterActivationFactories(activatableclassids : *const ::std::mem::MaybeUninit <::windows_core::HSTRING >, activationfactorycallbacks : *const PFNGETACTIVATIONFACTORY, count : u32, cookie : *mut isize) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<isize>();
+pub unsafe fn RoRegisterActivationFactories(activatableclassids: *const ::windows_core::HSTRING, activationfactorycallbacks: *const PFNGETACTIVATIONFACTORY, count: u32) -> ::windows_core::Result<RO_REGISTRATION_COOKIE> {
+    ::windows_targets::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoRegisterActivationFactories(activatableclassids : *const ::std::mem::MaybeUninit <::windows_core::HSTRING >, activationfactorycallbacks : *const PFNGETACTIVATIONFACTORY, count : u32, cookie : *mut RO_REGISTRATION_COOKIE) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<RO_REGISTRATION_COOKIE>();
     RoRegisterActivationFactories(::core::mem::transmute(activatableclassids), activationfactorycallbacks, count, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
@@ -330,9 +330,12 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn RoRevokeActivationFactories(cookie: isize) {
-    ::windows_targets::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoRevokeActivationFactories(cookie : isize) -> ());
-    RoRevokeActivationFactories(cookie)
+pub unsafe fn RoRevokeActivationFactories<P0>(cookie: P0)
+where
+    P0: ::windows_core::IntoParam<RO_REGISTRATION_COOKIE>,
+{
+    ::windows_targets::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoRevokeActivationFactories(cookie : RO_REGISTRATION_COOKIE) -> ());
+    RoRevokeActivationFactories(cookie.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
@@ -2804,6 +2807,28 @@ impl ::core::fmt::Debug for ROPARAMIIDHANDLE {
 impl ::windows_core::TypeKind for ROPARAMIIDHANDLE {
     type TypeKind = ::windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct RO_REGISTRATION_COOKIE(pub isize);
+impl ::core::default::Default for RO_REGISTRATION_COOKIE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for RO_REGISTRATION_COOKIE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for RO_REGISTRATION_COOKIE {}
+impl ::core::fmt::Debug for RO_REGISTRATION_COOKIE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RO_REGISTRATION_COOKIE").field(&self.0).finish()
+    }
+}
+impl ::windows_core::TypeKind for RO_REGISTRATION_COOKIE {
+    type TypeKind = ::windows_core::CopyType;
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub struct ServerInformation {
@@ -2835,17 +2860,6 @@ impl ::core::default::Default for ServerInformation {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-#[repr(C)]
-pub struct _RO_REGISTRATION_COOKIE(pub u8);
-impl ::core::marker::Copy for _RO_REGISTRATION_COOKIE {}
-impl ::core::clone::Clone for _RO_REGISTRATION_COOKIE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::windows_core::TypeKind for _RO_REGISTRATION_COOKIE {
-    type TypeKind = ::windows_core::CopyType;
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub type PFNGETACTIVATIONFACTORY = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_core::HSTRING, param1: *mut ::core::option::Option<IActivationFactory>) -> ::windows_core::HRESULT>;

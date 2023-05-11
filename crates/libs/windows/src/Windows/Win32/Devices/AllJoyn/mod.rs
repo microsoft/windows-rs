@@ -533,104 +533,133 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_abouticon_clear(icon: *mut _alljoyn_abouticon_handle) {
-    ::windows_targets::link!("msajapi.dll" "system" fn alljoyn_abouticon_clear(icon : *mut _alljoyn_abouticon_handle) -> ());
-    alljoyn_abouticon_clear(icon)
+pub unsafe fn alljoyn_abouticon_clear<P0>(icon: P0)
+where
+    P0: ::windows_core::IntoParam<alljoyn_abouticon>,
+{
+    ::windows_targets::link!("msajapi.dll" "system" fn alljoyn_abouticon_clear(icon : alljoyn_abouticon) -> ());
+    alljoyn_abouticon_clear(icon.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_abouticon_create() -> *mut _alljoyn_abouticon_handle {
-    ::windows_targets::link!("msajapi.dll" "system" fn alljoyn_abouticon_create() -> *mut _alljoyn_abouticon_handle);
+pub unsafe fn alljoyn_abouticon_create() -> alljoyn_abouticon {
+    ::windows_targets::link!("msajapi.dll" "system" fn alljoyn_abouticon_create() -> alljoyn_abouticon);
     alljoyn_abouticon_create()
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_abouticon_destroy(icon: *mut _alljoyn_abouticon_handle) {
-    ::windows_targets::link!("msajapi.dll" "system" fn alljoyn_abouticon_destroy(icon : *mut _alljoyn_abouticon_handle) -> ());
-    alljoyn_abouticon_destroy(icon)
-}
-#[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
-#[inline]
-pub unsafe fn alljoyn_abouticon_getcontent(icon: *mut _alljoyn_abouticon_handle, data: *const *const u8, size: *mut usize) {
-    ::windows_targets::link!("msajapi.dll" "system" fn alljoyn_abouticon_getcontent(icon : *mut _alljoyn_abouticon_handle, data : *const *const u8, size : *mut usize) -> ());
-    alljoyn_abouticon_getcontent(icon, data, size)
-}
-#[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
-#[inline]
-pub unsafe fn alljoyn_abouticon_geturl(icon: *mut _alljoyn_abouticon_handle, r#type: *const *const i8, url: *const *const i8) {
-    ::windows_targets::link!("msajapi.dll" "system" fn alljoyn_abouticon_geturl(icon : *mut _alljoyn_abouticon_handle, r#type : *const *const i8, url : *const *const i8) -> ());
-    alljoyn_abouticon_geturl(icon, r#type, url)
-}
-#[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
-#[inline]
-pub unsafe fn alljoyn_abouticon_setcontent<P0>(icon: *mut _alljoyn_abouticon_handle, r#type: P0, data: *mut u8, csize: usize, ownsdata: u8) -> QStatus
+pub unsafe fn alljoyn_abouticon_destroy<P0>(icon: P0)
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: ::windows_core::IntoParam<alljoyn_abouticon>,
 {
-    ::windows_targets::link!("msajapi.dll" "system" fn alljoyn_abouticon_setcontent(icon : *mut _alljoyn_abouticon_handle, r#type : ::windows_core::PCSTR, data : *mut u8, csize : usize, ownsdata : u8) -> QStatus);
-    alljoyn_abouticon_setcontent(icon, r#type.into_param().abi(), data, csize, ownsdata)
+    ::windows_targets::link!("msajapi.dll" "system" fn alljoyn_abouticon_destroy(icon : alljoyn_abouticon) -> ());
+    alljoyn_abouticon_destroy(icon.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_abouticon_setcontent_frommsgarg<P0>(icon: *mut _alljoyn_abouticon_handle, arg: P0) -> QStatus
+pub unsafe fn alljoyn_abouticon_getcontent<P0>(icon: P0, data: *const *const u8, size: *mut usize)
 where
-    P0: ::windows_core::IntoParam<alljoyn_msgarg>,
+    P0: ::windows_core::IntoParam<alljoyn_abouticon>,
 {
-    ::windows_targets::link!("msajapi.dll" "system" fn alljoyn_abouticon_setcontent_frommsgarg(icon : *mut _alljoyn_abouticon_handle, arg : alljoyn_msgarg) -> QStatus);
-    alljoyn_abouticon_setcontent_frommsgarg(icon, arg.into_param().abi())
+    ::windows_targets::link!("msajapi.dll" "system" fn alljoyn_abouticon_getcontent(icon : alljoyn_abouticon, data : *const *const u8, size : *mut usize) -> ());
+    alljoyn_abouticon_getcontent(icon.into_param().abi(), data, size)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_abouticon_seturl<P0, P1>(icon: *mut _alljoyn_abouticon_handle, r#type: P0, url: P1) -> QStatus
+pub unsafe fn alljoyn_abouticon_geturl<P0>(icon: P0, r#type: *const *const i8, url: *const *const i8)
 where
-    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P0: ::windows_core::IntoParam<alljoyn_abouticon>,
+{
+    ::windows_targets::link!("msajapi.dll" "system" fn alljoyn_abouticon_geturl(icon : alljoyn_abouticon, r#type : *const *const i8, url : *const *const i8) -> ());
+    alljoyn_abouticon_geturl(icon.into_param().abi(), r#type, url)
+}
+#[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
+#[inline]
+pub unsafe fn alljoyn_abouticon_setcontent<P0, P1>(icon: P0, r#type: P1, data: *mut u8, csize: usize, ownsdata: u8) -> QStatus
+where
+    P0: ::windows_core::IntoParam<alljoyn_abouticon>,
     P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("msajapi.dll" "system" fn alljoyn_abouticon_seturl(icon : *mut _alljoyn_abouticon_handle, r#type : ::windows_core::PCSTR, url : ::windows_core::PCSTR) -> QStatus);
-    alljoyn_abouticon_seturl(icon, r#type.into_param().abi(), url.into_param().abi())
+    ::windows_targets::link!("msajapi.dll" "system" fn alljoyn_abouticon_setcontent(icon : alljoyn_abouticon, r#type : ::windows_core::PCSTR, data : *mut u8, csize : usize, ownsdata : u8) -> QStatus);
+    alljoyn_abouticon_setcontent(icon.into_param().abi(), r#type.into_param().abi(), data, csize, ownsdata)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_abouticonobj_create<P0>(bus: P0, icon: *mut _alljoyn_abouticon_handle) -> *mut _alljoyn_abouticonobj_handle
+pub unsafe fn alljoyn_abouticon_setcontent_frommsgarg<P0, P1>(icon: P0, arg: P1) -> QStatus
+where
+    P0: ::windows_core::IntoParam<alljoyn_abouticon>,
+    P1: ::windows_core::IntoParam<alljoyn_msgarg>,
+{
+    ::windows_targets::link!("msajapi.dll" "system" fn alljoyn_abouticon_setcontent_frommsgarg(icon : alljoyn_abouticon, arg : alljoyn_msgarg) -> QStatus);
+    alljoyn_abouticon_setcontent_frommsgarg(icon.into_param().abi(), arg.into_param().abi())
+}
+#[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
+#[inline]
+pub unsafe fn alljoyn_abouticon_seturl<P0, P1, P2>(icon: P0, r#type: P1, url: P2) -> QStatus
+where
+    P0: ::windows_core::IntoParam<alljoyn_abouticon>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
+    P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
+{
+    ::windows_targets::link!("msajapi.dll" "system" fn alljoyn_abouticon_seturl(icon : alljoyn_abouticon, r#type : ::windows_core::PCSTR, url : ::windows_core::PCSTR) -> QStatus);
+    alljoyn_abouticon_seturl(icon.into_param().abi(), r#type.into_param().abi(), url.into_param().abi())
+}
+#[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
+#[inline]
+pub unsafe fn alljoyn_abouticonobj_create<P0, P1>(bus: P0, icon: P1) -> alljoyn_abouticonobj
 where
     P0: ::windows_core::IntoParam<alljoyn_busattachment>,
+    P1: ::windows_core::IntoParam<alljoyn_abouticon>,
 {
-    ::windows_targets::link!("msajapi.dll" "system" fn alljoyn_abouticonobj_create(bus : alljoyn_busattachment, icon : *mut _alljoyn_abouticon_handle) -> *mut _alljoyn_abouticonobj_handle);
-    alljoyn_abouticonobj_create(bus.into_param().abi(), icon)
+    ::windows_targets::link!("msajapi.dll" "system" fn alljoyn_abouticonobj_create(bus : alljoyn_busattachment, icon : alljoyn_abouticon) -> alljoyn_abouticonobj);
+    alljoyn_abouticonobj_create(bus.into_param().abi(), icon.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_abouticonobj_destroy(icon: *mut _alljoyn_abouticonobj_handle) {
-    ::windows_targets::link!("msajapi.dll" "system" fn alljoyn_abouticonobj_destroy(icon : *mut _alljoyn_abouticonobj_handle) -> ());
-    alljoyn_abouticonobj_destroy(icon)
+pub unsafe fn alljoyn_abouticonobj_destroy<P0>(icon: P0)
+where
+    P0: ::windows_core::IntoParam<alljoyn_abouticonobj>,
+{
+    ::windows_targets::link!("msajapi.dll" "system" fn alljoyn_abouticonobj_destroy(icon : alljoyn_abouticonobj) -> ());
+    alljoyn_abouticonobj_destroy(icon.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_abouticonproxy_create<P0, P1>(bus: P0, busname: P1, sessionid: u32) -> *mut _alljoyn_abouticonproxy_handle
+pub unsafe fn alljoyn_abouticonproxy_create<P0, P1>(bus: P0, busname: P1, sessionid: u32) -> alljoyn_abouticonproxy
 where
     P0: ::windows_core::IntoParam<alljoyn_busattachment>,
     P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("msajapi.dll" "system" fn alljoyn_abouticonproxy_create(bus : alljoyn_busattachment, busname : ::windows_core::PCSTR, sessionid : u32) -> *mut _alljoyn_abouticonproxy_handle);
+    ::windows_targets::link!("msajapi.dll" "system" fn alljoyn_abouticonproxy_create(bus : alljoyn_busattachment, busname : ::windows_core::PCSTR, sessionid : u32) -> alljoyn_abouticonproxy);
     alljoyn_abouticonproxy_create(bus.into_param().abi(), busname.into_param().abi(), sessionid)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_abouticonproxy_destroy(proxy: *mut _alljoyn_abouticonproxy_handle) {
-    ::windows_targets::link!("msajapi.dll" "system" fn alljoyn_abouticonproxy_destroy(proxy : *mut _alljoyn_abouticonproxy_handle) -> ());
-    alljoyn_abouticonproxy_destroy(proxy)
+pub unsafe fn alljoyn_abouticonproxy_destroy<P0>(proxy: P0)
+where
+    P0: ::windows_core::IntoParam<alljoyn_abouticonproxy>,
+{
+    ::windows_targets::link!("msajapi.dll" "system" fn alljoyn_abouticonproxy_destroy(proxy : alljoyn_abouticonproxy) -> ());
+    alljoyn_abouticonproxy_destroy(proxy.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_abouticonproxy_geticon(proxy: *mut _alljoyn_abouticonproxy_handle, icon: *mut _alljoyn_abouticon_handle) -> QStatus {
-    ::windows_targets::link!("msajapi.dll" "system" fn alljoyn_abouticonproxy_geticon(proxy : *mut _alljoyn_abouticonproxy_handle, icon : *mut _alljoyn_abouticon_handle) -> QStatus);
-    alljoyn_abouticonproxy_geticon(proxy, icon)
+pub unsafe fn alljoyn_abouticonproxy_geticon<P0, P1>(proxy: P0, icon: P1) -> QStatus
+where
+    P0: ::windows_core::IntoParam<alljoyn_abouticonproxy>,
+    P1: ::windows_core::IntoParam<alljoyn_abouticon>,
+{
+    ::windows_targets::link!("msajapi.dll" "system" fn alljoyn_abouticonproxy_geticon(proxy : alljoyn_abouticonproxy, icon : alljoyn_abouticon) -> QStatus);
+    alljoyn_abouticonproxy_geticon(proxy.into_param().abi(), icon.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
-pub unsafe fn alljoyn_abouticonproxy_getversion(proxy: *mut _alljoyn_abouticonproxy_handle, version: *mut u16) -> QStatus {
-    ::windows_targets::link!("msajapi.dll" "system" fn alljoyn_abouticonproxy_getversion(proxy : *mut _alljoyn_abouticonproxy_handle, version : *mut u16) -> QStatus);
-    alljoyn_abouticonproxy_getversion(proxy, version)
+pub unsafe fn alljoyn_abouticonproxy_getversion<P0>(proxy: P0, version: *mut u16) -> QStatus
+where
+    P0: ::windows_core::IntoParam<alljoyn_abouticonproxy>,
+{
+    ::windows_targets::link!("msajapi.dll" "system" fn alljoyn_abouticonproxy_getversion(proxy : alljoyn_abouticonproxy, version : *mut u16) -> QStatus);
+    alljoyn_abouticonproxy_getversion(proxy.into_param().abi(), version)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[inline]
@@ -6256,39 +6285,6 @@ impl ::core::fmt::Debug for alljoyn_typeid {
         f.debug_tuple("alljoyn_typeid").field(&self.0).finish()
     }
 }
-#[repr(C)]
-pub struct _alljoyn_abouticon_handle(pub u8);
-impl ::core::marker::Copy for _alljoyn_abouticon_handle {}
-impl ::core::clone::Clone for _alljoyn_abouticon_handle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::windows_core::TypeKind for _alljoyn_abouticon_handle {
-    type TypeKind = ::windows_core::CopyType;
-}
-#[repr(C)]
-pub struct _alljoyn_abouticonobj_handle(pub u8);
-impl ::core::marker::Copy for _alljoyn_abouticonobj_handle {}
-impl ::core::clone::Clone for _alljoyn_abouticonobj_handle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::windows_core::TypeKind for _alljoyn_abouticonobj_handle {
-    type TypeKind = ::windows_core::CopyType;
-}
-#[repr(C)]
-pub struct _alljoyn_abouticonproxy_handle(pub u8);
-impl ::core::marker::Copy for _alljoyn_abouticonproxy_handle {}
-impl ::core::clone::Clone for _alljoyn_abouticonproxy_handle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::windows_core::TypeKind for _alljoyn_abouticonproxy_handle {
-    type TypeKind = ::windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct alljoyn_aboutdata(pub isize);
@@ -6357,6 +6353,72 @@ impl ::core::default::Default for alljoyn_aboutdatalistener_callbacks {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct alljoyn_abouticon(pub isize);
+impl ::core::default::Default for alljoyn_abouticon {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for alljoyn_abouticon {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for alljoyn_abouticon {}
+impl ::core::fmt::Debug for alljoyn_abouticon {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("alljoyn_abouticon").field(&self.0).finish()
+    }
+}
+impl ::windows_core::TypeKind for alljoyn_abouticon {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct alljoyn_abouticonobj(pub isize);
+impl ::core::default::Default for alljoyn_abouticonobj {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for alljoyn_abouticonobj {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for alljoyn_abouticonobj {}
+impl ::core::fmt::Debug for alljoyn_abouticonobj {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("alljoyn_abouticonobj").field(&self.0).finish()
+    }
+}
+impl ::windows_core::TypeKind for alljoyn_abouticonobj {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct alljoyn_abouticonproxy(pub isize);
+impl ::core::default::Default for alljoyn_abouticonproxy {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for alljoyn_abouticonproxy {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for alljoyn_abouticonproxy {}
+impl ::core::fmt::Debug for alljoyn_abouticonproxy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("alljoyn_abouticonproxy").field(&self.0).finish()
+    }
+}
+impl ::windows_core::TypeKind for alljoyn_abouticonproxy {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

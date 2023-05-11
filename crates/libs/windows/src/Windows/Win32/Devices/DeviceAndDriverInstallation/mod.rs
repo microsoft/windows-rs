@@ -1351,8 +1351,8 @@ where
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CM_Register_Notification(pfilter: *const CM_NOTIFY_FILTER, pcontext: ::core::option::Option<*const ::core::ffi::c_void>, pcallback: PCM_NOTIFY_CALLBACK, pnotifycontext: *mut isize) -> CONFIGRET {
-    ::windows_targets::link!("cfgmgr32.dll" "system" fn CM_Register_Notification(pfilter : *const CM_NOTIFY_FILTER, pcontext : *const ::core::ffi::c_void, pcallback : PCM_NOTIFY_CALLBACK, pnotifycontext : *mut isize) -> CONFIGRET);
+pub unsafe fn CM_Register_Notification(pfilter: *const CM_NOTIFY_FILTER, pcontext: ::core::option::Option<*const ::core::ffi::c_void>, pcallback: PCM_NOTIFY_CALLBACK, pnotifycontext: *mut HCMNOTIFICATION) -> CONFIGRET {
+    ::windows_targets::link!("cfgmgr32.dll" "system" fn CM_Register_Notification(pfilter : *const CM_NOTIFY_FILTER, pcontext : *const ::core::ffi::c_void, pcallback : PCM_NOTIFY_CALLBACK, pnotifycontext : *mut HCMNOTIFICATION) -> CONFIGRET);
     CM_Register_Notification(pfilter, ::core::mem::transmute(pcontext.unwrap_or(::std::ptr::null())), pcallback, pnotifycontext)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]

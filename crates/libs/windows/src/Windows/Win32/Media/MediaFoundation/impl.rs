@@ -119,28 +119,28 @@ impl IClusterDetector_Vtbl {
         iid == &<IClusterDetector as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICodecAPI_Impl: Sized {
     fn IsSupported(&self, api: *const ::windows_core::GUID) -> ::windows_core::Result<()>;
     fn IsModifiable(&self, api: *const ::windows_core::GUID) -> ::windows_core::Result<()>;
-    fn GetParameterRange(&self, api: *const ::windows_core::GUID, valuemin: *mut super::super::System::Com::VARIANT, valuemax: *mut super::super::System::Com::VARIANT, steppingdelta: *mut super::super::System::Com::VARIANT) -> ::windows_core::Result<()>;
-    fn GetParameterValues(&self, api: *const ::windows_core::GUID, values: *mut *mut super::super::System::Com::VARIANT, valuescount: *mut u32) -> ::windows_core::Result<()>;
-    fn GetDefaultValue(&self, api: *const ::windows_core::GUID) -> ::windows_core::Result<super::super::System::Com::VARIANT>;
-    fn GetValue(&self, api: *const ::windows_core::GUID) -> ::windows_core::Result<super::super::System::Com::VARIANT>;
-    fn SetValue(&self, api: *const ::windows_core::GUID, value: *const super::super::System::Com::VARIANT) -> ::windows_core::Result<()>;
+    fn GetParameterRange(&self, api: *const ::windows_core::GUID, valuemin: *mut super::super::System::Variant::VARIANT, valuemax: *mut super::super::System::Variant::VARIANT, steppingdelta: *mut super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
+    fn GetParameterValues(&self, api: *const ::windows_core::GUID, values: *mut *mut super::super::System::Variant::VARIANT, valuescount: *mut u32) -> ::windows_core::Result<()>;
+    fn GetDefaultValue(&self, api: *const ::windows_core::GUID) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn GetValue(&self, api: *const ::windows_core::GUID) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn SetValue(&self, api: *const ::windows_core::GUID, value: *const super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
     fn RegisterForEvent(&self, api: *const ::windows_core::GUID, userdata: isize) -> ::windows_core::Result<()>;
     fn UnregisterForEvent(&self, api: *const ::windows_core::GUID) -> ::windows_core::Result<()>;
     fn SetAllDefaults(&self) -> ::windows_core::Result<()>;
-    fn SetValueWithNotify(&self, api: *const ::windows_core::GUID, value: *mut super::super::System::Com::VARIANT, changedparam: *mut *mut ::windows_core::GUID, changedparamcount: *mut u32) -> ::windows_core::Result<()>;
+    fn SetValueWithNotify(&self, api: *const ::windows_core::GUID, value: *mut super::super::System::Variant::VARIANT, changedparam: *mut *mut ::windows_core::GUID, changedparamcount: *mut u32) -> ::windows_core::Result<()>;
     fn SetAllDefaultsWithNotify(&self, changedparam: *mut *mut ::windows_core::GUID, changedparamcount: *mut u32) -> ::windows_core::Result<()>;
     fn GetAllSettings(&self, __midl__icodecapi0000: ::core::option::Option<&super::super::System::Com::IStream>) -> ::windows_core::Result<()>;
     fn SetAllSettings(&self, __midl__icodecapi0001: ::core::option::Option<&super::super::System::Com::IStream>) -> ::windows_core::Result<()>;
     fn SetAllSettingsWithNotify(&self, __midl__icodecapi0002: ::core::option::Option<&super::super::System::Com::IStream>, changedparam: *mut *mut ::windows_core::GUID, changedparamcount: *mut u32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ICodecAPI {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICodecAPI_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICodecAPI_Impl, const OFFSET: isize>() -> ICodecAPI_Vtbl {
         unsafe extern "system" fn IsSupported<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICodecAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, api: *const ::windows_core::GUID) -> ::windows_core::HRESULT {
@@ -153,17 +153,17 @@ impl ICodecAPI_Vtbl {
             let this = (*this).get_impl();
             this.IsModifiable(::core::mem::transmute_copy(&api)).into()
         }
-        unsafe extern "system" fn GetParameterRange<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICodecAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, api: *const ::windows_core::GUID, valuemin: *mut super::super::System::Com::VARIANT, valuemax: *mut super::super::System::Com::VARIANT, steppingdelta: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetParameterRange<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICodecAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, api: *const ::windows_core::GUID, valuemin: *mut super::super::System::Variant::VARIANT, valuemax: *mut super::super::System::Variant::VARIANT, steppingdelta: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetParameterRange(::core::mem::transmute_copy(&api), ::core::mem::transmute_copy(&valuemin), ::core::mem::transmute_copy(&valuemax), ::core::mem::transmute_copy(&steppingdelta)).into()
         }
-        unsafe extern "system" fn GetParameterValues<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICodecAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, api: *const ::windows_core::GUID, values: *mut *mut super::super::System::Com::VARIANT, valuescount: *mut u32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetParameterValues<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICodecAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, api: *const ::windows_core::GUID, values: *mut *mut super::super::System::Variant::VARIANT, valuescount: *mut u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetParameterValues(::core::mem::transmute_copy(&api), ::core::mem::transmute_copy(&values), ::core::mem::transmute_copy(&valuescount)).into()
         }
-        unsafe extern "system" fn GetDefaultValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICodecAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, api: *const ::windows_core::GUID, value: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetDefaultValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICodecAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, api: *const ::windows_core::GUID, value: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetDefaultValue(::core::mem::transmute_copy(&api)) {
@@ -174,7 +174,7 @@ impl ICodecAPI_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICodecAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, api: *const ::windows_core::GUID, value: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICodecAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, api: *const ::windows_core::GUID, value: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetValue(::core::mem::transmute_copy(&api)) {
@@ -185,7 +185,7 @@ impl ICodecAPI_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICodecAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, api: *const ::windows_core::GUID, value: *const super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SetValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICodecAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, api: *const ::windows_core::GUID, value: *const super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetValue(::core::mem::transmute_copy(&api), ::core::mem::transmute_copy(&value)).into()
@@ -205,7 +205,7 @@ impl ICodecAPI_Vtbl {
             let this = (*this).get_impl();
             this.SetAllDefaults().into()
         }
-        unsafe extern "system" fn SetValueWithNotify<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICodecAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, api: *const ::windows_core::GUID, value: *mut super::super::System::Com::VARIANT, changedparam: *mut *mut ::windows_core::GUID, changedparamcount: *mut u32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SetValueWithNotify<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICodecAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, api: *const ::windows_core::GUID, value: *mut super::super::System::Variant::VARIANT, changedparam: *mut *mut ::windows_core::GUID, changedparamcount: *mut u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetValueWithNotify(::core::mem::transmute_copy(&api), ::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&changedparam), ::core::mem::transmute_copy(&changedparamcount)).into()
@@ -2633,8 +2633,8 @@ impl IMFASFContentInfo_Vtbl {
         iid == &<IMFASFContentInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IMFASFIndexer_Impl: Sized {
     fn SetFlags(&self, dwflags: u32) -> ::windows_core::Result<()>;
     fn GetFlags(&self) -> ::windows_core::Result<u32>;
@@ -2650,9 +2650,9 @@ pub trait IMFASFIndexer_Impl: Sized {
     fn GetIndexWriteSpace(&self) -> ::windows_core::Result<u64>;
     fn GetCompletedIndex(&self, piindexbuffer: ::core::option::Option<&IMFMediaBuffer>, cboffsetwithinindex: u64) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMFASFIndexer {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IMFASFIndexer_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFASFIndexer_Impl, const OFFSET: isize>() -> IMFASFIndexer_Vtbl {
         unsafe extern "system" fn SetFlags<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFASFIndexer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows_core::HRESULT {
@@ -2955,8 +2955,8 @@ impl IMFASFMutualExclusion_Vtbl {
         iid == &<IMFASFMutualExclusion as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IMFASFProfile_Impl: Sized + IMFAttributes_Impl {
     fn GetStreamCount(&self) -> ::windows_core::Result<u32>;
     fn GetStream(&self, dwstreamindex: u32, pwstreamnumber: *mut u16, ppistream: *mut ::core::option::Option<IMFASFStreamConfig>) -> ::windows_core::Result<()>;
@@ -2975,9 +2975,9 @@ pub trait IMFASFProfile_Impl: Sized + IMFAttributes_Impl {
     fn CreateStreamPrioritization(&self) -> ::windows_core::Result<IMFASFStreamPrioritization>;
     fn Clone(&self) -> ::windows_core::Result<IMFASFProfile>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMFASFProfile {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IMFASFProfile_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFASFProfile_Impl, const OFFSET: isize>() -> IMFASFProfile_Vtbl {
         unsafe extern "system" fn GetStreamCount<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFASFProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcstreams: *mut u32) -> ::windows_core::HRESULT {
@@ -3227,8 +3227,8 @@ impl IMFASFSplitter_Vtbl {
         iid == &<IMFASFSplitter as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IMFASFStreamConfig_Impl: Sized + IMFAttributes_Impl {
     fn GetStreamType(&self) -> ::windows_core::Result<::windows_core::GUID>;
     fn GetStreamNumber(&self) -> u16;
@@ -3241,9 +3241,9 @@ pub trait IMFASFStreamConfig_Impl: Sized + IMFAttributes_Impl {
     fn RemoveAllPayloadExtensions(&self) -> ::windows_core::Result<()>;
     fn Clone(&self) -> ::windows_core::Result<IMFASFStreamConfig>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMFASFStreamConfig {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IMFASFStreamConfig_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFASFStreamConfig_Impl, const OFFSET: isize>() -> IMFASFStreamConfig_Vtbl {
         unsafe extern "system" fn GetStreamType<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFASFStreamConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidstreamtype: *mut ::windows_core::GUID) -> ::windows_core::HRESULT {
@@ -3571,16 +3571,16 @@ impl IMFASFStreamSelector_Vtbl {
         iid == &<IMFASFStreamSelector as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IMFActivate_Impl: Sized + IMFAttributes_Impl {
     fn ActivateObject(&self, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
     fn ShutdownObject(&self) -> ::windows_core::Result<()>;
     fn DetachObject(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMFActivate {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IMFActivate_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFActivate_Impl, const OFFSET: isize>() -> IMFActivate_Vtbl {
         unsafe extern "system" fn ActivateObject<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFActivate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -3726,8 +3726,8 @@ impl IMFAsyncResult_Vtbl {
         iid == &<IMFAsyncResult as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IMFAttributes_Impl: Sized {
     fn GetItem(&self, guidkey: *const ::windows_core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()>;
     fn GetItemType(&self, guidkey: *const ::windows_core::GUID) -> ::windows_core::Result<MF_ATTRIBUTE_TYPE>;
@@ -3760,9 +3760,9 @@ pub trait IMFAttributes_Impl: Sized {
     fn GetItemByIndex(&self, unindex: u32, pguidkey: *mut ::windows_core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()>;
     fn CopyAllItems(&self, pdest: ::core::option::Option<&IMFAttributes>) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMFAttributes {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IMFAttributes_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFAttributes_Impl, const OFFSET: isize>() -> IMFAttributes_Vtbl {
         unsafe extern "system" fn GetItem<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidkey: *const ::windows_core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::HRESULT {
@@ -4013,14 +4013,14 @@ impl IMFAttributes_Vtbl {
         iid == &<IMFAttributes as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Media_Audio\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Media_Audio\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IMFAudioMediaType_Impl: Sized + IMFMediaType_Impl {
     fn GetAudioFormat(&self) -> *mut super::Audio::WAVEFORMATEX;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMFAudioMediaType {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IMFAudioMediaType_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFAudioMediaType_Impl, const OFFSET: isize>() -> IMFAudioMediaType_Vtbl {
         unsafe extern "system" fn GetAudioFormat<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFAudioMediaType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> *mut super::Audio::WAVEFORMATEX {
@@ -4669,8 +4669,8 @@ impl IMFCameraControlDefaults_Vtbl {
         iid == &<IMFCameraControlDefaults as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IMFCameraControlDefaultsCollection_Impl: Sized + IMFAttributes_Impl {
     fn GetControlCount(&self) -> u32;
     fn GetControl(&self, index: u32) -> ::windows_core::Result<IMFCameraControlDefaults>;
@@ -4679,9 +4679,9 @@ pub trait IMFCameraControlDefaultsCollection_Impl: Sized + IMFAttributes_Impl {
     fn RemoveControl(&self, controlset: *const ::windows_core::GUID, constrolid: u32) -> ::windows_core::Result<()>;
     fn RemoveAllControls(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMFCameraControlDefaultsCollection {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IMFCameraControlDefaultsCollection_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFCameraControlDefaultsCollection_Impl, const OFFSET: isize>() -> IMFCameraControlDefaultsCollection_Vtbl {
         unsafe extern "system" fn GetControlCount<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFCameraControlDefaultsCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
@@ -8197,8 +8197,8 @@ impl IMFMediaEngineEMENotify_Vtbl {
         iid == &<IMFMediaEngineEMENotify as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IMFMediaEngineEx_Impl: Sized + IMFMediaEngine_Impl {
     fn SetSourceFromByteStream(&self, pbytestream: ::core::option::Option<&IMFByteStream>, purl: &::windows_core::BSTR) -> ::windows_core::Result<()>;
     fn GetStatistics(&self, statisticid: MF_MEDIA_ENGINE_STATISTIC) -> ::windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
@@ -8238,9 +8238,9 @@ pub trait IMFMediaEngineEx_Impl: Sized + IMFMediaEngine_Impl {
     fn SetCurrentTimeEx(&self, seektime: f64, seekmode: MF_MEDIA_ENGINE_SEEK_MODE) -> ::windows_core::Result<()>;
     fn EnableTimeUpdateTimer(&self, fenabletimer: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMFMediaEngineEx {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IMFMediaEngineEx_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaEngineEx_Impl, const OFFSET: isize>() -> IMFMediaEngineEx_Vtbl {
         unsafe extern "system" fn SetSourceFromByteStream<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaEngineEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbytestream: *mut ::core::ffi::c_void, purl: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -9001,17 +9001,17 @@ impl IMFMediaError_Vtbl {
         iid == &<IMFMediaError as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IMFMediaEvent_Impl: Sized + IMFAttributes_Impl {
     fn GetType(&self) -> ::windows_core::Result<u32>;
     fn GetExtendedType(&self) -> ::windows_core::Result<::windows_core::GUID>;
     fn GetStatus(&self) -> ::windows_core::Result<::windows_core::HRESULT>;
     fn GetValue(&self) -> ::windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMFMediaEvent {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IMFMediaEvent_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaEvent_Impl, const OFFSET: isize>() -> IMFMediaEvent_Vtbl {
         unsafe extern "system" fn GetType<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmet: *mut u32) -> ::windows_core::HRESULT {
@@ -9070,17 +9070,17 @@ impl IMFMediaEvent_Vtbl {
         iid == &<IMFMediaEvent as ::windows_core::ComInterface>::IID || iid == &<IMFAttributes as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IMFMediaEventGenerator_Impl: Sized {
     fn GetEvent(&self, dwflags: MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS) -> ::windows_core::Result<IMFMediaEvent>;
     fn BeginGetEvent(&self, pcallback: ::core::option::Option<&IMFAsyncCallback>, punkstate: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
     fn EndGetEvent(&self, presult: ::core::option::Option<&IMFAsyncResult>) -> ::windows_core::Result<IMFMediaEvent>;
     fn QueueEvent(&self, met: u32, guidextendedtype: *const ::windows_core::GUID, hrstatus: ::windows_core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMFMediaEventGenerator {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IMFMediaEventGenerator_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaEventGenerator_Impl, const OFFSET: isize>() -> IMFMediaEventGenerator_Vtbl {
         unsafe extern "system" fn GetEvent<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaEventGenerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS, ppevent: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -9127,8 +9127,8 @@ impl IMFMediaEventGenerator_Vtbl {
         iid == &<IMFMediaEventGenerator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IMFMediaEventQueue_Impl: Sized {
     fn GetEvent(&self, dwflags: u32) -> ::windows_core::Result<IMFMediaEvent>;
     fn BeginGetEvent(&self, pcallback: ::core::option::Option<&IMFAsyncCallback>, punkstate: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
@@ -9138,9 +9138,9 @@ pub trait IMFMediaEventQueue_Impl: Sized {
     fn QueueEventParamUnk(&self, met: u32, guidextendedtype: *const ::windows_core::GUID, hrstatus: ::windows_core::HRESULT, punk: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
     fn Shutdown(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMFMediaEventQueue {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IMFMediaEventQueue_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaEventQueue_Impl, const OFFSET: isize>() -> IMFMediaEventQueue_Vtbl {
         unsafe extern "system" fn GetEvent<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaEventQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32, ppevent: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -9563,8 +9563,8 @@ impl IMFMediaKeys2_Vtbl {
         iid == &<IMFMediaKeys2 as ::windows_core::ComInterface>::IID || iid == &<IMFMediaKeys as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IMFMediaSession_Impl: Sized + IMFMediaEventGenerator_Impl {
     fn SetTopology(&self, dwsettopologyflags: u32, ptopology: ::core::option::Option<&IMFTopology>) -> ::windows_core::Result<()>;
     fn ClearTopologies(&self) -> ::windows_core::Result<()>;
@@ -9577,9 +9577,9 @@ pub trait IMFMediaSession_Impl: Sized + IMFMediaEventGenerator_Impl {
     fn GetSessionCapabilities(&self) -> ::windows_core::Result<u32>;
     fn GetFullTopology(&self, dwgetfulltopologyflags: u32, topoid: u64) -> ::windows_core::Result<IMFTopology>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMFMediaSession {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IMFMediaSession_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaSession_Impl, const OFFSET: isize>() -> IMFMediaSession_Vtbl {
         unsafe extern "system" fn SetTopology<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwsettopologyflags: u32, ptopology: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -9844,8 +9844,8 @@ impl IMFMediaSinkPreroll_Vtbl {
         iid == &<IMFMediaSinkPreroll as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IMFMediaSource_Impl: Sized + IMFMediaEventGenerator_Impl {
     fn GetCharacteristics(&self) -> ::windows_core::Result<u32>;
     fn CreatePresentationDescriptor(&self) -> ::windows_core::Result<IMFPresentationDescriptor>;
@@ -9854,9 +9854,9 @@ pub trait IMFMediaSource_Impl: Sized + IMFMediaEventGenerator_Impl {
     fn Pause(&self) -> ::windows_core::Result<()>;
     fn Shutdown(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMFMediaSource {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IMFMediaSource_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaSource_Impl, const OFFSET: isize>() -> IMFMediaSource_Vtbl {
         unsafe extern "system" fn GetCharacteristics<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwcharacteristics: *mut u32) -> ::windows_core::HRESULT {
@@ -9915,14 +9915,14 @@ impl IMFMediaSource_Vtbl {
         iid == &<IMFMediaSource as ::windows_core::ComInterface>::IID || iid == &<IMFMediaEventGenerator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IMFMediaSource2_Impl: Sized + IMFMediaSourceEx_Impl {
     fn SetMediaType(&self, dwstreamid: u32, pmediatype: ::core::option::Option<&IMFMediaType>) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMFMediaSource2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IMFMediaSource2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaSource2_Impl, const OFFSET: isize>() -> IMFMediaSource2_Vtbl {
         unsafe extern "system" fn SetMediaType<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaSource2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwstreamid: u32, pmediatype: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -9936,16 +9936,16 @@ impl IMFMediaSource2_Vtbl {
         iid == &<IMFMediaSource2 as ::windows_core::ComInterface>::IID || iid == &<IMFMediaEventGenerator as ::windows_core::ComInterface>::IID || iid == &<IMFMediaSource as ::windows_core::ComInterface>::IID || iid == &<IMFMediaSourceEx as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IMFMediaSourceEx_Impl: Sized + IMFMediaSource_Impl {
     fn GetSourceAttributes(&self) -> ::windows_core::Result<IMFAttributes>;
     fn GetStreamAttributes(&self, dwstreamidentifier: u32) -> ::windows_core::Result<IMFAttributes>;
     fn SetD3DManager(&self, pmanager: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMFMediaSourceEx {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IMFMediaSourceEx_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaSourceEx_Impl, const OFFSET: isize>() -> IMFMediaSourceEx_Vtbl {
         unsafe extern "system" fn GetSourceAttributes<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaSourceEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppattributes: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -10184,16 +10184,16 @@ impl IMFMediaSourceTopologyProvider_Vtbl {
         iid == &<IMFMediaSourceTopologyProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IMFMediaStream_Impl: Sized + IMFMediaEventGenerator_Impl {
     fn GetMediaSource(&self) -> ::windows_core::Result<IMFMediaSource>;
     fn GetStreamDescriptor(&self) -> ::windows_core::Result<IMFStreamDescriptor>;
     fn RequestSample(&self, ptoken: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMFMediaStream {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IMFMediaStream_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaStream_Impl, const OFFSET: isize>() -> IMFMediaStream_Vtbl {
         unsafe extern "system" fn GetMediaSource<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppmediasource: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -10234,15 +10234,15 @@ impl IMFMediaStream_Vtbl {
         iid == &<IMFMediaStream as ::windows_core::ComInterface>::IID || iid == &<IMFMediaEventGenerator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IMFMediaStream2_Impl: Sized + IMFMediaStream_Impl {
     fn SetStreamState(&self, value: MF_STREAM_STATE) -> ::windows_core::Result<()>;
     fn GetStreamState(&self) -> ::windows_core::Result<MF_STREAM_STATE>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMFMediaStream2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IMFMediaStream2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaStream2_Impl, const OFFSET: isize>() -> IMFMediaStream2_Vtbl {
         unsafe extern "system" fn SetStreamState<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaStream2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: MF_STREAM_STATE) -> ::windows_core::HRESULT {
@@ -10360,8 +10360,8 @@ impl IMFMediaTimeRange_Vtbl {
         iid == &<IMFMediaTimeRange as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IMFMediaType_Impl: Sized + IMFAttributes_Impl {
     fn GetMajorType(&self) -> ::windows_core::Result<::windows_core::GUID>;
     fn IsCompressedFormat(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
@@ -10369,9 +10369,9 @@ pub trait IMFMediaType_Impl: Sized + IMFAttributes_Impl {
     fn GetRepresentation(&self, guidrepresentation: &::windows_core::GUID, ppvrepresentation: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
     fn FreeRepresentation(&self, guidrepresentation: &::windows_core::GUID, pvrepresentation: *const ::core::ffi::c_void) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMFMediaType {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IMFMediaType_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaType_Impl, const OFFSET: isize>() -> IMFMediaType_Vtbl {
         unsafe extern "system" fn GetMajorType<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidmajortype: *mut ::windows_core::GUID) -> ::windows_core::HRESULT {
@@ -10510,8 +10510,8 @@ impl IMFMediaTypeHandler_Vtbl {
         iid == &<IMFMediaTypeHandler as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IMFMetadata_Impl: Sized {
     fn SetLanguage(&self, pwszrfc1766: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
     fn GetLanguage(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
@@ -10521,9 +10521,9 @@ pub trait IMFMetadata_Impl: Sized {
     fn DeleteProperty(&self, pwszname: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
     fn GetAllPropertyNames(&self) -> ::windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMFMetadata {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IMFMetadata_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFMetadata_Impl, const OFFSET: isize>() -> IMFMetadata_Vtbl {
         unsafe extern "system" fn SetLanguage<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszrfc1766: ::windows_core::PCWSTR) -> ::windows_core::HRESULT {
@@ -11181,16 +11181,16 @@ impl IMFObjectReferenceStream_Vtbl {
         iid == &<IMFObjectReferenceStream as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IMFOutputPolicy_Impl: Sized + IMFAttributes_Impl {
     fn GenerateRequiredSchemas(&self, dwattributes: u32, guidoutputsubtype: &::windows_core::GUID, rgguidprotectionschemassupported: *const ::windows_core::GUID, cprotectionschemassupported: u32) -> ::windows_core::Result<IMFCollection>;
     fn GetOriginatorID(&self) -> ::windows_core::Result<::windows_core::GUID>;
     fn GetMinimumGRLVersion(&self) -> ::windows_core::Result<u32>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMFOutputPolicy {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IMFOutputPolicy_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFOutputPolicy_Impl, const OFFSET: isize>() -> IMFOutputPolicy_Vtbl {
         unsafe extern "system" fn GenerateRequiredSchemas<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFOutputPolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwattributes: u32, guidoutputsubtype: ::windows_core::GUID, rgguidprotectionschemassupported: *const ::windows_core::GUID, cprotectionschemassupported: u32, pprequiredprotectionschemas: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -11237,16 +11237,16 @@ impl IMFOutputPolicy_Vtbl {
         iid == &<IMFOutputPolicy as ::windows_core::ComInterface>::IID || iid == &<IMFAttributes as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IMFOutputSchema_Impl: Sized + IMFAttributes_Impl {
     fn GetSchemaType(&self) -> ::windows_core::Result<::windows_core::GUID>;
     fn GetConfigurationData(&self) -> ::windows_core::Result<u32>;
     fn GetOriginatorID(&self) -> ::windows_core::Result<::windows_core::GUID>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMFOutputSchema {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IMFOutputSchema_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFOutputSchema_Impl, const OFFSET: isize>() -> IMFOutputSchema_Vtbl {
         unsafe extern "system" fn GetSchemaType<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFOutputSchema_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidschematype: *mut ::windows_core::GUID) -> ::windows_core::HRESULT {
@@ -11474,8 +11474,8 @@ impl IMFPMPServer_Vtbl {
         iid == &<IMFPMPServer as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IMFPMediaItem_Impl: Sized {
     fn GetMediaPlayer(&self) -> ::windows_core::Result<IMFPMediaPlayer>;
     fn GetURL(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
@@ -11497,9 +11497,9 @@ pub trait IMFPMediaItem_Impl: Sized {
     fn SetStreamSink(&self, dwstreamindex: u32, pmediasink: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
     fn GetMetadata(&self) -> ::windows_core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ::windows_core::RuntimeName for IMFPMediaItem {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IMFPMediaItem_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFPMediaItem_Impl, const OFFSET: isize>() -> IMFPMediaItem_Vtbl {
         unsafe extern "system" fn GetMediaPlayer<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFPMediaItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppmediaplayer: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -11696,8 +11696,8 @@ impl IMFPMediaItem_Vtbl {
         iid == &<IMFPMediaItem as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IMFPMediaPlayer_Impl: Sized {
     fn Play(&self) -> ::windows_core::Result<()>;
     fn Pause(&self) -> ::windows_core::Result<()>;
@@ -11736,9 +11736,9 @@ pub trait IMFPMediaPlayer_Impl: Sized {
     fn RemoveAllEffects(&self) -> ::windows_core::Result<()>;
     fn Shutdown(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMFPMediaPlayer {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IMFPMediaPlayer_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFPMediaPlayer_Impl, const OFFSET: isize>() -> IMFPMediaPlayer_Vtbl {
         unsafe extern "system" fn Play<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFPMediaPlayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -12232,8 +12232,8 @@ impl IMFPresentationClock_Vtbl {
         iid == &<IMFPresentationClock as ::windows_core::ComInterface>::IID || iid == &<IMFClock as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IMFPresentationDescriptor_Impl: Sized + IMFAttributes_Impl {
     fn GetStreamDescriptorCount(&self) -> ::windows_core::Result<u32>;
     fn GetStreamDescriptorByIndex(&self, dwindex: u32, pfselected: *mut super::super::Foundation::BOOL, ppdescriptor: *mut ::core::option::Option<IMFStreamDescriptor>) -> ::windows_core::Result<()>;
@@ -12241,9 +12241,9 @@ pub trait IMFPresentationDescriptor_Impl: Sized + IMFAttributes_Impl {
     fn DeselectStream(&self, dwdescriptorindex: u32) -> ::windows_core::Result<()>;
     fn Clone(&self) -> ::windows_core::Result<IMFPresentationDescriptor>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMFPresentationDescriptor {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IMFPresentationDescriptor_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFPresentationDescriptor_Impl, const OFFSET: isize>() -> IMFPresentationDescriptor_Vtbl {
         unsafe extern "system" fn GetStreamDescriptorCount<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFPresentationDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwdescriptorcount: *mut u32) -> ::windows_core::HRESULT {
@@ -12843,17 +12843,17 @@ impl IMFRemoteProxy_Vtbl {
         iid == &<IMFRemoteProxy as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IMFSAMIStyle_Impl: Sized {
     fn GetStyleCount(&self) -> ::windows_core::Result<u32>;
     fn GetStyles(&self) -> ::windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
     fn SetSelectedStyle(&self, pwszstyle: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
     fn GetSelectedStyle(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMFSAMIStyle {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IMFSAMIStyle_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFSAMIStyle_Impl, const OFFSET: isize>() -> IMFSAMIStyle_Vtbl {
         unsafe extern "system" fn GetStyleCount<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFSAMIStyle_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwcount: *mut u32) -> ::windows_core::HRESULT {
@@ -12964,8 +12964,8 @@ impl IMFSSLCertificateManager_Vtbl {
         iid == &<IMFSSLCertificateManager as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IMFSample_Impl: Sized + IMFAttributes_Impl {
     fn GetSampleFlags(&self) -> ::windows_core::Result<u32>;
     fn SetSampleFlags(&self, dwsampleflags: u32) -> ::windows_core::Result<()>;
@@ -12982,9 +12982,9 @@ pub trait IMFSample_Impl: Sized + IMFAttributes_Impl {
     fn GetTotalLength(&self) -> ::windows_core::Result<u32>;
     fn CopyToBuffer(&self, pbuffer: ::core::option::Option<&IMFMediaBuffer>) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMFSample {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IMFSample_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFSample_Impl, const OFFSET: isize>() -> IMFSample_Vtbl {
         unsafe extern "system" fn GetSampleFlags<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFSample_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwsampleflags: *mut u32) -> ::windows_core::HRESULT {
@@ -13436,14 +13436,14 @@ impl IMFSecureChannel_Vtbl {
         iid == &<IMFSecureChannel as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IMFSeekInfo_Impl: Sized {
     fn GetNearestKeyFrames(&self, pguidtimeformat: *const ::windows_core::GUID, pvarstartposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarpreviouskeyframe: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pvarnextkeyframe: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMFSeekInfo {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IMFSeekInfo_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFSeekInfo_Impl, const OFFSET: isize>() -> IMFSeekInfo_Vtbl {
         unsafe extern "system" fn GetNearestKeyFrames<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFSeekInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidtimeformat: *const ::windows_core::GUID, pvarstartposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarpreviouskeyframe: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pvarnextkeyframe: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::HRESULT {
@@ -14019,16 +14019,16 @@ impl IMFSensorProfileCollection_Vtbl {
         iid == &<IMFSensorProfileCollection as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IMFSensorStream_Impl: Sized + IMFAttributes_Impl {
     fn GetMediaTypeCount(&self) -> ::windows_core::Result<u32>;
     fn GetMediaType(&self, dwindex: u32) -> ::windows_core::Result<IMFMediaType>;
     fn CloneSensorStream(&self) -> ::windows_core::Result<IMFSensorStream>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMFSensorStream {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IMFSensorStream_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFSensorStream_Impl, const OFFSET: isize>() -> IMFSensorStream_Vtbl {
         unsafe extern "system" fn GetMediaTypeCount<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFSensorStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwcount: *mut u32) -> ::windows_core::HRESULT {
@@ -14759,8 +14759,8 @@ impl IMFSourceOpenMonitor_Vtbl {
         iid == &<IMFSourceOpenMonitor as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IMFSourceReader_Impl: Sized {
     fn GetStreamSelection(&self, dwstreamindex: u32) -> ::windows_core::Result<super::super::Foundation::BOOL>;
     fn SetStreamSelection(&self, dwstreamindex: u32, fselected: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -14773,9 +14773,9 @@ pub trait IMFSourceReader_Impl: Sized {
     fn GetServiceForStream(&self, dwstreamindex: u32, guidservice: *const ::windows_core::GUID, riid: *const ::windows_core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
     fn GetPresentationAttribute(&self, dwstreamindex: u32, guidattribute: *const ::windows_core::GUID) -> ::windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMFSourceReader {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IMFSourceReader_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFSourceReader_Impl, const OFFSET: isize>() -> IMFSourceReader_Vtbl {
         unsafe extern "system" fn GetStreamSelection<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFSourceReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwstreamindex: u32, pfselected: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
@@ -14933,17 +14933,17 @@ impl IMFSourceReaderCallback2_Vtbl {
         iid == &<IMFSourceReaderCallback2 as ::windows_core::ComInterface>::IID || iid == &<IMFSourceReaderCallback as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IMFSourceReaderEx_Impl: Sized + IMFSourceReader_Impl {
     fn SetNativeMediaType(&self, dwstreamindex: u32, pmediatype: ::core::option::Option<&IMFMediaType>) -> ::windows_core::Result<u32>;
     fn AddTransformForStream(&self, dwstreamindex: u32, ptransformoractivate: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
     fn RemoveAllTransformsForStream(&self, dwstreamindex: u32) -> ::windows_core::Result<()>;
     fn GetTransformForStream(&self, dwstreamindex: u32, dwtransformindex: u32, pguidcategory: *mut ::windows_core::GUID, pptransform: *mut ::core::option::Option<IMFTransform>) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMFSourceReaderEx {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IMFSourceReaderEx_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFSourceReaderEx_Impl, const OFFSET: isize>() -> IMFSourceReaderEx_Vtbl {
         unsafe extern "system" fn SetNativeMediaType<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFSourceReaderEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwstreamindex: u32, pmediatype: *mut ::core::ffi::c_void, pdwstreamflags: *mut u32) -> ::windows_core::HRESULT {
@@ -15120,16 +15120,16 @@ impl IMFSpatialAudioObjectBuffer_Vtbl {
         iid == &<IMFSpatialAudioObjectBuffer as ::windows_core::ComInterface>::IID || iid == &<IMFMediaBuffer as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IMFSpatialAudioSample_Impl: Sized + IMFSample_Impl {
     fn GetObjectCount(&self) -> ::windows_core::Result<u32>;
     fn AddSpatialAudioObject(&self, paudioobjbuffer: ::core::option::Option<&IMFSpatialAudioObjectBuffer>) -> ::windows_core::Result<()>;
     fn GetSpatialAudioObjectByIndex(&self, dwindex: u32) -> ::windows_core::Result<IMFSpatialAudioObjectBuffer>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMFSpatialAudioSample {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IMFSpatialAudioSample_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFSpatialAudioSample_Impl, const OFFSET: isize>() -> IMFSpatialAudioSample_Vtbl {
         unsafe extern "system" fn GetObjectCount<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFSpatialAudioSample_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwobjectcount: *mut u32) -> ::windows_core::HRESULT {
@@ -15170,15 +15170,15 @@ impl IMFSpatialAudioSample_Vtbl {
         iid == &<IMFSpatialAudioSample as ::windows_core::ComInterface>::IID || iid == &<IMFAttributes as ::windows_core::ComInterface>::IID || iid == &<IMFSample as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IMFStreamDescriptor_Impl: Sized + IMFAttributes_Impl {
     fn GetStreamIdentifier(&self) -> ::windows_core::Result<u32>;
     fn GetMediaTypeHandler(&self) -> ::windows_core::Result<IMFMediaTypeHandler>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMFStreamDescriptor {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IMFStreamDescriptor_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFStreamDescriptor_Impl, const OFFSET: isize>() -> IMFStreamDescriptor_Vtbl {
         unsafe extern "system" fn GetStreamIdentifier<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFStreamDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwstreamidentifier: *mut u32) -> ::windows_core::HRESULT {
@@ -15213,8 +15213,8 @@ impl IMFStreamDescriptor_Vtbl {
         iid == &<IMFStreamDescriptor as ::windows_core::ComInterface>::IID || iid == &<IMFAttributes as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IMFStreamSink_Impl: Sized + IMFMediaEventGenerator_Impl {
     fn GetMediaSink(&self) -> ::windows_core::Result<IMFMediaSink>;
     fn GetIdentifier(&self) -> ::windows_core::Result<u32>;
@@ -15223,9 +15223,9 @@ pub trait IMFStreamSink_Impl: Sized + IMFMediaEventGenerator_Impl {
     fn PlaceMarker(&self, emarkertype: MFSTREAMSINK_MARKER_TYPE, pvarmarkervalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarcontextvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()>;
     fn Flush(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMFStreamSink {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IMFStreamSink_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFStreamSink_Impl, const OFFSET: isize>() -> IMFStreamSink_Vtbl {
         unsafe extern "system" fn GetMediaSink<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFStreamSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppmediasink: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -15339,17 +15339,17 @@ impl IMFSystemId_Vtbl {
         iid == &<IMFSystemId as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IMFTimecodeTranslate_Impl: Sized {
     fn BeginConvertTimecodeToHNS(&self, ppropvartimecode: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pcallback: ::core::option::Option<&IMFAsyncCallback>, punkstate: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
     fn EndConvertTimecodeToHNS(&self, presult: ::core::option::Option<&IMFAsyncResult>) -> ::windows_core::Result<i64>;
     fn BeginConvertHNSToTimecode(&self, hnstime: i64, pcallback: ::core::option::Option<&IMFAsyncCallback>, punkstate: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
     fn EndConvertHNSToTimecode(&self, presult: ::core::option::Option<&IMFAsyncResult>) -> ::windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMFTimecodeTranslate {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IMFTimecodeTranslate_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFTimecodeTranslate_Impl, const OFFSET: isize>() -> IMFTimecodeTranslate_Vtbl {
         unsafe extern "system" fn BeginConvertTimecodeToHNS<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFTimecodeTranslate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppropvartimecode: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pcallback: *mut ::core::ffi::c_void, punkstate: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -16628,8 +16628,8 @@ impl IMFTopoLoader_Vtbl {
         iid == &<IMFTopoLoader as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IMFTopology_Impl: Sized + IMFAttributes_Impl {
     fn GetTopologyID(&self) -> ::windows_core::Result<u64>;
     fn AddNode(&self, pnode: ::core::option::Option<&IMFTopologyNode>) -> ::windows_core::Result<()>;
@@ -16642,9 +16642,9 @@ pub trait IMFTopology_Impl: Sized + IMFAttributes_Impl {
     fn GetSourceNodeCollection(&self) -> ::windows_core::Result<IMFCollection>;
     fn GetOutputNodeCollection(&self) -> ::windows_core::Result<IMFCollection>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMFTopology {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IMFTopology_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFTopology_Impl, const OFFSET: isize>() -> IMFTopology_Vtbl {
         unsafe extern "system" fn GetTopologyID<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFTopology_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pid: *mut u64) -> ::windows_core::HRESULT {
@@ -16751,8 +16751,8 @@ impl IMFTopology_Vtbl {
         iid == &<IMFTopology as ::windows_core::ComInterface>::IID || iid == &<IMFAttributes as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IMFTopologyNode_Impl: Sized + IMFAttributes_Impl {
     fn SetObject(&self, pobject: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
     fn GetObject(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
@@ -16771,9 +16771,9 @@ pub trait IMFTopologyNode_Impl: Sized + IMFAttributes_Impl {
     fn GetInputPrefType(&self, dwinputindex: u32) -> ::windows_core::Result<IMFMediaType>;
     fn CloneFrom(&self, pnode: ::core::option::Option<&IMFTopologyNode>) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMFTopologyNode {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IMFTopologyNode_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFTopologyNode_Impl, const OFFSET: isize>() -> IMFTopologyNode_Vtbl {
         unsafe extern "system" fn SetObject<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFTopologyNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pobject: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -17645,15 +17645,15 @@ impl IMFVideoDisplayControl_Vtbl {
         iid == &<IMFVideoDisplayControl as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IMFVideoMediaType_Impl: Sized + IMFMediaType_Impl {
     fn GetVideoFormat(&self) -> *mut MFVIDEOFORMAT;
     fn GetVideoRepresentation(&self, guidrepresentation: &::windows_core::GUID, ppvrepresentation: *mut *mut ::core::ffi::c_void, lstride: i32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMFVideoMediaType {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IMFVideoMediaType_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFVideoMediaType_Impl, const OFFSET: isize>() -> IMFVideoMediaType_Vtbl {
         unsafe extern "system" fn GetVideoFormat<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFVideoMediaType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> *mut MFVIDEOFORMAT {
@@ -18333,8 +18333,8 @@ impl IMFVideoSampleAllocatorNotifyEx_Vtbl {
         iid == &<IMFVideoSampleAllocatorNotifyEx as ::windows_core::ComInterface>::IID || iid == &<IMFVideoSampleAllocatorNotify as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IMFVirtualCamera_Impl: Sized + IMFAttributes_Impl {
     fn AddDeviceSourceInfo(&self, devicesourceinfo: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
     fn AddProperty(&self, pkey: *const super::super::Devices::Properties::DEVPROPKEY, r#type: super::super::Devices::Properties::DEVPROPTYPE, pbdata: *const u8, cbdata: u32) -> ::windows_core::Result<()>;
@@ -18348,9 +18348,9 @@ pub trait IMFVirtualCamera_Impl: Sized + IMFAttributes_Impl {
     fn CreateSyncSemaphore(&self, kseventset: *const ::windows_core::GUID, kseventid: u32, kseventflags: u32, semaphorehandle: super::super::Foundation::HANDLE, semaphoreadjustment: i32) -> ::windows_core::Result<IMFCameraSyncObject>;
     fn Shutdown(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMFVirtualCamera {}
-#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IMFVirtualCamera_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFVirtualCamera_Impl, const OFFSET: isize>() -> IMFVirtualCamera_Vtbl {
         unsafe extern "system" fn AddDeviceSourceInfo<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMFVirtualCamera_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, devicesourceinfo: ::windows_core::PCWSTR) -> ::windows_core::HRESULT {

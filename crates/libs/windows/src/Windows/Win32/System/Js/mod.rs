@@ -555,18 +555,18 @@ pub unsafe fn JsStringToPointer(value: *const ::core::ffi::c_void, stringvalue: 
     ::windows_targets::link!("chakra.dll" "system" fn JsStringToPointer(value : *const ::core::ffi::c_void, stringvalue : *mut *mut u16, stringlength : *mut usize) -> JsErrorCode);
     JsStringToPointer(value, stringvalue, stringlength)
 }
-#[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn JsValueToVariant(object: *const ::core::ffi::c_void, variant: *mut super::Com::VARIANT) -> JsErrorCode {
-    ::windows_targets::link!("chakra.dll" "system" fn JsValueToVariant(object : *const ::core::ffi::c_void, variant : *mut super::Com:: VARIANT) -> JsErrorCode);
+pub unsafe fn JsValueToVariant(object: *const ::core::ffi::c_void, variant: *mut super::Variant::VARIANT) -> JsErrorCode {
+    ::windows_targets::link!("chakra.dll" "system" fn JsValueToVariant(object : *const ::core::ffi::c_void, variant : *mut super::Variant:: VARIANT) -> JsErrorCode);
     JsValueToVariant(object, variant)
 }
-#[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn JsVariantToValue(variant: *const super::Com::VARIANT, value: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
-    ::windows_targets::link!("chakra.dll" "system" fn JsVariantToValue(variant : *const super::Com:: VARIANT, value : *mut *mut ::core::ffi::c_void) -> JsErrorCode);
+pub unsafe fn JsVariantToValue(variant: *const super::Variant::VARIANT, value: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
+    ::windows_targets::link!("chakra.dll" "system" fn JsVariantToValue(variant : *const super::Variant:: VARIANT, value : *mut *mut ::core::ffi::c_void) -> JsErrorCode);
     JsVariantToValue(variant, value)
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]

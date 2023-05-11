@@ -38,6 +38,12 @@ pub unsafe fn DXGIDeclareAdapterRemovalSupport() -> ::windows_core::Result<()> {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[inline]
+pub unsafe fn DXGIDisableVBlankVirtualization() -> ::windows_core::Result<()> {
+    ::windows_targets::link!("dxgi.dll" "system" fn DXGIDisableVBlankVirtualization() -> ::windows_core::HRESULT);
+    DXGIDisableVBlankVirtualization().ok()
+}
+#[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
+#[inline]
 pub unsafe fn DXGIGetDebugInterface1<T>(flags: u32) -> ::windows_core::Result<T>
 where
     T: ::windows_core::ComInterface,
@@ -6101,8 +6107,6 @@ pub const DXGI_ADAPTER_FLAG3_SUPPORT_MONITORED_FENCES: DXGI_ADAPTER_FLAG3 = DXGI
 pub const DXGI_ADAPTER_FLAG3_SUPPORT_NON_MONITORED_FENCES: DXGI_ADAPTER_FLAG3 = DXGI_ADAPTER_FLAG3(16u32);
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 pub const DXGI_ADAPTER_FLAG3_KEYED_MUTEX_CONFORMANCE: DXGI_ADAPTER_FLAG3 = DXGI_ADAPTER_FLAG3(32u32);
-#[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-pub const DXGI_ADAPTER_FLAG3_FORCE_DWORD: DXGI_ADAPTER_FLAG3 = DXGI_ADAPTER_FLAG3(4294967295u32);
 impl ::core::marker::Copy for DXGI_ADAPTER_FLAG3 {}
 impl ::core::clone::Clone for DXGI_ADAPTER_FLAG3 {
     fn clone(&self) -> Self {

@@ -2054,8 +2054,8 @@ pub struct IAccessor_Vtbl {
 #[repr(transparent)]
 pub struct IAlterIndex(::windows_core::IUnknown);
 impl IAlterIndex {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn AlterIndex(&self, ptableid: *mut super::super::Storage::IndexServer::DBID, pindexid: *mut super::super::Storage::IndexServer::DBID, pnewindexid: *mut super::super::Storage::IndexServer::DBID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).AlterIndex)(::windows_core::Interface::as_raw(self), ptableid, pindexid, pnewindexid, cpropertysets, rgpropertysets).ok()
     }
@@ -2087,22 +2087,22 @@ unsafe impl ::windows_core::ComInterface for IAlterIndex {
 #[doc(hidden)]
 pub struct IAlterIndex_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub AlterIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptableid: *mut super::super::Storage::IndexServer::DBID, pindexid: *mut super::super::Storage::IndexServer::DBID, pnewindexid: *mut super::super::Storage::IndexServer::DBID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     AlterIndex: usize,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
 pub struct IAlterTable(::windows_core::IUnknown);
 impl IAlterTable {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn AlterColumn(&self, ptableid: *mut super::super::Storage::IndexServer::DBID, pcolumnid: *mut super::super::Storage::IndexServer::DBID, dwcolumndescflags: u32, pcolumndesc: *mut DBCOLUMNDESC) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).AlterColumn)(::windows_core::Interface::as_raw(self), ptableid, pcolumnid, dwcolumndescflags, pcolumndesc).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn AlterTable(&self, ptableid: *mut super::super::Storage::IndexServer::DBID, pnewtableid: *mut super::super::Storage::IndexServer::DBID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).AlterTable)(::windows_core::Interface::as_raw(self), ptableid, pnewtableid, cpropertysets, rgpropertysets).ok()
     }
@@ -2134,13 +2134,13 @@ unsafe impl ::windows_core::ComInterface for IAlterTable {
 #[doc(hidden)]
 pub struct IAlterTable_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub AlterColumn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptableid: *mut super::super::Storage::IndexServer::DBID, pcolumnid: *mut super::super::Storage::IndexServer::DBID, dwcolumndescflags: u32, pcolumndesc: *mut DBCOLUMNDESC) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     AlterColumn: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub AlterTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptableid: *mut super::super::Storage::IndexServer::DBID, pnewtableid: *mut super::super::Storage::IndexServer::DBID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     AlterTable: usize,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -2452,8 +2452,8 @@ impl IColumnsRowset {
     pub unsafe fn GetAvailableColumns(&self, pcoptcolumns: *mut usize, prgoptcolumns: *mut *mut super::super::Storage::IndexServer::DBID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetAvailableColumns)(::windows_core::Interface::as_raw(self), pcoptcolumns, prgoptcolumns).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetColumnsRowset<P0>(&self, punkouter: P0, rgoptcolumns: &[super::super::Storage::IndexServer::DBID], riid: *const ::windows_core::GUID, rgpropertysets: ::core::option::Option<&mut [DBPROPSET]>, ppcolrowset: *mut ::core::option::Option<::windows_core::IUnknown>) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
@@ -2492,9 +2492,9 @@ pub struct IColumnsRowset_Vtbl {
     pub GetAvailableColumns: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcoptcolumns: *mut usize, prgoptcolumns: *mut *mut super::super::Storage::IndexServer::DBID) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Storage_IndexServer"))]
     GetAvailableColumns: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub GetColumnsRowset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, coptcolumns: usize, rgoptcolumns: *const super::super::Storage::IndexServer::DBID, riid: *const ::windows_core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, ppcolrowset: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetColumnsRowset: usize,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -2735,13 +2735,13 @@ pub struct ICommandPrepare_Vtbl {
 #[repr(transparent)]
 pub struct ICommandProperties(::windows_core::IUnknown);
 impl ICommandProperties {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetProperties(&self, rgpropertyidsets: ::core::option::Option<&[DBPROPIDSET]>, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetProperties)(::windows_core::Interface::as_raw(self), rgpropertyidsets.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(rgpropertyidsets.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcpropertysets, prgpropertysets).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetProperties(&self, rgpropertysets: &[DBPROPSET]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetProperties)(::windows_core::Interface::as_raw(self), rgpropertysets.len() as _, ::core::mem::transmute(rgpropertysets.as_ptr())).ok()
     }
@@ -2773,13 +2773,13 @@ unsafe impl ::windows_core::ComInterface for ICommandProperties {
 #[doc(hidden)]
 pub struct ICommandProperties_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub GetProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cpropertyidsets: u32, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetProperties: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub SetProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cpropertysets: u32, rgpropertysets: *const DBPROPSET) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     SetProperties: usize,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -3027,8 +3027,8 @@ impl ICondition {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).GetSubConditions)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Search_Common\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Search_Common\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_System_Variant"))]
     pub unsafe fn GetComparisonInfo(&self, ppszpropertyname: ::core::option::Option<*mut ::windows_core::PWSTR>, pcop: ::core::option::Option<*mut Common::CONDITION_OPERATION>, ppropvar: ::core::option::Option<*mut super::Com::StructuredStorage::PROPVARIANT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetComparisonInfo)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppszpropertyname.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcop.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppropvar.unwrap_or(::std::ptr::null_mut()))).ok()
     }
@@ -3090,9 +3090,9 @@ pub struct ICondition_Vtbl {
     #[cfg(not(feature = "Win32_System_Search_Common"))]
     GetConditionType: usize,
     pub GetSubConditions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_System_Variant"))]
     pub GetComparisonInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszpropertyname: *mut ::windows_core::PWSTR, pcop: *mut Common::CONDITION_OPERATION, ppropvar: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_System_Variant")))]
     GetComparisonInfo: usize,
     pub GetValueType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszvaluetypename: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
     pub GetValueNormalization: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsznormalization: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
@@ -3155,8 +3155,8 @@ impl ICondition2 {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).base__.GetSubConditions)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Search_Common\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Search_Common\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_System_Variant"))]
     pub unsafe fn GetComparisonInfo(&self, ppszpropertyname: ::core::option::Option<*mut ::windows_core::PWSTR>, pcop: ::core::option::Option<*mut Common::CONDITION_OPERATION>, ppropvar: ::core::option::Option<*mut super::Com::StructuredStorage::PROPVARIANT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetComparisonInfo)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppszpropertyname.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcop.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppropvar.unwrap_or(::std::ptr::null_mut()))).ok()
     }
@@ -3181,8 +3181,8 @@ impl ICondition2 {
         let mut result__ = ::windows_core::zeroed::<::windows_core::PWSTR>();
         (::windows_core::Interface::vtable(self).GetLocale)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Search_Common\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Search_Common\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn GetLeafConditionInfo(&self, ppropkey: ::core::option::Option<*mut super::super::UI::Shell::PropertiesSystem::PROPERTYKEY>, pcop: ::core::option::Option<*mut Common::CONDITION_OPERATION>, ppropvar: ::core::option::Option<*mut super::Com::StructuredStorage::PROPVARIANT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetLeafConditionInfo)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppropkey.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcop.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppropvar.unwrap_or(::std::ptr::null_mut()))).ok()
     }
@@ -3223,9 +3223,9 @@ unsafe impl ::windows_core::ComInterface for ICondition2 {
 pub struct ICondition2_Vtbl {
     pub base__: ICondition_Vtbl,
     pub GetLocale: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszlocalename: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub GetLeafConditionInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppropkey: *mut super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pcop: *mut Common::CONDITION_OPERATION, ppropvar: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_UI_Shell_PropertiesSystem")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem")))]
     GetLeafConditionInfo: usize,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -3252,8 +3252,8 @@ impl IConditionFactory {
         let mut result__ = ::windows_core::zeroed::<ICondition>();
         (::windows_core::Interface::vtable(self).MakeAndOr)(::windows_core::Interface::as_raw(self), ct, peusubs.into_param().abi(), fsimplify.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Search_Common\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Search_Common\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_System_Variant"))]
     pub unsafe fn MakeLeaf<P0, P1, P2, P3, P4, P5>(&self, pszpropertyname: P0, cop: Common::CONDITION_OPERATION, pszvaluetype: P1, ppropvar: *const super::Com::StructuredStorage::PROPVARIANT, ppropertynameterm: P2, poperationterm: P3, pvalueterm: P4, fexpand: P5) -> ::windows_core::Result<ICondition>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
@@ -3311,9 +3311,9 @@ pub struct IConditionFactory_Vtbl {
     pub MakeAndOr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ct: Common::CONDITION_TYPE, peusubs: *mut ::core::ffi::c_void, fsimplify: super::super::Foundation::BOOL, ppcresult: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Search_Common")))]
     MakeAndOr: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_System_Variant"))]
     pub MakeLeaf: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpropertyname: ::windows_core::PCWSTR, cop: Common::CONDITION_OPERATION, pszvaluetype: ::windows_core::PCWSTR, ppropvar: *const super::Com::StructuredStorage::PROPVARIANT, ppropertynameterm: *mut ::core::ffi::c_void, poperationterm: *mut ::core::ffi::c_void, pvalueterm: *mut ::core::ffi::c_void, fexpand: super::super::Foundation::BOOL, ppcresult: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_System_Variant")))]
     MakeLeaf: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub Resolve: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pc: *mut ::core::ffi::c_void, sqro: STRUCTURED_QUERY_RESOLVE_OPTION, pstreferencetime: *const super::super::Foundation::SYSTEMTIME, ppcresolved: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -3344,8 +3344,8 @@ impl IConditionFactory2 {
         let mut result__ = ::windows_core::zeroed::<ICondition>();
         (::windows_core::Interface::vtable(self).base__.MakeAndOr)(::windows_core::Interface::as_raw(self), ct, peusubs.into_param().abi(), fsimplify.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Search_Common\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Search_Common\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_System_Variant"))]
     pub unsafe fn MakeLeaf<P0, P1, P2, P3, P4, P5>(&self, pszpropertyname: P0, cop: Common::CONDITION_OPERATION, pszvaluetype: P1, ppropvar: *const super::Com::StructuredStorage::PROPVARIANT, ppropertynameterm: P2, poperationterm: P3, pvalueterm: P4, fexpand: P5) -> ::windows_core::Result<ICondition>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
@@ -3436,8 +3436,8 @@ impl IConditionFactory2 {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).CreateBooleanLeaf)(::windows_core::Interface::as_raw(self), propkey, cop, fvalue.into_param().abi(), cco, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Search_Common\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Search_Common\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn CreateLeaf<P0, P1, P2, P3, P4, T>(&self, propkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, cop: Common::CONDITION_OPERATION, propvar: *const super::Com::StructuredStorage::PROPVARIANT, pszsemantictype: P0, pszlocalename: P1, ppropertynameterm: P2, poperationterm: P3, pvalueterm: P4, cco: CONDITION_CREATION_OPTIONS) -> ::windows_core::Result<T>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
@@ -3516,9 +3516,9 @@ pub struct IConditionFactory2_Vtbl {
     pub CreateBooleanLeaf: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, cop: Common::CONDITION_OPERATION, fvalue: super::super::Foundation::BOOL, cco: CONDITION_CREATION_OPTIONS, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Search_Common", feature = "Win32_UI_Shell_PropertiesSystem")))]
     CreateBooleanLeaf: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub CreateLeaf: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, cop: Common::CONDITION_OPERATION, propvar: *const super::Com::StructuredStorage::PROPVARIANT, pszsemantictype: ::windows_core::PCWSTR, pszlocalename: ::windows_core::PCWSTR, ppropertynameterm: *mut ::core::ffi::c_void, poperationterm: *mut ::core::ffi::c_void, pvalueterm: *mut ::core::ffi::c_void, cco: CONDITION_CREATION_OPTIONS, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_UI_Shell_PropertiesSystem")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem")))]
     CreateLeaf: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub ResolveCondition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pc: *mut ::core::ffi::c_void, sqro: STRUCTURED_QUERY_RESOLVE_OPTION, pstreferencetime: *const super::super::Foundation::SYSTEMTIME, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -3559,8 +3559,8 @@ impl IConditionGenerator {
     {
         (::windows_core::Interface::vtable(self).GenerateForLeaf)(::windows_core::Interface::as_raw(self), pconditionfactory.into_param().abi(), pszpropertyname.into_param().abi(), cop, pszvaluetype.into_param().abi(), pszvalue.into_param().abi(), pszvalue2.into_param().abi(), ppropertynameterm.into_param().abi(), poperationterm.into_param().abi(), pvalueterm.into_param().abi(), automaticwildcard.into_param().abi(), pnostringquery, ::core::mem::transmute(ppqueryexpression)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn DefaultPhrase<P0, P1>(&self, pszvaluetype: P0, ppropvar: *const super::Com::StructuredStorage::PROPVARIANT, fuseenglish: P1, ppszphrase: ::core::option::Option<*mut ::windows_core::PWSTR>) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
@@ -3602,9 +3602,9 @@ pub struct IConditionGenerator_Vtbl {
     pub GenerateForLeaf: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pconditionfactory: *mut ::core::ffi::c_void, pszpropertyname: ::windows_core::PCWSTR, cop: Common::CONDITION_OPERATION, pszvaluetype: ::windows_core::PCWSTR, pszvalue: ::windows_core::PCWSTR, pszvalue2: ::windows_core::PCWSTR, ppropertynameterm: *mut ::core::ffi::c_void, poperationterm: *mut ::core::ffi::c_void, pvalueterm: *mut ::core::ffi::c_void, automaticwildcard: super::super::Foundation::BOOL, pnostringquery: *mut super::super::Foundation::BOOL, ppqueryexpression: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Search_Common")))]
     GenerateForLeaf: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub DefaultPhrase: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszvaluetype: ::windows_core::PCWSTR, ppropvar: *const super::Com::StructuredStorage::PROPVARIANT, fuseenglish: super::super::Foundation::BOOL, ppszphrase: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
     DefaultPhrase: usize,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -3787,18 +3787,18 @@ pub struct IDBAsynchStatus_Vtbl {
 #[repr(transparent)]
 pub struct IDBBinderProperties(::windows_core::IUnknown);
 impl IDBBinderProperties {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetProperties(&self, rgpropertyidsets: ::core::option::Option<&[DBPROPIDSET]>, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetProperties)(::windows_core::Interface::as_raw(self), rgpropertyidsets.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(rgpropertyidsets.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcpropertysets, prgpropertysets).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetPropertyInfo(&self, rgpropertyidsets: ::core::option::Option<&[DBPROPIDSET]>, pcpropertyinfosets: *mut u32, prgpropertyinfosets: *mut *mut DBPROPINFOSET, ppdescbuffer: ::core::option::Option<*mut *mut u16>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetPropertyInfo)(::windows_core::Interface::as_raw(self), rgpropertyidsets.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(rgpropertyidsets.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcpropertyinfosets, prgpropertyinfosets, ::core::mem::transmute(ppdescbuffer.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetProperties(&self, rgpropertysets: ::core::option::Option<&mut [DBPROPSET]>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetProperties)(::windows_core::Interface::as_raw(self), rgpropertysets.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(rgpropertysets.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
@@ -3921,8 +3921,8 @@ pub struct IDBCreateSession_Vtbl {
 #[repr(transparent)]
 pub struct IDBDataSourceAdmin(::windows_core::IUnknown);
 impl IDBDataSourceAdmin {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CreateDataSource<P0>(&self, rgpropertysets: ::core::option::Option<&mut [DBPROPSET]>, punkouter: P0, riid: *const ::windows_core::GUID, ppdbsession: ::core::option::Option<*mut ::core::option::Option<::windows_core::IUnknown>>) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
@@ -3932,13 +3932,13 @@ impl IDBDataSourceAdmin {
     pub unsafe fn DestroyDataSource(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).DestroyDataSource)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCreationProperties(&self, rgpropertyidsets: ::core::option::Option<&[DBPROPIDSET]>, pcpropertyinfosets: *mut u32, prgpropertyinfosets: *mut *mut DBPROPINFOSET, ppdescbuffer: ::core::option::Option<*mut *mut u16>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetCreationProperties)(::windows_core::Interface::as_raw(self), rgpropertyidsets.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(rgpropertyidsets.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcpropertyinfosets, prgpropertyinfosets, ::core::mem::transmute(ppdescbuffer.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn ModifyDataSource(&self, rgpropertysets: ::core::option::Option<&mut [DBPROPSET]>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ModifyDataSource)(::windows_core::Interface::as_raw(self), rgpropertysets.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(rgpropertysets.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
@@ -3970,18 +3970,18 @@ unsafe impl ::windows_core::ComInterface for IDBDataSourceAdmin {
 #[doc(hidden)]
 pub struct IDBDataSourceAdmin_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub CreateDataSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, punkouter: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppdbsession: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     CreateDataSource: usize,
     pub DestroyDataSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub GetCreationProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cpropertyidsets: u32, rgpropertyidsets: *const DBPROPIDSET, pcpropertyinfosets: *mut u32, prgpropertyinfosets: *mut *mut DBPROPINFOSET, ppdescbuffer: *mut *mut u16) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetCreationProperties: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub ModifyDataSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     ModifyDataSource: usize,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -4138,18 +4138,18 @@ pub struct IDBPromptInitialize_Vtbl {
 #[repr(transparent)]
 pub struct IDBProperties(::windows_core::IUnknown);
 impl IDBProperties {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetProperties(&self, rgpropertyidsets: ::core::option::Option<&[DBPROPIDSET]>, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetProperties)(::windows_core::Interface::as_raw(self), rgpropertyidsets.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(rgpropertyidsets.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcpropertysets, prgpropertysets).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetPropertyInfo(&self, rgpropertyidsets: ::core::option::Option<&[DBPROPIDSET]>, pcpropertyinfosets: *mut u32, prgpropertyinfosets: *mut *mut DBPROPINFOSET, ppdescbuffer: ::core::option::Option<*mut *mut u16>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetPropertyInfo)(::windows_core::Interface::as_raw(self), rgpropertyidsets.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(rgpropertyidsets.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcpropertyinfosets, prgpropertyinfosets, ::core::mem::transmute(ppdescbuffer.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetProperties(&self, rgpropertysets: ::core::option::Option<&mut [DBPROPSET]>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetProperties)(::windows_core::Interface::as_raw(self), rgpropertysets.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(rgpropertysets.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
@@ -4181,17 +4181,17 @@ unsafe impl ::windows_core::ComInterface for IDBProperties {
 #[doc(hidden)]
 pub struct IDBProperties_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub GetProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cpropertyidsets: u32, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetProperties: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub GetPropertyInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cpropertyidsets: u32, rgpropertyidsets: *const DBPROPIDSET, pcpropertyinfosets: *mut u32, prgpropertyinfosets: *mut *mut DBPROPINFOSET, ppdescbuffer: *mut *mut u16) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetPropertyInfo: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub SetProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     SetProperties: usize,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -4243,9 +4243,9 @@ pub struct IDBSchemaCommand_Vtbl {
 #[repr(transparent)]
 pub struct IDBSchemaRowset(::windows_core::IUnknown);
 impl IDBSchemaRowset {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetRowset<P0>(&self, punkouter: P0, rguidschema: *const ::windows_core::GUID, rgrestrictions: ::core::option::Option<&[super::Com::VARIANT]>, riid: *const ::windows_core::GUID, rgpropertysets: ::core::option::Option<&mut [DBPROPSET]>, pprowset: *mut ::core::option::Option<::windows_core::IUnknown>) -> ::windows_core::Result<()>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetRowset<P0>(&self, punkouter: P0, rguidschema: *const ::windows_core::GUID, rgrestrictions: ::core::option::Option<&[super::Variant::VARIANT]>, riid: *const ::windows_core::GUID, rgpropertysets: ::core::option::Option<&mut [DBPROPSET]>, pprowset: *mut ::core::option::Option<::windows_core::IUnknown>) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
@@ -4282,9 +4282,9 @@ unsafe impl ::windows_core::ComInterface for IDBSchemaRowset {
 #[doc(hidden)]
 pub struct IDBSchemaRowset_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetRowset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, rguidschema: *const ::windows_core::GUID, crestrictions: u32, rgrestrictions: *const super::Com::VARIANT, riid: *const ::windows_core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub GetRowset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, rguidschema: *const ::windows_core::GUID, crestrictions: u32, rgrestrictions: *const super::Variant::VARIANT, riid: *const ::windows_core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetRowset: usize,
     pub GetSchemas: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcschemas: *mut u32, prgschemas: *mut *mut ::windows_core::GUID, prgrestrictionsupport: *mut *mut u32) -> ::windows_core::HRESULT,
 }
@@ -4292,13 +4292,13 @@ pub struct IDBSchemaRowset_Vtbl {
 #[repr(transparent)]
 pub struct IDCInfo(::windows_core::IUnknown);
 impl IDCInfo {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetInfo(&self, cinfo: u32, rgeinfotype: *const u32, prginfo: *mut *mut DCINFO) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetInfo)(::windows_core::Interface::as_raw(self), cinfo, rgeinfotype, prginfo).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetInfo(&self, rginfo: &[DCINFO]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetInfo)(::windows_core::Interface::as_raw(self), rginfo.len() as _, ::core::mem::transmute(rginfo.as_ptr())).ok()
     }
@@ -4330,13 +4330,13 @@ unsafe impl ::windows_core::ComInterface for IDCInfo {
 #[doc(hidden)]
 pub struct IDCInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub GetInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cinfo: u32, rgeinfotype: *const u32, prginfo: *mut *mut DCINFO) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetInfo: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub SetInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cinfo: u32, rginfo: *const DCINFO) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     SetInfo: usize,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -4645,8 +4645,8 @@ pub struct IEntity_Vtbl {
 #[repr(transparent)]
 pub struct IEnumItemProperties(::windows_core::IUnknown);
 impl IEnumItemProperties {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Next(&self, rgelt: &mut [ITEMPROP], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
     }
@@ -4692,9 +4692,9 @@ unsafe impl ::windows_core::ComInterface for IEnumItemProperties {
 #[doc(hidden)]
 pub struct IEnumItemProperties_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut ITEMPROP, pceltfetched: *mut u32) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Next: usize,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows_core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -4860,8 +4860,8 @@ pub struct IEnumSubscription_Vtbl {
 #[repr(transparent)]
 pub struct IErrorLookup(::windows_core::IUnknown);
 impl IErrorLookup {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetErrorDescription(&self, hrerror: ::windows_core::HRESULT, dwlookupid: u32, pdispparams: *const super::Com::DISPPARAMS, lcid: u32, pbstrsource: ::core::option::Option<*mut ::windows_core::BSTR>, pbstrdescription: ::core::option::Option<*mut ::windows_core::BSTR>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetErrorDescription)(::windows_core::Interface::as_raw(self), hrerror, dwlookupid, pdispparams, lcid, ::core::mem::transmute(pbstrsource.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pbstrdescription.unwrap_or(::std::ptr::null_mut()))).ok()
     }
@@ -4899,9 +4899,9 @@ unsafe impl ::windows_core::ComInterface for IErrorLookup {
 #[doc(hidden)]
 pub struct IErrorLookup_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub GetErrorDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrerror: ::windows_core::HRESULT, dwlookupid: u32, pdispparams: *const super::Com::DISPPARAMS, lcid: u32, pbstrsource: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, pbstrdescription: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetErrorDescription: usize,
     pub GetHelpInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrerror: ::windows_core::HRESULT, dwlookupid: u32, lcid: u32, pbstrhelpfile: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, pdwhelpcontext: *mut u32) -> ::windows_core::HRESULT,
     pub ReleaseErrors: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwdynamicerrorid: u32) -> ::windows_core::HRESULT,
@@ -4910,8 +4910,8 @@ pub struct IErrorLookup_Vtbl {
 #[repr(transparent)]
 pub struct IErrorRecords(::windows_core::IUnknown);
 impl IErrorRecords {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn AddErrorRecord<P0>(&self, perrorinfo: *const ERRORINFO, dwlookupid: u32, pdispparams: ::core::option::Option<*const super::Com::DISPPARAMS>, punkcustomerror: P0, dwdynamicerrorid: u32) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
@@ -4931,8 +4931,8 @@ impl IErrorRecords {
         let mut result__ = ::windows_core::zeroed::<super::Com::IErrorInfo>();
         (::windows_core::Interface::vtable(self).GetErrorInfo)(::windows_core::Interface::as_raw(self), ulrecordnum, lcid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetErrorParameters(&self, ulrecordnum: u32) -> ::windows_core::Result<super::Com::DISPPARAMS> {
         let mut result__ = ::windows_core::zeroed::<super::Com::DISPPARAMS>();
         (::windows_core::Interface::vtable(self).GetErrorParameters)(::windows_core::Interface::as_raw(self), ulrecordnum, &mut result__).from_abi(result__)
@@ -4969,9 +4969,9 @@ unsafe impl ::windows_core::ComInterface for IErrorRecords {
 #[doc(hidden)]
 pub struct IErrorRecords_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub AddErrorRecord: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, perrorinfo: *const ERRORINFO, dwlookupid: u32, pdispparams: *const super::Com::DISPPARAMS, punkcustomerror: *mut ::core::ffi::c_void, dwdynamicerrorid: u32) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     AddErrorRecord: usize,
     pub GetBasicErrorInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulrecordnum: u32, perrorinfo: *mut ERRORINFO) -> ::windows_core::HRESULT,
     pub GetCustomErrorObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulrecordnum: u32, riid: *const ::windows_core::GUID, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -4979,9 +4979,9 @@ pub struct IErrorRecords_Vtbl {
     pub GetErrorInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulrecordnum: u32, lcid: u32, pperrorinfo: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetErrorInfo: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub GetErrorParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulrecordnum: u32, pdispparams: *mut super::Com::DISPPARAMS) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetErrorParameters: usize,
     pub GetRecordCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcrecords: *mut u32) -> ::windows_core::HRESULT,
 }
@@ -5149,8 +5149,8 @@ pub struct IGetSourceRow_Vtbl {
 #[repr(transparent)]
 pub struct IIndexDefinition(::windows_core::IUnknown);
 impl IIndexDefinition {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CreateIndex(&self, ptableid: *const super::super::Storage::IndexServer::DBID, pindexid: ::core::option::Option<*const super::super::Storage::IndexServer::DBID>, rgindexcolumndescs: &[DBINDEXCOLUMNDESC], rgpropertysets: &mut [DBPROPSET], ppindexid: ::core::option::Option<*mut *mut super::super::Storage::IndexServer::DBID>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CreateIndex)(::windows_core::Interface::as_raw(self), ptableid, ::core::mem::transmute(pindexid.unwrap_or(::std::ptr::null())), rgindexcolumndescs.len() as _, ::core::mem::transmute(rgindexcolumndescs.as_ptr()), rgpropertysets.len() as _, ::core::mem::transmute(rgpropertysets.as_ptr()), ::core::mem::transmute(ppindexid.unwrap_or(::std::ptr::null_mut()))).ok()
     }
@@ -5187,9 +5187,9 @@ unsafe impl ::windows_core::ComInterface for IIndexDefinition {
 #[doc(hidden)]
 pub struct IIndexDefinition_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub CreateIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptableid: *const super::super::Storage::IndexServer::DBID, pindexid: *const super::super::Storage::IndexServer::DBID, cindexcolumndescs: usize, rgindexcolumndescs: *const DBINDEXCOLUMNDESC, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, ppindexid: *mut *mut super::super::Storage::IndexServer::DBID) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     CreateIndex: usize,
     #[cfg(feature = "Win32_Storage_IndexServer")]
     pub DropIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptableid: *const super::super::Storage::IndexServer::DBID, pindexid: *const super::super::Storage::IndexServer::DBID) -> ::windows_core::HRESULT,
@@ -5200,8 +5200,8 @@ pub struct IIndexDefinition_Vtbl {
 #[repr(transparent)]
 pub struct IInterval(::windows_core::IUnknown);
 impl IInterval {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetLimits(&self, pilklower: *mut INTERVAL_LIMIT_KIND, ppropvarlower: *mut super::Com::StructuredStorage::PROPVARIANT, pilkupper: *mut INTERVAL_LIMIT_KIND, ppropvarupper: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetLimits)(::windows_core::Interface::as_raw(self), pilklower, ppropvarlower, pilkupper, ppropvarupper).ok()
     }
@@ -5233,9 +5233,9 @@ unsafe impl ::windows_core::ComInterface for IInterval {
 #[doc(hidden)]
 pub struct IInterval_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub GetLimits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pilklower: *mut INTERVAL_LIMIT_KIND, ppropvarlower: *mut super::Com::StructuredStorage::PROPVARIANT, pilkupper: *mut INTERVAL_LIMIT_KIND, ppropvarupper: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
     GetLimits: usize,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -5400,8 +5400,8 @@ impl IMDDataset {
     pub unsafe fn GetAxisInfo(&self, pcaxes: *mut usize, prgaxisinfo: *mut *mut MDAXISINFO) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetAxisInfo)(::windows_core::Interface::as_raw(self), pcaxes, prgaxisinfo).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetAxisRowset<P0>(&self, punkouter: P0, iaxis: usize, riid: *const ::windows_core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut ::core::option::Option<::windows_core::IUnknown>) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
@@ -5448,9 +5448,9 @@ pub struct IMDDataset_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub FreeAxisInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, caxes: usize, rgaxisinfo: *mut MDAXISINFO) -> ::windows_core::HRESULT,
     pub GetAxisInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcaxes: *mut usize, prgaxisinfo: *mut *mut MDAXISINFO) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub GetAxisRowset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, iaxis: usize, riid: *const ::windows_core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetAxisRowset: usize,
     pub GetCellData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, haccessor: HACCESSOR, ulstartcell: usize, ulendcell: usize, pdata: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetSpecification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppspecification: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -5500,8 +5500,8 @@ pub struct IMDFind_Vtbl {
 #[repr(transparent)]
 pub struct IMDRangeRowset(::windows_core::IUnknown);
 impl IMDRangeRowset {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetRangeRowset<P0>(&self, punkouter: P0, ulstartcell: usize, ulendcell: usize, riid: *const ::windows_core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut ::core::option::Option<::windows_core::IUnknown>) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
@@ -5536,9 +5536,9 @@ unsafe impl ::windows_core::ComInterface for IMDRangeRowset {
 #[doc(hidden)]
 pub struct IMDRangeRowset_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub GetRangeRowset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, ulstartcell: usize, ulendcell: usize, riid: *const ::windows_core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetRangeRowset: usize,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -5846,8 +5846,8 @@ pub struct IOpLockStatus_Vtbl {
 #[repr(transparent)]
 pub struct IOpenRowset(::windows_core::IUnknown);
 impl IOpenRowset {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn OpenRowset<P0>(&self, punkouter: P0, ptableid: ::core::option::Option<*const super::super::Storage::IndexServer::DBID>, pindexid: ::core::option::Option<*const super::super::Storage::IndexServer::DBID>, riid: *const ::windows_core::GUID, rgpropertysets: ::core::option::Option<&mut [DBPROPSET]>, pprowset: ::core::option::Option<*mut ::core::option::Option<::windows_core::IUnknown>>) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
@@ -5882,9 +5882,9 @@ unsafe impl ::windows_core::ComInterface for IOpenRowset {
 #[doc(hidden)]
 pub struct IOpenRowset_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub OpenRowset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, ptableid: *const super::super::Storage::IndexServer::DBID, pindexid: *const super::super::Storage::IndexServer::DBID, riid: *const ::windows_core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     OpenRowset: usize,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -6031,19 +6031,19 @@ impl IQueryParser {
         let mut result__ = ::windows_core::zeroed::<IQuerySolution>();
         (::windows_core::Interface::vtable(self).Parse)(::windows_core::Interface::as_raw(self), pszinputstring.into_param().abi(), pcustomproperties.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn SetOption(&self, option: STRUCTURED_QUERY_SINGLE_OPTION, poptionvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetOption)(::windows_core::Interface::as_raw(self), option, poptionvalue).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetOption(&self, option: STRUCTURED_QUERY_SINGLE_OPTION) -> ::windows_core::Result<super::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = ::windows_core::zeroed::<super::Com::StructuredStorage::PROPVARIANT>();
         (::windows_core::Interface::vtable(self).GetOption)(::windows_core::Interface::as_raw(self), option, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn SetMultiOption<P0>(&self, option: STRUCTURED_QUERY_MULTIOPTION, pszoptionkey: P0, poptionvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
@@ -6113,17 +6113,17 @@ pub struct IQueryParser_Vtbl {
     pub Parse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszinputstring: ::windows_core::PCWSTR, pcustomproperties: *mut ::core::ffi::c_void, ppsolution: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Parse: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub SetOption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, option: STRUCTURED_QUERY_SINGLE_OPTION, poptionvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
     SetOption: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub GetOption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, option: STRUCTURED_QUERY_SINGLE_OPTION, poptionvalue: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
     GetOption: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub SetMultiOption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, option: STRUCTURED_QUERY_MULTIOPTION, pszoptionkey: ::windows_core::PCWSTR, poptionvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
     SetMultiOption: usize,
     pub GetSchemaProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppschemaprovider: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -6158,8 +6158,8 @@ impl IQueryParserManager {
     {
         (::windows_core::Interface::vtable(self).InitializeOptions)(::windows_core::Interface::as_raw(self), funderstandnqs.into_param().abi(), fautowildcard.into_param().abi(), pqueryparser.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn SetOption(&self, option: QUERY_PARSER_MANAGER_OPTION, poptionvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetOption)(::windows_core::Interface::as_raw(self), option, poptionvalue).ok()
     }
@@ -6196,9 +6196,9 @@ pub struct IQueryParserManager_Vtbl {
     pub InitializeOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, funderstandnqs: super::super::Foundation::BOOL, fautowildcard: super::super::Foundation::BOOL, pqueryparser: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     InitializeOptions: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub SetOption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, option: QUERY_PARSER_MANAGER_OPTION, poptionvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
     SetOption: usize,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -6225,8 +6225,8 @@ impl IQuerySolution {
         let mut result__ = ::windows_core::zeroed::<ICondition>();
         (::windows_core::Interface::vtable(self).base__.MakeAndOr)(::windows_core::Interface::as_raw(self), ct, peusubs.into_param().abi(), fsimplify.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Search_Common\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Search_Common\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_System_Variant"))]
     pub unsafe fn MakeLeaf<P0, P1, P2, P3, P4, P5>(&self, pszpropertyname: P0, cop: Common::CONDITION_OPERATION, pszvaluetype: P1, ppropvar: *const super::Com::StructuredStorage::PROPVARIANT, ppropertynameterm: P2, poperationterm: P3, pvalueterm: P4, fexpand: P5) -> ::windows_core::Result<ICondition>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
@@ -6465,8 +6465,8 @@ pub struct IRelationship_Vtbl {
 #[repr(transparent)]
 pub struct IRichChunk(::windows_core::IUnknown);
 impl IRichChunk {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetData(&self, pfirstpos: ::core::option::Option<*mut u32>, plength: ::core::option::Option<*mut u32>, ppsz: ::core::option::Option<*mut ::windows_core::PWSTR>, pvalue: ::core::option::Option<*mut super::Com::StructuredStorage::PROPVARIANT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetData)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pfirstpos.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(plength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppsz.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
     }
@@ -6498,9 +6498,9 @@ unsafe impl ::windows_core::ComInterface for IRichChunk {
 #[doc(hidden)]
 pub struct IRichChunk_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub GetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfirstpos: *mut u32, plength: *mut u32, ppsz: *mut ::windows_core::PWSTR, pvalue: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
     GetData: usize,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -7085,8 +7085,8 @@ pub struct IRowsetCopyRows_Vtbl {
 #[repr(transparent)]
 pub struct IRowsetCurrentIndex(::windows_core::IUnknown);
 impl IRowsetCurrentIndex {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetIndexInfo(&self, pckeycolumns: *mut usize, prgindexcolumndesc: *mut *mut DBINDEXCOLUMNDESC, pcindexpropertysets: *mut u32, prgindexpropertysets: *mut *mut DBPROPSET) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetIndexInfo)(::windows_core::Interface::as_raw(self), pckeycolumns, prgindexcolumndesc, pcindexpropertysets, prgindexpropertysets).ok()
     }
@@ -7153,23 +7153,23 @@ pub struct IRowsetCurrentIndex_Vtbl {
 #[repr(transparent)]
 pub struct IRowsetEvents(::windows_core::IUnknown);
 impl IRowsetEvents {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn OnNewItem(&self, itemid: *const super::Com::StructuredStorage::PROPVARIANT, newitemstate: ROWSETEVENT_ITEMSTATE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OnNewItem)(::windows_core::Interface::as_raw(self), itemid, newitemstate).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn OnChangedItem(&self, itemid: *const super::Com::StructuredStorage::PROPVARIANT, rowsetitemstate: ROWSETEVENT_ITEMSTATE, changeditemstate: ROWSETEVENT_ITEMSTATE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OnChangedItem)(::windows_core::Interface::as_raw(self), itemid, rowsetitemstate, changeditemstate).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn OnDeletedItem(&self, itemid: *const super::Com::StructuredStorage::PROPVARIANT, deleteditemstate: ROWSETEVENT_ITEMSTATE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OnDeletedItem)(::windows_core::Interface::as_raw(self), itemid, deleteditemstate).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn OnRowsetEvent(&self, eventtype: ROWSETEVENT_TYPE, eventdata: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OnRowsetEvent)(::windows_core::Interface::as_raw(self), eventtype, eventdata).ok()
     }
@@ -7201,22 +7201,95 @@ unsafe impl ::windows_core::ComInterface for IRowsetEvents {
 #[doc(hidden)]
 pub struct IRowsetEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub OnNewItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, itemid: *const super::Com::StructuredStorage::PROPVARIANT, newitemstate: ROWSETEVENT_ITEMSTATE) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
     OnNewItem: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub OnChangedItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, itemid: *const super::Com::StructuredStorage::PROPVARIANT, rowsetitemstate: ROWSETEVENT_ITEMSTATE, changeditemstate: ROWSETEVENT_ITEMSTATE) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
     OnChangedItem: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub OnDeletedItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, itemid: *const super::Com::StructuredStorage::PROPVARIANT, deleteditemstate: ROWSETEVENT_ITEMSTATE) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
     OnDeletedItem: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub OnRowsetEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventtype: ROWSETEVENT_TYPE, eventdata: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
     OnRowsetEvent: usize,
+}
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+#[repr(transparent)]
+pub struct IRowsetExactScroll(::windows_core::IUnknown);
+impl IRowsetExactScroll {
+    pub unsafe fn AddRefRows(&self, crows: usize, rghrows: *const usize, rgrefcounts: *mut u32, rgrowstatus: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.base__.base__.AddRefRows)(::windows_core::Interface::as_raw(self), crows, rghrows, rgrefcounts, rgrowstatus).ok()
+    }
+    pub unsafe fn GetData<P0>(&self, hrow: usize, haccessor: P0, pdata: *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<HACCESSOR>,
+    {
+        (::windows_core::Interface::vtable(self).base__.base__.base__.GetData)(::windows_core::Interface::as_raw(self), hrow, haccessor.into_param().abi(), pdata).ok()
+    }
+    pub unsafe fn GetNextRows(&self, hreserved: usize, lrowsoffset: isize, crows: isize, pcrowsobtained: *mut usize, prghrows: *mut *mut usize) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.base__.base__.GetNextRows)(::windows_core::Interface::as_raw(self), hreserved, lrowsoffset, crows, pcrowsobtained, prghrows).ok()
+    }
+    pub unsafe fn ReleaseRows(&self, crows: usize, rghrows: *const usize, rgrowoptions: *mut u32, rgrefcounts: *mut u32, rgrowstatus: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.base__.base__.ReleaseRows)(::windows_core::Interface::as_raw(self), crows, rghrows, rgrowoptions, rgrefcounts, rgrowstatus).ok()
+    }
+    pub unsafe fn RestartPosition(&self, hreserved: usize) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.base__.base__.RestartPosition)(::windows_core::Interface::as_raw(self), hreserved).ok()
+    }
+    pub unsafe fn Compare(&self, hreserved: usize, cbbookmark1: usize, pbookmark1: *const u8, cbbookmark2: usize, pbookmark2: *const u8, pcomparison: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.base__.Compare)(::windows_core::Interface::as_raw(self), hreserved, cbbookmark1, pbookmark1, cbbookmark2, pbookmark2, pcomparison).ok()
+    }
+    pub unsafe fn GetRowsAt(&self, hreserved1: usize, hreserved2: usize, cbbookmark: usize, pbookmark: *const u8, lrowsoffset: isize, crows: isize, pcrowsobtained: *mut usize, prghrows: *mut *mut usize) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.base__.GetRowsAt)(::windows_core::Interface::as_raw(self), hreserved1, hreserved2, cbbookmark, pbookmark, lrowsoffset, crows, pcrowsobtained, prghrows).ok()
+    }
+    pub unsafe fn GetRowsByBookmark(&self, hreserved: usize, crows: usize, rgcbbookmarks: *const usize, rgpbookmarks: *const *const u8, rghrows: *mut usize, rgrowstatus: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.base__.GetRowsByBookmark)(::windows_core::Interface::as_raw(self), hreserved, crows, rgcbbookmarks, rgpbookmarks, rghrows, rgrowstatus).ok()
+    }
+    pub unsafe fn Hash(&self, hreserved: usize, cbookmarks: usize, rgcbbookmarks: *const usize, rgpbookmarks: *const *const u8, rghashedvalues: *mut usize, rgbookmarkstatus: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.base__.Hash)(::windows_core::Interface::as_raw(self), hreserved, cbookmarks, rgcbbookmarks, rgpbookmarks, rghashedvalues, rgbookmarkstatus).ok()
+    }
+    pub unsafe fn GetApproximatePosition(&self, hreserved: usize, cbbookmark: usize, pbookmark: *const u8, pulposition: *mut usize, pcrows: *mut usize) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.GetApproximatePosition)(::windows_core::Interface::as_raw(self), hreserved, cbbookmark, pbookmark, pulposition, pcrows).ok()
+    }
+    pub unsafe fn GetRowsAtRatio(&self, hreserved1: usize, hreserved2: usize, ulnumerator: usize, uldenominator: usize, crows: isize, pcrowsobtained: *mut usize, prghrows: *mut *mut usize) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.GetRowsAtRatio)(::windows_core::Interface::as_raw(self), hreserved1, hreserved2, ulnumerator, uldenominator, crows, pcrowsobtained, prghrows).ok()
+    }
+    pub unsafe fn GetExactPosition(&self, hchapter: usize, cbbookmark: usize, pbookmark: *const u8, pulposition: *mut usize, pcrows: *mut usize) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetExactPosition)(::windows_core::Interface::as_raw(self), hchapter, cbbookmark, pbookmark, pulposition, pcrows).ok()
+    }
+}
+::windows_core::imp::interface_hierarchy!(IRowsetExactScroll, ::windows_core::IUnknown, IRowset, IRowsetLocate, IRowsetScroll);
+impl ::core::cmp::PartialEq for IRowsetExactScroll {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IRowsetExactScroll {}
+impl ::core::fmt::Debug for IRowsetExactScroll {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRowsetExactScroll").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows_core::Interface for IRowsetExactScroll {
+    type Vtable = IRowsetExactScroll_Vtbl;
+}
+impl ::core::clone::Clone for IRowsetExactScroll {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows_core::ComInterface for IRowsetExactScroll {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a7f_2a1c_11ce_ade5_00aa0044773d);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IRowsetExactScroll_Vtbl {
+    pub base__: IRowsetScroll_Vtbl,
+    pub GetExactPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hchapter: usize, cbbookmark: usize, pbookmark: *const u8, pulposition: *mut usize, pcrows: *mut usize) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
@@ -7351,8 +7424,8 @@ pub struct IRowsetIdentity_Vtbl {
 #[repr(transparent)]
 pub struct IRowsetIndex(::windows_core::IUnknown);
 impl IRowsetIndex {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetIndexInfo(&self, pckeycolumns: *mut usize, prgindexcolumndesc: *mut *mut DBINDEXCOLUMNDESC, pcindexpropertysets: *mut u32, prgindexpropertysets: *mut *mut DBPROPSET) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetIndexInfo)(::windows_core::Interface::as_raw(self), pckeycolumns, prgindexcolumndesc, pcindexpropertysets, prgindexpropertysets).ok()
     }
@@ -7396,9 +7469,9 @@ unsafe impl ::windows_core::ComInterface for IRowsetIndex {
 #[doc(hidden)]
 pub struct IRowsetIndex_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub GetIndexInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pckeycolumns: *mut usize, prgindexcolumndesc: *mut *mut DBINDEXCOLUMNDESC, pcindexpropertysets: *mut u32, prgindexpropertysets: *mut *mut DBPROPSET) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetIndexInfo: usize,
     pub Seek: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, haccessor: HACCESSOR, ckeyvalues: usize, pdata: *mut ::core::ffi::c_void, dwseekoptions: u32) -> ::windows_core::HRESULT,
     pub SetRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, haccessor: HACCESSOR, cstartkeycolumns: usize, pstartdata: *mut ::core::ffi::c_void, cendkeycolumns: usize, penddata: *mut ::core::ffi::c_void, dwrangeoptions: u32) -> ::windows_core::HRESULT,
@@ -7407,8 +7480,8 @@ pub struct IRowsetIndex_Vtbl {
 #[repr(transparent)]
 pub struct IRowsetInfo(::windows_core::IUnknown);
 impl IRowsetInfo {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetProperties(&self, rgpropertyidsets: ::core::option::Option<&[DBPROPIDSET]>, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetProperties)(::windows_core::Interface::as_raw(self), rgpropertyidsets.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(rgpropertyidsets.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcpropertysets, prgpropertysets).ok()
     }
@@ -7448,9 +7521,9 @@ unsafe impl ::windows_core::ComInterface for IRowsetInfo {
 #[doc(hidden)]
 pub struct IRowsetInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub GetProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cpropertyidsets: u32, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetProperties: usize,
     pub GetReferencedRowset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iordinal: usize, riid: *const ::windows_core::GUID, ppreferencedrowset: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetSpecification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppspecification: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -8319,8 +8392,8 @@ pub struct ISQLErrorInfo_Vtbl {
 #[repr(transparent)]
 pub struct ISQLGetDiagField(::windows_core::IUnknown);
 impl ISQLGetDiagField {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetDiagField(&self, pdiaginfo: ::core::option::Option<*mut KAGGETDIAG>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetDiagField)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pdiaginfo.unwrap_or(::std::ptr::null_mut()))).ok()
     }
@@ -8352,17 +8425,17 @@ unsafe impl ::windows_core::ComInterface for ISQLGetDiagField {
 #[doc(hidden)]
 pub struct ISQLGetDiagField_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub GetDiagField: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdiaginfo: *mut KAGGETDIAG) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetDiagField: usize,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
 pub struct ISQLRequestDiagFields(::windows_core::IUnknown);
 impl ISQLRequestDiagFields {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-    #[cfg(feature = "Win32_System_Com")]
+    #[doc = "*Required features: `\"Win32_System_Variant\"`*"]
+    #[cfg(feature = "Win32_System_Variant")]
     pub unsafe fn RequestDiagFields(&self, rgdiagfields: &[KAGREQDIAG]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RequestDiagFields)(::windows_core::Interface::as_raw(self), rgdiagfields.len() as _, ::core::mem::transmute(rgdiagfields.as_ptr())).ok()
     }
@@ -8394,9 +8467,9 @@ unsafe impl ::windows_core::ComInterface for ISQLRequestDiagFields {
 #[doc(hidden)]
 pub struct ISQLRequestDiagFields_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_System_Com")]
+    #[cfg(feature = "Win32_System_Variant")]
     pub RequestDiagFields: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cdiagfields: u32, rgdiagfields: *const KAGREQDIAG) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
+    #[cfg(not(feature = "Win32_System_Variant"))]
     RequestDiagFields: usize,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -8649,8 +8722,8 @@ impl IScopedOperations {
     pub unsafe fn Delete(&self, crows: usize, rgpwszurls: *const ::windows_core::PCWSTR, dwdeleteflags: u32, rgdwstatus: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Delete)(::windows_core::Interface::as_raw(self), crows, rgpwszurls, dwdeleteflags, rgdwstatus).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn OpenRowset<P0>(&self, punkouter: P0, ptableid: ::core::option::Option<*const super::super::Storage::IndexServer::DBID>, pindexid: ::core::option::Option<*const super::super::Storage::IndexServer::DBID>, riid: *const ::windows_core::GUID, rgpropertysets: &mut [DBPROPSET], pprowset: ::core::option::Option<*mut ::core::option::Option<::windows_core::IUnknown>>) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
@@ -8694,9 +8767,9 @@ pub struct IScopedOperations_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Move: usize,
     pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, crows: usize, rgpwszurls: *const ::windows_core::PCWSTR, dwdeleteflags: u32, rgdwstatus: *mut u32) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub OpenRowset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, ptableid: *const super::super::Storage::IndexServer::DBID, pindexid: *const super::super::Storage::IndexServer::DBID, riid: *const ::windows_core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     OpenRowset: usize,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -8707,8 +8780,8 @@ impl ISearchCatalogManager {
         let mut result__ = ::windows_core::zeroed::<::windows_core::PWSTR>();
         (::windows_core::Interface::vtable(self).Name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetParameter<P0>(&self, pszname: P0) -> ::windows_core::Result<*mut super::Com::StructuredStorage::PROPVARIANT>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
@@ -8716,8 +8789,8 @@ impl ISearchCatalogManager {
         let mut result__ = ::windows_core::zeroed::<*mut super::Com::StructuredStorage::PROPVARIANT>();
         (::windows_core::Interface::vtable(self).GetParameter)(::windows_core::Interface::as_raw(self), pszname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn SetParameter<P0>(&self, pszname: P0, pvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
@@ -8864,13 +8937,13 @@ unsafe impl ::windows_core::ComInterface for ISearchCatalogManager {
 pub struct ISearchCatalogManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszname: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub GetParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszname: ::windows_core::PCWSTR, ppvalue: *mut *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
     GetParameter: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub SetParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszname: ::windows_core::PCWSTR, pvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
     SetParameter: usize,
     pub GetCatalogStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstatus: *mut CatalogStatus, ppausedreason: *mut CatalogPausedReason) -> ::windows_core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -8916,8 +8989,8 @@ impl ISearchCatalogManager2 {
         let mut result__ = ::windows_core::zeroed::<::windows_core::PWSTR>();
         (::windows_core::Interface::vtable(self).base__.Name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetParameter<P0>(&self, pszname: P0) -> ::windows_core::Result<*mut super::Com::StructuredStorage::PROPVARIANT>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
@@ -8925,8 +8998,8 @@ impl ISearchCatalogManager2 {
         let mut result__ = ::windows_core::zeroed::<*mut super::Com::StructuredStorage::PROPVARIANT>();
         (::windows_core::Interface::vtable(self).base__.GetParameter)(::windows_core::Interface::as_raw(self), pszname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn SetParameter<P0>(&self, pszname: P0, pvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
@@ -9547,8 +9620,8 @@ impl ISearchManager {
     pub unsafe fn GetIndexerVersion(&self, pdwmajor: *mut u32, pdwminor: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetIndexerVersion)(::windows_core::Interface::as_raw(self), pdwmajor, pdwminor).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetParameter<P0>(&self, pszname: P0) -> ::windows_core::Result<*mut super::Com::StructuredStorage::PROPVARIANT>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
@@ -9556,8 +9629,8 @@ impl ISearchManager {
         let mut result__ = ::windows_core::zeroed::<*mut super::Com::StructuredStorage::PROPVARIANT>();
         (::windows_core::Interface::vtable(self).GetParameter)(::windows_core::Interface::as_raw(self), pszname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn SetParameter<P0>(&self, pszname: P0, pvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
@@ -9643,13 +9716,13 @@ pub struct ISearchManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetIndexerVersionStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszversionstring: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
     pub GetIndexerVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwmajor: *mut u32, pdwminor: *mut u32) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub GetParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszname: ::windows_core::PCWSTR, ppvalue: *mut *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
     GetParameter: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub SetParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszname: ::windows_core::PCWSTR, pvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
     SetParameter: usize,
     pub ProxyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszproxyname: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
     pub BypassList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszbypasslist: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
@@ -9678,8 +9751,8 @@ impl ISearchManager2 {
     pub unsafe fn GetIndexerVersion(&self, pdwmajor: *mut u32, pdwminor: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetIndexerVersion)(::windows_core::Interface::as_raw(self), pdwmajor, pdwminor).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetParameter<P0>(&self, pszname: P0) -> ::windows_core::Result<*mut super::Com::StructuredStorage::PROPVARIANT>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
@@ -9687,8 +9760,8 @@ impl ISearchManager2 {
         let mut result__ = ::windows_core::zeroed::<*mut super::Com::StructuredStorage::PROPVARIANT>();
         (::windows_core::Interface::vtable(self).base__.GetParameter)(::windows_core::Interface::as_raw(self), pszname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn SetParameter<P0>(&self, pszname: P0, pvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
@@ -10146,8 +10219,8 @@ impl ISearchQueryHelper {
         let mut result__ = ::windows_core::zeroed::<::windows_core::PWSTR>();
         (::windows_core::Interface::vtable(self).GenerateSQLFromUserQuery)(::windows_core::Interface::as_raw(self), pszquery.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn WriteProperties(&self, itemid: i32, dwnumberofcolumns: u32, pcolumns: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalues: *const SEARCH_COLUMN_PROPERTIES, pftgathermodifiedtime: ::core::option::Option<*const super::super::Foundation::FILETIME>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).WriteProperties)(::windows_core::Interface::as_raw(self), itemid, dwnumberofcolumns, pcolumns, pvalues, ::core::mem::transmute(pftgathermodifiedtime.unwrap_or(::std::ptr::null()))).ok()
     }
@@ -10204,9 +10277,9 @@ pub struct ISearchQueryHelper_Vtbl {
     pub SetQuerySorting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszsorting: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
     pub QuerySorting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszsorting: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
     pub GenerateSQLFromUserQuery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszquery: ::windows_core::PCWSTR, ppszsql: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub WriteProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, itemid: i32, dwnumberofcolumns: u32, pcolumns: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalues: *const SEARCH_COLUMN_PROPERTIES, pftgathermodifiedtime: *const super::super::Foundation::FILETIME) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem")))]
     WriteProperties: usize,
     pub SetQueryMaxResults: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cmaxresults: i32) -> ::windows_core::HRESULT,
     pub QueryMaxResults: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcmaxresults: *mut i32) -> ::windows_core::HRESULT,
@@ -10669,13 +10742,13 @@ pub struct IService_Vtbl {
 #[repr(transparent)]
 pub struct ISessionProperties(::windows_core::IUnknown);
 impl ISessionProperties {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetProperties(&self, rgpropertyidsets: ::core::option::Option<&[DBPROPIDSET]>, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetProperties)(::windows_core::Interface::as_raw(self), rgpropertyidsets.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(rgpropertyidsets.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcpropertysets, prgpropertysets).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetProperties(&self, rgpropertysets: ::core::option::Option<&mut [DBPROPSET]>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetProperties)(::windows_core::Interface::as_raw(self), rgpropertysets.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(rgpropertysets.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
@@ -10707,13 +10780,13 @@ unsafe impl ::windows_core::ComInterface for ISessionProperties {
 #[doc(hidden)]
 pub struct ISessionProperties_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub GetProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cpropertyidsets: u32, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetProperties: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub SetProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     SetProperties: usize,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -10775,8 +10848,8 @@ pub struct ISimpleCommandCreator_Vtbl {
 #[repr(transparent)]
 pub struct ISourcesRowset(::windows_core::IUnknown);
 impl ISourcesRowset {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetSourcesRowset<P0>(&self, punkouter: P0, riid: *const ::windows_core::GUID, rgproperties: ::core::option::Option<&mut [DBPROPSET]>, ppsourcesrowset: *mut ::core::option::Option<::windows_core::IUnknown>) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
@@ -10811,9 +10884,9 @@ unsafe impl ::windows_core::ComInterface for ISourcesRowset {
 #[doc(hidden)]
 pub struct ISourcesRowset_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub GetSourcesRowset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, cpropertysets: u32, rgproperties: *mut DBPROPSET, ppsourcesrowset: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetSourcesRowset: usize,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -10884,14 +10957,14 @@ impl ISubscriptionItem {
     pub unsafe fn SetSubscriptionItemInfo(&self, psubscriptioniteminfo: *const SUBSCRIPTIONITEMINFO) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetSubscriptionItemInfo)(::windows_core::Interface::as_raw(self), psubscriptioniteminfo).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ReadProperties(&self, ncount: u32, rgwszname: *const ::windows_core::PCWSTR, rgvalue: *mut super::Com::VARIANT) -> ::windows_core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn ReadProperties(&self, ncount: u32, rgwszname: *const ::windows_core::PCWSTR, rgvalue: *mut super::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ReadProperties)(::windows_core::Interface::as_raw(self), ncount, rgwszname, rgvalue).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn WriteProperties(&self, ncount: u32, rgwszname: *const ::windows_core::PCWSTR, rgvalue: *const super::Com::VARIANT) -> ::windows_core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn WriteProperties(&self, ncount: u32, rgwszname: *const ::windows_core::PCWSTR, rgvalue: *const super::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).WriteProperties)(::windows_core::Interface::as_raw(self), ncount, rgwszname, rgvalue).ok()
     }
     pub unsafe fn EnumProperties(&self) -> ::windows_core::Result<IEnumItemProperties> {
@@ -10932,13 +11005,13 @@ pub struct ISubscriptionItem_Vtbl {
     pub GetCookie: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcookie: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
     pub GetSubscriptionItemInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psubscriptioniteminfo: *mut SUBSCRIPTIONITEMINFO) -> ::windows_core::HRESULT,
     pub SetSubscriptionItemInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psubscriptioniteminfo: *const SUBSCRIPTIONITEMINFO) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub ReadProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ncount: u32, rgwszname: *const ::windows_core::PCWSTR, rgvalue: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub ReadProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ncount: u32, rgwszname: *const ::windows_core::PCWSTR, rgvalue: *mut super::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     ReadProperties: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub WriteProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ncount: u32, rgwszname: *const ::windows_core::PCWSTR, rgvalue: *const super::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub WriteProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ncount: u32, rgwszname: *const ::windows_core::PCWSTR, rgvalue: *const super::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     WriteProperties: usize,
     pub EnumProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumitemproperties: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub NotifyChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -11191,8 +11264,8 @@ pub struct ISubscriptionMgr2_Vtbl {
 #[repr(transparent)]
 pub struct ITableCreation(::windows_core::IUnknown);
 impl ITableCreation {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CreateTable<P0>(&self, punkouter: P0, ptableid: ::core::option::Option<*const super::super::Storage::IndexServer::DBID>, rgcolumndescs: ::core::option::Option<&[DBCOLUMNDESC]>, riid: *const ::windows_core::GUID, rgpropertysets: ::core::option::Option<&mut [DBPROPSET]>, pptableid: ::core::option::Option<*mut *mut super::super::Storage::IndexServer::DBID>, pprowset: ::core::option::Option<*mut ::core::option::Option<::windows_core::IUnknown>>) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
@@ -11216,8 +11289,8 @@ impl ITableCreation {
     pub unsafe fn DropTable(&self, ptableid: *const super::super::Storage::IndexServer::DBID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.DropTable)(::windows_core::Interface::as_raw(self), ptableid).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn AddColumn(&self, ptableid: *const super::super::Storage::IndexServer::DBID, pcolumndesc: *const DBCOLUMNDESC, ppcolumnid: ::core::option::Option<*mut *mut super::super::Storage::IndexServer::DBID>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.AddColumn)(::windows_core::Interface::as_raw(self), ptableid, pcolumndesc, ::core::mem::transmute(ppcolumnid.unwrap_or(::std::ptr::null_mut()))).ok()
     }
@@ -11226,8 +11299,8 @@ impl ITableCreation {
     pub unsafe fn DropColumn(&self, ptableid: *const super::super::Storage::IndexServer::DBID, pcolumnid: *const super::super::Storage::IndexServer::DBID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.DropColumn)(::windows_core::Interface::as_raw(self), ptableid, pcolumnid).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetTableDefinition(&self, ptableid: *const super::super::Storage::IndexServer::DBID, pccolumndescs: ::core::option::Option<*mut usize>, prgcolumndescs: ::core::option::Option<*mut *mut DBCOLUMNDESC>, pcpropertysets: ::core::option::Option<*mut u32>, prgpropertysets: ::core::option::Option<*mut *mut DBPROPSET>, pcconstraintdescs: ::core::option::Option<*mut u32>, prgconstraintdescs: ::core::option::Option<*mut *mut DBCONSTRAINTDESC>, ppwszstringbuffer: ::core::option::Option<*mut *mut u16>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetTableDefinition)(
             ::windows_core::Interface::as_raw(self),
@@ -11270,17 +11343,17 @@ unsafe impl ::windows_core::ComInterface for ITableCreation {
 #[doc(hidden)]
 pub struct ITableCreation_Vtbl {
     pub base__: ITableDefinition_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub GetTableDefinition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptableid: *const super::super::Storage::IndexServer::DBID, pccolumndescs: *mut usize, prgcolumndescs: *mut *mut DBCOLUMNDESC, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET, pcconstraintdescs: *mut u32, prgconstraintdescs: *mut *mut DBCONSTRAINTDESC, ppwszstringbuffer: *mut *mut u16) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetTableDefinition: usize,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
 pub struct ITableDefinition(::windows_core::IUnknown);
 impl ITableDefinition {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CreateTable<P0>(&self, punkouter: P0, ptableid: ::core::option::Option<*const super::super::Storage::IndexServer::DBID>, rgcolumndescs: ::core::option::Option<&[DBCOLUMNDESC]>, riid: *const ::windows_core::GUID, rgpropertysets: ::core::option::Option<&mut [DBPROPSET]>, pptableid: ::core::option::Option<*mut *mut super::super::Storage::IndexServer::DBID>, pprowset: ::core::option::Option<*mut ::core::option::Option<::windows_core::IUnknown>>) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
@@ -11304,8 +11377,8 @@ impl ITableDefinition {
     pub unsafe fn DropTable(&self, ptableid: *const super::super::Storage::IndexServer::DBID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).DropTable)(::windows_core::Interface::as_raw(self), ptableid).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn AddColumn(&self, ptableid: *const super::super::Storage::IndexServer::DBID, pcolumndesc: *const DBCOLUMNDESC, ppcolumnid: ::core::option::Option<*mut *mut super::super::Storage::IndexServer::DBID>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).AddColumn)(::windows_core::Interface::as_raw(self), ptableid, pcolumndesc, ::core::mem::transmute(ppcolumnid.unwrap_or(::std::ptr::null_mut()))).ok()
     }
@@ -11342,17 +11415,17 @@ unsafe impl ::windows_core::ComInterface for ITableDefinition {
 #[doc(hidden)]
 pub struct ITableDefinition_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub CreateTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, ptableid: *const super::super::Storage::IndexServer::DBID, ccolumndescs: usize, rgcolumndescs: *const DBCOLUMNDESC, riid: *const ::windows_core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pptableid: *mut *mut super::super::Storage::IndexServer::DBID, pprowset: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     CreateTable: usize,
     #[cfg(feature = "Win32_Storage_IndexServer")]
     pub DropTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptableid: *const super::super::Storage::IndexServer::DBID) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Storage_IndexServer"))]
     DropTable: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub AddColumn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptableid: *const super::super::Storage::IndexServer::DBID, pcolumndesc: *const DBCOLUMNDESC, ppcolumnid: *mut *mut super::super::Storage::IndexServer::DBID) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     AddColumn: usize,
     #[cfg(feature = "Win32_Storage_IndexServer")]
     pub DropColumn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptableid: *const super::super::Storage::IndexServer::DBID, pcolumnid: *const super::super::Storage::IndexServer::DBID) -> ::windows_core::HRESULT,
@@ -11363,8 +11436,8 @@ pub struct ITableDefinition_Vtbl {
 #[repr(transparent)]
 pub struct ITableDefinitionWithConstraints(::windows_core::IUnknown);
 impl ITableDefinitionWithConstraints {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CreateTable<P0>(&self, punkouter: P0, ptableid: ::core::option::Option<*const super::super::Storage::IndexServer::DBID>, rgcolumndescs: ::core::option::Option<&[DBCOLUMNDESC]>, riid: *const ::windows_core::GUID, rgpropertysets: ::core::option::Option<&mut [DBPROPSET]>, pptableid: ::core::option::Option<*mut *mut super::super::Storage::IndexServer::DBID>, pprowset: ::core::option::Option<*mut ::core::option::Option<::windows_core::IUnknown>>) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
@@ -11388,8 +11461,8 @@ impl ITableDefinitionWithConstraints {
     pub unsafe fn DropTable(&self, ptableid: *const super::super::Storage::IndexServer::DBID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.DropTable)(::windows_core::Interface::as_raw(self), ptableid).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn AddColumn(&self, ptableid: *const super::super::Storage::IndexServer::DBID, pcolumndesc: *const DBCOLUMNDESC, ppcolumnid: ::core::option::Option<*mut *mut super::super::Storage::IndexServer::DBID>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.AddColumn)(::windows_core::Interface::as_raw(self), ptableid, pcolumndesc, ::core::mem::transmute(ppcolumnid.unwrap_or(::std::ptr::null_mut()))).ok()
     }
@@ -11398,8 +11471,8 @@ impl ITableDefinitionWithConstraints {
     pub unsafe fn DropColumn(&self, ptableid: *const super::super::Storage::IndexServer::DBID, pcolumnid: *const super::super::Storage::IndexServer::DBID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.DropColumn)(::windows_core::Interface::as_raw(self), ptableid, pcolumnid).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetTableDefinition(&self, ptableid: *const super::super::Storage::IndexServer::DBID, pccolumndescs: ::core::option::Option<*mut usize>, prgcolumndescs: ::core::option::Option<*mut *mut DBCOLUMNDESC>, pcpropertysets: ::core::option::Option<*mut u32>, prgpropertysets: ::core::option::Option<*mut *mut DBPROPSET>, pcconstraintdescs: ::core::option::Option<*mut u32>, prgconstraintdescs: ::core::option::Option<*mut *mut DBCONSTRAINTDESC>, ppwszstringbuffer: ::core::option::Option<*mut *mut u16>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetTableDefinition)(
             ::windows_core::Interface::as_raw(self),
@@ -11414,13 +11487,13 @@ impl ITableDefinitionWithConstraints {
         )
         .ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn AddConstraint(&self, ptableid: *mut super::super::Storage::IndexServer::DBID, pconstraintdesc: *mut DBCONSTRAINTDESC) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).AddConstraint)(::windows_core::Interface::as_raw(self), ptableid, pconstraintdesc).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CreateTableWithConstraints<P0>(&self, punkouter: P0, ptableid: *mut super::super::Storage::IndexServer::DBID, ccolumndescs: usize, rgcolumndescs: *mut DBCOLUMNDESC, cconstraintdescs: u32, rgconstraintdescs: *mut DBCONSTRAINTDESC, riid: *const ::windows_core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pptableid: *mut *mut super::super::Storage::IndexServer::DBID, pprowset: *mut ::core::option::Option<::windows_core::IUnknown>) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
@@ -11460,13 +11533,13 @@ unsafe impl ::windows_core::ComInterface for ITableDefinitionWithConstraints {
 #[doc(hidden)]
 pub struct ITableDefinitionWithConstraints_Vtbl {
     pub base__: ITableCreation_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub AddConstraint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptableid: *mut super::super::Storage::IndexServer::DBID, pconstraintdesc: *mut DBCONSTRAINTDESC) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     AddConstraint: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub CreateTableWithConstraints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, ptableid: *mut super::super::Storage::IndexServer::DBID, ccolumndescs: usize, rgcolumndescs: *mut DBCOLUMNDESC, cconstraintdescs: u32, rgconstraintdescs: *mut DBCONSTRAINTDESC, riid: *const ::windows_core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pptableid: *mut *mut super::super::Storage::IndexServer::DBID, pprowset: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     CreateTableWithConstraints: usize,
     #[cfg(feature = "Win32_Storage_IndexServer")]
     pub DropConstraint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptableid: *mut super::super::Storage::IndexServer::DBID, pconstraintid: *mut super::super::Storage::IndexServer::DBID) -> ::windows_core::HRESULT,
@@ -11760,8 +11833,8 @@ impl ITrusteeAdmin {
     pub unsafe fn CompareTrustees(&self, ptrustee1: *mut super::super::Security::Authorization::TRUSTEE_W, ptrustee2: *mut super::super::Security::Authorization::TRUSTEE_W) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CompareTrustees)(::windows_core::Interface::as_raw(self), ptrustee1, ptrustee2).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Security_Authorization\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Security_Authorization\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CreateTrustee(&self, ptrustee: *mut super::super::Security::Authorization::TRUSTEE_W, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CreateTrustee)(::windows_core::Interface::as_raw(self), ptrustee, cpropertysets, rgpropertysets).ok()
     }
@@ -11770,13 +11843,13 @@ impl ITrusteeAdmin {
     pub unsafe fn DeleteTrustee(&self, ptrustee: *mut super::super::Security::Authorization::TRUSTEE_W) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).DeleteTrustee)(::windows_core::Interface::as_raw(self), ptrustee).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Security_Authorization\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Security_Authorization\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetTrusteeProperties(&self, ptrustee: *mut super::super::Security::Authorization::TRUSTEE_W, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetTrusteeProperties)(::windows_core::Interface::as_raw(self), ptrustee, cpropertysets, rgpropertysets).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Security_Authorization\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Security_Authorization\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetTrusteeProperties(&self, ptrustee: *mut super::super::Security::Authorization::TRUSTEE_W, cpropertyidsets: u32, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetTrusteeProperties)(::windows_core::Interface::as_raw(self), ptrustee, cpropertyidsets, rgpropertyidsets, pcpropertysets, prgpropertysets).ok()
     }
@@ -11812,21 +11885,21 @@ pub struct ITrusteeAdmin_Vtbl {
     pub CompareTrustees: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptrustee1: *mut super::super::Security::Authorization::TRUSTEE_W, ptrustee2: *mut super::super::Security::Authorization::TRUSTEE_W) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Security_Authorization"))]
     CompareTrustees: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub CreateTrustee: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptrustee: *mut super::super::Security::Authorization::TRUSTEE_W, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     CreateTrustee: usize,
     #[cfg(feature = "Win32_Security_Authorization")]
     pub DeleteTrustee: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptrustee: *mut super::super::Security::Authorization::TRUSTEE_W) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Security_Authorization"))]
     DeleteTrustee: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub SetTrusteeProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptrustee: *mut super::super::Security::Authorization::TRUSTEE_W, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     SetTrusteeProperties: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub GetTrusteeProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptrustee: *mut super::super::Security::Authorization::TRUSTEE_W, cpropertyidsets: u32, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetTrusteeProperties: usize,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -12001,20 +12074,20 @@ pub struct IUMSInitialize_Vtbl {
 #[repr(transparent)]
 pub struct IUrlAccessor(::windows_core::IUnknown);
 impl IUrlAccessor {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn AddRequestParameter(&self, pspec: *const super::Com::StructuredStorage::PROPSPEC, pvar: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).AddRequestParameter)(::windows_core::Interface::as_raw(self), pspec, pvar).ok()
     }
-    pub unsafe fn GetDocFormat(&self, wszdocformat: ::windows_core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetDocFormat)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wszdocformat), dwsize, pdwlength).ok()
+    pub unsafe fn GetDocFormat(&self, wszdocformat: &mut [u16], pdwlength: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetDocFormat)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wszdocformat.as_ptr()), wszdocformat.len() as _, pdwlength).ok()
     }
     pub unsafe fn GetCLSID(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
         (::windows_core::Interface::vtable(self).GetCLSID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetHost(&self, wszhost: ::windows_core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetHost)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wszhost), dwsize, pdwlength).ok()
+    pub unsafe fn GetHost(&self, wszhost: &mut [u16], pdwlength: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetHost)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wszhost.as_ptr()), wszhost.len() as _, pdwlength).ok()
     }
     pub unsafe fn IsDirectory(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).IsDirectory)(::windows_core::Interface::as_raw(self)).ok()
@@ -12029,14 +12102,14 @@ impl IUrlAccessor {
         let mut result__ = ::windows_core::zeroed::<super::super::Foundation::FILETIME>();
         (::windows_core::Interface::vtable(self).GetLastModified)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetFileName(&self, wszfilename: ::windows_core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetFileName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wszfilename), dwsize, pdwlength).ok()
+    pub unsafe fn GetFileName(&self, wszfilename: &mut [u16], pdwlength: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetFileName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wszfilename.as_ptr()), wszfilename.len() as _, pdwlength).ok()
     }
     pub unsafe fn GetSecurityDescriptor(&self, psd: &mut [u8], pdwlength: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetSecurityDescriptor)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(psd.as_ptr()), psd.len() as _, pdwlength).ok()
     }
-    pub unsafe fn GetRedirectedURL(&self, wszredirectedurl: ::windows_core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetRedirectedURL)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wszredirectedurl), dwsize, pdwlength).ok()
+    pub unsafe fn GetRedirectedURL(&self, wszredirectedurl: &mut [u16], pdwlength: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetRedirectedURL)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wszredirectedurl.as_ptr()), wszredirectedurl.len() as _, pdwlength).ok()
     }
     pub unsafe fn GetSecurityProvider(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
@@ -12082,9 +12155,9 @@ unsafe impl ::windows_core::ComInterface for IUrlAccessor {
 #[doc(hidden)]
 pub struct IUrlAccessor_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub AddRequestParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pspec: *const super::Com::StructuredStorage::PROPSPEC, pvar: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
     AddRequestParameter: usize,
     pub GetDocFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszdocformat: ::windows_core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows_core::HRESULT,
     pub GetCLSID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclsid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
@@ -12112,20 +12185,20 @@ pub struct IUrlAccessor_Vtbl {
 #[repr(transparent)]
 pub struct IUrlAccessor2(::windows_core::IUnknown);
 impl IUrlAccessor2 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn AddRequestParameter(&self, pspec: *const super::Com::StructuredStorage::PROPSPEC, pvar: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.AddRequestParameter)(::windows_core::Interface::as_raw(self), pspec, pvar).ok()
     }
-    pub unsafe fn GetDocFormat(&self, wszdocformat: ::windows_core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.GetDocFormat)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wszdocformat), dwsize, pdwlength).ok()
+    pub unsafe fn GetDocFormat(&self, wszdocformat: &mut [u16], pdwlength: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.GetDocFormat)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wszdocformat.as_ptr()), wszdocformat.len() as _, pdwlength).ok()
     }
     pub unsafe fn GetCLSID(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
         (::windows_core::Interface::vtable(self).base__.GetCLSID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetHost(&self, wszhost: ::windows_core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.GetHost)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wszhost), dwsize, pdwlength).ok()
+    pub unsafe fn GetHost(&self, wszhost: &mut [u16], pdwlength: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.GetHost)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wszhost.as_ptr()), wszhost.len() as _, pdwlength).ok()
     }
     pub unsafe fn IsDirectory(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.IsDirectory)(::windows_core::Interface::as_raw(self)).ok()
@@ -12140,14 +12213,14 @@ impl IUrlAccessor2 {
         let mut result__ = ::windows_core::zeroed::<super::super::Foundation::FILETIME>();
         (::windows_core::Interface::vtable(self).base__.GetLastModified)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetFileName(&self, wszfilename: ::windows_core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.GetFileName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wszfilename), dwsize, pdwlength).ok()
+    pub unsafe fn GetFileName(&self, wszfilename: &mut [u16], pdwlength: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.GetFileName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wszfilename.as_ptr()), wszfilename.len() as _, pdwlength).ok()
     }
     pub unsafe fn GetSecurityDescriptor(&self, psd: &mut [u8], pdwlength: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetSecurityDescriptor)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(psd.as_ptr()), psd.len() as _, pdwlength).ok()
     }
-    pub unsafe fn GetRedirectedURL(&self, wszredirectedurl: ::windows_core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.GetRedirectedURL)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wszredirectedurl), dwsize, pdwlength).ok()
+    pub unsafe fn GetRedirectedURL(&self, wszredirectedurl: &mut [u16], pdwlength: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.GetRedirectedURL)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wszredirectedurl.as_ptr()), wszredirectedurl.len() as _, pdwlength).ok()
     }
     pub unsafe fn GetSecurityProvider(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
@@ -12165,14 +12238,14 @@ impl IUrlAccessor2 {
         let mut result__ = ::windows_core::zeroed::<super::super::Storage::IndexServer::IFilter>();
         (::windows_core::Interface::vtable(self).base__.BindToFilter)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetDisplayUrl(&self, wszdocurl: ::windows_core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetDisplayUrl)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wszdocurl), dwsize, pdwlength).ok()
+    pub unsafe fn GetDisplayUrl(&self, wszdocurl: &mut [u16], pdwlength: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetDisplayUrl)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wszdocurl.as_ptr()), wszdocurl.len() as _, pdwlength).ok()
     }
     pub unsafe fn IsDocument(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).IsDocument)(::windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn GetCodePage(&self, wszcodepage: ::windows_core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetCodePage)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wszcodepage), dwsize, pdwlength).ok()
+    pub unsafe fn GetCodePage(&self, wszcodepage: &mut [u16], pdwlength: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetCodePage)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wszcodepage.as_ptr()), wszcodepage.len() as _, pdwlength).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUrlAccessor2, ::windows_core::IUnknown, IUrlAccessor);
@@ -12210,20 +12283,20 @@ pub struct IUrlAccessor2_Vtbl {
 #[repr(transparent)]
 pub struct IUrlAccessor3(::windows_core::IUnknown);
 impl IUrlAccessor3 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn AddRequestParameter(&self, pspec: *const super::Com::StructuredStorage::PROPSPEC, pvar: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.AddRequestParameter)(::windows_core::Interface::as_raw(self), pspec, pvar).ok()
     }
-    pub unsafe fn GetDocFormat(&self, wszdocformat: ::windows_core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.GetDocFormat)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wszdocformat), dwsize, pdwlength).ok()
+    pub unsafe fn GetDocFormat(&self, wszdocformat: &mut [u16], pdwlength: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.base__.GetDocFormat)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wszdocformat.as_ptr()), wszdocformat.len() as _, pdwlength).ok()
     }
     pub unsafe fn GetCLSID(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
         (::windows_core::Interface::vtable(self).base__.base__.GetCLSID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetHost(&self, wszhost: ::windows_core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.GetHost)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wszhost), dwsize, pdwlength).ok()
+    pub unsafe fn GetHost(&self, wszhost: &mut [u16], pdwlength: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.base__.GetHost)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wszhost.as_ptr()), wszhost.len() as _, pdwlength).ok()
     }
     pub unsafe fn IsDirectory(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.IsDirectory)(::windows_core::Interface::as_raw(self)).ok()
@@ -12238,14 +12311,14 @@ impl IUrlAccessor3 {
         let mut result__ = ::windows_core::zeroed::<super::super::Foundation::FILETIME>();
         (::windows_core::Interface::vtable(self).base__.base__.GetLastModified)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetFileName(&self, wszfilename: ::windows_core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.GetFileName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wszfilename), dwsize, pdwlength).ok()
+    pub unsafe fn GetFileName(&self, wszfilename: &mut [u16], pdwlength: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.base__.GetFileName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wszfilename.as_ptr()), wszfilename.len() as _, pdwlength).ok()
     }
     pub unsafe fn GetSecurityDescriptor(&self, psd: &mut [u8], pdwlength: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.GetSecurityDescriptor)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(psd.as_ptr()), psd.len() as _, pdwlength).ok()
     }
-    pub unsafe fn GetRedirectedURL(&self, wszredirectedurl: ::windows_core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.GetRedirectedURL)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wszredirectedurl), dwsize, pdwlength).ok()
+    pub unsafe fn GetRedirectedURL(&self, wszredirectedurl: &mut [u16], pdwlength: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.base__.GetRedirectedURL)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wszredirectedurl.as_ptr()), wszredirectedurl.len() as _, pdwlength).ok()
     }
     pub unsafe fn GetSecurityProvider(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
@@ -12263,14 +12336,14 @@ impl IUrlAccessor3 {
         let mut result__ = ::windows_core::zeroed::<super::super::Storage::IndexServer::IFilter>();
         (::windows_core::Interface::vtable(self).base__.base__.BindToFilter)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetDisplayUrl(&self, wszdocurl: ::windows_core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.GetDisplayUrl)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wszdocurl), dwsize, pdwlength).ok()
+    pub unsafe fn GetDisplayUrl(&self, wszdocurl: &mut [u16], pdwlength: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.GetDisplayUrl)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wszdocurl.as_ptr()), wszdocurl.len() as _, pdwlength).ok()
     }
     pub unsafe fn IsDocument(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.IsDocument)(::windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn GetCodePage(&self, wszcodepage: ::windows_core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.GetCodePage)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wszcodepage), dwsize, pdwlength).ok()
+    pub unsafe fn GetCodePage(&self, wszcodepage: &mut [u16], pdwlength: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.GetCodePage)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wszcodepage.as_ptr()), wszcodepage.len() as _, pdwlength).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -12317,20 +12390,20 @@ pub struct IUrlAccessor3_Vtbl {
 #[repr(transparent)]
 pub struct IUrlAccessor4(::windows_core::IUnknown);
 impl IUrlAccessor4 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn AddRequestParameter(&self, pspec: *const super::Com::StructuredStorage::PROPSPEC, pvar: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.AddRequestParameter)(::windows_core::Interface::as_raw(self), pspec, pvar).ok()
     }
-    pub unsafe fn GetDocFormat(&self, wszdocformat: ::windows_core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.GetDocFormat)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wszdocformat), dwsize, pdwlength).ok()
+    pub unsafe fn GetDocFormat(&self, wszdocformat: &mut [u16], pdwlength: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.base__.base__.GetDocFormat)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wszdocformat.as_ptr()), wszdocformat.len() as _, pdwlength).ok()
     }
     pub unsafe fn GetCLSID(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetCLSID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetHost(&self, wszhost: ::windows_core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.GetHost)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wszhost), dwsize, pdwlength).ok()
+    pub unsafe fn GetHost(&self, wszhost: &mut [u16], pdwlength: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.base__.base__.GetHost)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wszhost.as_ptr()), wszhost.len() as _, pdwlength).ok()
     }
     pub unsafe fn IsDirectory(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.IsDirectory)(::windows_core::Interface::as_raw(self)).ok()
@@ -12345,14 +12418,14 @@ impl IUrlAccessor4 {
         let mut result__ = ::windows_core::zeroed::<super::super::Foundation::FILETIME>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetLastModified)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetFileName(&self, wszfilename: ::windows_core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.GetFileName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wszfilename), dwsize, pdwlength).ok()
+    pub unsafe fn GetFileName(&self, wszfilename: &mut [u16], pdwlength: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.base__.base__.GetFileName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wszfilename.as_ptr()), wszfilename.len() as _, pdwlength).ok()
     }
     pub unsafe fn GetSecurityDescriptor(&self, psd: &mut [u8], pdwlength: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetSecurityDescriptor)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(psd.as_ptr()), psd.len() as _, pdwlength).ok()
     }
-    pub unsafe fn GetRedirectedURL(&self, wszredirectedurl: ::windows_core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.GetRedirectedURL)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wszredirectedurl), dwsize, pdwlength).ok()
+    pub unsafe fn GetRedirectedURL(&self, wszredirectedurl: &mut [u16], pdwlength: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.base__.base__.GetRedirectedURL)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wszredirectedurl.as_ptr()), wszredirectedurl.len() as _, pdwlength).ok()
     }
     pub unsafe fn GetSecurityProvider(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
@@ -12370,14 +12443,14 @@ impl IUrlAccessor4 {
         let mut result__ = ::windows_core::zeroed::<super::super::Storage::IndexServer::IFilter>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.BindToFilter)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetDisplayUrl(&self, wszdocurl: ::windows_core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.GetDisplayUrl)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wszdocurl), dwsize, pdwlength).ok()
+    pub unsafe fn GetDisplayUrl(&self, wszdocurl: &mut [u16], pdwlength: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.base__.GetDisplayUrl)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wszdocurl.as_ptr()), wszdocurl.len() as _, pdwlength).ok()
     }
     pub unsafe fn IsDocument(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.IsDocument)(::windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn GetCodePage(&self, wszcodepage: ::windows_core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.GetCodePage)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wszcodepage), dwsize, pdwlength).ok()
+    pub unsafe fn GetCodePage(&self, wszcodepage: &mut [u16], pdwlength: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.base__.GetCodePage)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wszcodepage.as_ptr()), wszcodepage.len() as _, pdwlength).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -12819,15 +12892,15 @@ impl OLEDBSimpleProvider {
         let mut result__ = ::windows_core::zeroed::<OSPRW>();
         (::windows_core::Interface::vtable(self).getRWStatus)(::windows_core::Interface::as_raw(self), irow, icolumn, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn getVariant(&self, irow: isize, icolumn: isize, format: OSPFORMAT) -> ::windows_core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn getVariant(&self, irow: isize, icolumn: isize, format: OSPFORMAT) -> ::windows_core::Result<super::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).getVariant)(::windows_core::Interface::as_raw(self), irow, icolumn, format, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn setVariant(&self, irow: isize, icolumn: isize, format: OSPFORMAT, var: super::Com::VARIANT) -> ::windows_core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn setVariant(&self, irow: isize, icolumn: isize, format: OSPFORMAT, var: super::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).setVariant)(::windows_core::Interface::as_raw(self), irow, icolumn, format, ::core::mem::transmute(var)).ok()
     }
     pub unsafe fn getLocale(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -12842,9 +12915,9 @@ impl OLEDBSimpleProvider {
         let mut result__ = ::windows_core::zeroed::<isize>();
         (::windows_core::Interface::vtable(self).insertRows)(::windows_core::Interface::as_raw(self), irow, crows, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn find(&self, irowstart: isize, icolumn: isize, val: super::Com::VARIANT, findflags: OSPFIND, comptype: OSPCOMP) -> ::windows_core::Result<isize> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn find(&self, irowstart: isize, icolumn: isize, val: super::Variant::VARIANT, findflags: OSPFIND, comptype: OSPCOMP) -> ::windows_core::Result<isize> {
         let mut result__ = ::windows_core::zeroed::<isize>();
         (::windows_core::Interface::vtable(self).find)(::windows_core::Interface::as_raw(self), irowstart, icolumn, ::core::mem::transmute(val), findflags, comptype, &mut result__).from_abi(result__)
     }
@@ -12904,20 +12977,20 @@ pub struct OLEDBSimpleProvider_Vtbl {
     pub getRowCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcrows: *mut isize) -> ::windows_core::HRESULT,
     pub getColumnCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pccolumns: *mut isize) -> ::windows_core::HRESULT,
     pub getRWStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, irow: isize, icolumn: isize, prwstatus: *mut OSPRW) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub getVariant: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, irow: isize, icolumn: isize, format: OSPFORMAT, pvar: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub getVariant: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, irow: isize, icolumn: isize, format: OSPFORMAT, pvar: *mut super::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     getVariant: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub setVariant: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, irow: isize, icolumn: isize, format: OSPFORMAT, var: super::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub setVariant: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, irow: isize, icolumn: isize, format: OSPFORMAT, var: super::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     setVariant: usize,
     pub getLocale: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrlocale: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub deleteRows: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, irow: isize, crows: isize, pcrowsdeleted: *mut isize) -> ::windows_core::HRESULT,
     pub insertRows: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, irow: isize, crows: isize, pcrowsinserted: *mut isize) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub find: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, irowstart: isize, icolumn: isize, val: super::Com::VARIANT, findflags: OSPFIND, comptype: OSPCOMP, pirowfound: *mut isize) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub find: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, irowstart: isize, icolumn: isize, val: super::Variant::VARIANT, findflags: OSPFIND, comptype: OSPCOMP, pirowfound: *mut isize) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     find: usize,
     pub addOLEDBSimpleProviderListener: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pospilistener: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub removeOLEDBSimpleProviderListener: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pospilistener: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -20682,6 +20755,31 @@ impl ::core::fmt::Debug for DBCOLUMNFLAGS15ENUM {
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DBCOLUMNFLAGSDEPRECATED(pub i32);
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const DBCOLUMNFLAGS_KEYCOLUMN: DBCOLUMNFLAGSDEPRECATED = DBCOLUMNFLAGSDEPRECATED(32768i32);
+impl ::core::marker::Copy for DBCOLUMNFLAGSDEPRECATED {}
+impl ::core::clone::Clone for DBCOLUMNFLAGSDEPRECATED {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DBCOLUMNFLAGSDEPRECATED {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for DBCOLUMNFLAGSDEPRECATED {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for DBCOLUMNFLAGSDEPRECATED {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBCOLUMNFLAGSDEPRECATED").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBCOLUMNFLAGSENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBCOLUMNFLAGS_ISBOOKMARK: DBCOLUMNFLAGSENUM = DBCOLUMNFLAGSENUM(1i32);
@@ -22453,6 +22551,35 @@ impl ::windows_core::TypeKind for DBPROPENUM26 {
 impl ::core::fmt::Debug for DBPROPENUM26 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DBPROPENUM26").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DBPROPENUMDEPRECATED(pub i32);
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const DBPROP_IRowsetExactScroll: DBPROPENUMDEPRECATED = DBPROPENUMDEPRECATED(154i32);
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const DBPROP_MARSHALLABLE: DBPROPENUMDEPRECATED = DBPROPENUMDEPRECATED(197i32);
+#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+pub const DBPROP_FILTEROPS: DBPROPENUMDEPRECATED = DBPROPENUMDEPRECATED(208i32);
+impl ::core::marker::Copy for DBPROPENUMDEPRECATED {}
+impl ::core::clone::Clone for DBPROPENUMDEPRECATED {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DBPROPENUMDEPRECATED {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for DBPROPENUMDEPRECATED {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for DBPROPENUMDEPRECATED {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBPROPENUMDEPRECATED").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -24942,91 +25069,91 @@ impl ::core::default::Default for BUCKETCATEGORIZE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub struct CATEGORIZATION {
     pub ulCatType: u32,
     pub Anonymous: CATEGORIZATION_0,
     pub csColumns: COLUMNSET,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::core::marker::Copy for CATEGORIZATION {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for CATEGORIZATION {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::TypeKind for CATEGORIZATION {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::core::default::Default for CATEGORIZATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub union CATEGORIZATION_0 {
     pub cClusters: u32,
     pub bucket: BUCKETCATEGORIZE,
     pub range: RANGECATEGORIZE,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::core::marker::Copy for CATEGORIZATION_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for CATEGORIZATION_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::TypeKind for CATEGORIZATION_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::core::default::Default for CATEGORIZATION_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub struct CATEGORIZATIONSET {
     pub cCat: u32,
     pub aCat: *mut CATEGORIZATION,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::core::marker::Copy for CATEGORIZATIONSET {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for CATEGORIZATIONSET {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::core::fmt::Debug for CATEGORIZATIONSET {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("CATEGORIZATIONSET").field("cCat", &self.cCat).field("aCat", &self.aCat).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::TypeKind for CATEGORIZATIONSET {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::core::cmp::PartialEq for CATEGORIZATIONSET {
     fn eq(&self, other: &Self) -> bool {
         self.cCat == other.cCat && self.aCat == other.aCat
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::core::cmp::Eq for CATEGORIZATIONSET {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::core::default::Default for CATEGORIZATIONSET {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -25328,9 +25455,9 @@ impl ::core::default::Default for DBCOLUMNACCESS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct DBCOLUMNDESC {
     pub pwszTypeName: ::windows_core::PWSTR,
     pub pTypeInfo: ::std::mem::ManuallyDrop<::core::option::Option<super::Com::ITypeInfo>>,
@@ -25344,28 +25471,28 @@ pub struct DBCOLUMNDESC {
     pub bScale: u8,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for DBCOLUMNDESC {
     fn clone(&self) -> Self {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::TypeKind for DBCOLUMNDESC {
     type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::default::Default for DBCOLUMNDESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C, packed(2))]
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct DBCOLUMNDESC {
     pub pwszTypeName: ::windows_core::PWSTR,
     pub pTypeInfo: ::std::mem::ManuallyDrop<::core::option::Option<super::Com::ITypeInfo>>,
@@ -25379,12 +25506,12 @@ pub struct DBCOLUMNDESC {
     pub bScale: u8,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::TypeKind for DBCOLUMNDESC {
     type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::default::Default for DBCOLUMNDESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -25452,9 +25579,9 @@ impl ::core::default::Default for DBCOLUMNINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct DBCONSTRAINTDESC {
     pub pConstraintID: *mut super::super::Storage::IndexServer::DBID,
     pub ConstraintType: u32,
@@ -25472,31 +25599,31 @@ pub struct DBCONSTRAINTDESC {
     pub rgReserved: *mut DBPROPSET,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::marker::Copy for DBCONSTRAINTDESC {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for DBCONSTRAINTDESC {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::TypeKind for DBCONSTRAINTDESC {
     type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::default::Default for DBCONSTRAINTDESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C, packed(2))]
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct DBCONSTRAINTDESC {
     pub pConstraintID: *mut super::super::Storage::IndexServer::DBID,
     pub ConstraintType: u32,
@@ -25514,22 +25641,22 @@ pub struct DBCONSTRAINTDESC {
     pub rgReserved: *mut DBPROPSET,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::marker::Copy for DBCONSTRAINTDESC {}
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for DBCONSTRAINTDESC {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::TypeKind for DBCONSTRAINTDESC {
     type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::default::Default for DBCONSTRAINTDESC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -26154,53 +26281,53 @@ impl ::core::default::Default for DBPARAMS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct DBPROP {
     pub dwPropertyID: u32,
     pub dwOptions: u32,
     pub dwStatus: u32,
     pub colid: super::super::Storage::IndexServer::DBID,
-    pub vValue: super::Com::VARIANT,
+    pub vValue: super::Variant::VARIANT,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for DBPROP {
     fn clone(&self) -> Self {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::TypeKind for DBPROP {
     type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::default::Default for DBPROP {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C, packed(2))]
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct DBPROP {
     pub dwPropertyID: u32,
     pub dwOptions: u32,
     pub dwStatus: u32,
     pub colid: super::super::Storage::IndexServer::DBID,
-    pub vValue: super::Com::VARIANT,
+    pub vValue: super::Variant::VARIANT,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::TypeKind for DBPROP {
     type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::default::Default for DBPROP {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -26259,177 +26386,177 @@ impl ::core::default::Default for DBPROPIDSET {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct DBPROPINFO {
     pub pwszDescription: ::windows_core::PWSTR,
     pub dwPropertyID: u32,
     pub dwFlags: u32,
-    pub vtType: super::Com::VARENUM,
-    pub vValues: super::Com::VARIANT,
+    pub vtType: super::Variant::VARENUM,
+    pub vValues: super::Variant::VARIANT,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for DBPROPINFO {
     fn clone(&self) -> Self {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::TypeKind for DBPROPINFO {
     type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::default::Default for DBPROPINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C, packed(2))]
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct DBPROPINFO {
     pub pwszDescription: ::windows_core::PWSTR,
     pub dwPropertyID: u32,
     pub dwFlags: u32,
-    pub vtType: super::Com::VARENUM,
-    pub vValues: super::Com::VARIANT,
+    pub vtType: super::Variant::VARENUM,
+    pub vValues: super::Variant::VARIANT,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::TypeKind for DBPROPINFO {
     type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::default::Default for DBPROPINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct DBPROPINFOSET {
     pub rgPropertyInfos: *mut DBPROPINFO,
     pub cPropertyInfos: u32,
     pub guidPropertySet: ::windows_core::GUID,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::marker::Copy for DBPROPINFOSET {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for DBPROPINFOSET {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::TypeKind for DBPROPINFOSET {
     type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::default::Default for DBPROPINFOSET {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C, packed(2))]
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct DBPROPINFOSET {
     pub rgPropertyInfos: *mut DBPROPINFO,
     pub cPropertyInfos: u32,
     pub guidPropertySet: ::windows_core::GUID,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::marker::Copy for DBPROPINFOSET {}
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for DBPROPINFOSET {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::TypeKind for DBPROPINFOSET {
     type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::default::Default for DBPROPINFOSET {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct DBPROPSET {
     pub rgProperties: *mut DBPROP,
     pub cProperties: u32,
     pub guidPropertySet: ::windows_core::GUID,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::marker::Copy for DBPROPSET {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for DBPROPSET {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::TypeKind for DBPROPSET {
     type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::default::Default for DBPROPSET {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C, packed(2))]
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct DBPROPSET {
     pub rgProperties: *mut DBPROP,
     pub cProperties: u32,
     pub guidPropertySet: ::windows_core::GUID,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::marker::Copy for DBPROPSET {}
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for DBPROPSET {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::TypeKind for DBPROPSET {
     type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::default::Default for DBPROPSET {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -26760,23 +26887,23 @@ impl ::core::default::Default for DB_VARNUMERIC {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct DCINFO {
     pub eInfoType: u32,
-    pub vData: super::Com::VARIANT,
+    pub vData: super::Variant::VARIANT,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for DCINFO {
     fn clone(&self) -> Self {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::TypeKind for DCINFO {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::default::Default for DCINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -26969,34 +27096,23 @@ impl ::core::default::Default for INCREMENTAL_ACCESS_INFO {
     }
 }
 #[repr(C)]
-pub struct IRowsetExactScroll(pub u8);
-impl ::core::marker::Copy for IRowsetExactScroll {}
-impl ::core::clone::Clone for IRowsetExactScroll {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::windows_core::TypeKind for IRowsetExactScroll {
-    type TypeKind = ::windows_core::CopyType;
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct ITEMPROP {
-    pub variantValue: super::Com::VARIANT,
+    pub variantValue: super::Variant::VARIANT,
     pub pwszName: ::windows_core::PWSTR,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for ITEMPROP {
     fn clone(&self) -> Self {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::TypeKind for ITEMPROP {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::default::Default for ITEMPROP {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -27037,64 +27153,64 @@ impl ::core::default::Default for ITEM_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct KAGGETDIAG {
     pub ulSize: u32,
-    pub vDiagInfo: super::Com::VARIANT,
+    pub vDiagInfo: super::Variant::VARIANT,
     pub sDiagField: i16,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for KAGGETDIAG {
     fn clone(&self) -> Self {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::TypeKind for KAGGETDIAG {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::default::Default for KAGGETDIAG {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_System_Com\"`*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(feature = "Win32_System_Variant")]
 pub struct KAGREQDIAG {
     pub ulDiagFlags: u32,
-    pub vt: super::Com::VARENUM,
+    pub vt: super::Variant::VARENUM,
     pub sDiagField: i16,
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::marker::Copy for KAGREQDIAG {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::clone::Clone for KAGREQDIAG {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::fmt::Debug for KAGREQDIAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("KAGREQDIAG").field("ulDiagFlags", &self.ulDiagFlags).field("vt", &self.vt).field("sDiagField", &self.sDiagField).finish()
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::windows_core::TypeKind for KAGREQDIAG {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::cmp::PartialEq for KAGREQDIAG {
     fn eq(&self, other: &Self) -> bool {
         self.ulDiagFlags == other.ulDiagFlags && self.vt == other.vt && self.sDiagField == other.sDiagField
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::cmp::Eq for KAGREQDIAG {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::default::Default for KAGREQDIAG {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -27185,78 +27301,78 @@ impl ::core::default::Default for NATLANGUAGERESTRICTION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub struct NODERESTRICTION {
     pub cRes: u32,
     pub paRes: *mut *mut RESTRICTION,
     pub reserved: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::core::marker::Copy for NODERESTRICTION {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for NODERESTRICTION {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::core::fmt::Debug for NODERESTRICTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("NODERESTRICTION").field("cRes", &self.cRes).field("paRes", &self.paRes).field("reserved", &self.reserved).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::TypeKind for NODERESTRICTION {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::core::cmp::PartialEq for NODERESTRICTION {
     fn eq(&self, other: &Self) -> bool {
         self.cRes == other.cRes && self.paRes == other.paRes && self.reserved == other.reserved
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::core::cmp::Eq for NODERESTRICTION {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::core::default::Default for NODERESTRICTION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub struct NOTRESTRICTION {
     pub pRes: *mut RESTRICTION,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::core::marker::Copy for NOTRESTRICTION {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for NOTRESTRICTION {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::core::fmt::Debug for NOTRESTRICTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("NOTRESTRICTION").field("pRes", &self.pRes).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::TypeKind for NOTRESTRICTION {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::core::cmp::PartialEq for NOTRESTRICTION {
     fn eq(&self, other: &Self) -> bool {
         self.pRes == other.pRes
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::core::cmp::Eq for NOTRESTRICTION {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::core::default::Default for NOTRESTRICTION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -27326,24 +27442,24 @@ impl ::core::default::Default for ODBC_VS_ARGS_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub struct PROPERTYRESTRICTION {
     pub rel: u32,
     pub prop: super::super::Storage::IndexServer::FULLPROPSPEC,
     pub prval: super::Com::StructuredStorage::PROPVARIANT,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for PROPERTYRESTRICTION {
     fn clone(&self) -> Self {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::TypeKind for PROPERTYRESTRICTION {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::core::default::Default for PROPERTYRESTRICTION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -27394,71 +27510,71 @@ impl ::core::default::Default for PROXY_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub struct RANGECATEGORIZE {
     pub cRange: u32,
     pub aRangeBegin: *mut super::Com::StructuredStorage::PROPVARIANT,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::core::marker::Copy for RANGECATEGORIZE {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for RANGECATEGORIZE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::core::fmt::Debug for RANGECATEGORIZE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("RANGECATEGORIZE").field("cRange", &self.cRange).field("aRangeBegin", &self.aRangeBegin).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::TypeKind for RANGECATEGORIZE {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::core::cmp::PartialEq for RANGECATEGORIZE {
     fn eq(&self, other: &Self) -> bool {
         self.cRange == other.cRange && self.aRangeBegin == other.aRangeBegin
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::core::cmp::Eq for RANGECATEGORIZE {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::core::default::Default for RANGECATEGORIZE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub struct RESTRICTION {
     pub rt: u32,
     pub weight: u32,
     pub res: RESTRICTION_0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for RESTRICTION {
     fn clone(&self) -> Self {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::TypeKind for RESTRICTION {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::core::default::Default for RESTRICTION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub union RESTRICTION_0 {
     pub ar: NODERESTRICTION,
     pub orRestriction: NODERESTRICTION,
@@ -27469,33 +27585,33 @@ pub union RESTRICTION_0 {
     pub nlr: NATLANGUAGERESTRICTION,
     pub pr: ::std::mem::ManuallyDrop<PROPERTYRESTRICTION>,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for RESTRICTION_0 {
     fn clone(&self) -> Self {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::TypeKind for RESTRICTION_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::core::default::Default for RESTRICTION_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`*"]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct RMTPACK {
     pub pISeqStream: ::std::mem::ManuallyDrop<::core::option::Option<super::Com::ISequentialStream>>,
     pub cbData: u32,
     pub cBSTR: u32,
     pub rgBSTR: *mut ::windows_core::BSTR,
     pub cVARIANT: u32,
-    pub rgVARIANT: *mut super::Com::VARIANT,
+    pub rgVARIANT: *mut super::Variant::VARIANT,
     pub cIDISPATCH: u32,
     pub rgIDISPATCH: *mut ::core::option::Option<super::Com::IDispatch>,
     pub cIUNKNOWN: u32,
@@ -27503,38 +27619,38 @@ pub struct RMTPACK {
     pub cPROPVARIANT: u32,
     pub rgPROPVARIANT: *mut super::Com::StructuredStorage::PROPVARIANT,
     pub cArray: u32,
-    pub rgArray: *mut super::Com::VARIANT,
+    pub rgArray: *mut super::Variant::VARIANT,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for RMTPACK {
     fn clone(&self) -> Self {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::TypeKind for RMTPACK {
     type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::default::Default for RMTPACK {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C, packed(2))]
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`*"]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct RMTPACK {
     pub pISeqStream: ::std::mem::ManuallyDrop<::core::option::Option<super::Com::ISequentialStream>>,
     pub cbData: u32,
     pub cBSTR: u32,
     pub rgBSTR: *mut ::windows_core::BSTR,
     pub cVARIANT: u32,
-    pub rgVARIANT: *mut super::Com::VARIANT,
+    pub rgVARIANT: *mut super::Variant::VARIANT,
     pub cIDISPATCH: u32,
     pub rgIDISPATCH: *mut ::core::option::Option<super::Com::IDispatch>,
     pub cIUNKNOWN: u32,
@@ -27542,38 +27658,38 @@ pub struct RMTPACK {
     pub cPROPVARIANT: u32,
     pub rgPROPVARIANT: *mut super::Com::StructuredStorage::PROPVARIANT,
     pub cArray: u32,
-    pub rgArray: *mut super::Com::VARIANT,
+    pub rgArray: *mut super::Variant::VARIANT,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::TypeKind for RMTPACK {
     type TypeKind = ::windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::default::Default for RMTPACK {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub struct SEARCH_COLUMN_PROPERTIES {
     pub Value: super::Com::StructuredStorage::PROPVARIANT,
     pub lcid: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for SEARCH_COLUMN_PROPERTIES {
     fn clone(&self) -> Self {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::TypeKind for SEARCH_COLUMN_PROPERTIES {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::core::default::Default for SEARCH_COLUMN_PROPERTIES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -28679,39 +28795,39 @@ impl ::core::default::Default for TIME_STRUCT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub struct VECTORRESTRICTION {
     pub Node: NODERESTRICTION,
     pub RankMethod: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::core::marker::Copy for VECTORRESTRICTION {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for VECTORRESTRICTION {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::core::fmt::Debug for VECTORRESTRICTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("VECTORRESTRICTION").field("Node", &self.Node).field("RankMethod", &self.RankMethod).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::TypeKind for VECTORRESTRICTION {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::core::cmp::PartialEq for VECTORRESTRICTION {
     fn eq(&self, other: &Self) -> bool {
         self.Node == other.Node && self.RankMethod == other.RankMethod
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::core::cmp::Eq for VECTORRESTRICTION {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::core::default::Default for VECTORRESTRICTION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

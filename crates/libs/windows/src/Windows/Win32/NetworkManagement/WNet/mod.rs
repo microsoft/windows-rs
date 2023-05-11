@@ -1742,32 +1742,35 @@ impl ::core::default::Default for NOTIFYINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NetEnumHandle(pub isize);
-impl NetEnumHandle {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
+pub struct NetEnumHandle {
+    pub Value: isize,
 }
-impl ::core::default::Default for NetEnumHandle {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
+impl ::core::marker::Copy for NetEnumHandle {}
 impl ::core::clone::Clone for NetEnumHandle {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::marker::Copy for NetEnumHandle {}
 impl ::core::fmt::Debug for NetEnumHandle {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NetEnumHandle").field(&self.0).finish()
+        f.debug_struct("NetEnumHandle").field("Value", &self.Value).finish()
     }
 }
 impl ::windows_core::TypeKind for NetEnumHandle {
     type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::cmp::PartialEq for NetEnumHandle {
+    fn eq(&self, other: &Self) -> bool {
+        self.Value == other.Value
+    }
+}
+impl ::core::cmp::Eq for NetEnumHandle {}
+impl ::core::default::Default for NetEnumHandle {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]

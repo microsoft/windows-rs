@@ -1000,113 +1000,125 @@ impl ::core::default::Default for FILTER_VOLUME_STANDARD_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FilterFindHandle(pub isize);
-impl FilterFindHandle {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
+pub struct FilterFindHandle {
+    pub Value: isize,
 }
-impl ::core::default::Default for FilterFindHandle {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
+impl ::core::marker::Copy for FilterFindHandle {}
 impl ::core::clone::Clone for FilterFindHandle {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::marker::Copy for FilterFindHandle {}
 impl ::core::fmt::Debug for FilterFindHandle {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FilterFindHandle").field(&self.0).finish()
+        f.debug_struct("FilterFindHandle").field("Value", &self.Value).finish()
     }
 }
 impl ::windows_core::TypeKind for FilterFindHandle {
     type TypeKind = ::windows_core::CopyType;
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FilterInstanceFindHandle(pub isize);
-impl FilterInstanceFindHandle {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+impl ::core::cmp::PartialEq for FilterFindHandle {
+    fn eq(&self, other: &Self) -> bool {
+        self.Value == other.Value
     }
 }
-impl ::core::default::Default for FilterInstanceFindHandle {
+impl ::core::cmp::Eq for FilterFindHandle {}
+impl ::core::default::Default for FilterFindHandle {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
+pub struct FilterInstanceFindHandle {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for FilterInstanceFindHandle {}
 impl ::core::clone::Clone for FilterInstanceFindHandle {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::marker::Copy for FilterInstanceFindHandle {}
 impl ::core::fmt::Debug for FilterInstanceFindHandle {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FilterInstanceFindHandle").field(&self.0).finish()
+        f.debug_struct("FilterInstanceFindHandle").field("Value", &self.Value).finish()
     }
 }
 impl ::windows_core::TypeKind for FilterInstanceFindHandle {
     type TypeKind = ::windows_core::CopyType;
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FilterVolumeFindHandle(pub isize);
-impl FilterVolumeFindHandle {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+impl ::core::cmp::PartialEq for FilterInstanceFindHandle {
+    fn eq(&self, other: &Self) -> bool {
+        self.Value == other.Value
     }
 }
-impl ::core::default::Default for FilterVolumeFindHandle {
+impl ::core::cmp::Eq for FilterInstanceFindHandle {}
+impl ::core::default::Default for FilterInstanceFindHandle {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
+pub struct FilterVolumeFindHandle {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for FilterVolumeFindHandle {}
 impl ::core::clone::Clone for FilterVolumeFindHandle {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::marker::Copy for FilterVolumeFindHandle {}
 impl ::core::fmt::Debug for FilterVolumeFindHandle {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FilterVolumeFindHandle").field(&self.0).finish()
+        f.debug_struct("FilterVolumeFindHandle").field("Value", &self.Value).finish()
     }
 }
 impl ::windows_core::TypeKind for FilterVolumeFindHandle {
     type TypeKind = ::windows_core::CopyType;
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FilterVolumeInstanceFindHandle(pub isize);
-impl FilterVolumeInstanceFindHandle {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+impl ::core::cmp::PartialEq for FilterVolumeFindHandle {
+    fn eq(&self, other: &Self) -> bool {
+        self.Value == other.Value
     }
 }
-impl ::core::default::Default for FilterVolumeInstanceFindHandle {
+impl ::core::cmp::Eq for FilterVolumeFindHandle {}
+impl ::core::default::Default for FilterVolumeFindHandle {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
+pub struct FilterVolumeInstanceFindHandle {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for FilterVolumeInstanceFindHandle {}
 impl ::core::clone::Clone for FilterVolumeInstanceFindHandle {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::marker::Copy for FilterVolumeInstanceFindHandle {}
 impl ::core::fmt::Debug for FilterVolumeInstanceFindHandle {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FilterVolumeInstanceFindHandle").field(&self.0).finish()
+        f.debug_struct("FilterVolumeInstanceFindHandle").field("Value", &self.Value).finish()
     }
 }
 impl ::windows_core::TypeKind for FilterVolumeInstanceFindHandle {
     type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::cmp::PartialEq for FilterVolumeInstanceFindHandle {
+    fn eq(&self, other: &Self) -> bool {
+        self.Value == other.Value
+    }
+}
+impl ::core::cmp::Eq for FilterVolumeInstanceFindHandle {}
+impl ::core::default::Default for FilterVolumeInstanceFindHandle {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

@@ -1750,8 +1750,6 @@ pub const DXC_OUT_REFLECTION: DXC_OUT_KIND = DXC_OUT_KIND(8i32);
 pub const DXC_OUT_ROOT_SIGNATURE: DXC_OUT_KIND = DXC_OUT_KIND(9i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DXC_OUT_EXTRA_OUTPUTS: DXC_OUT_KIND = DXC_OUT_KIND(10i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_OUT_FORCE_DWORD: DXC_OUT_KIND = DXC_OUT_KIND(-1i32);
 impl ::core::marker::Copy for DXC_OUT_KIND {}
 impl ::core::clone::Clone for DXC_OUT_KIND {
     fn clone(&self) -> Self {

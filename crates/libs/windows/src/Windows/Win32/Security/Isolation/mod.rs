@@ -75,6 +75,14 @@ pub unsafe fn GetAppContainerRegistryLocation(desiredaccess: u32) -> ::windows_c
 #[doc = "*Required features: `\"Win32_Security_Isolation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
+pub unsafe fn IsCrossIsolatedEnvironmentClipboardContent() -> ::windows_core::Result<super::super::Foundation::BOOL> {
+    ::windows_targets::link!("isolatedwindowsenvironmentutils.dll" "system" fn IsCrossIsolatedEnvironmentClipboardContent(iscrossisolatedenvironmentclipboardcontent : *mut super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+    IsCrossIsolatedEnvironmentClipboardContent(&mut result__).from_abi(result__)
+}
+#[doc = "*Required features: `\"Win32_Security_Isolation\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IsProcessInIsolatedContainer() -> ::windows_core::Result<super::super::Foundation::BOOL> {
     ::windows_targets::link!("api-ms-win-security-isolatedcontainer-l1-1-0.dll" "system" fn IsProcessInIsolatedContainer(isprocessinisolatedcontainer : *mut super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
     let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();

@@ -81,6 +81,17 @@ where
     ::windows_targets::link!("dnsapi.dll" "system" fn DnsConnectionGetProxyInfoForHostUrl(pwszhosturl : ::windows_core::PCWSTR, pselectioncontext : *const u8, dwselectioncontextlength : u32, dwexplicitinterfaceindex : u32, pproxyinfoex : *mut DNS_CONNECTION_PROXY_INFO_EX) -> u32);
     DnsConnectionGetProxyInfoForHostUrl(pwszhosturl.into_param().abi(), ::core::mem::transmute(pselectioncontext.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pselectioncontext.as_deref().map_or(0, |slice| slice.len() as _), dwexplicitinterfaceindex, pproxyinfoex)
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn DnsConnectionGetProxyInfoForHostUrlEx<P0, P1>(pwszhosturl: P0, pselectioncontext: ::core::option::Option<&[u8]>, dwexplicitinterfaceindex: u32, pwszconnectionname: P1, pproxyinfoex: *mut DNS_CONNECTION_PROXY_INFO_EX) -> u32
+where
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+{
+    ::windows_targets::link!("dnsapi.dll" "system" fn DnsConnectionGetProxyInfoForHostUrlEx(pwszhosturl : ::windows_core::PCWSTR, pselectioncontext : *const u8, dwselectioncontextlength : u32, dwexplicitinterfaceindex : u32, pwszconnectionname : ::windows_core::PCWSTR, pproxyinfoex : *mut DNS_CONNECTION_PROXY_INFO_EX) -> u32);
+    DnsConnectionGetProxyInfoForHostUrlEx(pwszhosturl.into_param().abi(), ::core::mem::transmute(pselectioncontext.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pselectioncontext.as_deref().map_or(0, |slice| slice.len() as _), dwexplicitinterfaceindex, pwszconnectionname.into_param().abi(), pproxyinfoex)
+}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 #[inline]
 pub unsafe fn DnsConnectionGetProxyList<P0>(pwszconnectionname: P0, pproxylist: *mut DNS_CONNECTION_PROXY_LIST) -> u32
@@ -4784,32 +4795,35 @@ impl ::core::default::Default for DNS_WKS_DATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DnsContextHandle(pub isize);
-impl DnsContextHandle {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub struct DnsContextHandle {
+    pub Value: isize,
 }
-impl ::core::default::Default for DnsContextHandle {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
+impl ::core::marker::Copy for DnsContextHandle {}
 impl ::core::clone::Clone for DnsContextHandle {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::marker::Copy for DnsContextHandle {}
 impl ::core::fmt::Debug for DnsContextHandle {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DnsContextHandle").field(&self.0).finish()
+        f.debug_struct("DnsContextHandle").field("Value", &self.Value).finish()
     }
 }
 impl ::windows_core::TypeKind for DnsContextHandle {
     type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::cmp::PartialEq for DnsContextHandle {
+    fn eq(&self, other: &Self) -> bool {
+        self.Value == other.Value
+    }
+}
+impl ::core::cmp::Eq for DnsContextHandle {}
+impl ::core::default::Default for DnsContextHandle {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]

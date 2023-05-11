@@ -8,8 +8,8 @@ pub mod DirectSound;
 pub mod Endpoints;
 #[cfg(feature = "Win32_Media_Audio_XAudio2")]
 pub mod XAudio2;
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn ActivateAudioInterfaceAsync<P0, P1>(deviceinterfacepath: P0, riid: *const ::windows_core::GUID, activationparams: ::core::option::Option<*const super::super::System::Com::StructuredStorage::PROPVARIANT>, completionhandler: P1) -> ::windows_core::Result<IActivateAudioInterfaceAsyncOperation>
 where
@@ -116,23 +116,23 @@ where
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmDriverAddA<P0, P1>(phadid: *mut isize, hinstmodule: P0, lparam: P1, dwpriority: u32, fdwadd: u32) -> u32
+pub unsafe fn acmDriverAddA<P0, P1>(phadid: *mut HACMDRIVERID, hinstmodule: P0, lparam: P1, dwpriority: u32, fdwadd: u32) -> u32
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HMODULE>,
     P1: ::windows_core::IntoParam<super::super::Foundation::LPARAM>,
 {
-    ::windows_targets::link!("msacm32.dll" "system" fn acmDriverAddA(phadid : *mut isize, hinstmodule : super::super::Foundation:: HMODULE, lparam : super::super::Foundation:: LPARAM, dwpriority : u32, fdwadd : u32) -> u32);
+    ::windows_targets::link!("msacm32.dll" "system" fn acmDriverAddA(phadid : *mut HACMDRIVERID, hinstmodule : super::super::Foundation:: HMODULE, lparam : super::super::Foundation:: LPARAM, dwpriority : u32, fdwadd : u32) -> u32);
     acmDriverAddA(phadid, hinstmodule.into_param().abi(), lparam.into_param().abi(), dwpriority, fdwadd)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmDriverAddW<P0, P1>(phadid: *mut isize, hinstmodule: P0, lparam: P1, dwpriority: u32, fdwadd: u32) -> u32
+pub unsafe fn acmDriverAddW<P0, P1>(phadid: *mut HACMDRIVERID, hinstmodule: P0, lparam: P1, dwpriority: u32, fdwadd: u32) -> u32
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HMODULE>,
     P1: ::windows_core::IntoParam<super::super::Foundation::LPARAM>,
 {
-    ::windows_targets::link!("msacm32.dll" "system" fn acmDriverAddW(phadid : *mut isize, hinstmodule : super::super::Foundation:: HMODULE, lparam : super::super::Foundation:: LPARAM, dwpriority : u32, fdwadd : u32) -> u32);
+    ::windows_targets::link!("msacm32.dll" "system" fn acmDriverAddW(phadid : *mut HACMDRIVERID, hinstmodule : super::super::Foundation:: HMODULE, lparam : super::super::Foundation:: LPARAM, dwpriority : u32, fdwadd : u32) -> u32);
     acmDriverAddW(phadid, hinstmodule.into_param().abi(), lparam.into_param().abi(), dwpriority, fdwadd)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -173,11 +173,11 @@ pub unsafe fn acmDriverEnum(fncallback: ACMDRIVERENUMCB, dwinstance: usize, fdwe
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn acmDriverID<P0>(hao: P0, phadid: *mut isize, fdwdriverid: u32) -> u32
+pub unsafe fn acmDriverID<P0>(hao: P0, phadid: *mut HACMDRIVERID, fdwdriverid: u32) -> u32
 where
     P0: ::windows_core::IntoParam<HACMOBJ>,
 {
-    ::windows_targets::link!("msacm32.dll" "system" fn acmDriverID(hao : HACMOBJ, phadid : *mut isize, fdwdriverid : u32) -> u32);
+    ::windows_targets::link!("msacm32.dll" "system" fn acmDriverID(hao : HACMOBJ, phadid : *mut HACMDRIVERID, fdwdriverid : u32) -> u32);
     acmDriverID(hao.into_param().abi(), phadid, fdwdriverid)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
@@ -194,11 +194,11 @@ where
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn acmDriverOpen<P0>(phad: *mut isize, hadid: P0, fdwopen: u32) -> u32
+pub unsafe fn acmDriverOpen<P0>(phad: *mut HACMDRIVER, hadid: P0, fdwopen: u32) -> u32
 where
     P0: ::windows_core::IntoParam<HACMDRIVERID>,
 {
-    ::windows_targets::link!("msacm32.dll" "system" fn acmDriverOpen(phad : *mut isize, hadid : HACMDRIVERID, fdwopen : u32) -> u32);
+    ::windows_targets::link!("msacm32.dll" "system" fn acmDriverOpen(phad : *mut HACMDRIVER, hadid : HACMDRIVERID, fdwopen : u32) -> u32);
     acmDriverOpen(phad, hadid.into_param().abi(), fdwopen)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -455,11 +455,11 @@ where
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn acmStreamOpen<P0>(phas: *mut isize, had: P0, pwfxsrc: *mut WAVEFORMATEX, pwfxdst: *mut WAVEFORMATEX, pwfltr: *mut WAVEFILTER, dwcallback: usize, dwinstance: usize, fdwopen: u32) -> u32
+pub unsafe fn acmStreamOpen<P0>(phas: *mut HACMSTREAM, had: P0, pwfxsrc: *mut WAVEFORMATEX, pwfxdst: *mut WAVEFORMATEX, pwfltr: *mut WAVEFILTER, dwcallback: usize, dwinstance: usize, fdwopen: u32) -> u32
 where
     P0: ::windows_core::IntoParam<HACMDRIVER>,
 {
-    ::windows_targets::link!("msacm32.dll" "system" fn acmStreamOpen(phas : *mut isize, had : HACMDRIVER, pwfxsrc : *mut WAVEFORMATEX, pwfxdst : *mut WAVEFORMATEX, pwfltr : *mut WAVEFILTER, dwcallback : usize, dwinstance : usize, fdwopen : u32) -> u32);
+    ::windows_targets::link!("msacm32.dll" "system" fn acmStreamOpen(phas : *mut HACMSTREAM, had : HACMDRIVER, pwfxsrc : *mut WAVEFORMATEX, pwfxdst : *mut WAVEFORMATEX, pwfltr : *mut WAVEFILTER, dwcallback : usize, dwinstance : usize, fdwopen : u32) -> u32);
     acmStreamOpen(phas, had.into_param().abi(), pwfxsrc, pwfxdst, pwfltr, dwcallback, dwinstance, fdwopen)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -987,8 +987,8 @@ where
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn mixerOpen(phmx: ::core::option::Option<*mut isize>, umxid: u32, dwcallback: usize, dwinstance: usize, fdwopen: u32) -> u32 {
-    ::windows_targets::link!("winmm.dll" "system" fn mixerOpen(phmx : *mut isize, umxid : u32, dwcallback : usize, dwinstance : usize, fdwopen : u32) -> u32);
+pub unsafe fn mixerOpen(phmx: ::core::option::Option<*mut HMIXER>, umxid: u32, dwcallback: usize, dwinstance: usize, fdwopen: u32) -> u32 {
+    ::windows_targets::link!("winmm.dll" "system" fn mixerOpen(phmx : *mut HMIXER, umxid : u32, dwcallback : usize, dwinstance : usize, fdwopen : u32) -> u32);
     mixerOpen(::core::mem::transmute(phmx.unwrap_or(::std::ptr::null_mut())), umxid, dwcallback, dwinstance, fdwopen)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
@@ -3903,58 +3903,10 @@ pub struct IDeviceTopology_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
-pub struct IKsJackDescription3(::windows_core::IUnknown);
-impl IKsJackDescription3 {
-    pub unsafe fn GetJackCount(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
-        (::windows_core::Interface::vtable(self).GetJackCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
-    }
-    #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-    #[cfg(feature = "Win32_Media_KernelStreaming")]
-    pub unsafe fn GetJackDescription3(&self, njack: u32) -> ::windows_core::Result<super::KernelStreaming::KSJACK_DESCRIPTION3> {
-        let mut result__ = ::windows_core::zeroed::<super::KernelStreaming::KSJACK_DESCRIPTION3>();
-        (::windows_core::Interface::vtable(self).GetJackDescription3)(::windows_core::Interface::as_raw(self), njack, &mut result__).from_abi(result__)
-    }
-}
-::windows_core::imp::interface_hierarchy!(IKsJackDescription3, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IKsJackDescription3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IKsJackDescription3 {}
-impl ::core::fmt::Debug for IKsJackDescription3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IKsJackDescription3").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows_core::Interface for IKsJackDescription3 {
-    type Vtable = IKsJackDescription3_Vtbl;
-}
-impl ::core::clone::Clone for IKsJackDescription3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-unsafe impl ::windows_core::ComInterface for IKsJackDescription3 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe3f6778b_6660_4cc8_a291_ecc4192d9967);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IKsJackDescription3_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetJackCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcjacks: *mut u32) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Media_KernelStreaming")]
-    pub GetJackDescription3: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, njack: u32, pdescription3: *mut super::KernelStreaming::KSJACK_DESCRIPTION3) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Media_KernelStreaming"))]
-    GetJackDescription3: usize,
-}
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-#[repr(transparent)]
 pub struct IMMDevice(::windows_core::IUnknown);
 impl IMMDevice {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn Activate<T>(&self, dwclsctx: super::super::System::Com::CLSCTX, pactivationparams: ::core::option::Option<*const super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows_core::Result<T>
     where
         T: ::windows_core::ComInterface,
@@ -4004,9 +3956,9 @@ unsafe impl ::windows_core::ComInterface for IMMDevice {
 #[doc(hidden)]
 pub struct IMMDevice_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub Activate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: *const ::windows_core::GUID, dwclsctx: super::super::System::Com::CLSCTX, pactivationparams: *const super::super::System::Com::StructuredStorage::PROPVARIANT, ppinterface: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
     Activate: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub OpenPropertyStore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stgmaccess: super::super::System::Com::STGM, ppproperties: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -4019,8 +3971,8 @@ pub struct IMMDevice_Vtbl {
 #[repr(transparent)]
 pub struct IMMDeviceActivator(::windows_core::IUnknown);
 impl IMMDeviceActivator {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn Activate<P0>(&self, iid: *const ::windows_core::GUID, pdevice: P0, pactivationparams: ::core::option::Option<*const super::super::System::Com::StructuredStorage::PROPVARIANT>, ppinterface: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<IMMDevice>,
@@ -4055,9 +4007,9 @@ unsafe impl ::windows_core::ComInterface for IMMDeviceActivator {
 #[doc(hidden)]
 pub struct IMMDeviceActivator_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub Activate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: *const ::windows_core::GUID, pdevice: *mut ::core::ffi::c_void, pactivationparams: *const super::super::System::Com::StructuredStorage::PROPVARIANT, ppinterface: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
     Activate: usize,
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -4631,13 +4583,13 @@ impl ISpatialAudioClient {
     pub unsafe fn IsAudioObjectFormatSupported(&self, objectformat: *const WAVEFORMATEX) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).IsAudioObjectFormatSupported)(::windows_core::Interface::as_raw(self), objectformat).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn IsSpatialAudioStreamAvailable(&self, streamuuid: *const ::windows_core::GUID, auxiliaryinfo: ::core::option::Option<*const super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).IsSpatialAudioStreamAvailable)(::windows_core::Interface::as_raw(self), streamuuid, ::core::mem::transmute(auxiliaryinfo.unwrap_or(::std::ptr::null()))).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn ActivateSpatialAudioStream<T>(&self, activationparams: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<T>
     where
         T: ::windows_core::ComInterface,
@@ -4679,13 +4631,13 @@ pub struct ISpatialAudioClient_Vtbl {
     pub GetSupportedAudioObjectFormatEnumerator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enumerator: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetMaxFrameCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, objectformat: *const WAVEFORMATEX, framecountperbuffer: *mut u32) -> ::windows_core::HRESULT,
     pub IsAudioObjectFormatSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, objectformat: *const WAVEFORMATEX) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub IsSpatialAudioStreamAvailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, streamuuid: *const ::windows_core::GUID, auxiliaryinfo: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
     IsSpatialAudioStreamAvailable: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub ActivateSpatialAudioStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activationparams: *const super::super::System::Com::StructuredStorage::PROPVARIANT, riid: *const ::windows_core::GUID, stream: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
     ActivateSpatialAudioStream: usize,
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -4714,13 +4666,13 @@ impl ISpatialAudioClient2 {
     pub unsafe fn IsAudioObjectFormatSupported(&self, objectformat: *const WAVEFORMATEX) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.IsAudioObjectFormatSupported)(::windows_core::Interface::as_raw(self), objectformat).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn IsSpatialAudioStreamAvailable(&self, streamuuid: *const ::windows_core::GUID, auxiliaryinfo: ::core::option::Option<*const super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.IsSpatialAudioStreamAvailable)(::windows_core::Interface::as_raw(self), streamuuid, ::core::mem::transmute(auxiliaryinfo.unwrap_or(::std::ptr::null()))).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn ActivateSpatialAudioStream<T>(&self, activationparams: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<T>
     where
         T: ::windows_core::ComInterface,
@@ -10656,8 +10608,8 @@ impl ::core::default::Default for SpatialAudioObjectRenderStreamActivationParams
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams {
     pub ObjectFormat: *const WAVEFORMATEX,
     pub StaticObjectTypeMask: AudioObjectType,
@@ -10670,19 +10622,19 @@ pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams {
     pub MetadataActivationParams: *const super::super::System::Com::StructuredStorage::PROPVARIANT,
     pub NotifyObject: ::std::mem::ManuallyDrop<::core::option::Option<ISpatialAudioObjectRenderStreamNotify>>,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::TypeKind for SpatialAudioObjectRenderStreamForMetadataActivationParams {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::core::default::Default for SpatialAudioObjectRenderStreamForMetadataActivationParams {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams2 {
     pub ObjectFormat: *const WAVEFORMATEX,
     pub StaticObjectTypeMask: AudioObjectType,
@@ -10696,11 +10648,11 @@ pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams2 {
     pub NotifyObject: ::std::mem::ManuallyDrop<::core::option::Option<ISpatialAudioObjectRenderStreamNotify>>,
     pub Options: SPATIAL_AUDIO_STREAM_OPTIONS,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::TypeKind for SpatialAudioObjectRenderStreamForMetadataActivationParams2 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::core::default::Default for SpatialAudioObjectRenderStreamForMetadataActivationParams2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

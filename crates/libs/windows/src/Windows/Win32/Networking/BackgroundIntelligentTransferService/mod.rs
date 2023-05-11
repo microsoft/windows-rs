@@ -958,15 +958,15 @@ pub struct IBackgroundCopyFile6_Vtbl {
 #[repr(transparent)]
 pub struct IBackgroundCopyGroup(::windows_core::IUnknown);
 impl IBackgroundCopyGroup {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetProp(&self, propid: GROUPPROP) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetProp(&self, propid: GROUPPROP) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).GetProp)(::windows_core::Interface::as_raw(self), propid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetProp(&self, propid: GROUPPROP, pvarval: *const super::super::System::Com::VARIANT) -> ::windows_core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn SetProp(&self, propid: GROUPPROP, pvarval: *const super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetProp)(::windows_core::Interface::as_raw(self), propid, pvarval).ok()
     }
     pub unsafe fn GetProgress(&self, dwflags: u32) -> ::windows_core::Result<u32> {
@@ -1046,13 +1046,13 @@ unsafe impl ::windows_core::ComInterface for IBackgroundCopyGroup {
 #[doc(hidden)]
 pub struct IBackgroundCopyGroup_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetProp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propid: GROUPPROP, pvarval: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub GetProp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propid: GROUPPROP, pvarval: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetProp: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetProp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propid: GROUPPROP, pvarval: *const super::super::System::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub SetProp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propid: GROUPPROP, pvarval: *const super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     SetProp: usize,
     pub GetProgress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, pdwprogress: *mut u32) -> ::windows_core::HRESULT,
     pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwstatus: *mut u32, pdwjobindex: *mut u32) -> ::windows_core::HRESULT,
@@ -2944,8 +2944,8 @@ pub struct IBitsTokenOptions_Vtbl {
 #[repr(transparent)]
 pub struct IEnumBackgroundCopyFiles(::windows_core::IUnknown);
 impl IEnumBackgroundCopyFiles {
-    pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<IBackgroundCopyFile>, pceltfetched: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), celt, ::core::mem::transmute(rgelt), pceltfetched).ok()
+    pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<IBackgroundCopyFile>], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), celt).ok()
@@ -3054,8 +3054,8 @@ pub struct IEnumBackgroundCopyGroups_Vtbl {
 #[repr(transparent)]
 pub struct IEnumBackgroundCopyJobs(::windows_core::IUnknown);
 impl IEnumBackgroundCopyJobs {
-    pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<IBackgroundCopyJob>, pceltfetched: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), celt, ::core::mem::transmute(rgelt), pceltfetched).ok()
+    pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<IBackgroundCopyJob>], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), celt).ok()
@@ -3164,8 +3164,8 @@ pub struct IEnumBackgroundCopyJobs1_Vtbl {
 #[repr(transparent)]
 pub struct IEnumBitsPeerCacheRecords(::windows_core::IUnknown);
 impl IEnumBitsPeerCacheRecords {
-    pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<IBitsPeerCacheRecord>, pceltfetched: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), celt, ::core::mem::transmute(rgelt), pceltfetched).ok()
+    pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<IBitsPeerCacheRecord>], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), celt).ok()
@@ -3219,8 +3219,8 @@ pub struct IEnumBitsPeerCacheRecords_Vtbl {
 #[repr(transparent)]
 pub struct IEnumBitsPeers(::windows_core::IUnknown);
 impl IEnumBitsPeers {
-    pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<IBitsPeer>, pceltfetched: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), celt, ::core::mem::transmute(rgelt), pceltfetched).ok()
+    pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<IBitsPeer>], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), celt).ok()

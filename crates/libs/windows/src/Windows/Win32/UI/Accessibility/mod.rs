@@ -19,31 +19,31 @@ where
     ::windows_targets::link!("oleacc.dll" "system" fn AccSetRunningUtilityState(hwndapp : super::super::Foundation:: HWND, dwutilitystatemask : u32, dwutilitystate : ACC_UTILITY_STATE_FLAGS) -> ::windows_core::HRESULT);
     AccSetRunningUtilityState(hwndapp.into_param().abi(), dwutilitystatemask, dwutilitystate).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn AccessibleChildren<P0>(pacccontainer: P0, ichildstart: i32, rgvarchildren: &mut [super::super::System::Com::VARIANT], pcobtained: *mut i32) -> ::windows_core::Result<()>
+pub unsafe fn AccessibleChildren<P0>(pacccontainer: P0, ichildstart: i32, rgvarchildren: &mut [super::super::System::Variant::VARIANT], pcobtained: *mut i32) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<IAccessible>,
 {
-    ::windows_targets::link!("oleacc.dll" "system" fn AccessibleChildren(pacccontainer : * mut::core::ffi::c_void, ichildstart : i32, cchildren : i32, rgvarchildren : *mut super::super::System::Com:: VARIANT, pcobtained : *mut i32) -> ::windows_core::HRESULT);
+    ::windows_targets::link!("oleacc.dll" "system" fn AccessibleChildren(pacccontainer : * mut::core::ffi::c_void, ichildstart : i32, cchildren : i32, rgvarchildren : *mut super::super::System::Variant:: VARIANT, pcobtained : *mut i32) -> ::windows_core::HRESULT);
     AccessibleChildren(pacccontainer.into_param().abi(), ichildstart, rgvarchildren.len() as _, ::core::mem::transmute(rgvarchildren.as_ptr()), pcobtained).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn AccessibleObjectFromEvent<P0>(hwnd: P0, dwid: u32, dwchildid: u32, ppacc: *mut ::core::option::Option<IAccessible>, pvarchild: *mut super::super::System::Com::VARIANT) -> ::windows_core::Result<()>
+pub unsafe fn AccessibleObjectFromEvent<P0>(hwnd: P0, dwid: u32, dwchildid: u32, ppacc: *mut ::core::option::Option<IAccessible>, pvarchild: *mut super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("oleacc.dll" "system" fn AccessibleObjectFromEvent(hwnd : super::super::Foundation:: HWND, dwid : u32, dwchildid : u32, ppacc : *mut * mut::core::ffi::c_void, pvarchild : *mut super::super::System::Com:: VARIANT) -> ::windows_core::HRESULT);
+    ::windows_targets::link!("oleacc.dll" "system" fn AccessibleObjectFromEvent(hwnd : super::super::Foundation:: HWND, dwid : u32, dwchildid : u32, ppacc : *mut * mut::core::ffi::c_void, pvarchild : *mut super::super::System::Variant:: VARIANT) -> ::windows_core::HRESULT);
     AccessibleObjectFromEvent(hwnd.into_param().abi(), dwid, dwchildid, ::core::mem::transmute(ppacc), pvarchild).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn AccessibleObjectFromPoint(ptscreen: super::super::Foundation::POINT, ppacc: *mut ::core::option::Option<IAccessible>, pvarchild: *mut super::super::System::Com::VARIANT) -> ::windows_core::Result<()> {
-    ::windows_targets::link!("oleacc.dll" "system" fn AccessibleObjectFromPoint(ptscreen : super::super::Foundation:: POINT, ppacc : *mut * mut::core::ffi::c_void, pvarchild : *mut super::super::System::Com:: VARIANT) -> ::windows_core::HRESULT);
+pub unsafe fn AccessibleObjectFromPoint(ptscreen: super::super::Foundation::POINT, ppacc: *mut ::core::option::Option<IAccessible>, pvarchild: *mut super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("oleacc.dll" "system" fn AccessibleObjectFromPoint(ptscreen : super::super::Foundation:: POINT, ppacc : *mut * mut::core::ffi::c_void, pvarchild : *mut super::super::System::Variant:: VARIANT) -> ::windows_core::HRESULT);
     AccessibleObjectFromPoint(::core::mem::transmute(ptscreen), ::core::mem::transmute(ppacc), pvarchild).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
@@ -170,15 +170,15 @@ pub unsafe fn IsWinEventHookInstalled(event: u32) -> super::super::Foundation::B
     ::windows_targets::link!("user32.dll" "system" fn IsWinEventHookInstalled(event : u32) -> super::super::Foundation:: BOOL);
     IsWinEventHookInstalled(event)
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn ItemContainerPattern_FindItemByProperty<P0, P1>(hobj: P0, hnodestartafter: P1, propertyid: i32, value: super::super::System::Com::VARIANT, pfound: *mut HUIANODE) -> ::windows_core::Result<()>
+pub unsafe fn ItemContainerPattern_FindItemByProperty<P0, P1>(hobj: P0, hnodestartafter: P1, propertyid: i32, value: super::super::System::Variant::VARIANT, pfound: *mut HUIANODE) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<HUIAPATTERNOBJECT>,
     P1: ::windows_core::IntoParam<HUIANODE>,
 {
-    ::windows_targets::link!("uiautomationcore.dll" "system" fn ItemContainerPattern_FindItemByProperty(hobj : HUIAPATTERNOBJECT, hnodestartafter : HUIANODE, propertyid : i32, value : super::super::System::Com:: VARIANT, pfound : *mut HUIANODE) -> ::windows_core::HRESULT);
+    ::windows_targets::link!("uiautomationcore.dll" "system" fn ItemContainerPattern_FindItemByProperty(hobj : HUIAPATTERNOBJECT, hnodestartafter : HUIANODE, propertyid : i32, value : super::super::System::Variant:: VARIANT, pfound : *mut HUIANODE) -> ::windows_core::HRESULT);
     ItemContainerPattern_FindItemByProperty(hobj.into_param().abi(), hnodestartafter.into_param().abi(), propertyid, ::core::mem::transmute(value), pfound).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -487,15 +487,15 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_ExpandToEnclosingUnit(hobj : HUIATEXTRANGE, unit : TextUnit) -> ::windows_core::HRESULT);
     TextRange_ExpandToEnclosingUnit(hobj.into_param().abi(), unit).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn TextRange_FindAttribute<P0, P1>(hobj: P0, attributeid: i32, val: super::super::System::Com::VARIANT, backward: P1, pretval: *mut HUIATEXTRANGE) -> ::windows_core::Result<()>
+pub unsafe fn TextRange_FindAttribute<P0, P1>(hobj: P0, attributeid: i32, val: super::super::System::Variant::VARIANT, backward: P1, pretval: *mut HUIATEXTRANGE) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<HUIATEXTRANGE>,
     P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_FindAttribute(hobj : HUIATEXTRANGE, attributeid : i32, val : super::super::System::Com:: VARIANT, backward : super::super::Foundation:: BOOL, pretval : *mut HUIATEXTRANGE) -> ::windows_core::HRESULT);
+    ::windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_FindAttribute(hobj : HUIATEXTRANGE, attributeid : i32, val : super::super::System::Variant:: VARIANT, backward : super::super::Foundation:: BOOL, pretval : *mut HUIATEXTRANGE) -> ::windows_core::HRESULT);
     TextRange_FindAttribute(hobj.into_param().abi(), attributeid, ::core::mem::transmute(val), backward.into_param().abi(), pretval).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
@@ -511,14 +511,14 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_FindText(hobj : HUIATEXTRANGE, text : ::std::mem::MaybeUninit <::windows_core::BSTR >, backward : super::super::Foundation:: BOOL, ignorecase : super::super::Foundation:: BOOL, pretval : *mut HUIATEXTRANGE) -> ::windows_core::HRESULT);
     TextRange_FindText(hobj.into_param().abi(), text.into_param().abi(), backward.into_param().abi(), ignorecase.into_param().abi(), pretval).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn TextRange_GetAttributeValue<P0>(hobj: P0, attributeid: i32, pretval: *mut super::super::System::Com::VARIANT) -> ::windows_core::Result<()>
+pub unsafe fn TextRange_GetAttributeValue<P0>(hobj: P0, attributeid: i32, pretval: *mut super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<HUIATEXTRANGE>,
 {
-    ::windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_GetAttributeValue(hobj : HUIATEXTRANGE, attributeid : i32, pretval : *mut super::super::System::Com:: VARIANT) -> ::windows_core::HRESULT);
+    ::windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_GetAttributeValue(hobj : HUIATEXTRANGE, attributeid : i32, pretval : *mut super::super::System::Variant:: VARIANT) -> ::windows_core::HRESULT);
     TextRange_GetAttributeValue(hobj.into_param().abi(), attributeid, pretval).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
@@ -732,14 +732,14 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaGetPatternProvider(hnode : HUIANODE, patternid : i32, phobj : *mut HUIAPATTERNOBJECT) -> ::windows_core::HRESULT);
     UiaGetPatternProvider(hnode.into_param().abi(), patternid, phobj).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn UiaGetPropertyValue<P0>(hnode: P0, propertyid: i32, pvalue: *mut super::super::System::Com::VARIANT) -> ::windows_core::Result<()>
+pub unsafe fn UiaGetPropertyValue<P0>(hnode: P0, propertyid: i32, pvalue: *mut super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<HUIANODE>,
 {
-    ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaGetPropertyValue(hnode : HUIANODE, propertyid : i32, pvalue : *mut super::super::System::Com:: VARIANT) -> ::windows_core::HRESULT);
+    ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaGetPropertyValue(hnode : HUIANODE, propertyid : i32, pvalue : *mut super::super::System::Variant:: VARIANT) -> ::windows_core::HRESULT);
     UiaGetPropertyValue(hnode.into_param().abi(), propertyid, pvalue).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -782,25 +782,25 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaGetUpdatedCache(hnode : HUIANODE, prequest : *mut UiaCacheRequest, normalizestate : NormalizeState, pnormalizecondition : *mut UiaCondition, pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY, pptreestructure : *mut ::std::mem::MaybeUninit <::windows_core::BSTR >) -> ::windows_core::HRESULT);
     UiaGetUpdatedCache(hnode.into_param().abi(), prequest, normalizestate, pnormalizecondition, pprequesteddata, ::core::mem::transmute(pptreestructure)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn UiaHPatternObjectFromVariant(pvar: *mut super::super::System::Com::VARIANT, phobj: *mut HUIAPATTERNOBJECT) -> ::windows_core::Result<()> {
-    ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaHPatternObjectFromVariant(pvar : *mut super::super::System::Com:: VARIANT, phobj : *mut HUIAPATTERNOBJECT) -> ::windows_core::HRESULT);
+pub unsafe fn UiaHPatternObjectFromVariant(pvar: *mut super::super::System::Variant::VARIANT, phobj: *mut HUIAPATTERNOBJECT) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaHPatternObjectFromVariant(pvar : *mut super::super::System::Variant:: VARIANT, phobj : *mut HUIAPATTERNOBJECT) -> ::windows_core::HRESULT);
     UiaHPatternObjectFromVariant(pvar, phobj).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn UiaHTextRangeFromVariant(pvar: *mut super::super::System::Com::VARIANT, phtextrange: *mut HUIATEXTRANGE) -> ::windows_core::Result<()> {
-    ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaHTextRangeFromVariant(pvar : *mut super::super::System::Com:: VARIANT, phtextrange : *mut HUIATEXTRANGE) -> ::windows_core::HRESULT);
+pub unsafe fn UiaHTextRangeFromVariant(pvar: *mut super::super::System::Variant::VARIANT, phtextrange: *mut HUIATEXTRANGE) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaHTextRangeFromVariant(pvar : *mut super::super::System::Variant:: VARIANT, phtextrange : *mut HUIATEXTRANGE) -> ::windows_core::HRESULT);
     UiaHTextRangeFromVariant(pvar, phtextrange).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn UiaHUiaNodeFromVariant(pvar: *mut super::super::System::Com::VARIANT, phnode: *mut HUIANODE) -> ::windows_core::Result<()> {
-    ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaHUiaNodeFromVariant(pvar : *mut super::super::System::Com:: VARIANT, phnode : *mut HUIANODE) -> ::windows_core::HRESULT);
+pub unsafe fn UiaHUiaNodeFromVariant(pvar: *mut super::super::System::Variant::VARIANT, phnode: *mut HUIANODE) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaHUiaNodeFromVariant(pvar : *mut super::super::System::Variant:: VARIANT, phnode : *mut HUIANODE) -> ::windows_core::HRESULT);
     UiaHUiaNodeFromVariant(pvar, phnode).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
@@ -824,14 +824,14 @@ where
     let mut result__ = ::windows_core::zeroed::<IRawElementProviderSimple>();
     UiaHostProviderFromHwnd(hwnd.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn UiaIAccessibleFromProvider<P0>(pprovider: P0, dwflags: u32, ppaccessible: *mut ::core::option::Option<IAccessible>, pvarchild: *mut super::super::System::Com::VARIANT) -> ::windows_core::Result<()>
+pub unsafe fn UiaIAccessibleFromProvider<P0>(pprovider: P0, dwflags: u32, ppaccessible: *mut ::core::option::Option<IAccessible>, pvarchild: *mut super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<IRawElementProviderSimple>,
 {
-    ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaIAccessibleFromProvider(pprovider : * mut::core::ffi::c_void, dwflags : u32, ppaccessible : *mut * mut::core::ffi::c_void, pvarchild : *mut super::super::System::Com:: VARIANT) -> ::windows_core::HRESULT);
+    ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaIAccessibleFromProvider(pprovider : * mut::core::ffi::c_void, dwflags : u32, ppaccessible : *mut * mut::core::ffi::c_void, pvarchild : *mut super::super::System::Variant:: VARIANT) -> ::windows_core::HRESULT);
     UiaIAccessibleFromProvider(pprovider.into_param().abi(), dwflags, ::core::mem::transmute(ppaccessible), pvarchild).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -953,18 +953,18 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaRaiseAutomationEvent(pprovider : * mut::core::ffi::c_void, id : UIA_EVENT_ID) -> ::windows_core::HRESULT);
     UiaRaiseAutomationEvent(pprovider.into_param().abi(), id).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn UiaRaiseAutomationPropertyChangedEvent<P0>(pprovider: P0, id: UIA_PROPERTY_ID, oldvalue: super::super::System::Com::VARIANT, newvalue: super::super::System::Com::VARIANT) -> ::windows_core::Result<()>
+pub unsafe fn UiaRaiseAutomationPropertyChangedEvent<P0>(pprovider: P0, id: UIA_PROPERTY_ID, oldvalue: super::super::System::Variant::VARIANT, newvalue: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<IRawElementProviderSimple>,
 {
-    ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaRaiseAutomationPropertyChangedEvent(pprovider : * mut::core::ffi::c_void, id : UIA_PROPERTY_ID, oldvalue : super::super::System::Com:: VARIANT, newvalue : super::super::System::Com:: VARIANT) -> ::windows_core::HRESULT);
+    ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaRaiseAutomationPropertyChangedEvent(pprovider : * mut::core::ffi::c_void, id : UIA_PROPERTY_ID, oldvalue : super::super::System::Variant:: VARIANT, newvalue : super::super::System::Variant:: VARIANT) -> ::windows_core::HRESULT);
     UiaRaiseAutomationPropertyChangedEvent(pprovider.into_param().abi(), id, ::core::mem::transmute(oldvalue), ::core::mem::transmute(newvalue)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn UiaRaiseChangesEvent<P0>(pprovider: P0, eventidcount: i32, puiachanges: *mut UiaChangeInfo) -> ::windows_core::Result<()>
 where
@@ -1179,9 +1179,9 @@ pub struct IAccIdentity_Vtbl {
 #[repr(transparent)]
 pub struct IAccPropServer(::windows_core::IUnknown);
 impl IAccPropServer {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetPropValue(&self, pidstring: &[u8], idprop: ::windows_core::GUID, pvarvalue: *mut super::super::System::Com::VARIANT, pfhasprop: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetPropValue(&self, pidstring: &[u8], idprop: ::windows_core::GUID, pvarvalue: *mut super::super::System::Variant::VARIANT, pfhasprop: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetPropValue)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pidstring.as_ptr()), pidstring.len() as _, ::core::mem::transmute(idprop), pvarvalue, pfhasprop).ok()
     }
 }
@@ -1212,18 +1212,18 @@ unsafe impl ::windows_core::ComInterface for IAccPropServer {
 #[doc(hidden)]
 pub struct IAccPropServer_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetPropValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidstring: *const u8, dwidstringlen: u32, idprop: ::windows_core::GUID, pvarvalue: *mut super::super::System::Com::VARIANT, pfhasprop: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub GetPropValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidstring: *const u8, dwidstringlen: u32, idprop: ::windows_core::GUID, pvarvalue: *mut super::super::System::Variant::VARIANT, pfhasprop: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetPropValue: usize,
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 pub struct IAccPropServices(::windows_core::IUnknown);
 impl IAccPropServices {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetPropValue(&self, pidstring: &[u8], idprop: ::windows_core::GUID, var: super::super::System::Com::VARIANT) -> ::windows_core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn SetPropValue(&self, pidstring: &[u8], idprop: ::windows_core::GUID, var: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetPropValue)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pidstring.as_ptr()), pidstring.len() as _, ::core::mem::transmute(idprop), ::core::mem::transmute(var)).ok()
     }
     pub unsafe fn SetPropServer<P0>(&self, pidstring: &[u8], paprops: &[::windows_core::GUID], pserver: P0, annoscope: AnnoScope) -> ::windows_core::Result<()>
@@ -1235,9 +1235,9 @@ impl IAccPropServices {
     pub unsafe fn ClearProps(&self, pidstring: &[u8], paprops: &[::windows_core::GUID]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ClearProps)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pidstring.as_ptr()), pidstring.len() as _, ::core::mem::transmute(paprops.as_ptr()), paprops.len() as _).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetHwndProp<P0>(&self, hwnd: P0, idobject: u32, idchild: u32, idprop: ::windows_core::GUID, var: super::super::System::Com::VARIANT) -> ::windows_core::Result<()>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn SetHwndProp<P0>(&self, hwnd: P0, idobject: u32, idchild: u32, idprop: ::windows_core::GUID, var: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
     {
@@ -1282,9 +1282,9 @@ impl IAccPropServices {
     pub unsafe fn DecomposeHwndIdentityString(&self, pidstring: &[u8], phwnd: *mut super::super::Foundation::HWND, pidobject: *mut u32, pidchild: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).DecomposeHwndIdentityString)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pidstring.as_ptr()), pidstring.len() as _, phwnd, pidobject, pidchild).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn SetHmenuProp<P0>(&self, hmenu: P0, idchild: u32, idprop: ::windows_core::GUID, var: super::super::System::Com::VARIANT) -> ::windows_core::Result<()>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_WindowsAndMessaging"))]
+    pub unsafe fn SetHmenuProp<P0>(&self, hmenu: P0, idchild: u32, idprop: ::windows_core::GUID, var: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::WindowsAndMessaging::HMENU>,
     {
@@ -1357,15 +1357,15 @@ unsafe impl ::windows_core::ComInterface for IAccPropServices {
 #[doc(hidden)]
 pub struct IAccPropServices_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetPropValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidstring: *const u8, dwidstringlen: u32, idprop: ::windows_core::GUID, var: super::super::System::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub SetPropValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidstring: *const u8, dwidstringlen: u32, idprop: ::windows_core::GUID, var: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     SetPropValue: usize,
     pub SetPropServer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidstring: *const u8, dwidstringlen: u32, paprops: *const ::windows_core::GUID, cprops: i32, pserver: *mut ::core::ffi::c_void, annoscope: AnnoScope) -> ::windows_core::HRESULT,
     pub ClearProps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidstring: *const u8, dwidstringlen: u32, paprops: *const ::windows_core::GUID, cprops: i32) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetHwndProp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, idprop: ::windows_core::GUID, var: super::super::System::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub SetHwndProp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, idprop: ::windows_core::GUID, var: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     SetHwndProp: usize,
     #[cfg(feature = "Win32_Foundation")]
     pub SetHwndPropStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, idprop: ::windows_core::GUID, str: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
@@ -1387,9 +1387,9 @@ pub struct IAccPropServices_Vtbl {
     pub DecomposeHwndIdentityString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidstring: *const u8, dwidstringlen: u32, phwnd: *mut super::super::Foundation::HWND, pidobject: *mut u32, pidchild: *mut u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     DecomposeHwndIdentityString: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub SetHmenuProp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, idprop: ::windows_core::GUID, var: super::super::System::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_WindowsAndMessaging"))]
+    pub SetHmenuProp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, idprop: ::windows_core::GUID, var: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_WindowsAndMessaging")))]
     SetHmenuProp: usize,
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub SetHmenuPropStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, idprop: ::windows_core::GUID, str: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
@@ -1428,115 +1428,115 @@ impl IAccessible {
         let mut result__ = ::windows_core::zeroed::<i32>();
         (::windows_core::Interface::vtable(self).accChildCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn get_accChild(&self, varchild: super::super::System::Com::VARIANT) -> ::windows_core::Result<super::super::System::Com::IDispatch> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn get_accChild(&self, varchild: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::System::Com::IDispatch> {
         let mut result__ = ::windows_core::zeroed::<super::super::System::Com::IDispatch>();
         (::windows_core::Interface::vtable(self).get_accChild)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varchild), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn get_accName(&self, varchild: super::super::System::Com::VARIANT) -> ::windows_core::Result<::windows_core::BSTR> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn get_accName(&self, varchild: super::super::System::Variant::VARIANT) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
         (::windows_core::Interface::vtable(self).get_accName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varchild), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn get_accValue(&self, varchild: super::super::System::Com::VARIANT) -> ::windows_core::Result<::windows_core::BSTR> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn get_accValue(&self, varchild: super::super::System::Variant::VARIANT) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
         (::windows_core::Interface::vtable(self).get_accValue)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varchild), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn get_accDescription(&self, varchild: super::super::System::Com::VARIANT) -> ::windows_core::Result<::windows_core::BSTR> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn get_accDescription(&self, varchild: super::super::System::Variant::VARIANT) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
         (::windows_core::Interface::vtable(self).get_accDescription)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varchild), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn get_accRole(&self, varchild: super::super::System::Com::VARIANT) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn get_accRole(&self, varchild: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).get_accRole)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varchild), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn get_accState(&self, varchild: super::super::System::Com::VARIANT) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn get_accState(&self, varchild: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).get_accState)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varchild), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn get_accHelp(&self, varchild: super::super::System::Com::VARIANT) -> ::windows_core::Result<::windows_core::BSTR> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn get_accHelp(&self, varchild: super::super::System::Variant::VARIANT) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
         (::windows_core::Interface::vtable(self).get_accHelp)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varchild), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn get_accHelpTopic(&self, pszhelpfile: *mut ::windows_core::BSTR, varchild: super::super::System::Com::VARIANT, pidtopic: *mut i32) -> ::windows_core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn get_accHelpTopic(&self, pszhelpfile: *mut ::windows_core::BSTR, varchild: super::super::System::Variant::VARIANT, pidtopic: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).get_accHelpTopic)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pszhelpfile), ::core::mem::transmute(varchild), pidtopic).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn get_accKeyboardShortcut(&self, varchild: super::super::System::Com::VARIANT) -> ::windows_core::Result<::windows_core::BSTR> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn get_accKeyboardShortcut(&self, varchild: super::super::System::Variant::VARIANT) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
         (::windows_core::Interface::vtable(self).get_accKeyboardShortcut)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varchild), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn accFocus(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn accFocus(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).accFocus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn accSelection(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn accSelection(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).accSelection)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn get_accDefaultAction(&self, varchild: super::super::System::Com::VARIANT) -> ::windows_core::Result<::windows_core::BSTR> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn get_accDefaultAction(&self, varchild: super::super::System::Variant::VARIANT) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
         (::windows_core::Interface::vtable(self).get_accDefaultAction)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varchild), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn accSelect(&self, flagsselect: i32, varchild: super::super::System::Com::VARIANT) -> ::windows_core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn accSelect(&self, flagsselect: i32, varchild: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).accSelect)(::windows_core::Interface::as_raw(self), flagsselect, ::core::mem::transmute(varchild)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn accLocation(&self, pxleft: *mut i32, pytop: *mut i32, pcxwidth: *mut i32, pcyheight: *mut i32, varchild: super::super::System::Com::VARIANT) -> ::windows_core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn accLocation(&self, pxleft: *mut i32, pytop: *mut i32, pcxwidth: *mut i32, pcyheight: *mut i32, varchild: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).accLocation)(::windows_core::Interface::as_raw(self), pxleft, pytop, pcxwidth, pcyheight, ::core::mem::transmute(varchild)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn accNavigate(&self, navdir: i32, varstart: super::super::System::Com::VARIANT) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn accNavigate(&self, navdir: i32, varstart: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).accNavigate)(::windows_core::Interface::as_raw(self), navdir, ::core::mem::transmute(varstart), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn accHitTest(&self, xleft: i32, ytop: i32) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn accHitTest(&self, xleft: i32, ytop: i32) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).accHitTest)(::windows_core::Interface::as_raw(self), xleft, ytop, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn accDoDefaultAction(&self, varchild: super::super::System::Com::VARIANT) -> ::windows_core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn accDoDefaultAction(&self, varchild: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).accDoDefaultAction)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varchild)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn put_accName<P0>(&self, varchild: super::super::System::Com::VARIANT, szname: P0) -> ::windows_core::Result<()>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn put_accName<P0>(&self, varchild: super::super::System::Variant::VARIANT, szname: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         (::windows_core::Interface::vtable(self).put_accName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varchild), szname.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn put_accValue<P0>(&self, varchild: super::super::System::Com::VARIANT, szvalue: P0) -> ::windows_core::Result<()>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn put_accValue<P0>(&self, varchild: super::super::System::Variant::VARIANT, szvalue: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
@@ -1583,81 +1583,81 @@ pub struct IAccessible_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     accParent: usize,
     pub accChildCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcountchildren: *mut i32) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_accChild: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varchild: super::super::System::Com::VARIANT, ppdispchild: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub get_accChild: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varchild: super::super::System::Variant::VARIANT, ppdispchild: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     get_accChild: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_accName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varchild: super::super::System::Com::VARIANT, pszname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub get_accName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varchild: super::super::System::Variant::VARIANT, pszname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     get_accName: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_accValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varchild: super::super::System::Com::VARIANT, pszvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub get_accValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varchild: super::super::System::Variant::VARIANT, pszvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     get_accValue: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_accDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varchild: super::super::System::Com::VARIANT, pszdescription: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub get_accDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varchild: super::super::System::Variant::VARIANT, pszdescription: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     get_accDescription: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_accRole: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varchild: super::super::System::Com::VARIANT, pvarrole: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub get_accRole: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varchild: super::super::System::Variant::VARIANT, pvarrole: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     get_accRole: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_accState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varchild: super::super::System::Com::VARIANT, pvarstate: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub get_accState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varchild: super::super::System::Variant::VARIANT, pvarstate: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     get_accState: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_accHelp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varchild: super::super::System::Com::VARIANT, pszhelp: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub get_accHelp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varchild: super::super::System::Variant::VARIANT, pszhelp: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     get_accHelp: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_accHelpTopic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszhelpfile: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, varchild: super::super::System::Com::VARIANT, pidtopic: *mut i32) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub get_accHelpTopic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszhelpfile: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, varchild: super::super::System::Variant::VARIANT, pidtopic: *mut i32) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     get_accHelpTopic: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_accKeyboardShortcut: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varchild: super::super::System::Com::VARIANT, pszkeyboardshortcut: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub get_accKeyboardShortcut: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varchild: super::super::System::Variant::VARIANT, pszkeyboardshortcut: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     get_accKeyboardShortcut: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub accFocus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarchild: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub accFocus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarchild: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     accFocus: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub accSelection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarchildren: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub accSelection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarchildren: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     accSelection: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_accDefaultAction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varchild: super::super::System::Com::VARIANT, pszdefaultaction: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub get_accDefaultAction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varchild: super::super::System::Variant::VARIANT, pszdefaultaction: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     get_accDefaultAction: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub accSelect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flagsselect: i32, varchild: super::super::System::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub accSelect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flagsselect: i32, varchild: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     accSelect: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub accLocation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pxleft: *mut i32, pytop: *mut i32, pcxwidth: *mut i32, pcyheight: *mut i32, varchild: super::super::System::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub accLocation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pxleft: *mut i32, pytop: *mut i32, pcxwidth: *mut i32, pcyheight: *mut i32, varchild: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     accLocation: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub accNavigate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, navdir: i32, varstart: super::super::System::Com::VARIANT, pvarendupat: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub accNavigate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, navdir: i32, varstart: super::super::System::Variant::VARIANT, pvarendupat: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     accNavigate: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub accHitTest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xleft: i32, ytop: i32, pvarchild: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub accHitTest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xleft: i32, ytop: i32, pvarchild: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     accHitTest: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub accDoDefaultAction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varchild: super::super::System::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub accDoDefaultAction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varchild: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     accDoDefaultAction: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub put_accName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varchild: super::super::System::Com::VARIANT, szname: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub put_accName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varchild: super::super::System::Variant::VARIANT, szname: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     put_accName: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub put_accValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varchild: super::super::System::Com::VARIANT, szvalue: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub put_accValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varchild: super::super::System::Variant::VARIANT, szvalue: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     put_accValue: usize,
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -2337,9 +2337,9 @@ pub struct IInvokeProvider_Vtbl {
 #[repr(transparent)]
 pub struct IItemContainerProvider(::windows_core::IUnknown);
 impl IItemContainerProvider {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn FindItemByProperty<P0>(&self, pstartafter: P0, propertyid: UIA_PROPERTY_ID, value: super::super::System::Com::VARIANT) -> ::windows_core::Result<IRawElementProviderSimple>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn FindItemByProperty<P0>(&self, pstartafter: P0, propertyid: UIA_PROPERTY_ID, value: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IRawElementProviderSimple>
     where
         P0: ::windows_core::IntoParam<IRawElementProviderSimple>,
     {
@@ -2374,9 +2374,9 @@ unsafe impl ::windows_core::ComInterface for IItemContainerProvider {
 #[doc(hidden)]
 pub struct IItemContainerProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub FindItemByProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstartafter: *mut ::core::ffi::c_void, propertyid: UIA_PROPERTY_ID, value: super::super::System::Com::VARIANT, pfound: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub FindItemByProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstartafter: *mut ::core::ffi::c_void, propertyid: UIA_PROPERTY_ID, value: super::super::System::Variant::VARIANT, pfound: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     FindItemByProperty: usize,
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -2637,9 +2637,9 @@ pub struct IProxyProviderWinEventHandler_Vtbl {
 #[repr(transparent)]
 pub struct IProxyProviderWinEventSink(::windows_core::IUnknown);
 impl IProxyProviderWinEventSink {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn AddAutomationPropertyChangedEvent<P0>(&self, pprovider: P0, id: UIA_PROPERTY_ID, newvalue: super::super::System::Com::VARIANT) -> ::windows_core::Result<()>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn AddAutomationPropertyChangedEvent<P0>(&self, pprovider: P0, id: UIA_PROPERTY_ID, newvalue: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<IRawElementProviderSimple>,
     {
@@ -2687,9 +2687,9 @@ unsafe impl ::windows_core::ComInterface for IProxyProviderWinEventSink {
 #[doc(hidden)]
 pub struct IProxyProviderWinEventSink_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub AddAutomationPropertyChangedEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprovider: *mut ::core::ffi::c_void, id: UIA_PROPERTY_ID, newvalue: super::super::System::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub AddAutomationPropertyChangedEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprovider: *mut ::core::ffi::c_void, id: UIA_PROPERTY_ID, newvalue: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     AddAutomationPropertyChangedEvent: usize,
     pub AddAutomationEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprovider: *mut ::core::ffi::c_void, id: UIA_EVENT_ID) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -3036,10 +3036,10 @@ impl IRawElementProviderSimple {
         let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
         (::windows_core::Interface::vtable(self).GetPatternProvider)(::windows_core::Interface::as_raw(self), patternid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).GetPropertyValue)(::windows_core::Interface::as_raw(self), propertyid, &mut result__).from_abi(result__)
     }
     pub unsafe fn HostRawElementProvider(&self) -> ::windows_core::Result<IRawElementProviderSimple> {
@@ -3076,9 +3076,9 @@ pub struct IRawElementProviderSimple_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub ProviderOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut ProviderOptions) -> ::windows_core::HRESULT,
     pub GetPatternProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, patternid: UIA_PATTERN_ID, pretval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetPropertyValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: UIA_PROPERTY_ID, pretval: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub GetPropertyValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: UIA_PROPERTY_ID, pretval: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetPropertyValue: usize,
     pub HostRawElementProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
@@ -3094,10 +3094,10 @@ impl IRawElementProviderSimple2 {
         let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
         (::windows_core::Interface::vtable(self).base__.GetPatternProvider)(::windows_core::Interface::as_raw(self), patternid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).base__.GetPropertyValue)(::windows_core::Interface::as_raw(self), propertyid, &mut result__).from_abi(result__)
     }
     pub unsafe fn HostRawElementProvider(&self) -> ::windows_core::Result<IRawElementProviderSimple> {
@@ -3149,10 +3149,10 @@ impl IRawElementProviderSimple3 {
         let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
         (::windows_core::Interface::vtable(self).base__.base__.GetPatternProvider)(::windows_core::Interface::as_raw(self), patternid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).base__.base__.GetPropertyValue)(::windows_core::Interface::as_raw(self), propertyid, &mut result__).from_abi(result__)
     }
     pub unsafe fn HostRawElementProvider(&self) -> ::windows_core::Result<IRawElementProviderSimple> {
@@ -3162,10 +3162,10 @@ impl IRawElementProviderSimple3 {
     pub unsafe fn ShowContextMenu(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.ShowContextMenu)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetMetadataValue(&self, targetid: i32, metadataid: UIA_METADATA_ID) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetMetadataValue(&self, targetid: i32, metadataid: UIA_METADATA_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).GetMetadataValue)(::windows_core::Interface::as_raw(self), targetid, metadataid, &mut result__).from_abi(result__)
     }
 }
@@ -3196,9 +3196,9 @@ unsafe impl ::windows_core::ComInterface for IRawElementProviderSimple3 {
 #[doc(hidden)]
 pub struct IRawElementProviderSimple3_Vtbl {
     pub base__: IRawElementProviderSimple2_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetMetadataValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targetid: i32, metadataid: UIA_METADATA_ID, returnval: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub GetMetadataValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targetid: i32, metadataid: UIA_METADATA_ID, returnval: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetMetadataValue: usize,
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -4263,9 +4263,9 @@ impl ITextRangeProvider {
     pub unsafe fn ExpandToEnclosingUnit(&self, unit: TextUnit) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ExpandToEnclosingUnit)(::windows_core::Interface::as_raw(self), unit).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn FindAttribute<P0>(&self, attributeid: UIA_TEXTATTRIBUTE_ID, val: super::super::System::Com::VARIANT, backward: P0) -> ::windows_core::Result<ITextRangeProvider>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn FindAttribute<P0>(&self, attributeid: UIA_TEXTATTRIBUTE_ID, val: super::super::System::Variant::VARIANT, backward: P0) -> ::windows_core::Result<ITextRangeProvider>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
@@ -4283,10 +4283,10 @@ impl ITextRangeProvider {
         let mut result__ = ::windows_core::zeroed::<ITextRangeProvider>();
         (::windows_core::Interface::vtable(self).FindText)(::windows_core::Interface::as_raw(self), text.into_param().abi(), backward.into_param().abi(), ignorecase.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetAttributeValue(&self, attributeid: UIA_TEXTATTRIBUTE_ID) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetAttributeValue(&self, attributeid: UIA_TEXTATTRIBUTE_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).GetAttributeValue)(::windows_core::Interface::as_raw(self), attributeid, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -4375,17 +4375,17 @@ pub struct ITextRangeProvider_Vtbl {
     Compare: usize,
     pub CompareEndpoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, endpoint: TextPatternRangeEndpoint, targetrange: *mut ::core::ffi::c_void, targetendpoint: TextPatternRangeEndpoint, pretval: *mut i32) -> ::windows_core::HRESULT,
     pub ExpandToEnclosingUnit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unit: TextUnit) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub FindAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attributeid: UIA_TEXTATTRIBUTE_ID, val: super::super::System::Com::VARIANT, backward: super::super::Foundation::BOOL, pretval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub FindAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attributeid: UIA_TEXTATTRIBUTE_ID, val: super::super::System::Variant::VARIANT, backward: super::super::Foundation::BOOL, pretval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     FindAttribute: usize,
     #[cfg(feature = "Win32_Foundation")]
     pub FindText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, text: ::std::mem::MaybeUninit<::windows_core::BSTR>, backward: super::super::Foundation::BOOL, ignorecase: super::super::Foundation::BOOL, pretval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     FindText: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetAttributeValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attributeid: UIA_TEXTATTRIBUTE_ID, pretval: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub GetAttributeValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attributeid: UIA_TEXTATTRIBUTE_ID, pretval: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetAttributeValue: usize,
     #[cfg(feature = "Win32_System_Com")]
     pub GetBoundingRectangles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_core::HRESULT,
@@ -4435,9 +4435,9 @@ impl ITextRangeProvider2 {
     pub unsafe fn ExpandToEnclosingUnit(&self, unit: TextUnit) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.ExpandToEnclosingUnit)(::windows_core::Interface::as_raw(self), unit).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn FindAttribute<P0>(&self, attributeid: UIA_TEXTATTRIBUTE_ID, val: super::super::System::Com::VARIANT, backward: P0) -> ::windows_core::Result<ITextRangeProvider>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn FindAttribute<P0>(&self, attributeid: UIA_TEXTATTRIBUTE_ID, val: super::super::System::Variant::VARIANT, backward: P0) -> ::windows_core::Result<ITextRangeProvider>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
@@ -4455,10 +4455,10 @@ impl ITextRangeProvider2 {
         let mut result__ = ::windows_core::zeroed::<ITextRangeProvider>();
         (::windows_core::Interface::vtable(self).base__.FindText)(::windows_core::Interface::as_raw(self), text.into_param().abi(), backward.into_param().abi(), ignorecase.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetAttributeValue(&self, attributeid: UIA_TEXTATTRIBUTE_ID) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetAttributeValue(&self, attributeid: UIA_TEXTATTRIBUTE_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).base__.GetAttributeValue)(::windows_core::Interface::as_raw(self), attributeid, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -4874,15 +4874,15 @@ impl IUIAutomation {
         let mut result__ = ::windows_core::zeroed::<IUIAutomationCondition>();
         (::windows_core::Interface::vtable(self).CreateFalseCondition)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CreatePropertyCondition(&self, propertyid: UIA_PROPERTY_ID, value: super::super::System::Com::VARIANT) -> ::windows_core::Result<IUIAutomationCondition> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn CreatePropertyCondition(&self, propertyid: UIA_PROPERTY_ID, value: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IUIAutomationCondition> {
         let mut result__ = ::windows_core::zeroed::<IUIAutomationCondition>();
         (::windows_core::Interface::vtable(self).CreatePropertyCondition)(::windows_core::Interface::as_raw(self), propertyid, ::core::mem::transmute(value), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CreatePropertyConditionEx(&self, propertyid: UIA_PROPERTY_ID, value: super::super::System::Com::VARIANT, flags: PropertyConditionFlags) -> ::windows_core::Result<IUIAutomationCondition> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn CreatePropertyConditionEx(&self, propertyid: UIA_PROPERTY_ID, value: super::super::System::Variant::VARIANT, flags: PropertyConditionFlags) -> ::windows_core::Result<IUIAutomationCondition> {
         let mut result__ = ::windows_core::zeroed::<IUIAutomationCondition>();
         (::windows_core::Interface::vtable(self).CreatePropertyConditionEx)(::windows_core::Interface::as_raw(self), propertyid, ::core::mem::transmute(value), flags, &mut result__).from_abi(result__)
     }
@@ -5011,15 +5011,15 @@ impl IUIAutomation {
     pub unsafe fn IntSafeArrayToNativeArray(&self, intarray: *const super::super::System::Com::SAFEARRAY, array: *mut *mut i32, arraycount: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).IntSafeArrayToNativeArray)(::windows_core::Interface::as_raw(self), intarray, array, arraycount).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn RectToVariant(&self, rc: super::super::Foundation::RECT) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn RectToVariant(&self, rc: super::super::Foundation::RECT) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).RectToVariant)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(rc), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn VariantToRect(&self, var: super::super::System::Com::VARIANT) -> ::windows_core::Result<super::super::Foundation::RECT> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn VariantToRect(&self, var: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::windows_core::zeroed::<super::super::Foundation::RECT>();
         (::windows_core::Interface::vtable(self).VariantToRect)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(var), &mut result__).from_abi(result__)
     }
@@ -5063,9 +5063,9 @@ impl IUIAutomation {
     {
         (::windows_core::Interface::vtable(self).PollForPotentialSupportedProperties)(::windows_core::Interface::as_raw(self), pelement.into_param().abi(), propertyids, propertynames).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CheckNotSupported(&self, value: super::super::System::Com::VARIANT) -> ::windows_core::Result<super::super::Foundation::BOOL> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn CheckNotSupported(&self, value: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
         (::windows_core::Interface::vtable(self).CheckNotSupported)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(value), &mut result__).from_abi(result__)
     }
@@ -5162,13 +5162,13 @@ pub struct IUIAutomation_Vtbl {
     pub CreateCacheRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cacherequest: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub CreateTrueCondition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newcondition: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub CreateFalseCondition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newcondition: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub CreatePropertyCondition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: UIA_PROPERTY_ID, value: super::super::System::Com::VARIANT, newcondition: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub CreatePropertyCondition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: UIA_PROPERTY_ID, value: super::super::System::Variant::VARIANT, newcondition: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     CreatePropertyCondition: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub CreatePropertyConditionEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: UIA_PROPERTY_ID, value: super::super::System::Com::VARIANT, flags: PropertyConditionFlags, newcondition: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub CreatePropertyConditionEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: UIA_PROPERTY_ID, value: super::super::System::Variant::VARIANT, flags: PropertyConditionFlags, newcondition: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     CreatePropertyConditionEx: usize,
     pub CreateAndCondition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, condition1: *mut ::core::ffi::c_void, condition2: *mut ::core::ffi::c_void, newcondition: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -5204,13 +5204,13 @@ pub struct IUIAutomation_Vtbl {
     pub IntSafeArrayToNativeArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, intarray: *const super::super::System::Com::SAFEARRAY, array: *mut *mut i32, arraycount: *mut i32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     IntSafeArrayToNativeArray: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub RectToVariant: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rc: super::super::Foundation::RECT, var: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub RectToVariant: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rc: super::super::Foundation::RECT, var: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     RectToVariant: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub VariantToRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, var: super::super::System::Com::VARIANT, rc: *mut super::super::Foundation::RECT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub VariantToRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, var: super::super::System::Variant::VARIANT, rc: *mut super::super::Foundation::RECT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     VariantToRect: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub SafeArrayToRectNativeArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rects: *const super::super::System::Com::SAFEARRAY, rectarray: *mut *mut super::super::Foundation::RECT, rectarraycount: *mut i32) -> ::windows_core::HRESULT,
@@ -5228,9 +5228,9 @@ pub struct IUIAutomation_Vtbl {
     pub PollForPotentialSupportedProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pelement: *mut ::core::ffi::c_void, propertyids: *mut *mut super::super::System::Com::SAFEARRAY, propertynames: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     PollForPotentialSupportedProperties: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub CheckNotSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::System::Com::VARIANT, isnotsupported: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub CheckNotSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::System::Variant::VARIANT, isnotsupported: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     CheckNotSupported: usize,
     pub ReservedNotSupportedValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, notsupportedvalue: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub ReservedMixedAttributeValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mixedattributevalue: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -5362,15 +5362,15 @@ impl IUIAutomation2 {
         let mut result__ = ::windows_core::zeroed::<IUIAutomationCondition>();
         (::windows_core::Interface::vtable(self).base__.CreateFalseCondition)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CreatePropertyCondition(&self, propertyid: UIA_PROPERTY_ID, value: super::super::System::Com::VARIANT) -> ::windows_core::Result<IUIAutomationCondition> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn CreatePropertyCondition(&self, propertyid: UIA_PROPERTY_ID, value: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IUIAutomationCondition> {
         let mut result__ = ::windows_core::zeroed::<IUIAutomationCondition>();
         (::windows_core::Interface::vtable(self).base__.CreatePropertyCondition)(::windows_core::Interface::as_raw(self), propertyid, ::core::mem::transmute(value), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CreatePropertyConditionEx(&self, propertyid: UIA_PROPERTY_ID, value: super::super::System::Com::VARIANT, flags: PropertyConditionFlags) -> ::windows_core::Result<IUIAutomationCondition> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn CreatePropertyConditionEx(&self, propertyid: UIA_PROPERTY_ID, value: super::super::System::Variant::VARIANT, flags: PropertyConditionFlags) -> ::windows_core::Result<IUIAutomationCondition> {
         let mut result__ = ::windows_core::zeroed::<IUIAutomationCondition>();
         (::windows_core::Interface::vtable(self).base__.CreatePropertyConditionEx)(::windows_core::Interface::as_raw(self), propertyid, ::core::mem::transmute(value), flags, &mut result__).from_abi(result__)
     }
@@ -5499,15 +5499,15 @@ impl IUIAutomation2 {
     pub unsafe fn IntSafeArrayToNativeArray(&self, intarray: *const super::super::System::Com::SAFEARRAY, array: *mut *mut i32, arraycount: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.IntSafeArrayToNativeArray)(::windows_core::Interface::as_raw(self), intarray, array, arraycount).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn RectToVariant(&self, rc: super::super::Foundation::RECT) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn RectToVariant(&self, rc: super::super::Foundation::RECT) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).base__.RectToVariant)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(rc), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn VariantToRect(&self, var: super::super::System::Com::VARIANT) -> ::windows_core::Result<super::super::Foundation::RECT> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn VariantToRect(&self, var: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::windows_core::zeroed::<super::super::Foundation::RECT>();
         (::windows_core::Interface::vtable(self).base__.VariantToRect)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(var), &mut result__).from_abi(result__)
     }
@@ -5551,9 +5551,9 @@ impl IUIAutomation2 {
     {
         (::windows_core::Interface::vtable(self).base__.PollForPotentialSupportedProperties)(::windows_core::Interface::as_raw(self), pelement.into_param().abi(), propertyids, propertynames).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CheckNotSupported(&self, value: super::super::System::Com::VARIANT) -> ::windows_core::Result<super::super::Foundation::BOOL> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn CheckNotSupported(&self, value: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
         (::windows_core::Interface::vtable(self).base__.CheckNotSupported)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(value), &mut result__).from_abi(result__)
     }
@@ -5772,15 +5772,15 @@ impl IUIAutomation3 {
         let mut result__ = ::windows_core::zeroed::<IUIAutomationCondition>();
         (::windows_core::Interface::vtable(self).base__.base__.CreateFalseCondition)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CreatePropertyCondition(&self, propertyid: UIA_PROPERTY_ID, value: super::super::System::Com::VARIANT) -> ::windows_core::Result<IUIAutomationCondition> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn CreatePropertyCondition(&self, propertyid: UIA_PROPERTY_ID, value: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IUIAutomationCondition> {
         let mut result__ = ::windows_core::zeroed::<IUIAutomationCondition>();
         (::windows_core::Interface::vtable(self).base__.base__.CreatePropertyCondition)(::windows_core::Interface::as_raw(self), propertyid, ::core::mem::transmute(value), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CreatePropertyConditionEx(&self, propertyid: UIA_PROPERTY_ID, value: super::super::System::Com::VARIANT, flags: PropertyConditionFlags) -> ::windows_core::Result<IUIAutomationCondition> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn CreatePropertyConditionEx(&self, propertyid: UIA_PROPERTY_ID, value: super::super::System::Variant::VARIANT, flags: PropertyConditionFlags) -> ::windows_core::Result<IUIAutomationCondition> {
         let mut result__ = ::windows_core::zeroed::<IUIAutomationCondition>();
         (::windows_core::Interface::vtable(self).base__.base__.CreatePropertyConditionEx)(::windows_core::Interface::as_raw(self), propertyid, ::core::mem::transmute(value), flags, &mut result__).from_abi(result__)
     }
@@ -5909,15 +5909,15 @@ impl IUIAutomation3 {
     pub unsafe fn IntSafeArrayToNativeArray(&self, intarray: *const super::super::System::Com::SAFEARRAY, array: *mut *mut i32, arraycount: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.IntSafeArrayToNativeArray)(::windows_core::Interface::as_raw(self), intarray, array, arraycount).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn RectToVariant(&self, rc: super::super::Foundation::RECT) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn RectToVariant(&self, rc: super::super::Foundation::RECT) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).base__.base__.RectToVariant)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(rc), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn VariantToRect(&self, var: super::super::System::Com::VARIANT) -> ::windows_core::Result<super::super::Foundation::RECT> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn VariantToRect(&self, var: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::windows_core::zeroed::<super::super::Foundation::RECT>();
         (::windows_core::Interface::vtable(self).base__.base__.VariantToRect)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(var), &mut result__).from_abi(result__)
     }
@@ -5961,9 +5961,9 @@ impl IUIAutomation3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.PollForPotentialSupportedProperties)(::windows_core::Interface::as_raw(self), pelement.into_param().abi(), propertyids, propertynames).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CheckNotSupported(&self, value: super::super::System::Com::VARIANT) -> ::windows_core::Result<super::super::Foundation::BOOL> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn CheckNotSupported(&self, value: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
         (::windows_core::Interface::vtable(self).base__.base__.CheckNotSupported)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(value), &mut result__).from_abi(result__)
     }
@@ -6187,15 +6187,15 @@ impl IUIAutomation4 {
         let mut result__ = ::windows_core::zeroed::<IUIAutomationCondition>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.CreateFalseCondition)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CreatePropertyCondition(&self, propertyid: UIA_PROPERTY_ID, value: super::super::System::Com::VARIANT) -> ::windows_core::Result<IUIAutomationCondition> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn CreatePropertyCondition(&self, propertyid: UIA_PROPERTY_ID, value: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IUIAutomationCondition> {
         let mut result__ = ::windows_core::zeroed::<IUIAutomationCondition>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.CreatePropertyCondition)(::windows_core::Interface::as_raw(self), propertyid, ::core::mem::transmute(value), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CreatePropertyConditionEx(&self, propertyid: UIA_PROPERTY_ID, value: super::super::System::Com::VARIANT, flags: PropertyConditionFlags) -> ::windows_core::Result<IUIAutomationCondition> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn CreatePropertyConditionEx(&self, propertyid: UIA_PROPERTY_ID, value: super::super::System::Variant::VARIANT, flags: PropertyConditionFlags) -> ::windows_core::Result<IUIAutomationCondition> {
         let mut result__ = ::windows_core::zeroed::<IUIAutomationCondition>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.CreatePropertyConditionEx)(::windows_core::Interface::as_raw(self), propertyid, ::core::mem::transmute(value), flags, &mut result__).from_abi(result__)
     }
@@ -6324,15 +6324,15 @@ impl IUIAutomation4 {
     pub unsafe fn IntSafeArrayToNativeArray(&self, intarray: *const super::super::System::Com::SAFEARRAY, array: *mut *mut i32, arraycount: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.IntSafeArrayToNativeArray)(::windows_core::Interface::as_raw(self), intarray, array, arraycount).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn RectToVariant(&self, rc: super::super::Foundation::RECT) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn RectToVariant(&self, rc: super::super::Foundation::RECT) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.RectToVariant)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(rc), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn VariantToRect(&self, var: super::super::System::Com::VARIANT) -> ::windows_core::Result<super::super::Foundation::RECT> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn VariantToRect(&self, var: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::windows_core::zeroed::<super::super::Foundation::RECT>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.VariantToRect)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(var), &mut result__).from_abi(result__)
     }
@@ -6376,9 +6376,9 @@ impl IUIAutomation4 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.PollForPotentialSupportedProperties)(::windows_core::Interface::as_raw(self), pelement.into_param().abi(), propertyids, propertynames).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CheckNotSupported(&self, value: super::super::System::Com::VARIANT) -> ::windows_core::Result<super::super::Foundation::BOOL> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn CheckNotSupported(&self, value: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.CheckNotSupported)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(value), &mut result__).from_abi(result__)
     }
@@ -6617,15 +6617,15 @@ impl IUIAutomation5 {
         let mut result__ = ::windows_core::zeroed::<IUIAutomationCondition>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.CreateFalseCondition)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CreatePropertyCondition(&self, propertyid: UIA_PROPERTY_ID, value: super::super::System::Com::VARIANT) -> ::windows_core::Result<IUIAutomationCondition> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn CreatePropertyCondition(&self, propertyid: UIA_PROPERTY_ID, value: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IUIAutomationCondition> {
         let mut result__ = ::windows_core::zeroed::<IUIAutomationCondition>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.CreatePropertyCondition)(::windows_core::Interface::as_raw(self), propertyid, ::core::mem::transmute(value), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CreatePropertyConditionEx(&self, propertyid: UIA_PROPERTY_ID, value: super::super::System::Com::VARIANT, flags: PropertyConditionFlags) -> ::windows_core::Result<IUIAutomationCondition> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn CreatePropertyConditionEx(&self, propertyid: UIA_PROPERTY_ID, value: super::super::System::Variant::VARIANT, flags: PropertyConditionFlags) -> ::windows_core::Result<IUIAutomationCondition> {
         let mut result__ = ::windows_core::zeroed::<IUIAutomationCondition>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.CreatePropertyConditionEx)(::windows_core::Interface::as_raw(self), propertyid, ::core::mem::transmute(value), flags, &mut result__).from_abi(result__)
     }
@@ -6754,15 +6754,15 @@ impl IUIAutomation5 {
     pub unsafe fn IntSafeArrayToNativeArray(&self, intarray: *const super::super::System::Com::SAFEARRAY, array: *mut *mut i32, arraycount: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.IntSafeArrayToNativeArray)(::windows_core::Interface::as_raw(self), intarray, array, arraycount).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn RectToVariant(&self, rc: super::super::Foundation::RECT) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn RectToVariant(&self, rc: super::super::Foundation::RECT) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.RectToVariant)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(rc), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn VariantToRect(&self, var: super::super::System::Com::VARIANT) -> ::windows_core::Result<super::super::Foundation::RECT> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn VariantToRect(&self, var: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::windows_core::zeroed::<super::super::Foundation::RECT>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.VariantToRect)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(var), &mut result__).from_abi(result__)
     }
@@ -6806,9 +6806,9 @@ impl IUIAutomation5 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.PollForPotentialSupportedProperties)(::windows_core::Interface::as_raw(self), pelement.into_param().abi(), propertyids, propertynames).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CheckNotSupported(&self, value: super::super::System::Com::VARIANT) -> ::windows_core::Result<super::super::Foundation::BOOL> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn CheckNotSupported(&self, value: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.CheckNotSupported)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(value), &mut result__).from_abi(result__)
     }
@@ -7062,15 +7062,15 @@ impl IUIAutomation6 {
         let mut result__ = ::windows_core::zeroed::<IUIAutomationCondition>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CreateFalseCondition)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CreatePropertyCondition(&self, propertyid: UIA_PROPERTY_ID, value: super::super::System::Com::VARIANT) -> ::windows_core::Result<IUIAutomationCondition> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn CreatePropertyCondition(&self, propertyid: UIA_PROPERTY_ID, value: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IUIAutomationCondition> {
         let mut result__ = ::windows_core::zeroed::<IUIAutomationCondition>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CreatePropertyCondition)(::windows_core::Interface::as_raw(self), propertyid, ::core::mem::transmute(value), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CreatePropertyConditionEx(&self, propertyid: UIA_PROPERTY_ID, value: super::super::System::Com::VARIANT, flags: PropertyConditionFlags) -> ::windows_core::Result<IUIAutomationCondition> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn CreatePropertyConditionEx(&self, propertyid: UIA_PROPERTY_ID, value: super::super::System::Variant::VARIANT, flags: PropertyConditionFlags) -> ::windows_core::Result<IUIAutomationCondition> {
         let mut result__ = ::windows_core::zeroed::<IUIAutomationCondition>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CreatePropertyConditionEx)(::windows_core::Interface::as_raw(self), propertyid, ::core::mem::transmute(value), flags, &mut result__).from_abi(result__)
     }
@@ -7199,15 +7199,15 @@ impl IUIAutomation6 {
     pub unsafe fn IntSafeArrayToNativeArray(&self, intarray: *const super::super::System::Com::SAFEARRAY, array: *mut *mut i32, arraycount: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.IntSafeArrayToNativeArray)(::windows_core::Interface::as_raw(self), intarray, array, arraycount).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn RectToVariant(&self, rc: super::super::Foundation::RECT) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn RectToVariant(&self, rc: super::super::Foundation::RECT) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.RectToVariant)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(rc), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn VariantToRect(&self, var: super::super::System::Com::VARIANT) -> ::windows_core::Result<super::super::Foundation::RECT> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn VariantToRect(&self, var: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::windows_core::zeroed::<super::super::Foundation::RECT>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.VariantToRect)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(var), &mut result__).from_abi(result__)
     }
@@ -7251,9 +7251,9 @@ impl IUIAutomation6 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.PollForPotentialSupportedProperties)(::windows_core::Interface::as_raw(self), pelement.into_param().abi(), propertyids, propertynames).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CheckNotSupported(&self, value: super::super::System::Com::VARIANT) -> ::windows_core::Result<super::super::Foundation::BOOL> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn CheckNotSupported(&self, value: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CheckNotSupported)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(value), &mut result__).from_abi(result__)
     }
@@ -7741,8 +7741,8 @@ pub struct IUIAutomationCacheRequest_Vtbl {
 #[repr(transparent)]
 pub struct IUIAutomationChangesEventHandler(::windows_core::IUnknown);
 impl IUIAutomationChangesEventHandler {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn HandleChangesEvent<P0>(&self, sender: P0, uiachanges: &[UiaChangeInfo]) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<IUIAutomationElement>,
@@ -7777,9 +7777,9 @@ unsafe impl ::windows_core::ComInterface for IUIAutomationChangesEventHandler {
 #[doc(hidden)]
 pub struct IUIAutomationChangesEventHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub HandleChangesEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, uiachanges: *const UiaChangeInfo, changescount: i32) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     HandleChangesEvent: usize,
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -8105,34 +8105,34 @@ impl IUIAutomationElement {
         let mut result__ = ::windows_core::zeroed::<IUIAutomationElement>();
         (::windows_core::Interface::vtable(self).BuildUpdatedCache)(::windows_core::Interface::as_raw(self), cacherequest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCurrentPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetCurrentPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).GetCurrentPropertyValue)(::windows_core::Interface::as_raw(self), propertyid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCurrentPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows_core::Result<super::super::System::Com::VARIANT>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetCurrentPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).GetCurrentPropertyValueEx)(::windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).GetCachedPropertyValue)(::windows_core::Interface::as_raw(self), propertyid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCachedPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows_core::Result<super::super::System::Com::VARIANT>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetCachedPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).GetCachedPropertyValueEx)(::windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentPatternAs<T>(&self, patternid: UIA_PATTERN_ID) -> ::windows_core::Result<T>
@@ -8508,21 +8508,21 @@ pub struct IUIAutomationElement_Vtbl {
     pub FindFirstBuildCache: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scope: TreeScope, condition: *mut ::core::ffi::c_void, cacherequest: *mut ::core::ffi::c_void, found: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub FindAllBuildCache: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scope: TreeScope, condition: *mut ::core::ffi::c_void, cacherequest: *mut ::core::ffi::c_void, found: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub BuildUpdatedCache: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cacherequest: *mut ::core::ffi::c_void, updatedelement: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetCurrentPropertyValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: UIA_PROPERTY_ID, retval: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub GetCurrentPropertyValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: UIA_PROPERTY_ID, retval: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetCurrentPropertyValue: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetCurrentPropertyValueEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: super::super::Foundation::BOOL, retval: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub GetCurrentPropertyValueEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: super::super::Foundation::BOOL, retval: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetCurrentPropertyValueEx: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetCachedPropertyValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: UIA_PROPERTY_ID, retval: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub GetCachedPropertyValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: UIA_PROPERTY_ID, retval: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetCachedPropertyValue: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetCachedPropertyValueEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: super::super::Foundation::BOOL, retval: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub GetCachedPropertyValueEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: super::super::Foundation::BOOL, retval: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetCachedPropertyValueEx: usize,
     pub GetCurrentPatternAs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, patternid: UIA_PATTERN_ID, riid: *const ::windows_core::GUID, patternobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetCachedPatternAs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, patternid: UIA_PATTERN_ID, riid: *const ::windows_core::GUID, patternobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -8715,34 +8715,34 @@ impl IUIAutomationElement2 {
         let mut result__ = ::windows_core::zeroed::<IUIAutomationElement>();
         (::windows_core::Interface::vtable(self).base__.BuildUpdatedCache)(::windows_core::Interface::as_raw(self), cacherequest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCurrentPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetCurrentPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).base__.GetCurrentPropertyValue)(::windows_core::Interface::as_raw(self), propertyid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCurrentPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows_core::Result<super::super::System::Com::VARIANT>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetCurrentPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).base__.GetCurrentPropertyValueEx)(::windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).base__.GetCachedPropertyValue)(::windows_core::Interface::as_raw(self), propertyid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCachedPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows_core::Result<super::super::System::Com::VARIANT>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetCachedPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).base__.GetCachedPropertyValueEx)(::windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentPatternAs<T>(&self, patternid: UIA_PATTERN_ID) -> ::windows_core::Result<T>
@@ -9199,34 +9199,34 @@ impl IUIAutomationElement3 {
         let mut result__ = ::windows_core::zeroed::<IUIAutomationElement>();
         (::windows_core::Interface::vtable(self).base__.base__.BuildUpdatedCache)(::windows_core::Interface::as_raw(self), cacherequest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCurrentPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetCurrentPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).base__.base__.GetCurrentPropertyValue)(::windows_core::Interface::as_raw(self), propertyid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCurrentPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows_core::Result<super::super::System::Com::VARIANT>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetCurrentPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).base__.base__.GetCurrentPropertyValueEx)(::windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).base__.base__.GetCachedPropertyValue)(::windows_core::Interface::as_raw(self), propertyid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCachedPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows_core::Result<super::super::System::Com::VARIANT>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetCachedPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).base__.base__.GetCachedPropertyValueEx)(::windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentPatternAs<T>(&self, patternid: UIA_PATTERN_ID) -> ::windows_core::Result<T>
@@ -9695,34 +9695,34 @@ impl IUIAutomationElement4 {
         let mut result__ = ::windows_core::zeroed::<IUIAutomationElement>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.BuildUpdatedCache)(::windows_core::Interface::as_raw(self), cacherequest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCurrentPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetCurrentPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetCurrentPropertyValue)(::windows_core::Interface::as_raw(self), propertyid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCurrentPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows_core::Result<super::super::System::Com::VARIANT>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetCurrentPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetCurrentPropertyValueEx)(::windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetCachedPropertyValue)(::windows_core::Interface::as_raw(self), propertyid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCachedPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows_core::Result<super::super::System::Com::VARIANT>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetCachedPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetCachedPropertyValueEx)(::windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentPatternAs<T>(&self, patternid: UIA_PATTERN_ID) -> ::windows_core::Result<T>
@@ -10242,34 +10242,34 @@ impl IUIAutomationElement5 {
         let mut result__ = ::windows_core::zeroed::<IUIAutomationElement>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.BuildUpdatedCache)(::windows_core::Interface::as_raw(self), cacherequest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCurrentPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetCurrentPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetCurrentPropertyValue)(::windows_core::Interface::as_raw(self), propertyid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCurrentPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows_core::Result<super::super::System::Com::VARIANT>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetCurrentPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetCurrentPropertyValueEx)(::windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetCachedPropertyValue)(::windows_core::Interface::as_raw(self), propertyid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCachedPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows_core::Result<super::super::System::Com::VARIANT>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetCachedPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetCachedPropertyValueEx)(::windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentPatternAs<T>(&self, patternid: UIA_PATTERN_ID) -> ::windows_core::Result<T>
@@ -10793,34 +10793,34 @@ impl IUIAutomationElement6 {
         let mut result__ = ::windows_core::zeroed::<IUIAutomationElement>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.BuildUpdatedCache)(::windows_core::Interface::as_raw(self), cacherequest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCurrentPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetCurrentPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetCurrentPropertyValue)(::windows_core::Interface::as_raw(self), propertyid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCurrentPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows_core::Result<super::super::System::Com::VARIANT>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetCurrentPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetCurrentPropertyValueEx)(::windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetCachedPropertyValue)(::windows_core::Interface::as_raw(self), propertyid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCachedPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows_core::Result<super::super::System::Com::VARIANT>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetCachedPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetCachedPropertyValueEx)(::windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentPatternAs<T>(&self, patternid: UIA_PATTERN_ID) -> ::windows_core::Result<T>
@@ -11350,34 +11350,34 @@ impl IUIAutomationElement7 {
         let mut result__ = ::windows_core::zeroed::<IUIAutomationElement>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.BuildUpdatedCache)(::windows_core::Interface::as_raw(self), cacherequest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCurrentPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetCurrentPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetCurrentPropertyValue)(::windows_core::Interface::as_raw(self), propertyid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCurrentPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows_core::Result<super::super::System::Com::VARIANT>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetCurrentPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetCurrentPropertyValueEx)(::windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetCachedPropertyValue)(::windows_core::Interface::as_raw(self), propertyid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCachedPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows_core::Result<super::super::System::Com::VARIANT>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetCachedPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetCachedPropertyValueEx)(::windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentPatternAs<T>(&self, patternid: UIA_PATTERN_ID) -> ::windows_core::Result<T>
@@ -11860,10 +11860,10 @@ impl IUIAutomationElement7 {
         let mut result__ = ::windows_core::zeroed::<IUIAutomationElementArray>();
         (::windows_core::Interface::vtable(self).FindAllWithOptionsBuildCache)(::windows_core::Interface::as_raw(self), scope, condition.into_param().abi(), cacherequest.into_param().abi(), traversaloptions, root.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCurrentMetadataValue(&self, targetid: i32, metadataid: UIA_METADATA_ID) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetCurrentMetadataValue(&self, targetid: i32, metadataid: UIA_METADATA_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).GetCurrentMetadataValue)(::windows_core::Interface::as_raw(self), targetid, metadataid, &mut result__).from_abi(result__)
     }
 }
@@ -11898,9 +11898,9 @@ pub struct IUIAutomationElement7_Vtbl {
     pub FindAllWithOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scope: TreeScope, condition: *mut ::core::ffi::c_void, traversaloptions: TreeTraversalOptions, root: *mut ::core::ffi::c_void, found: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub FindFirstWithOptionsBuildCache: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scope: TreeScope, condition: *mut ::core::ffi::c_void, cacherequest: *mut ::core::ffi::c_void, traversaloptions: TreeTraversalOptions, root: *mut ::core::ffi::c_void, found: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub FindAllWithOptionsBuildCache: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scope: TreeScope, condition: *mut ::core::ffi::c_void, cacherequest: *mut ::core::ffi::c_void, traversaloptions: TreeTraversalOptions, root: *mut ::core::ffi::c_void, found: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetCurrentMetadataValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targetid: i32, metadataid: UIA_METADATA_ID, returnval: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub GetCurrentMetadataValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targetid: i32, metadataid: UIA_METADATA_ID, returnval: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetCurrentMetadataValue: usize,
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -11953,34 +11953,34 @@ impl IUIAutomationElement8 {
         let mut result__ = ::windows_core::zeroed::<IUIAutomationElement>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.BuildUpdatedCache)(::windows_core::Interface::as_raw(self), cacherequest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCurrentPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetCurrentPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetCurrentPropertyValue)(::windows_core::Interface::as_raw(self), propertyid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCurrentPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows_core::Result<super::super::System::Com::VARIANT>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetCurrentPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetCurrentPropertyValueEx)(::windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetCachedPropertyValue)(::windows_core::Interface::as_raw(self), propertyid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCachedPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows_core::Result<super::super::System::Com::VARIANT>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetCachedPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetCachedPropertyValueEx)(::windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentPatternAs<T>(&self, patternid: UIA_PATTERN_ID) -> ::windows_core::Result<T>
@@ -12463,10 +12463,10 @@ impl IUIAutomationElement8 {
         let mut result__ = ::windows_core::zeroed::<IUIAutomationElementArray>();
         (::windows_core::Interface::vtable(self).base__.FindAllWithOptionsBuildCache)(::windows_core::Interface::as_raw(self), scope, condition.into_param().abi(), cacherequest.into_param().abi(), traversaloptions, root.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCurrentMetadataValue(&self, targetid: i32, metadataid: UIA_METADATA_ID) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetCurrentMetadataValue(&self, targetid: i32, metadataid: UIA_METADATA_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).base__.GetCurrentMetadataValue)(::windows_core::Interface::as_raw(self), targetid, metadataid, &mut result__).from_abi(result__)
     }
     pub unsafe fn CurrentHeadingLevel(&self) -> ::windows_core::Result<UIA_HEADINGLEVEL_ID> {
@@ -12558,34 +12558,34 @@ impl IUIAutomationElement9 {
         let mut result__ = ::windows_core::zeroed::<IUIAutomationElement>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.BuildUpdatedCache)(::windows_core::Interface::as_raw(self), cacherequest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCurrentPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetCurrentPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetCurrentPropertyValue)(::windows_core::Interface::as_raw(self), propertyid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCurrentPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows_core::Result<super::super::System::Com::VARIANT>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetCurrentPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetCurrentPropertyValueEx)(::windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetCachedPropertyValue)(::windows_core::Interface::as_raw(self), propertyid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCachedPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows_core::Result<super::super::System::Com::VARIANT>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetCachedPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetCachedPropertyValueEx)(::windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentPatternAs<T>(&self, patternid: UIA_PATTERN_ID) -> ::windows_core::Result<T>
@@ -13068,10 +13068,10 @@ impl IUIAutomationElement9 {
         let mut result__ = ::windows_core::zeroed::<IUIAutomationElementArray>();
         (::windows_core::Interface::vtable(self).base__.base__.FindAllWithOptionsBuildCache)(::windows_core::Interface::as_raw(self), scope, condition.into_param().abi(), cacherequest.into_param().abi(), traversaloptions, root.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCurrentMetadataValue(&self, targetid: i32, metadataid: UIA_METADATA_ID) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetCurrentMetadataValue(&self, targetid: i32, metadataid: UIA_METADATA_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).base__.base__.GetCurrentMetadataValue)(::windows_core::Interface::as_raw(self), targetid, metadataid, &mut result__).from_abi(result__)
     }
     pub unsafe fn CurrentHeadingLevel(&self) -> ::windows_core::Result<UIA_HEADINGLEVEL_ID> {
@@ -13576,9 +13576,9 @@ pub struct IUIAutomationInvokePattern_Vtbl {
 #[repr(transparent)]
 pub struct IUIAutomationItemContainerPattern(::windows_core::IUnknown);
 impl IUIAutomationItemContainerPattern {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn FindItemByProperty<P0>(&self, pstartafter: P0, propertyid: UIA_PROPERTY_ID, value: super::super::System::Com::VARIANT) -> ::windows_core::Result<IUIAutomationElement>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn FindItemByProperty<P0>(&self, pstartafter: P0, propertyid: UIA_PROPERTY_ID, value: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IUIAutomationElement>
     where
         P0: ::windows_core::IntoParam<IUIAutomationElement>,
     {
@@ -13613,9 +13613,9 @@ unsafe impl ::windows_core::ComInterface for IUIAutomationItemContainerPattern {
 #[doc(hidden)]
 pub struct IUIAutomationItemContainerPattern_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub FindItemByProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstartafter: *mut ::core::ffi::c_void, propertyid: UIA_PROPERTY_ID, value: super::super::System::Com::VARIANT, pfound: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub FindItemByProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstartafter: *mut ::core::ffi::c_void, propertyid: UIA_PROPERTY_ID, value: super::super::System::Variant::VARIANT, pfound: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     FindItemByProperty: usize,
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -14119,9 +14119,9 @@ pub struct IUIAutomationPatternInstance_Vtbl {
 #[repr(transparent)]
 pub struct IUIAutomationPropertyChangedEventHandler(::windows_core::IUnknown);
 impl IUIAutomationPropertyChangedEventHandler {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn HandlePropertyChangedEvent<P0>(&self, sender: P0, propertyid: UIA_PROPERTY_ID, newvalue: super::super::System::Com::VARIANT) -> ::windows_core::Result<()>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn HandlePropertyChangedEvent<P0>(&self, sender: P0, propertyid: UIA_PROPERTY_ID, newvalue: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<IUIAutomationElement>,
     {
@@ -14155,9 +14155,9 @@ unsafe impl ::windows_core::ComInterface for IUIAutomationPropertyChangedEventHa
 #[doc(hidden)]
 pub struct IUIAutomationPropertyChangedEventHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub HandlePropertyChangedEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, propertyid: UIA_PROPERTY_ID, newvalue: super::super::System::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub HandlePropertyChangedEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, propertyid: UIA_PROPERTY_ID, newvalue: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     HandlePropertyChangedEvent: usize,
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -14168,10 +14168,10 @@ impl IUIAutomationPropertyCondition {
         let mut result__ = ::windows_core::zeroed::<UIA_PROPERTY_ID>();
         (::windows_core::Interface::vtable(self).PropertyId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PropertyValue(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn PropertyValue(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).PropertyValue)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn PropertyConditionFlags(&self) -> ::windows_core::Result<PropertyConditionFlags> {
@@ -14207,9 +14207,9 @@ unsafe impl ::windows_core::ComInterface for IUIAutomationPropertyCondition {
 pub struct IUIAutomationPropertyCondition_Vtbl {
     pub base__: IUIAutomationCondition_Vtbl,
     pub PropertyId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: *mut UIA_PROPERTY_ID) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub PropertyValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyvalue: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub PropertyValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyvalue: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     PropertyValue: usize,
     pub PropertyConditionFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: *mut PropertyConditionFlags) -> ::windows_core::HRESULT,
 }
@@ -15845,9 +15845,9 @@ impl IUIAutomationTextRange {
     pub unsafe fn ExpandToEnclosingUnit(&self, textunit: TextUnit) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ExpandToEnclosingUnit)(::windows_core::Interface::as_raw(self), textunit).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn FindAttribute<P0>(&self, attr: UIA_TEXTATTRIBUTE_ID, val: super::super::System::Com::VARIANT, backward: P0) -> ::windows_core::Result<IUIAutomationTextRange>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn FindAttribute<P0>(&self, attr: UIA_TEXTATTRIBUTE_ID, val: super::super::System::Variant::VARIANT, backward: P0) -> ::windows_core::Result<IUIAutomationTextRange>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
@@ -15865,10 +15865,10 @@ impl IUIAutomationTextRange {
         let mut result__ = ::windows_core::zeroed::<IUIAutomationTextRange>();
         (::windows_core::Interface::vtable(self).FindText)(::windows_core::Interface::as_raw(self), text.into_param().abi(), backward.into_param().abi(), ignorecase.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetAttributeValue(&self, attr: UIA_TEXTATTRIBUTE_ID) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetAttributeValue(&self, attr: UIA_TEXTATTRIBUTE_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).GetAttributeValue)(::windows_core::Interface::as_raw(self), attr, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -15955,17 +15955,17 @@ pub struct IUIAutomationTextRange_Vtbl {
     Compare: usize,
     pub CompareEndpoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, srcendpoint: TextPatternRangeEndpoint, range: *mut ::core::ffi::c_void, targetendpoint: TextPatternRangeEndpoint, compvalue: *mut i32) -> ::windows_core::HRESULT,
     pub ExpandToEnclosingUnit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, textunit: TextUnit) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub FindAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attr: UIA_TEXTATTRIBUTE_ID, val: super::super::System::Com::VARIANT, backward: super::super::Foundation::BOOL, found: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub FindAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attr: UIA_TEXTATTRIBUTE_ID, val: super::super::System::Variant::VARIANT, backward: super::super::Foundation::BOOL, found: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     FindAttribute: usize,
     #[cfg(feature = "Win32_Foundation")]
     pub FindText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, text: ::std::mem::MaybeUninit<::windows_core::BSTR>, backward: super::super::Foundation::BOOL, ignorecase: super::super::Foundation::BOOL, found: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     FindText: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetAttributeValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attr: UIA_TEXTATTRIBUTE_ID, value: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub GetAttributeValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attr: UIA_TEXTATTRIBUTE_ID, value: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetAttributeValue: usize,
     #[cfg(feature = "Win32_System_Com")]
     pub GetBoundingRectangles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, boundingrects: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_core::HRESULT,
@@ -16012,9 +16012,9 @@ impl IUIAutomationTextRange2 {
     pub unsafe fn ExpandToEnclosingUnit(&self, textunit: TextUnit) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.ExpandToEnclosingUnit)(::windows_core::Interface::as_raw(self), textunit).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn FindAttribute<P0>(&self, attr: UIA_TEXTATTRIBUTE_ID, val: super::super::System::Com::VARIANT, backward: P0) -> ::windows_core::Result<IUIAutomationTextRange>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn FindAttribute<P0>(&self, attr: UIA_TEXTATTRIBUTE_ID, val: super::super::System::Variant::VARIANT, backward: P0) -> ::windows_core::Result<IUIAutomationTextRange>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
@@ -16032,10 +16032,10 @@ impl IUIAutomationTextRange2 {
         let mut result__ = ::windows_core::zeroed::<IUIAutomationTextRange>();
         (::windows_core::Interface::vtable(self).base__.FindText)(::windows_core::Interface::as_raw(self), text.into_param().abi(), backward.into_param().abi(), ignorecase.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetAttributeValue(&self, attr: UIA_TEXTATTRIBUTE_ID) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetAttributeValue(&self, attr: UIA_TEXTATTRIBUTE_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).base__.GetAttributeValue)(::windows_core::Interface::as_raw(self), attr, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -16147,9 +16147,9 @@ impl IUIAutomationTextRange3 {
     pub unsafe fn ExpandToEnclosingUnit(&self, textunit: TextUnit) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.ExpandToEnclosingUnit)(::windows_core::Interface::as_raw(self), textunit).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn FindAttribute<P0>(&self, attr: UIA_TEXTATTRIBUTE_ID, val: super::super::System::Com::VARIANT, backward: P0) -> ::windows_core::Result<IUIAutomationTextRange>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn FindAttribute<P0>(&self, attr: UIA_TEXTATTRIBUTE_ID, val: super::super::System::Variant::VARIANT, backward: P0) -> ::windows_core::Result<IUIAutomationTextRange>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
@@ -16167,10 +16167,10 @@ impl IUIAutomationTextRange3 {
         let mut result__ = ::windows_core::zeroed::<IUIAutomationTextRange>();
         (::windows_core::Interface::vtable(self).base__.base__.FindText)(::windows_core::Interface::as_raw(self), text.into_param().abi(), backward.into_param().abi(), ignorecase.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetAttributeValue(&self, attr: UIA_TEXTATTRIBUTE_ID) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetAttributeValue(&self, attr: UIA_TEXTATTRIBUTE_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).base__.base__.GetAttributeValue)(::windows_core::Interface::as_raw(self), attr, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -22405,65 +22405,65 @@ impl ::core::default::Default for UiaCacheRequest {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct UiaChangeInfo {
     pub uiaId: i32,
-    pub payload: super::super::System::Com::VARIANT,
-    pub extraInfo: super::super::System::Com::VARIANT,
+    pub payload: super::super::System::Variant::VARIANT,
+    pub extraInfo: super::super::System::Variant::VARIANT,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for UiaChangeInfo {
     fn clone(&self) -> Self {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::TypeKind for UiaChangeInfo {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::default::Default for UiaChangeInfo {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct UiaChangesEventArgs {
     pub Type: EventArgsType,
     pub EventId: i32,
     pub EventIdCount: i32,
     pub pUiaChanges: *mut UiaChangeInfo,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::marker::Copy for UiaChangesEventArgs {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for UiaChangesEventArgs {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::fmt::Debug for UiaChangesEventArgs {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("UiaChangesEventArgs").field("Type", &self.Type).field("EventId", &self.EventId).field("EventIdCount", &self.EventIdCount).field("pUiaChanges", &self.pUiaChanges).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::TypeKind for UiaChangesEventArgs {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::cmp::PartialEq for UiaChangesEventArgs {
     fn eq(&self, other: &Self) -> bool {
         self.Type == other.Type && self.EventId == other.EventId && self.EventIdCount == other.EventIdCount && self.pUiaChanges == other.pUiaChanges
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::cmp::Eq for UiaChangesEventArgs {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::default::Default for UiaChangesEventArgs {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -22634,51 +22634,51 @@ impl ::core::default::Default for UiaPoint {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct UiaPropertyChangedEventArgs {
     pub Type: EventArgsType,
     pub EventId: UIA_EVENT_ID,
     pub PropertyId: i32,
-    pub OldValue: super::super::System::Com::VARIANT,
-    pub NewValue: super::super::System::Com::VARIANT,
+    pub OldValue: super::super::System::Variant::VARIANT,
+    pub NewValue: super::super::System::Variant::VARIANT,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for UiaPropertyChangedEventArgs {
     fn clone(&self) -> Self {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::TypeKind for UiaPropertyChangedEventArgs {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::default::Default for UiaPropertyChangedEventArgs {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct UiaPropertyCondition {
     pub ConditionType: ConditionType,
     pub PropertyId: UIA_PROPERTY_ID,
-    pub Value: super::super::System::Com::VARIANT,
+    pub Value: super::super::System::Variant::VARIANT,
     pub Flags: PropertyConditionFlags,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for UiaPropertyCondition {
     fn clone(&self) -> Self {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::TypeKind for UiaPropertyCondition {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::default::Default for UiaPropertyCondition {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -22825,12 +22825,12 @@ impl ::core::default::Default for UiaWindowClosedEventArgs {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type LPFNACCESSIBLECHILDREN = ::core::option::Option<unsafe extern "system" fn(pacccontainer: ::core::option::Option<IAccessible>, ichildstart: i32, cchildren: i32, rgvarchildren: *mut super::super::System::Com::VARIANT, pcobtained: *mut i32) -> ::windows_core::HRESULT>;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type LPFNACCESSIBLEOBJECTFROMPOINT = ::core::option::Option<unsafe extern "system" fn(ptscreen: super::super::Foundation::POINT, ppacc: *mut ::core::option::Option<IAccessible>, pvarchild: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT>;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+pub type LPFNACCESSIBLECHILDREN = ::core::option::Option<unsafe extern "system" fn(pacccontainer: ::core::option::Option<IAccessible>, ichildstart: i32, cchildren: i32, rgvarchildren: *mut super::super::System::Variant::VARIANT, pcobtained: *mut i32) -> ::windows_core::HRESULT>;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+pub type LPFNACCESSIBLEOBJECTFROMPOINT = ::core::option::Option<unsafe extern "system" fn(ptscreen: super::super::Foundation::POINT, ppacc: *mut ::core::option::Option<IAccessible>, pvarchild: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFNACCESSIBLEOBJECTFROMWINDOW = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, dwid: u32, riid: *const ::windows_core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT>;

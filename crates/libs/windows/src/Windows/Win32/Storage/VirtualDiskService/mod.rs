@@ -2,8 +2,8 @@
 #[repr(transparent)]
 pub struct IEnumVdsObject(::windows_core::IUnknown);
 impl IEnumVdsObject {
-    pub unsafe fn Next(&self, celt: u32, ppobjectarray: *mut ::core::option::Option<::windows_core::IUnknown>, pcfetched: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), celt, ::core::mem::transmute(ppobjectarray), pcfetched).ok()
+    pub unsafe fn Next(&self, ppobjectarray: &mut [::core::option::Option<::windows_core::IUnknown>], pcfetched: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), ppobjectarray.len() as _, ::core::mem::transmute(ppobjectarray.as_ptr()), pcfetched).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), celt).ok()

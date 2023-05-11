@@ -547,8 +547,8 @@ impl IAMCertifiedOutputProtection_Vtbl {
         iid == &<IAMCertifiedOutputProtection as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAMChannelInfo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ChannelName(&self, pbstrchannelname: *mut ::windows_core::BSTR) -> ::windows_core::Result<()>;
     fn ChannelDescription(&self, pbstrchanneldescription: *mut ::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -557,9 +557,9 @@ pub trait IAMChannelInfo_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn ContactPhone(&self, pbstrcontactphone: *mut ::windows_core::BSTR) -> ::windows_core::Result<()>;
     fn ContactEmail(&self, pbstrcontactemail: *mut ::windows_core::BSTR) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IAMChannelInfo {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IAMChannelInfo_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMChannelInfo_Impl, const OFFSET: isize>() -> IAMChannelInfo_Vtbl {
         unsafe extern "system" fn ChannelName<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMChannelInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrchannelname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -658,16 +658,16 @@ impl IAMClockSlave_Vtbl {
         iid == &<IAMClockSlave as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAMCollection_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
     fn Item(&self, litem: i32) -> ::windows_core::Result<::windows_core::IUnknown>;
     fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IAMCollection {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IAMCollection_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMCollection_Impl, const OFFSET: isize>() -> IAMCollection_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows_core::HRESULT {
@@ -1466,16 +1466,16 @@ impl IAMExtTransport_Vtbl {
         iid == &<IAMExtTransport as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAMExtendedErrorInfo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn HasError(&self, phaserror: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
     fn ErrorDescription(&self, pbstrerrordescription: *mut ::windows_core::BSTR) -> ::windows_core::Result<()>;
     fn ErrorCode(&self, perrorcode: *mut i32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IAMExtendedErrorInfo {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IAMExtendedErrorInfo_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMExtendedErrorInfo_Impl, const OFFSET: isize>() -> IAMExtendedErrorInfo_Vtbl {
         unsafe extern "system" fn HasError<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMExtendedErrorInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phaserror: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT {
@@ -1504,8 +1504,8 @@ impl IAMExtendedErrorInfo_Vtbl {
         iid == &<IAMExtendedErrorInfo as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAMExtendedSeeking_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ExSeekCapabilities(&self, pexcapabilities: *mut i32) -> ::windows_core::Result<()>;
     fn MarkerCount(&self, pmarkercount: *mut i32) -> ::windows_core::Result<()>;
@@ -1515,9 +1515,9 @@ pub trait IAMExtendedSeeking_Impl: Sized + super::super::System::Com::IDispatch_
     fn SetPlaybackSpeed(&self, speed: f64) -> ::windows_core::Result<()>;
     fn PlaybackSpeed(&self, pspeed: *mut f64) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IAMExtendedSeeking {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IAMExtendedSeeking_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMExtendedSeeking_Impl, const OFFSET: isize>() -> IAMExtendedSeeking_Vtbl {
         unsafe extern "system" fn ExSeekCapabilities<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMExtendedSeeking_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pexcapabilities: *mut i32) -> ::windows_core::HRESULT {
@@ -1807,8 +1807,8 @@ impl IAMLine21Decoder_Vtbl {
         iid == &<IAMLine21Decoder as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAMMediaContent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn AuthorName(&self, pbstrauthorname: *mut ::windows_core::BSTR) -> ::windows_core::Result<()>;
     fn Title(&self, pbstrtitle: *mut ::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -1824,9 +1824,9 @@ pub trait IAMMediaContent_Impl: Sized + super::super::System::Com::IDispatch_Imp
     fn MoreInfoBannerURL(&self, pbstrmoreinfobannerurl: *mut ::windows_core::BSTR) -> ::windows_core::Result<()>;
     fn MoreInfoText(&self, pbstrmoreinfotext: *mut ::windows_core::BSTR) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IAMMediaContent {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IAMMediaContent_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMMediaContent_Impl, const OFFSET: isize>() -> IAMMediaContent_Vtbl {
         unsafe extern "system" fn AuthorName<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMMediaContent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrauthorname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -1915,16 +1915,16 @@ impl IAMMediaContent_Vtbl {
         iid == &<IAMMediaContent as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAMMediaContent2_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn get_MediaParameter(&self, entrynum: i32, bstrname: &::windows_core::BSTR, pbstrvalue: *mut ::windows_core::BSTR) -> ::windows_core::Result<()>;
     fn get_MediaParameterName(&self, entrynum: i32, index: i32, pbstrname: *mut ::windows_core::BSTR) -> ::windows_core::Result<()>;
     fn PlaylistCount(&self, pnumberentries: *mut i32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IAMMediaContent2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IAMMediaContent2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMMediaContent2_Impl, const OFFSET: isize>() -> IAMMediaContent2_Vtbl {
         unsafe extern "system" fn get_MediaParameter<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMMediaContent2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, entrynum: i32, bstrname: ::std::mem::MaybeUninit<::windows_core::BSTR>, pbstrvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -2301,8 +2301,8 @@ impl IAMMultiMediaStream_Vtbl {
         iid == &<IAMMultiMediaStream as ::windows_core::ComInterface>::IID || iid == &<IMultiMediaStream as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAMNetShowConfig_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn BufferingTime(&self, pbufferingtime: *mut f64) -> ::windows_core::Result<()>;
     fn SetBufferingTime(&self, bufferingtime: f64) -> ::windows_core::Result<()>;
@@ -2327,9 +2327,9 @@ pub trait IAMNetShowConfig_Impl: Sized + super::super::System::Com::IDispatch_Im
     fn EnableHTTP(&self, penablehttp: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
     fn SetEnableHTTP(&self, enablehttp: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IAMNetShowConfig {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IAMNetShowConfig_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMNetShowConfig_Impl, const OFFSET: isize>() -> IAMNetShowConfig_Vtbl {
         unsafe extern "system" fn BufferingTime<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMNetShowConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbufferingtime: *mut f64) -> ::windows_core::HRESULT {
@@ -2472,8 +2472,8 @@ impl IAMNetShowConfig_Vtbl {
         iid == &<IAMNetShowConfig as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAMNetShowExProps_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SourceProtocol(&self, psourceprotocol: *mut i32) -> ::windows_core::Result<()>;
     fn Bandwidth(&self, pbandwidth: *mut i32) -> ::windows_core::Result<()>;
@@ -2485,9 +2485,9 @@ pub trait IAMNetShowExProps_Impl: Sized + super::super::System::Com::IDispatch_I
     fn CreationDate(&self, pcreationdate: *mut f64) -> ::windows_core::Result<()>;
     fn SourceLink(&self, pbstrsourcelink: *mut ::windows_core::BSTR) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IAMNetShowExProps {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IAMNetShowExProps_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMNetShowExProps_Impl, const OFFSET: isize>() -> IAMNetShowExProps_Vtbl {
         unsafe extern "system" fn SourceProtocol<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMNetShowExProps_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psourceprotocol: *mut i32) -> ::windows_core::HRESULT {
@@ -2552,15 +2552,15 @@ impl IAMNetShowExProps_Vtbl {
         iid == &<IAMNetShowExProps as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAMNetShowPreroll_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetPreroll(&self, fpreroll: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
     fn Preroll(&self, pfpreroll: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IAMNetShowPreroll {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IAMNetShowPreroll_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMNetShowPreroll_Impl, const OFFSET: isize>() -> IAMNetShowPreroll_Vtbl {
         unsafe extern "system" fn SetPreroll<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMNetShowPreroll_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fpreroll: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT {
@@ -2583,8 +2583,8 @@ impl IAMNetShowPreroll_Vtbl {
         iid == &<IAMNetShowPreroll as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAMNetworkStatus_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ReceivedPackets(&self, preceivedpackets: *mut i32) -> ::windows_core::Result<()>;
     fn RecoveredPackets(&self, precoveredpackets: *mut i32) -> ::windows_core::Result<()>;
@@ -2594,9 +2594,9 @@ pub trait IAMNetworkStatus_Impl: Sized + super::super::System::Com::IDispatch_Im
     fn IsBroadcast(&self, pisbroadcast: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
     fn BufferingProgress(&self, pbufferingprogress: *mut i32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IAMNetworkStatus {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IAMNetworkStatus_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMNetworkStatus_Impl, const OFFSET: isize>() -> IAMNetworkStatus_Vtbl {
         unsafe extern "system" fn ReceivedPackets<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMNetworkStatus_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, preceivedpackets: *mut i32) -> ::windows_core::HRESULT {
@@ -3195,8 +3195,8 @@ impl IAMResourceControl_Vtbl {
         iid == &<IAMResourceControl as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAMStats_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Reset(&self) -> ::windows_core::Result<()>;
     fn Count(&self) -> ::windows_core::Result<i32>;
@@ -3205,9 +3205,9 @@ pub trait IAMStats_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn GetIndex(&self, szname: &::windows_core::BSTR, lcreate: i32) -> ::windows_core::Result<i32>;
     fn AddValue(&self, lindex: i32, dvalue: f64) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IAMStats {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IAMStats_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMStats_Impl, const OFFSET: isize>() -> IAMStats_Vtbl {
         unsafe extern "system" fn Reset<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMStats_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -5315,12 +5315,12 @@ impl IBDA_DeviceControl_Vtbl {
         iid == &<IBDA_DeviceControl as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IBDA_DiagnosticProperties_Impl: Sized + super::super::System::Com::StructuredStorage::IPropertyBag_Impl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IBDA_DiagnosticProperties {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IBDA_DiagnosticProperties_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBDA_DiagnosticProperties_Impl, const OFFSET: isize>() -> IBDA_DiagnosticProperties_Vtbl {
         Self { base__: super::super::System::Com::StructuredStorage::IPropertyBag_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -7163,17 +7163,17 @@ impl IBaseVideoMixer_Vtbl {
         iid == &<IBaseVideoMixer as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IBasicAudio_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetVolume(&self, lvolume: i32) -> ::windows_core::Result<()>;
     fn Volume(&self) -> ::windows_core::Result<i32>;
     fn SetBalance(&self, lbalance: i32) -> ::windows_core::Result<()>;
     fn Balance(&self) -> ::windows_core::Result<i32>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IBasicAudio {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IBasicAudio_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBasicAudio_Impl, const OFFSET: isize>() -> IBasicAudio_Vtbl {
         unsafe extern "system" fn SetVolume<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBasicAudio_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lvolume: i32) -> ::windows_core::HRESULT {
@@ -7220,8 +7220,8 @@ impl IBasicAudio_Vtbl {
         iid == &<IBasicAudio as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IBasicVideo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn AvgTimePerFrame(&self) -> ::windows_core::Result<f64>;
     fn BitRate(&self) -> ::windows_core::Result<i32>;
@@ -7256,9 +7256,9 @@ pub trait IBasicVideo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn IsUsingDefaultSource(&self) -> ::windows_core::Result<()>;
     fn IsUsingDefaultDestination(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IBasicVideo {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IBasicVideo_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBasicVideo_Impl, const OFFSET: isize>() -> IBasicVideo_Vtbl {
         unsafe extern "system" fn AvgTimePerFrame<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBasicVideo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pavgtimeperframe: *mut f64) -> ::windows_core::HRESULT {
@@ -7539,14 +7539,14 @@ impl IBasicVideo_Vtbl {
         iid == &<IBasicVideo as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IBasicVideo2_Impl: Sized + IBasicVideo_Impl {
     fn GetPreferredAspectRatio(&self, plaspectx: *mut i32, plaspecty: *mut i32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IBasicVideo2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IBasicVideo2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBasicVideo2_Impl, const OFFSET: isize>() -> IBasicVideo2_Vtbl {
         unsafe extern "system" fn GetPreferredAspectRatio<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBasicVideo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plaspectx: *mut i32, plaspecty: *mut i32) -> ::windows_core::HRESULT {
@@ -10721,20 +10721,20 @@ impl IESEvents_Vtbl {
         iid == &<IESEvents as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IEncoderAPI_Impl: Sized {
     fn IsSupported(&self, api: *const ::windows_core::GUID) -> ::windows_core::Result<()>;
     fn IsAvailable(&self, api: *const ::windows_core::GUID) -> ::windows_core::Result<()>;
-    fn GetParameterRange(&self, api: *const ::windows_core::GUID, valuemin: *mut super::super::System::Com::VARIANT, valuemax: *mut super::super::System::Com::VARIANT, steppingdelta: *mut super::super::System::Com::VARIANT) -> ::windows_core::Result<()>;
-    fn GetParameterValues(&self, api: *const ::windows_core::GUID, values: *mut *mut super::super::System::Com::VARIANT, valuescount: *mut u32) -> ::windows_core::Result<()>;
-    fn GetDefaultValue(&self, api: *const ::windows_core::GUID) -> ::windows_core::Result<super::super::System::Com::VARIANT>;
-    fn GetValue(&self, api: *const ::windows_core::GUID) -> ::windows_core::Result<super::super::System::Com::VARIANT>;
-    fn SetValue(&self, api: *const ::windows_core::GUID, value: *const super::super::System::Com::VARIANT) -> ::windows_core::Result<()>;
+    fn GetParameterRange(&self, api: *const ::windows_core::GUID, valuemin: *mut super::super::System::Variant::VARIANT, valuemax: *mut super::super::System::Variant::VARIANT, steppingdelta: *mut super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
+    fn GetParameterValues(&self, api: *const ::windows_core::GUID, values: *mut *mut super::super::System::Variant::VARIANT, valuescount: *mut u32) -> ::windows_core::Result<()>;
+    fn GetDefaultValue(&self, api: *const ::windows_core::GUID) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn GetValue(&self, api: *const ::windows_core::GUID) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn SetValue(&self, api: *const ::windows_core::GUID, value: *const super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IEncoderAPI {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IEncoderAPI_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEncoderAPI_Impl, const OFFSET: isize>() -> IEncoderAPI_Vtbl {
         unsafe extern "system" fn IsSupported<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEncoderAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, api: *const ::windows_core::GUID) -> ::windows_core::HRESULT {
@@ -10747,17 +10747,17 @@ impl IEncoderAPI_Vtbl {
             let this = (*this).get_impl();
             this.IsAvailable(::core::mem::transmute_copy(&api)).into()
         }
-        unsafe extern "system" fn GetParameterRange<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEncoderAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, api: *const ::windows_core::GUID, valuemin: *mut super::super::System::Com::VARIANT, valuemax: *mut super::super::System::Com::VARIANT, steppingdelta: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetParameterRange<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEncoderAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, api: *const ::windows_core::GUID, valuemin: *mut super::super::System::Variant::VARIANT, valuemax: *mut super::super::System::Variant::VARIANT, steppingdelta: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetParameterRange(::core::mem::transmute_copy(&api), ::core::mem::transmute_copy(&valuemin), ::core::mem::transmute_copy(&valuemax), ::core::mem::transmute_copy(&steppingdelta)).into()
         }
-        unsafe extern "system" fn GetParameterValues<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEncoderAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, api: *const ::windows_core::GUID, values: *mut *mut super::super::System::Com::VARIANT, valuescount: *mut u32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetParameterValues<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEncoderAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, api: *const ::windows_core::GUID, values: *mut *mut super::super::System::Variant::VARIANT, valuescount: *mut u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetParameterValues(::core::mem::transmute_copy(&api), ::core::mem::transmute_copy(&values), ::core::mem::transmute_copy(&valuescount)).into()
         }
-        unsafe extern "system" fn GetDefaultValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEncoderAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, api: *const ::windows_core::GUID, value: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetDefaultValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEncoderAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, api: *const ::windows_core::GUID, value: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetDefaultValue(::core::mem::transmute_copy(&api)) {
@@ -10768,7 +10768,7 @@ impl IEncoderAPI_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEncoderAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, api: *const ::windows_core::GUID, value: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEncoderAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, api: *const ::windows_core::GUID, value: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetValue(::core::mem::transmute_copy(&api)) {
@@ -10779,7 +10779,7 @@ impl IEncoderAPI_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEncoderAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, api: *const ::windows_core::GUID, value: *const super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SetValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEncoderAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, api: *const ::windows_core::GUID, value: *const super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetValue(::core::mem::transmute_copy(&api), ::core::mem::transmute_copy(&value)).into()
@@ -10802,7 +10802,7 @@ impl IEncoderAPI_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumFilters_Impl: Sized {
-    fn Next(&self, cfilters: u32, ppfilter: *mut ::core::option::Option<IBaseFilter>, pcfetched: *mut u32) -> ::windows_core::Result<()>;
+    fn Next(&self, cfilters: u32, ppfilter: *mut ::core::option::Option<IBaseFilter>, pcfetched: *mut u32) -> ::windows_core::HRESULT;
     fn Skip(&self, cfilters: u32) -> ::windows_core::Result<()>;
     fn Reset(&self) -> ::windows_core::Result<()>;
     fn Clone(&self) -> ::windows_core::Result<IEnumFilters>;
@@ -10815,7 +10815,7 @@ impl IEnumFilters_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumFilters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cfilters: u32, ppfilter: *mut *mut ::core::ffi::c_void, pcfetched: *mut u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Next(::core::mem::transmute_copy(&cfilters), ::core::mem::transmute_copy(&ppfilter), ::core::mem::transmute_copy(&pcfetched)).into()
+            this.Next(::core::mem::transmute_copy(&cfilters), ::core::mem::transmute_copy(&ppfilter), ::core::mem::transmute_copy(&pcfetched))
         }
         unsafe extern "system" fn Skip<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumFilters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cfilters: u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -10853,7 +10853,7 @@ impl IEnumFilters_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
 pub trait IEnumMediaTypes_Impl: Sized {
-    fn Next(&self, cmediatypes: u32, ppmediatypes: *mut *mut super::MediaFoundation::AM_MEDIA_TYPE, pcfetched: *mut u32) -> ::windows_core::Result<()>;
+    fn Next(&self, cmediatypes: u32, ppmediatypes: *mut *mut super::MediaFoundation::AM_MEDIA_TYPE, pcfetched: *mut u32) -> ::windows_core::HRESULT;
     fn Skip(&self, cmediatypes: u32) -> ::windows_core::Result<()>;
     fn Reset(&self) -> ::windows_core::Result<()>;
     fn Clone(&self) -> ::windows_core::Result<IEnumMediaTypes>;
@@ -10866,7 +10866,7 @@ impl IEnumMediaTypes_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumMediaTypes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cmediatypes: u32, ppmediatypes: *mut *mut super::MediaFoundation::AM_MEDIA_TYPE, pcfetched: *mut u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Next(::core::mem::transmute_copy(&cmediatypes), ::core::mem::transmute_copy(&ppmediatypes), ::core::mem::transmute_copy(&pcfetched)).into()
+            this.Next(::core::mem::transmute_copy(&cmediatypes), ::core::mem::transmute_copy(&ppmediatypes), ::core::mem::transmute_copy(&pcfetched))
         }
         unsafe extern "system" fn Skip<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumMediaTypes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cmediatypes: u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -10903,7 +10903,7 @@ impl IEnumMediaTypes_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
 pub trait IEnumPIDMap_Impl: Sized {
-    fn Next(&self, crequest: u32, ppidmap: *mut PID_MAP, pcreceived: *mut u32) -> ::windows_core::Result<()>;
+    fn Next(&self, crequest: u32, ppidmap: *mut PID_MAP, pcreceived: *mut u32) -> ::windows_core::HRESULT;
     fn Skip(&self, crecords: u32) -> ::windows_core::Result<()>;
     fn Reset(&self) -> ::windows_core::Result<()>;
     fn Clone(&self) -> ::windows_core::Result<IEnumPIDMap>;
@@ -10914,7 +10914,7 @@ impl IEnumPIDMap_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumPIDMap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, crequest: u32, ppidmap: *mut PID_MAP, pcreceived: *mut u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Next(::core::mem::transmute_copy(&crequest), ::core::mem::transmute_copy(&ppidmap), ::core::mem::transmute_copy(&pcreceived)).into()
+            this.Next(::core::mem::transmute_copy(&crequest), ::core::mem::transmute_copy(&ppidmap), ::core::mem::transmute_copy(&pcreceived))
         }
         unsafe extern "system" fn Skip<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumPIDMap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, crecords: u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -10951,7 +10951,7 @@ impl IEnumPIDMap_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
 pub trait IEnumPins_Impl: Sized {
-    fn Next(&self, cpins: u32, pppins: *mut ::core::option::Option<IPin>, pcfetched: *mut u32) -> ::windows_core::Result<()>;
+    fn Next(&self, cpins: u32, pppins: *mut ::core::option::Option<IPin>, pcfetched: *mut u32) -> ::windows_core::HRESULT;
     fn Skip(&self, cpins: u32) -> ::windows_core::Result<()>;
     fn Reset(&self) -> ::windows_core::Result<()>;
     fn Clone(&self) -> ::windows_core::Result<IEnumPins>;
@@ -10962,7 +10962,7 @@ impl IEnumPins_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumPins_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cpins: u32, pppins: *mut *mut ::core::ffi::c_void, pcfetched: *mut u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Next(::core::mem::transmute_copy(&cpins), ::core::mem::transmute_copy(&pppins), ::core::mem::transmute_copy(&pcfetched)).into()
+            this.Next(::core::mem::transmute_copy(&cpins), ::core::mem::transmute_copy(&pppins), ::core::mem::transmute_copy(&pcfetched))
         }
         unsafe extern "system" fn Skip<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumPins_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cpins: u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -10999,7 +10999,7 @@ impl IEnumPins_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
 pub trait IEnumRegFilters_Impl: Sized {
-    fn Next(&self, cfilters: u32, apregfilter: *mut *mut REGFILTER, pcfetched: *mut u32) -> ::windows_core::Result<()>;
+    fn Next(&self, cfilters: u32, apregfilter: *mut *mut REGFILTER, pcfetched: *mut u32) -> ::windows_core::HRESULT;
     fn Skip(&self, cfilters: u32) -> ::windows_core::Result<()>;
     fn Reset(&self) -> ::windows_core::Result<()>;
     fn Clone(&self) -> ::windows_core::Result<IEnumRegFilters>;
@@ -11010,7 +11010,7 @@ impl IEnumRegFilters_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumRegFilters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cfilters: u32, apregfilter: *mut *mut REGFILTER, pcfetched: *mut u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Next(::core::mem::transmute_copy(&cfilters), ::core::mem::transmute_copy(&apregfilter), ::core::mem::transmute_copy(&pcfetched)).into()
+            this.Next(::core::mem::transmute_copy(&cfilters), ::core::mem::transmute_copy(&apregfilter), ::core::mem::transmute_copy(&pcfetched))
         }
         unsafe extern "system" fn Skip<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumRegFilters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cfilters: u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -11387,8 +11387,8 @@ impl IFilterGraph3_Vtbl {
         iid == &<IFilterGraph3 as ::windows_core::ComInterface>::IID || iid == &<IFilterGraph as ::windows_core::ComInterface>::IID || iid == &<IGraphBuilder as ::windows_core::ComInterface>::IID || iid == &<IFilterGraph2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFilterInfo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn FindPin(&self, strpinid: &::windows_core::BSTR) -> ::windows_core::Result<super::super::System::Com::IDispatch>;
     fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -11399,9 +11399,9 @@ pub trait IFilterInfo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Filename(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn SetFilename(&self, strfilename: &::windows_core::BSTR) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IFilterInfo {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFilterInfo_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IFilterInfo_Impl, const OFFSET: isize>() -> IFilterInfo_Vtbl {
         unsafe extern "system" fn FindPin<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IFilterInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strpinid: ::std::mem::MaybeUninit<::windows_core::BSTR>, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -12251,115 +12251,6 @@ impl IKsNodeControl_Vtbl {
         iid == &<IKsNodeControl as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Media_KernelStreaming\"`, `\"implement\"`*"]
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-pub trait IKsTopologyInfo_Impl: Sized {
-    fn NumCategories(&self) -> ::windows_core::Result<u32>;
-    fn get_Category(&self, dwindex: u32) -> ::windows_core::Result<::windows_core::GUID>;
-    fn NumConnections(&self) -> ::windows_core::Result<u32>;
-    fn get_ConnectionInfo(&self, dwindex: u32) -> ::windows_core::Result<super::KernelStreaming::KSTOPOLOGY_CONNECTION>;
-    fn get_NodeName(&self, dwnodeid: u32, pwchnodename: ::windows_core::PWSTR, dwbufsize: u32, pdwnamelen: *mut u32) -> ::windows_core::Result<()>;
-    fn NumNodes(&self) -> ::windows_core::Result<u32>;
-    fn get_NodeType(&self, dwnodeid: u32) -> ::windows_core::Result<::windows_core::GUID>;
-    fn CreateNodeInstance(&self, dwnodeid: u32, iid: *const ::windows_core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
-}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl ::windows_core::RuntimeName for IKsTopologyInfo {}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
-impl IKsTopologyInfo_Vtbl {
-    pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IKsTopologyInfo_Impl, const OFFSET: isize>() -> IKsTopologyInfo_Vtbl {
-        unsafe extern "system" fn NumCategories<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IKsTopologyInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwnumcategories: *mut u32) -> ::windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
-            match this.NumCategories() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pdwnumcategories, ::core::mem::transmute(ok__));
-                    ::windows_core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
-        }
-        unsafe extern "system" fn get_Category<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IKsTopologyInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwindex: u32, pcategory: *mut ::windows_core::GUID) -> ::windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
-            match this.get_Category(::core::mem::transmute_copy(&dwindex)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pcategory, ::core::mem::transmute(ok__));
-                    ::windows_core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
-        }
-        unsafe extern "system" fn NumConnections<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IKsTopologyInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwnumconnections: *mut u32) -> ::windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
-            match this.NumConnections() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pdwnumconnections, ::core::mem::transmute(ok__));
-                    ::windows_core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
-        }
-        unsafe extern "system" fn get_ConnectionInfo<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IKsTopologyInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwindex: u32, pconnectioninfo: *mut super::KernelStreaming::KSTOPOLOGY_CONNECTION) -> ::windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
-            match this.get_ConnectionInfo(::core::mem::transmute_copy(&dwindex)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pconnectioninfo, ::core::mem::transmute(ok__));
-                    ::windows_core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
-        }
-        unsafe extern "system" fn get_NodeName<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IKsTopologyInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwnodeid: u32, pwchnodename: ::windows_core::PWSTR, dwbufsize: u32, pdwnamelen: *mut u32) -> ::windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
-            this.get_NodeName(::core::mem::transmute_copy(&dwnodeid), ::core::mem::transmute_copy(&pwchnodename), ::core::mem::transmute_copy(&dwbufsize), ::core::mem::transmute_copy(&pdwnamelen)).into()
-        }
-        unsafe extern "system" fn NumNodes<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IKsTopologyInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwnumnodes: *mut u32) -> ::windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
-            match this.NumNodes() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pdwnumnodes, ::core::mem::transmute(ok__));
-                    ::windows_core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
-        }
-        unsafe extern "system" fn get_NodeType<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IKsTopologyInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwnodeid: u32, pnodetype: *mut ::windows_core::GUID) -> ::windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
-            match this.get_NodeType(::core::mem::transmute_copy(&dwnodeid)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pnodetype, ::core::mem::transmute(ok__));
-                    ::windows_core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
-        }
-        unsafe extern "system" fn CreateNodeInstance<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IKsTopologyInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwnodeid: u32, iid: *const ::windows_core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
-            this.CreateNodeInstance(::core::mem::transmute_copy(&dwnodeid), ::core::mem::transmute_copy(&iid), ::core::mem::transmute_copy(&ppvobject)).into()
-        }
-        Self {
-            base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            NumCategories: NumCategories::<Identity, Impl, OFFSET>,
-            get_Category: get_Category::<Identity, Impl, OFFSET>,
-            NumConnections: NumConnections::<Identity, Impl, OFFSET>,
-            get_ConnectionInfo: get_ConnectionInfo::<Identity, Impl, OFFSET>,
-            get_NodeName: get_NodeName::<Identity, Impl, OFFSET>,
-            NumNodes: NumNodes::<Identity, Impl, OFFSET>,
-            get_NodeType: get_NodeType::<Identity, Impl, OFFSET>,
-            CreateNodeInstance: CreateNodeInstance::<Identity, Impl, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IKsTopologyInfo as ::windows_core::ComInterface>::IID
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
 pub trait IMPEG2PIDMap_Impl: Sized {
     fn MapPID(&self, culpid: u32, pulpid: *const u32, mediasamplecontent: MEDIA_SAMPLE_CONTENT) -> ::windows_core::Result<()>;
@@ -12442,8 +12333,8 @@ impl IMPEG2StreamIdMap_Vtbl {
         iid == &<IMPEG2StreamIdMap as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMediaControl_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Run(&self) -> ::windows_core::Result<()>;
     fn Pause(&self) -> ::windows_core::Result<()>;
@@ -12455,9 +12346,9 @@ pub trait IMediaControl_Impl: Sized + super::super::System::Com::IDispatch_Impl 
     fn RegFilterCollection(&self) -> ::windows_core::Result<super::super::System::Com::IDispatch>;
     fn StopWhenReady(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMediaControl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMediaControl_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaControl_Impl, const OFFSET: isize>() -> IMediaControl_Vtbl {
         unsafe extern "system" fn Run<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -12546,8 +12437,8 @@ impl IMediaControl_Vtbl {
         iid == &<IMediaControl as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMediaEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn GetEventHandle(&self) -> ::windows_core::Result<isize>;
     fn GetEvent(&self, leventcode: *mut i32, lparam1: *mut isize, lparam2: *mut isize, mstimeout: i32) -> ::windows_core::Result<()>;
@@ -12556,9 +12447,9 @@ pub trait IMediaEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn RestoreDefaultHandling(&self, levcode: i32) -> ::windows_core::Result<()>;
     fn FreeEventParams(&self, levcode: i32, lparam1: isize, lparam2: isize) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMediaEvent {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMediaEvent_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaEvent_Impl, const OFFSET: isize>() -> IMediaEvent_Vtbl {
         unsafe extern "system" fn GetEventHandle<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hevent: *mut isize) -> ::windows_core::HRESULT {
@@ -12617,16 +12508,16 @@ impl IMediaEvent_Vtbl {
         iid == &<IMediaEvent as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMediaEventEx_Impl: Sized + IMediaEvent_Impl {
     fn SetNotifyWindow(&self, hwnd: isize, lmsg: i32, linstancedata: isize) -> ::windows_core::Result<()>;
     fn SetNotifyFlags(&self, lnonotifyflags: i32) -> ::windows_core::Result<()>;
     fn GetNotifyFlags(&self) -> ::windows_core::Result<i32>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMediaEventEx {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMediaEventEx_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaEventEx_Impl, const OFFSET: isize>() -> IMediaEventEx_Vtbl {
         unsafe extern "system" fn SetNotifyWindow<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaEventEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: isize, lmsg: i32, linstancedata: isize) -> ::windows_core::HRESULT {
@@ -12885,8 +12776,8 @@ impl IMediaParams_Vtbl {
         iid == &<IMediaParams as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMediaPosition_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Duration(&self) -> ::windows_core::Result<f64>;
     fn SetCurrentPosition(&self, lltime: f64) -> ::windows_core::Result<()>;
@@ -12900,9 +12791,9 @@ pub trait IMediaPosition_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn CanSeekForward(&self) -> ::windows_core::Result<i32>;
     fn CanSeekBackward(&self) -> ::windows_core::Result<i32>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMediaPosition {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMediaPosition_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaPosition_Impl, const OFFSET: isize>() -> IMediaPosition_Vtbl {
         unsafe extern "system" fn Duration<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaPosition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plength: *mut f64) -> ::windows_core::HRESULT {
@@ -13021,17 +12912,17 @@ impl IMediaPosition_Vtbl {
         iid == &<IMediaPosition as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMediaPropertyBag_Impl: Sized + super::super::System::Com::StructuredStorage::IPropertyBag_Impl {
-    fn EnumProperty(&self, iproperty: u32, pvarpropertyname: *mut super::super::System::Com::VARIANT, pvarpropertyvalue: *mut super::super::System::Com::VARIANT) -> ::windows_core::Result<()>;
+    fn EnumProperty(&self, iproperty: u32, pvarpropertyname: *mut super::super::System::Variant::VARIANT, pvarpropertyvalue: *mut super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMediaPropertyBag {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMediaPropertyBag_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaPropertyBag_Impl, const OFFSET: isize>() -> IMediaPropertyBag_Vtbl {
-        unsafe extern "system" fn EnumProperty<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaPropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iproperty: u32, pvarpropertyname: *mut super::super::System::Com::VARIANT, pvarpropertyvalue: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn EnumProperty<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaPropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iproperty: u32, pvarpropertyname: *mut super::super::System::Variant::VARIANT, pvarpropertyvalue: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.EnumProperty(::core::mem::transmute_copy(&iproperty), ::core::mem::transmute_copy(&pvarpropertyname), ::core::mem::transmute_copy(&pvarpropertyvalue)).into()
@@ -13600,15 +13491,15 @@ impl IMediaStreamFilter_Vtbl {
         iid == &<IMediaStreamFilter as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IPersist as ::windows_core::ComInterface>::IID || iid == &<IMediaFilter as ::windows_core::ComInterface>::IID || iid == &<IBaseFilter as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMediaTypeInfo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Type(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn Subtype(&self) -> ::windows_core::Result<::windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMediaTypeInfo {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMediaTypeInfo_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaTypeInfo_Impl, const OFFSET: isize>() -> IMediaTypeInfo_Vtbl {
         unsafe extern "system" fn Type<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaTypeInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strtype: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -14837,8 +14728,8 @@ impl IPinFlowControl_Vtbl {
         iid == &<IPinFlowControl as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IPinInfo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Pin(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
     fn ConnectedTo(&self) -> ::windows_core::Result<super::super::System::Com::IDispatch>;
@@ -14854,9 +14745,9 @@ pub trait IPinInfo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Disconnect(&self) -> ::windows_core::Result<()>;
     fn Render(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IPinInfo {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IPinInfo_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPinInfo_Impl, const OFFSET: isize>() -> IPinInfo_Vtbl {
         unsafe extern "system" fn Pin<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPinInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -15116,23 +15007,23 @@ impl IQualityControl_Vtbl {
         iid == &<IQualityControl as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IQueueCommand_Impl: Sized {
-    fn InvokeAtStreamTime(&self, pcmd: *mut ::core::option::Option<IDeferredCommand>, time: f64, iid: *const ::windows_core::GUID, dispidmethod: i32, wflags: i16, cargs: i32, pdispparams: *const super::super::System::Com::VARIANT, pvarresult: *mut super::super::System::Com::VARIANT, puargerr: *mut i16) -> ::windows_core::Result<()>;
-    fn InvokeAtPresentationTime(&self, pcmd: *mut ::core::option::Option<IDeferredCommand>, time: f64, iid: *const ::windows_core::GUID, dispidmethod: i32, wflags: i16, cargs: i32, pdispparams: *const super::super::System::Com::VARIANT, pvarresult: *mut super::super::System::Com::VARIANT, puargerr: *mut i16) -> ::windows_core::Result<()>;
+    fn InvokeAtStreamTime(&self, pcmd: *mut ::core::option::Option<IDeferredCommand>, time: f64, iid: *const ::windows_core::GUID, dispidmethod: i32, wflags: i16, cargs: i32, pdispparams: *const super::super::System::Variant::VARIANT, pvarresult: *mut super::super::System::Variant::VARIANT, puargerr: *mut i16) -> ::windows_core::Result<()>;
+    fn InvokeAtPresentationTime(&self, pcmd: *mut ::core::option::Option<IDeferredCommand>, time: f64, iid: *const ::windows_core::GUID, dispidmethod: i32, wflags: i16, cargs: i32, pdispparams: *const super::super::System::Variant::VARIANT, pvarresult: *mut super::super::System::Variant::VARIANT, puargerr: *mut i16) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IQueueCommand {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IQueueCommand_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IQueueCommand_Impl, const OFFSET: isize>() -> IQueueCommand_Vtbl {
-        unsafe extern "system" fn InvokeAtStreamTime<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IQueueCommand_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcmd: *mut *mut ::core::ffi::c_void, time: f64, iid: *const ::windows_core::GUID, dispidmethod: i32, wflags: i16, cargs: i32, pdispparams: *const super::super::System::Com::VARIANT, pvarresult: *mut super::super::System::Com::VARIANT, puargerr: *mut i16) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn InvokeAtStreamTime<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IQueueCommand_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcmd: *mut *mut ::core::ffi::c_void, time: f64, iid: *const ::windows_core::GUID, dispidmethod: i32, wflags: i16, cargs: i32, pdispparams: *const super::super::System::Variant::VARIANT, pvarresult: *mut super::super::System::Variant::VARIANT, puargerr: *mut i16) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.InvokeAtStreamTime(::core::mem::transmute_copy(&pcmd), ::core::mem::transmute_copy(&time), ::core::mem::transmute_copy(&iid), ::core::mem::transmute_copy(&dispidmethod), ::core::mem::transmute_copy(&wflags), ::core::mem::transmute_copy(&cargs), ::core::mem::transmute_copy(&pdispparams), ::core::mem::transmute_copy(&pvarresult), ::core::mem::transmute_copy(&puargerr)).into()
         }
-        unsafe extern "system" fn InvokeAtPresentationTime<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IQueueCommand_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcmd: *mut *mut ::core::ffi::c_void, time: f64, iid: *const ::windows_core::GUID, dispidmethod: i32, wflags: i16, cargs: i32, pdispparams: *const super::super::System::Com::VARIANT, pvarresult: *mut super::super::System::Com::VARIANT, puargerr: *mut i16) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn InvokeAtPresentationTime<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IQueueCommand_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcmd: *mut *mut ::core::ffi::c_void, time: f64, iid: *const ::windows_core::GUID, dispidmethod: i32, wflags: i16, cargs: i32, pdispparams: *const super::super::System::Variant::VARIANT, pvarresult: *mut super::super::System::Variant::VARIANT, puargerr: *mut i16) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.InvokeAtPresentationTime(::core::mem::transmute_copy(&pcmd), ::core::mem::transmute_copy(&time), ::core::mem::transmute_copy(&iid), ::core::mem::transmute_copy(&dispidmethod), ::core::mem::transmute_copy(&wflags), ::core::mem::transmute_copy(&cargs), ::core::mem::transmute_copy(&pdispparams), ::core::mem::transmute_copy(&pvarresult), ::core::mem::transmute_copy(&puargerr)).into()
@@ -15147,15 +15038,15 @@ impl IQueueCommand_Vtbl {
         iid == &<IQueueCommand as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRegFilterInfo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn Filter(&self) -> ::windows_core::Result<super::super::System::Com::IDispatch>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IRegFilterInfo {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRegFilterInfo_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IRegFilterInfo_Impl, const OFFSET: isize>() -> IRegFilterInfo_Vtbl {
         unsafe extern "system" fn Name<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IRegFilterInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -17460,12 +17351,12 @@ impl IVPVBINotify_Vtbl {
         iid == &<IVPVBINotify as ::windows_core::ComInterface>::IID || iid == &<IVPBaseNotify as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IVideoEncoder_Impl: Sized + IEncoderAPI_Impl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IVideoEncoder {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IVideoEncoder_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IVideoEncoder_Impl, const OFFSET: isize>() -> IVideoEncoder_Vtbl {
         Self { base__: IEncoderAPI_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -17796,8 +17687,8 @@ impl IVideoProcAmp_Vtbl {
         iid == &<IVideoProcAmp as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IVideoWindow_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetCaption(&self, strcaption: &::windows_core::BSTR) -> ::windows_core::Result<()>;
     fn Caption(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -17839,9 +17730,9 @@ pub trait IVideoWindow_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn HideCursor(&self, hidecursor: OA_BOOL) -> ::windows_core::Result<()>;
     fn IsCursorHidden(&self) -> ::windows_core::Result<i32>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::windows_core::RuntimeName for IVideoWindow {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IVideoWindow_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IVideoWindow_Impl, const OFFSET: isize>() -> IVideoWindow_Vtbl {
         unsafe extern "system" fn SetCaption<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IVideoWindow_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strcaption: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {

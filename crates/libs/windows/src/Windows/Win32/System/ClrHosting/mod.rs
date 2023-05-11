@@ -4053,10 +4053,10 @@ pub struct IManagedObject_Vtbl {
 #[repr(transparent)]
 pub struct IObjectHandle(::windows_core::IUnknown);
 impl IObjectHandle {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Unwrap(&self) -> ::windows_core::Result<super::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Unwrap(&self) -> ::windows_core::Result<super::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).Unwrap)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -4087,9 +4087,9 @@ unsafe impl ::windows_core::ComInterface for IObjectHandle {
 #[doc(hidden)]
 pub struct IObjectHandle_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Unwrap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppv: *mut super::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub Unwrap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppv: *mut super::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Unwrap: usize,
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]

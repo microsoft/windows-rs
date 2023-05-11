@@ -1,8 +1,11 @@
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[inline]
-pub unsafe fn CloseIMsgSession(lpmsgsess: *mut _MSGSESS) {
-    ::windows_targets::link!("mapi32.dll" "system" fn CloseIMsgSession(lpmsgsess : *mut _MSGSESS) -> ());
-    CloseIMsgSession(lpmsgsess)
+pub unsafe fn CloseIMsgSession<P0>(lpmsgsess: P0)
+where
+    P0: ::windows_core::IntoParam<LPMSGSESS>,
+{
+    ::windows_targets::link!("mapi32.dll" "system" fn CloseIMsgSession(lpmsgsess : LPMSGSESS) -> ());
+    CloseIMsgSession(lpmsgsess.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_AddressBook\"`*"]
 #[cfg(feature = "Win32_System_AddressBook")]
@@ -20,22 +23,23 @@ pub unsafe fn MapStorageSCode(stgscode: i32) -> i32 {
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_AddressBook\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
-pub unsafe fn OpenIMsgOnIStg<P0, P1>(lpmsgsess: *mut _MSGSESS, lpallocatebuffer: super::super::System::AddressBook::LPALLOCATEBUFFER, lpallocatemore: super::super::System::AddressBook::LPALLOCATEMORE, lpfreebuffer: super::super::System::AddressBook::LPFREEBUFFER, lpmalloc: P0, lpmapisup: *mut ::core::ffi::c_void, lpstg: P1, lpfmsgcallrelease: *mut MSGCALLRELEASE, ulcallerdata: u32, ulflags: u32, lppmsg: *mut ::core::option::Option<super::super::System::AddressBook::IMessage>) -> i32
+pub unsafe fn OpenIMsgOnIStg<P0, P1, P2>(lpmsgsess: P0, lpallocatebuffer: super::super::System::AddressBook::LPALLOCATEBUFFER, lpallocatemore: super::super::System::AddressBook::LPALLOCATEMORE, lpfreebuffer: super::super::System::AddressBook::LPFREEBUFFER, lpmalloc: P1, lpmapisup: *mut ::core::ffi::c_void, lpstg: P2, lpfmsgcallrelease: *mut MSGCALLRELEASE, ulcallerdata: u32, ulflags: u32, lppmsg: *mut ::core::option::Option<super::super::System::AddressBook::IMessage>) -> i32
 where
-    P0: ::windows_core::IntoParam<super::super::System::Com::IMalloc>,
-    P1: ::windows_core::IntoParam<super::super::System::Com::StructuredStorage::IStorage>,
+    P0: ::windows_core::IntoParam<LPMSGSESS>,
+    P1: ::windows_core::IntoParam<super::super::System::Com::IMalloc>,
+    P2: ::windows_core::IntoParam<super::super::System::Com::StructuredStorage::IStorage>,
 {
-    ::windows_targets::link!("mapi32.dll" "system" fn OpenIMsgOnIStg(lpmsgsess : *mut _MSGSESS, lpallocatebuffer : super::super::System::AddressBook:: LPALLOCATEBUFFER, lpallocatemore : super::super::System::AddressBook:: LPALLOCATEMORE, lpfreebuffer : super::super::System::AddressBook:: LPFREEBUFFER, lpmalloc : * mut::core::ffi::c_void, lpmapisup : *mut ::core::ffi::c_void, lpstg : * mut::core::ffi::c_void, lpfmsgcallrelease : *mut MSGCALLRELEASE, ulcallerdata : u32, ulflags : u32, lppmsg : *mut * mut::core::ffi::c_void) -> i32);
-    OpenIMsgOnIStg(lpmsgsess, lpallocatebuffer, lpallocatemore, lpfreebuffer, lpmalloc.into_param().abi(), lpmapisup, lpstg.into_param().abi(), lpfmsgcallrelease, ulcallerdata, ulflags, ::core::mem::transmute(lppmsg))
+    ::windows_targets::link!("mapi32.dll" "system" fn OpenIMsgOnIStg(lpmsgsess : LPMSGSESS, lpallocatebuffer : super::super::System::AddressBook:: LPALLOCATEBUFFER, lpallocatemore : super::super::System::AddressBook:: LPALLOCATEMORE, lpfreebuffer : super::super::System::AddressBook:: LPFREEBUFFER, lpmalloc : * mut::core::ffi::c_void, lpmapisup : *mut ::core::ffi::c_void, lpstg : * mut::core::ffi::c_void, lpfmsgcallrelease : *mut MSGCALLRELEASE, ulcallerdata : u32, ulflags : u32, lppmsg : *mut * mut::core::ffi::c_void) -> i32);
+    OpenIMsgOnIStg(lpmsgsess.into_param().abi(), lpallocatebuffer, lpallocatemore, lpfreebuffer, lpmalloc.into_param().abi(), lpmapisup, lpstg.into_param().abi(), lpfmsgcallrelease, ulcallerdata, ulflags, ::core::mem::transmute(lppmsg))
 }
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn OpenIMsgSession<P0>(lpmalloc: P0, ulflags: u32, lppmsgsess: *mut *mut _MSGSESS) -> i32
+pub unsafe fn OpenIMsgSession<P0>(lpmalloc: P0, ulflags: u32, lppmsgsess: *mut LPMSGSESS) -> i32
 where
     P0: ::windows_core::IntoParam<super::super::System::Com::IMalloc>,
 {
-    ::windows_targets::link!("mapi32.dll" "system" fn OpenIMsgSession(lpmalloc : * mut::core::ffi::c_void, ulflags : u32, lppmsgsess : *mut *mut _MSGSESS) -> i32);
+    ::windows_targets::link!("mapi32.dll" "system" fn OpenIMsgSession(lpmalloc : * mut::core::ffi::c_void, ulflags : u32, lppmsgsess : *mut LPMSGSESS) -> i32);
     OpenIMsgSession(lpmalloc.into_param().abi(), ulflags, lppmsgsess)
 }
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_AddressBook\"`*"]
@@ -2704,8 +2708,8 @@ impl IDiscRecorder2Ex {
     pub unsafe fn SendCommandSendDataToDevice(&self, cdb: &[u8], sensebuffer: &mut [u8; 18], timeout: u32, buffer: &[u8]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SendCommandSendDataToDevice)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(cdb.as_ptr()), cdb.len() as _, ::core::mem::transmute(sensebuffer.as_ptr()), timeout, ::core::mem::transmute(buffer.as_ptr()), buffer.len() as _).ok()
     }
-    pub unsafe fn SendCommandGetDataFromDevice(&self, cdb: &[u8], sensebuffer: &mut [u8; 18], timeout: u32, buffer: *mut u8, buffersize: u32, bufferfetched: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SendCommandGetDataFromDevice)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(cdb.as_ptr()), cdb.len() as _, ::core::mem::transmute(sensebuffer.as_ptr()), timeout, buffer, buffersize, bufferfetched).ok()
+    pub unsafe fn SendCommandGetDataFromDevice(&self, cdb: &[u8], sensebuffer: &mut [u8; 18], timeout: u32, buffer: &mut [u8], bufferfetched: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SendCommandGetDataFromDevice)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(cdb.as_ptr()), cdb.len() as _, ::core::mem::transmute(sensebuffer.as_ptr()), timeout, ::core::mem::transmute(buffer.as_ptr()), buffer.len() as _, bufferfetched).ok()
     }
     pub unsafe fn ReadDvdStructure(&self, format: u32, address: u32, layer: u32, agid: u32, data: *mut *mut u8, count: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ReadDvdStructure)(::windows_core::Interface::as_raw(self), format, address, layer, agid, data, count).ok()
@@ -2830,8 +2834,8 @@ pub struct IDiscRecorder2Ex_Vtbl {
 #[repr(transparent)]
 pub struct IEnumDiscMasterFormats(::windows_core::IUnknown);
 impl IEnumDiscMasterFormats {
-    pub unsafe fn Next(&self, cformats: u32, lpiidformatid: *mut ::windows_core::GUID, pcfetched: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), cformats, lpiidformatid, pcfetched).ok()
+    pub unsafe fn Next(&self, lpiidformatid: &mut [::windows_core::GUID], pcfetched: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), lpiidformatid.len() as _, ::core::mem::transmute(lpiidformatid.as_ptr()), pcfetched).ok()
     }
     pub unsafe fn Skip(&self, cformats: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), cformats).ok()
@@ -2880,8 +2884,8 @@ pub struct IEnumDiscMasterFormats_Vtbl {
 #[repr(transparent)]
 pub struct IEnumDiscRecorders(::windows_core::IUnknown);
 impl IEnumDiscRecorders {
-    pub unsafe fn Next(&self, crecorders: u32, pprecorder: *mut ::core::option::Option<IDiscRecorder>, pcfetched: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), crecorders, ::core::mem::transmute(pprecorder), pcfetched).ok()
+    pub unsafe fn Next(&self, pprecorder: &mut [::core::option::Option<IDiscRecorder>], pcfetched: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), pprecorder.len() as _, ::core::mem::transmute(pprecorder.as_ptr()), pcfetched).ok()
     }
     pub unsafe fn Skip(&self, crecorders: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), crecorders).ok()
@@ -8802,6 +8806,28 @@ impl ::core::default::Default for IMMP_MPV_STORE_DRIVER_HANDLE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct LPMSGSESS(pub isize);
+impl ::core::default::Default for LPMSGSESS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for LPMSGSESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for LPMSGSESS {}
+impl ::core::fmt::Debug for LPMSGSESS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LPMSGSESS").field(&self.0).finish()
+    }
+}
+impl ::windows_core::TypeKind for LPMSGSESS {
+    type TypeKind = ::windows_core::CopyType;
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub struct SPropAttrArray {
@@ -8832,17 +8858,6 @@ impl ::core::default::Default for SPropAttrArray {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-#[repr(C)]
-pub struct _MSGSESS(pub u8);
-impl ::core::marker::Copy for _MSGSESS {}
-impl ::core::clone::Clone for _MSGSESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::windows_core::TypeKind for _MSGSESS {
-    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]

@@ -1,13 +1,13 @@
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
-pub unsafe fn AcquireSRWLockExclusive(srwlock: *mut RTL_SRWLOCK) {
-    ::windows_targets::link!("kernel32.dll" "system" fn AcquireSRWLockExclusive(srwlock : *mut RTL_SRWLOCK) -> ());
+pub unsafe fn AcquireSRWLockExclusive(srwlock: *mut SRWLOCK) {
+    ::windows_targets::link!("kernel32.dll" "system" fn AcquireSRWLockExclusive(srwlock : *mut SRWLOCK) -> ());
     AcquireSRWLockExclusive(srwlock)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
-pub unsafe fn AcquireSRWLockShared(srwlock: *mut RTL_SRWLOCK) {
-    ::windows_targets::link!("kernel32.dll" "system" fn AcquireSRWLockShared(srwlock : *mut RTL_SRWLOCK) -> ());
+pub unsafe fn AcquireSRWLockShared(srwlock: *mut SRWLOCK) {
+    ::windows_targets::link!("kernel32.dll" "system" fn AcquireSRWLockShared(srwlock : *mut SRWLOCK) -> ());
     AcquireSRWLockShared(srwlock)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
@@ -226,12 +226,9 @@ where
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ClosePrivateNamespace<P0>(handle: P0, flags: u32) -> super::super::Foundation::BOOLEAN
-where
-    P0: ::windows_core::IntoParam<NamespaceHandle>,
-{
+pub unsafe fn ClosePrivateNamespace(handle: NamespaceHandle, flags: u32) -> super::super::Foundation::BOOLEAN {
     ::windows_targets::link!("kernel32.dll" "system" fn ClosePrivateNamespace(handle : NamespaceHandle, flags : u32) -> super::super::Foundation:: BOOLEAN);
-    ClosePrivateNamespace(handle.into_param().abi(), flags)
+    ClosePrivateNamespace(::core::mem::transmute(handle), flags)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
@@ -244,19 +241,23 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
-pub unsafe fn CloseThreadpoolCleanupGroup(ptpcg: isize) {
-    ::windows_targets::link!("kernel32.dll" "system" fn CloseThreadpoolCleanupGroup(ptpcg : isize) -> ());
-    CloseThreadpoolCleanupGroup(ptpcg)
+pub unsafe fn CloseThreadpoolCleanupGroup<P0>(ptpcg: P0)
+where
+    P0: ::windows_core::IntoParam<PTP_CLEANUP_GROUP>,
+{
+    ::windows_targets::link!("kernel32.dll" "system" fn CloseThreadpoolCleanupGroup(ptpcg : PTP_CLEANUP_GROUP) -> ());
+    CloseThreadpoolCleanupGroup(ptpcg.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CloseThreadpoolCleanupGroupMembers<P0>(ptpcg: isize, fcancelpendingcallbacks: P0, pvcleanupcontext: ::core::option::Option<*mut ::core::ffi::c_void>)
+pub unsafe fn CloseThreadpoolCleanupGroupMembers<P0, P1>(ptpcg: P0, fcancelpendingcallbacks: P1, pvcleanupcontext: ::core::option::Option<*mut ::core::ffi::c_void>)
 where
-    P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
+    P0: ::windows_core::IntoParam<PTP_CLEANUP_GROUP>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CloseThreadpoolCleanupGroupMembers(ptpcg : isize, fcancelpendingcallbacks : super::super::Foundation:: BOOL, pvcleanupcontext : *mut ::core::ffi::c_void) -> ());
-    CloseThreadpoolCleanupGroupMembers(ptpcg, fcancelpendingcallbacks.into_param().abi(), ::core::mem::transmute(pvcleanupcontext.unwrap_or(::std::ptr::null_mut())))
+    ::windows_targets::link!("kernel32.dll" "system" fn CloseThreadpoolCleanupGroupMembers(ptpcg : PTP_CLEANUP_GROUP, fcancelpendingcallbacks : super::super::Foundation:: BOOL, pvcleanupcontext : *mut ::core::ffi::c_void) -> ());
+    CloseThreadpoolCleanupGroupMembers(ptpcg.into_param().abi(), fcancelpendingcallbacks.into_param().abi(), ::core::mem::transmute(pvcleanupcontext.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
@@ -315,13 +316,12 @@ pub unsafe fn ConvertThreadToFiberEx(lpparameter: ::core::option::Option<*const 
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
-pub unsafe fn CreateBoundaryDescriptorA<P0>(name: P0, flags: u32) -> ::windows_core::Result<BoundaryDescriptorHandle>
+pub unsafe fn CreateBoundaryDescriptorA<P0>(name: P0, flags: u32) -> BoundaryDescriptorHandle
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn CreateBoundaryDescriptorA(name : ::windows_core::PCSTR, flags : u32) -> BoundaryDescriptorHandle);
-    let result__ = CreateBoundaryDescriptorA(name.into_param().abi(), flags);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    CreateBoundaryDescriptorA(name.into_param().abi(), flags)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
@@ -441,13 +441,12 @@ where
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn CreatePrivateNamespaceA<P0>(lpprivatenamespaceattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, lpboundarydescriptor: *const ::core::ffi::c_void, lpaliasprefix: P0) -> ::windows_core::Result<NamespaceHandle>
+pub unsafe fn CreatePrivateNamespaceA<P0>(lpprivatenamespaceattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, lpboundarydescriptor: *const ::core::ffi::c_void, lpaliasprefix: P0) -> NamespaceHandle
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn CreatePrivateNamespaceA(lpprivatenamespaceattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lpboundarydescriptor : *const ::core::ffi::c_void, lpaliasprefix : ::windows_core::PCSTR) -> NamespaceHandle);
-    let result__ = CreatePrivateNamespaceA(::core::mem::transmute(lpprivatenamespaceattributes.unwrap_or(::std::ptr::null())), lpboundarydescriptor, lpaliasprefix.into_param().abi());
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    CreatePrivateNamespaceA(::core::mem::transmute(lpprivatenamespaceattributes.unwrap_or(::std::ptr::null())), lpboundarydescriptor, lpaliasprefix.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -618,8 +617,8 @@ pub unsafe fn CreateThreadpool(reserved: ::core::option::Option<*const ::core::f
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
-pub unsafe fn CreateThreadpoolCleanupGroup() -> isize {
-    ::windows_targets::link!("kernel32.dll" "system" fn CreateThreadpoolCleanupGroup() -> isize);
+pub unsafe fn CreateThreadpoolCleanupGroup() -> PTP_CLEANUP_GROUP {
+    ::windows_targets::link!("kernel32.dll" "system" fn CreateThreadpoolCleanupGroup() -> PTP_CLEANUP_GROUP);
     CreateThreadpoolCleanupGroup()
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
@@ -711,18 +710,15 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
-pub unsafe fn DeleteBoundaryDescriptor<P0>(boundarydescriptor: P0)
-where
-    P0: ::windows_core::IntoParam<BoundaryDescriptorHandle>,
-{
+pub unsafe fn DeleteBoundaryDescriptor(boundarydescriptor: BoundaryDescriptorHandle) {
     ::windows_targets::link!("kernel32.dll" "system" fn DeleteBoundaryDescriptor(boundarydescriptor : BoundaryDescriptorHandle) -> ());
-    DeleteBoundaryDescriptor(boundarydescriptor.into_param().abi())
+    DeleteBoundaryDescriptor(::core::mem::transmute(boundarydescriptor))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn DeleteCriticalSection(lpcriticalsection: *mut RTL_CRITICAL_SECTION) {
-    ::windows_targets::link!("kernel32.dll" "system" fn DeleteCriticalSection(lpcriticalsection : *mut RTL_CRITICAL_SECTION) -> ());
+pub unsafe fn DeleteCriticalSection(lpcriticalsection: *mut CRITICAL_SECTION) {
+    ::windows_targets::link!("kernel32.dll" "system" fn DeleteCriticalSection(lpcriticalsection : *mut CRITICAL_SECTION) -> ());
     DeleteCriticalSection(lpcriticalsection)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
@@ -740,8 +736,8 @@ pub unsafe fn DeleteProcThreadAttributeList(lpattributelist: LPPROC_THREAD_ATTRI
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeleteSynchronizationBarrier(lpbarrier: *mut RTL_BARRIER) -> super::super::Foundation::BOOL {
-    ::windows_targets::link!("kernel32.dll" "system" fn DeleteSynchronizationBarrier(lpbarrier : *mut RTL_BARRIER) -> super::super::Foundation:: BOOL);
+pub unsafe fn DeleteSynchronizationBarrier(lpbarrier: *mut SYNCHRONIZATION_BARRIER) -> super::super::Foundation::BOOL {
+    ::windows_targets::link!("kernel32.dll" "system" fn DeleteSynchronizationBarrier(lpbarrier : *mut SYNCHRONIZATION_BARRIER) -> super::super::Foundation:: BOOL);
     DeleteSynchronizationBarrier(lpbarrier)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
@@ -810,15 +806,15 @@ where
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn EnterCriticalSection(lpcriticalsection: *mut RTL_CRITICAL_SECTION) {
-    ::windows_targets::link!("kernel32.dll" "system" fn EnterCriticalSection(lpcriticalsection : *mut RTL_CRITICAL_SECTION) -> ());
+pub unsafe fn EnterCriticalSection(lpcriticalsection: *mut CRITICAL_SECTION) {
+    ::windows_targets::link!("kernel32.dll" "system" fn EnterCriticalSection(lpcriticalsection : *mut CRITICAL_SECTION) -> ());
     EnterCriticalSection(lpcriticalsection)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnterSynchronizationBarrier(lpbarrier: *mut RTL_BARRIER, dwflags: u32) -> super::super::Foundation::BOOL {
-    ::windows_targets::link!("kernel32.dll" "system" fn EnterSynchronizationBarrier(lpbarrier : *mut RTL_BARRIER, dwflags : u32) -> super::super::Foundation:: BOOL);
+pub unsafe fn EnterSynchronizationBarrier(lpbarrier: *mut SYNCHRONIZATION_BARRIER, dwflags: u32) -> super::super::Foundation::BOOL {
+    ::windows_targets::link!("kernel32.dll" "system" fn EnterSynchronizationBarrier(lpbarrier : *mut SYNCHRONIZATION_BARRIER, dwflags : u32) -> super::super::Foundation:: BOOL);
     EnterSynchronizationBarrier(lpbarrier, dwflags)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemServices\"`*"]
@@ -1405,59 +1401,59 @@ where
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InitOnceBeginInitialize(lpinitonce: *mut RTL_RUN_ONCE, dwflags: u32, fpending: *mut super::super::Foundation::BOOL, lpcontext: ::core::option::Option<*mut *mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn InitOnceBeginInitialize(lpinitonce : *mut RTL_RUN_ONCE, dwflags : u32, fpending : *mut super::super::Foundation:: BOOL, lpcontext : *mut *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
+pub unsafe fn InitOnceBeginInitialize(lpinitonce: *mut INIT_ONCE, dwflags: u32, fpending: *mut super::super::Foundation::BOOL, lpcontext: ::core::option::Option<*mut *mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("kernel32.dll" "system" fn InitOnceBeginInitialize(lpinitonce : *mut INIT_ONCE, dwflags : u32, fpending : *mut super::super::Foundation:: BOOL, lpcontext : *mut *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     InitOnceBeginInitialize(lpinitonce, dwflags, fpending, ::core::mem::transmute(lpcontext.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InitOnceComplete(lpinitonce: *mut RTL_RUN_ONCE, dwflags: u32, lpcontext: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn InitOnceComplete(lpinitonce : *mut RTL_RUN_ONCE, dwflags : u32, lpcontext : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
+pub unsafe fn InitOnceComplete(lpinitonce: *mut INIT_ONCE, dwflags: u32, lpcontext: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("kernel32.dll" "system" fn InitOnceComplete(lpinitonce : *mut INIT_ONCE, dwflags : u32, lpcontext : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     InitOnceComplete(lpinitonce, dwflags, ::core::mem::transmute(lpcontext.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InitOnceExecuteOnce(initonce: *mut RTL_RUN_ONCE, initfn: PINIT_ONCE_FN, parameter: ::core::option::Option<*mut ::core::ffi::c_void>, context: ::core::option::Option<*mut *mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn InitOnceExecuteOnce(initonce : *mut RTL_RUN_ONCE, initfn : PINIT_ONCE_FN, parameter : *mut ::core::ffi::c_void, context : *mut *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
+pub unsafe fn InitOnceExecuteOnce(initonce: *mut INIT_ONCE, initfn: PINIT_ONCE_FN, parameter: ::core::option::Option<*mut ::core::ffi::c_void>, context: ::core::option::Option<*mut *mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("kernel32.dll" "system" fn InitOnceExecuteOnce(initonce : *mut INIT_ONCE, initfn : PINIT_ONCE_FN, parameter : *mut ::core::ffi::c_void, context : *mut *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     InitOnceExecuteOnce(initonce, initfn, ::core::mem::transmute(parameter.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(context.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
-pub unsafe fn InitOnceInitialize() -> RTL_RUN_ONCE {
-    ::windows_targets::link!("kernel32.dll" "system" fn InitOnceInitialize(initonce : *mut RTL_RUN_ONCE) -> ());
-    let mut result__ = ::windows_core::zeroed::<RTL_RUN_ONCE>();
+pub unsafe fn InitOnceInitialize() -> INIT_ONCE {
+    ::windows_targets::link!("kernel32.dll" "system" fn InitOnceInitialize(initonce : *mut INIT_ONCE) -> ());
+    let mut result__ = ::windows_core::zeroed::<INIT_ONCE>();
     InitOnceInitialize(&mut result__);
     ::std::mem::transmute(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
-pub unsafe fn InitializeConditionVariable() -> RTL_CONDITION_VARIABLE {
-    ::windows_targets::link!("kernel32.dll" "system" fn InitializeConditionVariable(conditionvariable : *mut RTL_CONDITION_VARIABLE) -> ());
-    let mut result__ = ::windows_core::zeroed::<RTL_CONDITION_VARIABLE>();
+pub unsafe fn InitializeConditionVariable() -> CONDITION_VARIABLE {
+    ::windows_targets::link!("kernel32.dll" "system" fn InitializeConditionVariable(conditionvariable : *mut CONDITION_VARIABLE) -> ());
+    let mut result__ = ::windows_core::zeroed::<CONDITION_VARIABLE>();
     InitializeConditionVariable(&mut result__);
     ::std::mem::transmute(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn InitializeCriticalSection(lpcriticalsection: *mut RTL_CRITICAL_SECTION) {
-    ::windows_targets::link!("kernel32.dll" "system" fn InitializeCriticalSection(lpcriticalsection : *mut RTL_CRITICAL_SECTION) -> ());
+pub unsafe fn InitializeCriticalSection(lpcriticalsection: *mut CRITICAL_SECTION) {
+    ::windows_targets::link!("kernel32.dll" "system" fn InitializeCriticalSection(lpcriticalsection : *mut CRITICAL_SECTION) -> ());
     InitializeCriticalSection(lpcriticalsection)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn InitializeCriticalSectionAndSpinCount(lpcriticalsection: *mut RTL_CRITICAL_SECTION, dwspincount: u32) -> ::windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn InitializeCriticalSectionAndSpinCount(lpcriticalsection : *mut RTL_CRITICAL_SECTION, dwspincount : u32) -> super::super::Foundation:: BOOL);
+pub unsafe fn InitializeCriticalSectionAndSpinCount(lpcriticalsection: *mut CRITICAL_SECTION, dwspincount: u32) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("kernel32.dll" "system" fn InitializeCriticalSectionAndSpinCount(lpcriticalsection : *mut CRITICAL_SECTION, dwspincount : u32) -> super::super::Foundation:: BOOL);
     InitializeCriticalSectionAndSpinCount(lpcriticalsection, dwspincount).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn InitializeCriticalSectionEx(lpcriticalsection: *mut RTL_CRITICAL_SECTION, dwspincount: u32, flags: u32) -> ::windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn InitializeCriticalSectionEx(lpcriticalsection : *mut RTL_CRITICAL_SECTION, dwspincount : u32, flags : u32) -> super::super::Foundation:: BOOL);
+pub unsafe fn InitializeCriticalSectionEx(lpcriticalsection: *mut CRITICAL_SECTION, dwspincount: u32, flags: u32) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("kernel32.dll" "system" fn InitializeCriticalSectionEx(lpcriticalsection : *mut CRITICAL_SECTION, dwspincount : u32, flags : u32) -> super::super::Foundation:: BOOL);
     InitializeCriticalSectionEx(lpcriticalsection, dwspincount, flags).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
@@ -1478,17 +1474,17 @@ pub unsafe fn InitializeSListHead() -> super::Kernel::SLIST_HEADER {
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
-pub unsafe fn InitializeSRWLock() -> RTL_SRWLOCK {
-    ::windows_targets::link!("kernel32.dll" "system" fn InitializeSRWLock(srwlock : *mut RTL_SRWLOCK) -> ());
-    let mut result__ = ::windows_core::zeroed::<RTL_SRWLOCK>();
+pub unsafe fn InitializeSRWLock() -> SRWLOCK {
+    ::windows_targets::link!("kernel32.dll" "system" fn InitializeSRWLock(srwlock : *mut SRWLOCK) -> ());
+    let mut result__ = ::windows_core::zeroed::<SRWLOCK>();
     InitializeSRWLock(&mut result__);
     ::std::mem::transmute(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InitializeSynchronizationBarrier(lpbarrier: *mut RTL_BARRIER, ltotalthreads: i32, lspincount: i32) -> ::windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn InitializeSynchronizationBarrier(lpbarrier : *mut RTL_BARRIER, ltotalthreads : i32, lspincount : i32) -> super::super::Foundation:: BOOL);
+pub unsafe fn InitializeSynchronizationBarrier(lpbarrier: *mut SYNCHRONIZATION_BARRIER, ltotalthreads: i32, lspincount: i32) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("kernel32.dll" "system" fn InitializeSynchronizationBarrier(lpbarrier : *mut SYNCHRONIZATION_BARRIER, ltotalthreads : i32, lspincount : i32) -> super::super::Foundation:: BOOL);
     InitializeSynchronizationBarrier(lpbarrier, ltotalthreads, lspincount).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_System_Kernel\"`*"]
@@ -1586,49 +1582,19 @@ where
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn LeaveCriticalSection(lpcriticalsection: *mut RTL_CRITICAL_SECTION) {
-    ::windows_targets::link!("kernel32.dll" "system" fn LeaveCriticalSection(lpcriticalsection : *mut RTL_CRITICAL_SECTION) -> ());
+pub unsafe fn LeaveCriticalSection(lpcriticalsection: *mut CRITICAL_SECTION) {
+    ::windows_targets::link!("kernel32.dll" "system" fn LeaveCriticalSection(lpcriticalsection : *mut CRITICAL_SECTION) -> ());
     LeaveCriticalSection(lpcriticalsection)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn LeaveCriticalSectionWhenCallbackReturns<P0>(pci: P0, pcs: *mut RTL_CRITICAL_SECTION)
+pub unsafe fn LeaveCriticalSectionWhenCallbackReturns<P0>(pci: P0, pcs: *mut CRITICAL_SECTION)
 where
     P0: ::windows_core::IntoParam<PTP_CALLBACK_INSTANCE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn LeaveCriticalSectionWhenCallbackReturns(pci : PTP_CALLBACK_INSTANCE, pcs : *mut RTL_CRITICAL_SECTION) -> ());
+    ::windows_targets::link!("kernel32.dll" "system" fn LeaveCriticalSectionWhenCallbackReturns(pci : PTP_CALLBACK_INSTANCE, pcs : *mut CRITICAL_SECTION) -> ());
     LeaveCriticalSectionWhenCallbackReturns(pci.into_param().abi(), pcs)
-}
-#[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn NtQueryInformationProcess<P0>(processhandle: P0, processinformationclass: PROCESSINFOCLASS, processinformation: *mut ::core::ffi::c_void, processinformationlength: u32, returnlength: *mut u32) -> ::windows_core::Result<()>
-where
-    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
-{
-    ::windows_targets::link!("ntdll.dll" "system" fn NtQueryInformationProcess(processhandle : super::super::Foundation:: HANDLE, processinformationclass : PROCESSINFOCLASS, processinformation : *mut ::core::ffi::c_void, processinformationlength : u32, returnlength : *mut u32) -> super::super::Foundation:: NTSTATUS);
-    NtQueryInformationProcess(processhandle.into_param().abi(), processinformationclass, processinformation, processinformationlength, returnlength).ok()
-}
-#[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn NtQueryInformationThread<P0>(threadhandle: P0, threadinformationclass: THREADINFOCLASS, threadinformation: *mut ::core::ffi::c_void, threadinformationlength: u32, returnlength: *mut u32) -> ::windows_core::Result<()>
-where
-    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
-{
-    ::windows_targets::link!("ntdll.dll" "system" fn NtQueryInformationThread(threadhandle : super::super::Foundation:: HANDLE, threadinformationclass : THREADINFOCLASS, threadinformation : *mut ::core::ffi::c_void, threadinformationlength : u32, returnlength : *mut u32) -> super::super::Foundation:: NTSTATUS);
-    NtQueryInformationThread(threadhandle.into_param().abi(), threadinformationclass, threadinformation, threadinformationlength, returnlength).ok()
-}
-#[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn NtSetInformationThread<P0>(threadhandle: P0, threadinformationclass: THREADINFOCLASS, threadinformation: *const ::core::ffi::c_void, threadinformationlength: u32) -> ::windows_core::Result<()>
-where
-    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
-{
-    ::windows_targets::link!("ntdll.dll" "system" fn NtSetInformationThread(threadhandle : super::super::Foundation:: HANDLE, threadinformationclass : THREADINFOCLASS, threadinformation : *const ::core::ffi::c_void, threadinformationlength : u32) -> super::super::Foundation:: NTSTATUS);
-    NtSetInformationThread(threadhandle.into_param().abi(), threadinformationclass, threadinformation, threadinformationlength).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1818,8 +1784,8 @@ where
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn QueryUmsThreadInformation(umsthread: *const ::core::ffi::c_void, umsthreadinfoclass: RTL_UMS_THREAD_INFO_CLASS, umsthreadinformation: *mut ::core::ffi::c_void, umsthreadinformationlength: u32, returnlength: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn QueryUmsThreadInformation(umsthread : *const ::core::ffi::c_void, umsthreadinfoclass : RTL_UMS_THREAD_INFO_CLASS, umsthreadinformation : *mut ::core::ffi::c_void, umsthreadinformationlength : u32, returnlength : *mut u32) -> super::super::Foundation:: BOOL);
+pub unsafe fn QueryUmsThreadInformation(umsthread: *const ::core::ffi::c_void, umsthreadinfoclass: UMS_THREAD_INFO_CLASS, umsthreadinformation: *mut ::core::ffi::c_void, umsthreadinformationlength: u32, returnlength: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("kernel32.dll" "system" fn QueryUmsThreadInformation(umsthread : *const ::core::ffi::c_void, umsthreadinfoclass : UMS_THREAD_INFO_CLASS, umsthreadinformation : *mut ::core::ffi::c_void, umsthreadinformationlength : u32, returnlength : *mut u32) -> super::super::Foundation:: BOOL);
     QueryUmsThreadInformation(umsthread, umsthreadinfoclass, umsthreadinformation, umsthreadinformationlength, ::core::mem::transmute(returnlength.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
@@ -1882,14 +1848,14 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
-pub unsafe fn ReleaseSRWLockExclusive(srwlock: *mut RTL_SRWLOCK) {
-    ::windows_targets::link!("kernel32.dll" "system" fn ReleaseSRWLockExclusive(srwlock : *mut RTL_SRWLOCK) -> ());
+pub unsafe fn ReleaseSRWLockExclusive(srwlock: *mut SRWLOCK) {
+    ::windows_targets::link!("kernel32.dll" "system" fn ReleaseSRWLockExclusive(srwlock : *mut SRWLOCK) -> ());
     ReleaseSRWLockExclusive(srwlock)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
-pub unsafe fn ReleaseSRWLockShared(srwlock: *mut RTL_SRWLOCK) {
-    ::windows_targets::link!("kernel32.dll" "system" fn ReleaseSRWLockShared(srwlock : *mut RTL_SRWLOCK) -> ());
+pub unsafe fn ReleaseSRWLockShared(srwlock: *mut SRWLOCK) {
+    ::windows_targets::link!("kernel32.dll" "system" fn ReleaseSRWLockShared(srwlock : *mut SRWLOCK) -> ());
     ReleaseSRWLockShared(srwlock)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
@@ -1933,11 +1899,282 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn ResumeThread(hthread : super::super::Foundation:: HANDLE) -> u32);
     ResumeThread(hthread.into_param().abi())
 }
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+#[inline]
+pub unsafe fn RtwqAddPeriodicCallback<P0>(callback: RTWQPERIODICCALLBACK, context: P0, key: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
+where
+    P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
+{
+    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqAddPeriodicCallback(callback : RTWQPERIODICCALLBACK, context : * mut::core::ffi::c_void, key : *mut u32) -> ::windows_core::HRESULT);
+    RtwqAddPeriodicCallback(callback, context.into_param().abi(), ::core::mem::transmute(key.unwrap_or(::std::ptr::null_mut()))).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+#[inline]
+pub unsafe fn RtwqAllocateSerialWorkQueue(workqueueidin: u32) -> ::windows_core::Result<u32> {
+    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqAllocateSerialWorkQueue(workqueueidin : u32, workqueueidout : *mut u32) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<u32>();
+    RtwqAllocateSerialWorkQueue(workqueueidin, &mut result__).from_abi(result__)
+}
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+#[inline]
+pub unsafe fn RtwqAllocateWorkQueue(workqueuetype: RTWQ_WORKQUEUE_TYPE) -> ::windows_core::Result<u32> {
+    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqAllocateWorkQueue(workqueuetype : RTWQ_WORKQUEUE_TYPE, workqueueid : *mut u32) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<u32>();
+    RtwqAllocateWorkQueue(workqueuetype, &mut result__).from_abi(result__)
+}
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+#[inline]
+pub unsafe fn RtwqBeginRegisterWorkQueueWithMMCSS<P0, P1, P2>(workqueueid: u32, usageclass: P0, dwtaskid: u32, lpriority: i32, donecallback: P1, donestate: P2) -> ::windows_core::Result<()>
+where
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<IRtwqAsyncCallback>,
+    P2: ::windows_core::IntoParam<::windows_core::IUnknown>,
+{
+    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqBeginRegisterWorkQueueWithMMCSS(workqueueid : u32, usageclass : ::windows_core::PCWSTR, dwtaskid : u32, lpriority : i32, donecallback : * mut::core::ffi::c_void, donestate : * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
+    RtwqBeginRegisterWorkQueueWithMMCSS(workqueueid, usageclass.into_param().abi(), dwtaskid, lpriority, donecallback.into_param().abi(), donestate.into_param().abi()).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+#[inline]
+pub unsafe fn RtwqBeginUnregisterWorkQueueWithMMCSS<P0, P1>(workqueueid: u32, donecallback: P0, donestate: P1) -> ::windows_core::Result<()>
+where
+    P0: ::windows_core::IntoParam<IRtwqAsyncCallback>,
+    P1: ::windows_core::IntoParam<::windows_core::IUnknown>,
+{
+    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqBeginUnregisterWorkQueueWithMMCSS(workqueueid : u32, donecallback : * mut::core::ffi::c_void, donestate : * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
+    RtwqBeginUnregisterWorkQueueWithMMCSS(workqueueid, donecallback.into_param().abi(), donestate.into_param().abi()).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RtwqCancelDeadline<P0>(prequest: P0) -> ::windows_core::Result<()>
+where
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+{
+    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqCancelDeadline(prequest : super::super::Foundation:: HANDLE) -> ::windows_core::HRESULT);
+    RtwqCancelDeadline(prequest.into_param().abi()).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+#[inline]
+pub unsafe fn RtwqCancelWorkItem(key: u64) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqCancelWorkItem(key : u64) -> ::windows_core::HRESULT);
+    RtwqCancelWorkItem(key).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+#[inline]
+pub unsafe fn RtwqCreateAsyncResult<P0, P1, P2>(appobject: P0, callback: P1, appstate: P2) -> ::windows_core::Result<IRtwqAsyncResult>
+where
+    P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
+    P1: ::windows_core::IntoParam<IRtwqAsyncCallback>,
+    P2: ::windows_core::IntoParam<::windows_core::IUnknown>,
+{
+    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqCreateAsyncResult(appobject : * mut::core::ffi::c_void, callback : * mut::core::ffi::c_void, appstate : * mut::core::ffi::c_void, asyncresult : *mut * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<IRtwqAsyncResult>();
+    RtwqCreateAsyncResult(appobject.into_param().abi(), callback.into_param().abi(), appstate.into_param().abi(), &mut result__).from_abi(result__)
+}
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+#[inline]
+pub unsafe fn RtwqEndRegisterWorkQueueWithMMCSS<P0>(result: P0) -> ::windows_core::Result<u32>
+where
+    P0: ::windows_core::IntoParam<IRtwqAsyncResult>,
+{
+    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqEndRegisterWorkQueueWithMMCSS(result : * mut::core::ffi::c_void, taskid : *mut u32) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<u32>();
+    RtwqEndRegisterWorkQueueWithMMCSS(result.into_param().abi(), &mut result__).from_abi(result__)
+}
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+#[inline]
+pub unsafe fn RtwqGetWorkQueueMMCSSClass(workqueueid: u32, usageclass: ::windows_core::PWSTR, usageclasslength: *mut u32) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqGetWorkQueueMMCSSClass(workqueueid : u32, usageclass : ::windows_core::PWSTR, usageclasslength : *mut u32) -> ::windows_core::HRESULT);
+    RtwqGetWorkQueueMMCSSClass(workqueueid, ::core::mem::transmute(usageclass), usageclasslength).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+#[inline]
+pub unsafe fn RtwqGetWorkQueueMMCSSPriority(workqueueid: u32) -> ::windows_core::Result<i32> {
+    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqGetWorkQueueMMCSSPriority(workqueueid : u32, priority : *mut i32) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<i32>();
+    RtwqGetWorkQueueMMCSSPriority(workqueueid, &mut result__).from_abi(result__)
+}
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+#[inline]
+pub unsafe fn RtwqGetWorkQueueMMCSSTaskId(workqueueid: u32) -> ::windows_core::Result<u32> {
+    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqGetWorkQueueMMCSSTaskId(workqueueid : u32, taskid : *mut u32) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<u32>();
+    RtwqGetWorkQueueMMCSSTaskId(workqueueid, &mut result__).from_abi(result__)
+}
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+#[inline]
+pub unsafe fn RtwqInvokeCallback<P0>(result: P0) -> ::windows_core::Result<()>
+where
+    P0: ::windows_core::IntoParam<IRtwqAsyncResult>,
+{
+    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqInvokeCallback(result : * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
+    RtwqInvokeCallback(result.into_param().abi()).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RtwqJoinWorkQueue<P0>(workqueueid: u32, hfile: P0) -> ::windows_core::Result<super::super::Foundation::HANDLE>
+where
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+{
+    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqJoinWorkQueue(workqueueid : u32, hfile : super::super::Foundation:: HANDLE, out : *mut super::super::Foundation:: HANDLE) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<super::super::Foundation::HANDLE>();
+    RtwqJoinWorkQueue(workqueueid, hfile.into_param().abi(), &mut result__).from_abi(result__)
+}
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+#[inline]
+pub unsafe fn RtwqLockPlatform() -> ::windows_core::Result<()> {
+    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqLockPlatform() -> ::windows_core::HRESULT);
+    RtwqLockPlatform().ok()
+}
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+#[inline]
+pub unsafe fn RtwqLockSharedWorkQueue<P0>(usageclass: P0, basepriority: i32, taskid: *mut u32, id: *mut u32) -> ::windows_core::Result<()>
+where
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+{
+    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqLockSharedWorkQueue(usageclass : ::windows_core::PCWSTR, basepriority : i32, taskid : *mut u32, id : *mut u32) -> ::windows_core::HRESULT);
+    RtwqLockSharedWorkQueue(usageclass.into_param().abi(), basepriority, taskid, id).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+#[inline]
+pub unsafe fn RtwqLockWorkQueue(workqueueid: u32) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqLockWorkQueue(workqueueid : u32) -> ::windows_core::HRESULT);
+    RtwqLockWorkQueue(workqueueid).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RtwqPutWaitingWorkItem<P0, P1>(hevent: P0, lpriority: i32, result: P1, key: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()>
+where
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<IRtwqAsyncResult>,
+{
+    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqPutWaitingWorkItem(hevent : super::super::Foundation:: HANDLE, lpriority : i32, result : * mut::core::ffi::c_void, key : *mut u64) -> ::windows_core::HRESULT);
+    RtwqPutWaitingWorkItem(hevent.into_param().abi(), lpriority, result.into_param().abi(), ::core::mem::transmute(key.unwrap_or(::std::ptr::null_mut()))).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+#[inline]
+pub unsafe fn RtwqPutWorkItem<P0>(dwqueue: u32, lpriority: i32, result: P0) -> ::windows_core::Result<()>
+where
+    P0: ::windows_core::IntoParam<IRtwqAsyncResult>,
+{
+    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqPutWorkItem(dwqueue : u32, lpriority : i32, result : * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
+    RtwqPutWorkItem(dwqueue, lpriority, result.into_param().abi()).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+#[inline]
+pub unsafe fn RtwqRegisterPlatformEvents<P0>(platformevents: P0) -> ::windows_core::Result<()>
+where
+    P0: ::windows_core::IntoParam<IRtwqPlatformEvents>,
+{
+    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqRegisterPlatformEvents(platformevents : * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
+    RtwqRegisterPlatformEvents(platformevents.into_param().abi()).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+#[inline]
+pub unsafe fn RtwqRegisterPlatformWithMMCSS<P0>(usageclass: P0, taskid: *mut u32, lpriority: i32) -> ::windows_core::Result<()>
+where
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+{
+    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqRegisterPlatformWithMMCSS(usageclass : ::windows_core::PCWSTR, taskid : *mut u32, lpriority : i32) -> ::windows_core::HRESULT);
+    RtwqRegisterPlatformWithMMCSS(usageclass.into_param().abi(), taskid, lpriority).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+#[inline]
+pub unsafe fn RtwqRemovePeriodicCallback(dwkey: u32) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqRemovePeriodicCallback(dwkey : u32) -> ::windows_core::HRESULT);
+    RtwqRemovePeriodicCallback(dwkey).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+#[inline]
+pub unsafe fn RtwqScheduleWorkItem<P0>(result: P0, timeout: i64, key: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()>
+where
+    P0: ::windows_core::IntoParam<IRtwqAsyncResult>,
+{
+    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqScheduleWorkItem(result : * mut::core::ffi::c_void, timeout : i64, key : *mut u64) -> ::windows_core::HRESULT);
+    RtwqScheduleWorkItem(result.into_param().abi(), timeout, ::core::mem::transmute(key.unwrap_or(::std::ptr::null_mut()))).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RtwqSetDeadline(workqueueid: u32, deadlineinhns: i64) -> ::windows_core::Result<super::super::Foundation::HANDLE> {
+    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqSetDeadline(workqueueid : u32, deadlineinhns : i64, prequest : *mut super::super::Foundation:: HANDLE) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<super::super::Foundation::HANDLE>();
+    RtwqSetDeadline(workqueueid, deadlineinhns, &mut result__).from_abi(result__)
+}
+#[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RtwqSetDeadline2(workqueueid: u32, deadlineinhns: i64, predeadlineinhns: i64) -> ::windows_core::Result<super::super::Foundation::HANDLE> {
+    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqSetDeadline2(workqueueid : u32, deadlineinhns : i64, predeadlineinhns : i64, prequest : *mut super::super::Foundation:: HANDLE) -> ::windows_core::HRESULT);
+    let mut result__ = ::windows_core::zeroed::<super::super::Foundation::HANDLE>();
+    RtwqSetDeadline2(workqueueid, deadlineinhns, predeadlineinhns, &mut result__).from_abi(result__)
+}
+#[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RtwqSetLongRunning<P0>(workqueueid: u32, enable: P0) -> ::windows_core::Result<()>
+where
+    P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
+{
+    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqSetLongRunning(workqueueid : u32, enable : super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
+    RtwqSetLongRunning(workqueueid, enable.into_param().abi()).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+#[inline]
+pub unsafe fn RtwqShutdown() -> ::windows_core::Result<()> {
+    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqShutdown() -> ::windows_core::HRESULT);
+    RtwqShutdown().ok()
+}
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+#[inline]
+pub unsafe fn RtwqStartup() -> ::windows_core::Result<()> {
+    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqStartup() -> ::windows_core::HRESULT);
+    RtwqStartup().ok()
+}
+#[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RtwqUnjoinWorkQueue<P0>(workqueueid: u32, hfile: P0) -> ::windows_core::Result<()>
+where
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+{
+    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqUnjoinWorkQueue(workqueueid : u32, hfile : super::super::Foundation:: HANDLE) -> ::windows_core::HRESULT);
+    RtwqUnjoinWorkQueue(workqueueid, hfile.into_param().abi()).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+#[inline]
+pub unsafe fn RtwqUnlockPlatform() -> ::windows_core::Result<()> {
+    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqUnlockPlatform() -> ::windows_core::HRESULT);
+    RtwqUnlockPlatform().ok()
+}
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+#[inline]
+pub unsafe fn RtwqUnlockWorkQueue(workqueueid: u32) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqUnlockWorkQueue(workqueueid : u32) -> ::windows_core::HRESULT);
+    RtwqUnlockWorkQueue(workqueueid).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+#[inline]
+pub unsafe fn RtwqUnregisterPlatformEvents<P0>(platformevents: P0) -> ::windows_core::Result<()>
+where
+    P0: ::windows_core::IntoParam<IRtwqPlatformEvents>,
+{
+    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqUnregisterPlatformEvents(platformevents : * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
+    RtwqUnregisterPlatformEvents(platformevents.into_param().abi()).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+#[inline]
+pub unsafe fn RtwqUnregisterPlatformFromMMCSS() -> ::windows_core::Result<()> {
+    ::windows_targets::link!("rtworkq.dll" "system" fn RtwqUnregisterPlatformFromMMCSS() -> ::windows_core::HRESULT);
+    RtwqUnregisterPlatformFromMMCSS().ok()
+}
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn SetCriticalSectionSpinCount(lpcriticalsection: *mut RTL_CRITICAL_SECTION, dwspincount: u32) -> u32 {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetCriticalSectionSpinCount(lpcriticalsection : *mut RTL_CRITICAL_SECTION, dwspincount : u32) -> u32);
+pub unsafe fn SetCriticalSectionSpinCount(lpcriticalsection: *mut CRITICAL_SECTION, dwspincount: u32) -> u32 {
+    ::windows_targets::link!("kernel32.dll" "system" fn SetCriticalSectionSpinCount(lpcriticalsection : *mut CRITICAL_SECTION, dwspincount : u32) -> u32);
     SetCriticalSectionSpinCount(lpcriticalsection, dwspincount)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
@@ -2304,8 +2541,8 @@ where
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetUmsThreadInformation(umsthread: *const ::core::ffi::c_void, umsthreadinfoclass: RTL_UMS_THREAD_INFO_CLASS, umsthreadinformation: *const ::core::ffi::c_void, umsthreadinformationlength: u32) -> ::windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn SetUmsThreadInformation(umsthread : *const ::core::ffi::c_void, umsthreadinfoclass : RTL_UMS_THREAD_INFO_CLASS, umsthreadinformation : *const ::core::ffi::c_void, umsthreadinformationlength : u32) -> super::super::Foundation:: BOOL);
+pub unsafe fn SetUmsThreadInformation(umsthread: *const ::core::ffi::c_void, umsthreadinfoclass: UMS_THREAD_INFO_CLASS, umsthreadinformation: *const ::core::ffi::c_void, umsthreadinformationlength: u32) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("kernel32.dll" "system" fn SetUmsThreadInformation(umsthread : *const ::core::ffi::c_void, umsthreadinfoclass : UMS_THREAD_INFO_CLASS, umsthreadinformation : *const ::core::ffi::c_void, umsthreadinformationlength : u32) -> super::super::Foundation:: BOOL);
     SetUmsThreadInformation(umsthread, umsthreadinfoclass, umsthreadinformation, umsthreadinformationlength).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
@@ -2329,6 +2566,18 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn SetWaitableTimerEx(htimer : super::super::Foundation:: HANDLE, lpduetime : *const i64, lperiod : i32, pfncompletionroutine : PTIMERAPCROUTINE, lpargtocompletionroutine : *const ::core::ffi::c_void, wakecontext : *const REASON_CONTEXT, tolerabledelay : u32) -> super::super::Foundation:: BOOL);
     SetWaitableTimerEx(htimer.into_param().abi(), lpduetime, lperiod, pfncompletionroutine, ::core::mem::transmute(lpargtocompletionroutine.unwrap_or(::std::ptr::null())), ::core::mem::transmute(wakecontext.unwrap_or(::std::ptr::null())), tolerabledelay).ok()
 }
+#[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn SignalObjectAndWait<P0, P1, P2>(hobjecttosignal: P0, hobjecttowaiton: P1, dwmilliseconds: u32, balertable: P2) -> super::super::Foundation::WAIT_EVENT
+where
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P2: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
+{
+    ::windows_targets::link!("kernel32.dll" "system" fn SignalObjectAndWait(hobjecttosignal : super::super::Foundation:: HANDLE, hobjecttowaiton : super::super::Foundation:: HANDLE, dwmilliseconds : u32, balertable : super::super::Foundation:: BOOL) -> super::super::Foundation:: WAIT_EVENT);
+    SignalObjectAndWait(hobjecttosignal.into_param().abi(), hobjecttowaiton.into_param().abi(), dwmilliseconds, balertable.into_param().abi())
+}
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn Sleep(dwmilliseconds: u32) {
@@ -2338,15 +2587,15 @@ pub unsafe fn Sleep(dwmilliseconds: u32) {
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn SleepConditionVariableCS(conditionvariable: *mut RTL_CONDITION_VARIABLE, criticalsection: *mut RTL_CRITICAL_SECTION, dwmilliseconds: u32) -> ::windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn SleepConditionVariableCS(conditionvariable : *mut RTL_CONDITION_VARIABLE, criticalsection : *mut RTL_CRITICAL_SECTION, dwmilliseconds : u32) -> super::super::Foundation:: BOOL);
+pub unsafe fn SleepConditionVariableCS(conditionvariable: *mut CONDITION_VARIABLE, criticalsection: *mut CRITICAL_SECTION, dwmilliseconds: u32) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("kernel32.dll" "system" fn SleepConditionVariableCS(conditionvariable : *mut CONDITION_VARIABLE, criticalsection : *mut CRITICAL_SECTION, dwmilliseconds : u32) -> super::super::Foundation:: BOOL);
     SleepConditionVariableCS(conditionvariable, criticalsection, dwmilliseconds).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SleepConditionVariableSRW(conditionvariable: *mut RTL_CONDITION_VARIABLE, srwlock: *mut RTL_SRWLOCK, dwmilliseconds: u32, flags: u32) -> ::windows_core::Result<()> {
-    ::windows_targets::link!("kernel32.dll" "system" fn SleepConditionVariableSRW(conditionvariable : *mut RTL_CONDITION_VARIABLE, srwlock : *mut RTL_SRWLOCK, dwmilliseconds : u32, flags : u32) -> super::super::Foundation:: BOOL);
+pub unsafe fn SleepConditionVariableSRW(conditionvariable: *mut CONDITION_VARIABLE, srwlock: *mut SRWLOCK, dwmilliseconds: u32, flags: u32) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("kernel32.dll" "system" fn SleepConditionVariableSRW(conditionvariable : *mut CONDITION_VARIABLE, srwlock : *mut SRWLOCK, dwmilliseconds : u32, flags : u32) -> super::super::Foundation:: BOOL);
     SleepConditionVariableSRW(conditionvariable, srwlock, dwmilliseconds, flags).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
@@ -2449,22 +2698,22 @@ pub unsafe fn TlsSetValue(dwtlsindex: u32, lptlsvalue: ::core::option::Option<*c
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TryAcquireSRWLockExclusive(srwlock: *mut RTL_SRWLOCK) -> super::super::Foundation::BOOLEAN {
-    ::windows_targets::link!("kernel32.dll" "system" fn TryAcquireSRWLockExclusive(srwlock : *mut RTL_SRWLOCK) -> super::super::Foundation:: BOOLEAN);
+pub unsafe fn TryAcquireSRWLockExclusive(srwlock: *mut SRWLOCK) -> super::super::Foundation::BOOLEAN {
+    ::windows_targets::link!("kernel32.dll" "system" fn TryAcquireSRWLockExclusive(srwlock : *mut SRWLOCK) -> super::super::Foundation:: BOOLEAN);
     TryAcquireSRWLockExclusive(srwlock)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TryAcquireSRWLockShared(srwlock: *mut RTL_SRWLOCK) -> super::super::Foundation::BOOLEAN {
-    ::windows_targets::link!("kernel32.dll" "system" fn TryAcquireSRWLockShared(srwlock : *mut RTL_SRWLOCK) -> super::super::Foundation:: BOOLEAN);
+pub unsafe fn TryAcquireSRWLockShared(srwlock: *mut SRWLOCK) -> super::super::Foundation::BOOLEAN {
+    ::windows_targets::link!("kernel32.dll" "system" fn TryAcquireSRWLockShared(srwlock : *mut SRWLOCK) -> super::super::Foundation:: BOOLEAN);
     TryAcquireSRWLockShared(srwlock)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn TryEnterCriticalSection(lpcriticalsection: *mut RTL_CRITICAL_SECTION) -> super::super::Foundation::BOOL {
-    ::windows_targets::link!("kernel32.dll" "system" fn TryEnterCriticalSection(lpcriticalsection : *mut RTL_CRITICAL_SECTION) -> super::super::Foundation:: BOOL);
+pub unsafe fn TryEnterCriticalSection(lpcriticalsection: *mut CRITICAL_SECTION) -> super::super::Foundation::BOOL {
+    ::windows_targets::link!("kernel32.dll" "system" fn TryEnterCriticalSection(lpcriticalsection : *mut CRITICAL_SECTION) -> super::super::Foundation:: BOOL);
     TryEnterCriticalSection(lpcriticalsection)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
@@ -2522,44 +2771,44 @@ where
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WaitForMultipleObjects<P0>(lphandles: &[super::super::Foundation::HANDLE], bwaitall: P0, dwmilliseconds: u32) -> ::windows_core::Result<()>
+pub unsafe fn WaitForMultipleObjects<P0>(lphandles: &[super::super::Foundation::HANDLE], bwaitall: P0, dwmilliseconds: u32) -> super::super::Foundation::WAIT_EVENT
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn WaitForMultipleObjects(ncount : u32, lphandles : *const super::super::Foundation:: HANDLE, bwaitall : super::super::Foundation:: BOOL, dwmilliseconds : u32) -> super::super::Foundation:: WIN32_ERROR);
-    WaitForMultipleObjects(lphandles.len() as _, ::core::mem::transmute(lphandles.as_ptr()), bwaitall.into_param().abi(), dwmilliseconds).ok()
+    ::windows_targets::link!("kernel32.dll" "system" fn WaitForMultipleObjects(ncount : u32, lphandles : *const super::super::Foundation:: HANDLE, bwaitall : super::super::Foundation:: BOOL, dwmilliseconds : u32) -> super::super::Foundation:: WAIT_EVENT);
+    WaitForMultipleObjects(lphandles.len() as _, ::core::mem::transmute(lphandles.as_ptr()), bwaitall.into_param().abi(), dwmilliseconds)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WaitForMultipleObjectsEx<P0, P1>(lphandles: &[super::super::Foundation::HANDLE], bwaitall: P0, dwmilliseconds: u32, balertable: P1) -> ::windows_core::Result<()>
+pub unsafe fn WaitForMultipleObjectsEx<P0, P1>(lphandles: &[super::super::Foundation::HANDLE], bwaitall: P0, dwmilliseconds: u32, balertable: P1) -> super::super::Foundation::WAIT_EVENT
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn WaitForMultipleObjectsEx(ncount : u32, lphandles : *const super::super::Foundation:: HANDLE, bwaitall : super::super::Foundation:: BOOL, dwmilliseconds : u32, balertable : super::super::Foundation:: BOOL) -> super::super::Foundation:: WIN32_ERROR);
-    WaitForMultipleObjectsEx(lphandles.len() as _, ::core::mem::transmute(lphandles.as_ptr()), bwaitall.into_param().abi(), dwmilliseconds, balertable.into_param().abi()).ok()
+    ::windows_targets::link!("kernel32.dll" "system" fn WaitForMultipleObjectsEx(ncount : u32, lphandles : *const super::super::Foundation:: HANDLE, bwaitall : super::super::Foundation:: BOOL, dwmilliseconds : u32, balertable : super::super::Foundation:: BOOL) -> super::super::Foundation:: WAIT_EVENT);
+    WaitForMultipleObjectsEx(lphandles.len() as _, ::core::mem::transmute(lphandles.as_ptr()), bwaitall.into_param().abi(), dwmilliseconds, balertable.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WaitForSingleObject<P0>(hhandle: P0, dwmilliseconds: u32) -> ::windows_core::Result<()>
+pub unsafe fn WaitForSingleObject<P0>(hhandle: P0, dwmilliseconds: u32) -> super::super::Foundation::WAIT_EVENT
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn WaitForSingleObject(hhandle : super::super::Foundation:: HANDLE, dwmilliseconds : u32) -> super::super::Foundation:: WIN32_ERROR);
-    WaitForSingleObject(hhandle.into_param().abi(), dwmilliseconds).ok()
+    ::windows_targets::link!("kernel32.dll" "system" fn WaitForSingleObject(hhandle : super::super::Foundation:: HANDLE, dwmilliseconds : u32) -> super::super::Foundation:: WAIT_EVENT);
+    WaitForSingleObject(hhandle.into_param().abi(), dwmilliseconds)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WaitForSingleObjectEx<P0, P1>(hhandle: P0, dwmilliseconds: u32, balertable: P1) -> ::windows_core::Result<()>
+pub unsafe fn WaitForSingleObjectEx<P0, P1>(hhandle: P0, dwmilliseconds: u32, balertable: P1) -> super::super::Foundation::WAIT_EVENT
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn WaitForSingleObjectEx(hhandle : super::super::Foundation:: HANDLE, dwmilliseconds : u32, balertable : super::super::Foundation:: BOOL) -> super::super::Foundation:: WIN32_ERROR);
-    WaitForSingleObjectEx(hhandle.into_param().abi(), dwmilliseconds, balertable.into_param().abi()).ok()
+    ::windows_targets::link!("kernel32.dll" "system" fn WaitForSingleObjectEx(hhandle : super::super::Foundation:: HANDLE, dwmilliseconds : u32, balertable : super::super::Foundation:: BOOL) -> super::super::Foundation:: WAIT_EVENT);
+    WaitForSingleObjectEx(hhandle.into_param().abi(), dwmilliseconds, balertable.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2614,8 +2863,8 @@ pub unsafe fn WaitOnAddress(address: *const ::core::ffi::c_void, compareaddress:
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
-pub unsafe fn WakeAllConditionVariable(conditionvariable: *mut RTL_CONDITION_VARIABLE) {
-    ::windows_targets::link!("kernel32.dll" "system" fn WakeAllConditionVariable(conditionvariable : *mut RTL_CONDITION_VARIABLE) -> ());
+pub unsafe fn WakeAllConditionVariable(conditionvariable: *mut CONDITION_VARIABLE) {
+    ::windows_targets::link!("kernel32.dll" "system" fn WakeAllConditionVariable(conditionvariable : *mut CONDITION_VARIABLE) -> ());
     WakeAllConditionVariable(conditionvariable)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
@@ -2632,8 +2881,8 @@ pub unsafe fn WakeByAddressSingle(address: *const ::core::ffi::c_void) {
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
-pub unsafe fn WakeConditionVariable(conditionvariable: *mut RTL_CONDITION_VARIABLE) {
-    ::windows_targets::link!("kernel32.dll" "system" fn WakeConditionVariable(conditionvariable : *mut RTL_CONDITION_VARIABLE) -> ());
+pub unsafe fn WakeConditionVariable(conditionvariable: *mut CONDITION_VARIABLE) {
+    ::windows_targets::link!("kernel32.dll" "system" fn WakeConditionVariable(conditionvariable : *mut CONDITION_VARIABLE) -> ());
     WakeConditionVariable(conditionvariable)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
@@ -2660,6 +2909,200 @@ where
 {
     ::windows_targets::link!("kernel32.dll" "system" fn Wow64SuspendThread(hthread : super::super::Foundation:: HANDLE) -> u32);
     Wow64SuspendThread(hthread.into_param().abi())
+}
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+#[repr(transparent)]
+pub struct IRtwqAsyncCallback(::windows_core::IUnknown);
+impl IRtwqAsyncCallback {
+    pub unsafe fn GetParameters(&self, pdwflags: *mut u32, pdwqueue: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetParameters)(::windows_core::Interface::as_raw(self), pdwflags, pdwqueue).ok()
+    }
+    pub unsafe fn Invoke<P0>(&self, pasyncresult: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<IRtwqAsyncResult>,
+    {
+        (::windows_core::Interface::vtable(self).Invoke)(::windows_core::Interface::as_raw(self), pasyncresult.into_param().abi()).ok()
+    }
+}
+::windows_core::imp::interface_hierarchy!(IRtwqAsyncCallback, ::windows_core::IUnknown);
+impl ::core::cmp::PartialEq for IRtwqAsyncCallback {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IRtwqAsyncCallback {}
+impl ::core::fmt::Debug for IRtwqAsyncCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRtwqAsyncCallback").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows_core::Interface for IRtwqAsyncCallback {
+    type Vtable = IRtwqAsyncCallback_Vtbl;
+}
+impl ::core::clone::Clone for IRtwqAsyncCallback {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows_core::ComInterface for IRtwqAsyncCallback {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa27003cf_2354_4f2a_8d6a_ab7cff15437e);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IRtwqAsyncCallback_Vtbl {
+    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub GetParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwflags: *mut u32, pdwqueue: *mut u32) -> ::windows_core::HRESULT,
+    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pasyncresult: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+}
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+#[repr(transparent)]
+pub struct IRtwqAsyncResult(::windows_core::IUnknown);
+impl IRtwqAsyncResult {
+    pub unsafe fn GetState(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        (::windows_core::Interface::vtable(self).GetState)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    pub unsafe fn GetStatus(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetStatus)(::windows_core::Interface::as_raw(self)).ok()
+    }
+    pub unsafe fn SetStatus(&self, hrstatus: ::windows_core::HRESULT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetStatus)(::windows_core::Interface::as_raw(self), hrstatus).ok()
+    }
+    pub unsafe fn GetObject(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        (::windows_core::Interface::vtable(self).GetObject)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    pub unsafe fn GetStateNoAddRef(&self) -> ::core::option::Option<::windows_core::IUnknown> {
+        (::windows_core::Interface::vtable(self).GetStateNoAddRef)(::windows_core::Interface::as_raw(self))
+    }
+}
+::windows_core::imp::interface_hierarchy!(IRtwqAsyncResult, ::windows_core::IUnknown);
+impl ::core::cmp::PartialEq for IRtwqAsyncResult {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IRtwqAsyncResult {}
+impl ::core::fmt::Debug for IRtwqAsyncResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRtwqAsyncResult").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows_core::Interface for IRtwqAsyncResult {
+    type Vtable = IRtwqAsyncResult_Vtbl;
+}
+impl ::core::clone::Clone for IRtwqAsyncResult {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows_core::ComInterface for IRtwqAsyncResult {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xac6b7889_0740_4d51_8619_905994a55cc6);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IRtwqAsyncResult_Vtbl {
+    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub GetState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunkstate: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrstatus: ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub GetObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetStateNoAddRef: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::core::option::Option<::windows_core::IUnknown>,
+}
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+#[repr(transparent)]
+pub struct IRtwqPlatformEvents(::windows_core::IUnknown);
+impl IRtwqPlatformEvents {
+    pub unsafe fn InitializationComplete(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).InitializationComplete)(::windows_core::Interface::as_raw(self)).ok()
+    }
+    pub unsafe fn ShutdownStart(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).ShutdownStart)(::windows_core::Interface::as_raw(self)).ok()
+    }
+    pub unsafe fn ShutdownComplete(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).ShutdownComplete)(::windows_core::Interface::as_raw(self)).ok()
+    }
+}
+::windows_core::imp::interface_hierarchy!(IRtwqPlatformEvents, ::windows_core::IUnknown);
+impl ::core::cmp::PartialEq for IRtwqPlatformEvents {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IRtwqPlatformEvents {}
+impl ::core::fmt::Debug for IRtwqPlatformEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRtwqPlatformEvents").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows_core::Interface for IRtwqPlatformEvents {
+    type Vtable = IRtwqPlatformEvents_Vtbl;
+}
+impl ::core::clone::Clone for IRtwqPlatformEvents {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows_core::ComInterface for IRtwqPlatformEvents {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x63d9255a_7ff1_4b61_8faf_ed6460dacf2b);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IRtwqPlatformEvents_Vtbl {
+    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub InitializationComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ShutdownStart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ShutdownComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+}
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+#[repr(transparent)]
+pub struct RTWQASYNCRESULT(::windows_core::IUnknown);
+impl RTWQASYNCRESULT {
+    pub unsafe fn GetState(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        (::windows_core::Interface::vtable(self).base__.GetState)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    pub unsafe fn GetStatus(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.GetStatus)(::windows_core::Interface::as_raw(self)).ok()
+    }
+    pub unsafe fn SetStatus(&self, hrstatus: ::windows_core::HRESULT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.SetStatus)(::windows_core::Interface::as_raw(self), hrstatus).ok()
+    }
+    pub unsafe fn GetObject(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
+        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        (::windows_core::Interface::vtable(self).base__.GetObject)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    pub unsafe fn GetStateNoAddRef(&self) -> ::core::option::Option<::windows_core::IUnknown> {
+        (::windows_core::Interface::vtable(self).base__.GetStateNoAddRef)(::windows_core::Interface::as_raw(self))
+    }
+}
+::windows_core::imp::interface_hierarchy!(RTWQASYNCRESULT, ::windows_core::IUnknown, IRtwqAsyncResult);
+impl ::core::cmp::PartialEq for RTWQASYNCRESULT {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for RTWQASYNCRESULT {}
+impl ::core::fmt::Debug for RTWQASYNCRESULT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RTWQASYNCRESULT").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows_core::Interface for RTWQASYNCRESULT {
+    type Vtable = RTWQASYNCRESULT_Vtbl;
+}
+impl ::core::clone::Clone for RTWQASYNCRESULT {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows_core::ComInterface for RTWQASYNCRESULT {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct RTWQASYNCRESULT_Vtbl {
+    pub base__: IRtwqAsyncResult_Vtbl,
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub const CONDITION_VARIABLE_LOCKMODE_SHARED: u32 = 1u32;
@@ -3024,179 +3467,6 @@ impl ::windows_core::TypeKind for POWER_REQUEST_CONTEXT_FLAGS {
 impl ::core::fmt::Debug for POWER_REQUEST_CONTEXT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("POWER_REQUEST_CONTEXT_FLAGS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PROCESSINFOCLASS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessBasicInformation: PROCESSINFOCLASS = PROCESSINFOCLASS(0i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessQuotaLimits: PROCESSINFOCLASS = PROCESSINFOCLASS(1i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessIoCounters: PROCESSINFOCLASS = PROCESSINFOCLASS(2i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessVmCounters: PROCESSINFOCLASS = PROCESSINFOCLASS(3i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessTimes: PROCESSINFOCLASS = PROCESSINFOCLASS(4i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessBasePriority: PROCESSINFOCLASS = PROCESSINFOCLASS(5i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessRaisePriority: PROCESSINFOCLASS = PROCESSINFOCLASS(6i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessDebugPort: PROCESSINFOCLASS = PROCESSINFOCLASS(7i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessExceptionPort: PROCESSINFOCLASS = PROCESSINFOCLASS(8i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessAccessToken: PROCESSINFOCLASS = PROCESSINFOCLASS(9i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessLdtInformation: PROCESSINFOCLASS = PROCESSINFOCLASS(10i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessLdtSize: PROCESSINFOCLASS = PROCESSINFOCLASS(11i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessDefaultHardErrorMode: PROCESSINFOCLASS = PROCESSINFOCLASS(12i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessIoPortHandlers: PROCESSINFOCLASS = PROCESSINFOCLASS(13i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessPooledUsageAndLimits: PROCESSINFOCLASS = PROCESSINFOCLASS(14i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessWorkingSetWatch: PROCESSINFOCLASS = PROCESSINFOCLASS(15i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessUserModeIOPL: PROCESSINFOCLASS = PROCESSINFOCLASS(16i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessEnableAlignmentFaultFixup: PROCESSINFOCLASS = PROCESSINFOCLASS(17i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessPriorityClass: PROCESSINFOCLASS = PROCESSINFOCLASS(18i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessWx86Information: PROCESSINFOCLASS = PROCESSINFOCLASS(19i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessHandleCount: PROCESSINFOCLASS = PROCESSINFOCLASS(20i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessAffinityMask: PROCESSINFOCLASS = PROCESSINFOCLASS(21i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessPriorityBoost: PROCESSINFOCLASS = PROCESSINFOCLASS(22i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessDeviceMap: PROCESSINFOCLASS = PROCESSINFOCLASS(23i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessSessionInformation: PROCESSINFOCLASS = PROCESSINFOCLASS(24i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessForegroundInformation: PROCESSINFOCLASS = PROCESSINFOCLASS(25i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessWow64Information: PROCESSINFOCLASS = PROCESSINFOCLASS(26i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessImageFileName: PROCESSINFOCLASS = PROCESSINFOCLASS(27i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessLUIDDeviceMapsEnabled: PROCESSINFOCLASS = PROCESSINFOCLASS(28i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessBreakOnTermination: PROCESSINFOCLASS = PROCESSINFOCLASS(29i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessDebugObjectHandle: PROCESSINFOCLASS = PROCESSINFOCLASS(30i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessDebugFlags: PROCESSINFOCLASS = PROCESSINFOCLASS(31i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessHandleTracing: PROCESSINFOCLASS = PROCESSINFOCLASS(32i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessIoPriority: PROCESSINFOCLASS = PROCESSINFOCLASS(33i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessExecuteFlags: PROCESSINFOCLASS = PROCESSINFOCLASS(34i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessTlsInformation: PROCESSINFOCLASS = PROCESSINFOCLASS(35i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessCookie: PROCESSINFOCLASS = PROCESSINFOCLASS(36i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessImageInformation: PROCESSINFOCLASS = PROCESSINFOCLASS(37i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessCycleTime: PROCESSINFOCLASS = PROCESSINFOCLASS(38i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessPagePriority: PROCESSINFOCLASS = PROCESSINFOCLASS(39i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessInstrumentationCallback: PROCESSINFOCLASS = PROCESSINFOCLASS(40i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessThreadStackAllocation: PROCESSINFOCLASS = PROCESSINFOCLASS(41i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessWorkingSetWatchEx: PROCESSINFOCLASS = PROCESSINFOCLASS(42i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessImageFileNameWin32: PROCESSINFOCLASS = PROCESSINFOCLASS(43i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessImageFileMapping: PROCESSINFOCLASS = PROCESSINFOCLASS(44i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessAffinityUpdateMode: PROCESSINFOCLASS = PROCESSINFOCLASS(45i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessMemoryAllocationMode: PROCESSINFOCLASS = PROCESSINFOCLASS(46i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessGroupInformation: PROCESSINFOCLASS = PROCESSINFOCLASS(47i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessTokenVirtualizationEnabled: PROCESSINFOCLASS = PROCESSINFOCLASS(48i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessOwnerInformation: PROCESSINFOCLASS = PROCESSINFOCLASS(49i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessWindowInformation: PROCESSINFOCLASS = PROCESSINFOCLASS(50i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessHandleInformation: PROCESSINFOCLASS = PROCESSINFOCLASS(51i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessMitigationPolicy: PROCESSINFOCLASS = PROCESSINFOCLASS(52i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessDynamicFunctionTableInformation: PROCESSINFOCLASS = PROCESSINFOCLASS(53i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessHandleCheckingMode: PROCESSINFOCLASS = PROCESSINFOCLASS(54i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessKeepAliveCount: PROCESSINFOCLASS = PROCESSINFOCLASS(55i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessRevokeFileHandles: PROCESSINFOCLASS = PROCESSINFOCLASS(56i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessWorkingSetControl: PROCESSINFOCLASS = PROCESSINFOCLASS(57i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessHandleTable: PROCESSINFOCLASS = PROCESSINFOCLASS(58i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessCheckStackExtentsMode: PROCESSINFOCLASS = PROCESSINFOCLASS(59i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessCommandLineInformation: PROCESSINFOCLASS = PROCESSINFOCLASS(60i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessProtectionInformation: PROCESSINFOCLASS = PROCESSINFOCLASS(61i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessMemoryExhaustion: PROCESSINFOCLASS = PROCESSINFOCLASS(62i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessFaultInformation: PROCESSINFOCLASS = PROCESSINFOCLASS(63i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessTelemetryIdInformation: PROCESSINFOCLASS = PROCESSINFOCLASS(64i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessCommitReleaseInformation: PROCESSINFOCLASS = PROCESSINFOCLASS(65i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessReserved1Information: PROCESSINFOCLASS = PROCESSINFOCLASS(66i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessReserved2Information: PROCESSINFOCLASS = PROCESSINFOCLASS(67i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessSubsystemProcess: PROCESSINFOCLASS = PROCESSINFOCLASS(68i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessInPrivate: PROCESSINFOCLASS = PROCESSINFOCLASS(70i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessRaiseUMExceptionOnInvalidHandleClose: PROCESSINFOCLASS = PROCESSINFOCLASS(71i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessSubsystemInformation: PROCESSINFOCLASS = PROCESSINFOCLASS(75i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessWin32kSyscallFilterInformation: PROCESSINFOCLASS = PROCESSINFOCLASS(79i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ProcessEnergyTrackingState: PROCESSINFOCLASS = PROCESSINFOCLASS(82i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const MaxProcessInfoClass: PROCESSINFOCLASS = PROCESSINFOCLASS(83i32);
-impl ::core::marker::Copy for PROCESSINFOCLASS {}
-impl ::core::clone::Clone for PROCESSINFOCLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PROCESSINFOCLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-impl ::windows_core::TypeKind for PROCESSINFOCLASS {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::fmt::Debug for PROCESSINFOCLASS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PROCESSINFOCLASS").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
@@ -3885,40 +4155,30 @@ impl ::core::fmt::Debug for QUEUE_USER_APC_FLAGS {
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct RTL_UMS_THREAD_INFO_CLASS(pub i32);
+pub struct RTWQ_WORKQUEUE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const UmsThreadInvalidInfoClass: RTL_UMS_THREAD_INFO_CLASS = RTL_UMS_THREAD_INFO_CLASS(0i32);
+pub const RTWQ_STANDARD_WORKQUEUE: RTWQ_WORKQUEUE_TYPE = RTWQ_WORKQUEUE_TYPE(0i32);
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const UmsThreadUserContext: RTL_UMS_THREAD_INFO_CLASS = RTL_UMS_THREAD_INFO_CLASS(1i32);
+pub const RTWQ_WINDOW_WORKQUEUE: RTWQ_WORKQUEUE_TYPE = RTWQ_WORKQUEUE_TYPE(1i32);
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const UmsThreadPriority: RTL_UMS_THREAD_INFO_CLASS = RTL_UMS_THREAD_INFO_CLASS(2i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const UmsThreadAffinity: RTL_UMS_THREAD_INFO_CLASS = RTL_UMS_THREAD_INFO_CLASS(3i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const UmsThreadTeb: RTL_UMS_THREAD_INFO_CLASS = RTL_UMS_THREAD_INFO_CLASS(4i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const UmsThreadIsSuspended: RTL_UMS_THREAD_INFO_CLASS = RTL_UMS_THREAD_INFO_CLASS(5i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const UmsThreadIsTerminated: RTL_UMS_THREAD_INFO_CLASS = RTL_UMS_THREAD_INFO_CLASS(6i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const UmsThreadMaxInfoClass: RTL_UMS_THREAD_INFO_CLASS = RTL_UMS_THREAD_INFO_CLASS(7i32);
-impl ::core::marker::Copy for RTL_UMS_THREAD_INFO_CLASS {}
-impl ::core::clone::Clone for RTL_UMS_THREAD_INFO_CLASS {
+pub const RTWQ_MULTITHREADED_WORKQUEUE: RTWQ_WORKQUEUE_TYPE = RTWQ_WORKQUEUE_TYPE(2i32);
+impl ::core::marker::Copy for RTWQ_WORKQUEUE_TYPE {}
+impl ::core::clone::Clone for RTWQ_WORKQUEUE_TYPE {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::default::Default for RTL_UMS_THREAD_INFO_CLASS {
+impl ::core::default::Default for RTWQ_WORKQUEUE_TYPE {
     fn default() -> Self {
         Self(0)
     }
 }
-impl ::windows_core::TypeKind for RTL_UMS_THREAD_INFO_CLASS {
+impl ::windows_core::TypeKind for RTWQ_WORKQUEUE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
-impl ::core::fmt::Debug for RTL_UMS_THREAD_INFO_CLASS {
+impl ::core::fmt::Debug for RTWQ_WORKQUEUE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RTL_UMS_THREAD_INFO_CLASS").field(&self.0).finish()
+        f.debug_tuple("RTWQ_WORKQUEUE_TYPE").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
@@ -4087,109 +4347,6 @@ impl ::core::ops::Not for SYNCHRONIZATION_ACCESS_RIGHTS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct THREADINFOCLASS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ThreadBasicInformation: THREADINFOCLASS = THREADINFOCLASS(0i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ThreadTimes: THREADINFOCLASS = THREADINFOCLASS(1i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ThreadPriority: THREADINFOCLASS = THREADINFOCLASS(2i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ThreadBasePriority: THREADINFOCLASS = THREADINFOCLASS(3i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ThreadAffinityMask: THREADINFOCLASS = THREADINFOCLASS(4i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ThreadImpersonationToken: THREADINFOCLASS = THREADINFOCLASS(5i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ThreadDescriptorTableEntry: THREADINFOCLASS = THREADINFOCLASS(6i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ThreadEnableAlignmentFaultFixup: THREADINFOCLASS = THREADINFOCLASS(7i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ThreadEventPair_Reusable: THREADINFOCLASS = THREADINFOCLASS(8i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ThreadQuerySetWin32StartAddress: THREADINFOCLASS = THREADINFOCLASS(9i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ThreadZeroTlsCell: THREADINFOCLASS = THREADINFOCLASS(10i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ThreadPerformanceCount: THREADINFOCLASS = THREADINFOCLASS(11i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ThreadAmILastThread: THREADINFOCLASS = THREADINFOCLASS(12i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ThreadIdealProcessor: THREADINFOCLASS = THREADINFOCLASS(13i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ThreadPriorityBoost: THREADINFOCLASS = THREADINFOCLASS(14i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ThreadSetTlsArrayAddress: THREADINFOCLASS = THREADINFOCLASS(15i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ThreadIsIoPending: THREADINFOCLASS = THREADINFOCLASS(16i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ThreadHideFromDebugger: THREADINFOCLASS = THREADINFOCLASS(17i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ThreadBreakOnTermination: THREADINFOCLASS = THREADINFOCLASS(18i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ThreadSwitchLegacyState: THREADINFOCLASS = THREADINFOCLASS(19i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ThreadIsTerminated: THREADINFOCLASS = THREADINFOCLASS(20i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ThreadLastSystemCall: THREADINFOCLASS = THREADINFOCLASS(21i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ThreadIoPriority: THREADINFOCLASS = THREADINFOCLASS(22i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ThreadCycleTime: THREADINFOCLASS = THREADINFOCLASS(23i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ThreadPagePriority: THREADINFOCLASS = THREADINFOCLASS(24i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ThreadActualBasePriority: THREADINFOCLASS = THREADINFOCLASS(25i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ThreadTebInformation: THREADINFOCLASS = THREADINFOCLASS(26i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ThreadCSwitchMon: THREADINFOCLASS = THREADINFOCLASS(27i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ThreadCSwitchPmu: THREADINFOCLASS = THREADINFOCLASS(28i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ThreadWow64Context: THREADINFOCLASS = THREADINFOCLASS(29i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ThreadGroupInformation: THREADINFOCLASS = THREADINFOCLASS(30i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ThreadUmsInformation: THREADINFOCLASS = THREADINFOCLASS(31i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ThreadCounterProfiling: THREADINFOCLASS = THREADINFOCLASS(32i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ThreadIdealProcessorEx: THREADINFOCLASS = THREADINFOCLASS(33i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ThreadCpuAccountingInformation: THREADINFOCLASS = THREADINFOCLASS(34i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ThreadSuspendCount: THREADINFOCLASS = THREADINFOCLASS(35i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ThreadActualGroupAffinity: THREADINFOCLASS = THREADINFOCLASS(41i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ThreadDynamicCodePolicyInfo: THREADINFOCLASS = THREADINFOCLASS(42i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const ThreadSubsystemInformation: THREADINFOCLASS = THREADINFOCLASS(45i32);
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const MaxThreadInfoClass: THREADINFOCLASS = THREADINFOCLASS(53i32);
-impl ::core::marker::Copy for THREADINFOCLASS {}
-impl ::core::clone::Clone for THREADINFOCLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for THREADINFOCLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-impl ::windows_core::TypeKind for THREADINFOCLASS {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::fmt::Debug for THREADINFOCLASS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("THREADINFOCLASS").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
@@ -4460,6 +4617,45 @@ impl ::core::fmt::Debug for TP_CALLBACK_PRIORITY {
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UMS_THREAD_INFO_CLASS(pub i32);
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+pub const UmsThreadInvalidInfoClass: UMS_THREAD_INFO_CLASS = UMS_THREAD_INFO_CLASS(0i32);
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+pub const UmsThreadUserContext: UMS_THREAD_INFO_CLASS = UMS_THREAD_INFO_CLASS(1i32);
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+pub const UmsThreadPriority: UMS_THREAD_INFO_CLASS = UMS_THREAD_INFO_CLASS(2i32);
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+pub const UmsThreadAffinity: UMS_THREAD_INFO_CLASS = UMS_THREAD_INFO_CLASS(3i32);
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+pub const UmsThreadTeb: UMS_THREAD_INFO_CLASS = UMS_THREAD_INFO_CLASS(4i32);
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+pub const UmsThreadIsSuspended: UMS_THREAD_INFO_CLASS = UMS_THREAD_INFO_CLASS(5i32);
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+pub const UmsThreadIsTerminated: UMS_THREAD_INFO_CLASS = UMS_THREAD_INFO_CLASS(6i32);
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+pub const UmsThreadMaxInfoClass: UMS_THREAD_INFO_CLASS = UMS_THREAD_INFO_CLASS(7i32);
+impl ::core::marker::Copy for UMS_THREAD_INFO_CLASS {}
+impl ::core::clone::Clone for UMS_THREAD_INFO_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for UMS_THREAD_INFO_CLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for UMS_THREAD_INFO_CLASS {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for UMS_THREAD_INFO_CLASS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UMS_THREAD_INFO_CLASS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WORKER_THREAD_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub const WT_EXECUTEDEFAULT: WORKER_THREAD_FLAGS = WORKER_THREAD_FLAGS(0u32);
@@ -4562,32 +4758,173 @@ impl ::core::default::Default for APP_MEMORY_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct BoundaryDescriptorHandle(pub isize);
-impl BoundaryDescriptorHandle {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+pub struct BoundaryDescriptorHandle {
+    pub Value: isize,
 }
-impl ::core::default::Default for BoundaryDescriptorHandle {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
+impl ::core::marker::Copy for BoundaryDescriptorHandle {}
 impl ::core::clone::Clone for BoundaryDescriptorHandle {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::marker::Copy for BoundaryDescriptorHandle {}
 impl ::core::fmt::Debug for BoundaryDescriptorHandle {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BoundaryDescriptorHandle").field(&self.0).finish()
+        f.debug_struct("BoundaryDescriptorHandle").field("Value", &self.Value).finish()
     }
 }
 impl ::windows_core::TypeKind for BoundaryDescriptorHandle {
     type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::cmp::PartialEq for BoundaryDescriptorHandle {
+    fn eq(&self, other: &Self) -> bool {
+        self.Value == other.Value
+    }
+}
+impl ::core::cmp::Eq for BoundaryDescriptorHandle {}
+impl ::core::default::Default for BoundaryDescriptorHandle {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+pub struct CONDITION_VARIABLE {
+    pub Ptr: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for CONDITION_VARIABLE {}
+impl ::core::clone::Clone for CONDITION_VARIABLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for CONDITION_VARIABLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CONDITION_VARIABLE").field("Ptr", &self.Ptr).finish()
+    }
+}
+impl ::windows_core::TypeKind for CONDITION_VARIABLE {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::cmp::PartialEq for CONDITION_VARIABLE {
+    fn eq(&self, other: &Self) -> bool {
+        self.Ptr == other.Ptr
+    }
+}
+impl ::core::cmp::Eq for CONDITION_VARIABLE {}
+impl ::core::default::Default for CONDITION_VARIABLE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+pub struct CRITICAL_SECTION {
+    pub DebugInfo: *mut CRITICAL_SECTION_DEBUG,
+    pub LockCount: i32,
+    pub RecursionCount: i32,
+    pub OwningThread: super::super::Foundation::HANDLE,
+    pub LockSemaphore: super::super::Foundation::HANDLE,
+    pub SpinCount: usize,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::core::marker::Copy for CRITICAL_SECTION {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::core::clone::Clone for CRITICAL_SECTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::core::fmt::Debug for CRITICAL_SECTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CRITICAL_SECTION").field("DebugInfo", &self.DebugInfo).field("LockCount", &self.LockCount).field("RecursionCount", &self.RecursionCount).field("OwningThread", &self.OwningThread).field("LockSemaphore", &self.LockSemaphore).field("SpinCount", &self.SpinCount).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::windows_core::TypeKind for CRITICAL_SECTION {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::core::cmp::PartialEq for CRITICAL_SECTION {
+    fn eq(&self, other: &Self) -> bool {
+        self.DebugInfo == other.DebugInfo && self.LockCount == other.LockCount && self.RecursionCount == other.RecursionCount && self.OwningThread == other.OwningThread && self.LockSemaphore == other.LockSemaphore && self.SpinCount == other.SpinCount
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::core::cmp::Eq for CRITICAL_SECTION {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::core::default::Default for CRITICAL_SECTION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+pub struct CRITICAL_SECTION_DEBUG {
+    pub Type: u16,
+    pub CreatorBackTraceIndex: u16,
+    pub CriticalSection: *mut CRITICAL_SECTION,
+    pub ProcessLocksList: super::Kernel::LIST_ENTRY,
+    pub EntryCount: u32,
+    pub ContentionCount: u32,
+    pub Flags: u32,
+    pub CreatorBackTraceIndexHigh: u16,
+    pub Identifier: u16,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::core::marker::Copy for CRITICAL_SECTION_DEBUG {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::core::clone::Clone for CRITICAL_SECTION_DEBUG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::core::fmt::Debug for CRITICAL_SECTION_DEBUG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CRITICAL_SECTION_DEBUG").field("Type", &self.Type).field("CreatorBackTraceIndex", &self.CreatorBackTraceIndex).field("CriticalSection", &self.CriticalSection).field("ProcessLocksList", &self.ProcessLocksList).field("EntryCount", &self.EntryCount).field("ContentionCount", &self.ContentionCount).field("Flags", &self.Flags).field("CreatorBackTraceIndexHigh", &self.CreatorBackTraceIndexHigh).field("Identifier", &self.Identifier).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::windows_core::TypeKind for CRITICAL_SECTION_DEBUG {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::core::cmp::PartialEq for CRITICAL_SECTION_DEBUG {
+    fn eq(&self, other: &Self) -> bool {
+        self.Type == other.Type && self.CreatorBackTraceIndex == other.CreatorBackTraceIndex && self.CriticalSection == other.CriticalSection && self.ProcessLocksList == other.ProcessLocksList && self.EntryCount == other.EntryCount && self.ContentionCount == other.ContentionCount && self.Flags == other.Flags && self.CreatorBackTraceIndexHigh == other.CreatorBackTraceIndexHigh && self.Identifier == other.Identifier
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::core::cmp::Eq for CRITICAL_SECTION_DEBUG {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::core::default::Default for CRITICAL_SECTION_DEBUG {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+pub union INIT_ONCE {
+    pub Ptr: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for INIT_ONCE {}
+impl ::core::clone::Clone for INIT_ONCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows_core::TypeKind for INIT_ONCE {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::default::Default for INIT_ONCE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
@@ -4681,32 +5018,35 @@ impl ::core::default::Default for MEMORY_PRIORITY_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NamespaceHandle(pub isize);
-impl NamespaceHandle {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+pub struct NamespaceHandle {
+    pub Value: isize,
 }
-impl ::core::default::Default for NamespaceHandle {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
+impl ::core::marker::Copy for NamespaceHandle {}
 impl ::core::clone::Clone for NamespaceHandle {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::marker::Copy for NamespaceHandle {}
 impl ::core::fmt::Debug for NamespaceHandle {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NamespaceHandle").field(&self.0).finish()
+        f.debug_struct("NamespaceHandle").field("Value", &self.Value).finish()
     }
 }
 impl ::windows_core::TypeKind for NamespaceHandle {
     type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::cmp::PartialEq for NamespaceHandle {
+    fn eq(&self, other: &Self) -> bool {
+        self.Value == other.Value
+    }
+}
+impl ::core::cmp::Eq for NamespaceHandle {}
+impl ::core::default::Default for NamespaceHandle {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
@@ -5223,6 +5563,28 @@ impl ::windows_core::TypeKind for PTP_CALLBACK_INSTANCE {
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PTP_CLEANUP_GROUP(pub isize);
+impl ::core::default::Default for PTP_CLEANUP_GROUP {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for PTP_CLEANUP_GROUP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for PTP_CLEANUP_GROUP {}
+impl ::core::fmt::Debug for PTP_CLEANUP_GROUP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PTP_CLEANUP_GROUP").field(&self.0).finish()
+    }
+}
+impl ::windows_core::TypeKind for PTP_CLEANUP_GROUP {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PTP_IO(pub isize);
 impl PTP_IO {
     pub fn is_invalid(&self) -> bool {
@@ -5444,208 +5806,6 @@ impl ::core::default::Default for REASON_CONTEXT_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub struct RTL_BARRIER {
-    pub Reserved1: u32,
-    pub Reserved2: u32,
-    pub Reserved3: [usize; 2],
-    pub Reserved4: u32,
-    pub Reserved5: u32,
-}
-impl ::core::marker::Copy for RTL_BARRIER {}
-impl ::core::clone::Clone for RTL_BARRIER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for RTL_BARRIER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RTL_BARRIER").field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).field("Reserved3", &self.Reserved3).field("Reserved4", &self.Reserved4).field("Reserved5", &self.Reserved5).finish()
-    }
-}
-impl ::windows_core::TypeKind for RTL_BARRIER {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::cmp::PartialEq for RTL_BARRIER {
-    fn eq(&self, other: &Self) -> bool {
-        self.Reserved1 == other.Reserved1 && self.Reserved2 == other.Reserved2 && self.Reserved3 == other.Reserved3 && self.Reserved4 == other.Reserved4 && self.Reserved5 == other.Reserved5
-    }
-}
-impl ::core::cmp::Eq for RTL_BARRIER {}
-impl ::core::default::Default for RTL_BARRIER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub struct RTL_CONDITION_VARIABLE {
-    pub Ptr: *mut ::core::ffi::c_void,
-}
-impl ::core::marker::Copy for RTL_CONDITION_VARIABLE {}
-impl ::core::clone::Clone for RTL_CONDITION_VARIABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for RTL_CONDITION_VARIABLE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RTL_CONDITION_VARIABLE").field("Ptr", &self.Ptr).finish()
-    }
-}
-impl ::windows_core::TypeKind for RTL_CONDITION_VARIABLE {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::cmp::PartialEq for RTL_CONDITION_VARIABLE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Ptr == other.Ptr
-    }
-}
-impl ::core::cmp::Eq for RTL_CONDITION_VARIABLE {}
-impl ::core::default::Default for RTL_CONDITION_VARIABLE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-pub struct RTL_CRITICAL_SECTION {
-    pub DebugInfo: *mut RTL_CRITICAL_SECTION_DEBUG,
-    pub LockCount: i32,
-    pub RecursionCount: i32,
-    pub OwningThread: super::super::Foundation::HANDLE,
-    pub LockSemaphore: super::super::Foundation::HANDLE,
-    pub SpinCount: usize,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::core::marker::Copy for RTL_CRITICAL_SECTION {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::core::clone::Clone for RTL_CRITICAL_SECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::core::fmt::Debug for RTL_CRITICAL_SECTION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RTL_CRITICAL_SECTION").field("DebugInfo", &self.DebugInfo).field("LockCount", &self.LockCount).field("RecursionCount", &self.RecursionCount).field("OwningThread", &self.OwningThread).field("LockSemaphore", &self.LockSemaphore).field("SpinCount", &self.SpinCount).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::windows_core::TypeKind for RTL_CRITICAL_SECTION {
-    type TypeKind = ::windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::core::cmp::PartialEq for RTL_CRITICAL_SECTION {
-    fn eq(&self, other: &Self) -> bool {
-        self.DebugInfo == other.DebugInfo && self.LockCount == other.LockCount && self.RecursionCount == other.RecursionCount && self.OwningThread == other.OwningThread && self.LockSemaphore == other.LockSemaphore && self.SpinCount == other.SpinCount
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::core::cmp::Eq for RTL_CRITICAL_SECTION {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::core::default::Default for RTL_CRITICAL_SECTION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-pub struct RTL_CRITICAL_SECTION_DEBUG {
-    pub Type: u16,
-    pub CreatorBackTraceIndex: u16,
-    pub CriticalSection: *mut RTL_CRITICAL_SECTION,
-    pub ProcessLocksList: super::Kernel::LIST_ENTRY,
-    pub EntryCount: u32,
-    pub ContentionCount: u32,
-    pub Flags: u32,
-    pub CreatorBackTraceIndexHigh: u16,
-    pub Identifier: u16,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::core::marker::Copy for RTL_CRITICAL_SECTION_DEBUG {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::core::clone::Clone for RTL_CRITICAL_SECTION_DEBUG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::core::fmt::Debug for RTL_CRITICAL_SECTION_DEBUG {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RTL_CRITICAL_SECTION_DEBUG").field("Type", &self.Type).field("CreatorBackTraceIndex", &self.CreatorBackTraceIndex).field("CriticalSection", &self.CriticalSection).field("ProcessLocksList", &self.ProcessLocksList).field("EntryCount", &self.EntryCount).field("ContentionCount", &self.ContentionCount).field("Flags", &self.Flags).field("CreatorBackTraceIndexHigh", &self.CreatorBackTraceIndexHigh).field("Identifier", &self.Identifier).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::windows_core::TypeKind for RTL_CRITICAL_SECTION_DEBUG {
-    type TypeKind = ::windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::core::cmp::PartialEq for RTL_CRITICAL_SECTION_DEBUG {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.CreatorBackTraceIndex == other.CreatorBackTraceIndex && self.CriticalSection == other.CriticalSection && self.ProcessLocksList == other.ProcessLocksList && self.EntryCount == other.EntryCount && self.ContentionCount == other.ContentionCount && self.Flags == other.Flags && self.CreatorBackTraceIndexHigh == other.CreatorBackTraceIndexHigh && self.Identifier == other.Identifier
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::core::cmp::Eq for RTL_CRITICAL_SECTION_DEBUG {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::core::default::Default for RTL_CRITICAL_SECTION_DEBUG {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub union RTL_RUN_ONCE {
-    pub Ptr: *mut ::core::ffi::c_void,
-}
-impl ::core::marker::Copy for RTL_RUN_ONCE {}
-impl ::core::clone::Clone for RTL_RUN_ONCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::windows_core::TypeKind for RTL_RUN_ONCE {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::default::Default for RTL_RUN_ONCE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub struct RTL_SRWLOCK {
-    pub Ptr: *mut ::core::ffi::c_void,
-}
-impl ::core::marker::Copy for RTL_SRWLOCK {}
-impl ::core::clone::Clone for RTL_SRWLOCK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for RTL_SRWLOCK {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RTL_SRWLOCK").field("Ptr", &self.Ptr).finish()
-    }
-}
-impl ::windows_core::TypeKind for RTL_SRWLOCK {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::cmp::PartialEq for RTL_SRWLOCK {
-    fn eq(&self, other: &Self) -> bool {
-        self.Ptr == other.Ptr
-    }
-}
-impl ::core::cmp::Eq for RTL_SRWLOCK {}
-impl ::core::default::Default for RTL_SRWLOCK {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RTL_USER_PROCESS_PARAMETERS {
@@ -5682,6 +5842,36 @@ impl ::core::cmp::PartialEq for RTL_USER_PROCESS_PARAMETERS {
 impl ::core::cmp::Eq for RTL_USER_PROCESS_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RTL_USER_PROCESS_PARAMETERS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+pub struct SRWLOCK {
+    pub Ptr: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for SRWLOCK {}
+impl ::core::clone::Clone for SRWLOCK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SRWLOCK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SRWLOCK").field("Ptr", &self.Ptr).finish()
+    }
+}
+impl ::windows_core::TypeKind for SRWLOCK {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::cmp::PartialEq for SRWLOCK {
+    fn eq(&self, other: &Self) -> bool {
+        self.Ptr == other.Ptr
+    }
+}
+impl ::core::cmp::Eq for SRWLOCK {}
+impl ::core::default::Default for SRWLOCK {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -5914,6 +6104,87 @@ impl ::core::default::Default for STARTUPINFOW {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+pub struct SYNCHRONIZATION_BARRIER {
+    pub Reserved1: u32,
+    pub Reserved2: u32,
+    pub Reserved3: [usize; 2],
+    pub Reserved4: u32,
+    pub Reserved5: u32,
+}
+impl ::core::marker::Copy for SYNCHRONIZATION_BARRIER {}
+impl ::core::clone::Clone for SYNCHRONIZATION_BARRIER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SYNCHRONIZATION_BARRIER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SYNCHRONIZATION_BARRIER").field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).field("Reserved3", &self.Reserved3).field("Reserved4", &self.Reserved4).field("Reserved5", &self.Reserved5).finish()
+    }
+}
+impl ::windows_core::TypeKind for SYNCHRONIZATION_BARRIER {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::cmp::PartialEq for SYNCHRONIZATION_BARRIER {
+    fn eq(&self, other: &Self) -> bool {
+        self.Reserved1 == other.Reserved1 && self.Reserved2 == other.Reserved2 && self.Reserved3 == other.Reserved3 && self.Reserved4 == other.Reserved4 && self.Reserved5 == other.Reserved5
+    }
+}
+impl ::core::cmp::Eq for SYNCHRONIZATION_BARRIER {}
+impl ::core::default::Default for SYNCHRONIZATION_BARRIER {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+pub struct TEB {
+    pub Reserved1: [*mut ::core::ffi::c_void; 12],
+    pub ProcessEnvironmentBlock: *mut PEB,
+    pub Reserved2: [*mut ::core::ffi::c_void; 399],
+    pub Reserved3: [u8; 1952],
+    pub TlsSlots: [*mut ::core::ffi::c_void; 64],
+    pub Reserved4: [u8; 8],
+    pub Reserved5: [*mut ::core::ffi::c_void; 26],
+    pub ReservedForOle: *mut ::core::ffi::c_void,
+    pub Reserved6: [*mut ::core::ffi::c_void; 4],
+    pub TlsExpansionSlots: *mut ::core::ffi::c_void,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::core::marker::Copy for TEB {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::core::clone::Clone for TEB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::core::fmt::Debug for TEB {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TEB").field("Reserved1", &self.Reserved1).field("ProcessEnvironmentBlock", &self.ProcessEnvironmentBlock).field("Reserved2", &self.Reserved2).field("Reserved3", &self.Reserved3).field("TlsSlots", &self.TlsSlots).field("Reserved4", &self.Reserved4).field("Reserved5", &self.Reserved5).field("ReservedForOle", &self.ReservedForOle).field("Reserved6", &self.Reserved6).field("TlsExpansionSlots", &self.TlsExpansionSlots).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::windows_core::TypeKind for TEB {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::core::cmp::PartialEq for TEB {
+    fn eq(&self, other: &Self) -> bool {
+        self.Reserved1 == other.Reserved1 && self.ProcessEnvironmentBlock == other.ProcessEnvironmentBlock && self.Reserved2 == other.Reserved2 && self.Reserved3 == other.Reserved3 && self.TlsSlots == other.TlsSlots && self.Reserved4 == other.Reserved4 && self.Reserved5 == other.Reserved5 && self.ReservedForOle == other.ReservedForOle && self.Reserved6 == other.Reserved6 && self.TlsExpansionSlots == other.TlsExpansionSlots
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::core::cmp::Eq for TEB {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::core::default::Default for TEB {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub struct THREAD_POWER_THROTTLING_STATE {
     pub Version: u32,
     pub ControlMask: u32,
@@ -5949,12 +6220,12 @@ impl ::core::default::Default for THREAD_POWER_THROTTLING_STATE {
 pub struct TP_CALLBACK_ENVIRON_V3 {
     pub Version: u32,
     pub Pool: PTP_POOL,
-    pub CleanupGroup: isize,
+    pub CleanupGroup: PTP_CLEANUP_GROUP,
     pub CleanupGroupCancelCallback: PTP_CLEANUP_GROUP_CANCEL_CALLBACK,
     pub RaceDll: *mut ::core::ffi::c_void,
     pub ActivationContext: isize,
     pub FinalizationCallback: PTP_SIMPLE_CALLBACK,
-    pub u: TP_CALLBACK_ENVIRON_V3_1,
+    pub u: TP_CALLBACK_ENVIRON_V3_0,
     pub CallbackPriority: TP_CALLBACK_PRIORITY,
     pub Size: u32,
 }
@@ -5973,7 +6244,11 @@ impl ::core::default::Default for TP_CALLBACK_ENVIRON_V3 {
     }
 }
 #[repr(C)]
-pub struct TP_CALLBACK_ENVIRON_V3_0(pub u8);
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+pub union TP_CALLBACK_ENVIRON_V3_0 {
+    pub Flags: u32,
+    pub s: TP_CALLBACK_ENVIRON_V3_0_0,
+}
 impl ::core::marker::Copy for TP_CALLBACK_ENVIRON_V3_0 {}
 impl ::core::clone::Clone for TP_CALLBACK_ENVIRON_V3_0 {
     fn clone(&self) -> Self {
@@ -5983,52 +6258,37 @@ impl ::core::clone::Clone for TP_CALLBACK_ENVIRON_V3_0 {
 impl ::windows_core::TypeKind for TP_CALLBACK_ENVIRON_V3_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub union TP_CALLBACK_ENVIRON_V3_1 {
-    pub Flags: u32,
-    pub s: TP_CALLBACK_ENVIRON_V3_1_0,
-}
-impl ::core::marker::Copy for TP_CALLBACK_ENVIRON_V3_1 {}
-impl ::core::clone::Clone for TP_CALLBACK_ENVIRON_V3_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::windows_core::TypeKind for TP_CALLBACK_ENVIRON_V3_1 {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::default::Default for TP_CALLBACK_ENVIRON_V3_1 {
+impl ::core::default::Default for TP_CALLBACK_ENVIRON_V3_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub struct TP_CALLBACK_ENVIRON_V3_1_0 {
+pub struct TP_CALLBACK_ENVIRON_V3_0_0 {
     pub _bitfield: u32,
 }
-impl ::core::marker::Copy for TP_CALLBACK_ENVIRON_V3_1_0 {}
-impl ::core::clone::Clone for TP_CALLBACK_ENVIRON_V3_1_0 {
+impl ::core::marker::Copy for TP_CALLBACK_ENVIRON_V3_0_0 {}
+impl ::core::clone::Clone for TP_CALLBACK_ENVIRON_V3_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for TP_CALLBACK_ENVIRON_V3_1_0 {
+impl ::core::fmt::Debug for TP_CALLBACK_ENVIRON_V3_0_0 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TP_CALLBACK_ENVIRON_V3_1_0").field("_bitfield", &self._bitfield).finish()
+        f.debug_struct("TP_CALLBACK_ENVIRON_V3_0_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-impl ::windows_core::TypeKind for TP_CALLBACK_ENVIRON_V3_1_0 {
+impl ::windows_core::TypeKind for TP_CALLBACK_ENVIRON_V3_0_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-impl ::core::cmp::PartialEq for TP_CALLBACK_ENVIRON_V3_1_0 {
+impl ::core::cmp::PartialEq for TP_CALLBACK_ENVIRON_V3_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
-impl ::core::cmp::Eq for TP_CALLBACK_ENVIRON_V3_1_0 {}
-impl ::core::default::Default for TP_CALLBACK_ENVIRON_V3_1_0 {
+impl ::core::cmp::Eq for TP_CALLBACK_ENVIRON_V3_0_0 {}
+impl ::core::default::Default for TP_CALLBACK_ENVIRON_V3_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -6064,32 +6324,35 @@ impl ::core::default::Default for TP_POOL_STACK_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct TimerQueueHandle(pub isize);
-impl TimerQueueHandle {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == 0
-    }
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+pub struct TimerQueueHandle {
+    pub Value: isize,
 }
-impl ::core::default::Default for TimerQueueHandle {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
+impl ::core::marker::Copy for TimerQueueHandle {}
 impl ::core::clone::Clone for TimerQueueHandle {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::marker::Copy for TimerQueueHandle {}
 impl ::core::fmt::Debug for TimerQueueHandle {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TimerQueueHandle").field(&self.0).finish()
+        f.debug_struct("TimerQueueHandle").field("Value", &self.Value).finish()
     }
 }
 impl ::windows_core::TypeKind for TimerQueueHandle {
     type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::cmp::PartialEq for TimerQueueHandle {
+    fn eq(&self, other: &Self) -> bool {
+        self.Value == other.Value
+    }
+}
+impl ::core::cmp::Eq for TimerQueueHandle {}
+impl ::core::default::Default for TimerQueueHandle {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_System_SystemServices\"`*"]
@@ -6204,7 +6467,7 @@ pub type LPTHREAD_START_ROUTINE = ::core::option::Option<unsafe extern "system" 
 pub type PFLS_CALLBACK_FUNCTION = ::core::option::Option<unsafe extern "system" fn(lpflsdata: *const ::core::ffi::c_void) -> ()>;
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PINIT_ONCE_FN = ::core::option::Option<unsafe extern "system" fn(initonce: *mut RTL_RUN_ONCE, parameter: *mut ::core::ffi::c_void, context: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type PINIT_ONCE_FN = ::core::option::Option<unsafe extern "system" fn(initonce: *mut INIT_ONCE, parameter: *mut ::core::ffi::c_void, context: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub type PPS_POST_PROCESS_INIT_ROUTINE = ::core::option::Option<unsafe extern "system" fn() -> ()>;
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_System_SystemServices\"`*"]
@@ -6224,6 +6487,8 @@ pub type PTP_WAIT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(in
 pub type PTP_WIN32_IO_CALLBACK = ::core::option::Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: *mut ::core::ffi::c_void, overlapped: *mut ::core::ffi::c_void, ioresult: u32, numberofbytestransferred: usize, io: PTP_IO) -> ()>;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub type PTP_WORK_CALLBACK = ::core::option::Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: *mut ::core::ffi::c_void, work: PTP_WORK) -> ()>;
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+pub type RTWQPERIODICCALLBACK = ::core::option::Option<unsafe extern "system" fn(context: ::core::option::Option<::windows_core::IUnknown>) -> ()>;
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WAITORTIMERCALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: super::super::Foundation::BOOLEAN) -> ()>;

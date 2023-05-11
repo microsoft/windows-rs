@@ -4903,12 +4903,23 @@ impl ::core::default::Default for STORAGE_FIRMWARE_SLOT_INFO_V2 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-pub struct _ADAPTER_OBJECT(pub u8);
-impl ::core::marker::Copy for _ADAPTER_OBJECT {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct _ADAPTER_OBJECT(pub isize);
+impl ::core::default::Default for _ADAPTER_OBJECT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for _ADAPTER_OBJECT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::marker::Copy for _ADAPTER_OBJECT {}
+impl ::core::fmt::Debug for _ADAPTER_OBJECT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_ADAPTER_OBJECT").field(&self.0).finish()
     }
 }
 impl ::windows_core::TypeKind for _ADAPTER_OBJECT {

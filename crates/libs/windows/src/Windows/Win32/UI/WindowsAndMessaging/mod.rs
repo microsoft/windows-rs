@@ -2813,18 +2813,18 @@ pub unsafe fn MrmPeekResourceIndexerMessages(handle: MrmResourceIndexerHandle, m
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MsgWaitForMultipleObjects<P0>(phandles: ::core::option::Option<&[super::super::Foundation::HANDLE]>, fwaitall: P0, dwmilliseconds: u32, dwwakemask: QUEUE_STATUS_FLAGS) -> u32
+pub unsafe fn MsgWaitForMultipleObjects<P0>(phandles: ::core::option::Option<&[super::super::Foundation::HANDLE]>, fwaitall: P0, dwmilliseconds: u32, dwwakemask: QUEUE_STATUS_FLAGS) -> super::super::Foundation::WAIT_EVENT
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("user32.dll" "system" fn MsgWaitForMultipleObjects(ncount : u32, phandles : *const super::super::Foundation:: HANDLE, fwaitall : super::super::Foundation:: BOOL, dwmilliseconds : u32, dwwakemask : QUEUE_STATUS_FLAGS) -> u32);
+    ::windows_targets::link!("user32.dll" "system" fn MsgWaitForMultipleObjects(ncount : u32, phandles : *const super::super::Foundation:: HANDLE, fwaitall : super::super::Foundation:: BOOL, dwmilliseconds : u32, dwwakemask : QUEUE_STATUS_FLAGS) -> super::super::Foundation:: WAIT_EVENT);
     MsgWaitForMultipleObjects(phandles.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(phandles.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), fwaitall.into_param().abi(), dwmilliseconds, dwwakemask)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MsgWaitForMultipleObjectsEx(phandles: ::core::option::Option<&[super::super::Foundation::HANDLE]>, dwmilliseconds: u32, dwwakemask: QUEUE_STATUS_FLAGS, dwflags: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS) -> u32 {
-    ::windows_targets::link!("user32.dll" "system" fn MsgWaitForMultipleObjectsEx(ncount : u32, phandles : *const super::super::Foundation:: HANDLE, dwmilliseconds : u32, dwwakemask : QUEUE_STATUS_FLAGS, dwflags : MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS) -> u32);
+pub unsafe fn MsgWaitForMultipleObjectsEx(phandles: ::core::option::Option<&[super::super::Foundation::HANDLE]>, dwmilliseconds: u32, dwwakemask: QUEUE_STATUS_FLAGS, dwflags: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS) -> super::super::Foundation::WAIT_EVENT {
+    ::windows_targets::link!("user32.dll" "system" fn MsgWaitForMultipleObjectsEx(ncount : u32, phandles : *const super::super::Foundation:: HANDLE, dwmilliseconds : u32, dwwakemask : QUEUE_STATUS_FLAGS, dwflags : MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS) -> super::super::Foundation:: WAIT_EVENT);
     MsgWaitForMultipleObjectsEx(phandles.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(phandles.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), dwmilliseconds, dwwakemask, dwflags)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
@@ -3054,6 +3054,16 @@ where
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
+pub unsafe fn RegisterForTooltipDismissNotification<P0>(hwnd: P0, tdflags: TOOLTIP_DISMISS_FLAGS) -> super::super::Foundation::BOOL
+where
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+{
+    ::windows_targets::link!("user32.dll" "system" fn RegisterForTooltipDismissNotification(hwnd : super::super::Foundation:: HWND, tdflags : TOOLTIP_DISMISS_FLAGS) -> super::super::Foundation:: BOOL);
+    RegisterForTooltipDismissNotification(hwnd.into_param().abi(), tdflags)
+}
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegisterShellHookWindow<P0>(hwnd: P0) -> super::super::Foundation::BOOL
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
@@ -3274,6 +3284,16 @@ where
 {
     ::windows_targets::link!("user32.dll" "system" fn SendNotifyMessageW(hwnd : super::super::Foundation:: HWND, msg : u32, wparam : super::super::Foundation:: WPARAM, lparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
     SendNotifyMessageW(hwnd.into_param().abi(), msg, wparam.into_param().abi(), lparam.into_param().abi()).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn SetAdditionalForegroundBoostProcesses<P0>(toplevelwindow: P0, processhandlearray: &[super::super::Foundation::HANDLE]) -> super::super::Foundation::BOOL
+where
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+{
+    ::windows_targets::link!("user32.dll" "system" fn SetAdditionalForegroundBoostProcesses(toplevelwindow : super::super::Foundation:: HWND, processhandlecount : u32, processhandlearray : *const super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
+    SetAdditionalForegroundBoostProcesses(toplevelwindow.into_param().abi(), processhandlearray.len() as _, ::core::mem::transmute(processhandlearray.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13446,6 +13466,72 @@ impl ::core::default::Default for MENUBARINFO {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub struct MENUEX_TEMPLATE_HEADER {
+    pub wVersion: u16,
+    pub wOffset: u16,
+    pub dwHelpId: u32,
+}
+impl ::core::marker::Copy for MENUEX_TEMPLATE_HEADER {}
+impl ::core::clone::Clone for MENUEX_TEMPLATE_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for MENUEX_TEMPLATE_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MENUEX_TEMPLATE_HEADER").field("wVersion", &self.wVersion).field("wOffset", &self.wOffset).field("dwHelpId", &self.dwHelpId).finish()
+    }
+}
+impl ::windows_core::TypeKind for MENUEX_TEMPLATE_HEADER {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::cmp::PartialEq for MENUEX_TEMPLATE_HEADER {
+    fn eq(&self, other: &Self) -> bool {
+        self.wVersion == other.wVersion && self.wOffset == other.wOffset && self.dwHelpId == other.dwHelpId
+    }
+}
+impl ::core::cmp::Eq for MENUEX_TEMPLATE_HEADER {}
+impl ::core::default::Default for MENUEX_TEMPLATE_HEADER {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub struct MENUEX_TEMPLATE_ITEM {
+    pub dwType: u32,
+    pub dwState: u32,
+    pub uId: u32,
+    pub wFlags: u16,
+    pub szText: [u16; 1],
+}
+impl ::core::marker::Copy for MENUEX_TEMPLATE_ITEM {}
+impl ::core::clone::Clone for MENUEX_TEMPLATE_ITEM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for MENUEX_TEMPLATE_ITEM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MENUEX_TEMPLATE_ITEM").field("dwType", &self.dwType).field("dwState", &self.dwState).field("uId", &self.uId).field("wFlags", &self.wFlags).field("szText", &self.szText).finish()
+    }
+}
+impl ::windows_core::TypeKind for MENUEX_TEMPLATE_ITEM {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::cmp::PartialEq for MENUEX_TEMPLATE_ITEM {
+    fn eq(&self, other: &Self) -> bool {
+        self.dwType == other.dwType && self.dwState == other.dwState && self.uId == other.uId && self.wFlags == other.wFlags && self.szText == other.szText
+    }
+}
+impl ::core::cmp::Eq for MENUEX_TEMPLATE_ITEM {}
+impl ::core::default::Default for MENUEX_TEMPLATE_ITEM {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub struct MENUGETOBJECTINFO {
     pub dwFlags: MENUGETOBJECTINFO_FLAGS,
     pub uPos: u32,
@@ -13679,6 +13765,107 @@ impl ::core::cmp::PartialEq for MENUITEMTEMPLATEHEADER {
 }
 impl ::core::cmp::Eq for MENUITEMTEMPLATEHEADER {}
 impl ::core::default::Default for MENUITEMTEMPLATEHEADER {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub struct MENUTEMPLATEEX {
+    pub Anonymous: MENUTEMPLATEEX_0,
+}
+impl ::core::marker::Copy for MENUTEMPLATEEX {}
+impl ::core::clone::Clone for MENUTEMPLATEEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows_core::TypeKind for MENUTEMPLATEEX {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::default::Default for MENUTEMPLATEEX {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub union MENUTEMPLATEEX_0 {
+    pub Menu: MENUTEMPLATEEX_0_1,
+    pub MenuEx: MENUTEMPLATEEX_0_0,
+}
+impl ::core::marker::Copy for MENUTEMPLATEEX_0 {}
+impl ::core::clone::Clone for MENUTEMPLATEEX_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows_core::TypeKind for MENUTEMPLATEEX_0 {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::default::Default for MENUTEMPLATEEX_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub struct MENUTEMPLATEEX_0_0 {
+    pub mexHeader: MENUEX_TEMPLATE_HEADER,
+    pub mexItem: [MENUEX_TEMPLATE_ITEM; 1],
+}
+impl ::core::marker::Copy for MENUTEMPLATEEX_0_0 {}
+impl ::core::clone::Clone for MENUTEMPLATEEX_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for MENUTEMPLATEEX_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MENUTEMPLATEEX_0_0").field("mexHeader", &self.mexHeader).field("mexItem", &self.mexItem).finish()
+    }
+}
+impl ::windows_core::TypeKind for MENUTEMPLATEEX_0_0 {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::cmp::PartialEq for MENUTEMPLATEEX_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        self.mexHeader == other.mexHeader && self.mexItem == other.mexItem
+    }
+}
+impl ::core::cmp::Eq for MENUTEMPLATEEX_0_0 {}
+impl ::core::default::Default for MENUTEMPLATEEX_0_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+pub struct MENUTEMPLATEEX_0_1 {
+    pub mitHeader: MENUITEMTEMPLATEHEADER,
+    pub miTemplate: [MENUITEMTEMPLATE; 1],
+}
+impl ::core::marker::Copy for MENUTEMPLATEEX_0_1 {}
+impl ::core::clone::Clone for MENUTEMPLATEEX_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for MENUTEMPLATEEX_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MENUTEMPLATEEX_0_1").field("mitHeader", &self.mitHeader).field("miTemplate", &self.miTemplate).finish()
+    }
+}
+impl ::windows_core::TypeKind for MENUTEMPLATEEX_0_1 {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::cmp::PartialEq for MENUTEMPLATEEX_0_1 {
+    fn eq(&self, other: &Self) -> bool {
+        self.mitHeader == other.mitHeader && self.miTemplate == other.miTemplate
+    }
+}
+impl ::core::cmp::Eq for MENUTEMPLATEEX_0_1 {}
+impl ::core::default::Default for MENUTEMPLATEEX_0_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }

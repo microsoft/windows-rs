@@ -52,8 +52,8 @@ impl IWCNDevice {
     {
         (::windows_core::Interface::vtable(self).Connect)(::windows_core::Interface::as_raw(self), pnotify.into_param().abi()).ok()
     }
-    pub unsafe fn GetAttribute(&self, attributetype: WCN_ATTRIBUTE_TYPE, dwmaxbuffersize: u32, pbbuffer: *mut u8, pdwbufferused: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetAttribute)(::windows_core::Interface::as_raw(self), attributetype, dwmaxbuffersize, pbbuffer, pdwbufferused).ok()
+    pub unsafe fn GetAttribute(&self, attributetype: WCN_ATTRIBUTE_TYPE, pbbuffer: &mut [u8], pdwbufferused: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetAttribute)(::windows_core::Interface::as_raw(self), attributetype, pbbuffer.len() as _, ::core::mem::transmute(pbbuffer.as_ptr()), pdwbufferused).ok()
     }
     pub unsafe fn GetIntegerAttribute(&self, attributetype: WCN_ATTRIBUTE_TYPE) -> ::windows_core::Result<u32> {
         let mut result__ = ::windows_core::zeroed::<u32>();
@@ -71,8 +71,8 @@ impl IWCNDevice {
     {
         (::windows_core::Interface::vtable(self).SetNetworkProfile)(::windows_core::Interface::as_raw(self), pszprofilexml.into_param().abi()).ok()
     }
-    pub unsafe fn GetVendorExtension(&self, pvendorextspec: *const WCN_VENDOR_EXTENSION_SPEC, dwmaxbuffersize: u32, pbbuffer: *mut u8, pdwbufferused: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetVendorExtension)(::windows_core::Interface::as_raw(self), pvendorextspec, dwmaxbuffersize, pbbuffer, pdwbufferused).ok()
+    pub unsafe fn GetVendorExtension(&self, pvendorextspec: *const WCN_VENDOR_EXTENSION_SPEC, pbbuffer: &mut [u8], pdwbufferused: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetVendorExtension)(::windows_core::Interface::as_raw(self), pvendorextspec, pbbuffer.len() as _, ::core::mem::transmute(pbbuffer.as_ptr()), pdwbufferused).ok()
     }
     pub unsafe fn SetVendorExtension(&self, pvendorextspec: *const WCN_VENDOR_EXTENSION_SPEC, pbbuffer: &[u8]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetVendorExtension)(::windows_core::Interface::as_raw(self), pvendorextspec, pbbuffer.len() as _, ::core::mem::transmute(pbbuffer.as_ptr())).ok()

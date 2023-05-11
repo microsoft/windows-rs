@@ -4160,34 +4160,67 @@ impl ::core::default::Default for EMRPIXELFORMAT {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-pub struct GLUnurbs(pub u8);
-impl ::core::marker::Copy for GLUnurbs {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct GLUnurbs(pub isize);
+impl ::core::default::Default for GLUnurbs {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for GLUnurbs {
     fn clone(&self) -> Self {
         *self
     }
 }
+impl ::core::marker::Copy for GLUnurbs {}
+impl ::core::fmt::Debug for GLUnurbs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GLUnurbs").field(&self.0).finish()
+    }
+}
 impl ::windows_core::TypeKind for GLUnurbs {
     type TypeKind = ::windows_core::CopyType;
 }
-#[repr(C)]
-pub struct GLUquadric(pub u8);
-impl ::core::marker::Copy for GLUquadric {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct GLUquadric(pub isize);
+impl ::core::default::Default for GLUquadric {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for GLUquadric {
     fn clone(&self) -> Self {
         *self
     }
 }
+impl ::core::marker::Copy for GLUquadric {}
+impl ::core::fmt::Debug for GLUquadric {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GLUquadric").field(&self.0).finish()
+    }
+}
 impl ::windows_core::TypeKind for GLUquadric {
     type TypeKind = ::windows_core::CopyType;
 }
-#[repr(C)]
-pub struct GLUtesselator(pub u8);
-impl ::core::marker::Copy for GLUtesselator {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct GLUtesselator(pub isize);
+impl ::core::default::Default for GLUtesselator {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for GLUtesselator {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::marker::Copy for GLUtesselator {}
+impl ::core::fmt::Debug for GLUtesselator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GLUtesselator").field(&self.0).finish()
     }
 }
 impl ::windows_core::TypeKind for GLUtesselator {

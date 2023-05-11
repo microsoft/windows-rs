@@ -38,8 +38,8 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_SerialCommunication\"`*"]
 #[inline]
-pub unsafe fn ComDBOpen(phcomdb: *mut isize) -> i32 {
-    ::windows_targets::link!("msports.dll" "system" fn ComDBOpen(phcomdb : *mut isize) -> i32);
+pub unsafe fn ComDBOpen(phcomdb: *mut HCOMDB) -> i32 {
+    ::windows_targets::link!("msports.dll" "system" fn ComDBOpen(phcomdb : *mut HCOMDB) -> i32);
     ComDBOpen(phcomdb)
 }
 #[doc = "*Required features: `\"Win32_Devices_SerialCommunication\"`*"]

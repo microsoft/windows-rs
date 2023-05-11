@@ -377,11 +377,11 @@ where
     ::windows_targets::link!("imm32.dll" "system" fn ImmGetGuideLineW(param0 : super::super::super::Globalization:: HIMC, dwindex : GET_GUIDE_LINE_TYPE, lpbuf : ::windows_core::PWSTR, dwbuflen : u32) -> u32);
     ImmGetGuideLineW(param0.into_param().abi(), dwindex, ::core::mem::transmute(lpbuf), dwbuflen)
 }
-#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_UI_TextServices\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
-pub unsafe fn ImmGetHotKey(param0: u32, lpumodifiers: *mut u32, lpuvkey: *mut u32, phkl: *mut isize) -> super::super::super::Foundation::BOOL {
-    ::windows_targets::link!("imm32.dll" "system" fn ImmGetHotKey(param0 : u32, lpumodifiers : *mut u32, lpuvkey : *mut u32, phkl : *mut isize) -> super::super::super::Foundation:: BOOL);
+pub unsafe fn ImmGetHotKey(param0: u32, lpumodifiers: *mut u32, lpuvkey: *mut u32, phkl: *mut super::super::TextServices::HKL) -> super::super::super::Foundation::BOOL {
+    ::windows_targets::link!("imm32.dll" "system" fn ImmGetHotKey(param0 : u32, lpumodifiers : *mut u32, lpuvkey : *mut u32, phkl : *mut super::super::TextServices:: HKL) -> super::super::super::Foundation:: BOOL);
     ImmGetHotKey(param0, lpumodifiers, lpuvkey, phkl)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Globalization\"`*"]

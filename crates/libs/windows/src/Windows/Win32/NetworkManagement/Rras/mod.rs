@@ -7889,19 +7889,49 @@ impl ::core::default::Default for RASDEVINFOW {
 }
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct RASDEVSPECIFICINFO {
     pub dwSize: u32,
     pub pbDevSpecificInfo: *mut u8,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for RASDEVSPECIFICINFO {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for RASDEVSPECIFICINFO {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::windows_core::TypeKind for RASDEVSPECIFICINFO {
     type TypeKind = ::windows_core::CopyType;
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::default::Default for RASDEVSPECIFICINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
+#[cfg(target_arch = "x86")]
+pub struct RASDEVSPECIFICINFO {
+    pub dwSize: u32,
+    pub pbDevSpecificInfo: *mut u8,
+}
+#[cfg(target_arch = "x86")]
+impl ::core::marker::Copy for RASDEVSPECIFICINFO {}
+#[cfg(target_arch = "x86")]
+impl ::core::clone::Clone for RASDEVSPECIFICINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+impl ::windows_core::TypeKind for RASDEVSPECIFICINFO {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl ::core::default::Default for RASDEVSPECIFICINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8412,6 +8442,7 @@ impl ::core::default::Default for RASENTRYW {
 }
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct RASIKEV2_PROJECTION_INFO {
     pub dwIPv4NegotiationError: u32,
@@ -8430,18 +8461,65 @@ pub struct RASIKEV2_PROJECTION_INFO {
     pub numIPv6ServerAddresses: u32,
     pub ipv6ServerAddresses: *mut super::super::Networking::WinSock::IN6_ADDR,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for RASIKEV2_PROJECTION_INFO {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for RASIKEV2_PROJECTION_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::windows_core::TypeKind for RASIKEV2_PROJECTION_INFO {
     type TypeKind = ::windows_core::CopyType;
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::default::Default for RASIKEV2_PROJECTION_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Networking_WinSock")]
+pub struct RASIKEV2_PROJECTION_INFO {
+    pub dwIPv4NegotiationError: u32,
+    pub ipv4Address: super::super::Networking::WinSock::IN_ADDR,
+    pub ipv4ServerAddress: super::super::Networking::WinSock::IN_ADDR,
+    pub dwIPv6NegotiationError: u32,
+    pub ipv6Address: super::super::Networking::WinSock::IN6_ADDR,
+    pub ipv6ServerAddress: super::super::Networking::WinSock::IN6_ADDR,
+    pub dwPrefixLength: u32,
+    pub dwAuthenticationProtocol: u32,
+    pub dwEapTypeId: u32,
+    pub dwFlags: RASIKEV_PROJECTION_INFO_FLAGS,
+    pub dwEncryptionMethod: u32,
+    pub numIPv4ServerAddresses: u32,
+    pub ipv4ServerAddresses: *mut super::super::Networking::WinSock::IN_ADDR,
+    pub numIPv6ServerAddresses: u32,
+    pub ipv6ServerAddresses: *mut super::super::Networking::WinSock::IN6_ADDR,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for RASIKEV2_PROJECTION_INFO {}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::clone::Clone for RASIKEV2_PROJECTION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::windows_core::TypeKind for RASIKEV2_PROJECTION_INFO {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for RASIKEV2_PROJECTION_INFO {
     fn default() -> Self {

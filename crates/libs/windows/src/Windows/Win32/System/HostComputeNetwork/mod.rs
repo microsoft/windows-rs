@@ -222,12 +222,30 @@ pub unsafe fn HcnOpenNetwork(id: *const ::windows_core::GUID, network: *mut *mut
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
 #[inline]
+pub unsafe fn HcnQueryEndpointAddresses<P0>(endpoint: *const ::core::ffi::c_void, query: P0, addresses: *mut ::windows_core::PWSTR, errorrecord: ::core::option::Option<*mut ::windows_core::PWSTR>) -> ::windows_core::Result<()>
+where
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+{
+    ::windows_targets::link!("computenetwork.dll" "system" fn HcnQueryEndpointAddresses(endpoint : *const ::core::ffi::c_void, query : ::windows_core::PCWSTR, addresses : *mut ::windows_core::PWSTR, errorrecord : *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT);
+    HcnQueryEndpointAddresses(endpoint, query.into_param().abi(), addresses, ::core::mem::transmute(errorrecord.unwrap_or(::std::ptr::null_mut()))).ok()
+}
+#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
+#[inline]
 pub unsafe fn HcnQueryEndpointProperties<P0>(endpoint: *const ::core::ffi::c_void, query: P0, properties: *mut ::windows_core::PWSTR, errorrecord: ::core::option::Option<*mut ::windows_core::PWSTR>) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("computenetwork.dll" "system" fn HcnQueryEndpointProperties(endpoint : *const ::core::ffi::c_void, query : ::windows_core::PCWSTR, properties : *mut ::windows_core::PWSTR, errorrecord : *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT);
     HcnQueryEndpointProperties(endpoint, query.into_param().abi(), properties, ::core::mem::transmute(errorrecord.unwrap_or(::std::ptr::null_mut()))).ok()
+}
+#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
+#[inline]
+pub unsafe fn HcnQueryEndpointStats<P0>(endpoint: *const ::core::ffi::c_void, query: P0, stats: *mut ::windows_core::PWSTR, errorrecord: ::core::option::Option<*mut ::windows_core::PWSTR>) -> ::windows_core::Result<()>
+where
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+{
+    ::windows_targets::link!("computenetwork.dll" "system" fn HcnQueryEndpointStats(endpoint : *const ::core::ffi::c_void, query : ::windows_core::PCWSTR, stats : *mut ::windows_core::PWSTR, errorrecord : *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT);
+    HcnQueryEndpointStats(endpoint, query.into_param().abi(), stats, ::core::mem::transmute(errorrecord.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
 #[inline]

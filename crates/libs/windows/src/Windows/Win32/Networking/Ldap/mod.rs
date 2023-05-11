@@ -991,16 +991,22 @@ pub unsafe fn ldap_get_dnW(ld: *mut LDAP, entry: *mut LDAPMessage) -> ::windows_
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_get_next_page(externalhandle: *mut LDAP, searchhandle: *mut LDAPSearch, pagesize: u32, messagenumber: *mut u32) -> u32 {
-    ::windows_targets::link!("wldap32.dll" "cdecl" fn ldap_get_next_page(externalhandle : *mut LDAP, searchhandle : *mut LDAPSearch, pagesize : u32, messagenumber : *mut u32) -> u32);
-    ldap_get_next_page(externalhandle, searchhandle, pagesize, messagenumber)
+pub unsafe fn ldap_get_next_page<P0>(externalhandle: *mut LDAP, searchhandle: P0, pagesize: u32, messagenumber: *mut u32) -> u32
+where
+    P0: ::windows_core::IntoParam<PLDAPSearch>,
+{
+    ::windows_targets::link!("wldap32.dll" "cdecl" fn ldap_get_next_page(externalhandle : *mut LDAP, searchhandle : PLDAPSearch, pagesize : u32, messagenumber : *mut u32) -> u32);
+    ldap_get_next_page(externalhandle, searchhandle.into_param().abi(), pagesize, messagenumber)
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_get_next_page_s(externalhandle: *mut LDAP, searchhandle: *mut LDAPSearch, timeout: *mut LDAP_TIMEVAL, pagesize: u32, totalcount: *mut u32, results: *mut *mut LDAPMessage) -> u32 {
-    ::windows_targets::link!("wldap32.dll" "cdecl" fn ldap_get_next_page_s(externalhandle : *mut LDAP, searchhandle : *mut LDAPSearch, timeout : *mut LDAP_TIMEVAL, pagesize : u32, totalcount : *mut u32, results : *mut *mut LDAPMessage) -> u32);
-    ldap_get_next_page_s(externalhandle, searchhandle, timeout, pagesize, totalcount, results)
+pub unsafe fn ldap_get_next_page_s<P0>(externalhandle: *mut LDAP, searchhandle: P0, timeout: *mut LDAP_TIMEVAL, pagesize: u32, totalcount: *mut u32, results: *mut *mut LDAPMessage) -> u32
+where
+    P0: ::windows_core::IntoParam<PLDAPSearch>,
+{
+    ::windows_targets::link!("wldap32.dll" "cdecl" fn ldap_get_next_page_s(externalhandle : *mut LDAP, searchhandle : PLDAPSearch, timeout : *mut LDAP_TIMEVAL, pagesize : u32, totalcount : *mut u32, results : *mut *mut LDAPMessage) -> u32);
+    ldap_get_next_page_s(externalhandle, searchhandle.into_param().abi(), timeout, pagesize, totalcount, results)
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
@@ -1017,9 +1023,12 @@ pub unsafe fn ldap_get_optionW(ld: *mut LDAP, option: i32, outvalue: *mut ::core
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_get_paged_count(externalhandle: *mut LDAP, searchblock: *mut LDAPSearch, totalcount: *mut u32, results: *mut LDAPMessage) -> u32 {
-    ::windows_targets::link!("wldap32.dll" "cdecl" fn ldap_get_paged_count(externalhandle : *mut LDAP, searchblock : *mut LDAPSearch, totalcount : *mut u32, results : *mut LDAPMessage) -> u32);
-    ldap_get_paged_count(externalhandle, searchblock, totalcount, results)
+pub unsafe fn ldap_get_paged_count<P0>(externalhandle: *mut LDAP, searchblock: P0, totalcount: *mut u32, results: *mut LDAPMessage) -> u32
+where
+    P0: ::windows_core::IntoParam<PLDAPSearch>,
+{
+    ::windows_targets::link!("wldap32.dll" "cdecl" fn ldap_get_paged_count(externalhandle : *mut LDAP, searchblock : PLDAPSearch, totalcount : *mut u32, results : *mut LDAPMessage) -> u32);
+    ldap_get_paged_count(externalhandle, searchblock.into_param().abi(), totalcount, results)
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1736,9 +1745,12 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[inline]
-pub unsafe fn ldap_search_abandon_page(externalhandle: *mut LDAP, searchblock: *mut LDAPSearch) -> u32 {
-    ::windows_targets::link!("wldap32.dll" "cdecl" fn ldap_search_abandon_page(externalhandle : *mut LDAP, searchblock : *mut LDAPSearch) -> u32);
-    ldap_search_abandon_page(externalhandle, searchblock)
+pub unsafe fn ldap_search_abandon_page<P0>(externalhandle: *mut LDAP, searchblock: P0) -> u32
+where
+    P0: ::windows_core::IntoParam<PLDAPSearch>,
+{
+    ::windows_targets::link!("wldap32.dll" "cdecl" fn ldap_search_abandon_page(externalhandle : *mut LDAP, searchblock : PLDAPSearch) -> u32);
+    ldap_search_abandon_page(externalhandle, searchblock.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1809,34 +1821,34 @@ where
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_search_init_page<P0, P1>(externalhandle: *mut LDAP, distinguishedname: P0, scopeofsearch: u32, searchfilter: P1, attributelist: *mut *mut i8, attributesonly: u32, servercontrols: *mut *mut LDAPControlA, clientcontrols: *mut *mut LDAPControlA, pagetimelimit: u32, totalsizelimit: u32, sortkeys: *mut *mut LDAPSortKeyA) -> *mut LDAPSearch
+pub unsafe fn ldap_search_init_page<P0, P1>(externalhandle: *mut LDAP, distinguishedname: P0, scopeofsearch: u32, searchfilter: P1, attributelist: *mut *mut i8, attributesonly: u32, servercontrols: *mut *mut LDAPControlA, clientcontrols: *mut *mut LDAPControlA, pagetimelimit: u32, totalsizelimit: u32, sortkeys: *mut *mut LDAPSortKeyA) -> PLDAPSearch
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("wldap32.dll" "cdecl" fn ldap_search_init_page(externalhandle : *mut LDAP, distinguishedname : ::windows_core::PCSTR, scopeofsearch : u32, searchfilter : ::windows_core::PCSTR, attributelist : *mut *mut i8, attributesonly : u32, servercontrols : *mut *mut LDAPControlA, clientcontrols : *mut *mut LDAPControlA, pagetimelimit : u32, totalsizelimit : u32, sortkeys : *mut *mut LDAPSortKeyA) -> *mut LDAPSearch);
+    ::windows_targets::link!("wldap32.dll" "cdecl" fn ldap_search_init_page(externalhandle : *mut LDAP, distinguishedname : ::windows_core::PCSTR, scopeofsearch : u32, searchfilter : ::windows_core::PCSTR, attributelist : *mut *mut i8, attributesonly : u32, servercontrols : *mut *mut LDAPControlA, clientcontrols : *mut *mut LDAPControlA, pagetimelimit : u32, totalsizelimit : u32, sortkeys : *mut *mut LDAPSortKeyA) -> PLDAPSearch);
     ldap_search_init_page(externalhandle, distinguishedname.into_param().abi(), scopeofsearch, searchfilter.into_param().abi(), attributelist, attributesonly, servercontrols, clientcontrols, pagetimelimit, totalsizelimit, sortkeys)
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_search_init_pageA<P0, P1>(externalhandle: *mut LDAP, distinguishedname: P0, scopeofsearch: u32, searchfilter: P1, attributelist: *const *const i8, attributesonly: u32, servercontrols: *mut *mut LDAPControlA, clientcontrols: *mut *mut LDAPControlA, pagetimelimit: u32, totalsizelimit: u32, sortkeys: *mut *mut LDAPSortKeyA) -> *mut LDAPSearch
+pub unsafe fn ldap_search_init_pageA<P0, P1>(externalhandle: *mut LDAP, distinguishedname: P0, scopeofsearch: u32, searchfilter: P1, attributelist: *const *const i8, attributesonly: u32, servercontrols: *mut *mut LDAPControlA, clientcontrols: *mut *mut LDAPControlA, pagetimelimit: u32, totalsizelimit: u32, sortkeys: *mut *mut LDAPSortKeyA) -> PLDAPSearch
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("wldap32.dll" "cdecl" fn ldap_search_init_pageA(externalhandle : *mut LDAP, distinguishedname : ::windows_core::PCSTR, scopeofsearch : u32, searchfilter : ::windows_core::PCSTR, attributelist : *const *const i8, attributesonly : u32, servercontrols : *mut *mut LDAPControlA, clientcontrols : *mut *mut LDAPControlA, pagetimelimit : u32, totalsizelimit : u32, sortkeys : *mut *mut LDAPSortKeyA) -> *mut LDAPSearch);
+    ::windows_targets::link!("wldap32.dll" "cdecl" fn ldap_search_init_pageA(externalhandle : *mut LDAP, distinguishedname : ::windows_core::PCSTR, scopeofsearch : u32, searchfilter : ::windows_core::PCSTR, attributelist : *const *const i8, attributesonly : u32, servercontrols : *mut *mut LDAPControlA, clientcontrols : *mut *mut LDAPControlA, pagetimelimit : u32, totalsizelimit : u32, sortkeys : *mut *mut LDAPSortKeyA) -> PLDAPSearch);
     ldap_search_init_pageA(externalhandle, distinguishedname.into_param().abi(), scopeofsearch, searchfilter.into_param().abi(), attributelist, attributesonly, servercontrols, clientcontrols, pagetimelimit, totalsizelimit, sortkeys)
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_search_init_pageW<P0, P1>(externalhandle: *mut LDAP, distinguishedname: P0, scopeofsearch: u32, searchfilter: P1, attributelist: *const *const u16, attributesonly: u32, servercontrols: *mut *mut LDAPControlW, clientcontrols: *mut *mut LDAPControlW, pagetimelimit: u32, totalsizelimit: u32, sortkeys: *mut *mut LDAPSortKeyW) -> *mut LDAPSearch
+pub unsafe fn ldap_search_init_pageW<P0, P1>(externalhandle: *mut LDAP, distinguishedname: P0, scopeofsearch: u32, searchfilter: P1, attributelist: *const *const u16, attributesonly: u32, servercontrols: *mut *mut LDAPControlW, clientcontrols: *mut *mut LDAPControlW, pagetimelimit: u32, totalsizelimit: u32, sortkeys: *mut *mut LDAPSortKeyW) -> PLDAPSearch
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("wldap32.dll" "cdecl" fn ldap_search_init_pageW(externalhandle : *mut LDAP, distinguishedname : ::windows_core::PCWSTR, scopeofsearch : u32, searchfilter : ::windows_core::PCWSTR, attributelist : *const *const u16, attributesonly : u32, servercontrols : *mut *mut LDAPControlW, clientcontrols : *mut *mut LDAPControlW, pagetimelimit : u32, totalsizelimit : u32, sortkeys : *mut *mut LDAPSortKeyW) -> *mut LDAPSearch);
+    ::windows_targets::link!("wldap32.dll" "cdecl" fn ldap_search_init_pageW(externalhandle : *mut LDAP, distinguishedname : ::windows_core::PCWSTR, scopeofsearch : u32, searchfilter : ::windows_core::PCWSTR, attributelist : *const *const u16, attributesonly : u32, servercontrols : *mut *mut LDAPControlW, clientcontrols : *mut *mut LDAPControlW, pagetimelimit : u32, totalsizelimit : u32, sortkeys : *mut *mut LDAPSortKeyW) -> PLDAPSearch);
     ldap_search_init_pageW(externalhandle, distinguishedname.into_param().abi(), scopeofsearch, searchfilter.into_param().abi(), attributelist, attributesonly, servercontrols, clientcontrols, pagetimelimit, totalsizelimit, sortkeys)
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
@@ -3386,17 +3398,6 @@ impl ::core::default::Default for LDAPModW_0 {
     }
 }
 #[repr(C)]
-pub struct LDAPSearch(pub u8);
-impl ::core::marker::Copy for LDAPSearch {}
-impl ::core::clone::Clone for LDAPSearch {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::windows_core::TypeKind for LDAPSearch {
-    type TypeKind = ::windows_core::CopyType;
-}
-#[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LDAPSortKeyA {
@@ -3639,6 +3640,28 @@ impl ::core::default::Default for LDAP_VERSION_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PLDAPSearch(pub isize);
+impl ::core::default::Default for PLDAPSearch {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for PLDAPSearch {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for PLDAPSearch {}
+impl ::core::fmt::Debug for PLDAPSearch {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PLDAPSearch").field(&self.0).finish()
+    }
+}
+impl ::windows_core::TypeKind for PLDAPSearch {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 pub type DBGPRINT = ::core::option::Option<unsafe extern "system" fn(format: ::windows_core::PCSTR) -> u32>;

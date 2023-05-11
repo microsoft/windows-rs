@@ -657,12 +657,9 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeleteDC<P0>(hdc: P0) -> super::super::Foundation::BOOL
-where
-    P0: ::windows_core::IntoParam<CreatedHDC>,
-{
+pub unsafe fn DeleteDC(hdc: CreatedHDC) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("gdi32.dll" "system" fn DeleteDC(hdc : CreatedHDC) -> super::super::Foundation:: BOOL);
-    DeleteDC(hdc.into_param().abi())
+    DeleteDC(::core::mem::transmute(hdc))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6327,8 +6324,6 @@ pub const DISPLAYCONFIG_COLOR_ENCODING_YCBCR422: DISPLAYCONFIG_COLOR_ENCODING = 
 pub const DISPLAYCONFIG_COLOR_ENCODING_YCBCR420: DISPLAYCONFIG_COLOR_ENCODING = DISPLAYCONFIG_COLOR_ENCODING(3i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DISPLAYCONFIG_COLOR_ENCODING_INTENSITY: DISPLAYCONFIG_COLOR_ENCODING = DISPLAYCONFIG_COLOR_ENCODING(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DISPLAYCONFIG_COLOR_ENCODING_FORCE_UINT32: DISPLAYCONFIG_COLOR_ENCODING = DISPLAYCONFIG_COLOR_ENCODING(-1i32);
 impl ::core::marker::Copy for DISPLAYCONFIG_COLOR_ENCODING {}
 impl ::core::clone::Clone for DISPLAYCONFIG_COLOR_ENCODING {
     fn clone(&self) -> Self {
@@ -10419,34 +10414,36 @@ impl ::core::default::Default for COLORADJUSTMENT {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CreatedHDC(pub isize);
-impl CreatedHDC {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub struct CreatedHDC {
+    pub Value: isize,
 }
-impl ::core::default::Default for CreatedHDC {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
+impl ::core::marker::Copy for CreatedHDC {}
 impl ::core::clone::Clone for CreatedHDC {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::marker::Copy for CreatedHDC {}
 impl ::core::fmt::Debug for CreatedHDC {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CreatedHDC").field(&self.0).finish()
+        f.debug_struct("CreatedHDC").field("Value", &self.Value).finish()
     }
 }
 impl ::windows_core::TypeKind for CreatedHDC {
     type TypeKind = ::windows_core::CopyType;
 }
-impl ::windows_core::CanInto<HDC> for CreatedHDC {}
+impl ::core::cmp::PartialEq for CreatedHDC {
+    fn eq(&self, other: &Self) -> bool {
+        self.Value == other.Value
+    }
+}
+impl ::core::cmp::Eq for CreatedHDC {}
+impl ::core::default::Default for CreatedHDC {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct DESIGNVECTOR {
@@ -14808,59 +14805,65 @@ impl ::windows_core::TypeKind for HRGN {
     type TypeKind = ::windows_core::CopyType;
 }
 impl ::windows_core::CanInto<HGDIOBJ> for HRGN {}
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HdcMetdataEnhFileHandle(pub isize);
-impl HdcMetdataEnhFileHandle {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub struct HdcMetdataEnhFileHandle {
+    pub Value: isize,
 }
-impl ::core::default::Default for HdcMetdataEnhFileHandle {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
+impl ::core::marker::Copy for HdcMetdataEnhFileHandle {}
 impl ::core::clone::Clone for HdcMetdataEnhFileHandle {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::marker::Copy for HdcMetdataEnhFileHandle {}
 impl ::core::fmt::Debug for HdcMetdataEnhFileHandle {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HdcMetdataEnhFileHandle").field(&self.0).finish()
+        f.debug_struct("HdcMetdataEnhFileHandle").field("Value", &self.Value).finish()
     }
 }
 impl ::windows_core::TypeKind for HdcMetdataEnhFileHandle {
     type TypeKind = ::windows_core::CopyType;
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HdcMetdataFileHandle(pub isize);
-impl HdcMetdataFileHandle {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+impl ::core::cmp::PartialEq for HdcMetdataEnhFileHandle {
+    fn eq(&self, other: &Self) -> bool {
+        self.Value == other.Value
     }
 }
-impl ::core::default::Default for HdcMetdataFileHandle {
+impl ::core::cmp::Eq for HdcMetdataEnhFileHandle {}
+impl ::core::default::Default for HdcMetdataEnhFileHandle {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub struct HdcMetdataFileHandle {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for HdcMetdataFileHandle {}
 impl ::core::clone::Clone for HdcMetdataFileHandle {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::marker::Copy for HdcMetdataFileHandle {}
 impl ::core::fmt::Debug for HdcMetdataFileHandle {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HdcMetdataFileHandle").field(&self.0).finish()
+        f.debug_struct("HdcMetdataFileHandle").field("Value", &self.Value).finish()
     }
 }
 impl ::windows_core::TypeKind for HdcMetdataFileHandle {
     type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::cmp::PartialEq for HdcMetdataFileHandle {
+    fn eq(&self, other: &Self) -> bool {
+        self.Value == other.Value
+    }
+}
+impl ::core::cmp::Eq for HdcMetdataFileHandle {}
+impl ::core::default::Default for HdcMetdataFileHandle {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]

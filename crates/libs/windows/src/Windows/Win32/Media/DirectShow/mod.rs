@@ -5926,18 +5926,18 @@ pub struct IBDA_DeviceControl_Vtbl {
 pub struct IBDA_DiagnosticProperties(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl IBDA_DiagnosticProperties {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
-    pub unsafe fn Read<P0, P1>(&self, pszpropname: P0, pvar: *mut super::super::System::Com::VARIANT, perrorlog: P1) -> ::windows_core::Result<()>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Read<P0, P1>(&self, pszpropname: P0, pvar: *mut super::super::System::Variant::VARIANT, perrorlog: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P1: ::windows_core::IntoParam<super::super::System::Com::IErrorLog>,
     {
         (::windows_core::Interface::vtable(self).base__.Read)(::windows_core::Interface::as_raw(self), pszpropname.into_param().abi(), pvar, perrorlog.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
-    pub unsafe fn Write<P0>(&self, pszpropname: P0, pvar: *const super::super::System::Com::VARIANT) -> ::windows_core::Result<()>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Write<P0>(&self, pszpropname: P0, pvar: *const super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
@@ -11240,8 +11240,8 @@ impl IDvdInfo2 {
     pub unsafe fn GetDVDTextStringAsUnicode(&self, ullangindex: u32, ulstringindex: u32, pchwbuffer: ::windows_core::PWSTR, ulmaxbuffersize: u32, pulactualsize: *mut u32, ptype: *mut DVD_TextStringType) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetDVDTextStringAsUnicode)(::windows_core::Interface::as_raw(self), ullangindex, ulstringindex, ::core::mem::transmute(pchwbuffer), ulmaxbuffersize, pulactualsize, ptype).ok()
     }
-    pub unsafe fn GetPlayerParentalLevel(&self, pulparentallevel: *mut u32, pbcountrycode: *mut u8) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetPlayerParentalLevel)(::windows_core::Interface::as_raw(self), pulparentallevel, pbcountrycode).ok()
+    pub unsafe fn GetPlayerParentalLevel(&self, pulparentallevel: *mut u32, pbcountrycode: &mut [u8; 2]) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetPlayerParentalLevel)(::windows_core::Interface::as_raw(self), pulparentallevel, ::core::mem::transmute(pbcountrycode.as_ptr())).ok()
     }
     pub unsafe fn GetNumberOfChapters(&self, ultitle: u32) -> ::windows_core::Result<u32> {
         let mut result__ = ::windows_core::zeroed::<u32>();
@@ -11562,31 +11562,31 @@ impl IEncoderAPI {
     pub unsafe fn IsAvailable(&self, api: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).IsAvailable)(::windows_core::Interface::as_raw(self), api).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetParameterRange(&self, api: *const ::windows_core::GUID, valuemin: *mut super::super::System::Com::VARIANT, valuemax: *mut super::super::System::Com::VARIANT, steppingdelta: *mut super::super::System::Com::VARIANT) -> ::windows_core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetParameterRange(&self, api: *const ::windows_core::GUID, valuemin: *mut super::super::System::Variant::VARIANT, valuemax: *mut super::super::System::Variant::VARIANT, steppingdelta: *mut super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetParameterRange)(::windows_core::Interface::as_raw(self), api, valuemin, valuemax, steppingdelta).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetParameterValues(&self, api: *const ::windows_core::GUID, values: *mut *mut super::super::System::Com::VARIANT, valuescount: *mut u32) -> ::windows_core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetParameterValues(&self, api: *const ::windows_core::GUID, values: *mut *mut super::super::System::Variant::VARIANT, valuescount: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetParameterValues)(::windows_core::Interface::as_raw(self), api, values, valuescount).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetDefaultValue(&self, api: *const ::windows_core::GUID) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetDefaultValue(&self, api: *const ::windows_core::GUID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).GetDefaultValue)(::windows_core::Interface::as_raw(self), api, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetValue(&self, api: *const ::windows_core::GUID) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetValue(&self, api: *const ::windows_core::GUID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).GetValue)(::windows_core::Interface::as_raw(self), api, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetValue(&self, api: *const ::windows_core::GUID, value: *const super::super::System::Com::VARIANT) -> ::windows_core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn SetValue(&self, api: *const ::windows_core::GUID, value: *const super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetValue)(::windows_core::Interface::as_raw(self), api, value).ok()
     }
 }
@@ -11619,25 +11619,25 @@ pub struct IEncoderAPI_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
     pub IsAvailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetParameterRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: *const ::windows_core::GUID, valuemin: *mut super::super::System::Com::VARIANT, valuemax: *mut super::super::System::Com::VARIANT, steppingdelta: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub GetParameterRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: *const ::windows_core::GUID, valuemin: *mut super::super::System::Variant::VARIANT, valuemax: *mut super::super::System::Variant::VARIANT, steppingdelta: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetParameterRange: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetParameterValues: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: *const ::windows_core::GUID, values: *mut *mut super::super::System::Com::VARIANT, valuescount: *mut u32) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub GetParameterValues: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: *const ::windows_core::GUID, values: *mut *mut super::super::System::Variant::VARIANT, valuescount: *mut u32) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetParameterValues: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetDefaultValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: *const ::windows_core::GUID, value: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub GetDefaultValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: *const ::windows_core::GUID, value: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetDefaultValue: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: *const ::windows_core::GUID, value: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: *const ::windows_core::GUID, value: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetValue: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: *const ::windows_core::GUID, value: *const super::super::System::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: *const ::windows_core::GUID, value: *const super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     SetValue: usize,
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
@@ -11646,8 +11646,8 @@ pub struct IEnumFilters(::windows_core::IUnknown);
 impl IEnumFilters {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Next(&self, ppfilter: &mut [::core::option::Option<IBaseFilter>], pcfetched: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), ppfilter.len() as _, ::core::mem::transmute(ppfilter.as_ptr()), ::core::mem::transmute(pcfetched.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn Next(&self, ppfilter: &mut [::core::option::Option<IBaseFilter>], pcfetched: ::core::option::Option<*mut u32>) -> ::windows_core::HRESULT {
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), ppfilter.len() as _, ::core::mem::transmute(ppfilter.as_ptr()), ::core::mem::transmute(pcfetched.unwrap_or(::std::ptr::null_mut())))
     }
     pub unsafe fn Skip(&self, cfilters: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), cfilters).ok()
@@ -11701,8 +11701,8 @@ pub struct IEnumMediaTypes(::windows_core::IUnknown);
 impl IEnumMediaTypes {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
-    pub unsafe fn Next(&self, ppmediatypes: &mut [*mut super::MediaFoundation::AM_MEDIA_TYPE], pcfetched: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), ppmediatypes.len() as _, ::core::mem::transmute(ppmediatypes.as_ptr()), ::core::mem::transmute(pcfetched.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn Next(&self, ppmediatypes: &mut [*mut super::MediaFoundation::AM_MEDIA_TYPE], pcfetched: ::core::option::Option<*mut u32>) -> ::windows_core::HRESULT {
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), ppmediatypes.len() as _, ::core::mem::transmute(ppmediatypes.as_ptr()), ::core::mem::transmute(pcfetched.unwrap_or(::std::ptr::null_mut())))
     }
     pub unsafe fn Skip(&self, cmediatypes: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), cmediatypes).ok()
@@ -11754,8 +11754,8 @@ pub struct IEnumMediaTypes_Vtbl {
 #[repr(transparent)]
 pub struct IEnumPIDMap(::windows_core::IUnknown);
 impl IEnumPIDMap {
-    pub unsafe fn Next(&self, ppidmap: &mut [PID_MAP], pcreceived: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), ppidmap.len() as _, ::core::mem::transmute(ppidmap.as_ptr()), pcreceived).ok()
+    pub unsafe fn Next(&self, ppidmap: &mut [PID_MAP], pcreceived: *mut u32) -> ::windows_core::HRESULT {
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), ppidmap.len() as _, ::core::mem::transmute(ppidmap.as_ptr()), pcreceived)
     }
     pub unsafe fn Skip(&self, crecords: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), crecords).ok()
@@ -11804,8 +11804,8 @@ pub struct IEnumPIDMap_Vtbl {
 #[repr(transparent)]
 pub struct IEnumPins(::windows_core::IUnknown);
 impl IEnumPins {
-    pub unsafe fn Next(&self, pppins: &mut [::core::option::Option<IPin>], pcfetched: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), pppins.len() as _, ::core::mem::transmute(pppins.as_ptr()), ::core::mem::transmute(pcfetched.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn Next(&self, pppins: &mut [::core::option::Option<IPin>], pcfetched: ::core::option::Option<*mut u32>) -> ::windows_core::HRESULT {
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), pppins.len() as _, ::core::mem::transmute(pppins.as_ptr()), ::core::mem::transmute(pcfetched.unwrap_or(::std::ptr::null_mut())))
     }
     pub unsafe fn Skip(&self, cpins: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), cpins).ok()
@@ -11854,8 +11854,8 @@ pub struct IEnumPins_Vtbl {
 #[repr(transparent)]
 pub struct IEnumRegFilters(::windows_core::IUnknown);
 impl IEnumRegFilters {
-    pub unsafe fn Next(&self, apregfilter: &mut [*mut REGFILTER], pcfetched: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), apregfilter.len() as _, ::core::mem::transmute(apregfilter.as_ptr()), ::core::mem::transmute(pcfetched.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn Next(&self, apregfilter: &mut [*mut REGFILTER], pcfetched: ::core::option::Option<*mut u32>) -> ::windows_core::HRESULT {
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), apregfilter.len() as _, ::core::mem::transmute(apregfilter.as_ptr()), ::core::mem::transmute(pcfetched.unwrap_or(::std::ptr::null_mut())))
     }
     pub unsafe fn Skip(&self, cfilters: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), cfilters).ok()
@@ -13805,82 +13805,6 @@ pub struct IKsNodeControl_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
-pub struct IKsTopologyInfo(::windows_core::IUnknown);
-impl IKsTopologyInfo {
-    pub unsafe fn NumCategories(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
-        (::windows_core::Interface::vtable(self).NumCategories)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
-    }
-    pub unsafe fn get_Category(&self, dwindex: u32) -> ::windows_core::Result<::windows_core::GUID> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
-        (::windows_core::Interface::vtable(self).get_Category)(::windows_core::Interface::as_raw(self), dwindex, &mut result__).from_abi(result__)
-    }
-    pub unsafe fn NumConnections(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
-        (::windows_core::Interface::vtable(self).NumConnections)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
-    }
-    #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-    #[cfg(feature = "Win32_Media_KernelStreaming")]
-    pub unsafe fn get_ConnectionInfo(&self, dwindex: u32) -> ::windows_core::Result<super::KernelStreaming::KSTOPOLOGY_CONNECTION> {
-        let mut result__ = ::windows_core::zeroed::<super::KernelStreaming::KSTOPOLOGY_CONNECTION>();
-        (::windows_core::Interface::vtable(self).get_ConnectionInfo)(::windows_core::Interface::as_raw(self), dwindex, &mut result__).from_abi(result__)
-    }
-    pub unsafe fn get_NodeName(&self, dwnodeid: u32, pwchnodename: ::windows_core::PWSTR, dwbufsize: u32, pdwnamelen: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).get_NodeName)(::windows_core::Interface::as_raw(self), dwnodeid, ::core::mem::transmute(pwchnodename), dwbufsize, pdwnamelen).ok()
-    }
-    pub unsafe fn NumNodes(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
-        (::windows_core::Interface::vtable(self).NumNodes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
-    }
-    pub unsafe fn get_NodeType(&self, dwnodeid: u32) -> ::windows_core::Result<::windows_core::GUID> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
-        (::windows_core::Interface::vtable(self).get_NodeType)(::windows_core::Interface::as_raw(self), dwnodeid, &mut result__).from_abi(result__)
-    }
-    pub unsafe fn CreateNodeInstance(&self, dwnodeid: u32, iid: *const ::windows_core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).CreateNodeInstance)(::windows_core::Interface::as_raw(self), dwnodeid, iid, ppvobject).ok()
-    }
-}
-::windows_core::imp::interface_hierarchy!(IKsTopologyInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IKsTopologyInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IKsTopologyInfo {}
-impl ::core::fmt::Debug for IKsTopologyInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IKsTopologyInfo").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows_core::Interface for IKsTopologyInfo {
-    type Vtable = IKsTopologyInfo_Vtbl;
-}
-impl ::core::clone::Clone for IKsTopologyInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-unsafe impl ::windows_core::ComInterface for IKsTopologyInfo {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x720d4ac0_7533_11d0_a5d6_28db04c10000);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IKsTopologyInfo_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
-    pub NumCategories: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwnumcategories: *mut u32) -> ::windows_core::HRESULT,
-    pub get_Category: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, pcategory: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub NumConnections: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwnumconnections: *mut u32) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_Media_KernelStreaming")]
-    pub get_ConnectionInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, pconnectioninfo: *mut super::KernelStreaming::KSTOPOLOGY_CONNECTION) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Media_KernelStreaming"))]
-    get_ConnectionInfo: usize,
-    pub get_NodeName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwnodeid: u32, pwchnodename: ::windows_core::PWSTR, dwbufsize: u32, pdwnamelen: *mut u32) -> ::windows_core::HRESULT,
-    pub NumNodes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwnumnodes: *mut u32) -> ::windows_core::HRESULT,
-    pub get_NodeType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwnodeid: u32, pnodetype: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub CreateNodeInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwnodeid: u32, iid: *const ::windows_core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-}
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-#[repr(transparent)]
 pub struct IMPEG2PIDMap(::windows_core::IUnknown);
 impl IMPEG2PIDMap {
     pub unsafe fn MapPID(&self, culpid: u32, pulpid: *const u32, mediasamplecontent: MEDIA_SAMPLE_CONTENT) -> ::windows_core::Result<()> {
@@ -14550,26 +14474,26 @@ pub struct IMediaPosition_Vtbl {
 pub struct IMediaPropertyBag(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl IMediaPropertyBag {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
-    pub unsafe fn Read<P0, P1>(&self, pszpropname: P0, pvar: *mut super::super::System::Com::VARIANT, perrorlog: P1) -> ::windows_core::Result<()>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Read<P0, P1>(&self, pszpropname: P0, pvar: *mut super::super::System::Variant::VARIANT, perrorlog: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P1: ::windows_core::IntoParam<super::super::System::Com::IErrorLog>,
     {
         (::windows_core::Interface::vtable(self).base__.Read)(::windows_core::Interface::as_raw(self), pszpropname.into_param().abi(), pvar, perrorlog.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
-    pub unsafe fn Write<P0>(&self, pszpropname: P0, pvar: *const super::super::System::Com::VARIANT) -> ::windows_core::Result<()>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Write<P0>(&self, pszpropname: P0, pvar: *const super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
         (::windows_core::Interface::vtable(self).base__.Write)(::windows_core::Interface::as_raw(self), pszpropname.into_param().abi(), pvar).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn EnumProperty(&self, iproperty: u32, pvarpropertyname: *mut super::super::System::Com::VARIANT, pvarpropertyvalue: *mut super::super::System::Com::VARIANT) -> ::windows_core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn EnumProperty(&self, iproperty: u32, pvarpropertyname: *mut super::super::System::Variant::VARIANT, pvarpropertyvalue: *mut super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).EnumProperty)(::windows_core::Interface::as_raw(self), iproperty, pvarpropertyname, pvarpropertyvalue).ok()
     }
 }
@@ -14608,9 +14532,9 @@ unsafe impl ::windows_core::ComInterface for IMediaPropertyBag {
 #[doc(hidden)]
 pub struct IMediaPropertyBag_Vtbl {
     pub base__: super::super::System::Com::StructuredStorage::IPropertyBag_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub EnumProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iproperty: u32, pvarpropertyname: *mut super::super::System::Com::VARIANT, pvarpropertyvalue: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub EnumProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iproperty: u32, pvarpropertyname: *mut super::super::System::Variant::VARIANT, pvarpropertyvalue: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     EnumProperty: usize,
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
@@ -16960,14 +16884,14 @@ pub struct IQualityControl_Vtbl {
 #[repr(transparent)]
 pub struct IQueueCommand(::windows_core::IUnknown);
 impl IQueueCommand {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn InvokeAtStreamTime(&self, pcmd: *mut ::core::option::Option<IDeferredCommand>, time: f64, iid: *const ::windows_core::GUID, dispidmethod: i32, wflags: i16, cargs: i32, pdispparams: *const super::super::System::Com::VARIANT, pvarresult: *mut super::super::System::Com::VARIANT, puargerr: *mut i16) -> ::windows_core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn InvokeAtStreamTime(&self, pcmd: *mut ::core::option::Option<IDeferredCommand>, time: f64, iid: *const ::windows_core::GUID, dispidmethod: i32, wflags: i16, cargs: i32, pdispparams: *const super::super::System::Variant::VARIANT, pvarresult: *mut super::super::System::Variant::VARIANT, puargerr: *mut i16) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).InvokeAtStreamTime)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pcmd), time, iid, dispidmethod, wflags, cargs, pdispparams, pvarresult, puargerr).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn InvokeAtPresentationTime(&self, pcmd: *mut ::core::option::Option<IDeferredCommand>, time: f64, iid: *const ::windows_core::GUID, dispidmethod: i32, wflags: i16, cargs: i32, pdispparams: *const super::super::System::Com::VARIANT, pvarresult: *mut super::super::System::Com::VARIANT, puargerr: *mut i16) -> ::windows_core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn InvokeAtPresentationTime(&self, pcmd: *mut ::core::option::Option<IDeferredCommand>, time: f64, iid: *const ::windows_core::GUID, dispidmethod: i32, wflags: i16, cargs: i32, pdispparams: *const super::super::System::Variant::VARIANT, pvarresult: *mut super::super::System::Variant::VARIANT, puargerr: *mut i16) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).InvokeAtPresentationTime)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pcmd), time, iid, dispidmethod, wflags, cargs, pdispparams, pvarresult, puargerr).ok()
     }
 }
@@ -16998,13 +16922,13 @@ unsafe impl ::windows_core::ComInterface for IQueueCommand {
 #[doc(hidden)]
 pub struct IQueueCommand_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub InvokeAtStreamTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcmd: *mut *mut ::core::ffi::c_void, time: f64, iid: *const ::windows_core::GUID, dispidmethod: i32, wflags: i16, cargs: i32, pdispparams: *const super::super::System::Com::VARIANT, pvarresult: *mut super::super::System::Com::VARIANT, puargerr: *mut i16) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub InvokeAtStreamTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcmd: *mut *mut ::core::ffi::c_void, time: f64, iid: *const ::windows_core::GUID, dispidmethod: i32, wflags: i16, cargs: i32, pdispparams: *const super::super::System::Variant::VARIANT, pvarresult: *mut super::super::System::Variant::VARIANT, puargerr: *mut i16) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     InvokeAtStreamTime: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub InvokeAtPresentationTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcmd: *mut *mut ::core::ffi::c_void, time: f64, iid: *const ::windows_core::GUID, dispidmethod: i32, wflags: i16, cargs: i32, pdispparams: *const super::super::System::Com::VARIANT, pvarresult: *mut super::super::System::Com::VARIANT, puargerr: *mut i16) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub InvokeAtPresentationTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcmd: *mut *mut ::core::ffi::c_void, time: f64, iid: *const ::windows_core::GUID, dispidmethod: i32, wflags: i16, cargs: i32, pdispparams: *const super::super::System::Variant::VARIANT, pvarresult: *mut super::super::System::Variant::VARIANT, puargerr: *mut i16) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     InvokeAtPresentationTime: usize,
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`*"]
@@ -20048,31 +19972,31 @@ impl IVideoEncoder {
     pub unsafe fn IsAvailable(&self, api: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.IsAvailable)(::windows_core::Interface::as_raw(self), api).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetParameterRange(&self, api: *const ::windows_core::GUID, valuemin: *mut super::super::System::Com::VARIANT, valuemax: *mut super::super::System::Com::VARIANT, steppingdelta: *mut super::super::System::Com::VARIANT) -> ::windows_core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetParameterRange(&self, api: *const ::windows_core::GUID, valuemin: *mut super::super::System::Variant::VARIANT, valuemax: *mut super::super::System::Variant::VARIANT, steppingdelta: *mut super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetParameterRange)(::windows_core::Interface::as_raw(self), api, valuemin, valuemax, steppingdelta).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetParameterValues(&self, api: *const ::windows_core::GUID, values: *mut *mut super::super::System::Com::VARIANT, valuescount: *mut u32) -> ::windows_core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetParameterValues(&self, api: *const ::windows_core::GUID, values: *mut *mut super::super::System::Variant::VARIANT, valuescount: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetParameterValues)(::windows_core::Interface::as_raw(self), api, values, valuescount).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetDefaultValue(&self, api: *const ::windows_core::GUID) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetDefaultValue(&self, api: *const ::windows_core::GUID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).base__.GetDefaultValue)(::windows_core::Interface::as_raw(self), api, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetValue(&self, api: *const ::windows_core::GUID) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetValue(&self, api: *const ::windows_core::GUID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+        let mut result__ = ::windows_core::zeroed::<super::super::System::Variant::VARIANT>();
         (::windows_core::Interface::vtable(self).base__.GetValue)(::windows_core::Interface::as_raw(self), api, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetValue(&self, api: *const ::windows_core::GUID, value: *const super::super::System::Com::VARIANT) -> ::windows_core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn SetValue(&self, api: *const ::windows_core::GUID, value: *const super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetValue)(::windows_core::Interface::as_raw(self), api, value).ok()
     }
 }

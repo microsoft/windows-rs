@@ -15679,13 +15679,35 @@ impl ::core::default::Default for IUNKNOWN_LIST {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct LPDDFXROP(pub isize);
+impl ::core::default::Default for LPDDFXROP {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for LPDDFXROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for LPDDFXROP {}
+impl ::core::fmt::Debug for LPDDFXROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LPDDFXROP").field(&self.0).finish()
+    }
+}
+impl ::windows_core::TypeKind for LPDDFXROP {
+    type TypeKind = ::windows_core::CopyType;
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct MDL {
     pub MdlNext: *mut MDL,
     pub MdlSize: i16,
     pub MdlFlags: i16,
-    pub Process: *mut MDL_0,
+    pub Process: isize,
     pub lpMappedSystemVa: *mut u32,
     pub lpStartVa: *mut u32,
     pub ByteCount: u32,
@@ -15716,15 +15738,70 @@ impl ::core::default::Default for MDL {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-pub struct MDL_0(pub u8);
-impl ::core::marker::Copy for MDL_0 {}
-impl ::core::clone::Clone for MDL_0 {
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PDD_DESTROYDRIVERDATA(pub isize);
+impl ::core::default::Default for PDD_DESTROYDRIVERDATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for PDD_DESTROYDRIVERDATA {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::windows_core::TypeKind for MDL_0 {
+impl ::core::marker::Copy for PDD_DESTROYDRIVERDATA {}
+impl ::core::fmt::Debug for PDD_DESTROYDRIVERDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PDD_DESTROYDRIVERDATA").field(&self.0).finish()
+    }
+}
+impl ::windows_core::TypeKind for PDD_DESTROYDRIVERDATA {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PDD_GETVPORTAUTOFLIPSURFACEDATA(pub isize);
+impl ::core::default::Default for PDD_GETVPORTAUTOFLIPSURFACEDATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for PDD_GETVPORTAUTOFLIPSURFACEDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for PDD_GETVPORTAUTOFLIPSURFACEDATA {}
+impl ::core::fmt::Debug for PDD_GETVPORTAUTOFLIPSURFACEDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PDD_GETVPORTAUTOFLIPSURFACEDATA").field(&self.0).finish()
+    }
+}
+impl ::windows_core::TypeKind for PDD_GETVPORTAUTOFLIPSURFACEDATA {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PDD_SETMODEDATA(pub isize);
+impl ::core::default::Default for PDD_SETMODEDATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for PDD_SETMODEDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for PDD_SETMODEDATA {}
+impl ::core::fmt::Debug for PDD_SETMODEDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PDD_SETMODEDATA").field(&self.0).finish()
+    }
+}
+impl ::windows_core::TypeKind for PDD_SETMODEDATA {
     type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
@@ -16223,50 +16300,6 @@ impl ::core::default::Default for VMEMR {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-pub struct _DDFXROP(pub u8);
-impl ::core::marker::Copy for _DDFXROP {}
-impl ::core::clone::Clone for _DDFXROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::windows_core::TypeKind for _DDFXROP {
-    type TypeKind = ::windows_core::CopyType;
-}
-#[repr(C)]
-pub struct _DD_DESTROYDRIVERDATA(pub u8);
-impl ::core::marker::Copy for _DD_DESTROYDRIVERDATA {}
-impl ::core::clone::Clone for _DD_DESTROYDRIVERDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::windows_core::TypeKind for _DD_DESTROYDRIVERDATA {
-    type TypeKind = ::windows_core::CopyType;
-}
-#[repr(C)]
-pub struct _DD_GETVPORTAUTOFLIPSURFACEDATA(pub u8);
-impl ::core::marker::Copy for _DD_GETVPORTAUTOFLIPSURFACEDATA {}
-impl ::core::clone::Clone for _DD_GETVPORTAUTOFLIPSURFACEDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::windows_core::TypeKind for _DD_GETVPORTAUTOFLIPSURFACEDATA {
-    type TypeKind = ::windows_core::CopyType;
-}
-#[repr(C)]
-pub struct _DD_SETMODEDATA(pub u8);
-impl ::core::marker::Copy for _DD_SETMODEDATA {}
-impl ::core::clone::Clone for _DD_SETMODEDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::windows_core::TypeKind for _DD_SETMODEDATA {
-    type TypeKind = ::windows_core::CopyType;
-}
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPCLIPPERCALLBACK = ::core::option::Option<unsafe extern "system" fn(lpddclipper: ::core::option::Option<IDirectDrawClipper>, hwnd: super::super::Foundation::HWND, code: u32, lpcontext: *mut ::core::ffi::c_void) -> u32>;
@@ -16528,7 +16561,7 @@ pub type PDD_CREATESURFACEEX = ::core::option::Option<unsafe extern "system" fn(
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub type PDD_DESTROYDDLOCAL = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_DESTROYDDLOCALDATA) -> u32>;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub type PDD_DESTROYDRIVER = ::core::option::Option<unsafe extern "system" fn(param0: *mut _DD_DESTROYDRIVERDATA) -> u32>;
+pub type PDD_DESTROYDRIVER = ::core::option::Option<unsafe extern "system" fn(param0: PDD_DESTROYDRIVERDATA) -> u32>;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub type PDD_FLIPTOGDISURFACE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_FLIPTOGDISURFACEDATA) -> u32>;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
@@ -16585,7 +16618,7 @@ pub type PDD_SETCOLORKEY = ::core::option::Option<unsafe extern "system" fn(para
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub type PDD_SETEXCLUSIVEMODE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_SETEXCLUSIVEMODEDATA) -> u32>;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub type PDD_SETMODE = ::core::option::Option<unsafe extern "system" fn(param0: *mut _DD_SETMODEDATA) -> u32>;
+pub type PDD_SETMODE = ::core::option::Option<unsafe extern "system" fn(param0: PDD_SETMODEDATA) -> u32>;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_SURFCB_ADDATTACHEDSURFACE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_ADDATTACHEDSURFACEDATA) -> u32>;
@@ -16640,7 +16673,7 @@ pub type PDD_VPORTCB_DESTROYVPORT = ::core::option::Option<unsafe extern "system
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_VPORTCB_FLIP = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_FLIPVPORTDATA) -> u32>;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub type PDD_VPORTCB_GETAUTOFLIPSURF = ::core::option::Option<unsafe extern "system" fn(param0: *mut _DD_GETVPORTAUTOFLIPSURFACEDATA) -> u32>;
+pub type PDD_VPORTCB_GETAUTOFLIPSURF = ::core::option::Option<unsafe extern "system" fn(param0: PDD_GETVPORTAUTOFLIPSURFACEDATA) -> u32>;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_VPORTCB_GETBANDWIDTH = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_GETVPORTBANDWIDTHDATA) -> u32>;

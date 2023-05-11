@@ -28,8 +28,6 @@ pub const DXGI_ALPHA_MODE_PREMULTIPLIED: DXGI_ALPHA_MODE = DXGI_ALPHA_MODE(1u32)
 pub const DXGI_ALPHA_MODE_STRAIGHT: DXGI_ALPHA_MODE = DXGI_ALPHA_MODE(2u32);
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
 pub const DXGI_ALPHA_MODE_IGNORE: DXGI_ALPHA_MODE = DXGI_ALPHA_MODE(3u32);
-#[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
-pub const DXGI_ALPHA_MODE_FORCE_DWORD: DXGI_ALPHA_MODE = DXGI_ALPHA_MODE(4294967295u32);
 impl ::core::marker::Copy for DXGI_ALPHA_MODE {}
 impl ::core::clone::Clone for DXGI_ALPHA_MODE {
     fn clone(&self) -> Self {
@@ -371,7 +369,7 @@ pub const DXGI_FORMAT_SAMPLER_FEEDBACK_MIN_MIP_OPAQUE: DXGI_FORMAT = DXGI_FORMAT
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
 pub const DXGI_FORMAT_SAMPLER_FEEDBACK_MIP_REGION_USED_OPAQUE: DXGI_FORMAT = DXGI_FORMAT(190u32);
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
-pub const DXGI_FORMAT_FORCE_UINT: DXGI_FORMAT = DXGI_FORMAT(4294967295u32);
+pub const DXGI_FORMAT_A4B4G4R4_UNORM: DXGI_FORMAT = DXGI_FORMAT(191u32);
 impl ::core::marker::Copy for DXGI_FORMAT {}
 impl ::core::clone::Clone for DXGI_FORMAT {
     fn clone(&self) -> Self {

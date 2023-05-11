@@ -84,6 +84,12 @@ pub unsafe fn WinHttpFreeProxySettings(pwinhttpproxysettings: *const WINHTTP_PRO
 }
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 #[inline]
+pub unsafe fn WinHttpFreeProxySettingsEx(proxysettingstype: WINHTTP_PROXY_SETTINGS_TYPE, pproxysettingsex: *const ::core::ffi::c_void) -> u32 {
+    ::windows_targets::link!("winhttp.dll" "system" fn WinHttpFreeProxySettingsEx(proxysettingstype : WINHTTP_PROXY_SETTINGS_TYPE, pproxysettingsex : *const ::core::ffi::c_void) -> u32);
+    WinHttpFreeProxySettingsEx(proxysettingstype, pproxysettingsex)
+}
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+#[inline]
 pub unsafe fn WinHttpFreeQueryConnectionGroupResult(presult: *mut WINHTTP_QUERY_CONNECTION_GROUP_RESULT) {
     ::windows_targets::link!("winhttp.dll" "system" fn WinHttpFreeQueryConnectionGroupResult(presult : *mut WINHTTP_QUERY_CONNECTION_GROUP_RESULT) -> ());
     WinHttpFreeQueryConnectionGroupResult(presult)
@@ -145,6 +151,18 @@ pub unsafe fn WinHttpGetProxyResult(hresolver: *const ::core::ffi::c_void, pprox
 pub unsafe fn WinHttpGetProxyResultEx(hresolver: *const ::core::ffi::c_void, pproxyresultex: *mut WINHTTP_PROXY_RESULT_EX) -> u32 {
     ::windows_targets::link!("winhttp.dll" "system" fn WinHttpGetProxyResultEx(hresolver : *const ::core::ffi::c_void, pproxyresultex : *mut WINHTTP_PROXY_RESULT_EX) -> u32);
     WinHttpGetProxyResultEx(hresolver, pproxyresultex)
+}
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+#[inline]
+pub unsafe fn WinHttpGetProxySettingsEx(hresolver: *const ::core::ffi::c_void, proxysettingstype: WINHTTP_PROXY_SETTINGS_TYPE, pproxysettingsparam: ::core::option::Option<*const WINHTTP_PROXY_SETTINGS_PARAM>, pcontext: usize) -> u32 {
+    ::windows_targets::link!("winhttp.dll" "system" fn WinHttpGetProxySettingsEx(hresolver : *const ::core::ffi::c_void, proxysettingstype : WINHTTP_PROXY_SETTINGS_TYPE, pproxysettingsparam : *const WINHTTP_PROXY_SETTINGS_PARAM, pcontext : usize) -> u32);
+    WinHttpGetProxySettingsEx(hresolver, proxysettingstype, ::core::mem::transmute(pproxysettingsparam.unwrap_or(::std::ptr::null())), pcontext)
+}
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+#[inline]
+pub unsafe fn WinHttpGetProxySettingsResultEx(hresolver: *const ::core::ffi::c_void, pproxysettingsex: *mut ::core::ffi::c_void) -> u32 {
+    ::windows_targets::link!("winhttp.dll" "system" fn WinHttpGetProxySettingsResultEx(hresolver : *const ::core::ffi::c_void, pproxysettingsex : *mut ::core::ffi::c_void) -> u32);
+    WinHttpGetProxySettingsResultEx(hresolver, pproxysettingsex)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 #[inline]
@@ -252,6 +270,12 @@ pub unsafe fn WinHttpReceiveResponse(hrequest: *mut ::core::ffi::c_void, lpreser
 }
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 #[inline]
+pub unsafe fn WinHttpRegisterProxyChangeNotification(ullflags: u64, pfncallback: WINHTTP_PROXY_CHANGE_CALLBACK, pvcontext: *const ::core::ffi::c_void, hregistration: *mut *mut ::core::ffi::c_void) -> u32 {
+    ::windows_targets::link!("winhttp.dll" "system" fn WinHttpRegisterProxyChangeNotification(ullflags : u64, pfncallback : WINHTTP_PROXY_CHANGE_CALLBACK, pvcontext : *const ::core::ffi::c_void, hregistration : *mut *mut ::core::ffi::c_void) -> u32);
+    WinHttpRegisterProxyChangeNotification(ullflags, pfncallback, pvcontext, hregistration)
+}
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+#[inline]
 pub unsafe fn WinHttpResetAutoProxy(hsession: *const ::core::ffi::c_void, dwflags: u32) -> u32 {
     ::windows_targets::link!("winhttp.dll" "system" fn WinHttpResetAutoProxy(hsession : *const ::core::ffi::c_void, dwflags : u32) -> u32);
     WinHttpResetAutoProxy(hsession, dwflags)
@@ -327,6 +351,12 @@ where
 {
     ::windows_targets::link!("winhttp.dll" "system" fn WinHttpTimeToSystemTime(pwsztime : ::windows_core::PCWSTR, pst : *mut super::super::Foundation:: SYSTEMTIME) -> super::super::Foundation:: BOOL);
     WinHttpTimeToSystemTime(pwsztime.into_param().abi(), pst).ok()
+}
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+#[inline]
+pub unsafe fn WinHttpUnregisterProxyChangeNotification(hregistration: *const ::core::ffi::c_void) -> u32 {
+    ::windows_targets::link!("winhttp.dll" "system" fn WinHttpUnregisterProxyChangeNotification(hregistration : *const ::core::ffi::c_void) -> u32);
+    WinHttpUnregisterProxyChangeNotification(hregistration)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 #[inline]

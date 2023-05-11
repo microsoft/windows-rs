@@ -88,8 +88,8 @@ impl IMofCompiler_Vtbl {
         iid == &<IMofCompiler as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISWbemDateTime_Impl: Sized + super::Com::IDispatch_Impl {
     fn Value(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn SetValue(&self, strvalue: &::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -132,9 +132,9 @@ pub trait ISWbemDateTime_Impl: Sized + super::Com::IDispatch_Impl {
     fn GetFileTime(&self, bislocal: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<::windows_core::BSTR>;
     fn SetFileTime(&self, strfiletime: &::windows_core::BSTR, bislocal: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ISWbemDateTime {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISWbemDateTime_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>() -> ISWbemDateTime_Vtbl {
         unsafe extern "system" fn Value<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -505,15 +505,15 @@ impl ISWbemDateTime_Vtbl {
         iid == &<ISWbemDateTime as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISWbemEventSource_Impl: Sized + super::Com::IDispatch_Impl {
     fn NextEvent(&self, itimeoutms: i32) -> ::windows_core::Result<ISWbemObject>;
     fn Security_(&self) -> ::windows_core::Result<ISWbemSecurity>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ISWbemEventSource {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISWbemEventSource_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemEventSource_Impl, const OFFSET: isize>() -> ISWbemEventSource_Vtbl {
         unsafe extern "system" fn NextEvent<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemEventSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, itimeoutms: i32, objwbemobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -548,12 +548,12 @@ impl ISWbemEventSource_Vtbl {
         iid == &<ISWbemEventSource as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISWbemLastError_Impl: Sized + ISWbemObject_Impl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ISWbemLastError {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISWbemLastError_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemLastError_Impl, const OFFSET: isize>() -> ISWbemLastError_Vtbl {
         Self { base__: ISWbemObject_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -562,15 +562,15 @@ impl ISWbemLastError_Vtbl {
         iid == &<ISWbemLastError as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID || iid == &<ISWbemObject as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISWbemLocator_Impl: Sized + super::Com::IDispatch_Impl {
     fn ConnectServer(&self, strserver: &::windows_core::BSTR, strnamespace: &::windows_core::BSTR, struser: &::windows_core::BSTR, strpassword: &::windows_core::BSTR, strlocale: &::windows_core::BSTR, strauthority: &::windows_core::BSTR, isecurityflags: i32, objwbemnamedvalueset: ::core::option::Option<&super::Com::IDispatch>) -> ::windows_core::Result<ISWbemServices>;
     fn Security_(&self) -> ::windows_core::Result<ISWbemSecurity>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ISWbemLocator {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISWbemLocator_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemLocator_Impl, const OFFSET: isize>() -> ISWbemLocator_Vtbl {
         unsafe extern "system" fn ConnectServer<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strserver: ::std::mem::MaybeUninit<::windows_core::BSTR>, strnamespace: ::std::mem::MaybeUninit<::windows_core::BSTR>, struser: ::std::mem::MaybeUninit<::windows_core::BSTR>, strpassword: ::std::mem::MaybeUninit<::windows_core::BSTR>, strlocale: ::std::mem::MaybeUninit<::windows_core::BSTR>, strauthority: ::std::mem::MaybeUninit<::windows_core::BSTR>, isecurityflags: i32, objwbemnamedvalueset: *mut ::core::ffi::c_void, objwbemservices: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -605,8 +605,8 @@ impl ISWbemLocator_Vtbl {
         iid == &<ISWbemLocator as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISWbemMethod_Impl: Sized + super::Com::IDispatch_Impl {
     fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn Origin(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -614,9 +614,9 @@ pub trait ISWbemMethod_Impl: Sized + super::Com::IDispatch_Impl {
     fn OutParameters(&self) -> ::windows_core::Result<ISWbemObject>;
     fn Qualifiers_(&self) -> ::windows_core::Result<ISWbemQualifierSet>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ISWbemMethod {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISWbemMethod_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemMethod_Impl, const OFFSET: isize>() -> ISWbemMethod_Vtbl {
         unsafe extern "system" fn Name<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemMethod_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -687,16 +687,16 @@ impl ISWbemMethod_Vtbl {
         iid == &<ISWbemMethod as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISWbemMethodSet_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
     fn Item(&self, strname: &::windows_core::BSTR, iflags: i32) -> ::windows_core::Result<ISWbemMethod>;
     fn Count(&self) -> ::windows_core::Result<i32>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ISWbemMethodSet {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISWbemMethodSet_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemMethodSet_Impl, const OFFSET: isize>() -> ISWbemMethodSet_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemMethodSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punk: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -743,19 +743,19 @@ impl ISWbemMethodSet_Vtbl {
         iid == &<ISWbemMethodSet as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISWbemNamedValue_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Value(&self) -> ::windows_core::Result<super::Com::VARIANT>;
-    fn SetValue(&self, varvalue: *const super::Com::VARIANT) -> ::windows_core::Result<()>;
+    fn Value(&self) -> ::windows_core::Result<super::Variant::VARIANT>;
+    fn SetValue(&self, varvalue: *const super::Variant::VARIANT) -> ::windows_core::Result<()>;
     fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ISWbemNamedValue {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISWbemNamedValue_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemNamedValue_Impl, const OFFSET: isize>() -> ISWbemNamedValue_Vtbl {
-        unsafe extern "system" fn Value<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemNamedValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varvalue: *mut super::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Value<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemNamedValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varvalue: *mut super::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Value() {
@@ -766,7 +766,7 @@ impl ISWbemNamedValue_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemNamedValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varvalue: *const super::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SetValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemNamedValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varvalue: *const super::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetValue(::core::mem::transmute_copy(&varvalue)).into()
@@ -793,20 +793,20 @@ impl ISWbemNamedValue_Vtbl {
         iid == &<ISWbemNamedValue as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISWbemNamedValueSet_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
     fn Item(&self, strname: &::windows_core::BSTR, iflags: i32) -> ::windows_core::Result<ISWbemNamedValue>;
     fn Count(&self) -> ::windows_core::Result<i32>;
-    fn Add(&self, strname: &::windows_core::BSTR, varvalue: *const super::Com::VARIANT, iflags: i32) -> ::windows_core::Result<ISWbemNamedValue>;
+    fn Add(&self, strname: &::windows_core::BSTR, varvalue: *const super::Variant::VARIANT, iflags: i32) -> ::windows_core::Result<ISWbemNamedValue>;
     fn Remove(&self, strname: &::windows_core::BSTR, iflags: i32) -> ::windows_core::Result<()>;
     fn Clone(&self) -> ::windows_core::Result<ISWbemNamedValueSet>;
     fn DeleteAll(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ISWbemNamedValueSet {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISWbemNamedValueSet_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemNamedValueSet_Impl, const OFFSET: isize>() -> ISWbemNamedValueSet_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemNamedValueSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punk: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -842,7 +842,7 @@ impl ISWbemNamedValueSet_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Add<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemNamedValueSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varvalue: *const super::Com::VARIANT, iflags: i32, objwbemnamedvalue: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Add<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemNamedValueSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varvalue: *const super::Variant::VARIANT, iflags: i32, objwbemnamedvalue: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Add(::core::mem::transmute(&strname), ::core::mem::transmute_copy(&varvalue), ::core::mem::transmute_copy(&iflags)) {
@@ -889,8 +889,8 @@ impl ISWbemNamedValueSet_Vtbl {
         iid == &<ISWbemNamedValueSet as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISWbemObject_Impl: Sized + super::Com::IDispatch_Impl {
     fn Put_(&self, iflags: i32, objwbemnamedvalueset: ::core::option::Option<&super::Com::IDispatch>) -> ::windows_core::Result<ISWbemObjectPath>;
     fn PutAsync_(&self, objwbemsink: ::core::option::Option<&super::Com::IDispatch>, iflags: i32, objwbemnamedvalueset: ::core::option::Option<&super::Com::IDispatch>, objwbemasynccontext: ::core::option::Option<&super::Com::IDispatch>) -> ::windows_core::Result<()>;
@@ -914,13 +914,13 @@ pub trait ISWbemObject_Impl: Sized + super::Com::IDispatch_Impl {
     fn Qualifiers_(&self) -> ::windows_core::Result<ISWbemQualifierSet>;
     fn Properties_(&self) -> ::windows_core::Result<ISWbemPropertySet>;
     fn Methods_(&self) -> ::windows_core::Result<ISWbemMethodSet>;
-    fn Derivation_(&self) -> ::windows_core::Result<super::Com::VARIANT>;
+    fn Derivation_(&self) -> ::windows_core::Result<super::Variant::VARIANT>;
     fn Path_(&self) -> ::windows_core::Result<ISWbemObjectPath>;
     fn Security_(&self) -> ::windows_core::Result<ISWbemSecurity>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ISWbemObject {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISWbemObject_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObject_Impl, const OFFSET: isize>() -> ISWbemObject_Vtbl {
         unsafe extern "system" fn Put_<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iflags: i32, objwbemnamedvalueset: *mut ::core::ffi::c_void, objwbemobjectpath: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -1158,7 +1158,7 @@ impl ISWbemObject_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Derivation_<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strclassnamearray: *mut super::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Derivation_<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strclassnamearray: *mut super::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Derivation_() {
@@ -1224,17 +1224,17 @@ impl ISWbemObject_Vtbl {
         iid == &<ISWbemObject as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISWbemObjectEx_Impl: Sized + ISWbemObject_Impl {
     fn Refresh_(&self, iflags: i32, objwbemnamedvalueset: ::core::option::Option<&super::Com::IDispatch>) -> ::windows_core::Result<()>;
     fn SystemProperties_(&self) -> ::windows_core::Result<ISWbemPropertySet>;
     fn GetText_(&self, iobjecttextformat: WbemObjectTextFormatEnum, iflags: i32, objwbemnamedvalueset: ::core::option::Option<&super::Com::IDispatch>) -> ::windows_core::Result<::windows_core::BSTR>;
     fn SetFromText_(&self, bstext: &::windows_core::BSTR, iobjecttextformat: WbemObjectTextFormatEnum, iflags: i32, objwbemnamedvalueset: ::core::option::Option<&super::Com::IDispatch>) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ISWbemObjectEx {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISWbemObjectEx_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObjectEx_Impl, const OFFSET: isize>() -> ISWbemObjectEx_Vtbl {
         unsafe extern "system" fn Refresh_<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObjectEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iflags: i32, objwbemnamedvalueset: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -1281,8 +1281,8 @@ impl ISWbemObjectEx_Vtbl {
         iid == &<ISWbemObjectEx as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID || iid == &<ISWbemObject as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISWbemObjectPath_Impl: Sized + super::Com::IDispatch_Impl {
     fn Path(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn SetPath(&self, strpath: &::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -1308,9 +1308,9 @@ pub trait ISWbemObjectPath_Impl: Sized + super::Com::IDispatch_Impl {
     fn Authority(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn SetAuthority(&self, strauthority: &::windows_core::BSTR) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ISWbemObjectPath {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISWbemObjectPath_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObjectPath_Impl, const OFFSET: isize>() -> ISWbemObjectPath_Vtbl {
         unsafe extern "system" fn Path<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strpath: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -1537,8 +1537,8 @@ impl ISWbemObjectPath_Vtbl {
         iid == &<ISWbemObjectPath as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISWbemObjectSet_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
     fn Item(&self, strobjectpath: &::windows_core::BSTR, iflags: i32) -> ::windows_core::Result<ISWbemObject>;
@@ -1546,9 +1546,9 @@ pub trait ISWbemObjectSet_Impl: Sized + super::Com::IDispatch_Impl {
     fn Security_(&self) -> ::windows_core::Result<ISWbemSecurity>;
     fn ItemIndex(&self, lindex: i32) -> ::windows_core::Result<ISWbemObject>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ISWbemObjectSet {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISWbemObjectSet_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObjectSet_Impl, const OFFSET: isize>() -> ISWbemObjectSet_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObjectSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punk: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -1619,8 +1619,8 @@ impl ISWbemObjectSet_Vtbl {
         iid == &<ISWbemObjectSet as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISWbemPrivilege_Impl: Sized + super::Com::IDispatch_Impl {
     fn IsEnabled(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetIsEnabled(&self, bisenabled: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
@@ -1628,9 +1628,9 @@ pub trait ISWbemPrivilege_Impl: Sized + super::Com::IDispatch_Impl {
     fn DisplayName(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn Identifier(&self) -> ::windows_core::Result<WbemPrivilegeEnum>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ISWbemPrivilege {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISWbemPrivilege_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemPrivilege_Impl, const OFFSET: isize>() -> ISWbemPrivilege_Vtbl {
         unsafe extern "system" fn IsEnabled<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemPrivilege_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bisenabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT {
@@ -1695,8 +1695,8 @@ impl ISWbemPrivilege_Vtbl {
         iid == &<ISWbemPrivilege as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISWbemPrivilegeSet_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
     fn Item(&self, iprivilege: WbemPrivilegeEnum) -> ::windows_core::Result<ISWbemPrivilege>;
@@ -1706,9 +1706,9 @@ pub trait ISWbemPrivilegeSet_Impl: Sized + super::Com::IDispatch_Impl {
     fn DeleteAll(&self) -> ::windows_core::Result<()>;
     fn AddAsString(&self, strprivilege: &::windows_core::BSTR, bisenabled: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<ISWbemPrivilege>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ISWbemPrivilegeSet {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISWbemPrivilegeSet_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemPrivilegeSet_Impl, const OFFSET: isize>() -> ISWbemPrivilegeSet_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemPrivilegeSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punk: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -1791,11 +1791,11 @@ impl ISWbemPrivilegeSet_Vtbl {
         iid == &<ISWbemPrivilegeSet as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISWbemProperty_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Value(&self) -> ::windows_core::Result<super::Com::VARIANT>;
-    fn SetValue(&self, varvalue: *const super::Com::VARIANT) -> ::windows_core::Result<()>;
+    fn Value(&self) -> ::windows_core::Result<super::Variant::VARIANT>;
+    fn SetValue(&self, varvalue: *const super::Variant::VARIANT) -> ::windows_core::Result<()>;
     fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn IsLocal(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn Origin(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -1803,12 +1803,12 @@ pub trait ISWbemProperty_Impl: Sized + super::Com::IDispatch_Impl {
     fn Qualifiers_(&self) -> ::windows_core::Result<ISWbemQualifierSet>;
     fn IsArray(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ISWbemProperty {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISWbemProperty_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemProperty_Impl, const OFFSET: isize>() -> ISWbemProperty_Vtbl {
-        unsafe extern "system" fn Value<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varvalue: *mut super::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Value<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varvalue: *mut super::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Value() {
@@ -1819,7 +1819,7 @@ impl ISWbemProperty_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varvalue: *const super::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SetValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varvalue: *const super::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetValue(::core::mem::transmute_copy(&varvalue)).into()
@@ -1906,8 +1906,8 @@ impl ISWbemProperty_Vtbl {
         iid == &<ISWbemProperty as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISWbemPropertySet_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
     fn Item(&self, strname: &::windows_core::BSTR, iflags: i32) -> ::windows_core::Result<ISWbemProperty>;
@@ -1915,9 +1915,9 @@ pub trait ISWbemPropertySet_Impl: Sized + super::Com::IDispatch_Impl {
     fn Add(&self, strname: &::windows_core::BSTR, icimtype: WbemCimtypeEnum, bisarray: super::super::Foundation::VARIANT_BOOL, iflags: i32) -> ::windows_core::Result<ISWbemProperty>;
     fn Remove(&self, strname: &::windows_core::BSTR, iflags: i32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ISWbemPropertySet {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISWbemPropertySet_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemPropertySet_Impl, const OFFSET: isize>() -> ISWbemPropertySet_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemPropertySet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punk: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -1982,11 +1982,11 @@ impl ISWbemPropertySet_Vtbl {
         iid == &<ISWbemPropertySet as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISWbemQualifier_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Value(&self) -> ::windows_core::Result<super::Com::VARIANT>;
-    fn SetValue(&self, varvalue: *const super::Com::VARIANT) -> ::windows_core::Result<()>;
+    fn Value(&self) -> ::windows_core::Result<super::Variant::VARIANT>;
+    fn SetValue(&self, varvalue: *const super::Variant::VARIANT) -> ::windows_core::Result<()>;
     fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn IsLocal(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn PropagatesToSubclass(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -1997,12 +1997,12 @@ pub trait ISWbemQualifier_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetIsOverridable(&self, bisoverridable: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
     fn IsAmended(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ISWbemQualifier {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISWbemQualifier_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemQualifier_Impl, const OFFSET: isize>() -> ISWbemQualifier_Vtbl {
-        unsafe extern "system" fn Value<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemQualifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varvalue: *mut super::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Value<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemQualifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varvalue: *mut super::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Value() {
@@ -2013,7 +2013,7 @@ impl ISWbemQualifier_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemQualifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varvalue: *const super::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SetValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemQualifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varvalue: *const super::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetValue(::core::mem::transmute_copy(&varvalue)).into()
@@ -2118,18 +2118,18 @@ impl ISWbemQualifier_Vtbl {
         iid == &<ISWbemQualifier as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISWbemQualifierSet_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
     fn Item(&self, name: &::windows_core::BSTR, iflags: i32) -> ::windows_core::Result<ISWbemQualifier>;
     fn Count(&self) -> ::windows_core::Result<i32>;
-    fn Add(&self, strname: &::windows_core::BSTR, varval: *const super::Com::VARIANT, bpropagatestosubclass: super::super::Foundation::VARIANT_BOOL, bpropagatestoinstance: super::super::Foundation::VARIANT_BOOL, bisoverridable: super::super::Foundation::VARIANT_BOOL, iflags: i32) -> ::windows_core::Result<ISWbemQualifier>;
+    fn Add(&self, strname: &::windows_core::BSTR, varval: *const super::Variant::VARIANT, bpropagatestosubclass: super::super::Foundation::VARIANT_BOOL, bpropagatestoinstance: super::super::Foundation::VARIANT_BOOL, bisoverridable: super::super::Foundation::VARIANT_BOOL, iflags: i32) -> ::windows_core::Result<ISWbemQualifier>;
     fn Remove(&self, strname: &::windows_core::BSTR, iflags: i32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ISWbemQualifierSet {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISWbemQualifierSet_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemQualifierSet_Impl, const OFFSET: isize>() -> ISWbemQualifierSet_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemQualifierSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punk: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -2165,7 +2165,7 @@ impl ISWbemQualifierSet_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Add<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemQualifierSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varval: *const super::Com::VARIANT, bpropagatestosubclass: super::super::Foundation::VARIANT_BOOL, bpropagatestoinstance: super::super::Foundation::VARIANT_BOOL, bisoverridable: super::super::Foundation::VARIANT_BOOL, iflags: i32, objwbemqualifier: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Add<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemQualifierSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varval: *const super::Variant::VARIANT, bpropagatestosubclass: super::super::Foundation::VARIANT_BOOL, bpropagatestoinstance: super::super::Foundation::VARIANT_BOOL, bisoverridable: super::super::Foundation::VARIANT_BOOL, iflags: i32, objwbemqualifier: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Add(::core::mem::transmute(&strname), ::core::mem::transmute_copy(&varval), ::core::mem::transmute_copy(&bpropagatestosubclass), ::core::mem::transmute_copy(&bpropagatestoinstance), ::core::mem::transmute_copy(&bisoverridable), ::core::mem::transmute_copy(&iflags)) {
@@ -2194,8 +2194,8 @@ impl ISWbemQualifierSet_Vtbl {
         iid == &<ISWbemQualifierSet as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISWbemRefreshableItem_Impl: Sized + super::Com::IDispatch_Impl {
     fn Index(&self) -> ::windows_core::Result<i32>;
     fn Refresher(&self) -> ::windows_core::Result<ISWbemRefresher>;
@@ -2204,9 +2204,9 @@ pub trait ISWbemRefreshableItem_Impl: Sized + super::Com::IDispatch_Impl {
     fn ObjectSet(&self) -> ::windows_core::Result<ISWbemObjectSet>;
     fn Remove(&self, iflags: i32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ISWbemRefreshableItem {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISWbemRefreshableItem_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemRefreshableItem_Impl, const OFFSET: isize>() -> ISWbemRefreshableItem_Vtbl {
         unsafe extern "system" fn Index<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemRefreshableItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iindex: *mut i32) -> ::windows_core::HRESULT {
@@ -2283,8 +2283,8 @@ impl ISWbemRefreshableItem_Vtbl {
         iid == &<ISWbemRefreshableItem as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISWbemRefresher_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
     fn Item(&self, iindex: i32) -> ::windows_core::Result<ISWbemRefreshableItem>;
@@ -2297,9 +2297,9 @@ pub trait ISWbemRefresher_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetAutoReconnect(&self, bcount: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
     fn DeleteAll(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ISWbemRefresher {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISWbemRefresher_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemRefresher_Impl, const OFFSET: isize>() -> ISWbemRefresher_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemRefresher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punk: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -2406,8 +2406,8 @@ impl ISWbemRefresher_Vtbl {
         iid == &<ISWbemRefresher as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISWbemSecurity_Impl: Sized + super::Com::IDispatch_Impl {
     fn ImpersonationLevel(&self) -> ::windows_core::Result<WbemImpersonationLevelEnum>;
     fn SetImpersonationLevel(&self, iimpersonationlevel: WbemImpersonationLevelEnum) -> ::windows_core::Result<()>;
@@ -2415,9 +2415,9 @@ pub trait ISWbemSecurity_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetAuthenticationLevel(&self, iauthenticationlevel: WbemAuthenticationLevelEnum) -> ::windows_core::Result<()>;
     fn Privileges(&self) -> ::windows_core::Result<ISWbemPrivilegeSet>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ISWbemSecurity {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISWbemSecurity_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemSecurity_Impl, const OFFSET: isize>() -> ISWbemSecurity_Vtbl {
         unsafe extern "system" fn ImpersonationLevel<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemSecurity_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iimpersonationlevel: *mut WbemImpersonationLevelEnum) -> ::windows_core::HRESULT {
@@ -2476,8 +2476,8 @@ impl ISWbemSecurity_Vtbl {
         iid == &<ISWbemSecurity as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISWbemServices_Impl: Sized + super::Com::IDispatch_Impl {
     fn Get(&self, strobjectpath: &::windows_core::BSTR, iflags: i32, objwbemnamedvalueset: ::core::option::Option<&super::Com::IDispatch>) -> ::windows_core::Result<ISWbemObject>;
     fn GetAsync(&self, objwbemsink: ::core::option::Option<&super::Com::IDispatch>, strobjectpath: &::windows_core::BSTR, iflags: i32, objwbemnamedvalueset: ::core::option::Option<&super::Com::IDispatch>, objwbemasynccontext: ::core::option::Option<&super::Com::IDispatch>) -> ::windows_core::Result<()>;
@@ -2499,9 +2499,9 @@ pub trait ISWbemServices_Impl: Sized + super::Com::IDispatch_Impl {
     fn ExecMethodAsync(&self, objwbemsink: ::core::option::Option<&super::Com::IDispatch>, strobjectpath: &::windows_core::BSTR, strmethodname: &::windows_core::BSTR, objwbeminparameters: ::core::option::Option<&super::Com::IDispatch>, iflags: i32, objwbemnamedvalueset: ::core::option::Option<&super::Com::IDispatch>, objwbemasynccontext: ::core::option::Option<&super::Com::IDispatch>) -> ::windows_core::Result<()>;
     fn Security_(&self) -> ::windows_core::Result<ISWbemSecurity>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ISWbemServices {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISWbemServices_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemServices_Impl, const OFFSET: isize>() -> ISWbemServices_Vtbl {
         unsafe extern "system" fn Get<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strobjectpath: ::std::mem::MaybeUninit<::windows_core::BSTR>, iflags: i32, objwbemnamedvalueset: *mut ::core::ffi::c_void, objwbemobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -2724,15 +2724,15 @@ impl ISWbemServices_Vtbl {
         iid == &<ISWbemServices as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISWbemServicesEx_Impl: Sized + ISWbemServices_Impl {
     fn Put(&self, objwbemobject: ::core::option::Option<&ISWbemObjectEx>, iflags: i32, objwbemnamedvalueset: ::core::option::Option<&super::Com::IDispatch>) -> ::windows_core::Result<ISWbemObjectPath>;
     fn PutAsync(&self, objwbemsink: ::core::option::Option<&ISWbemSink>, objwbemobject: ::core::option::Option<&ISWbemObjectEx>, iflags: i32, objwbemnamedvalueset: ::core::option::Option<&super::Com::IDispatch>, objwbemasynccontext: ::core::option::Option<&super::Com::IDispatch>) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ISWbemServicesEx {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISWbemServicesEx_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemServicesEx_Impl, const OFFSET: isize>() -> ISWbemServicesEx_Vtbl {
         unsafe extern "system" fn Put<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemServicesEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, objwbemobject: *mut ::core::ffi::c_void, iflags: i32, objwbemnamedvalueset: *mut ::core::ffi::c_void, objwbemobjectpath: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -2757,14 +2757,14 @@ impl ISWbemServicesEx_Vtbl {
         iid == &<ISWbemServicesEx as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID || iid == &<ISWbemServices as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISWbemSink_Impl: Sized + super::Com::IDispatch_Impl {
     fn Cancel(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ISWbemSink {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISWbemSink_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemSink_Impl, const OFFSET: isize>() -> ISWbemSink_Vtbl {
         unsafe extern "system" fn Cancel<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -2778,12 +2778,12 @@ impl ISWbemSink_Vtbl {
         iid == &<ISWbemSink as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISWbemSinkEvents_Impl: Sized + super::Com::IDispatch_Impl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ISWbemSinkEvents {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISWbemSinkEvents_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISWbemSinkEvents_Impl, const OFFSET: isize>() -> ISWbemSinkEvents_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -2816,16 +2816,16 @@ impl IUnsecuredApartment_Vtbl {
         iid == &<IUnsecuredApartment as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWMIExtension_Impl: Sized + super::Com::IDispatch_Impl {
     fn WMIObjectPath(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn GetWMIObject(&self) -> ::windows_core::Result<ISWbemObject>;
     fn GetWMIServices(&self) -> ::windows_core::Result<ISWbemServices>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IWMIExtension {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWMIExtension_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWMIExtension_Impl, const OFFSET: isize>() -> IWMIExtension_Vtbl {
         unsafe extern "system" fn WMIObjectPath<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWMIExtension_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strwmiobjectpath: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -3012,16 +3012,16 @@ impl IWbemCallResult_Vtbl {
         iid == &<IWbemCallResult as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWbemClassObject_Impl: Sized {
     fn GetQualifierSet(&self) -> ::windows_core::Result<IWbemQualifierSet>;
-    fn Get(&self, wszname: &::windows_core::PCWSTR, lflags: i32, pval: *mut super::Com::VARIANT, ptype: *mut i32, plflavor: *mut i32) -> ::windows_core::Result<()>;
-    fn Put(&self, wszname: &::windows_core::PCWSTR, lflags: i32, pval: *const super::Com::VARIANT, r#type: i32) -> ::windows_core::Result<()>;
+    fn Get(&self, wszname: &::windows_core::PCWSTR, lflags: i32, pval: *mut super::Variant::VARIANT, ptype: *mut i32, plflavor: *mut i32) -> ::windows_core::Result<()>;
+    fn Put(&self, wszname: &::windows_core::PCWSTR, lflags: i32, pval: *const super::Variant::VARIANT, r#type: i32) -> ::windows_core::Result<()>;
     fn Delete(&self, wszname: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
-    fn GetNames(&self, wszqualifiername: &::windows_core::PCWSTR, lflags: WBEM_CONDITION_FLAG_TYPE, pqualifierval: *const super::Com::VARIANT) -> ::windows_core::Result<*mut super::Com::SAFEARRAY>;
+    fn GetNames(&self, wszqualifiername: &::windows_core::PCWSTR, lflags: WBEM_CONDITION_FLAG_TYPE, pqualifierval: *const super::Variant::VARIANT) -> ::windows_core::Result<*mut super::Com::SAFEARRAY>;
     fn BeginEnumeration(&self, lenumflags: i32) -> ::windows_core::Result<()>;
-    fn Next(&self, lflags: i32, strname: *mut ::windows_core::BSTR, pval: *mut super::Com::VARIANT, ptype: *mut i32, plflavor: *mut i32) -> ::windows_core::Result<()>;
+    fn Next(&self, lflags: i32, strname: *mut ::windows_core::BSTR, pval: *mut super::Variant::VARIANT, ptype: *mut i32, plflavor: *mut i32) -> ::windows_core::Result<()>;
     fn EndEnumeration(&self) -> ::windows_core::Result<()>;
     fn GetPropertyQualifierSet(&self, wszproperty: &::windows_core::PCWSTR) -> ::windows_core::Result<IWbemQualifierSet>;
     fn Clone(&self) -> ::windows_core::Result<IWbemClassObject>;
@@ -3040,9 +3040,9 @@ pub trait IWbemClassObject_Impl: Sized {
     fn GetMethodQualifierSet(&self, wszmethod: &::windows_core::PCWSTR) -> ::windows_core::Result<IWbemQualifierSet>;
     fn GetMethodOrigin(&self, wszmethodname: &::windows_core::PCWSTR) -> ::windows_core::Result<::windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IWbemClassObject {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWbemClassObject_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemClassObject_Impl, const OFFSET: isize>() -> IWbemClassObject_Vtbl {
         unsafe extern "system" fn GetQualifierSet<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemClassObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppqualset: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -3056,12 +3056,12 @@ impl IWbemClassObject_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Get<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemClassObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszname: ::windows_core::PCWSTR, lflags: i32, pval: *mut super::Com::VARIANT, ptype: *mut i32, plflavor: *mut i32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Get<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemClassObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszname: ::windows_core::PCWSTR, lflags: i32, pval: *mut super::Variant::VARIANT, ptype: *mut i32, plflavor: *mut i32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Get(::core::mem::transmute(&wszname), ::core::mem::transmute_copy(&lflags), ::core::mem::transmute_copy(&pval), ::core::mem::transmute_copy(&ptype), ::core::mem::transmute_copy(&plflavor)).into()
         }
-        unsafe extern "system" fn Put<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemClassObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszname: ::windows_core::PCWSTR, lflags: i32, pval: *const super::Com::VARIANT, r#type: i32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Put<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemClassObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszname: ::windows_core::PCWSTR, lflags: i32, pval: *const super::Variant::VARIANT, r#type: i32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Put(::core::mem::transmute(&wszname), ::core::mem::transmute_copy(&lflags), ::core::mem::transmute_copy(&pval), ::core::mem::transmute_copy(&r#type)).into()
@@ -3071,7 +3071,7 @@ impl IWbemClassObject_Vtbl {
             let this = (*this).get_impl();
             this.Delete(::core::mem::transmute(&wszname)).into()
         }
-        unsafe extern "system" fn GetNames<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemClassObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszqualifiername: ::windows_core::PCWSTR, lflags: WBEM_CONDITION_FLAG_TYPE, pqualifierval: *const super::Com::VARIANT, pnames: *mut *mut super::Com::SAFEARRAY) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetNames<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemClassObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszqualifiername: ::windows_core::PCWSTR, lflags: WBEM_CONDITION_FLAG_TYPE, pqualifierval: *const super::Variant::VARIANT, pnames: *mut *mut super::Com::SAFEARRAY) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetNames(::core::mem::transmute(&wszqualifiername), ::core::mem::transmute_copy(&lflags), ::core::mem::transmute_copy(&pqualifierval)) {
@@ -3087,7 +3087,7 @@ impl IWbemClassObject_Vtbl {
             let this = (*this).get_impl();
             this.BeginEnumeration(::core::mem::transmute_copy(&lenumflags)).into()
         }
-        unsafe extern "system" fn Next<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemClassObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lflags: i32, strname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, pval: *mut super::Com::VARIANT, ptype: *mut i32, plflavor: *mut i32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Next<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemClassObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lflags: i32, strname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, pval: *mut super::Variant::VARIANT, ptype: *mut i32, plflavor: *mut i32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Next(::core::mem::transmute_copy(&lflags), ::core::mem::transmute_copy(&strname), ::core::mem::transmute_copy(&pval), ::core::mem::transmute_copy(&ptype), ::core::mem::transmute_copy(&plflavor)).into()
@@ -3439,22 +3439,22 @@ impl IWbemConstructClassObject_Vtbl {
         iid == &<IWbemConstructClassObject as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWbemContext_Impl: Sized {
     fn Clone(&self) -> ::windows_core::Result<IWbemContext>;
     fn GetNames(&self, lflags: i32) -> ::windows_core::Result<*mut super::Com::SAFEARRAY>;
     fn BeginEnumeration(&self, lflags: i32) -> ::windows_core::Result<()>;
-    fn Next(&self, lflags: i32, pstrname: *mut ::windows_core::BSTR, pvalue: *mut super::Com::VARIANT) -> ::windows_core::Result<()>;
+    fn Next(&self, lflags: i32, pstrname: *mut ::windows_core::BSTR, pvalue: *mut super::Variant::VARIANT) -> ::windows_core::Result<()>;
     fn EndEnumeration(&self) -> ::windows_core::Result<()>;
-    fn SetValue(&self, wszname: &::windows_core::PCWSTR, lflags: i32, pvalue: *const super::Com::VARIANT) -> ::windows_core::Result<()>;
-    fn GetValue(&self, wszname: &::windows_core::PCWSTR, lflags: i32) -> ::windows_core::Result<super::Com::VARIANT>;
+    fn SetValue(&self, wszname: &::windows_core::PCWSTR, lflags: i32, pvalue: *const super::Variant::VARIANT) -> ::windows_core::Result<()>;
+    fn GetValue(&self, wszname: &::windows_core::PCWSTR, lflags: i32) -> ::windows_core::Result<super::Variant::VARIANT>;
     fn DeleteValue(&self, wszname: &::windows_core::PCWSTR, lflags: i32) -> ::windows_core::Result<()>;
     fn DeleteAll(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IWbemContext {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWbemContext_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemContext_Impl, const OFFSET: isize>() -> IWbemContext_Vtbl {
         unsafe extern "system" fn Clone<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppnewcopy: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -3484,7 +3484,7 @@ impl IWbemContext_Vtbl {
             let this = (*this).get_impl();
             this.BeginEnumeration(::core::mem::transmute_copy(&lflags)).into()
         }
-        unsafe extern "system" fn Next<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lflags: i32, pstrname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, pvalue: *mut super::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Next<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lflags: i32, pstrname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, pvalue: *mut super::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Next(::core::mem::transmute_copy(&lflags), ::core::mem::transmute_copy(&pstrname), ::core::mem::transmute_copy(&pvalue)).into()
@@ -3494,12 +3494,12 @@ impl IWbemContext_Vtbl {
             let this = (*this).get_impl();
             this.EndEnumeration().into()
         }
-        unsafe extern "system" fn SetValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszname: ::windows_core::PCWSTR, lflags: i32, pvalue: *const super::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SetValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszname: ::windows_core::PCWSTR, lflags: i32, pvalue: *const super::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetValue(::core::mem::transmute(&wszname), ::core::mem::transmute_copy(&lflags), ::core::mem::transmute_copy(&pvalue)).into()
         }
-        unsafe extern "system" fn GetValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszname: ::windows_core::PCWSTR, lflags: i32, pvalue: *mut super::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszname: ::windows_core::PCWSTR, lflags: i32, pvalue: *mut super::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetValue(::core::mem::transmute(&wszname), ::core::mem::transmute_copy(&lflags)) {
@@ -3941,8 +3941,8 @@ impl IWbemLocator_Vtbl {
         iid == &<IWbemLocator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWbemObjectAccess_Impl: Sized + IWbemClassObject_Impl {
     fn GetPropertyHandle(&self, wszpropertyname: &::windows_core::PCWSTR, ptype: *mut i32, plhandle: *mut i32) -> ::windows_core::Result<()>;
     fn WritePropertyValue(&self, lhandle: i32, lnumbytes: i32, adata: *const u8) -> ::windows_core::Result<()>;
@@ -3955,9 +3955,9 @@ pub trait IWbemObjectAccess_Impl: Sized + IWbemClassObject_Impl {
     fn Lock(&self, lflags: i32) -> ::windows_core::Result<()>;
     fn Unlock(&self, lflags: i32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IWbemObjectAccess {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWbemObjectAccess_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemObjectAccess_Impl, const OFFSET: isize>() -> IWbemObjectAccess_Vtbl {
         unsafe extern "system" fn GetPropertyHandle<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemObjectAccess_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszpropertyname: ::windows_core::PCWSTR, ptype: *mut i32, plhandle: *mut i32) -> ::windows_core::HRESULT {
@@ -4068,18 +4068,18 @@ impl IWbemObjectSink_Vtbl {
         iid == &<IWbemObjectSink as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWbemObjectSinkEx_Impl: Sized + IWbemObjectSink_Impl {
     fn WriteMessage(&self, uchannel: u32, strmessage: &::windows_core::BSTR) -> ::windows_core::Result<()>;
     fn WriteError(&self, pobjerror: ::core::option::Option<&IWbemClassObject>) -> ::windows_core::Result<u8>;
     fn PromptUser(&self, strmessage: &::windows_core::BSTR, uprompttype: u8) -> ::windows_core::Result<u8>;
     fn WriteProgress(&self, stractivity: &::windows_core::BSTR, strcurrentoperation: &::windows_core::BSTR, strstatusdescription: &::windows_core::BSTR, upercentcomplete: u32, usecondsremaining: u32) -> ::windows_core::Result<()>;
-    fn WriteStreamParameter(&self, strname: &::windows_core::BSTR, vtvalue: *const super::Com::VARIANT, ultype: u32, ulflags: u32) -> ::windows_core::Result<()>;
+    fn WriteStreamParameter(&self, strname: &::windows_core::BSTR, vtvalue: *const super::Variant::VARIANT, ultype: u32, ulflags: u32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IWbemObjectSinkEx {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWbemObjectSinkEx_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemObjectSinkEx_Impl, const OFFSET: isize>() -> IWbemObjectSinkEx_Vtbl {
         unsafe extern "system" fn WriteMessage<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemObjectSinkEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uchannel: u32, strmessage: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -4114,7 +4114,7 @@ impl IWbemObjectSinkEx_Vtbl {
             let this = (*this).get_impl();
             this.WriteProgress(::core::mem::transmute(&stractivity), ::core::mem::transmute(&strcurrentoperation), ::core::mem::transmute(&strstatusdescription), ::core::mem::transmute_copy(&upercentcomplete), ::core::mem::transmute_copy(&usecondsremaining)).into()
         }
-        unsafe extern "system" fn WriteStreamParameter<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemObjectSinkEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: ::std::mem::MaybeUninit<::windows_core::BSTR>, vtvalue: *const super::Com::VARIANT, ultype: u32, ulflags: u32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn WriteStreamParameter<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemObjectSinkEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: ::std::mem::MaybeUninit<::windows_core::BSTR>, vtvalue: *const super::Variant::VARIANT, ultype: u32, ulflags: u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.WriteStreamParameter(::core::mem::transmute(&strname), ::core::mem::transmute_copy(&vtvalue), ::core::mem::transmute_copy(&ultype), ::core::mem::transmute_copy(&ulflags)).into()
@@ -4395,23 +4395,23 @@ impl IWbemPath_Vtbl {
         iid == &<IWbemPath as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWbemPathKeyList_Impl: Sized {
     fn GetCount(&self) -> ::windows_core::Result<u32>;
     fn SetKey(&self, wszname: &::windows_core::PCWSTR, uflags: u32, ucimtype: u32, pkeyval: *const ::core::ffi::c_void) -> ::windows_core::Result<()>;
-    fn SetKey2(&self, wszname: &::windows_core::PCWSTR, uflags: u32, ucimtype: u32, pkeyval: *const super::Com::VARIANT) -> ::windows_core::Result<()>;
+    fn SetKey2(&self, wszname: &::windows_core::PCWSTR, uflags: u32, ucimtype: u32, pkeyval: *const super::Variant::VARIANT) -> ::windows_core::Result<()>;
     fn GetKey(&self, ukeyix: u32, uflags: u32, punamebufsize: *mut u32, pszkeyname: ::windows_core::PWSTR, pukeyvalbufsize: *mut u32, pkeyval: *mut ::core::ffi::c_void, puapparentcimtype: *mut u32) -> ::windows_core::Result<()>;
-    fn GetKey2(&self, ukeyix: u32, uflags: u32, punamebufsize: *mut u32, pszkeyname: ::windows_core::PWSTR, pkeyvalue: *mut super::Com::VARIANT, puapparentcimtype: *mut u32) -> ::windows_core::Result<()>;
+    fn GetKey2(&self, ukeyix: u32, uflags: u32, punamebufsize: *mut u32, pszkeyname: ::windows_core::PWSTR, pkeyvalue: *mut super::Variant::VARIANT, puapparentcimtype: *mut u32) -> ::windows_core::Result<()>;
     fn RemoveKey(&self, wszname: &::windows_core::PCWSTR, uflags: u32) -> ::windows_core::Result<()>;
     fn RemoveAllKeys(&self, uflags: u32) -> ::windows_core::Result<()>;
     fn MakeSingleton(&self, bset: u8) -> ::windows_core::Result<()>;
     fn GetInfo(&self, urequestedinfo: u32) -> ::windows_core::Result<u64>;
     fn GetText(&self, lflags: i32, pubufflength: *mut u32, psztext: ::windows_core::PWSTR) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IWbemPathKeyList {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWbemPathKeyList_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemPathKeyList_Impl, const OFFSET: isize>() -> IWbemPathKeyList_Vtbl {
         unsafe extern "system" fn GetCount<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemPathKeyList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pukeycount: *mut u32) -> ::windows_core::HRESULT {
@@ -4430,7 +4430,7 @@ impl IWbemPathKeyList_Vtbl {
             let this = (*this).get_impl();
             this.SetKey(::core::mem::transmute(&wszname), ::core::mem::transmute_copy(&uflags), ::core::mem::transmute_copy(&ucimtype), ::core::mem::transmute_copy(&pkeyval)).into()
         }
-        unsafe extern "system" fn SetKey2<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemPathKeyList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszname: ::windows_core::PCWSTR, uflags: u32, ucimtype: u32, pkeyval: *const super::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SetKey2<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemPathKeyList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszname: ::windows_core::PCWSTR, uflags: u32, ucimtype: u32, pkeyval: *const super::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetKey2(::core::mem::transmute(&wszname), ::core::mem::transmute_copy(&uflags), ::core::mem::transmute_copy(&ucimtype), ::core::mem::transmute_copy(&pkeyval)).into()
@@ -4440,7 +4440,7 @@ impl IWbemPathKeyList_Vtbl {
             let this = (*this).get_impl();
             this.GetKey(::core::mem::transmute_copy(&ukeyix), ::core::mem::transmute_copy(&uflags), ::core::mem::transmute_copy(&punamebufsize), ::core::mem::transmute_copy(&pszkeyname), ::core::mem::transmute_copy(&pukeyvalbufsize), ::core::mem::transmute_copy(&pkeyval), ::core::mem::transmute_copy(&puapparentcimtype)).into()
         }
-        unsafe extern "system" fn GetKey2<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemPathKeyList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ukeyix: u32, uflags: u32, punamebufsize: *mut u32, pszkeyname: ::windows_core::PWSTR, pkeyvalue: *mut super::Com::VARIANT, puapparentcimtype: *mut u32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetKey2<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemPathKeyList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ukeyix: u32, uflags: u32, punamebufsize: *mut u32, pszkeyname: ::windows_core::PWSTR, pkeyvalue: *mut super::Variant::VARIANT, puapparentcimtype: *mut u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetKey2(::core::mem::transmute_copy(&ukeyix), ::core::mem::transmute_copy(&uflags), ::core::mem::transmute_copy(&punamebufsize), ::core::mem::transmute_copy(&pszkeyname), ::core::mem::transmute_copy(&pkeyvalue), ::core::mem::transmute_copy(&puapparentcimtype)).into()
@@ -4494,18 +4494,18 @@ impl IWbemPathKeyList_Vtbl {
         iid == &<IWbemPathKeyList as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWbemPropertyProvider_Impl: Sized {
-    fn GetProperty(&self, lflags: i32, strlocale: &::windows_core::BSTR, strclassmapping: &::windows_core::BSTR, strinstmapping: &::windows_core::BSTR, strpropmapping: &::windows_core::BSTR) -> ::windows_core::Result<super::Com::VARIANT>;
-    fn PutProperty(&self, lflags: i32, strlocale: &::windows_core::BSTR, strclassmapping: &::windows_core::BSTR, strinstmapping: &::windows_core::BSTR, strpropmapping: &::windows_core::BSTR, pvvalue: *const super::Com::VARIANT) -> ::windows_core::Result<()>;
+    fn GetProperty(&self, lflags: i32, strlocale: &::windows_core::BSTR, strclassmapping: &::windows_core::BSTR, strinstmapping: &::windows_core::BSTR, strpropmapping: &::windows_core::BSTR) -> ::windows_core::Result<super::Variant::VARIANT>;
+    fn PutProperty(&self, lflags: i32, strlocale: &::windows_core::BSTR, strclassmapping: &::windows_core::BSTR, strinstmapping: &::windows_core::BSTR, strpropmapping: &::windows_core::BSTR, pvvalue: *const super::Variant::VARIANT) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IWbemPropertyProvider {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWbemPropertyProvider_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemPropertyProvider_Impl, const OFFSET: isize>() -> IWbemPropertyProvider_Vtbl {
-        unsafe extern "system" fn GetProperty<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemPropertyProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lflags: i32, strlocale: ::std::mem::MaybeUninit<::windows_core::BSTR>, strclassmapping: ::std::mem::MaybeUninit<::windows_core::BSTR>, strinstmapping: ::std::mem::MaybeUninit<::windows_core::BSTR>, strpropmapping: ::std::mem::MaybeUninit<::windows_core::BSTR>, pvvalue: *mut super::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetProperty<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemPropertyProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lflags: i32, strlocale: ::std::mem::MaybeUninit<::windows_core::BSTR>, strclassmapping: ::std::mem::MaybeUninit<::windows_core::BSTR>, strinstmapping: ::std::mem::MaybeUninit<::windows_core::BSTR>, strpropmapping: ::std::mem::MaybeUninit<::windows_core::BSTR>, pvvalue: *mut super::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetProperty(::core::mem::transmute_copy(&lflags), ::core::mem::transmute(&strlocale), ::core::mem::transmute(&strclassmapping), ::core::mem::transmute(&strinstmapping), ::core::mem::transmute(&strpropmapping)) {
@@ -4516,7 +4516,7 @@ impl IWbemPropertyProvider_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PutProperty<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemPropertyProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lflags: i32, strlocale: ::std::mem::MaybeUninit<::windows_core::BSTR>, strclassmapping: ::std::mem::MaybeUninit<::windows_core::BSTR>, strinstmapping: ::std::mem::MaybeUninit<::windows_core::BSTR>, strpropmapping: ::std::mem::MaybeUninit<::windows_core::BSTR>, pvvalue: *const super::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn PutProperty<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemPropertyProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lflags: i32, strlocale: ::std::mem::MaybeUninit<::windows_core::BSTR>, strclassmapping: ::std::mem::MaybeUninit<::windows_core::BSTR>, strinstmapping: ::std::mem::MaybeUninit<::windows_core::BSTR>, strpropmapping: ::std::mem::MaybeUninit<::windows_core::BSTR>, pvvalue: *const super::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.PutProperty(::core::mem::transmute_copy(&lflags), ::core::mem::transmute(&strlocale), ::core::mem::transmute(&strclassmapping), ::core::mem::transmute(&strinstmapping), ::core::mem::transmute(&strpropmapping), ::core::mem::transmute_copy(&pvvalue)).into()
@@ -4585,28 +4585,28 @@ impl IWbemProviderInitSink_Vtbl {
         iid == &<IWbemProviderInitSink as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWbemQualifierSet_Impl: Sized {
-    fn Get(&self, wszname: &::windows_core::PCWSTR, lflags: i32, pval: *mut super::Com::VARIANT, plflavor: *mut i32) -> ::windows_core::Result<()>;
-    fn Put(&self, wszname: &::windows_core::PCWSTR, pval: *const super::Com::VARIANT, lflavor: i32) -> ::windows_core::Result<()>;
+    fn Get(&self, wszname: &::windows_core::PCWSTR, lflags: i32, pval: *mut super::Variant::VARIANT, plflavor: *mut i32) -> ::windows_core::Result<()>;
+    fn Put(&self, wszname: &::windows_core::PCWSTR, pval: *const super::Variant::VARIANT, lflavor: i32) -> ::windows_core::Result<()>;
     fn Delete(&self, wszname: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
     fn GetNames(&self, lflags: i32) -> ::windows_core::Result<*mut super::Com::SAFEARRAY>;
     fn BeginEnumeration(&self, lflags: i32) -> ::windows_core::Result<()>;
-    fn Next(&self, lflags: i32, pstrname: *mut ::windows_core::BSTR, pval: *mut super::Com::VARIANT, plflavor: *mut i32) -> ::windows_core::Result<()>;
+    fn Next(&self, lflags: i32, pstrname: *mut ::windows_core::BSTR, pval: *mut super::Variant::VARIANT, plflavor: *mut i32) -> ::windows_core::Result<()>;
     fn EndEnumeration(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IWbemQualifierSet {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWbemQualifierSet_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemQualifierSet_Impl, const OFFSET: isize>() -> IWbemQualifierSet_Vtbl {
-        unsafe extern "system" fn Get<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemQualifierSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszname: ::windows_core::PCWSTR, lflags: i32, pval: *mut super::Com::VARIANT, plflavor: *mut i32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Get<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemQualifierSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszname: ::windows_core::PCWSTR, lflags: i32, pval: *mut super::Variant::VARIANT, plflavor: *mut i32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Get(::core::mem::transmute(&wszname), ::core::mem::transmute_copy(&lflags), ::core::mem::transmute_copy(&pval), ::core::mem::transmute_copy(&plflavor)).into()
         }
-        unsafe extern "system" fn Put<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemQualifierSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszname: ::windows_core::PCWSTR, pval: *const super::Com::VARIANT, lflavor: i32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Put<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemQualifierSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszname: ::windows_core::PCWSTR, pval: *const super::Variant::VARIANT, lflavor: i32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Put(::core::mem::transmute(&wszname), ::core::mem::transmute_copy(&pval), ::core::mem::transmute_copy(&lflavor)).into()
@@ -4632,7 +4632,7 @@ impl IWbemQualifierSet_Vtbl {
             let this = (*this).get_impl();
             this.BeginEnumeration(::core::mem::transmute_copy(&lflags)).into()
         }
-        unsafe extern "system" fn Next<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemQualifierSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lflags: i32, pstrname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, pval: *mut super::Com::VARIANT, plflavor: *mut i32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Next<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWbemQualifierSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lflags: i32, pstrname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, pval: *mut super::Variant::VARIANT, plflavor: *mut i32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Next(::core::mem::transmute_copy(&lflags), ::core::mem::transmute_copy(&pstrname), ::core::mem::transmute_copy(&pval), ::core::mem::transmute_copy(&plflavor)).into()

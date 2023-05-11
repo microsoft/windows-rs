@@ -538,14 +538,14 @@ impl IMetaDataDispenserEx {
         let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
         (::windows_core::Interface::vtable(self).base__.OpenScopeOnMemory)(::windows_core::Interface::as_raw(self), pdata, cbdata, dwopenflags, riid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetOption(&self, optionid: *const ::windows_core::GUID, value: *const super::super::Com::VARIANT) -> ::windows_core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn SetOption(&self, optionid: *const ::windows_core::GUID, value: *const super::super::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetOption)(::windows_core::Interface::as_raw(self), optionid, value).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetOption(&self, optionid: *const ::windows_core::GUID, pvalue: *mut super::super::Com::VARIANT) -> ::windows_core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetOption(&self, optionid: *const ::windows_core::GUID, pvalue: *mut super::super::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetOption)(::windows_core::Interface::as_raw(self), optionid, pvalue).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -608,13 +608,13 @@ unsafe impl ::windows_core::ComInterface for IMetaDataDispenserEx {
 #[doc(hidden)]
 pub struct IMetaDataDispenserEx_Vtbl {
     pub base__: IMetaDataDispenser_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetOption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, optionid: *const ::windows_core::GUID, value: *const super::super::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub SetOption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, optionid: *const ::windows_core::GUID, value: *const super::super::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     SetOption: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetOption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, optionid: *const ::windows_core::GUID, pvalue: *mut super::super::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub GetOption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, optionid: *const ::windows_core::GUID, pvalue: *mut super::super::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetOption: usize,
     #[cfg(feature = "Win32_System_Com")]
     pub OpenScopeOnITypeInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piti: *mut ::core::ffi::c_void, dwopenflags: u32, riid: *const ::windows_core::GUID, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
