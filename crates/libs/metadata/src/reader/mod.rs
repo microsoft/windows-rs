@@ -262,10 +262,8 @@ impl<'a> Reader<'a> {
                 return false;
             }
 
-            // If the module name lacks a `.` then it's likely either an inline function, which windows-rs
-            // doesn't currently support, or an invalid import library since the extension must be known
-            // in order to generate an import table entry unambiguously.
-            return self.module_ref_name(self.impl_map_scope(impl_map)).contains('.');
+            // Skip "inline" function constants.
+            self.module_ref_name(self.impl_map_scope(impl_map)) != "FORCEINLINE"
         })
     }
     pub fn namespace_constants(&self, namespace: &str) -> impl Iterator<Item = Field> + '_ {
