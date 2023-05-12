@@ -127,6 +127,15 @@ fn main() {
         "src/b_overloads.rs",
         &["Windows.Win32.NetworkManagement.NetManagement.AE_RESACCESS"],
     );
+
+    // Ensures that constant types are properly collected
+    write_sys(
+        "src/b_constant_types.rs",
+        &[
+            "Windows.Win32.UI.WindowsAndMessaging.IDC_UPARROW",
+            "Windows.Win32.Security.Cryptography.CMC_ADD_ATTRIBUTES",
+        ],
+    );
 }
 
 fn write_sys(filename: &str, apis: &[&str]) {
