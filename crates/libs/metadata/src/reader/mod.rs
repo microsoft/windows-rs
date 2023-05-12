@@ -262,6 +262,7 @@ impl<'a> Reader<'a> {
                 return false;
             }
 
+            // Skip "inline" function constants.
             self.module_ref_name(self.impl_map_scope(impl_map)) != "FORCEINLINE"
         })
     }
