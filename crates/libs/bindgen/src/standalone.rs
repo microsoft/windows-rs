@@ -67,8 +67,10 @@ fn standalone_imp(gen: &mut Gen, names: &[&str]) -> String {
             .find(|field| gen.reader.field_name(*field) == type_name.name)
         {
             constants.insert(field);
-            gen.reader
-                .type_collect_standalone(&gen.reader.field_type(field, None), &mut types);
+            gen.reader.type_collect_standalone(
+                &gen.reader.field_type(field, None).to_const_type(),
+                &mut types,
+            );
         }
 
         if let Some(field) = gen

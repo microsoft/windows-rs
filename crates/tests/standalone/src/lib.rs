@@ -5,6 +5,7 @@ mod b_arch;
 mod b_arch_dependencies;
 mod b_bstr;
 mod b_calendar;
+mod b_constant_types;
 mod b_depends;
 mod b_enumeration;
 mod b_enumerator;
