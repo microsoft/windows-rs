@@ -3,20 +3,21 @@
 use std::collections::*;
 mod attributes;
 mod bindings;
+mod error;
+mod filter;
 mod imp;
 pub mod reader;
 pub mod writer;
 
 pub use attributes::*;
 use bindings::*;
+pub use error::*;
+pub use filter::*;
 use imp::*;
-use std::io::*;
-use std::mem::*;
-use std::ptr::*;
 
 macro_rules! flags {
     ($name:ident, $size:ty) => {
-        #[derive(Default, Copy, Clone, PartialEq, Eq)]
+        #[derive(Default, Copy, Clone, PartialEq, Eq, Debug)]
         pub struct $name(pub $size);
         impl $name {
             pub fn contains(&self, contains: Self) -> bool {

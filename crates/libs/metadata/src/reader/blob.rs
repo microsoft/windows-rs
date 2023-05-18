@@ -45,7 +45,7 @@ impl<'a> Blob<'a> {
         let mut mods = vec![];
         loop {
             let (value, offset) = self.peek_usize();
-            if value != 32 && value != 31 {
+            if value != ELEMENT_TYPE_CMOD_OPT as _ && value != ELEMENT_TYPE_CMOD_REQD as _ {
                 break;
             } else {
                 self.offset(offset);

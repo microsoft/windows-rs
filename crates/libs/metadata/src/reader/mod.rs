@@ -1,7 +1,6 @@
 mod blob;
 mod codes;
 mod file;
-mod filter;
 mod guid;
 mod row;
 mod tree;
@@ -12,7 +11,6 @@ pub use super::*;
 pub use blob::*;
 pub use codes::*;
 pub use file::*;
-pub use filter::*;
 pub use guid::*;
 pub use r#type::*;
 pub use row::*;
@@ -145,7 +143,7 @@ pub enum Integer {
 pub struct Signature {
     pub def: MethodDef,
     pub params: Vec<SignatureParam>,
-    pub return_type: Option<Type>,
+    pub return_type: Type,
     pub vararg: bool,
 }
 
@@ -321,7 +319,7 @@ impl<'a> Reader<'a> {
         let mut args: Vec<(String, Value)> = Vec::with_capacity(fixed_arg_count);
 
         for _ in 0..fixed_arg_count {
-            let arg = match self.type_from_blob(&mut sig, None, &[]).expect("Type not found") {
+            let arg = match self.type_from_blob(&mut sig, None, &[]) {
                 Type::Bool => Value::Bool(values.read_bool()),
                 Type::I8 => Value::I8(values.read_i8()),
                 Type::U8 => Value::U8(values.read_u8()),
@@ -347,12 +345,12 @@ impl<'a> Reader<'a> {
             let _id = values.read_u8();
             let arg_type = values.read_u8();
             let mut name = values.read_str().to_string();
-            let arg = match arg_type {
-                0x02 => Value::Bool(values.read_bool()),
-                0x06 => Value::I16(values.read_i16()),
-                0x08 => Value::I32(values.read_i32()),
-                0x09 => Value::U32(values.read_u32()),
-                0x0E => Value::String(values.read_str().to_string()),
+            let arg = match arg_type as _ {
+                ELEMENT_TYPE_BOOLEAN => Value::Bool(values.read_bool()),
+                ELEMENT_TYPE_I2 => Value::I16(values.read_i16()),
+                ELEMENT_TYPE_I4 => Value::I32(values.read_i32()),
+                ELEMENT_TYPE_U4 => Value::U32(values.read_u32()),
+                ELEMENT_TYPE_STRING => Value::String(values.read_str().to_string()),
                 0x50 => Value::TypeDef(self.get(TypeName::parse(values.read_str())).next().expect("Type not found")),
                 0x55 => {
                     let def = self.get(TypeName::parse(&name)).next().expect("Type not found");
@@ -424,7 +422,7 @@ impl<'a> Reader<'a> {
         let mut blob = self.row_blob(row.0, 2);
         blob.read_usize();
         blob.read_modifiers();
-        let def = self.type_from_blob(&mut blob, enclosing, &[]).expect("Type not found");
+        let def = self.type_from_blob(&mut blob, enclosing, &[]);
 
         if self.field_is_const(row) {
             def.to_const_type().to_const_ptr()
@@ -618,12 +616,12 @@ impl<'a> Reader<'a> {
             .filter_map(|param| {
                 if self.param_sequence(param) == 0 {
                     if self.param_is_const(param) {
-                        return_type = return_type.clone().map(|ty| ty.to_const_type());
+                        return_type = return_type.clone().to_const_type();
                     }
                     None
                 } else {
                     let is_output = self.param_flags(param).contains(ParamAttributes::OUTPUT);
-                    let mut ty = self.type_from_blob(&mut blob, None, generics).expect("Parameter type not found");
+                    let mut ty = self.type_from_blob(&mut blob, None, generics);
                     if self.param_is_const(param) || !is_output {
                         ty = ty.to_const_type();
                     }
@@ -1272,11 +1270,13 @@ impl<'a> Reader<'a> {
         cfg
     }
     pub fn type_def_cfg_combine(&'a self, row: TypeDef, generics: &[Type], cfg: &mut Cfg<'a>) {
+        let type_name = self.type_def_type_name(row);
+
         for generic in generics {
             self.type_cfg_combine(generic, cfg);
         }
 
-        if cfg.types.entry(self.type_def_namespace(row)).or_default().insert(row) {
+        if cfg.types.entry(type_name.namespace).or_default().insert(row) {
             match self.type_def_kind(row) {
                 TypeKind::Class => {
                     if let Some(default_interface) = self.type_def_default_interface(row) {
@@ -1294,7 +1294,6 @@ impl<'a> Reader<'a> {
                 }
                 TypeKind::Struct => {
                     self.type_def_fields(row).for_each(|field| self.field_cfg_combine(field, Some(row), cfg));
-                    let type_name = self.type_def_type_name(row);
                     if !type_name.namespace.is_empty() {
                         for def in self.get(type_name) {
                             if def != row {
@@ -1372,7 +1371,7 @@ impl<'a> Reader<'a> {
         cfg
     }
     fn signature_cfg_combine(&'a self, signature: &Signature, cfg: &mut Cfg<'a>) {
-        signature.return_type.iter().for_each(|ty| self.type_cfg_combine(ty, cfg));
+        self.type_cfg_combine(&signature.return_type, cfg);
         signature.params.iter().for_each(|param| self.type_cfg_combine(&param.ty, cfg));
     }
     pub fn signature_param_is_borrowed(&self, param: &SignatureParam) -> bool {
@@ -1418,48 +1417,33 @@ impl<'a> Reader<'a> {
         if self.method_def_can_return_multiple_success_values(signature.def) {
             return SignatureKind::PreserveSig;
         }
-        if let Some(return_type) = &signature.return_type {
-            match return_type {
-                Type::HRESULT => {
-                    if signature.params.len() >= 2 {
-                        if let Some(guid) = self.signature_param_is_query_guid(&signature.params) {
-                            if let Some(object) = self.signature_param_is_query_object(&signature.params) {
-                                if self.param_flags(signature.params[object].def).contains(ParamAttributes::OPTIONAL) {
-                                    return SignatureKind::QueryOptional(QueryPosition { object, guid });
-                                } else {
-                                    return SignatureKind::Query(QueryPosition { object, guid });
-                                }
+        match &signature.return_type {
+            Type::Void if self.signature_is_retval(signature) => SignatureKind::ReturnValue,
+            Type::Void => SignatureKind::ReturnVoid,
+            Type::HRESULT => {
+                if signature.params.len() >= 2 {
+                    if let Some(guid) = self.signature_param_is_query_guid(&signature.params) {
+                        if let Some(object) = self.signature_param_is_query_object(&signature.params) {
+                            if self.param_flags(signature.params[object].def).contains(ParamAttributes::OPTIONAL) {
+                                return SignatureKind::QueryOptional(QueryPosition { object, guid });
+                            } else {
+                                return SignatureKind::Query(QueryPosition { object, guid });
                             }
                         }
                     }
-
-                    if self.signature_is_retval(signature) {
-                        return SignatureKind::ResultValue;
-                    }
-
-                    return SignatureKind::ResultVoid;
                 }
-                Type::TypeDef((def, _)) if self.type_def_type_name(*def) == TypeName::NTSTATUS => {
-                    return SignatureKind::ResultVoid;
+                if self.signature_is_retval(signature) {
+                    SignatureKind::ResultValue
+                } else {
+                    SignatureKind::ResultVoid
                 }
-                Type::TypeDef((def, _)) if self.type_def_type_name(*def) == TypeName::WIN32_ERROR => {
-                    return SignatureKind::ResultVoid;
-                }
-                Type::TypeDef((def, _)) if self.type_def_type_name(*def) == TypeName::BOOL && self.method_def_last_error(signature.def) => {
-                    return SignatureKind::ResultVoid;
-                }
-                _ if self.type_is_struct(return_type) => {
-                    return SignatureKind::ReturnStruct;
-                }
-                _ => return SignatureKind::PreserveSig,
             }
+            Type::TypeDef((def, _)) if self.type_def_type_name(*def) == TypeName::NTSTATUS => SignatureKind::ResultVoid,
+            Type::TypeDef((def, _)) if self.type_def_type_name(*def) == TypeName::WIN32_ERROR => SignatureKind::ResultVoid,
+            Type::TypeDef((def, _)) if self.type_def_type_name(*def) == TypeName::BOOL && self.method_def_last_error(signature.def) => SignatureKind::ResultVoid,
+            _ if self.type_is_struct(&signature.return_type) => SignatureKind::ReturnStruct,
+            _ => SignatureKind::PreserveSig,
         }
-
-        if self.signature_is_retval(signature) {
-            return SignatureKind::ReturnValue;
-        }
-
-        SignatureKind::ReturnVoid
     }
     fn signature_is_retval(&self, signature: &Signature) -> bool {
         signature.params.last().map_or(false, |param| self.signature_param_is_retval(param))
@@ -1545,7 +1529,7 @@ impl<'a> Reader<'a> {
                 continue;
             }
             let signature = self.method_def_signature(method, generics);
-            signature.return_type.iter().for_each(|ty| self.type_collect_standalone(ty, set));
+            self.type_collect_standalone(&signature.return_type, set);
             signature.params.iter().for_each(|param| self.type_collect_standalone(&param.ty, set));
         }
         for interface in self.type_interfaces(&ty) {
@@ -1748,38 +1732,41 @@ impl<'a> Reader<'a> {
             panic!("Type not found: {}", full_name);
         }
     }
-    fn type_from_blob(&self, blob: &mut Blob, enclosing: Option<TypeDef>, generics: &[Type]) -> Option<Type> {
-        let is_winrt_const_ref = blob.read_modifiers().iter().any(|def| self.type_def_or_ref(*def) == TypeName::IsConst);
-        let is_winrt_array_ref = blob.read_expected(0x10);
-        if blob.read_expected(0x01) {
-            return None;
+    fn type_from_blob(&self, blob: &mut Blob, enclosing: Option<TypeDef>, generics: &[Type]) -> Type {
+        // Used by WinRT to indicate that a struct input parameter is passed by reference rather than by value on the ABI.
+        let is_const = blob.read_modifiers().iter().any(|def| self.type_def_or_ref(*def) == TypeName::IsConst);
+
+        // Used by WinRT to indicate an output parameter, but there are other ways to determine this direction so here
+        // it is only used to distinguish between slices and heap-allocated arrays.
+        let is_ref = blob.read_expected(ELEMENT_TYPE_BYREF as _);
+
+        if blob.read_expected(ELEMENT_TYPE_VOID as _) {
+            return Type::Void;
         }
 
-        let is_winrt_array = blob.read_expected(0x1D);
+        let is_array = blob.read_expected(ELEMENT_TYPE_SZARRAY as _); // Used by WinRT to indicate an array
 
         let mut pointers = 0;
 
-        while blob.read_expected(0x0f) {
+        while blob.read_expected(ELEMENT_TYPE_PTR as _) {
             pointers += 1;
         }
 
-        let mut kind = self.type_from_blob_impl(blob, enclosing, generics);
+        let kind = self.type_from_blob_impl(blob, enclosing, generics);
 
         if pointers > 0 {
-            kind = Type::MutPtr((Box::new(kind), pointers));
-        }
-
-        Some(if is_winrt_array {
-            if is_winrt_array_ref {
+            Type::MutPtr((Box::new(kind), pointers))
+        } else if is_const {
+            Type::ConstRef(Box::new(kind))
+        } else if is_array {
+            if is_ref {
                 Type::WinrtArrayRef(Box::new(kind))
             } else {
                 Type::WinrtArray(Box::new(kind))
             }
-        } else if is_winrt_const_ref {
-            Type::WinrtConstRef(Box::new(kind))
         } else {
             kind
-        })
+        }
     }
     fn type_from_blob_impl(&self, blob: &mut Blob, enclosing: Option<TypeDef>, generics: &[Type]) -> Type {
         let code = blob.read_usize();
@@ -1788,17 +1775,17 @@ impl<'a> Reader<'a> {
             return code;
         }
 
-        match code {
-            0x11 | 0x12 => self.type_from_ref(TypeDefOrRef::decode(blob.file, blob.read_usize()), enclosing, generics),
-            0x13 => generics.get(blob.read_usize()).unwrap_or(&Type::Void).clone(),
-            0x14 => {
-                let kind = self.type_from_blob(blob, enclosing, generics).unwrap();
+        match code as _ {
+            ELEMENT_TYPE_VALUETYPE | ELEMENT_TYPE_CLASS => self.type_from_ref(TypeDefOrRef::decode(blob.file, blob.read_usize()), enclosing, generics),
+            ELEMENT_TYPE_VAR => generics.get(blob.read_usize()).unwrap_or(&Type::Void).clone(),
+            ELEMENT_TYPE_ARRAY => {
+                let kind = self.type_from_blob(blob, enclosing, generics);
                 let _rank = blob.read_usize();
-                let _bounds_count = blob.read_usize();
+                let _count = blob.read_usize();
                 let bounds = blob.read_usize();
                 Type::Win32Array((Box::new(kind), bounds))
             }
-            0x15 => {
+            ELEMENT_TYPE_GENERICINST => {
                 blob.read_usize();
 
                 let def = self.get(self.type_def_or_ref(TypeDefOrRef::decode(blob.file, blob.read_usize()))).next().expect("Type not found");

@@ -132,7 +132,7 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
             if handle_last_error(gen, def, &signature) {
                 let args = gen.win32_args(&signature.params, kind);
                 let params = gen.win32_params(&signature.params, kind);
-                let return_type = gen.type_name(&signature.return_type.unwrap());
+                let return_type = gen.type_name(&signature.return_type);
 
                 quote! {
                     #doc
@@ -272,7 +272,7 @@ fn handle_last_error(gen: &Gen, def: MethodDef, signature: &Signature) -> bool {
             .impl_map_flags(map)
             .contains(PInvokeAttributes::LAST_ERROR)
         {
-            if let Some(Type::TypeDef((return_type, _))) = &signature.return_type {
+            if let Type::TypeDef((return_type, _)) = &signature.return_type {
                 if gen.reader.type_def_is_handle(*return_type) {
                     if gen
                         .reader

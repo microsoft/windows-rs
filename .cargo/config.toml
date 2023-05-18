@@ -2,4 +2,5 @@
 rustflags = [
     # "--cfg", "windows_debugger_visualizer",
     # "--cfg", "windows_raw_dylib",
+    # "-C", "target-feature=+crt-static",
 ]

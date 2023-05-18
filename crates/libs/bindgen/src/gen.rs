@@ -155,7 +155,7 @@ impl<'a> Gen<'a> {
             }
             Type::WinrtArray(ty) => self.type_name(ty),
             Type::WinrtArrayRef(ty) => self.type_name(ty),
-            Type::WinrtConstRef(ty) => self.type_name(ty),
+            Type::ConstRef(ty) => self.type_name(ty),
             _ => unimplemented!(),
         }
     }
@@ -919,38 +919,36 @@ impl<'a> Gen<'a> {
             .reader
             .type_def_flags(def)
             .contains(TypeAttributes::WINRT);
-        let hresult = self.type_name(&Type::HRESULT);
 
-        let (trailing_return_type, return_type, udt_return_type) = if is_winrt {
-            if let Some(return_type) = &signature.return_type {
-                if let Type::WinrtArray(kind) = return_type {
-                    let tokens = self.type_abi_name(kind);
-                    (
-                        quote! { result_size__: *mut u32, result__: *mut *mut #tokens },
-                        quote! { -> #hresult },
-                        quote! {},
-                    )
-                } else {
-                    let tokens = self.type_abi_name(return_type);
-                    (
-                        quote! { result__: *mut #tokens },
-                        quote! { -> #hresult },
-                        quote! {},
-                    )
-                }
-            } else {
-                (quote! {}, quote! { -> #hresult }, quote! {})
+        let crate_name = self.crate_name();
+
+        let (trailing_return_type, return_type, udt_return_type) = match &signature.return_type {
+            Type::Void if is_winrt => (quote! {}, quote! { -> #crate_name HRESULT }, quote! {}),
+            Type::Void => (quote! {}, quote! {}, quote! {}),
+            Type::WinrtArray(kind) => {
+                let tokens = self.type_abi_name(kind);
+                (
+                    quote! { result_size__: *mut u32, result__: *mut *mut #tokens },
+                    quote! { -> #crate_name HRESULT },
+                    quote! {},
+                )
             }
-        } else if let Some(return_type) = &signature.return_type {
-            if self.reader.type_is_struct(return_type) {
-                let tokens = self.type_abi_name(return_type);
+            _ if is_winrt => {
+                let tokens = self.type_abi_name(&signature.return_type);
+                (
+                    quote! { result__: *mut #tokens },
+                    quote! { -> #crate_name HRESULT },
+                    quote! {},
+                )
+            }
+            _ if self.reader.type_is_struct(&signature.return_type) => {
+                let tokens = self.type_abi_name(&signature.return_type);
                 (quote! {}, quote! {}, quote! { result__: *mut #tokens, })
-            } else {
-                let tokens = self.type_default_name(return_type);
+            }
+            _ => {
+                let tokens = self.type_default_name(&signature.return_type);
                 (quote! {}, quote! { -> #tokens }, quote! {})
             }
-        } else {
-            (quote! {}, quote! {}, quote! {})
         };
 
         let params = signature.params.iter().map(|p| {
@@ -967,7 +965,7 @@ impl<'a> Gen<'a> {
                 {
                     if p.ty.is_winrt_array() {
                         quote! { #abi_size_name: u32, #name: *const #abi, }
-                    } else if p.ty.is_winrt_const_ref() {
+                    } else if p.ty.is_const_ref() {
                         quote! { #name: &#abi, }
                     } else {
                         quote! { #name: #abi, }
@@ -1001,13 +999,13 @@ impl<'a> Gen<'a> {
         to_ident(&self.reader.param_name(param).to_lowercase())
     }
     pub fn return_sig(&self, signature: &Signature) -> TokenStream {
-        if let Some(return_type) = &signature.return_type {
-            let tokens = self.type_default_name(return_type);
-            format!(" -> {}", tokens.as_str()).into()
-        } else if self.reader.method_def_does_not_return(signature.def) {
-            " -> !".into()
-        } else {
-            " -> ()".into()
+        match &signature.return_type {
+            Type::Void if self.reader.method_def_does_not_return(signature.def) => " -> !".into(),
+            Type::Void => " -> ()".into(),
+            _ => {
+                let tokens = self.type_default_name(&signature.return_type);
+                format!(" -> {}", tokens.as_str()).into()
+            }
         }
     }
     pub fn win32_args(&self, params: &[SignatureParam], kind: SignatureKind) -> TokenStream {
@@ -1207,16 +1205,17 @@ impl<'a> Gen<'a> {
                 .iter()
                 .map(|p| self.winrt_produce_type(p, !is_delegate));
 
-            let return_type = if let Some(return_type) = &signature.return_type {
-                let tokens = self.type_name(return_type);
+            let return_type = match &signature.return_type {
+                Type::Void => quote! { () },
+                _ => {
+                    let tokens = self.type_name(&signature.return_type);
 
-                if return_type.is_winrt_array() {
-                    quote! { ::windows_core::Array<#tokens> }
-                } else {
-                    tokens
+                    if signature.return_type.is_winrt_array() {
+                        quote! { ::windows_core::Array<#tokens> }
+                    } else {
+                        tokens
+                    }
                 }
-            } else {
-                quote! { () }
             };
 
             let this = if is_delegate {

@@ -5,6 +5,7 @@
     non_upper_case_globals,
     non_camel_case_types,
     dead_code,
+    forget_copy,
     clippy::all
 )]
 ::windows_targets::link!("oleaut32.dll" "system" fn VarI1FromDate(datein : f64, pcout : PSTR) -> HRESULT);

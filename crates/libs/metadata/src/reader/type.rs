@@ -35,31 +35,31 @@ pub enum Type {
     Win32Array((Box<Self>, usize)),
     WinrtArray(Box<Self>),
     WinrtArrayRef(Box<Self>),
-    WinrtConstRef(Box<Self>),
+    ConstRef(Box<Self>),
 }
 
 impl Type {
     /// Creates a `Type` object from an `ELEMENT_TYPE` (see ECMA-335) type constant, typically
     /// used to indicate the type of a constant or primitive type signature.
     pub fn from_code(code: usize) -> Option<Self> {
-        match code {
-            0x01 => Some(Self::Void),
-            0x02 => Some(Self::Bool),
-            0x03 => Some(Self::Char),
-            0x04 => Some(Self::I8),
-            0x05 => Some(Self::U8),
-            0x06 => Some(Self::I16),
-            0x07 => Some(Self::U16),
-            0x08 => Some(Self::I32),
-            0x09 => Some(Self::U32),
-            0x0a => Some(Self::I64),
-            0x0b => Some(Self::U64),
-            0x0c => Some(Self::F32),
-            0x0d => Some(Self::F64),
-            0x18 => Some(Self::ISize),
-            0x19 => Some(Self::USize),
-            0x0e => Some(Self::String),
-            0x1c => Some(Self::IInspectable),
+        match code as _ {
+            ELEMENT_TYPE_VOID => Some(Self::Void),
+            ELEMENT_TYPE_BOOLEAN => Some(Self::Bool),
+            ELEMENT_TYPE_CHAR => Some(Self::Char),
+            ELEMENT_TYPE_I1 => Some(Self::I8),
+            ELEMENT_TYPE_U1 => Some(Self::U8),
+            ELEMENT_TYPE_I2 => Some(Self::I16),
+            ELEMENT_TYPE_U2 => Some(Self::U16),
+            ELEMENT_TYPE_I4 => Some(Self::I32),
+            ELEMENT_TYPE_U4 => Some(Self::U32),
+            ELEMENT_TYPE_I8 => Some(Self::I64),
+            ELEMENT_TYPE_U8 => Some(Self::U64),
+            ELEMENT_TYPE_R4 => Some(Self::F32),
+            ELEMENT_TYPE_R8 => Some(Self::F64),
+            ELEMENT_TYPE_I => Some(Self::ISize),
+            ELEMENT_TYPE_U => Some(Self::USize),
+            ELEMENT_TYPE_STRING => Some(Self::String),
+            ELEMENT_TYPE_OBJECT => Some(Self::IInspectable),
             _ => None,
         }
     }
@@ -82,7 +82,7 @@ impl Type {
             Type::Win32Array((ty, _)) => *ty.clone(),
             Type::WinrtArray(ty) => *ty.clone(),
             Type::WinrtArrayRef(ty) => *ty.clone(),
-            Type::WinrtConstRef(ty) => *ty.clone(),
+            Type::ConstRef(ty) => *ty.clone(),
             _ => self.clone(),
         }
     }
@@ -125,8 +125,8 @@ impl Type {
     }
 
     /// Returns `true` if the `Type` represents an immutable WinRT array reference.
-    pub fn is_winrt_const_ref(&self) -> bool {
-        matches!(self, Type::WinrtConstRef(_))
+    pub fn is_const_ref(&self) -> bool {
+        matches!(self, Type::ConstRef(_))
     }
 
     /// Returns `true` if the `Type` is a generic parameter.
