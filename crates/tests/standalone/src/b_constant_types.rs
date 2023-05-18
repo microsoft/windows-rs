@@ -5,7 +5,6 @@
     non_upper_case_globals,
     non_camel_case_types,
     dead_code,
-    forget_copy,
     clippy::all
 )]
 pub const CMC_ADD_ATTRIBUTES: PCSTR = 63i32 as _;

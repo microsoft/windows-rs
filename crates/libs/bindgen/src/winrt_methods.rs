@@ -216,12 +216,18 @@ pub fn gen_upcall(gen: &Gen, sig: &Signature, inner: TokenStream) -> TokenStream
             }
         }
         _ => {
+            let forget = if gen.reader.type_is_blittable(&sig.return_type) {
+                quote! {}
+            } else {
+                quote! { ::core::mem::forget(ok__); }
+            };
+
             quote! {
                 match #inner(#(#invoke_args,)*) {
                     ::core::result::Result::Ok(ok__) => {
                         // use `core::ptr::write` since `result` could be uninitialized
                         ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
-                        ::core::mem::forget(ok__);
+                        #forget
                         ::windows_core::HRESULT(0)
                     }
                     ::core::result::Result::Err(err) => err.into()

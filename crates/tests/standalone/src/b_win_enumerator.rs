@@ -5,7 +5,6 @@
     non_upper_case_globals,
     non_camel_case_types,
     dead_code,
-    forget_copy,
     clippy::all
 )]
 pub const WAIT_IO_COMPLETION: WIN32_ERROR = WIN32_ERROR(192u32);

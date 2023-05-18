@@ -13,7 +13,6 @@ impl ICoreAutomationConnectionBoundObjectProvider_Vtbl {
             match this.IsComThreadingRequired() {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
-                    ::core::mem::forget(ok__);
                     ::windows_core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -49,7 +48,6 @@ impl ICoreAutomationRemoteOperationExtensionProvider_Vtbl {
             match this.IsExtensionSupported(::core::mem::transmute(&extensionid)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
-                    ::core::mem::forget(ok__);
                     ::windows_core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

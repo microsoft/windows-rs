@@ -296,7 +296,6 @@ impl IStorageFolderQueryOperations_Vtbl {
             match this.AreQueryOptionsSupported(::windows_core::from_raw_borrowed(&queryoptions)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
-                    ::core::mem::forget(ok__);
                     ::windows_core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -308,7 +307,6 @@ impl IStorageFolderQueryOperations_Vtbl {
             match this.IsCommonFolderQuerySupported(query) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
-                    ::core::mem::forget(ok__);
                     ::windows_core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -320,7 +318,6 @@ impl IStorageFolderQueryOperations_Vtbl {
             match this.IsCommonFileQuerySupported(query) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
-                    ::core::mem::forget(ok__);
                     ::windows_core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -401,7 +398,6 @@ impl IStorageQueryResultBase_Vtbl {
             match this.ContentsChanged(::windows_core::from_raw_borrowed(&handler)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
-                    ::core::mem::forget(ok__);
                     ::windows_core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -418,7 +414,6 @@ impl IStorageQueryResultBase_Vtbl {
             match this.OptionsChanged(::windows_core::from_raw_borrowed(&changedhandler)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
-                    ::core::mem::forget(ok__);
                     ::windows_core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
