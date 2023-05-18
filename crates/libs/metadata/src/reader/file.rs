@@ -42,12 +42,8 @@ pub const TABLE_ASSEMBLYREF: usize = 15;
 pub const TABLE_CLASSLAYOUT: usize = 16;
 pub const TABLE_LEN: usize = 17;
 
-fn error(message: &str) -> Error {
-    Error::new(ErrorKind::Other, message)
-}
-
 fn error_invalid_winmd() -> Error {
-    error("File is not a valid `winmd` file")
+    Error::new("not a valid `winmd` file")
 }
 
 impl File {
@@ -55,14 +51,14 @@ impl File {
         let mut files = vec![Self::from_buffer(std::include_bytes!("../../default/Windows.winmd").to_vec())?, Self::from_buffer(std::include_bytes!("../../default/Windows.Wdk.winmd").to_vec())?, Self::from_buffer(std::include_bytes!("../../default/Windows.Win32.winmd").to_vec())?];
 
         for path in paths {
-            files.push(Self::new(std::path::Path::new(path))?);
+            files.push(Self::new(path)?);
         }
 
         Ok(files)
     }
 
-    pub fn new<P: AsRef<std::path::Path>>(path: P) -> Result<Self> {
-        Self::from_buffer(std::fs::read(&path)?)
+    pub fn new(path: &str) -> Result<Self> {
+        Self::from_buffer(read_file(path)?).map_err(|error| error.with_path(path))
     }
 
     pub fn from_buffer(bytes: Vec<u8>) -> Result<Self> {
@@ -74,26 +70,26 @@ impl File {
             return Err(error_invalid_winmd());
         }
 
-        let file_offset = dos.e_lfanew as usize + size_of::<u32>();
+        let file_offset = dos.e_lfanew as usize + std::mem::size_of::<u32>();
         let file = result.bytes.view_as::<IMAGE_FILE_HEADER>(file_offset);
 
-        let optional_offset = file_offset + size_of::<IMAGE_FILE_HEADER>();
+        let optional_offset = file_offset + std::mem::size_of::<IMAGE_FILE_HEADER>();
 
         let (com_virtual_address, sections) = match result.bytes.copy_as::<u16>(optional_offset) {
             IMAGE_NT_OPTIONAL_HDR32_MAGIC => {
                 let optional = result.bytes.view_as::<IMAGE_OPTIONAL_HEADER32>(optional_offset);
-                (optional.DataDirectory[IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR as usize].VirtualAddress, result.bytes.view_as_slice_of::<IMAGE_SECTION_HEADER>(optional_offset + size_of::<IMAGE_OPTIONAL_HEADER32>(), file.NumberOfSections as usize))
+                (optional.DataDirectory[IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR as usize].VirtualAddress, result.bytes.view_as_slice_of::<IMAGE_SECTION_HEADER>(optional_offset + std::mem::size_of::<IMAGE_OPTIONAL_HEADER32>(), file.NumberOfSections as usize))
             }
             IMAGE_NT_OPTIONAL_HDR64_MAGIC => {
                 let optional = result.bytes.view_as::<IMAGE_OPTIONAL_HEADER64>(optional_offset);
-                (optional.DataDirectory[IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR as usize].VirtualAddress, result.bytes.view_as_slice_of::<IMAGE_SECTION_HEADER>(optional_offset + size_of::<IMAGE_OPTIONAL_HEADER64>(), file.NumberOfSections as usize))
+                (optional.DataDirectory[IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR as usize].VirtualAddress, result.bytes.view_as_slice_of::<IMAGE_SECTION_HEADER>(optional_offset + std::mem::size_of::<IMAGE_OPTIONAL_HEADER64>(), file.NumberOfSections as usize))
             }
             _ => return Err(error_invalid_winmd()),
         };
 
         let clr = result.bytes.view_as::<IMAGE_COR20_HEADER>(offset_from_rva(section_from_rva(sections, com_virtual_address)?, com_virtual_address) as _);
 
-        if clr.cb != size_of::<IMAGE_COR20_HEADER>() as _ {
+        if clr.cb != std::mem::size_of::<IMAGE_COR20_HEADER>() as _ {
             return Err(error_invalid_winmd());
         }
 
@@ -488,7 +484,7 @@ macro_rules! assert_proper_length_and_alignment {
     ($self:expr, $t:ty, $offset:expr, $size:expr) => {{
         assert_proper_length!($self, $t, $offset, $size);
         let ptr = &$self[$offset] as *const u8 as *const $t;
-        let properly_aligned = ptr.align_offset(align_of::<$t>()) == 0;
+        let properly_aligned = ptr.align_offset(std::mem::align_of::<$t>()) == 0;
         assert!(properly_aligned, "Invalid file: offset {} is not properly aligned to T", $offset);
         ptr
     }};
@@ -503,20 +499,20 @@ trait View {
 
 impl View for [u8] {
     fn view_as<T>(&self, offset: usize) -> &T {
-        let ptr = assert_proper_length_and_alignment!(self, T, offset, size_of::<T>());
+        let ptr = assert_proper_length_and_alignment!(self, T, offset, std::mem::size_of::<T>());
         unsafe { &*ptr }
     }
 
     fn view_as_slice_of<T>(&self, offset: usize, len: usize) -> &[T] {
-        let ptr = assert_proper_length_and_alignment!(self, T, offset, size_of::<T>() * len);
+        let ptr = assert_proper_length_and_alignment!(self, T, offset, std::mem::size_of::<T>() * len);
         unsafe { std::slice::from_raw_parts(ptr, len) }
     }
 
     fn copy_as<T>(&self, offset: usize) -> T {
-        assert_proper_length!(self, T, offset, size_of::<T>());
+        assert_proper_length!(self, T, offset, std::mem::size_of::<T>());
         unsafe {
-            let mut data = MaybeUninit::zeroed().assume_init();
-            copy_nonoverlapping(self[offset..].as_ptr(), &mut data as *mut T as *mut u8, size_of::<T>());
+            let mut data = std::mem::MaybeUninit::zeroed().assume_init();
+            std::ptr::copy_nonoverlapping(self[offset..].as_ptr(), &mut data as *mut T as *mut u8, std::mem::size_of::<T>());
             data
         }
     }

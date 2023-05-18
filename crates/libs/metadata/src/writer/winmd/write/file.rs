@@ -1,11 +1,8 @@
 use super::*;
 use std::mem::*;
 
-pub fn write(tables: Tables, strings: StagedStrings, blobs: StagedBlobs) -> Vec<u8> {
+pub fn write(mut tables: Vec<u8>, mut strings: Vec<u8>, mut blobs: Vec<u8>) -> Vec<u8> {
     unsafe {
-        let mut tables = tables.stream();
-        let mut strings = strings.stream();
-        let mut blobs = blobs.stream();
         let mut guids = vec![0; 16]; // zero guid
         let size_of_streams = tables.len() + guids.len() + strings.len() + blobs.len();
 

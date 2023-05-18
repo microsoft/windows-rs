@@ -81,7 +81,6 @@ impl IInkPresenterStencil_Vtbl {
             match this.Kind() {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
-                    ::core::mem::forget(ok__);
                     ::windows_core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -93,7 +92,6 @@ impl IInkPresenterStencil_Vtbl {
             match this.IsVisible() {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
-                    ::core::mem::forget(ok__);
                     ::windows_core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -110,7 +108,6 @@ impl IInkPresenterStencil_Vtbl {
             match this.BackgroundColor() {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
-                    ::core::mem::forget(ok__);
                     ::windows_core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -127,7 +124,6 @@ impl IInkPresenterStencil_Vtbl {
             match this.ForegroundColor() {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
-                    ::core::mem::forget(ok__);
                     ::windows_core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -144,7 +140,6 @@ impl IInkPresenterStencil_Vtbl {
             match this.Transform() {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
-                    ::core::mem::forget(ok__);
                     ::windows_core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -257,7 +252,6 @@ impl IInkStrokeContainer_Vtbl {
             match this.BoundingRect() {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
-                    ::core::mem::forget(ok__);
                     ::windows_core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -274,7 +268,6 @@ impl IInkStrokeContainer_Vtbl {
             match this.DeleteSelected() {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
-                    ::core::mem::forget(ok__);
                     ::windows_core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -286,7 +279,6 @@ impl IInkStrokeContainer_Vtbl {
             match this.MoveSelected(::core::mem::transmute(&translation)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
-                    ::core::mem::forget(ok__);
                     ::windows_core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -298,7 +290,6 @@ impl IInkStrokeContainer_Vtbl {
             match this.SelectWithPolyLine(::windows_core::from_raw_borrowed(&polyline)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
-                    ::core::mem::forget(ok__);
                     ::windows_core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -310,7 +301,6 @@ impl IInkStrokeContainer_Vtbl {
             match this.SelectWithLine(::core::mem::transmute(&from), ::core::mem::transmute(&to)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
-                    ::core::mem::forget(ok__);
                     ::windows_core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -327,7 +317,6 @@ impl IInkStrokeContainer_Vtbl {
             match this.PasteFromClipboard(::core::mem::transmute(&position)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
-                    ::core::mem::forget(ok__);
                     ::windows_core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -339,7 +328,6 @@ impl IInkStrokeContainer_Vtbl {
             match this.CanPasteFromClipboard() {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
-                    ::core::mem::forget(ok__);
                     ::windows_core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

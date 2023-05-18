@@ -1,102 +1,148 @@
-mod syntax;
-use metadata::writer;
-use std::io::Read;
-use syn::*;
-use syntax::*;
+use metadata::*;
+
+enum ArgKind {
+    None,
+    Input,
+    Output,
+    Filter,
+}
 
 fn main() {
-    if let Err(message) = run() {
-        eprintln!("error: {message}");
+    if let Err(error) = run() {
+        eprintln!("{}", error);
         std::process::exit(1);
     }
 }
 
-type ToolResult = std::result::Result<(), String>;
+fn run() -> Result<()> {
+    let time = std::time::Instant::now();
+    let args: Vec<_> = std::env::args().skip(1).collect();
 
-fn run() -> ToolResult {
+    if args.is_empty() {
+        println!(
+            r#"Usage: riddle.exe [options...]
+
+Options:
+  -in     <path>       Path to files and directories containing .winmd and .idl files
+  -out    <path>       Path to .winmd or .idl file to generate
+  -filter <namespace>  Namespaces to include or !exclude in output
+  -format              Format .idl files only
+  -verbose             Show detailed information
+"#
+        );
+        return Ok(());
+    }
+
     let mut kind = ArgKind::None;
-    let mut merge = Vec::<String>::new();
-    let mut input = Vec::<String>::new();
-    let mut reference = Vec::<String>::new();
-    let mut output = String::new();
-    let mut winrt = true;
+    let mut output = None;
+    let mut input = Vec::<&str>::new();
+    let mut include = Vec::<&str>::new();
+    let mut exclude = Vec::<&str>::new();
+    let mut format = false;
+    let mut verbose = false;
 
-    for arg in std::env::args().skip(1) {
+    for arg in &args {
         if arg.starts_with('-') {
             kind = ArgKind::None;
         }
+
         match kind {
             ArgKind::None => match arg.as_str() {
-                "-merge" => kind = ArgKind::Merge,
-                "-input" => kind = ArgKind::Input,
-                "-ref" => kind = ArgKind::Reference,
-                "-output" => kind = ArgKind::Output,
-                "-win32" => {
-                    winrt = false;
-                    kind = ArgKind::None;
-                }
-                _ => print_help()?,
+                "-in" => kind = ArgKind::Input,
+                "-out" => kind = ArgKind::Output,
+                "-filter" => kind = ArgKind::Filter,
+                "-format" => format = true,
+                "-verbose" => verbose = true,
+                _ => return Err(Error::new(&format!("invalid option: `{arg}`"))),
             },
-            ArgKind::Merge => merge.push(arg),
-            ArgKind::Input => input.push(arg),
-            ArgKind::Reference => reference.push(arg),
             ArgKind::Output => {
-                if output.is_empty() {
-                    output = arg;
+                if output.is_none() {
+                    output = Some(arg.as_str());
                 } else {
-                    print_help()?;
+                    return Err(Error::new("too many outputs"));
+                }
+            }
+            ArgKind::Input => input.push(arg.as_str()),
+            ArgKind::Filter => {
+                if let Some(rest) = arg.strip_prefix('!') {
+                    exclude.push(rest);
+                } else {
+                    include.push(arg.as_str());
                 }
             }
         }
     }
 
-    if merge.len() + input.len() == 0 || output.is_empty() {
-        print_help()?;
+    if format {
+        if output.is_some() || !include.is_empty() || !exclude.is_empty() {
+            return Err(Error::new("-format cannot be combined with -output, -include, or -exclude"));
+        }
+
+        let input = filter_input(input, &["idl"])?;
+
+        if input.is_empty() {
+            return Err(Error::new("no .idl inputs"));
+        }
+
+        for path in &input {
+            let source = read_to_string(path)?;
+            write_to_file(path, writer::format_idl(&source).map_err(|error| error.with_path(path))?)?;
+        }
+
+        return Ok(());
     }
 
-    let mut items = Vec::new();
+    let input = filter_input(input, &["winmd", "idl"])?;
 
-    // for merge in merge {
-    //     // TODO: write the types in the winmd into `items`
-    // }
+    if input.is_empty() {
+        return Err(Error::new("no inputs"));
+    }
 
-    for filename in &input {
-        let mut file = std::fs::File::open(filename).map_err(|_| format!("failed to open `{filename}`"))?;
-        let mut source = String::new();
-        file.read_to_string(&mut source).map_err(|_| format!("failed to read `{filename}`"))?;
+    let Some(output) = output else {
+        return Err(Error::new("no output"));
+    };
 
-        if let Err(error) = parse_str::<Module>(&source).and_then(|module| module.to_writer(module.name.to_string(), &mut items)) {
-            let start = error.span().start();
-            let filename = std::fs::canonicalize(filename).map_err(|_| format!("failed to canonicalize `{filename}`"))?;
-            return Err(format!("{error}\n  --> {}:{:?}:{:?} ", filename.to_string_lossy().trim_start_matches(r#"\\?\"#), start.line, start.column));
+    let filter = reader::Filter::new(&include, &exclude);
+    let module = writer::Module::read(&input, &filter)?;
+
+    //dbg!(&module);
+
+    module.write(output)?;
+
+    if verbose {
+        println!("  Finished writing `{}` in {:.2}s", canonicalize(output)?, time.elapsed().as_secs_f32());
+    }
+
+    Ok(())
+}
+
+fn filter_input(input: Vec<&str>, filter: &[&str]) -> Result<Vec<String>> {
+    fn try_push(path: &str, filter: &[&str], results: &mut Vec<String>) -> Result<()> {
+        let path = canonicalize(path)?;
+
+        if filter.contains(&extension(&path).1) {
+            results.push(path);
+        }
+
+        Ok(())
+    }
+
+    let mut results = vec![];
+
+    for input in &input {
+        let path = std::path::Path::new(input);
+
+        if path.is_dir() {
+            for entry in path.read_dir().map_err(|_| Error::new("failed to read directory").with_path(input))?.flatten() {
+                let path = entry.path();
+
+                if path.is_file() {
+                    try_push(&path.to_string_lossy(), filter, &mut results)?;
+                }
+            }
+        } else {
+            try_push(&path.to_string_lossy(), filter, &mut results)?;
         }
     }
-
-    let buffer = writer::write("test", winrt, &items, &[]);
-    std::fs::write(&output, buffer).map_err(|_| format!("failed to write `{output}`"))
-}
-
-fn print_help() -> ToolResult {
-    Err(r#"riddle.exe [options...]
-
-options:
-  -input  <path>  Path to source file with type definitions to parse
-  -merge  <path>  Path to file or directory containing .winmd files to merge
-  -ref    <path>  Path to file or directory containing .winmd files to reference
-  -output <path>  Path to .winmd file to generate
-  -win32          Kind of .winmd to generate; default is WinRT
-
-examples:
-  riddle -input first.rs second.rs -output out.winmd -ref local
-  riddle -merge first.winmd second.winmd -output out.winmd
-"#
-    .to_string())
-}
-
-enum ArgKind {
-    None,
-    Merge,
-    Input,
-    Reference,
-    Output,
+    Ok(results)
 }

@@ -57,7 +57,6 @@ impl IBackgroundTaskInstance_Vtbl {
             match this.InstanceId() {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
-                    ::core::mem::forget(ok__);
                     ::windows_core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -81,7 +80,6 @@ impl IBackgroundTaskInstance_Vtbl {
             match this.Progress() {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
-                    ::core::mem::forget(ok__);
                     ::windows_core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -110,7 +108,6 @@ impl IBackgroundTaskInstance_Vtbl {
             match this.Canceled(::windows_core::from_raw_borrowed(&cancelhandler)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
-                    ::core::mem::forget(ok__);
                     ::windows_core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -127,7 +124,6 @@ impl IBackgroundTaskInstance_Vtbl {
             match this.SuspendedCount() {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
-                    ::core::mem::forget(ok__);
                     ::windows_core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -180,7 +176,6 @@ impl IBackgroundTaskInstance2_Vtbl {
             match this.GetThrottleCount(counter) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
-                    ::core::mem::forget(ok__);
                     ::windows_core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -249,7 +244,6 @@ impl IBackgroundTaskRegistration_Vtbl {
             match this.TaskId() {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
-                    ::core::mem::forget(ok__);
                     ::windows_core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -273,7 +267,6 @@ impl IBackgroundTaskRegistration_Vtbl {
             match this.Progress(::windows_core::from_raw_borrowed(&handler)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
-                    ::core::mem::forget(ok__);
                     ::windows_core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -290,7 +283,6 @@ impl IBackgroundTaskRegistration_Vtbl {
             match this.Completed(::windows_core::from_raw_borrowed(&handler)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
-                    ::core::mem::forget(ok__);
                     ::windows_core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

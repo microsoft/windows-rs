@@ -134,6 +134,7 @@ jobs:
           cargo test -p tool_gnu &&
           cargo test -p tool_lib &&
           cargo test -p tool_license &&
+          cargo test -p tool_metadata &&
           cargo test -p tool_msvc &&
           cargo test -p tool_sys &&
           cargo test -p tool_windows &&

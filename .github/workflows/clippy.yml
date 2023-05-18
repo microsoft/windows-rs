@@ -127,6 +127,7 @@ jobs:
           cargo clippy -p tool_gnu &&
           cargo clippy -p tool_lib &&
           cargo clippy -p tool_license &&
+          cargo clippy -p tool_metadata &&
           cargo clippy -p tool_msvc &&
           cargo clippy -p tool_sys &&
           cargo clippy -p tool_windows &&

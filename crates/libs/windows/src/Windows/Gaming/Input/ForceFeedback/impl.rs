@@ -17,7 +17,6 @@ impl IForceFeedbackEffect_Vtbl {
             match this.Gain() {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
-                    ::core::mem::forget(ok__);
                     ::windows_core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -34,7 +33,6 @@ impl IForceFeedbackEffect_Vtbl {
             match this.State() {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
-                    ::core::mem::forget(ok__);
                     ::windows_core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

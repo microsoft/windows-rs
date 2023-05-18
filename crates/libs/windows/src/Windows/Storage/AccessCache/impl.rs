@@ -142,7 +142,6 @@ impl IStorageItemAccessList_Vtbl {
             match this.ContainsItem(::core::mem::transmute(&token)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
-                    ::core::mem::forget(ok__);
                     ::windows_core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -159,7 +158,6 @@ impl IStorageItemAccessList_Vtbl {
             match this.CheckAccess(::windows_core::from_raw_borrowed(&file)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
-                    ::core::mem::forget(ok__);
                     ::windows_core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -183,7 +181,6 @@ impl IStorageItemAccessList_Vtbl {
             match this.MaximumItemsAllowed() {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
-                    ::core::mem::forget(ok__);
                     ::windows_core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

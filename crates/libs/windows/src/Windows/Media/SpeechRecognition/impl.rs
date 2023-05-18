@@ -19,7 +19,6 @@ impl ISpeechRecognitionConstraint_Vtbl {
             match this.IsEnabled() {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
-                    ::core::mem::forget(ok__);
                     ::windows_core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -53,7 +52,6 @@ impl ISpeechRecognitionConstraint_Vtbl {
             match this.Type() {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
-                    ::core::mem::forget(ok__);
                     ::windows_core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -65,7 +63,6 @@ impl ISpeechRecognitionConstraint_Vtbl {
             match this.Probability() {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
-                    ::core::mem::forget(ok__);
                     ::windows_core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

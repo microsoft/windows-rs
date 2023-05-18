@@ -121,7 +121,7 @@ pub fn gen(
         SignatureKind::ReturnStruct => {
             let args = gen.win32_args(&signature.params, kind);
             let params = gen.win32_params(&signature.params, kind);
-            let return_type = gen.type_name(&signature.return_type.unwrap());
+            let return_type = gen.type_name(&signature.return_type);
 
             quote! {
                 #doc

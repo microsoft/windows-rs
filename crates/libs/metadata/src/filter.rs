@@ -49,11 +49,11 @@ impl<'a> Filter<'a> {
         false
     }
 
-    pub fn includes_type(&self, reader: &Reader, ty: TypeDef) -> bool {
+    pub fn includes_type(&self, reader: &reader::Reader, ty: reader::TypeDef) -> bool {
         self.includes_type_name(reader.type_def_type_name(ty))
     }
 
-    fn includes_type_name(&self, type_name: TypeName) -> bool {
+    pub fn includes_type_name(&self, type_name: reader::TypeName) -> bool {
         if self.is_empty() {
             return true;
         }
@@ -93,7 +93,7 @@ mod tests {
     use super::*;
 
     fn includes_type_name(filter: &Filter, full_name: &str) -> bool {
-        filter.includes_type_name(TypeName::parse(full_name))
+        filter.includes_type_name(reader::TypeName::parse(full_name))
     }
 
     #[test]

@@ -24,7 +24,6 @@ impl IGameController_Vtbl {
             match this.HeadsetConnected(::windows_core::from_raw_borrowed(&value)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
-                    ::core::mem::forget(ok__);
                     ::windows_core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -41,7 +40,6 @@ impl IGameController_Vtbl {
             match this.HeadsetDisconnected(::windows_core::from_raw_borrowed(&value)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
-                    ::core::mem::forget(ok__);
                     ::windows_core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -58,7 +56,6 @@ impl IGameController_Vtbl {
             match this.UserChanged(::windows_core::from_raw_borrowed(&value)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
-                    ::core::mem::forget(ok__);
                     ::windows_core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -87,7 +84,6 @@ impl IGameController_Vtbl {
             match this.IsWireless() {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
-                    ::core::mem::forget(ok__);
                     ::windows_core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

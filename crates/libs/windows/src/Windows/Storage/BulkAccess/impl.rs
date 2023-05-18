@@ -97,7 +97,6 @@ impl IStorageItemInformation_Vtbl {
             match this.ThumbnailUpdated(::windows_core::from_raw_borrowed(&changedhandler)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
-                    ::core::mem::forget(ok__);
                     ::windows_core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -114,7 +113,6 @@ impl IStorageItemInformation_Vtbl {
             match this.PropertiesUpdated(::windows_core::from_raw_borrowed(&changedhandler)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
-                    ::core::mem::forget(ok__);
                     ::windows_core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

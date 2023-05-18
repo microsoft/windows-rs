@@ -6,4 +6,4 @@ publish = false
 
 [dependencies]
 metadata = { package = "windows-metadata", path = "../../libs/metadata" }
-regex = "1.7.0"
+regex = "1.7"

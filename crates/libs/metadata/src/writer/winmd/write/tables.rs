@@ -1,6 +1,6 @@
 #![allow(non_snake_case)]
 
-use super::*;
+use super::{coded_index_size, Write};
 
 #[derive(Default)]
 pub struct Tables {
@@ -161,7 +161,7 @@ pub struct TypeSpec {
 }
 
 impl Tables {
-    pub fn stream(self) -> Vec<u8> {
+    pub fn into_stream(self) -> Vec<u8> {
         let resolution_scope = coded_index_size(&[self.Module.len(), self.ModuleRef.len(), self.AssemblyRef.len(), self.TypeRef.len()]);
         let type_def_or_ref = coded_index_size(&[self.TypeDef.len(), self.TypeRef.len(), self.TypeSpec.len()]);
         let has_constant = coded_index_size(&[self.Field.len(), self.Param.len(), self.Property.len()]);
@@ -281,7 +281,6 @@ impl Tables {
             buffer.write_u32(x.HashValue);
         }
 
-        buffer.resize(round(buffer.len(), 4), 0);
-        buffer
+        buffer.into_stream()
     }
 }

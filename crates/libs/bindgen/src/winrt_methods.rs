@@ -25,46 +25,50 @@ pub fn gen(
     let args = gen_winrt_abi_args(gen, params);
     let params = gen_winrt_params(gen, params);
 
-    let return_type_tokens = if let Some(return_type) = &signature.return_type {
-        let tokens = gen.type_name(return_type);
-        if return_type.is_winrt_array() {
-            quote! { ::windows_core::Array<#tokens> }
-        } else {
-            quote! { #tokens }
+    let return_type_tokens = match &signature.return_type {
+        Type::Void => quote! { () },
+        _ => {
+            let tokens = gen.type_name(&signature.return_type);
+            if signature.return_type.is_winrt_array() {
+                quote! { ::windows_core::Array<#tokens> }
+            } else {
+                quote! { #tokens }
+            }
         }
-    } else {
-        quote! { () }
     };
 
-    let return_arg = if let Some(return_type) = &signature.return_type {
-        if return_type.is_winrt_array() {
-            let return_type = gen.type_name(return_type);
-            quote! { ::windows_core::Array::<#return_type>::set_abi_len(::std::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _ }
-        } else {
-            quote! { &mut result__ }
+    let return_arg = match &signature.return_type {
+        Type::Void => quote! {},
+        _ => {
+            if signature.return_type.is_winrt_array() {
+                let return_type = gen.type_name(&signature.return_type);
+                quote! { ::windows_core::Array::<#return_type>::set_abi_len(::std::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _ }
+            } else {
+                quote! { &mut result__ }
+            }
         }
-    } else {
-        quote! {}
     };
 
-    let vcall = if let Some(return_type) = &signature.return_type {
-        if return_type.is_winrt_array() {
+    let vcall = match &signature.return_type {
+        Type::Void => {
+            quote! {
+                (::windows_core::Interface::vtable(this).#vname)(::windows_core::Interface::as_raw(this), #args).ok()
+            }
+        }
+        _ if signature.return_type.is_winrt_array() => {
             quote! {
                 let mut result__ = ::core::mem::MaybeUninit::zeroed();
                 (::windows_core::Interface::vtable(this).#vname)(::windows_core::Interface::as_raw(this), #args #return_arg)
                     .and_then(|| result__.assume_init())
             }
-        } else {
-            let return_type = gen.type_name(return_type);
+        }
+        _ => {
+            let return_type = gen.type_name(&signature.return_type);
             quote! {
                 let mut result__ = ::windows_core::zeroed::<#return_type>();
                     (::windows_core::Interface::vtable(this).#vname)(::windows_core::Interface::as_raw(this), #args #return_arg)
                         .from_abi(result__)
             }
-        }
-    } else {
-        quote! {
-            (::windows_core::Interface::vtable(this).#vname)(::windows_core::Interface::as_raw(this), #args).ok()
         }
     };
 
@@ -161,7 +165,7 @@ fn gen_winrt_abi_args(gen: &Gen, params: &[SignatureParam]) -> TokenStream {
             } else if gen.reader.signature_param_is_borrowed(param) {
                 quote! { #name.into_param().abi(), }
             } else if gen.reader.type_is_blittable(&param.ty) {
-                if param.ty.is_winrt_const_ref() {
+                if param.ty.is_const_ref() {
                     quote! { &#name, }
                 } else {
                     quote! { #name, }
@@ -194,7 +198,10 @@ pub fn gen_upcall(gen: &Gen, sig: &Signature, inner: TokenStream) -> TokenStream
         .map(|param| gen_winrt_invoke_arg(gen, param));
 
     match &sig.return_type {
-        Some(return_type) if return_type.is_winrt_array() => {
+        Type::Void => quote! {
+            #inner(#(#invoke_args,)*).into()
+        },
+        _ if sig.return_type.is_winrt_array() => {
             quote! {
                 match #inner(#(#invoke_args,)*) {
                     ::core::result::Result::Ok(ok__) => {
@@ -208,22 +215,25 @@ pub fn gen_upcall(gen: &Gen, sig: &Signature, inner: TokenStream) -> TokenStream
                 }
             }
         }
-        Some(_) => {
+        _ => {
+            let forget = if gen.reader.type_is_blittable(&sig.return_type) {
+                quote! {}
+            } else {
+                quote! { ::core::mem::forget(ok__); }
+            };
+
             quote! {
                 match #inner(#(#invoke_args,)*) {
                     ::core::result::Result::Ok(ok__) => {
                         // use `core::ptr::write` since `result` could be uninitialized
                         ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
-                        ::core::mem::forget(ok__);
+                        #forget
                         ::windows_core::HRESULT(0)
                     }
                     ::core::result::Result::Err(err) => err.into()
                 }
             }
         }
-        None => quote! {
-            #inner(#(#invoke_args,)*).into()
-        },
     }
 }
 
@@ -241,7 +251,7 @@ fn gen_winrt_invoke_arg(gen: &Gen, param: &SignatureParam) -> TokenStream {
             quote! { ::core::slice::from_raw_parts(::core::mem::transmute_copy(&#name), #abi_size_name as _) }
         } else if gen.reader.type_is_primitive(&param.ty) {
             quote! { #name }
-        } else if param.ty.is_winrt_const_ref() {
+        } else if param.ty.is_const_ref() {
             quote! { ::core::mem::transmute_copy(&#name) }
         } else if gen.reader.type_is_nullable(&param.ty) {
             quote! { ::windows_core::from_raw_borrowed(&#name) }

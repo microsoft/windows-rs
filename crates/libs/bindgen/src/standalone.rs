@@ -37,9 +37,11 @@ fn standalone_imp(gen: &mut Gen, names: &[&str]) -> String {
     let mut constants = BTreeSet::new();
 
     for name in names {
+        let mut found = false;
         let type_name = TypeName::parse(name);
 
         for def in gen.reader.get(type_name) {
+            found = true;
             gen.reader
                 .type_collect_standalone(&Type::TypeDef((def, vec![])), &mut types);
         }
@@ -49,12 +51,11 @@ fn standalone_imp(gen: &mut Gen, names: &[&str]) -> String {
             .namespace_functions(type_name.namespace)
             .filter(|method| gen.reader.method_def_name(*method) == type_name.name)
         {
+            found = true;
             functions.insert(method);
             let signature = gen.reader.method_def_signature(method, &[]);
-            signature
-                .return_type
-                .iter()
-                .for_each(|ty| gen.reader.type_collect_standalone(ty, &mut types));
+            gen.reader
+                .type_collect_standalone(&signature.return_type, &mut types);
             signature
                 .params
                 .iter()
@@ -66,6 +67,7 @@ fn standalone_imp(gen: &mut Gen, names: &[&str]) -> String {
             .namespace_constants(type_name.namespace)
             .find(|field| gen.reader.field_name(*field) == type_name.name)
         {
+            found = true;
             constants.insert(field);
             gen.reader.type_collect_standalone(
                 &gen.reader.field_type(field, None).to_const_type(),
@@ -86,10 +88,13 @@ fn standalone_imp(gen: &mut Gen, names: &[&str]) -> String {
                 None
             })
         {
+            found = true;
             constants.insert(field);
             gen.reader
                 .type_collect_standalone(&gen.reader.field_type(field, None), &mut types);
         }
+
+        assert!(found, "{} not found", type_name);
     }
 
     let mut sorted = SortedTokens::default();
@@ -173,9 +178,9 @@ fn standalone_imp(gen: &mut Gen, names: &[&str]) -> String {
                         sorted.insert(gen.reader.type_def_name(def), enums::gen(gen, def));
                     }
                     TypeKind::Struct => {
+                        let name = gen.reader.type_def_name(def);
                         if gen.reader.type_def_fields(def).next().is_none() {
                             if let Some(guid) = gen.reader.type_def_guid(def) {
-                                let name = gen.reader.type_def_name(def);
                                 let ident = to_ident(name);
                                 let value = gen.guid(&guid);
                                 let guid = gen.type_name(&Type::GUID);
@@ -188,7 +193,7 @@ fn standalone_imp(gen: &mut Gen, names: &[&str]) -> String {
                                 continue;
                             }
                         }
-                        sorted.insert(gen.reader.type_def_name(def), structs::gen(gen, def));
+                        sorted.insert(name, structs::gen(gen, def));
                     }
                     TypeKind::Delegate => {
                         sorted.insert(gen.reader.type_def_name(def), delegates::gen(gen, def));
@@ -212,7 +217,7 @@ fn standalone_imp(gen: &mut Gen, names: &[&str]) -> String {
 
     for constant in constants {
         sorted.insert(
-            &format!("{}", gen.reader.field_name(constant)),
+            gen.reader.field_name(constant),
             constants::gen(gen, constant),
         );
     }

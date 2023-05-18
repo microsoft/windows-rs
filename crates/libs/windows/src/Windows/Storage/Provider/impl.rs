@@ -46,7 +46,6 @@ impl IStorageProviderPropertyCapabilities_Vtbl {
             match this.IsPropertySupported(::core::mem::transmute(&propertycanonicalname)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
-                    ::core::mem::forget(ok__);
                     ::windows_core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -93,7 +92,6 @@ impl IStorageProviderStatusUISource_Vtbl {
             match this.StatusUIChanged(::windows_core::from_raw_borrowed(&handler)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
-                    ::core::mem::forget(ok__);
                     ::windows_core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -203,7 +201,6 @@ impl IStorageProviderUICommand_Vtbl {
             match this.State() {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
-                    ::core::mem::forget(ok__);
                     ::windows_core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
