@@ -64,8 +64,8 @@ Options:
             }
             ArgKind::Input => input.push(arg.as_str()),
             ArgKind::Filter => {
-                if arg.starts_with('!') {
-                    exclude.push(&arg[1..]);
+                if let Some(rest) = arg.strip_prefix('!') {
+                    exclude.push(rest);
                 } else {
                     include.push(arg.as_str());
                 }
@@ -86,7 +86,7 @@ Options:
 
         for path in &input {
             let source = read_to_string(path)?;
-            write_to_file(path, writer::format_idl(&source).map_err(|error| error.with_path(&path))?)?;
+            write_to_file(path, writer::format_idl(&source).map_err(|error| error.with_path(path))?)?;
         }
 
         return Ok(());
@@ -146,4 +146,3 @@ fn filter_input(input: Vec<&str>, filter: &[&str]) -> Result<Vec<String>> {
     }
     Ok(results)
 }
-
