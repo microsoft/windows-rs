@@ -33,7 +33,7 @@ pub fn write_winmd(module: &Module, path: &str) -> Result<()> {
 
     gen.insert_module_types(module);
 
-    let file = file::write(gen.tables.into_stream(), gen.strings.into_stream(), gen.blobs.into_stream());
+    let file = file::write(gen.tables.into_stream()?, gen.strings.into_stream(), gen.blobs.into_stream())?;
     write_to_file(path, file)
 }
 
@@ -117,7 +117,7 @@ impl<'a> Gen<'a> {
         // TODO: can either cache in Gen, like we do for scopes and references, or regenerate each time.
         // Profile once we can stress test this with field/method signatures.
 
-        let mut blob = vec![0x20]; // HASTHIS
+        let mut blob = vec![method.call_flags.0];
         u32_blob(method.params.len() as _, &mut blob);
         self.type_blob(&method.return_type.ty, &mut blob);
         for param in &method.params {

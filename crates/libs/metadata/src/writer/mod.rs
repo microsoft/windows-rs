@@ -193,12 +193,12 @@ pub struct Param {
 #[derive(Default, Debug)]
 pub struct Method {
     flags: MethodAttributes,
+    call_flags: MethodCallAttributes,
     name: String,
     params: Vec<Param>,
     return_type: Param,
     //attributes: Vec<Attribute>,
     //impl_flags: MethodImplAttributes,
-    vararg: bool,
 }
 
 #[derive(Debug)]

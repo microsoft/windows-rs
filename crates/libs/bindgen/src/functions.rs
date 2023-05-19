@@ -207,7 +207,7 @@ fn gen_link(gen: &Gen, signature: &Signature, cfg: &Cfg) -> TokenStream {
 
     let return_type = gen.return_sig(signature);
 
-    let vararg = if gen.sys && signature.vararg {
+    let vararg = if gen.sys && signature.call_flags.contains(MethodCallAttributes::VARARG) {
         "...".into()
     } else {
         quote! {}
