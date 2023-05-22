@@ -24,24 +24,25 @@ pub fn read_winmd(module: &mut Module, paths: &[String], filter: &Filter) -> Res
 
 fn read_type_def(reader: &reader::Reader, ty: reader::TypeDef) -> Result<TypeDef> {
     let mut result = TypeDef { flags: reader.type_def_flags(ty), ..Default::default() };
-
     result.extends = reader.type_def_extends(ty).map(|extends| TypeRef { namespace: extends.namespace.to_string(), name: extends.name.to_string(), ..Default::default() });
 
-    for method in reader.type_def_methods(ty) {
-        let flags = reader.method_def_flags(method);
-        let sig = reader.method_def_signature(method, &[]);
-        let name = reader.method_def_name(method).to_string();
-        let mut params = vec![];
+    if result.flags.contains(TypeAttributes::INTERFACE) || !result.flags.contains(TypeAttributes::WINRT) {
+        for method in reader.type_def_methods(ty) {
+            let flags = reader.method_def_flags(method);
+            let sig = reader.method_def_signature(method, &[]);
+            let name = reader.method_def_name(method).to_string();
+            let mut params = vec![];
 
-        for param in sig.params {
-            let flags = reader.param_flags(param.def);
-            let name = reader.param_name(param.def).to_string();
-            let ty = read_type(reader, &param.ty)?;
-            params.push(Param { flags, name, ty });
+            for param in sig.params {
+                let flags = reader.param_flags(param.def);
+                let name = reader.param_name(param.def).to_string();
+                let ty = read_type(reader, &param.ty)?;
+                params.push(Param { flags, name, ty });
+            }
+
+            let return_type = Param { ty: read_type(reader, &sig.return_type)?, ..Default::default() };
+            result.methods.push(Method { flags, name, params, return_type, ..Default::default() });
         }
-
-        let return_type = Param { ty: read_type(reader, &sig.return_type)?, ..Default::default() };
-        result.methods.push(Method { flags, name, params, return_type, ..Default::default() });
     }
 
     for field in reader.type_def_fields(ty) {
