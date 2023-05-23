@@ -105,8 +105,7 @@ Options:
     let filter = reader::Filter::new(&include, &exclude);
     let module = writer::Module::read(&input, &filter)?;
 
-    //dbg!(&module);
-
+    module.validate()?;
     module.write(output)?;
 
     if verbose {

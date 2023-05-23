@@ -26,6 +26,12 @@ impl MethodImplAttributes {
     pub const PRESERVE_SIG: Self = Self(0x80);
 }
 
+flags!(MethodCallAttributes, u8);
+impl MethodCallAttributes {
+    pub const HASTHIS: Self = Self(0x20);
+    pub const VARARG: Self = Self(0x05);
+}
+
 flags!(ParamAttributes, u16);
 impl ParamAttributes {
     pub const INPUT: Self = Self(0x1);

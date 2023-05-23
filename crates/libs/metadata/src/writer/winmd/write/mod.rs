@@ -33,7 +33,7 @@ pub fn write_winmd(module: &Module, path: &str) -> Result<()> {
 
     gen.insert_module_types(module);
 
-    let file = file::write(gen.tables.into_stream(), gen.strings.into_stream(), gen.blobs.into_stream());
+    let file = file::write(gen.tables.into_stream()?, gen.strings.into_stream(), gen.blobs.into_stream())?;
     write_to_file(path, file)
 }
 
@@ -103,7 +103,7 @@ impl<'a> Gen<'a> {
             Value::F64(value) => value.to_le_bytes().to_vec(),
             Value::String(value) => {
                 let mut blob = vec![];
-                u32_blob(value.len() as _, &mut blob);
+                usize_blob(value.len(), &mut blob);
                 blob.extend_from_slice(value.as_bytes());
                 blob
             }
@@ -117,8 +117,8 @@ impl<'a> Gen<'a> {
         // TODO: can either cache in Gen, like we do for scopes and references, or regenerate each time.
         // Profile once we can stress test this with field/method signatures.
 
-        let mut blob = vec![0x20]; // HASTHIS
-        u32_blob(method.params.len() as _, &mut blob);
+        let mut blob = vec![method.call_flags.0];
+        usize_blob(method.params.len(), &mut blob);
         self.type_blob(&method.return_type.ty, &mut blob);
         for param in &method.params {
             self.type_blob(&param.ty, &mut blob);
@@ -182,68 +182,68 @@ impl<'a> Gen<'a> {
             Type::GUID => {
                 let code = self.insert_type_ref("System", "Guid");
                 blob.push(ELEMENT_TYPE_VALUETYPE as _);
-                u32_blob(code, blob);
+                usize_blob(code as _, blob);
             }
             Type::HRESULT => {
                 let code = self.insert_type_ref("Windows.Foundation", "HResult");
                 blob.push(ELEMENT_TYPE_VALUETYPE as _);
-                u32_blob(code, blob);
+                usize_blob(code as _, blob);
             }
             Type::TypeRef(ty) => {
                 let code = self.insert_type_ref(&ty.namespace, &ty.name);
                 blob.push(ELEMENT_TYPE_VALUETYPE as _);
-                u32_blob(code, blob);
+                usize_blob(code as _, blob);
             }
             Type::BSTR => {
                 let code = self.insert_type_ref("Windows.Win32.Foundation", "BSTR");
                 blob.push(ELEMENT_TYPE_VALUETYPE as _);
-                u32_blob(code, blob);
+                usize_blob(code as _, blob);
             }
             Type::IUnknown => {
                 let code = self.insert_type_ref("Windows.Win32.Foundation", "IUnknown");
                 blob.push(ELEMENT_TYPE_VALUETYPE as _);
-                u32_blob(code, blob);
+                usize_blob(code as _, blob);
             }
             Type::PCWSTR | Type::PWSTR => {
                 let code = self.insert_type_ref("Windows.Win32.Foundation", "PWSTR");
                 blob.push(ELEMENT_TYPE_VALUETYPE as _);
-                u32_blob(code, blob);
+                usize_blob(code as _, blob);
             }
             Type::PCSTR | Type::PSTR => {
                 let code = self.insert_type_ref("Windows.Win32.Foundation", "PSTR");
                 blob.push(ELEMENT_TYPE_VALUETYPE as _);
-                u32_blob(code, blob);
+                usize_blob(code as _, blob);
             }
             Type::ConstRef(ty) => {
-                u32_blob(ELEMENT_TYPE_CMOD_OPT as _, blob);
-                u32_blob(self.insert_type_ref("System.Runtime.CompilerServices", "IsConst"), blob);
-                u32_blob(ELEMENT_TYPE_BYREF as _, blob);
+                usize_blob(ELEMENT_TYPE_CMOD_OPT as _, blob);
+                usize_blob(self.insert_type_ref("System.Runtime.CompilerServices", "IsConst") as _, blob);
+                usize_blob(ELEMENT_TYPE_BYREF as _, blob);
                 self.type_blob(ty, blob);
             }
             Type::WinrtArrayRef(ty) => {
-                u32_blob(ELEMENT_TYPE_BYREF as _, blob);
-                u32_blob(ELEMENT_TYPE_SZARRAY as _, blob);
+                usize_blob(ELEMENT_TYPE_BYREF as _, blob);
+                usize_blob(ELEMENT_TYPE_SZARRAY as _, blob);
                 self.type_blob(ty, blob);
             }
             Type::WinrtArray(ty) => {
-                u32_blob(ELEMENT_TYPE_SZARRAY as _, blob);
+                usize_blob(ELEMENT_TYPE_SZARRAY as _, blob);
                 self.type_blob(ty, blob);
             }
             Type::Win32Array((ty, bounds)) => {
-                u32_blob(ELEMENT_TYPE_ARRAY as _, blob);
+                usize_blob(ELEMENT_TYPE_ARRAY as _, blob);
                 self.type_blob(ty, blob);
-                u32_blob(1, blob); // rank
-                u32_blob(1, blob); // count
-                u32_blob(*bounds as _, blob);
+                usize_blob(1, blob); // rank
+                usize_blob(1, blob); // count
+                usize_blob(*bounds as _, blob);
             }
             Type::TypeName => {
                 let code = self.insert_type_ref("System", "Type");
                 blob.push(ELEMENT_TYPE_CLASS as _);
-                u32_blob(code, blob);
+                usize_blob(code as _, blob);
             }
             Type::MutPtr((ty, pointers)) | Type::ConstPtr((ty, pointers)) => {
                 for _ in 0..*pointers {
-                    u32_blob(ELEMENT_TYPE_PTR as _, blob);
+                    usize_blob(ELEMENT_TYPE_PTR as _, blob);
                 }
                 self.type_blob(ty, blob);
             }
@@ -257,16 +257,71 @@ fn round(size: usize, round: usize) -> usize {
     (size + round) & !round
 }
 
-fn u32_blob(value: u32, blob: &mut Vec<u8>) {
+fn usize_blob(value: usize, blob: &mut Vec<u8>) {
+    // See II.23.2 in ECMA-335
+    assert!(value < 0x20000000);
+
     if value < 0x80 {
         blob.push(value as _);
     } else if value < 0x4000 {
-        blob.push((0x40 | (value & 0xFF00)) as _);
-        blob.push((value | 0xFF) as _);
+        blob.push((0x80 | (value & 0x3F00) >> 8) as _);
+        blob.push((value & 0xFF) as _);
     } else {
-        blob.push((0x60 | (value & 0xFF000000)) as _);
-        blob.push((value | 0xFF0000) as _);
-        blob.push((value | 0xFF00) as _);
-        blob.push((value | 0xFF) as _);
+        blob.push((0xC0 | (value & 0x1F000000) >> 24) as _);
+        blob.push(((value & 0xFF0000) >> 16) as _);
+        blob.push(((value & 0xFF00) >> 8) as _);
+        blob.push((value & 0xFF) as _);
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_usize_blob() {
+        let mut blob = vec![];
+        usize_blob(0, &mut blob);
+        usize_blob(1, &mut blob);
+        usize_blob(2, &mut blob);
+
+        usize_blob(0x80 - 2, &mut blob);
+        usize_blob(0x80 - 1, &mut blob);
+        usize_blob(0x80 - 0, &mut blob);
+        usize_blob(0x80 + 1, &mut blob);
+        usize_blob(0x80 + 2, &mut blob);
+
+        usize_blob(0x4000 - 2, &mut blob);
+        usize_blob(0x4000 - 1, &mut blob);
+        usize_blob(0x4000 - 0, &mut blob);
+        usize_blob(0x4000 + 1, &mut blob);
+        usize_blob(0x4000 + 2, &mut blob);
+
+        usize_blob(0x20000000 - 3, &mut blob);
+        usize_blob(0x20000000 - 2, &mut blob);
+        usize_blob(0x20000000 - 1, &mut blob);
+
+        let mut blob = reader::Blob::new(0, &blob);
+        assert_eq!(blob.read_usize(), 0);
+        assert_eq!(blob.read_usize(), 1);
+        assert_eq!(blob.read_usize(), 2);
+
+        assert_eq!(blob.read_usize(), 0x80 - 2);
+        assert_eq!(blob.read_usize(), 0x80 - 1);
+        assert_eq!(blob.read_usize(), 0x80 - 0);
+        assert_eq!(blob.read_usize(), 0x80 + 1);
+        assert_eq!(blob.read_usize(), 0x80 + 2);
+
+        assert_eq!(blob.read_usize(), 0x4000 - 2);
+        assert_eq!(blob.read_usize(), 0x4000 - 1);
+        assert_eq!(blob.read_usize(), 0x4000 - 0);
+        assert_eq!(blob.read_usize(), 0x4000 + 1);
+        assert_eq!(blob.read_usize(), 0x4000 + 2);
+
+        assert_eq!(blob.read_usize(), 0x20000000 - 3);
+        assert_eq!(blob.read_usize(), 0x20000000 - 2);
+        assert_eq!(blob.read_usize(), 0x20000000 - 1);
+
+        assert_eq!(blob.slice.len(), 0);
     }
 }

@@ -1,7 +1,11 @@
 use super::*;
 use std::mem::*;
 
-pub fn write(mut tables: Vec<u8>, mut strings: Vec<u8>, mut blobs: Vec<u8>) -> Vec<u8> {
+pub fn write(mut tables: Vec<u8>, mut strings: Vec<u8>, mut blobs: Vec<u8>) -> Result<Vec<u8>> {
+    if [tables.len(), strings.len(), blobs.len()].iter().any(|len| *len > u32::MAX as _) {
+        return Err(Error::new("heap too large"));
+    }
+
     unsafe {
         let mut guids = vec![0; 16]; // zero guid
         let size_of_streams = tables.len() + guids.len() + strings.len() + blobs.len();
@@ -106,7 +110,7 @@ pub fn write(mut tables: Vec<u8>, mut strings: Vec<u8>, mut blobs: Vec<u8>) -> V
         assert_eq!(clr.MetaData.Size as usize, buffer.len() - metadata_offset);
         assert_eq!(size_of_image, buffer.len());
 
-        buffer
+        Ok(buffer)
     }
 }
 

@@ -173,7 +173,10 @@ impl Type {
 }
 
 #[derive(Debug)]
-pub struct Attribute {}
+pub struct Attribute {
+    ty: TypeRef,
+    args: Vec<(String, Value)>,
+}
 
 #[derive(Default, Debug)]
 pub struct Field {
@@ -193,15 +196,15 @@ pub struct Param {
 #[derive(Default, Debug)]
 pub struct Method {
     flags: MethodAttributes,
+    call_flags: MethodCallAttributes,
     name: String,
     params: Vec<Param>,
     return_type: Param,
-    //attributes: Vec<Attribute>,
+    attributes: Vec<Attribute>,
     //impl_flags: MethodImplAttributes,
-    vararg: bool,
 }
 
-#[derive(Debug)]
+#[derive(Clone, Debug)]
 pub enum Value {
     Bool(bool),
     U8(u8),
@@ -215,6 +218,8 @@ pub enum Value {
     F32(f32),
     F64(f64),
     String(String),
+    TypeName(String),
+    Enum(String, Integer),
 }
 
 impl Value {
@@ -233,6 +238,7 @@ impl Value {
             Self::F32(_) => ELEMENT_TYPE_R4 as _,
             Self::F64(_) => ELEMENT_TYPE_R8 as _,
             Self::String(_) => ELEMENT_TYPE_STRING as _,
+            _ => todo!(),
         }
     }
     fn to_expr(&self) -> String {
@@ -249,6 +255,7 @@ impl Value {
             Self::F32(value) => format!("{value}f32"),
             Self::F64(value) => format!("{value}f64"),
             Self::String(value) => value.clone(),
+            _ => todo!(),
         }
     }
     fn neg(&self) -> Self {
@@ -265,7 +272,7 @@ impl Value {
             Self::I64(value) => Self::I64(value.neg()),
             Self::F32(value) => Self::F32(value.neg()),
             Self::F64(value) => Self::F64(value.neg()),
-            Self::String(value) => Self::String(value.clone()),
+            _ => todo!(),
         }
     }
 }
