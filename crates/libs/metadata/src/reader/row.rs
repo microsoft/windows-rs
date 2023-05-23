@@ -13,3 +13,9 @@ impl Row {
         Self { row: self.row + 1, table: self.table, file: self.file }
     }
 }
+
+impl std::fmt::Debug for Row {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_tuple("Row").field(&self.file).field(&self.table).field(&self.row).finish()
+    }
+}

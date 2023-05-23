@@ -30,6 +30,7 @@ pub enum Type {
     TypeName,
     GenericParam(GenericParam),
     TypeDef((TypeDef, Vec<Self>)),
+    // TypeRef(String),
     MutPtr((Box<Self>, usize)),
     ConstPtr((Box<Self>, usize)),
     Win32Array((Box<Self>, usize)),

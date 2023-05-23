@@ -24,6 +24,7 @@ pub fn read_winmd(module: &mut Module, paths: &[String], filter: &Filter) -> Res
 
 fn read_type_def(reader: &reader::Reader, ty: reader::TypeDef) -> Result<TypeDef> {
     let mut result = TypeDef { flags: reader.type_def_flags(ty), ..Default::default() };
+    result.attributes = read_attributes(reader, reader.type_def_attributes(ty))?;
     result.extends = reader.type_def_extends(ty).map(|extends| TypeRef { namespace: extends.namespace.to_string(), name: extends.name.to_string(), ..Default::default() });
 
     if result.flags.contains(TypeAttributes::INTERFACE) || !result.flags.contains(TypeAttributes::WINRT) {
@@ -31,6 +32,7 @@ fn read_type_def(reader: &reader::Reader, ty: reader::TypeDef) -> Result<TypeDef
             let flags = reader.method_def_flags(method);
             let sig = reader.method_def_signature(method, &[]);
             let name = reader.method_def_name(method).to_string();
+            let attributes = read_attributes(reader, reader.method_def_attributes(method))?;
             let mut params = vec![];
 
             for param in sig.params {
@@ -41,7 +43,7 @@ fn read_type_def(reader: &reader::Reader, ty: reader::TypeDef) -> Result<TypeDef
             }
 
             let return_type = Param { ty: read_type(reader, &sig.return_type)?, ..Default::default() };
-            result.methods.push(Method { flags, name, params, return_type, ..Default::default() });
+            result.methods.push(Method { flags, name, params, return_type, attributes, ..Default::default() });
         }
     }
 
@@ -52,7 +54,7 @@ fn read_type_def(reader: &reader::Reader, ty: reader::TypeDef) -> Result<TypeDef
 
         let value = if flags.contains(FieldAttributes::LITERAL) {
             let constant = reader.field_constant(field).unwrap();
-            read_value(&reader.constant_value(constant)).ok()
+            read_value(reader, &reader.constant_value(constant)).ok()
         } else {
             None
         };
@@ -63,7 +65,25 @@ fn read_type_def(reader: &reader::Reader, ty: reader::TypeDef) -> Result<TypeDef
     Ok(result)
 }
 
-fn read_value(value: &reader::Value) -> Result<Value> {
+fn read_attributes(reader: &reader::Reader, attributes: impl Iterator<Item = reader::Attribute>) -> Result<Vec<Attribute>> {
+    let mut result = vec![];
+
+    for attribute in attributes {
+        let ty = reader.attribute_type_name(attribute);
+        let ty = TypeRef{ namespace: ty.namespace.to_string(), name: ty.name.to_string(), generics: vec![] };
+        let mut args = vec![];
+
+        for (name, value) in reader.attribute_args(attribute) {
+            args.push((name, read_value(reader, &value)?));
+        }
+
+        result.push(Attribute{ ty, args });
+    }
+
+    Ok(result)
+}
+
+fn read_value(reader: &reader::Reader, value: &reader::Value) -> Result<Value> {
     match value {
         reader::Value::Bool(value) => Ok(Value::Bool(*value)),
         reader::Value::U8(value) => Ok(Value::U8(*value)),
@@ -77,7 +97,8 @@ fn read_value(value: &reader::Value) -> Result<Value> {
         reader::Value::F32(value) => Ok(Value::F32(*value)),
         reader::Value::F64(value) => Ok(Value::F64(*value)),
         reader::Value::String(value) => Ok(Value::String(value.clone())),
-        _ => todo!(),
+        reader::Value::TypeDef(def) => Ok(Value::TypeName(format!("{}", reader.type_def_type_name(*def)))),
+        reader::Value::Enum(def, value) => Ok(Value::Enum(format!("{}", reader.type_def_type_name(*def)), *value)),
     }
 }
 
@@ -119,6 +140,7 @@ fn read_type(reader: &reader::Reader, ty: &reader::Type) -> Result<Type> {
 
             Type::TypeRef(TypeRef { namespace: reader.type_def_namespace(*ty).to_string(), name: reader.type_def_name(*ty).to_string(), generics })
         }
+        //reader::Type::TypeRef(type_name) 
         reader::Type::MutPtr((ty, pointers)) => Type::MutPtr((Box::new(read_type(reader, ty)?), *pointers)),
         reader::Type::ConstPtr((ty, pointers)) => Type::ConstPtr((Box::new(read_type(reader, ty)?), *pointers)),
         reader::Type::Win32Array((ty, pointers)) => Type::Win32Array((Box::new(read_type(reader, ty)?), *pointers)),
