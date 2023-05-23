@@ -70,14 +70,14 @@ fn read_attributes(reader: &reader::Reader, attributes: impl Iterator<Item = rea
 
     for attribute in attributes {
         let ty = reader.attribute_type_name(attribute);
-        let ty = TypeRef{ namespace: ty.namespace.to_string(), name: ty.name.to_string(), generics: vec![] };
+        let ty = TypeRef { namespace: ty.namespace.to_string(), name: ty.name.to_string(), generics: vec![] };
         let mut args = vec![];
 
         for (name, value) in reader.attribute_args(attribute) {
             args.push((name, read_value(reader, &value)?));
         }
 
-        result.push(Attribute{ ty, args });
+        result.push(Attribute { ty, args });
     }
 
     Ok(result)
@@ -140,7 +140,7 @@ fn read_type(reader: &reader::Reader, ty: &reader::Type) -> Result<Type> {
 
             Type::TypeRef(TypeRef { namespace: reader.type_def_namespace(*ty).to_string(), name: reader.type_def_name(*ty).to_string(), generics })
         }
-        //reader::Type::TypeRef(type_name) 
+        //reader::Type::TypeRef(type_name)
         reader::Type::MutPtr((ty, pointers)) => Type::MutPtr((Box::new(read_type(reader, ty)?), *pointers)),
         reader::Type::ConstPtr((ty, pointers)) => Type::ConstPtr((Box::new(read_type(reader, ty)?), *pointers)),
         reader::Type::Win32Array((ty, pointers)) => Type::Win32Array((Box::new(read_type(reader, ty)?), *pointers)),

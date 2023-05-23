@@ -175,7 +175,7 @@ impl Type {
 #[derive(Debug)]
 pub struct Attribute {
     ty: TypeRef,
-    args: Vec<(String, Value)>
+    args: Vec<(String, Value)>,
 }
 
 #[derive(Default, Debug)]
