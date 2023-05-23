@@ -24,7 +24,9 @@ fn module_to_idl(name: &str, module: &Module) -> TokenStream {
 }
 
 fn type_def_to_idl(module: &Module, name: &str, ty: &TypeDef) -> TokenStream {
-    if let Some(extends) = &ty.extends {
+    let attributes = attributes_to_idl(&ty.attributes);
+
+    let ty = if let Some(extends) = &ty.extends {
         if extends.namespace == "System" {
             if extends.name == "Enum" {
                 enum_to_idl(module, name, ty)
@@ -40,6 +42,11 @@ fn type_def_to_idl(module: &Module, name: &str, ty: &TypeDef) -> TokenStream {
         }
     } else {
         interface_to_idl(module, name, ty)
+    };
+
+    quote! {
+        #attributes
+        #ty
     }
 }
 
@@ -81,6 +88,19 @@ fn struct_to_idl(module: &Module, name: &str, ty: &TypeDef) -> TokenStream {
         struct #name {
             #(#fields),*
         }
+    }
+}
+
+fn attributes_to_idl(attributes: &[Attribute]) -> TokenStream {
+    let attributes = attributes.iter().map(|attribute| {
+        let name = to_ident(&attribute.ty.name);
+        quote! {
+            #[#name]
+        }
+    });
+
+    quote! {
+        #(#attributes)*
     }
 }
 

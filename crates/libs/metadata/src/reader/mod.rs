@@ -1350,7 +1350,7 @@ impl<'a> Reader<'a> {
         self.row_str(row.0, 2)
     }
     pub fn type_ref_type_name(&self, row: TypeRef) -> TypeName {
-        TypeName::new(self.type_ref_name(row), self.type_ref_namespace(row))
+        TypeName::new(self.type_ref_namespace(row), self.type_ref_name(row))
     }
 
     //
