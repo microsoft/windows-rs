@@ -140,7 +140,6 @@ fn read_type(reader: &reader::Reader, ty: &reader::Type) -> Result<Type> {
 
             Type::TypeRef(TypeRef { namespace: reader.type_def_namespace(*ty).to_string(), name: reader.type_def_name(*ty).to_string(), generics })
         }
-        //reader::Type::TypeRef(type_name)
         reader::Type::MutPtr((ty, pointers)) => Type::MutPtr((Box::new(read_type(reader, ty)?), *pointers)),
         reader::Type::ConstPtr((ty, pointers)) => Type::ConstPtr((Box::new(read_type(reader, ty)?), *pointers)),
         reader::Type::Win32Array((ty, pointers)) => Type::Win32Array((Box::new(read_type(reader, ty)?), *pointers)),

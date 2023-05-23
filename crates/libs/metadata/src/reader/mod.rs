@@ -125,7 +125,7 @@ pub enum Value {
     I64(i64),
     F32(f32),
     F64(f64),
-    String(String), // TODO: Add Str(&str)
+    String(String),
     TypeDef(TypeDef),
     Enum(TypeDef, Integer),
 }
@@ -1725,7 +1725,6 @@ impl<'a> Reader<'a> {
             Type::TypeDef((ty, Vec::new()))
         } else {
             panic!("Type not found: {}", full_name);
-            //Type::TypeRef(format!("{}", full_name))
         }
     }
     fn type_from_blob(&self, blob: &mut Blob, enclosing: Option<TypeDef>, generics: &[Type]) -> Type {
