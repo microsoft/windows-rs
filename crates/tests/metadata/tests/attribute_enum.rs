@@ -52,7 +52,7 @@ fn check_attr_arg_enum(
         .find(|(name, _)| name == arg_name)
         .unwrap();
 
-    if let Value::Enum(ty, Integer::I32(value)) = value {
+    if let Value::EnumDef(ty, Integer::I32(value)) = value {
         assert_eq!(expected_type, reader.type_def_type_name(ty).to_string());
         assert_eq!(expected_value, value);
     } else {
