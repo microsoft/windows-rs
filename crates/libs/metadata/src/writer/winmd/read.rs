@@ -24,8 +24,7 @@ pub fn read_winmd(module: &mut Module, paths: &[String], filter: &Filter) -> Res
 
 fn read_type_def(reader: &reader::Reader, ty: reader::TypeDef) -> Result<TypeDef> {
     let mut result = TypeDef { flags: reader.type_def_flags(ty), ..Default::default() };
-    // TODO: need to support loose typing for System.* types
-    // result.attributes = read_attributes(reader, reader.type_def_attributes(ty))?;
+    result.attributes = read_attributes(reader, reader.type_def_attributes(ty))?;
     result.extends = reader.type_def_extends(ty).map(|extends| TypeRef { namespace: extends.namespace.to_string(), name: extends.name.to_string(), ..Default::default() });
 
     if result.flags.contains(TypeAttributes::INTERFACE) || !result.flags.contains(TypeAttributes::WINRT) {
@@ -99,7 +98,9 @@ fn read_value(reader: &reader::Reader, value: &reader::Value) -> Result<Value> {
         reader::Value::F64(value) => Ok(Value::F64(*value)),
         reader::Value::String(value) => Ok(Value::String(value.clone())),
         reader::Value::TypeDef(def) => Ok(Value::TypeName(format!("{}", reader.type_def_type_name(*def)))),
-        reader::Value::Enum(def, value) => Ok(Value::Enum(format!("{}", reader.type_def_type_name(*def)), *value)),
+        reader::Value::TypeRef(code) => Ok(Value::TypeName(format!("{}", reader.type_def_or_ref(*code)))),
+        reader::Value::EnumDef(def, value) => Ok(Value::Enum(format!("{}", reader.type_def_type_name(*def)), *value)),
+        reader::Value::EnumRef(code, value) => Ok(Value::Enum(format!("{}", reader.type_def_or_ref(*code)), *value)),
     }
 }
 
@@ -140,6 +141,10 @@ fn read_type(reader: &reader::Reader, ty: &reader::Type) -> Result<Type> {
             }
 
             Type::TypeRef(TypeRef { namespace: reader.type_def_namespace(*ty).to_string(), name: reader.type_def_name(*ty).to_string(), generics })
+        }
+        reader::Type::TypeRef(code) => {
+            let type_name = reader.type_def_or_ref(*code);
+            Type::TypeRef(TypeRef { namespace: type_name.namespace.to_string(), name: type_name.name.to_string(), generics: vec![] })
         }
         reader::Type::MutPtr((ty, pointers)) => Type::MutPtr((Box::new(read_type(reader, ty)?), *pointers)),
         reader::Type::ConstPtr((ty, pointers)) => Type::ConstPtr((Box::new(read_type(reader, ty)?), *pointers)),

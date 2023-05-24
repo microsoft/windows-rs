@@ -1,6 +1,6 @@
 use super::*;
 
-#[derive(Clone, PartialEq, PartialOrd, Eq, Ord)]
+#[derive(Clone, PartialEq, PartialOrd, Eq, Ord, Debug)]
 pub enum Type {
     Void,
     Bool,
@@ -28,6 +28,7 @@ pub enum Type {
     PCWSTR,
     BSTR,
     TypeName,
+    TypeRef(TypeDefOrRef),
     GenericParam(GenericParam),
     TypeDef((TypeDef, Vec<Self>)),
     MutPtr((Box<Self>, usize)),

@@ -27,7 +27,6 @@ Options:
   -out    <path>       Path to .winmd or .idl file to generate
   -filter <namespace>  Namespaces to include or !exclude in output
   -format              Format .idl files only
-  -verbose             Show detailed information
 "#
         );
         return Ok(());
@@ -39,7 +38,6 @@ Options:
     let mut include = Vec::<&str>::new();
     let mut exclude = Vec::<&str>::new();
     let mut format = false;
-    let mut verbose = false;
 
     for arg in &args {
         if arg.starts_with('-') {
@@ -52,7 +50,6 @@ Options:
                 "-out" => kind = ArgKind::Output,
                 "-filter" => kind = ArgKind::Filter,
                 "-format" => format = true,
-                "-verbose" => verbose = true,
                 _ => return Err(Error::new(&format!("invalid option: `{arg}`"))),
             },
             ArgKind::Output => {
@@ -108,10 +105,7 @@ Options:
     module.validate()?;
     module.write(output)?;
 
-    if verbose {
-        println!("  Finished writing `{}` in {:.2}s", canonicalize(output)?, time.elapsed().as_secs_f32());
-    }
-
+    println!("  Finished writing `{}` in {:.2}s", canonicalize(output)?, time.elapsed().as_secs_f32());
     Ok(())
 }
 

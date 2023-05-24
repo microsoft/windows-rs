@@ -86,7 +86,7 @@ impl Decode for MemberRefParent {
     }
 }
 
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Debug)]
 pub enum TypeDefOrRef {
     None,
     TypeDef(TypeDef),

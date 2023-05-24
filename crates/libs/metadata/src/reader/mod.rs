@@ -127,7 +127,9 @@ pub enum Value {
     F64(f64),
     String(String),
     TypeDef(TypeDef),
-    Enum(TypeDef, Integer),
+    TypeRef(TypeDefOrRef),
+    EnumDef(TypeDef, Integer),
+    EnumRef(TypeDefOrRef, Integer),
 }
 
 pub struct Signature {
@@ -326,8 +328,11 @@ impl<'a> Reader<'a> {
                 Type::U64 => Value::U64(values.read_u64()),
                 Type::String => Value::String(values.read_str().to_string()),
                 Type::TypeName => Value::TypeDef(self.get(TypeName::parse(values.read_str())).next().expect("Type not found")),
-                Type::TypeDef((def, _)) => Value::Enum(def, values.read_integer(self.type_def_underlying_type(def))),
-                _ => unimplemented!(),
+                Type::TypeDef((def, _)) => Value::EnumDef(def, values.read_integer(self.type_def_underlying_type(def))),
+                // It's impossible to know the type of a TypeRef so we just assume 32-bit integer which covers System.* attribute args
+                // reasonably well but the solution is to follow the WinRT metadata and define replacements for those attribute types.
+                Type::TypeRef(code) => Value::EnumRef(code, values.read_integer(Type::I32)),
+                rest => todo!("{:?}", rest),
             };
 
             args.push((String::new(), arg));
@@ -350,12 +355,15 @@ impl<'a> Reader<'a> {
                 0x55 => {
                     let def = self.get(TypeName::parse(&name)).next().expect("Type not found");
                     name = values.read_str().into();
-                    Value::Enum(def, values.read_integer(self.type_def_underlying_type(def)))
+                    Value::EnumDef(def, values.read_integer(self.type_def_underlying_type(def)))
                 }
-                _ => unimplemented!(),
+                _ => todo!("{:?}", arg_type),
             };
             args.push((name, arg));
         }
+
+        assert_eq!(sig.slice.len(), 0);
+        assert_eq!(values.slice.len(), 0);
 
         args
     }
@@ -1116,7 +1124,7 @@ impl<'a> Reader<'a> {
             match self.attribute_name(attribute) {
                 "AgileAttribute" => return true,
                 "MarshalingBehaviorAttribute" => {
-                    if let Some((_, Value::Enum(_, Integer::I32(2)))) = self.attribute_args(attribute).get(0) {
+                    if let Some((_, Value::EnumDef(_, Integer::I32(2)))) = self.attribute_args(attribute).get(0) {
                         return true;
                     }
                 }
@@ -1344,7 +1352,7 @@ impl<'a> Reader<'a> {
         self.row_str(row.0, 2)
     }
     pub fn type_ref_type_name(&self, row: TypeRef) -> TypeName {
-        TypeName::new(self.type_ref_name(row), self.type_ref_namespace(row))
+        TypeName::new(self.type_ref_namespace(row), self.type_ref_name(row))
     }
 
     //
@@ -1462,7 +1470,7 @@ impl<'a> Reader<'a> {
         for attribute in attributes {
             match self.attribute_name(attribute) {
                 "SupportedArchitectureAttribute" => {
-                    if let Some((_, Value::Enum(_, Integer::I32(value)))) = self.attribute_args(attribute).get(0) {
+                    if let Some((_, Value::EnumDef(_, Integer::I32(value)))) = self.attribute_args(attribute).get(0) {
                         if value & 1 == 1 {
                             cfg.arches.insert("x86");
                         }
@@ -1628,7 +1636,7 @@ impl<'a> Reader<'a> {
         result.sort_by(|a, b| self.type_name(&a.ty).cmp(self.type_name(&b.ty)));
         result
     }
-    fn type_def_or_ref(&self, code: TypeDefOrRef) -> TypeName {
+    pub fn type_def_or_ref(&self, code: TypeDefOrRef) -> TypeName {
         match code {
             TypeDefOrRef::TypeDef(row) => TypeName::new(self.type_def_namespace(row), self.type_def_name(row)),
             TypeDefOrRef::TypeRef(row) => TypeName::new(self.type_ref_namespace(row), self.type_ref_name(row)),
@@ -1724,7 +1732,7 @@ impl<'a> Reader<'a> {
         if let Some(ty) = self.get(full_name).next() {
             Type::TypeDef((ty, Vec::new()))
         } else {
-            panic!("Type not found: {}", full_name);
+            Type::TypeRef(code)
         }
     }
     fn type_from_blob(&self, blob: &mut Blob, enclosing: Option<TypeDef>, generics: &[Type]) -> Type {

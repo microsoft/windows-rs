@@ -74,6 +74,7 @@ impl Printer {
     }
 
     fn idl_interface(&mut self, member: &IdlInterface) {
+        self.attrs(&member.attributes);
         self.word("interface ");
         self.ident(&member.ident);
         self.word(" {");
@@ -91,7 +92,22 @@ impl Printer {
         self.word("}");
     }
 
+    fn attrs(&mut self, attrs: &[syn::Attribute]) {
+        for attr in attrs {
+            self.attr(attr);
+        }
+    }
+
+    fn attr(&mut self, attr: &syn::Attribute) {
+        self.word("#[");
+        self.path(&attr.path);
+        self.word("]");
+        self.newline();
+    }
+
     fn idl_struct(&mut self, member: &IdlStruct) {
+        self.attrs(&member.item.attrs);
+
         self.word("struct ");
         self.ident(&member.item.ident);
         self.word(" {");
@@ -112,6 +128,8 @@ impl Printer {
     }
 
     fn idl_enum(&mut self, member: &IdlEnum) {
+        self.attrs(&member.item.attrs);
+
         self.word("enum ");
         self.ident(&member.item.ident);
         self.word(" {");
