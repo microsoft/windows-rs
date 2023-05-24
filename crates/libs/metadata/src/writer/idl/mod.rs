@@ -45,5 +45,5 @@ pub struct IdlClass {
 pub struct IdlInterface {
     attributes: Vec<syn::Attribute>,
     ident: syn::Ident,
-    methods: Vec<syn::TraitItemMethod>,
+    methods: Vec<syn::TraitItemFn>,
 }

@@ -1,4 +1,4 @@
-use metadata::reader::{Attribute, File, Integer, Reader, TypeName, Value};
+use metadata::reader::{Attribute, File, Reader, TypeName, Value};
 
 #[test]
 fn attribute_enum() {
@@ -52,10 +52,13 @@ fn check_attr_arg_enum(
         .find(|(name, _)| name == arg_name)
         .unwrap();
 
-    if let Value::EnumDef(ty, Integer::I32(value)) = value {
-        assert_eq!(expected_type, reader.type_def_type_name(ty).to_string());
-        assert_eq!(expected_value, value);
-    } else {
-        panic!("Value not found");
+    if let Value::EnumDef(ty, value) = value {
+        if let Value::I32(value) = *value {
+            assert_eq!(expected_type, reader.type_def_type_name(ty).to_string());
+            assert_eq!(expected_value, value);
+            return;
+        }
     }
+
+    panic!("Value not found");
 }

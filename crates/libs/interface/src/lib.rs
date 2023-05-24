@@ -363,7 +363,7 @@ impl Parse for Interface {
         let attributes = input.call(syn::Attribute::parse_outer)?;
         let mut docs = Vec::new();
         for attr in attributes.into_iter() {
-            let path = &attr.path;
+            let path = attr.path();
             if path.is_ident("doc") {
                 docs.push(attr);
             } else {
@@ -502,8 +502,8 @@ impl syn::parse::Parse for InterfaceMethod {
     fn parse(input: syn::parse::ParseStream) -> syn::Result<Self> {
         let docs = input.call(syn::Attribute::parse_outer)?;
         let visibility = input.parse::<syn::Visibility>()?;
-        let method = input.parse::<syn::TraitItemMethod>()?;
-        unexpected_token!(docs.iter().find(|a| !a.path.is_ident("doc")), "attribute");
+        let method = input.parse::<syn::TraitItemFn>()?;
+        unexpected_token!(docs.iter().find(|a| !a.path().is_ident("doc")), "attribute");
         unexpected_token!(method.default, "default method implementation");
         let sig = method.sig;
         unexpected_token!(sig.abi, "abi declaration");

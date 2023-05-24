@@ -219,7 +219,7 @@ pub enum Value {
     F64(f64),
     String(String),
     TypeName(String),
-    Enum(String, Integer),
+    Enum(String, Box<Value>),
 }
 
 impl Value {

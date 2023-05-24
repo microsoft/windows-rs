@@ -99,8 +99,8 @@ fn read_value(reader: &reader::Reader, value: &reader::Value) -> Result<Value> {
         reader::Value::String(value) => Ok(Value::String(value.clone())),
         reader::Value::TypeDef(def) => Ok(Value::TypeName(format!("{}", reader.type_def_type_name(*def)))),
         reader::Value::TypeRef(code) => Ok(Value::TypeName(format!("{}", reader.type_def_or_ref(*code)))),
-        reader::Value::EnumDef(def, value) => Ok(Value::Enum(format!("{}", reader.type_def_type_name(*def)), *value)),
-        reader::Value::EnumRef(code, value) => Ok(Value::Enum(format!("{}", reader.type_def_or_ref(*code)), *value)),
+        reader::Value::EnumDef(def, value) => Ok(Value::Enum(format!("{}", reader.type_def_type_name(*def)), Box::new(read_value(reader, value)?))),
+        reader::Value::EnumRef(code, value) => Ok(Value::Enum(format!("{}", reader.type_def_or_ref(*code)), Box::new(read_value(reader, value)?))),
     }
 }
 
