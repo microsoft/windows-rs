@@ -285,7 +285,7 @@ impl UseTree2 {
 
                 Ok(ImplementType { type_name, generics })
             }
-            UseTree2::Group(input) => Err(syn::parse::Error::new(input.brace_token.span, "Syntax not supported")),
+            UseTree2::Group(input) => Err(syn::parse::Error::new(input.brace_token.span.join(), "Syntax not supported")),
         }
     }
 }
@@ -336,7 +336,7 @@ impl syn::parse::Parse for UseTree2 {
         } else if lookahead.peek(syn::token::Brace) {
             let content;
             let brace_token = syn::braced!(content in input);
-            let items = content.parse_terminated(UseTree2::parse)?;
+            let items = content.parse_terminated(UseTree2::parse, syn::Token![,])?;
 
             Ok(UseTree2::Group(UseGroup2 { brace_token, items }))
         } else {
