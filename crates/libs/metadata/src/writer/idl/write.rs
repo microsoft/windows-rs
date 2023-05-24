@@ -24,7 +24,7 @@ fn module_to_idl(name: &str, module: &Module) -> TokenStream {
 }
 
 fn type_def_to_idl(module: &Module, name: &str, ty: &TypeDef) -> TokenStream {
-    let attributes = attributes_to_idl(&ty.attributes);
+    let attributes = attributes_to_idl(module, &ty.attributes);
 
     let ty = if let Some(extends) = &ty.extends {
         if extends.namespace == "System" {
@@ -91,11 +91,12 @@ fn struct_to_idl(module: &Module, name: &str, ty: &TypeDef) -> TokenStream {
     }
 }
 
-fn attributes_to_idl(attributes: &[Attribute]) -> TokenStream {
+fn attributes_to_idl(module: &Module, attributes: &[Attribute]) -> TokenStream {
     let attributes = attributes.iter().map(|attribute| {
+        let namespace = namespace_to_idl(&module.namespace, &attribute.ty.namespace);
         let name = to_ident(&attribute.ty.name);
         quote! {
-            #[#name]
+            #[#namespace#name]
         }
     });
 
@@ -206,7 +207,7 @@ fn type_to_idl(module: &Module, ty: &Type) -> TokenStream {
             quote! { #generic }
         }
         Type::TypeRef(ty) => {
-            let namespace = namespace_to_idl(module, &ty.namespace);
+            let namespace = namespace_to_idl(&module.namespace, &ty.namespace);
             let name = to_ident(&ty.name);
             if ty.generics.is_empty() {
                 quote! { #namespace#name }
@@ -232,15 +233,20 @@ fn type_to_idl(module: &Module, ty: &Type) -> TokenStream {
     }
 }
 
-fn namespace_to_idl(module: &Module, namespace: &str) -> TokenStream {
+// TODO: maybe move these functions into `tokens` crate as they duplicated in bindgen
+
+fn namespace_to_idl(relative: &str, namespace: &str) -> TokenStream {
     // TODO: handle nested structs?
-    if namespace.is_empty() || namespace == module.namespace {
+    if namespace.is_empty() || relative == namespace {
         quote! {}
     } else {
-        let mut relative = module.namespace.split('.').peekable();
+        let mut relative = relative.split('.').peekable();
         let mut namespace = namespace.split('.').peekable();
+        let mut related = false;
 
         while relative.peek() == namespace.peek() {
+            related = true;
+
             if relative.next().is_none() {
                 break;
             }
@@ -250,8 +256,10 @@ fn namespace_to_idl(module: &Module, namespace: &str) -> TokenStream {
 
         let mut tokens = TokenStream::new();
 
-        for _ in 0..relative.count() {
-            tokens.push_str("super::");
+        if related {
+            for _ in 0..relative.count() {
+                tokens.push_str("super::");
+            }
         }
 
         for namespace in namespace {
@@ -262,8 +270,6 @@ fn namespace_to_idl(module: &Module, namespace: &str) -> TokenStream {
         tokens
     }
 }
-
-// TODO: maybe move these into `tokens` crate as they duplicated in bindgen
 
 pub fn to_ident(name: &str) -> TokenStream {
     // keywords list based on https://doc.rust-lang.org/reference/keywords.html
