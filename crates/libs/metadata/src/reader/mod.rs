@@ -329,6 +329,8 @@ impl<'a> Reader<'a> {
                 Type::String => Value::String(values.read_str().to_string()),
                 Type::TypeName => Value::TypeDef(self.get(TypeName::parse(values.read_str())).next().expect("Type not found")),
                 Type::TypeDef((def, _)) => Value::EnumDef(def, values.read_integer(self.type_def_underlying_type(def))),
+                // It's impossible to know the type of a TypeRef so we just assume 32-bit integer which covers System.* attribute args
+                // reasonably well but the solution is to follow the WinRT metadata and define replacements for those attribute types.
                 Type::TypeRef(code) => Value::EnumRef(code, values.read_integer(Type::I32)),
                 rest => todo!("{:?}", rest),
             };
