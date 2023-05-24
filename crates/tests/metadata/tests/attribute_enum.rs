@@ -1,4 +1,4 @@
-use metadata::reader::{Attribute, File,  Reader, TypeName, Value};
+use metadata::reader::{Attribute, File, Reader, TypeName, Value};
 
 #[test]
 fn attribute_enum() {
@@ -58,7 +58,7 @@ fn check_attr_arg_enum(
             assert_eq!(expected_value, value);
             return;
         }
-    } 
+    }
 
     panic!("Value not found");
 }
