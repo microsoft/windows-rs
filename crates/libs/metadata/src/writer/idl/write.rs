@@ -74,27 +74,27 @@ fn enum_to_idl(module: &Module, name: &str, ty: &TypeDef) -> TokenStream {
 }
 
 fn value_to_idl(module: &Module, value: &Value) -> TokenStream {
-        match value {
-            Value::Bool(value) => value.to_string().into(),
-            Value::U8(value) => format!("{value}u8").into(),
-            Value::I8(value) => format!("{value}i8").into(),
-            Value::U16(value) => format!("{value}u16").into(),
-            Value::I16(value) => format!("{value}i16").into(),
-            Value::U32(value) => format!("{value}u32").into(),
-            Value::I32(value) => format!("{value}i32").into(),
-            Value::U64(value) => format!("{value}u64").into(),
-            Value::I64(value) => format!("{value}i64").into(),
-            Value::F32(value) => format!("{value}f32").into(),
-            Value::F64(value) => format!("{value}f64").into(),
-            Value::String(value) => value.into(),
-            Value::TypeName(type_name) => {
-                let type_name = reader::TypeName::parse(type_name);
-                let namespace = namespace_to_idl(&module.namespace, &type_name.namespace);
-                let name = to_ident(&type_name.name);
-                quote! { #namespace#name }
-            }
-            rest => todo!("{:?}", rest),
+    match value {
+        Value::Bool(value) => value.to_string().into(),
+        Value::U8(value) => format!("{value}u8").into(),
+        Value::I8(value) => format!("{value}i8").into(),
+        Value::U16(value) => format!("{value}u16").into(),
+        Value::I16(value) => format!("{value}i16").into(),
+        Value::U32(value) => format!("{value}u32").into(),
+        Value::I32(value) => format!("{value}i32").into(),
+        Value::U64(value) => format!("{value}u64").into(),
+        Value::I64(value) => format!("{value}i64").into(),
+        Value::F32(value) => format!("{value}f32").into(),
+        Value::F64(value) => format!("{value}f64").into(),
+        Value::String(value) => value.into(),
+        Value::TypeName(type_name) => {
+            let type_name = reader::TypeName::parse(type_name);
+            let namespace = namespace_to_idl(&module.namespace, type_name.namespace);
+            let name = to_ident(type_name.name);
+            quote! { #namespace#name }
         }
+        rest => todo!("{:?}", rest),
+    }
 }
 
 fn struct_to_idl(module: &Module, name: &str, ty: &TypeDef) -> TokenStream {
@@ -129,7 +129,7 @@ fn attributes_to_idl(module: &Module, attributes: &[Attribute]) -> TokenStream {
                 if name.is_empty() {
                     value_to_idl(module, value)
                 } else {
-                    let name = to_ident(&name);
+                    let name = to_ident(name);
                     let value = value_to_idl(module, value);
                     quote! {
                         #name: #value
