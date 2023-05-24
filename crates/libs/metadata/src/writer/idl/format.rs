@@ -82,7 +82,7 @@ impl Printer {
         self.indent += 1;
 
         for method in &member.methods {
-            self.trait_item_method(method);
+            self.trait_item_fn(method);
             self.word(";");
             self.newline();
         }
@@ -100,9 +100,24 @@ impl Printer {
 
     fn attr(&mut self, attr: &syn::Attribute) {
         self.word("#[");
-        self.path(&attr.path);
+        self.meta(&attr.meta);
         self.word("]");
         self.newline();
+    }
+
+    fn meta(&mut self, meta: &syn::Meta) {
+        match meta {
+            syn::Meta::Path(path) => self.path(path),
+            syn::Meta::List(list) => self.meta_list(list),
+            rest => todo!("{:?}", rest),
+        }
+    }
+
+    fn meta_list(&mut self, meta_list: &syn::MetaList) {
+        self.path(&meta_list.path);
+        self.word("(");
+        self.word(&meta_list.tokens.to_string());
+        self.word(")");
     }
 
     fn idl_struct(&mut self, member: &IdlStruct) {
@@ -153,7 +168,7 @@ impl Printer {
 
     fn idl_class(&mut self, _member: &IdlClass) {}
 
-    fn trait_item_method(&mut self, method: &syn::TraitItemMethod) {
+    fn trait_item_fn(&mut self, method: &syn::TraitItemFn) {
         self.signature(&method.sig);
     }
 
@@ -195,7 +210,7 @@ impl Printer {
     fn pat(&mut self, pat: &syn::Pat) {
         match pat {
             syn::Pat::Ident(pat_ident) => self.pat_ident(pat_ident),
-            _ => todo!("{:?}", pat),
+            rest => todo!("{:?}", rest),
         }
     }
 

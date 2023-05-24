@@ -97,7 +97,7 @@ impl IdlInterface {
         syn::braced!(content in input);
         let mut methods = vec![];
         while !content.is_empty() {
-            methods.push(content.parse::<syn::TraitItemMethod>()?);
+            methods.push(content.parse::<syn::TraitItemFn>()?);
         }
         Ok(Self { attributes, ident, methods })
     }

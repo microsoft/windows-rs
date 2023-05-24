@@ -128,8 +128,8 @@ pub enum Value {
     String(String),
     TypeDef(TypeDef),
     TypeRef(TypeDefOrRef),
-    EnumDef(TypeDef, Integer),
-    EnumRef(TypeDefOrRef, Integer),
+    EnumDef(TypeDef, Box<Self>),
+    EnumRef(TypeDefOrRef, Box<Self>),
 }
 
 pub struct Signature {
@@ -328,10 +328,10 @@ impl<'a> Reader<'a> {
                 Type::U64 => Value::U64(values.read_u64()),
                 Type::String => Value::String(values.read_str().to_string()),
                 Type::TypeName => Value::TypeDef(self.get(TypeName::parse(values.read_str())).next().expect("Type not found")),
-                Type::TypeDef((def, _)) => Value::EnumDef(def, values.read_integer(self.type_def_underlying_type(def))),
+                Type::TypeDef((def, _)) => Value::EnumDef(def, Box::new(values.read_integer(self.type_def_underlying_type(def)))),
                 // It's impossible to know the type of a TypeRef so we just assume 32-bit integer which covers System.* attribute args
                 // reasonably well but the solution is to follow the WinRT metadata and define replacements for those attribute types.
-                Type::TypeRef(code) => Value::EnumRef(code, values.read_integer(Type::I32)),
+                Type::TypeRef(code) => Value::EnumRef(code, Box::new(values.read_integer(Type::I32))),
                 rest => todo!("{:?}", rest),
             };
 
@@ -355,7 +355,7 @@ impl<'a> Reader<'a> {
                 0x55 => {
                     let def = self.get(TypeName::parse(&name)).next().expect("Type not found");
                     name = values.read_str().into();
-                    Value::EnumDef(def, values.read_integer(self.type_def_underlying_type(def)))
+                    Value::EnumDef(def, Box::new(values.read_integer(self.type_def_underlying_type(def))))
                 }
                 _ => todo!("{:?}", arg_type),
             };
@@ -1124,8 +1124,10 @@ impl<'a> Reader<'a> {
             match self.attribute_name(attribute) {
                 "AgileAttribute" => return true,
                 "MarshalingBehaviorAttribute" => {
-                    if let Some((_, Value::EnumDef(_, Integer::I32(2)))) = self.attribute_args(attribute).get(0) {
-                        return true;
+                    if let Some((_, Value::EnumDef(_, value))) = self.attribute_args(attribute).get(0) {
+                        if let Value::I32(2) = **value {
+                            return true;
+                        }
                     }
                 }
                 _ => {}
@@ -1470,15 +1472,17 @@ impl<'a> Reader<'a> {
         for attribute in attributes {
             match self.attribute_name(attribute) {
                 "SupportedArchitectureAttribute" => {
-                    if let Some((_, Value::EnumDef(_, Integer::I32(value)))) = self.attribute_args(attribute).get(0) {
-                        if value & 1 == 1 {
-                            cfg.arches.insert("x86");
-                        }
-                        if value & 2 == 2 {
-                            cfg.arches.insert("x86_64");
-                        }
-                        if value & 4 == 4 {
-                            cfg.arches.insert("aarch64");
+                    if let Some((_, Value::EnumDef(_, value))) = self.attribute_args(attribute).get(0) {
+                        if let Value::I32(value) = **value {
+                            if value & 1 == 1 {
+                                cfg.arches.insert("x86");
+                            }
+                            if value & 2 == 2 {
+                                cfg.arches.insert("x86_64");
+                            }
+                            if value & 4 == 4 {
+                                cfg.arches.insert("aarch64");
+                            }
                         }
                     }
                 }

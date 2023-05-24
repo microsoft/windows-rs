@@ -86,14 +86,17 @@ fn value_to_idl(module: &Module, value: &Value) -> TokenStream {
         Value::I64(value) => format!("{value}i64").into(),
         Value::F32(value) => format!("{value}f32").into(),
         Value::F64(value) => format!("{value}f64").into(),
-        Value::String(value) => value.into(),
+        Value::String(value) => format!("\"{value}\"").into(),
         Value::TypeName(type_name) => {
             let type_name = reader::TypeName::parse(type_name);
             let namespace = namespace_to_idl(&module.namespace, type_name.namespace);
             let name = to_ident(type_name.name);
             quote! { #namespace#name }
         }
-        rest => todo!("{:?}", rest),
+        Value::Enum(_, value) => {
+            // TODO: replace the integer with the constant from the enum's definition
+            value_to_idl(module, value)
+        }
     }
 }
 
