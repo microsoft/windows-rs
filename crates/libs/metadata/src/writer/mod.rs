@@ -241,23 +241,7 @@ impl Value {
             _ => todo!(),
         }
     }
-    fn to_expr(&self) -> String {
-        match self {
-            Self::Bool(value) => value.to_string(),
-            Self::U8(value) => format!("{value}u8"),
-            Self::I8(value) => format!("{value}i8"),
-            Self::U16(value) => format!("{value}u16"),
-            Self::I16(value) => format!("{value}i16"),
-            Self::U32(value) => format!("{value}u32"),
-            Self::I32(value) => format!("{value}i32"),
-            Self::U64(value) => format!("{value}u64"),
-            Self::I64(value) => format!("{value}i64"),
-            Self::F32(value) => format!("{value}f32"),
-            Self::F64(value) => format!("{value}f64"),
-            Self::String(value) => value.clone(),
-            _ => todo!(),
-        }
-    }
+
     fn neg(&self) -> Self {
         use std::ops::Neg;
         match self {
