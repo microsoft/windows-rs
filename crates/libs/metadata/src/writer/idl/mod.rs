@@ -8,6 +8,8 @@ pub use format::*;
 pub use read::*;
 pub use write::*;
 
+// TODO: replace these with the Module types and just parse directly to that and reduce the number of different representations?
+
 pub struct IdlFile {
     references: Vec<syn::ItemUse>,
     modules: Vec<IdlModule>,
