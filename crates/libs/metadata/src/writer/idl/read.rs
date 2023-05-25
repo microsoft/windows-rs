@@ -1,6 +1,14 @@
 use super::*;
 use syn::spanned::Spanned;
 
+// Phases are needed to read use declarations from IDL files before resolving those types 
+// in the second pass.
+#[derive(PartialEq, Copy, Clone)]
+enum ReadPhase {
+    Index,
+    Define,
+}
+
 pub fn read_idl(tree: &mut Module, paths: &[String], filter: &Filter) -> Result<()> {
     let mut files = vec![];
 
@@ -11,127 +19,143 @@ pub fn read_idl(tree: &mut Module, paths: &[String], filter: &Filter) -> Result<
     }
 
     for (path, file) in &files {
-        read_file(tree, file, filter).map_err(|error| error.with_path(path))?;
+        read_file(tree, file, filter, ReadPhase::Index).map_err(|error| error.with_path(path))?;
+    }
+
+    for (path, file) in &files {
+        read_file(tree, file, filter, ReadPhase::Define).map_err(|error| error.with_path(path))?;
     }
 
     Ok(())
 }
 
-fn read_file(tree: &mut Module, file: &IdlFile, filter: &Filter) -> Result<()> {
+fn read_file(tree: &mut Module, file: &IdlFile, filter: &Filter, phase: ReadPhase) -> Result<()> {
     for module in &file.modules {
-        read_module(tree, file, module, &module.ident.to_string(), filter)?;
+        read_module(tree, file, module, &module.ident.to_string(), filter, phase)?;
     }
 
     Ok(())
 }
 
-fn read_module(tree: &mut Module, file: &IdlFile, module: &IdlModule, namespace: &str, filter: &Filter) -> Result<()> {
+fn read_module(tree: &mut Module, file: &IdlFile, module: &IdlModule, namespace: &str, filter: &Filter, phase: ReadPhase) -> Result<()> {
     if filter.includes_namespace(namespace) {
         for member in &module.members {
-            read_member(tree, file, member, namespace, filter)?;
+            read_member(tree, file, member, namespace, filter, phase)?;
         }
     }
 
     Ok(())
 }
 
-fn read_member(tree: &mut Module, file: &IdlFile, member: &IdlModuleMember, namespace: &str, filter: &Filter) -> Result<()> {
+fn read_member(tree: &mut Module, file: &IdlFile, member: &IdlModuleMember, namespace: &str, filter: &Filter, phase: ReadPhase) -> Result<()> {
     match member {
-        IdlModuleMember::Module(member) => read_module(tree, file, member, &format!("{namespace}.{}", member.ident), filter),
-        IdlModuleMember::Interface(member) => read_interface(tree, file, member, namespace, filter),
-        IdlModuleMember::Struct(member) => read_struct(tree, file, member, namespace, filter),
-        IdlModuleMember::Enum(member) => read_enum(tree, file, member, namespace, filter),
-        IdlModuleMember::Class(member) => read_class(tree, file, member, namespace, filter),
+        IdlModuleMember::Module(member) => read_module(tree, file, member, &format!("{namespace}.{}", member.ident), filter, phase),
+        IdlModuleMember::Interface(member) => read_interface(tree, file, member, namespace, filter, phase),
+        IdlModuleMember::Struct(member) => read_struct(tree, file, member, namespace, filter, phase),
+        IdlModuleMember::Enum(member) => read_enum(tree, file, member, namespace, filter, phase),
+        IdlModuleMember::Class(member) => read_class(tree, file, member, namespace, filter, phase),
     }
 }
 
-fn read_interface(tree: &mut Module, _file: &IdlFile, ty: &IdlInterface, namespace: &str, filter: &Filter) -> Result<()> {
+fn read_interface(tree: &mut Module, _file: &IdlFile, ty: &IdlInterface, namespace: &str, filter: &Filter, phase: ReadPhase) -> Result<()> {
     let ident = ty.ident.to_string();
 
     if filter.includes_type_name(reader::TypeName::new(namespace, &ident)) {
-        let mut def = TypeDef { extends: None, ..Default::default() };
+        let vec = tree.insert(namespace, 0).types.entry(ident).or_default();
 
-        for method in &ty.methods {
-            let name = method.sig.ident.to_string();
-            let mut params = vec![];
+        if phase == ReadPhase::Define {
+            let mut def = TypeDef { extends: None, ..Default::default() };
 
-            for input in &method.sig.inputs {
-                let syn::FnArg::Typed(pat_type) = input else {
+            for method in &ty.methods {
+                let name = method.sig.ident.to_string();
+                let mut params = vec![];
+
+                for input in &method.sig.inputs {
+                    let syn::FnArg::Typed(pat_type) = input else {
                         todo!();
                     };
 
-                let syn::Pat::Ident(ref pat_ident) = *pat_type.pat else {
+                    let syn::Pat::Ident(ref pat_ident) = *pat_type.pat else {
                         todo!();
                     };
 
-                let name = pat_ident.ident.to_string();
-                let ty = read_ty(namespace, &pat_type.ty)?;
-                params.push(Param { name, ty, ..Default::default() });
+                    let name = pat_ident.ident.to_string();
+                    let ty = read_ty(namespace, &pat_type.ty)?;
+                    params.push(Param { name, ty, ..Default::default() });
+                }
+
+                let ty = if let syn::ReturnType::Type(_, ty) = &method.sig.output { read_ty(namespace, ty)? } else { Type::Void };
+                let return_type = Param { ty, ..Default::default() };
+
+                def.methods.push(Method { name, params, return_type, ..Default::default() });
             }
 
-            let ty = if let syn::ReturnType::Type(_, ty) = &method.sig.output { read_ty(namespace, ty)? } else { Type::Void };
-            let return_type = Param { ty, ..Default::default() };
-
-            def.methods.push(Method { name, params, return_type, ..Default::default() });
+            vec.push(def);
         }
-
-        tree.insert(namespace, 0).types.entry(ident).or_default().push(def);
     }
 
     Ok(())
 }
 
-fn read_struct(tree: &mut Module, _file: &IdlFile, ty: &IdlStruct, namespace: &str, filter: &Filter) -> Result<()> {
+fn read_struct(tree: &mut Module, _file: &IdlFile, ty: &IdlStruct, namespace: &str, filter: &Filter, phase: ReadPhase) -> Result<()> {
     let ident = ty.item.ident.to_string();
 
     if filter.includes_type_name(reader::TypeName::new(namespace, &ident)) {
-        let mut def = TypeDef { extends: Some(TypeRef { namespace: "System".to_string(), name: "ValueType".to_string(), ..Default::default() }), ..Default::default() };
+        let vec = tree.insert(namespace, 0).types.entry(ident).or_default();
 
-        let syn::Fields::Named(fields) = &ty.item.fields else {
+        if phase == ReadPhase::Define {
+            let mut def = TypeDef { extends: Some(TypeRef { namespace: "System".to_string(), name: "ValueType".to_string(), ..Default::default() }), ..Default::default() };
+
+            let syn::Fields::Named(fields) = &ty.item.fields else {
                 unimplemented!();
             };
 
-        for field in &fields.named {
-            let Some(ref ident) = field.ident else {
+            for field in &fields.named {
+                let Some(ref ident) = field.ident else {
                     unimplemented!();
                 };
 
-            let flags = FieldAttributes::PUBLIC;
-            let name = ident.to_string();
-            let ty = read_ty(namespace, &field.ty)?;
-            def.fields.push(Field { flags, name, ty, ..Default::default() });
-        }
+                let flags = FieldAttributes::PUBLIC;
+                let name = ident.to_string();
+                let ty = read_ty(namespace, &field.ty)?;
+                def.fields.push(Field { flags, name, ty, ..Default::default() });
+            }
 
-        tree.insert(namespace, 0).types.entry(ident).or_default().push(def);
+            vec.push(def);
+        }
     }
 
     Ok(())
 }
 
-fn read_enum(tree: &mut Module, _file: &IdlFile, ty: &IdlEnum, namespace: &str, filter: &Filter) -> Result<()> {
+fn read_enum(tree: &mut Module, _file: &IdlFile, ty: &IdlEnum, namespace: &str, filter: &Filter, phase: ReadPhase) -> Result<()> {
     let ident = ty.item.ident.to_string();
 
     if filter.includes_type_name(reader::TypeName::new(namespace, &ident)) {
-        let mut def = TypeDef { extends: Some(TypeRef { namespace: "System".to_string(), name: "Enum".to_string(), ..Default::default() }), ..Default::default() };
-        let enum_type = Type::TypeRef(TypeRef { namespace: namespace.to_string(), name: ident.clone(), ..Default::default() });
+        let vec = tree.insert(namespace, 0).types.entry(ident.clone()).or_default();
 
-        for variant in &ty.item.variants {
-            if let Some((_, expr)) = &variant.discriminant {
-                let flags = FieldAttributes::PUBLIC;
-                let name = variant.ident.to_string();
-                let value = read_expr(expr, false)?;
+        if phase == ReadPhase::Define {
+            let mut def = TypeDef { extends: Some(TypeRef { namespace: "System".to_string(), name: "Enum".to_string(), ..Default::default() }), ..Default::default() };
+            let enum_type = Type::TypeRef(TypeRef { namespace: namespace.to_string(), name: ident, ..Default::default() });
 
-                def.fields.push(Field { flags, name, ty: enum_type.clone(), value: Some(value) });
+            for variant in &ty.item.variants {
+                if let Some((_, expr)) = &variant.discriminant {
+                    let flags = FieldAttributes::PUBLIC;
+                    let name = variant.ident.to_string();
+                    let value = read_expr(expr, false)?;
+
+                    def.fields.push(Field { flags, name, ty: enum_type.clone(), value: Some(value) });
+                }
             }
-        }
 
-        tree.insert(namespace, 0).types.entry(ident).or_default().push(def);
+            vec.push(def);
+        }
     }
 
     Ok(())
 }
 
-fn read_class(tree: &mut Module, _file: &IdlFile, ty: &IdlClass, namespace: &str, filter: &Filter) -> Result<()> {
+fn read_class(tree: &mut Module, _file: &IdlFile, ty: &IdlClass, namespace: &str, filter: &Filter, _phase: ReadPhase) -> Result<()> {
     let ident = ty.ident.to_string();
 
     if filter.includes_type_name(reader::TypeName::new(namespace, &ident)) {
