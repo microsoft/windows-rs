@@ -26,7 +26,7 @@ impl Module {
     pub fn read(input: &[String], filter: &Filter) -> Result<Self> {
         let mut module = Module::default();
         winmd::read_winmd(&mut module, input, filter)?;
-        idl::read_idl(&mut module, input, filter)?;
+        module.read_idl(input, filter)?;
         Ok(module)
     }
 
