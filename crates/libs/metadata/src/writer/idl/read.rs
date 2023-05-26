@@ -110,7 +110,8 @@ impl Module {
                     self.insert(namespace, 0).types.entry(ident).or_default();
                 }
                 ReadPhase::Define => {
-                    let mut def = TypeDef { extends: Some(TypeRef { namespace: "System".to_string(), name: "ValueType".to_string(), ..Default::default() }), ..Default::default() };
+                    let flags = TypeAttributes::PUBLIC | TypeAttributes::WINDOWS_RUNTIME | TypeAttributes::SEALED | TypeAttributes::IMPORT | TypeAttributes::SEQUENTIAL_LAYOUT;
+                    let mut def = TypeDef { flags, extends: Some(TypeRef { namespace: "System".to_string(), name: "ValueType".to_string(), ..Default::default() }), ..Default::default() };
 
                     let syn::Fields::Named(fields) = &ty.item.fields else {
                         unimplemented!();
@@ -144,7 +145,7 @@ impl Module {
                     self.insert(namespace, 0).types.entry(ident).or_default();
                 }
                 ReadPhase::Define => {
-                    let mut def = TypeDef { extends: Some(TypeRef { namespace: "System".to_string(), name: "Enum".to_string(), ..Default::default() }), ..Default::default() };
+                    let mut def = TypeDef { extends: Some(TypeRef {  namespace: "System".to_string(), name: "Enum".to_string(), ..Default::default() }), ..Default::default() };
                     let enum_type = Type::TypeRef(TypeRef { namespace: namespace.to_string(), name: ident.clone(), ..Default::default() });
 
                     for variant in &ty.item.variants {
@@ -297,21 +298,34 @@ impl Module {
         }
 
         let mut current: Vec<String> = current.split('.').map(|segment| segment.to_string()).collect();
-        let mut name = vec![];
+        let mut builder = vec![];
 
         for segment in &path.segments {
             let segment = segment.ident.to_string();
             if segment == "super" {
                 current.pop().ok_or_else(|| syn::Error::new(path.span(), "no parent module"))?;
             } else {
-                // TODO: check if this actually exists in the module tree other don't append current
-                name.append(&mut current);
-                name.push(segment);
+                builder.push(segment);
             }
         }
 
-        let (last, rest) = name.split_last().ok_or_else(|| syn::Error::new(path.span(), "no type name"))?;
+        current.extend_from_slice(&builder);
 
-        Ok(Type::TypeRef(TypeRef { namespace: rest.join("."), name: last.to_string(), ..Default::default() }))
+        let (name, namespace) = current.split_last().ok_or_else(|| syn::Error::new(path.span(), "no type name"))?;
+        let namespace = namespace.join(".");
+        
+        if self.contains_type(&namespace, name) {
+            Ok(Type::TypeRef(TypeRef { namespace, name: name.to_string(), ..Default::default() }))
+        } else {
+            let (name, namespace) = builder.split_last().ok_or_else(|| syn::Error::new(path.span(), "no type name"))?;
+            let namespace = namespace.join(".");
+
+            // TODO: should we include winmd references to validate - that will also help with AssemblyRef info needed for winmd
+            //if self.contains_type(&namespace, name) {
+                Ok(Type::TypeRef(TypeRef { namespace, name: name.to_string(), ..Default::default() }))
+            // } else {
+            //     Err(Error::new("type not found").with_span(path.span()))
+            // }
+        }        
     }
 }

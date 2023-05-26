@@ -203,7 +203,7 @@ impl<'a> Gen<'a> {
                     if self
                         .reader
                         .type_def_flags(*def)
-                        .contains(TypeAttributes::WINRT)
+                        .contains(TypeAttributes::WINDOWS_RUNTIME)
                     {
                         quote! { *mut ::core::ffi::c_void }
                     } else {
@@ -692,7 +692,7 @@ impl<'a> Gen<'a> {
         if self
             .reader
             .type_def_flags(def)
-            .contains(TypeAttributes::WINRT)
+            .contains(TypeAttributes::WINDOWS_RUNTIME)
         {
             let type_signature = if self.reader.type_def_kind(def) == TypeKind::Class {
                 let type_signature =
@@ -756,7 +756,7 @@ impl<'a> Gen<'a> {
         if self
             .reader
             .type_def_flags(def)
-            .contains(TypeAttributes::WINRT)
+            .contains(TypeAttributes::WINDOWS_RUNTIME)
         {
             // TODO: this needs to use a ConstBuffer-like facility to accomodate generics
             let runtime_name = format!("{}", self.reader.type_def_type_name(def));
@@ -918,7 +918,7 @@ impl<'a> Gen<'a> {
         let is_winrt = self
             .reader
             .type_def_flags(def)
-            .contains(TypeAttributes::WINRT);
+            .contains(TypeAttributes::WINDOWS_RUNTIME);
 
         let crate_name = self.crate_name();
 
@@ -1197,7 +1197,7 @@ impl<'a> Gen<'a> {
         if self
             .reader
             .type_def_flags(def)
-            .contains(TypeAttributes::WINRT)
+            .contains(TypeAttributes::WINDOWS_RUNTIME)
         {
             let is_delegate = self.reader.type_def_kind(def) == TypeKind::Delegate;
             let params = signature

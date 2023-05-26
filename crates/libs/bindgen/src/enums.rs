@@ -185,7 +185,7 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
         if gen
             .reader
             .type_def_flags(def)
-            .contains(TypeAttributes::WINRT)
+            .contains(TypeAttributes::WINDOWS_RUNTIME)
         {
             let signature =
                 Literal::byte_string(gen.reader.type_def_signature(def, &[]).as_bytes());

@@ -925,14 +925,14 @@ impl<'a> Reader<'a> {
     pub fn type_def_is_blittable(&self, row: TypeDef) -> bool {
         match self.type_def_kind(row) {
             TypeKind::Struct => {
-                if self.type_def_flags(row).contains(TypeAttributes::WINRT) {
+                if self.type_def_flags(row).contains(TypeAttributes::WINDOWS_RUNTIME) {
                     self.type_def_fields(row).all(|field| self.field_is_blittable(field, row))
                 } else {
                     true
                 }
             }
             TypeKind::Enum => true,
-            TypeKind::Delegate => !self.type_def_flags(row).contains(TypeAttributes::WINRT),
+            TypeKind::Delegate => !self.type_def_flags(row).contains(TypeAttributes::WINDOWS_RUNTIME),
             _ => false,
         }
     }
@@ -940,12 +940,12 @@ impl<'a> Reader<'a> {
         match self.type_def_kind(row) {
             TypeKind::Struct => self.type_def_fields(row).all(|field| self.field_is_copyable(field, row)),
             TypeKind::Enum => true,
-            TypeKind::Delegate => !self.type_def_flags(row).contains(TypeAttributes::WINRT),
+            TypeKind::Delegate => !self.type_def_flags(row).contains(TypeAttributes::WINDOWS_RUNTIME),
             _ => false,
         }
     }
     pub fn type_def_is_callback(&self, row: TypeDef) -> bool {
-        !self.type_def_flags(row).contains(TypeAttributes::WINRT) && self.type_def_kind(row) == TypeKind::Delegate
+        !self.type_def_flags(row).contains(TypeAttributes::WINDOWS_RUNTIME) && self.type_def_kind(row) == TypeKind::Delegate
     }
     pub fn type_def_has_default_constructor(&self, row: TypeDef) -> bool {
         for attribute in self.type_def_attributes(row) {
@@ -983,7 +983,7 @@ impl<'a> Reader<'a> {
         self.type_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "ExclusiveToAttribute")
     }
     pub fn type_def_is_scoped(&self, row: TypeDef) -> bool {
-        self.type_def_flags(row).contains(TypeAttributes::WINRT) || self.type_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "ScopedEnumAttribute")
+        self.type_def_flags(row).contains(TypeAttributes::WINDOWS_RUNTIME) || self.type_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "ScopedEnumAttribute")
     }
     pub fn type_def_is_contract(&self, row: TypeDef) -> bool {
         self.type_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "ApiContractAttribute")
@@ -1014,7 +1014,7 @@ impl<'a> Reader<'a> {
         match self.type_def_kind(row) {
             TypeKind::Enum => true,
             TypeKind::Struct => self.type_def_is_handle(row),
-            TypeKind::Delegate => !self.type_def_flags(row).contains(TypeAttributes::WINRT),
+            TypeKind::Delegate => !self.type_def_flags(row).contains(TypeAttributes::WINDOWS_RUNTIME),
             _ => false,
         }
     }
@@ -1117,7 +1117,7 @@ impl<'a> Reader<'a> {
     pub fn type_def_is_flags(&self, row: TypeDef) -> bool {
         // Win32 enums use the Flags attribute. WinRT enums don't have the Flags attribute but are paritioned merely based
         // on whether they are signed.
-        self.type_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "FlagsAttribute") || (self.type_def_flags(row).contains(TypeAttributes::WINRT) && self.type_def_underlying_type(row) == Type::U32)
+        self.type_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "FlagsAttribute") || (self.type_def_flags(row).contains(TypeAttributes::WINDOWS_RUNTIME) && self.type_def_underlying_type(row) == Type::U32)
     }
     pub fn type_def_is_agile(&self, row: TypeDef) -> bool {
         for attribute in self.type_def_attributes(row) {
@@ -1161,7 +1161,7 @@ impl<'a> Reader<'a> {
             TypeKind::Interface | TypeKind::Class => true,
             // Win32 callbacks are defined as `Option<T>` so we don't include them here to avoid them
             // from being doubly wrapped in `Option`.
-            TypeKind::Delegate => self.type_def_flags(row).contains(TypeAttributes::WINRT),
+            TypeKind::Delegate => self.type_def_flags(row).contains(TypeAttributes::WINDOWS_RUNTIME),
             _ => false,
         }
     }
@@ -1263,7 +1263,7 @@ impl<'a> Reader<'a> {
             }
         }
 
-        if self.type_def_flags(def).contains(TypeAttributes::WINRT) {
+        if self.type_def_flags(def).contains(TypeAttributes::WINDOWS_RUNTIME) {
             for interface in self.type_def_interfaces(def, generics) {
                 if let Type::TypeDef((def, generics)) = interface.ty {
                     combine(self, def, &generics, &mut cfg);
@@ -1289,7 +1289,7 @@ impl<'a> Reader<'a> {
                     }
                 }
                 TypeKind::Interface => {
-                    if !self.type_def_flags(row).contains(TypeAttributes::WINRT) {
+                    if !self.type_def_flags(row).contains(TypeAttributes::WINDOWS_RUNTIME) {
                         for def in self.type_def_vtables(row) {
                             if let Type::TypeDef((def, _)) = def {
                                 cfg.add_feature(self.type_def_namespace(def));
@@ -1314,7 +1314,7 @@ impl<'a> Reader<'a> {
     }
     pub fn type_def_vtables(&self, row: TypeDef) -> Vec<Type> {
         let mut result = Vec::new();
-        if self.type_def_flags(row).contains(TypeAttributes::WINRT) {
+        if self.type_def_flags(row).contains(TypeAttributes::WINDOWS_RUNTIME) {
             result.push(Type::IUnknown);
             if self.type_def_kind(row) != TypeKind::Delegate {
                 result.push(Type::IInspectable);
@@ -1853,7 +1853,7 @@ impl<'a> Reader<'a> {
         match ty {
             Type::TypeDef((row, _)) => {
                 let flags = self.type_def_flags(*row);
-                if !flags.contains(TypeAttributes::WINRT) {
+                if !flags.contains(TypeAttributes::WINDOWS_RUNTIME) {
                     false
                 } else {
                     match self.type_def_kind(*row) {

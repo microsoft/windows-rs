@@ -1,5 +1,7 @@
 use super::*;
 
+// TODO: use the same casing as ECMA335
+
 flags!(FieldAttributes, u16);
 impl FieldAttributes {
     pub const PRIVATE: Self = Self(0x1);
@@ -55,7 +57,13 @@ impl TypeAttributes {
     pub const EXPLICIT_LAYOUT: Self = Self(0x10);
     pub const ABSTRACT: Self = Self(0x80);
     pub const SEALED: Self = Self(0x100);
-    pub const WINRT: Self = Self(0x4000);
+    pub const WINDOWS_RUNTIME: Self = Self(0x4000);
     pub const INTERFACE: Self = Self(0x20);
     pub const SEQUENTIAL_LAYOUT: Self = Self(0x8);
+    pub const IMPORT: Self = Self(0x1000);
+}
+
+flags!(AssemblyFlags, u32);
+impl AssemblyFlags {
+    pub const WINDOWS_RUNTIME: Self = Self(0x200);
 }

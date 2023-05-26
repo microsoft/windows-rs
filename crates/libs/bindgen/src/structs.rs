@@ -59,7 +59,7 @@ fn gen_struct_with_name(gen: &Gen, def: TypeDef, struct_name: &str, cfg: &Cfg) -
             let ty = gen.type_default_name(&ty);
             quote! { pub #name: ::std::mem::ManuallyDrop<#ty>, }
         } else if !gen.sys
-            && !flags.contains(TypeAttributes::WINRT)
+            && !flags.contains(TypeAttributes::WINDOWS_RUNTIME)
             && !gen.reader.field_is_blittable(f, def)
         {
             if let Type::Win32Array((ty, len)) = ty {
@@ -139,7 +139,7 @@ fn gen_windows_traits(gen: &Gen, def: TypeDef, name: &TokenStream, cfg: &Cfg) ->
         if gen
             .reader
             .type_def_flags(def)
-            .contains(TypeAttributes::WINRT)
+            .contains(TypeAttributes::WINDOWS_RUNTIME)
         {
             let signature =
                 Literal::byte_string(gen.reader.type_def_signature(def, &[]).as_bytes());
@@ -244,7 +244,7 @@ fn gen_copy_clone(gen: &Gen, def: TypeDef, name: &TokenStream, cfg: &Cfg) -> Tok
     } else if !gen
         .reader
         .type_def_flags(def)
-        .contains(TypeAttributes::WINRT)
+        .contains(TypeAttributes::WINDOWS_RUNTIME)
     {
         quote! {
             #features

@@ -27,7 +27,7 @@ fn read_type_def(reader: &reader::Reader, ty: reader::TypeDef) -> Result<TypeDef
     result.attributes = read_attributes(reader, reader.type_def_attributes(ty))?;
     result.extends = reader.type_def_extends(ty).map(|extends| TypeRef { namespace: extends.namespace.to_string(), name: extends.name.to_string(), ..Default::default() });
 
-    if result.flags.contains(TypeAttributes::INTERFACE) || !result.flags.contains(TypeAttributes::WINRT) {
+    if result.flags.contains(TypeAttributes::INTERFACE) || !result.flags.contains(TypeAttributes::WINDOWS_RUNTIME) {
         for method in reader.type_def_methods(ty) {
             let flags = reader.method_def_flags(method);
             let sig = reader.method_def_signature(method, &[]);

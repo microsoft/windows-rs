@@ -25,7 +25,8 @@ pub fn write_winmd(module: &Module, path: &str) -> Result<()> {
     let mut gen = Gen::new(module);
 
     gen.tables.TypeDef.push(tables::TypeDef { TypeName: gen.strings.insert("<Module>"), ..Default::default() });
-    gen.module_scope = ResolutionScope::Module(gen.tables.Module.push2(tables::Module { Mvid: 1, ..Default::default() })).encode();
+    gen.tables.Assembly.push(tables::Assembly { Name: gen.strings.insert("name"), HashAlgId: 0x00008004, MajorVersion: 0xFF, MinorVersion: 0xFF, BuildNumber: 0xFF, RevisionNumber: 0xFF, Flags: AssemblyFlags::WINDOWS_RUNTIME.0,  ..Default::default()  });
+    gen.module_scope = ResolutionScope::Module(gen.tables.Module.push2(tables::Module { Name: gen.strings.insert("name.winmd"), Mvid: 1, ..Default::default() })).encode();
 
     // Some winmd parsers will fail to read without an `mscorlib` reference. The `insert_module_types` funciton will typically include it
     // automatically but a minimal `Module` tree may not add this dependency.
@@ -141,10 +142,16 @@ impl<'a> Gen<'a> {
         if let Some(scope) = self.scopes.get(namespace) {
             *scope
         } else {
-            let name = if namespace == "System" { "mscorlib" } else { namespace };
-            let scope = ResolutionScope::AssemblyRef(self.tables.AssemblyRef.push2(tables::AssemblyRef { Name: self.strings.insert(name), ..Default::default() })).encode();
-            self.scopes.insert(namespace, scope);
-            scope
+            if namespace == "System" {
+                let scope = ResolutionScope::AssemblyRef(self.tables.AssemblyRef.push2(tables::AssemblyRef { Name: self.strings.insert("mscorlib"), MajorVersion: 4, PublicKeyOrToken: self.blobs.insert(&[0xB7,0x7A ,0x5C ,0x56 ,0x19 ,0x34 ,0xE0 ,0x89]), ..Default::default() })).encode();
+                self.scopes.insert(namespace, scope);
+                scope
+            } else {
+                // TODO: may need to capture the original assembly info for external references. 
+                let scope = ResolutionScope::AssemblyRef(self.tables.AssemblyRef.push2(tables::AssemblyRef { Name: self.strings.insert(namespace), MajorVersion: 0xFF, MinorVersion: 0xFF, BuildNumber: 0xFF, RevisionNumber: 0xFF, Flags: AssemblyFlags::WINDOWS_RUNTIME.0, ..Default::default() })).encode();
+                self.scopes.insert(namespace, scope);
+                scope
+            }
         }
     }
 
