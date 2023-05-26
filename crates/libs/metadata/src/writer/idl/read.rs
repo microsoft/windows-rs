@@ -110,7 +110,7 @@ impl Module {
                     self.insert(namespace, 0).types.entry(ident).or_default();
                 }
                 ReadPhase::Define => {
-                    let flags = TypeAttributes::PUBLIC | TypeAttributes::WINDOWS_RUNTIME | TypeAttributes::SEALED | TypeAttributes::IMPORT | TypeAttributes::SEQUENTIAL_LAYOUT;
+                    let flags = TypeAttributes::Public | TypeAttributes::WindowsRuntime | TypeAttributes::Sealed | TypeAttributes::Import | TypeAttributes::SequentialLayout;
                     let mut def = TypeDef { flags, extends: Some(TypeRef { namespace: "System".to_string(), name: "ValueType".to_string(), ..Default::default() }), ..Default::default() };
 
                     let syn::Fields::Named(fields) = &ty.item.fields else {
@@ -122,7 +122,7 @@ impl Module {
                            unimplemented!();
                         };
 
-                        let flags = FieldAttributes::PUBLIC;
+                        let flags = FieldAttributes::Public;
                         let name = ident.to_string();
                         let ty = self.read_ty(namespace, &field.ty)?;
                         def.fields.push(Field { flags, name, ty, ..Default::default() });
@@ -150,7 +150,7 @@ impl Module {
 
                     for variant in &ty.item.variants {
                         if let Some((_, expr)) = &variant.discriminant {
-                            let flags = FieldAttributes::PUBLIC;
+                            let flags = FieldAttributes::Public;
                             let name = variant.ident.to_string();
                             let value = self.read_expr(expr, false)?;
 

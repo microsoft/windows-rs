@@ -1,4 +1,4 @@
-#![allow(dead_code)]
+#![allow(dead_code, non_upper_case_globals)]
 
 use std::collections::*;
 mod attributes;

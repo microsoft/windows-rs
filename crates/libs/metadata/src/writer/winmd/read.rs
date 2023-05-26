@@ -27,7 +27,7 @@ fn read_type_def(reader: &reader::Reader, ty: reader::TypeDef) -> Result<TypeDef
     result.attributes = read_attributes(reader, reader.type_def_attributes(ty))?;
     result.extends = reader.type_def_extends(ty).map(|extends| TypeRef { namespace: extends.namespace.to_string(), name: extends.name.to_string(), ..Default::default() });
 
-    if result.flags.contains(TypeAttributes::INTERFACE) || !result.flags.contains(TypeAttributes::WINDOWS_RUNTIME) {
+    if result.flags.contains(TypeAttributes::Interface) || !result.flags.contains(TypeAttributes::WindowsRuntime) {
         for method in reader.type_def_methods(ty) {
             let flags = reader.method_def_flags(method);
             let sig = reader.method_def_signature(method, &[]);
@@ -52,7 +52,7 @@ fn read_type_def(reader: &reader::Reader, ty: reader::TypeDef) -> Result<TypeDef
         let name = reader.field_name(field).to_string();
         let ty = read_type(reader, &reader.field_type(field, Some(ty)))?;
 
-        let value = if flags.contains(FieldAttributes::LITERAL) {
+        let value = if flags.contains(FieldAttributes::Literal) {
             let constant = reader.field_constant(field).unwrap();
             read_value(reader, &reader.constant_value(constant)).ok()
         } else {

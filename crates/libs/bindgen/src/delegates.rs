@@ -4,7 +4,7 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
     if gen
         .reader
         .type_def_flags(def)
-        .contains(TypeAttributes::WINDOWS_RUNTIME)
+        .contains(TypeAttributes::WindowsRuntime)
     {
         gen_delegate(gen, def)
     } else {

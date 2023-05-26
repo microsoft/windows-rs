@@ -25,7 +25,7 @@ pub fn write_winmd(module: &Module, path: &str) -> Result<()> {
     let mut gen = Gen::new(module);
 
     gen.tables.TypeDef.push(tables::TypeDef { TypeName: gen.strings.insert("<Module>"), ..Default::default() });
-    gen.tables.Assembly.push(tables::Assembly { Name: gen.strings.insert("name"), HashAlgId: 0x00008004, MajorVersion: 0xFF, MinorVersion: 0xFF, BuildNumber: 0xFF, RevisionNumber: 0xFF, Flags: AssemblyFlags::WINDOWS_RUNTIME.0,  ..Default::default()  });
+    gen.tables.Assembly.push(tables::Assembly { Name: gen.strings.insert("name"), HashAlgId: 0x00008004, MajorVersion: 0xFF, MinorVersion: 0xFF, BuildNumber: 0xFF, RevisionNumber: 0xFF, Flags: AssemblyFlags::WindowsRuntime.0,  ..Default::default()  });
     gen.module_scope = ResolutionScope::Module(gen.tables.Module.push2(tables::Module { Name: gen.strings.insert("name.winmd"), Mvid: 1, ..Default::default() })).encode();
 
     // Some winmd parsers will fail to read without an `mscorlib` reference. The `insert_module_types` funciton will typically include it
@@ -148,7 +148,7 @@ impl<'a> Gen<'a> {
                 scope
             } else {
                 // TODO: may need to capture the original assembly info for external references. 
-                let scope = ResolutionScope::AssemblyRef(self.tables.AssemblyRef.push2(tables::AssemblyRef { Name: self.strings.insert(namespace), MajorVersion: 0xFF, MinorVersion: 0xFF, BuildNumber: 0xFF, RevisionNumber: 0xFF, Flags: AssemblyFlags::WINDOWS_RUNTIME.0, ..Default::default() })).encode();
+                let scope = ResolutionScope::AssemblyRef(self.tables.AssemblyRef.push2(tables::AssemblyRef { Name: self.strings.insert(namespace), MajorVersion: 0xFF, MinorVersion: 0xFF, BuildNumber: 0xFF, RevisionNumber: 0xFF, Flags: AssemblyFlags::WindowsRuntime.0, ..Default::default() })).encode();
                 self.scopes.insert(namespace, scope);
                 scope
             }

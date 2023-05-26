@@ -87,7 +87,7 @@ pub fn namespace(gen: &Gen, tree: &Tree) -> String {
                 if gen
                     .reader
                     .type_def_flags(def)
-                    .contains(TypeAttributes::WINDOWS_RUNTIME)
+                    .contains(TypeAttributes::WindowsRuntime)
                 {
                     types
                         .entry(kind)

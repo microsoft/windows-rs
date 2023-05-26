@@ -4,7 +4,6 @@ pub struct TypeName<'a> {
     pub name: &'a str,
 }
 
-#[allow(non_upper_case_globals)]
 impl<'a> TypeName<'a> {
     pub const Enum: Self = Self::from_const("System", "Enum");
     pub const Delegate: Self = Self::from_const("System", "MulticastDelegate");

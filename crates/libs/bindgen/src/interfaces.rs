@@ -66,7 +66,7 @@ fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
         if gen
             .reader
             .type_def_flags(def)
-            .contains(TypeAttributes::WINDOWS_RUNTIME)
+            .contains(TypeAttributes::WindowsRuntime)
         {
             for method in gen.reader.type_def_methods(def) {
                 methods.combine(&winrt_methods::gen(
@@ -170,7 +170,7 @@ fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
         if gen
             .reader
             .type_def_flags(def)
-            .contains(TypeAttributes::WINDOWS_RUNTIME)
+            .contains(TypeAttributes::WindowsRuntime)
         {
             for interface in &interfaces {
                 let into = gen.type_name(&interface.ty);

@@ -220,7 +220,7 @@ fn gen_win32_invoke_arg(gen: &Gen, param: &SignatureParam) -> TokenStream {
     if gen
         .reader
         .param_flags(param.def)
-        .contains(ParamAttributes::INPUT)
+        .contains(ParamAttributes::In)
         && gen.reader.type_is_nullable(&param.ty)
     {
         quote! { ::windows_core::from_raw_borrowed(&#name) }
@@ -228,7 +228,7 @@ fn gen_win32_invoke_arg(gen: &Gen, param: &SignatureParam) -> TokenStream {
         || (gen
             .reader
             .param_flags(param.def)
-            .contains(ParamAttributes::INPUT)
+            .contains(ParamAttributes::In)
             && !gen.reader.type_is_primitive(&param.ty))
     {
         quote! { ::core::mem::transmute(&#name) }
