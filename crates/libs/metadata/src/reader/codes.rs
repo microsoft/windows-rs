@@ -88,7 +88,7 @@ impl Decode for MemberRefParent {
 
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Debug)]
 pub enum TypeDefOrRef {
-    None,
+    None, // TOOD: should decode return Option<T>?
     TypeDef(TypeDef),
     TypeRef(TypeRef),
     TypeSpec(TypeSpec),
@@ -118,5 +118,25 @@ impl TypeOrMethodDef {
         (match self {
             Self::TypeDef(value) => (value.0.row + 1) << 1,
         }) as _
+    }
+}
+
+pub enum ResolutionScope {
+    Module(Module),
+    ModuleRef(ModuleRef),
+    AssemblyRef(AssemblyRef),
+    TypeRef(TypeRef),
+}
+
+impl Decode for ResolutionScope {
+    fn decode(file: usize, code: usize) -> Self {
+        let (kind, row) = (code & ((1 << 2) - 1), (code >> 2) - 1);
+        match kind {
+            0 => Self::Module(Module(Row::new(row, TABLE_MODULE, file))),
+            1 => Self::ModuleRef(ModuleRef(Row::new(row, TABLE_MODULEREF, file))),
+            2 => Self::AssemblyRef(AssemblyRef(Row::new(row, TABLE_ASSEMBLYREF, file))),
+            3 => Self::TypeRef(TypeRef(Row::new(row, TABLE_TYPEREF, file))),
+            _ => unimplemented!(),
+        }
     }
 }

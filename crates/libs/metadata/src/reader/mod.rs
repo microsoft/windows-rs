@@ -34,7 +34,9 @@ tables! {
     InterfaceImpl,
     MemberRef,
     MethodDef,
+    Module,
     ModuleRef,
+    AssemblyRef,
     Param,
     TypeDef,
     TypeRef,
@@ -1355,6 +1357,9 @@ impl<'a> Reader<'a> {
     }
     pub fn type_ref_type_name(&self, row: TypeRef) -> TypeName {
         TypeName::new(self.type_ref_namespace(row), self.type_ref_name(row))
+    }
+    pub fn type_ref_resolution_scope(&self, row: TypeRef) -> ResolutionScope {
+        self.row_decode(row.0, 0)
     }
 
     //
