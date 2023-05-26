@@ -1,7 +1,8 @@
 use windows::{Win32::Foundation::*, Win32::UI::WindowsAndMessaging::*};
 
 fn main() -> windows::core::Result<()> {
-    unsafe { EnumWindows(Some(enum_window), LPARAM(0)) }
+    unsafe { EnumWindows(Some(enum_window), LPARAM(0)) };
+    Ok(())
 }
 
 extern "system" fn enum_window(window: HWND, _: LPARAM) -> BOOL {
