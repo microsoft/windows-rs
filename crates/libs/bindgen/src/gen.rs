@@ -958,11 +958,7 @@ impl<'a> Gen<'a> {
                 let abi_size_name: TokenStream =
                     format!("{}_array_size", self.reader.param_name(p.def)).into();
 
-                if self
-                    .reader
-                    .param_flags(p.def)
-                    .contains(ParamAttributes::In)
-                {
+                if self.reader.param_flags(p.def).contains(ParamAttributes::In) {
                     if p.ty.is_winrt_array() {
                         quote! { #abi_size_name: u32, #name: *const #abi, }
                     } else if p.ty.is_const_ref() {
