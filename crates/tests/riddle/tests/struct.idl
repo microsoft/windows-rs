@@ -1,0 +1,8 @@
+mod Test {
+    struct Name {
+        a: i32,
+        b: f32,
+        c: u64,
+        d: f64,
+    }
+}
