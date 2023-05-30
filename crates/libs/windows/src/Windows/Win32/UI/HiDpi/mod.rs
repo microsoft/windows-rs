@@ -111,7 +111,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("api-ms-win-shcore-scaling-l1-1-1.dll" "system" fn GetProcessDpiAwareness(hprocess : super::super::Foundation:: HANDLE, value : *mut PROCESS_DPI_AWARENESS) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<PROCESS_DPI_AWARENESS>();
+    let mut result__ = ::std::mem::zeroed();
     GetProcessDpiAwareness(hprocess.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`*"]

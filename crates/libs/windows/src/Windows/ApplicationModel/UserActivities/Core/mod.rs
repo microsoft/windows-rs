@@ -27,7 +27,7 @@ pub struct CoreUserActivityManager;
 impl CoreUserActivityManager {
     pub fn CreateUserActivitySessionInBackground(activity: &super::UserActivity) -> ::windows_core::Result<super::UserActivitySession> {
         Self::ICoreUserActivityManagerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::UserActivitySession>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateUserActivitySessionInBackground)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(activity), &mut result__).from_abi(result__)
         })
     }
@@ -35,7 +35,7 @@ impl CoreUserActivityManager {
     #[cfg(feature = "Foundation")]
     pub fn DeleteUserActivitySessionsInTimeRangeAsync(channel: &super::UserActivityChannel, starttime: super::super::super::Foundation::DateTime, endtime: super::super::super::Foundation::DateTime) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         Self::ICoreUserActivityManagerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DeleteUserActivitySessionsInTimeRangeAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(channel), starttime, endtime, &mut result__).from_abi(result__)
         })
     }

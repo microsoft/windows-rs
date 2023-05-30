@@ -82,7 +82,7 @@ impl ContactPartnerProvisioningManager {
     #[cfg(feature = "Foundation")]
     pub fn AssociateNetworkAccountAsync(store: &super::ContactStore, networkname: &::windows_core::HSTRING, networkaccountid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         Self::IContactPartnerProvisioningManagerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AssociateNetworkAccountAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(store), ::core::mem::transmute_copy(networkname), ::core::mem::transmute_copy(networkaccountid), &mut result__).from_abi(result__)
         })
     }
@@ -93,7 +93,7 @@ impl ContactPartnerProvisioningManager {
         P0: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IInputStream>,
     {
         Self::IContactPartnerProvisioningManagerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ImportVcardToSystemAsync)(::windows_core::Interface::as_raw(this), stream.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
@@ -101,7 +101,7 @@ impl ContactPartnerProvisioningManager {
     #[cfg(feature = "Foundation")]
     pub fn AssociateSocialNetworkAccountAsync(store: &super::ContactStore, networkname: &::windows_core::HSTRING, networkaccountid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         Self::IContactPartnerProvisioningManagerStatics2(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AssociateSocialNetworkAccountAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(store), ::core::mem::transmute_copy(networkname), ::core::mem::transmute_copy(networkaccountid), &mut result__).from_abi(result__)
         })
     }
@@ -129,7 +129,7 @@ impl MessagePartnerProvisioningManager {
         P0: ::windows_core::TryIntoParam<super::super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>,
     {
         Self::IMessagePartnerProvisioningManagerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ImportSmsToSystemAsync)(::windows_core::Interface::as_raw(this), incoming, read, ::core::mem::transmute_copy(body), ::core::mem::transmute_copy(sender), recipients.try_into_param()?.abi(), deliverytime, &mut result__).from_abi(result__)
         })
     }
@@ -141,7 +141,7 @@ impl MessagePartnerProvisioningManager {
         P1: ::windows_core::TryIntoParam<super::super::super::Foundation::Collections::IVectorView<super::super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, ::windows_core::IInspectable>>>,
     {
         Self::IMessagePartnerProvisioningManagerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ImportMmsToSystemAsync)(::windows_core::Interface::as_raw(this), incoming, read, ::core::mem::transmute_copy(subject), ::core::mem::transmute_copy(sender), recipients.try_into_param()?.abi(), deliverytime, attachments.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }

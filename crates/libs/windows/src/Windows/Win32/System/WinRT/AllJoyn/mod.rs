@@ -44,7 +44,7 @@ pub struct IWindowsDevicesAllJoynBusAttachmentFactoryInterop_Vtbl {
 pub struct IWindowsDevicesAllJoynBusAttachmentInterop(::windows_core::IUnknown);
 impl IWindowsDevicesAllJoynBusAttachmentInterop {
     pub unsafe fn Win32Handle(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Win32Handle)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -129,7 +129,7 @@ impl IWindowsDevicesAllJoynBusObjectInterop {
         (::windows_core::Interface::vtable(self).AddPropertySetHandler)(::windows_core::Interface::as_raw(self), context, ::core::mem::transmute_copy(interfacename), callback).ok()
     }
     pub unsafe fn Win32Handle(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Win32Handle)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }

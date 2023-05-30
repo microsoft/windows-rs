@@ -63,9 +63,8 @@ pub fn gen(
             }
         }
         _ => {
-            let return_type = gen.type_name(&signature.return_type);
             quote! {
-                let mut result__ = ::windows_core::zeroed::<#return_type>();
+                let mut result__ = ::std::mem::zeroed();
                     (::windows_core::Interface::vtable(this).#vname)(::windows_core::Interface::as_raw(this), #args #return_arg)
                         .from_abi(result__)
             }

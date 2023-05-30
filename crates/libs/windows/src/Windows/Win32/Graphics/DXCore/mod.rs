@@ -25,7 +25,7 @@ impl IDXCoreAdapter {
         (::windows_core::Interface::vtable(self).GetProperty)(::windows_core::Interface::as_raw(self), property, buffersize, propertydata).ok()
     }
     pub unsafe fn GetPropertySize(&self, property: DXCoreAdapterProperty) -> ::windows_core::Result<usize> {
-        let mut result__ = ::windows_core::zeroed::<usize>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetPropertySize)(::windows_core::Interface::as_raw(self), property, &mut result__).from_abi(result__)
     }
     pub unsafe fn IsQueryStateSupported(&self, property: DXCoreAdapterState) -> bool {
@@ -113,7 +113,7 @@ impl IDXCoreAdapterFactory {
     where
         P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).RegisterEventNotification)(::windows_core::Interface::as_raw(self), dxcoreobject.into_param().abi(), notificationtype, callbackfunction, ::core::mem::transmute(callbackcontext.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
     }
     pub unsafe fn UnregisterEventNotification(&self, eventcookie: u32) -> ::windows_core::Result<()> {

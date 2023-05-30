@@ -23,7 +23,7 @@ pub struct ApplicationProfile;
 impl ApplicationProfile {
     pub fn Modes() -> ::windows_core::Result<ApplicationProfileModes> {
         Self::IApplicationProfileStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<ApplicationProfileModes>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Modes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }

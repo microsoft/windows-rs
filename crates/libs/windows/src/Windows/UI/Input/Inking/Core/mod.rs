@@ -323,21 +323,21 @@ impl CoreIncrementalInkStroke {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::super::Foundation::Rect>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AppendInkPoints)(::windows_core::Interface::as_raw(this), inkpoints.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn CreateInkStroke(&self) -> ::windows_core::Result<super::InkStroke> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::InkStroke>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateInkStroke)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DrawingAttributes(&self) -> ::windows_core::Result<super::InkDrawingAttributes> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::InkDrawingAttributes>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DrawingAttributes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -346,7 +346,7 @@ impl CoreIncrementalInkStroke {
     pub fn PointTransform(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Numerics::Matrix3x2> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::super::Foundation::Numerics::Matrix3x2>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PointTransform)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -355,7 +355,7 @@ impl CoreIncrementalInkStroke {
     pub fn BoundingRect(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Rect> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::super::Foundation::Rect>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).BoundingRect)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -363,7 +363,7 @@ impl CoreIncrementalInkStroke {
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Create(drawingattributes: &super::InkDrawingAttributes, pointtransform: super::super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows_core::Result<CoreIncrementalInkStroke> {
         Self::ICoreIncrementalInkStrokeFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<CoreIncrementalInkStroke>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(drawingattributes), pointtransform, &mut result__).from_abi(result__)
         })
     }
@@ -413,7 +413,7 @@ impl CoreInkIndependentInputSource {
     pub fn PointerEntering(&self, handler: &super::super::super::super::Foundation::TypedEventHandler<CoreInkIndependentInputSource, super::super::super::Core::PointerEventArgs>) -> ::windows_core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PointerEntering)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -428,7 +428,7 @@ impl CoreInkIndependentInputSource {
     pub fn PointerHovering(&self, handler: &super::super::super::super::Foundation::TypedEventHandler<CoreInkIndependentInputSource, super::super::super::Core::PointerEventArgs>) -> ::windows_core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PointerHovering)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -443,7 +443,7 @@ impl CoreInkIndependentInputSource {
     pub fn PointerExiting(&self, handler: &super::super::super::super::Foundation::TypedEventHandler<CoreInkIndependentInputSource, super::super::super::Core::PointerEventArgs>) -> ::windows_core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PointerExiting)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -458,7 +458,7 @@ impl CoreInkIndependentInputSource {
     pub fn PointerPressing(&self, handler: &super::super::super::super::Foundation::TypedEventHandler<CoreInkIndependentInputSource, super::super::super::Core::PointerEventArgs>) -> ::windows_core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PointerPressing)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -473,7 +473,7 @@ impl CoreInkIndependentInputSource {
     pub fn PointerMoving(&self, handler: &super::super::super::super::Foundation::TypedEventHandler<CoreInkIndependentInputSource, super::super::super::Core::PointerEventArgs>) -> ::windows_core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PointerMoving)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -488,7 +488,7 @@ impl CoreInkIndependentInputSource {
     pub fn PointerReleasing(&self, handler: &super::super::super::super::Foundation::TypedEventHandler<CoreInkIndependentInputSource, super::super::super::Core::PointerEventArgs>) -> ::windows_core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PointerReleasing)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -503,7 +503,7 @@ impl CoreInkIndependentInputSource {
     pub fn PointerLost(&self, handler: &super::super::super::super::Foundation::TypedEventHandler<CoreInkIndependentInputSource, super::super::super::Core::PointerEventArgs>) -> ::windows_core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PointerLost)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -516,7 +516,7 @@ impl CoreInkIndependentInputSource {
     pub fn InkPresenter(&self) -> ::windows_core::Result<super::InkPresenter> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::InkPresenter>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InkPresenter)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -525,7 +525,7 @@ impl CoreInkIndependentInputSource {
     pub fn PointerCursor(&self) -> ::windows_core::Result<super::super::super::Core::CoreCursor> {
         let this = &::windows_core::ComInterface::cast::<ICoreInkIndependentInputSource2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Core::CoreCursor>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PointerCursor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -537,7 +537,7 @@ impl CoreInkIndependentInputSource {
     }
     pub fn Create(inkpresenter: &super::InkPresenter) -> ::windows_core::Result<CoreInkIndependentInputSource> {
         Self::ICoreInkIndependentInputSourceStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<CoreInkIndependentInputSource>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(inkpresenter), &mut result__).from_abi(result__)
         })
     }
@@ -592,7 +592,7 @@ impl CoreInkPresenterHost {
     pub fn InkPresenter(&self) -> ::windows_core::Result<super::InkPresenter> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::InkPresenter>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InkPresenter)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -601,7 +601,7 @@ impl CoreInkPresenterHost {
     pub fn RootVisual(&self) -> ::windows_core::Result<super::super::super::Composition::ContainerVisual> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Composition::ContainerVisual>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RootVisual)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -655,21 +655,21 @@ impl CoreWetStrokeUpdateEventArgs {
     pub fn NewInkPoints(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Collections::IVector<super::InkPoint>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::super::Foundation::Collections::IVector<super::InkPoint>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).NewInkPoints)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PointerId(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PointerId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Disposition(&self) -> ::windows_core::Result<CoreWetStrokeDisposition> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<CoreWetStrokeDisposition>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Disposition)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -718,7 +718,7 @@ impl CoreWetStrokeUpdateSource {
     pub fn WetStrokeStarting(&self, handler: &super::super::super::super::Foundation::TypedEventHandler<CoreWetStrokeUpdateSource, CoreWetStrokeUpdateEventArgs>) -> ::windows_core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).WetStrokeStarting)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -733,7 +733,7 @@ impl CoreWetStrokeUpdateSource {
     pub fn WetStrokeContinuing(&self, handler: &super::super::super::super::Foundation::TypedEventHandler<CoreWetStrokeUpdateSource, CoreWetStrokeUpdateEventArgs>) -> ::windows_core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).WetStrokeContinuing)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -748,7 +748,7 @@ impl CoreWetStrokeUpdateSource {
     pub fn WetStrokeStopping(&self, handler: &super::super::super::super::Foundation::TypedEventHandler<CoreWetStrokeUpdateSource, CoreWetStrokeUpdateEventArgs>) -> ::windows_core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).WetStrokeStopping)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -763,7 +763,7 @@ impl CoreWetStrokeUpdateSource {
     pub fn WetStrokeCompleted(&self, handler: &super::super::super::super::Foundation::TypedEventHandler<CoreWetStrokeUpdateSource, CoreWetStrokeUpdateEventArgs>) -> ::windows_core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).WetStrokeCompleted)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -778,7 +778,7 @@ impl CoreWetStrokeUpdateSource {
     pub fn WetStrokeCanceled(&self, handler: &super::super::super::super::Foundation::TypedEventHandler<CoreWetStrokeUpdateSource, CoreWetStrokeUpdateEventArgs>) -> ::windows_core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).WetStrokeCanceled)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -791,13 +791,13 @@ impl CoreWetStrokeUpdateSource {
     pub fn InkPresenter(&self) -> ::windows_core::Result<super::InkPresenter> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::InkPresenter>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InkPresenter)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Create(inkpresenter: &super::InkPresenter) -> ::windows_core::Result<CoreWetStrokeUpdateSource> {
         Self::ICoreWetStrokeUpdateSourceStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<CoreWetStrokeUpdateSource>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(inkpresenter), &mut result__).from_abi(result__)
         })
     }

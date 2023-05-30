@@ -79,7 +79,7 @@ impl XsltProcessor {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TransformToString)(::windows_core::Interface::as_raw(this), inputnode.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
@@ -91,7 +91,7 @@ impl XsltProcessor {
     {
         let this = &::windows_core::ComInterface::cast::<IXsltProcessor2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Dom::XmlDocument>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TransformToDocument)(::windows_core::Interface::as_raw(this), inputnode.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
@@ -99,7 +99,7 @@ impl XsltProcessor {
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn CreateInstance(document: &super::Dom::XmlDocument) -> ::windows_core::Result<XsltProcessor> {
         Self::IXsltProcessorFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<XsltProcessor>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateInstance)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(document), &mut result__).from_abi(result__)
         })
     }

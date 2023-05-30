@@ -76,7 +76,7 @@ impl IForceFeedbackEffect {
     pub fn Gain(&self) -> ::windows_core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Gain)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -87,7 +87,7 @@ impl IForceFeedbackEffect {
     pub fn State(&self) -> ::windows_core::Result<ForceFeedbackEffectState> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ForceFeedbackEffectState>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).State)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -265,7 +265,7 @@ impl ConditionForceEffect {
     pub fn Kind(&self) -> ::windows_core::Result<ConditionForceEffectKind> {
         let this = &::windows_core::ComInterface::cast::<IConditionForceEffect>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ConditionForceEffectKind>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -277,14 +277,14 @@ impl ConditionForceEffect {
     }
     pub fn CreateInstance(effectkind: ConditionForceEffectKind) -> ::windows_core::Result<ConditionForceEffect> {
         Self::IConditionForceEffectFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<ConditionForceEffect>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateInstance)(::windows_core::Interface::as_raw(this), effectkind, &mut result__).from_abi(result__)
         })
     }
     pub fn Gain(&self) -> ::windows_core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Gain)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -295,7 +295,7 @@ impl ConditionForceEffect {
     pub fn State(&self) -> ::windows_core::Result<ForceFeedbackEffectState> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ForceFeedbackEffectState>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).State)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -371,7 +371,7 @@ impl ConstantForceEffect {
     pub fn Gain(&self) -> ::windows_core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Gain)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -382,7 +382,7 @@ impl ConstantForceEffect {
     pub fn State(&self) -> ::windows_core::Result<ForceFeedbackEffectState> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ForceFeedbackEffectState>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).State)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -434,14 +434,14 @@ impl ForceFeedbackMotor {
     pub fn AreEffectsPaused(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AreEffectsPaused)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MasterGain(&self) -> ::windows_core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MasterGain)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -452,14 +452,14 @@ impl ForceFeedbackMotor {
     pub fn IsEnabled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SupportedAxes(&self) -> ::windows_core::Result<ForceFeedbackEffectAxes> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ForceFeedbackEffectAxes>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SupportedAxes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -471,7 +471,7 @@ impl ForceFeedbackMotor {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<ForceFeedbackLoadEffectResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LoadEffectAsync)(::windows_core::Interface::as_raw(this), effect.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
@@ -492,7 +492,7 @@ impl ForceFeedbackMotor {
     pub fn TryDisableAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<bool>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryDisableAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -501,7 +501,7 @@ impl ForceFeedbackMotor {
     pub fn TryEnableAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<bool>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryEnableAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -510,7 +510,7 @@ impl ForceFeedbackMotor {
     pub fn TryResetAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<bool>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryResetAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -522,7 +522,7 @@ impl ForceFeedbackMotor {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<bool>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryUnloadEffectAsync)(::windows_core::Interface::as_raw(this), effect.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
@@ -565,7 +565,7 @@ impl PeriodicForceEffect {
     pub fn Gain(&self) -> ::windows_core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Gain)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -576,7 +576,7 @@ impl PeriodicForceEffect {
     pub fn State(&self) -> ::windows_core::Result<ForceFeedbackEffectState> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ForceFeedbackEffectState>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).State)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -591,7 +591,7 @@ impl PeriodicForceEffect {
     pub fn Kind(&self) -> ::windows_core::Result<PeriodicForceEffectKind> {
         let this = &::windows_core::ComInterface::cast::<IPeriodicForceEffect>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<PeriodicForceEffectKind>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -609,7 +609,7 @@ impl PeriodicForceEffect {
     }
     pub fn CreateInstance(effectkind: PeriodicForceEffectKind) -> ::windows_core::Result<PeriodicForceEffect> {
         Self::IPeriodicForceEffectFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<PeriodicForceEffect>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateInstance)(::windows_core::Interface::as_raw(this), effectkind, &mut result__).from_abi(result__)
         })
     }
@@ -665,7 +665,7 @@ impl RampForceEffect {
     pub fn Gain(&self) -> ::windows_core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Gain)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -676,7 +676,7 @@ impl RampForceEffect {
     pub fn State(&self) -> ::windows_core::Result<ForceFeedbackEffectState> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ForceFeedbackEffectState>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).State)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }

@@ -50,7 +50,7 @@ pub struct ID3DBlob_Vtbl {
 pub struct ID3DDestructionNotifier(::windows_core::IUnknown);
 impl ID3DDestructionNotifier {
     pub unsafe fn RegisterDestructionCallback(&self, callbackfn: PFN_DESTRUCTION_CALLBACK, pdata: *const ::core::ffi::c_void) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).RegisterDestructionCallback)(::windows_core::Interface::as_raw(self), callbackfn, pdata, &mut result__).from_abi(result__)
     }
     pub unsafe fn UnregisterDestructionCallback(&self, callbackid: u32) -> ::windows_core::Result<()> {

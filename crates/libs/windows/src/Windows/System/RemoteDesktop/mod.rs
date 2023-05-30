@@ -25,7 +25,7 @@ pub struct InteractiveSession;
 impl InteractiveSession {
     pub fn IsRemote() -> ::windows_core::Result<bool> {
         Self::IInteractiveSessionStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsRemote)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }

@@ -86,7 +86,7 @@ impl Class {
     pub fn Property(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Property)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -107,7 +107,7 @@ impl Class {
     pub fn Flags(&self) -> ::windows_core::Result<Flags> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<Flags>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Flags)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,

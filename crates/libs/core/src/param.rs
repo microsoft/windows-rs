@@ -29,7 +29,7 @@ where
     fn try_into_param(self) -> Result<Param<T>> {
         match self {
             Some(from) => Ok(Param::Borrowed(from.abi())),
-            None => Ok(Param::Borrowed(zeroed::<T>())),
+            None => Ok(Param::Borrowed(unsafe { std::mem::zeroed() })),
         }
     }
 }
@@ -96,7 +96,7 @@ where
     fn into_param(self) -> Param<T> {
         match self {
             Some(item) => Param::Borrowed(item.abi()),
-            None => Param::Borrowed(zeroed::<T>()),
+            None => Param::Borrowed(unsafe { std::mem::zeroed() }),
         }
     }
 }

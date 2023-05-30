@@ -75,7 +75,7 @@ impl RadialControllerIndependentInputSource {
     pub fn Controller(&self) -> ::windows_core::Result<super::RadialController> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::RadialController>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Controller)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -84,7 +84,7 @@ impl RadialControllerIndependentInputSource {
     pub fn Dispatcher(&self) -> ::windows_core::Result<super::super::Core::CoreDispatcher> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Core::CoreDispatcher>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Dispatcher)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -93,7 +93,7 @@ impl RadialControllerIndependentInputSource {
     pub fn DispatcherQueue(&self) -> ::windows_core::Result<super::super::super::System::DispatcherQueue> {
         let this = &::windows_core::ComInterface::cast::<IRadialControllerIndependentInputSource2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::System::DispatcherQueue>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DispatcherQueue)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -101,7 +101,7 @@ impl RadialControllerIndependentInputSource {
     #[cfg(feature = "ApplicationModel_Core")]
     pub fn CreateForView(view: &super::super::super::ApplicationModel::Core::CoreApplicationView) -> ::windows_core::Result<RadialControllerIndependentInputSource> {
         Self::IRadialControllerIndependentInputSourceStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<RadialControllerIndependentInputSource>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateForView)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(view), &mut result__).from_abi(result__)
         })
     }

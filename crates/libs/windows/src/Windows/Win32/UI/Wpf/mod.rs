@@ -8,11 +8,11 @@ impl IMILBitmapEffect {
     where
         P0: ::windows_core::IntoParam<IMILBitmapEffectRenderContext>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::Graphics::Imaging::IWICBitmapSource>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOutput)(::windows_core::Interface::as_raw(self), uiindex, pcontext.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetParentEffect(&self) -> ::windows_core::Result<IMILBitmapEffectGroup> {
-        let mut result__ = ::windows_core::zeroed::<IMILBitmapEffectGroup>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetParentEffect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
@@ -66,11 +66,11 @@ pub struct IMILBitmapEffect_Vtbl {
 pub struct IMILBitmapEffectConnections(::windows_core::IUnknown);
 impl IMILBitmapEffectConnections {
     pub unsafe fn GetInputConnector(&self, uiindex: u32) -> ::windows_core::Result<IMILBitmapEffectInputConnector> {
-        let mut result__ = ::windows_core::zeroed::<IMILBitmapEffectInputConnector>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetInputConnector)(::windows_core::Interface::as_raw(self), uiindex, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetOutputConnector(&self, uiindex: u32) -> ::windows_core::Result<IMILBitmapEffectOutputConnector> {
-        let mut result__ = ::windows_core::zeroed::<IMILBitmapEffectOutputConnector>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOutputConnector)(::windows_core::Interface::as_raw(self), uiindex, &mut result__).from_abi(result__)
     }
 }
@@ -109,19 +109,19 @@ pub struct IMILBitmapEffectConnections_Vtbl {
 pub struct IMILBitmapEffectConnectionsInfo(::windows_core::IUnknown);
 impl IMILBitmapEffectConnectionsInfo {
     pub unsafe fn GetNumberInputs(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberInputs)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNumberOutputs(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberOutputs)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetInputConnectorInfo(&self, uiindex: u32) -> ::windows_core::Result<IMILBitmapEffectConnectorInfo> {
-        let mut result__ = ::windows_core::zeroed::<IMILBitmapEffectConnectorInfo>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetInputConnectorInfo)(::windows_core::Interface::as_raw(self), uiindex, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetOutputConnectorInfo(&self, uiindex: u32) -> ::windows_core::Result<IMILBitmapEffectConnectorInfo> {
-        let mut result__ = ::windows_core::zeroed::<IMILBitmapEffectConnectorInfo>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOutputConnectorInfo)(::windows_core::Interface::as_raw(self), uiindex, &mut result__).from_abi(result__)
     }
 }
@@ -162,29 +162,29 @@ pub struct IMILBitmapEffectConnectionsInfo_Vtbl {
 pub struct IMILBitmapEffectConnector(::windows_core::IUnknown);
 impl IMILBitmapEffectConnector {
     pub unsafe fn GetIndex(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetIndex)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetOptimalFormat(&self) -> ::windows_core::Result<::windows_core::GUID> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetOptimalFormat)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNumberFormats(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetNumberFormats)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetFormat(&self, ulindex: u32) -> ::windows_core::Result<::windows_core::GUID> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetFormat)(::windows_core::Interface::as_raw(self), ulindex, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsConnected(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsConnected)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetBitmapEffect(&self) -> ::windows_core::Result<IMILBitmapEffect> {
-        let mut result__ = ::windows_core::zeroed::<IMILBitmapEffect>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetBitmapEffect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -226,19 +226,19 @@ pub struct IMILBitmapEffectConnector_Vtbl {
 pub struct IMILBitmapEffectConnectorInfo(::windows_core::IUnknown);
 impl IMILBitmapEffectConnectorInfo {
     pub unsafe fn GetIndex(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetIndex)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetOptimalFormat(&self) -> ::windows_core::Result<::windows_core::GUID> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOptimalFormat)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNumberFormats(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberFormats)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetFormat(&self, ulindex: u32) -> ::windows_core::Result<::windows_core::GUID> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFormat)(::windows_core::Interface::as_raw(self), ulindex, &mut result__).from_abi(result__)
     }
 }
@@ -327,15 +327,15 @@ pub struct IMILBitmapEffectEvents_Vtbl {
 pub struct IMILBitmapEffectFactory(::windows_core::IUnknown);
 impl IMILBitmapEffectFactory {
     pub unsafe fn CreateEffect(&self, pguideffect: *const ::windows_core::GUID) -> ::windows_core::Result<IMILBitmapEffect> {
-        let mut result__ = ::windows_core::zeroed::<IMILBitmapEffect>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateEffect)(::windows_core::Interface::as_raw(self), pguideffect, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateContext(&self) -> ::windows_core::Result<IMILBitmapEffectRenderContext> {
-        let mut result__ = ::windows_core::zeroed::<IMILBitmapEffectRenderContext>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateContext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateEffectOuter(&self) -> ::windows_core::Result<IMILBitmapEffect> {
-        let mut result__ = ::windows_core::zeroed::<IMILBitmapEffect>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateEffectOuter)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -375,11 +375,11 @@ pub struct IMILBitmapEffectFactory_Vtbl {
 pub struct IMILBitmapEffectGroup(::windows_core::IUnknown);
 impl IMILBitmapEffectGroup {
     pub unsafe fn GetInteriorInputConnector(&self, uiindex: u32) -> ::windows_core::Result<IMILBitmapEffectOutputConnector> {
-        let mut result__ = ::windows_core::zeroed::<IMILBitmapEffectOutputConnector>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetInteriorInputConnector)(::windows_core::Interface::as_raw(self), uiindex, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetInteriorOutputConnector(&self, uiindex: u32) -> ::windows_core::Result<IMILBitmapEffectInputConnector> {
-        let mut result__ = ::windows_core::zeroed::<IMILBitmapEffectInputConnector>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetInteriorOutputConnector)(::windows_core::Interface::as_raw(self), uiindex, &mut result__).from_abi(result__)
     }
     pub unsafe fn Add<P0>(&self, peffect: P0) -> ::windows_core::Result<()>
@@ -431,11 +431,11 @@ impl IMILBitmapEffectGroupImpl {
         (::windows_core::Interface::vtable(self).Preprocess)(::windows_core::Interface::as_raw(self), pcontext.into_param().abi()).ok()
     }
     pub unsafe fn GetNumberChildren(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberChildren)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetChildren(&self) -> ::windows_core::Result<IMILBitmapEffects> {
-        let mut result__ = ::windows_core::zeroed::<IMILBitmapEffects>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetChildren)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -480,7 +480,7 @@ impl IMILBitmapEffectImpl {
     where
         P0: ::windows_core::IntoParam<IMILBitmapEffectOutputConnector>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsInPlaceModificationAllowed)(::windows_core::Interface::as_raw(self), poutputconnector.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetParentEffect<P0>(&self, pparenteffect: P0) -> ::windows_core::Result<()>
@@ -492,7 +492,7 @@ impl IMILBitmapEffectImpl {
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
     #[cfg(feature = "Win32_Graphics_Imaging")]
     pub unsafe fn GetInputSource(&self, uiindex: u32) -> ::windows_core::Result<super::super::Graphics::Imaging::IWICBitmapSource> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Graphics::Imaging::IWICBitmapSource>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetInputSource)(::windows_core::Interface::as_raw(self), uiindex, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetInputSourceBounds(&self, uiindex: u32, prect: *mut MilRectD) -> ::windows_core::Result<()> {
@@ -573,29 +573,29 @@ pub struct IMILBitmapEffectImpl_Vtbl {
 pub struct IMILBitmapEffectInputConnector(::windows_core::IUnknown);
 impl IMILBitmapEffectInputConnector {
     pub unsafe fn GetIndex(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetIndex)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetOptimalFormat(&self) -> ::windows_core::Result<::windows_core::GUID> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetOptimalFormat)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNumberFormats(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetNumberFormats)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetFormat(&self, ulindex: u32) -> ::windows_core::Result<::windows_core::GUID> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetFormat)(::windows_core::Interface::as_raw(self), ulindex, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsConnected(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.IsConnected)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetBitmapEffect(&self) -> ::windows_core::Result<IMILBitmapEffect> {
-        let mut result__ = ::windows_core::zeroed::<IMILBitmapEffect>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetBitmapEffect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn ConnectTo<P0>(&self, pconnector: P0) -> ::windows_core::Result<()>
@@ -605,7 +605,7 @@ impl IMILBitmapEffectInputConnector {
         (::windows_core::Interface::vtable(self).ConnectTo)(::windows_core::Interface::as_raw(self), pconnector.into_param().abi()).ok()
     }
     pub unsafe fn GetConnection(&self) -> ::windows_core::Result<IMILBitmapEffectOutputConnector> {
-        let mut result__ = ::windows_core::zeroed::<IMILBitmapEffectOutputConnector>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetConnection)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -644,7 +644,7 @@ pub struct IMILBitmapEffectInputConnector_Vtbl {
 pub struct IMILBitmapEffectInteriorInputConnector(::windows_core::IUnknown);
 impl IMILBitmapEffectInteriorInputConnector {
     pub unsafe fn GetInputConnector(&self) -> ::windows_core::Result<IMILBitmapEffectInputConnector> {
-        let mut result__ = ::windows_core::zeroed::<IMILBitmapEffectInputConnector>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetInputConnector)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -682,7 +682,7 @@ pub struct IMILBitmapEffectInteriorInputConnector_Vtbl {
 pub struct IMILBitmapEffectInteriorOutputConnector(::windows_core::IUnknown);
 impl IMILBitmapEffectInteriorOutputConnector {
     pub unsafe fn GetOutputConnector(&self) -> ::windows_core::Result<IMILBitmapEffectOutputConnector> {
-        let mut result__ = ::windows_core::zeroed::<IMILBitmapEffectOutputConnector>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOutputConnector)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -720,37 +720,37 @@ pub struct IMILBitmapEffectInteriorOutputConnector_Vtbl {
 pub struct IMILBitmapEffectOutputConnector(::windows_core::IUnknown);
 impl IMILBitmapEffectOutputConnector {
     pub unsafe fn GetIndex(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetIndex)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetOptimalFormat(&self) -> ::windows_core::Result<::windows_core::GUID> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetOptimalFormat)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNumberFormats(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetNumberFormats)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetFormat(&self, ulindex: u32) -> ::windows_core::Result<::windows_core::GUID> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetFormat)(::windows_core::Interface::as_raw(self), ulindex, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsConnected(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.IsConnected)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetBitmapEffect(&self) -> ::windows_core::Result<IMILBitmapEffect> {
-        let mut result__ = ::windows_core::zeroed::<IMILBitmapEffect>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetBitmapEffect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNumberConnections(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberConnections)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetConnection(&self, uiindex: u32) -> ::windows_core::Result<IMILBitmapEffectInputConnector> {
-        let mut result__ = ::windows_core::zeroed::<IMILBitmapEffectInputConnector>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetConnection)(::windows_core::Interface::as_raw(self), uiindex, &mut result__).from_abi(result__)
     }
 }
@@ -864,13 +864,13 @@ impl IMILBitmapEffectPrimitive {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HasAffineTransform(&self, uiindex: u32) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).HasAffineTransform)(::windows_core::Interface::as_raw(self), uiindex, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HasInverseTransform(&self, uiindex: u32) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).HasInverseTransform)(::windows_core::Interface::as_raw(self), uiindex, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
@@ -943,7 +943,7 @@ impl IMILBitmapEffectPrimitiveImpl {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsVolatile(&self, uioutputindex: u32) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsVolatile)(::windows_core::Interface::as_raw(self), uioutputindex, &mut result__).from_abi(result__)
     }
 }
@@ -991,7 +991,7 @@ impl IMILBitmapEffectRenderContext {
         (::windows_core::Interface::vtable(self).SetOutputPixelFormat)(::windows_core::Interface::as_raw(self), format).ok()
     }
     pub unsafe fn GetOutputPixelFormat(&self) -> ::windows_core::Result<::windows_core::GUID> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOutputPixelFormat)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1064,7 +1064,7 @@ impl IMILBitmapEffectRenderContextImpl {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetUseSoftwareRenderer(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetUseSoftwareRenderer)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetTransform(&self, pmatrix: *mut MILMatrixF) -> ::windows_core::Result<()> {
@@ -1121,19 +1121,19 @@ pub struct IMILBitmapEffectRenderContextImpl_Vtbl {
 pub struct IMILBitmapEffects(::windows_core::IUnknown);
 impl IMILBitmapEffects {
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Parent(&self) -> ::windows_core::Result<IMILBitmapEffectGroup> {
-        let mut result__ = ::windows_core::zeroed::<IMILBitmapEffectGroup>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Parent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Item(&self, uindex: u32) -> ::windows_core::Result<IMILBitmapEffect> {
-        let mut result__ = ::windows_core::zeroed::<IMILBitmapEffect>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Item)(::windows_core::Interface::as_raw(self), uindex, &mut result__).from_abi(result__)
     }
     pub unsafe fn Count(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }

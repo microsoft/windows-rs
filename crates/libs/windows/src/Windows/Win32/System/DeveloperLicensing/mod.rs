@@ -6,7 +6,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("wsclient.dll" "system" fn AcquireDeveloperLicense(hwndparent : super::super::Foundation:: HWND, pexpiration : *mut super::super::Foundation:: FILETIME) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<super::super::Foundation::FILETIME>();
+    let mut result__ = ::std::mem::zeroed();
     AcquireDeveloperLicense(hwndparent.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeveloperLicensing\"`, `\"Win32_Foundation\"`*"]
@@ -14,7 +14,7 @@ where
 #[inline]
 pub unsafe fn CheckDeveloperLicense() -> ::windows_core::Result<super::super::Foundation::FILETIME> {
     ::windows_targets::link!("wsclient.dll" "system" fn CheckDeveloperLicense(pexpiration : *mut super::super::Foundation:: FILETIME) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<super::super::Foundation::FILETIME>();
+    let mut result__ = ::std::mem::zeroed();
     CheckDeveloperLicense(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeveloperLicensing\"`, `\"Win32_Foundation\"`*"]

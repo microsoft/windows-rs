@@ -16,7 +16,7 @@ where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("cldapi.dll" "system" fn CfConnectSyncRoot(syncrootpath : ::windows_core::PCWSTR, callbacktable : *const CF_CALLBACK_REGISTRATION, callbackcontext : *const ::core::ffi::c_void, connectflags : CF_CONNECT_FLAGS, connectionkey : *mut CF_CONNECTION_KEY) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<CF_CONNECTION_KEY>();
+    let mut result__ = ::std::mem::zeroed();
     CfConnectSyncRoot(syncrootpath.into_param().abi(), callbacktable, ::core::mem::transmute(callbackcontext.unwrap_or(::std::ptr::null())), connectflags, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
@@ -119,7 +119,7 @@ pub unsafe fn CfGetPlaceholderStateFromFindData(finddata: *const super::FileSyst
 #[inline]
 pub unsafe fn CfGetPlatformInfo() -> ::windows_core::Result<CF_PLATFORM_INFO> {
     ::windows_targets::link!("cldapi.dll" "system" fn CfGetPlatformInfo(platformversion : *mut CF_PLATFORM_INFO) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<CF_PLATFORM_INFO>();
+    let mut result__ = ::std::mem::zeroed();
     CfGetPlatformInfo(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`*"]
@@ -149,7 +149,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("cldapi.dll" "system" fn CfGetTransferKey(filehandle : super::super::Foundation:: HANDLE, transferkey : *mut i64) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<i64>();
+    let mut result__ = ::std::mem::zeroed();
     CfGetTransferKey(filehandle.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`*"]
@@ -180,7 +180,7 @@ where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("cldapi.dll" "system" fn CfOpenFileWithOplock(filepath : ::windows_core::PCWSTR, flags : CF_OPEN_FILE_FLAGS, protectedhandle : *mut super::super::Foundation:: HANDLE) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<super::super::Foundation::HANDLE>();
+    let mut result__ = ::std::mem::zeroed();
     CfOpenFileWithOplock(filepath.into_param().abi(), flags, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
@@ -190,7 +190,7 @@ where
     P0: ::windows_core::IntoParam<CF_CONNECTION_KEY>,
 {
     ::windows_targets::link!("cldapi.dll" "system" fn CfQuerySyncProviderStatus(connectionkey : CF_CONNECTION_KEY, providerstatus : *mut CF_SYNC_PROVIDER_STATUS) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<CF_SYNC_PROVIDER_STATUS>();
+    let mut result__ = ::std::mem::zeroed();
     CfQuerySyncProviderStatus(connectionkey.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`*"]
@@ -230,7 +230,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("cldapi.dll" "system" fn CfReleaseTransferKey(filehandle : super::super::Foundation:: HANDLE, transferkey : *mut i64) -> ());
-    let mut result__ = ::windows_core::zeroed::<i64>();
+    let mut result__ = ::std::mem::zeroed();
     CfReleaseTransferKey(filehandle.into_param().abi(), &mut result__);
     ::std::mem::transmute(result__)
 }

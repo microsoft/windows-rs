@@ -636,14 +636,14 @@ impl IppAttributeError {
     pub fn Reason(&self) -> ::windows_core::Result<IppAttributeErrorReason> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IppAttributeErrorReason>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Reason)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExtendedError(&self) -> ::windows_core::Result<::windows_core::HRESULT> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HRESULT>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ExtendedError)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -652,7 +652,7 @@ impl IppAttributeError {
     pub fn GetUnsupportedValues(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<IppAttributeValue>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<IppAttributeValue>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetUnsupportedValues)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -695,7 +695,7 @@ impl IppAttributeValue {
     pub fn Kind(&self) -> ::windows_core::Result<IppAttributeValueKind> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IppAttributeValueKind>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -704,7 +704,7 @@ impl IppAttributeValue {
     pub fn GetIntegerArray(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<i32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVector<i32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetIntegerArray)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -713,7 +713,7 @@ impl IppAttributeValue {
     pub fn GetBooleanArray(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<bool>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVector<bool>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetBooleanArray)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -722,7 +722,7 @@ impl IppAttributeValue {
     pub fn GetEnumArray(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<i32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVector<i32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetEnumArray)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -731,7 +731,7 @@ impl IppAttributeValue {
     pub fn GetOctetStringArray(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<super::super::Storage::Streams::IBuffer>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVector<super::super::Storage::Streams::IBuffer>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetOctetStringArray)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -740,7 +740,7 @@ impl IppAttributeValue {
     pub fn GetDateTimeArray(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVector<super::super::Foundation::DateTime>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDateTimeArray)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -749,7 +749,7 @@ impl IppAttributeValue {
     pub fn GetResolutionArray(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<IppResolution>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVector<IppResolution>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetResolutionArray)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -758,7 +758,7 @@ impl IppAttributeValue {
     pub fn GetRangeOfIntegerArray(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<IppIntegerRange>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVector<IppIntegerRange>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetRangeOfIntegerArray)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -767,7 +767,7 @@ impl IppAttributeValue {
     pub fn GetCollectionArray(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, IppAttributeValue>>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVector<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, IppAttributeValue>>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetCollectionArray)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -776,7 +776,7 @@ impl IppAttributeValue {
     pub fn GetTextWithLanguageArray(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<IppTextWithLanguage>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVector<IppTextWithLanguage>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetTextWithLanguageArray)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -785,7 +785,7 @@ impl IppAttributeValue {
     pub fn GetNameWithLanguageArray(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<IppTextWithLanguage>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVector<IppTextWithLanguage>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetNameWithLanguageArray)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -794,7 +794,7 @@ impl IppAttributeValue {
     pub fn GetTextWithoutLanguageArray(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetTextWithoutLanguageArray)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -803,7 +803,7 @@ impl IppAttributeValue {
     pub fn GetNameWithoutLanguageArray(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetNameWithoutLanguageArray)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -812,7 +812,7 @@ impl IppAttributeValue {
     pub fn GetKeywordArray(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetKeywordArray)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -821,7 +821,7 @@ impl IppAttributeValue {
     pub fn GetUriArray(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetUriArray)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -830,7 +830,7 @@ impl IppAttributeValue {
     pub fn GetUriSchemaArray(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetUriSchemaArray)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -839,7 +839,7 @@ impl IppAttributeValue {
     pub fn GetCharsetArray(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetCharsetArray)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -848,7 +848,7 @@ impl IppAttributeValue {
     pub fn GetNaturalLanguageArray(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetNaturalLanguageArray)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -857,31 +857,31 @@ impl IppAttributeValue {
     pub fn GetMimeMediaTypeArray(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetMimeMediaTypeArray)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CreateUnsupported() -> ::windows_core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<IppAttributeValue>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateUnsupported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn CreateUnknown() -> ::windows_core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<IppAttributeValue>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateUnknown)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn CreateNoValue() -> ::windows_core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<IppAttributeValue>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateNoValue)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn CreateInteger(value: i32) -> ::windows_core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<IppAttributeValue>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateInteger)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         })
     }
@@ -892,13 +892,13 @@ impl IppAttributeValue {
         P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<i32>>,
     {
         Self::IIppAttributeValueStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<IppAttributeValue>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateIntegerArray)(::windows_core::Interface::as_raw(this), values.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn CreateBoolean(value: bool) -> ::windows_core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<IppAttributeValue>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateBoolean)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         })
     }
@@ -909,13 +909,13 @@ impl IppAttributeValue {
         P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<bool>>,
     {
         Self::IIppAttributeValueStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<IppAttributeValue>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateBooleanArray)(::windows_core::Interface::as_raw(this), values.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn CreateEnum(value: i32) -> ::windows_core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<IppAttributeValue>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateEnum)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         })
     }
@@ -926,7 +926,7 @@ impl IppAttributeValue {
         P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<i32>>,
     {
         Self::IIppAttributeValueStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<IppAttributeValue>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateEnumArray)(::windows_core::Interface::as_raw(this), values.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
@@ -937,7 +937,7 @@ impl IppAttributeValue {
         P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IBuffer>,
     {
         Self::IIppAttributeValueStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<IppAttributeValue>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateOctetString)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
@@ -948,7 +948,7 @@ impl IppAttributeValue {
         P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<super::super::Storage::Streams::IBuffer>>,
     {
         Self::IIppAttributeValueStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<IppAttributeValue>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateOctetStringArray)(::windows_core::Interface::as_raw(this), values.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
@@ -956,7 +956,7 @@ impl IppAttributeValue {
     #[cfg(feature = "Foundation")]
     pub fn CreateDateTime(value: super::super::Foundation::DateTime) -> ::windows_core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<IppAttributeValue>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateDateTime)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         })
     }
@@ -967,13 +967,13 @@ impl IppAttributeValue {
         P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::DateTime>>,
     {
         Self::IIppAttributeValueStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<IppAttributeValue>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateDateTimeArray)(::windows_core::Interface::as_raw(this), values.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn CreateResolution(value: &IppResolution) -> ::windows_core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<IppAttributeValue>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateResolution)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
         })
     }
@@ -984,13 +984,13 @@ impl IppAttributeValue {
         P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<IppResolution>>,
     {
         Self::IIppAttributeValueStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<IppAttributeValue>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateResolutionArray)(::windows_core::Interface::as_raw(this), values.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn CreateRangeOfInteger(value: &IppIntegerRange) -> ::windows_core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<IppAttributeValue>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateRangeOfInteger)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
         })
     }
@@ -1001,7 +1001,7 @@ impl IppAttributeValue {
         P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<IppIntegerRange>>,
     {
         Self::IIppAttributeValueStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<IppAttributeValue>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateRangeOfIntegerArray)(::windows_core::Interface::as_raw(this), values.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
@@ -1012,7 +1012,7 @@ impl IppAttributeValue {
         P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows_core::HSTRING, IppAttributeValue>>>,
     {
         Self::IIppAttributeValueStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<IppAttributeValue>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateCollection)(::windows_core::Interface::as_raw(this), memberattributes.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
@@ -1023,13 +1023,13 @@ impl IppAttributeValue {
         P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows_core::HSTRING, IppAttributeValue>>>>,
     {
         Self::IIppAttributeValueStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<IppAttributeValue>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateCollectionArray)(::windows_core::Interface::as_raw(this), memberattributesarray.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn CreateTextWithLanguage(value: &IppTextWithLanguage) -> ::windows_core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<IppAttributeValue>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateTextWithLanguage)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
         })
     }
@@ -1040,13 +1040,13 @@ impl IppAttributeValue {
         P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<IppTextWithLanguage>>,
     {
         Self::IIppAttributeValueStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<IppAttributeValue>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateTextWithLanguageArray)(::windows_core::Interface::as_raw(this), values.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn CreateNameWithLanguage(value: &IppTextWithLanguage) -> ::windows_core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<IppAttributeValue>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateNameWithLanguage)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
         })
     }
@@ -1057,13 +1057,13 @@ impl IppAttributeValue {
         P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<IppTextWithLanguage>>,
     {
         Self::IIppAttributeValueStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<IppAttributeValue>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateNameWithLanguageArray)(::windows_core::Interface::as_raw(this), values.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn CreateTextWithoutLanguage(value: &::windows_core::HSTRING) -> ::windows_core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<IppAttributeValue>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateTextWithoutLanguage)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
         })
     }
@@ -1074,13 +1074,13 @@ impl IppAttributeValue {
         P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
     {
         Self::IIppAttributeValueStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<IppAttributeValue>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateTextWithoutLanguageArray)(::windows_core::Interface::as_raw(this), values.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn CreateNameWithoutLanguage(value: &::windows_core::HSTRING) -> ::windows_core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<IppAttributeValue>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateNameWithoutLanguage)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
         })
     }
@@ -1091,13 +1091,13 @@ impl IppAttributeValue {
         P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
     {
         Self::IIppAttributeValueStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<IppAttributeValue>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateNameWithoutLanguageArray)(::windows_core::Interface::as_raw(this), values.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn CreateKeyword(value: &::windows_core::HSTRING) -> ::windows_core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<IppAttributeValue>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateKeyword)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
         })
     }
@@ -1108,7 +1108,7 @@ impl IppAttributeValue {
         P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
     {
         Self::IIppAttributeValueStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<IppAttributeValue>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateKeywordArray)(::windows_core::Interface::as_raw(this), values.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
@@ -1116,7 +1116,7 @@ impl IppAttributeValue {
     #[cfg(feature = "Foundation")]
     pub fn CreateUri(value: &super::super::Foundation::Uri) -> ::windows_core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<IppAttributeValue>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateUri)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
         })
     }
@@ -1127,13 +1127,13 @@ impl IppAttributeValue {
         P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>,
     {
         Self::IIppAttributeValueStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<IppAttributeValue>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateUriArray)(::windows_core::Interface::as_raw(this), values.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn CreateUriSchema(value: &::windows_core::HSTRING) -> ::windows_core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<IppAttributeValue>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateUriSchema)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
         })
     }
@@ -1144,13 +1144,13 @@ impl IppAttributeValue {
         P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
     {
         Self::IIppAttributeValueStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<IppAttributeValue>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateUriSchemaArray)(::windows_core::Interface::as_raw(this), values.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn CreateCharset(value: &::windows_core::HSTRING) -> ::windows_core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<IppAttributeValue>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateCharset)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
         })
     }
@@ -1161,13 +1161,13 @@ impl IppAttributeValue {
         P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
     {
         Self::IIppAttributeValueStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<IppAttributeValue>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateCharsetArray)(::windows_core::Interface::as_raw(this), values.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn CreateNaturalLanguage(value: &::windows_core::HSTRING) -> ::windows_core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<IppAttributeValue>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateNaturalLanguage)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
         })
     }
@@ -1178,13 +1178,13 @@ impl IppAttributeValue {
         P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
     {
         Self::IIppAttributeValueStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<IppAttributeValue>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateNaturalLanguageArray)(::windows_core::Interface::as_raw(this), values.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn CreateMimeMedia(value: &::windows_core::HSTRING) -> ::windows_core::Result<IppAttributeValue> {
         Self::IIppAttributeValueStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<IppAttributeValue>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateMimeMedia)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
         })
     }
@@ -1195,7 +1195,7 @@ impl IppAttributeValue {
         P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
     {
         Self::IIppAttributeValueStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<IppAttributeValue>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateMimeMediaArray)(::windows_core::Interface::as_raw(this), values.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
@@ -1243,20 +1243,20 @@ impl IppIntegerRange {
     pub fn Start(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Start)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn End(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).End)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CreateInstance(start: i32, end: i32) -> ::windows_core::Result<IppIntegerRange> {
         Self::IIppIntegerRangeFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<IppIntegerRange>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateInstance)(::windows_core::Interface::as_raw(this), start, end, &mut result__).from_abi(result__)
         })
     }
@@ -1304,7 +1304,7 @@ impl IppPrintDevice {
     pub fn PrinterName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PrinterName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1313,7 +1313,7 @@ impl IppPrintDevice {
     pub fn PrinterUri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Uri>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PrinterUri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1325,7 +1325,7 @@ impl IppPrintDevice {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Storage::Streams::IBuffer>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetPrinterAttributesAsBuffer)(::windows_core::Interface::as_raw(this), attributenames.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
@@ -1337,7 +1337,7 @@ impl IppPrintDevice {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IMap<::windows_core::HSTRING, IppAttributeValue>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetPrinterAttributes)(::windows_core::Interface::as_raw(this), attributenames.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
@@ -1349,7 +1349,7 @@ impl IppPrintDevice {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IppSetAttributesResult>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SetPrinterAttributesFromBuffer)(::windows_core::Interface::as_raw(this), printerattributesbuffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
@@ -1361,59 +1361,59 @@ impl IppPrintDevice {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IppSetAttributesResult>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SetPrinterAttributes)(::windows_core::Interface::as_raw(this), printerattributes.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn GetMaxSupportedPdfSize(&self) -> ::windows_core::Result<u64> {
         let this = &::windows_core::ComInterface::cast::<IIppPrintDevice2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetMaxSupportedPdfSize)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetMaxSupportedPdfVersion(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IIppPrintDevice2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetMaxSupportedPdfVersion)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsPdlPassthroughSupported(&self, pdlcontenttype: &::windows_core::HSTRING) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<IIppPrintDevice2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsPdlPassthroughSupported)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(pdlcontenttype), &mut result__).from_abi(result__)
         }
     }
     pub fn GetPdlPassthroughProvider(&self) -> ::windows_core::Result<PdlPassthroughProvider> {
         let this = &::windows_core::ComInterface::cast::<IIppPrintDevice2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<PdlPassthroughProvider>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetPdlPassthroughProvider)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetDeviceSelector() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IIppPrintDeviceStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDeviceSelector)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn FromId(deviceid: &::windows_core::HSTRING) -> ::windows_core::Result<IppPrintDevice> {
         Self::IIppPrintDeviceStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<IppPrintDevice>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FromId)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), &mut result__).from_abi(result__)
         })
     }
     pub fn FromPrinterName(printername: &::windows_core::HSTRING) -> ::windows_core::Result<IppPrintDevice> {
         Self::IIppPrintDeviceStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<IppPrintDevice>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FromPrinterName)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(printername), &mut result__).from_abi(result__)
         })
     }
     pub fn IsIppPrinter(printername: &::windows_core::HSTRING) -> ::windows_core::Result<bool> {
         Self::IIppPrintDeviceStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsIppPrinter)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(printername), &mut result__).from_abi(result__)
         })
     }
@@ -1461,27 +1461,27 @@ impl IppResolution {
     pub fn Width(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Width)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Height(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Height)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Unit(&self) -> ::windows_core::Result<IppResolutionUnit> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IppResolutionUnit>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Unit)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CreateInstance(width: i32, height: i32, unit: IppResolutionUnit) -> ::windows_core::Result<IppResolution> {
         Self::IIppResolutionFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<IppResolution>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateInstance)(::windows_core::Interface::as_raw(this), width, height, unit, &mut result__).from_abi(result__)
         })
     }
@@ -1529,7 +1529,7 @@ impl IppSetAttributesResult {
     pub fn Succeeded(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Succeeded)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1538,7 +1538,7 @@ impl IppSetAttributesResult {
     pub fn AttributeErrors(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, IppAttributeError>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, IppAttributeError>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AttributeErrors)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1581,20 +1581,20 @@ impl IppTextWithLanguage {
     pub fn Language(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Language)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Value(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Value)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CreateInstance(language: &::windows_core::HSTRING, text: &::windows_core::HSTRING) -> ::windows_core::Result<IppTextWithLanguage> {
         Self::IIppTextWithLanguageFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<IppTextWithLanguage>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateInstance)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(language), ::core::mem::transmute_copy(text), &mut result__).from_abi(result__)
         })
     }
@@ -1649,7 +1649,7 @@ impl PageConfigurationSettings {
     pub fn OrientationSource(&self) -> ::windows_core::Result<PageConfigurationSource> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<PageConfigurationSource>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).OrientationSource)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1660,7 +1660,7 @@ impl PageConfigurationSettings {
     pub fn SizeSource(&self) -> ::windows_core::Result<PageConfigurationSource> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<PageConfigurationSource>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SizeSource)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1709,7 +1709,7 @@ impl PdlPassthroughProvider {
     pub fn SupportedPdlContentTypes(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SupportedPdlContentTypes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1718,7 +1718,7 @@ impl PdlPassthroughProvider {
     pub fn StartPrintJobWithTaskOptions(&self, jobname: &::windows_core::HSTRING, pdlcontenttype: &::windows_core::HSTRING, taskoptions: &super::super::Graphics::Printing::PrintTaskOptions, pageconfigurationsettings: &PageConfigurationSettings) -> ::windows_core::Result<PdlPassthroughTarget> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<PdlPassthroughTarget>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).StartPrintJobWithTaskOptions)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(jobname), ::core::mem::transmute_copy(pdlcontenttype), ::core::mem::transmute_copy(taskoptions), ::core::mem::transmute_copy(pageconfigurationsettings), &mut result__).from_abi(result__)
         }
     }
@@ -1730,7 +1730,7 @@ impl PdlPassthroughProvider {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<PdlPassthroughTarget>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).StartPrintJobWithPrintTicket)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(jobname), ::core::mem::transmute_copy(pdlcontenttype), printticket.try_into_param()?.abi(), ::core::mem::transmute_copy(pageconfigurationsettings), &mut result__).from_abi(result__)
         }
     }
@@ -1779,7 +1779,7 @@ impl PdlPassthroughTarget {
     pub fn PrintJobId(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PrintJobId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1788,7 +1788,7 @@ impl PdlPassthroughTarget {
     pub fn GetOutputStream(&self) -> ::windows_core::Result<super::super::Storage::Streams::IOutputStream> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Storage::Streams::IOutputStream>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetOutputStream)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1837,7 +1837,7 @@ impl Print3DDevice {
     pub fn PrintSchema(&self) -> ::windows_core::Result<PrintSchema> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<PrintSchema>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PrintSchema)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1845,13 +1845,13 @@ impl Print3DDevice {
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync(deviceid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<Print3DDevice>> {
         Self::IPrint3DDeviceStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<Print3DDevice>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FromIdAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), &mut result__).from_abi(result__)
         })
     }
     pub fn GetDeviceSelector() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IPrint3DDeviceStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDeviceSelector)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -1901,7 +1901,7 @@ impl PrintSchema {
     pub fn GetDefaultPrintTicketAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDefaultPrintTicketAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1913,7 +1913,7 @@ impl PrintSchema {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetCapabilitiesAsync)(::windows_core::Interface::as_raw(this), constrainticket.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
@@ -1925,7 +1925,7 @@ impl PrintSchema {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MergeAndValidateWithDefaultPrintTicketAsync)(::windows_core::Interface::as_raw(this), deltaticket.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }

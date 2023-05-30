@@ -5,7 +5,7 @@ impl II2cControllerProvider {
     pub fn GetDeviceProvider(&self, settings: &ProviderI2cConnectionSettings) -> ::windows_core::Result<II2cDeviceProvider> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<II2cDeviceProvider>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDeviceProvider)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(settings), &mut result__).from_abi(result__)
         }
     }
@@ -49,7 +49,7 @@ impl II2cDeviceProvider {
     pub fn DeviceId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DeviceId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -60,7 +60,7 @@ impl II2cDeviceProvider {
     pub fn WritePartial(&self, buffer: &[u8]) -> ::windows_core::Result<ProviderI2cTransferResult> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ProviderI2cTransferResult>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).WritePartial)(::windows_core::Interface::as_raw(this), buffer.len() as u32, buffer.as_ptr(), &mut result__).from_abi(result__)
         }
     }
@@ -71,7 +71,7 @@ impl II2cDeviceProvider {
     pub fn ReadPartial(&self, buffer: &mut [u8]) -> ::windows_core::Result<ProviderI2cTransferResult> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ProviderI2cTransferResult>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReadPartial)(::windows_core::Interface::as_raw(this), buffer.len() as u32, buffer.as_mut_ptr(), &mut result__).from_abi(result__)
         }
     }
@@ -82,7 +82,7 @@ impl II2cDeviceProvider {
     pub fn WriteReadPartial(&self, writebuffer: &[u8], readbuffer: &mut [u8]) -> ::windows_core::Result<ProviderI2cTransferResult> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ProviderI2cTransferResult>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).WriteReadPartial)(::windows_core::Interface::as_raw(this), writebuffer.len() as u32, writebuffer.as_ptr(), readbuffer.len() as u32, readbuffer.as_mut_ptr(), &mut result__).from_abi(result__)
         }
     }
@@ -142,7 +142,7 @@ impl II2cProvider {
     pub fn GetControllersAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<II2cControllerProvider>>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<II2cControllerProvider>>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetControllersAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -214,7 +214,7 @@ impl ProviderI2cConnectionSettings {
     pub fn SlaveAddress(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SlaveAddress)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -225,7 +225,7 @@ impl ProviderI2cConnectionSettings {
     pub fn BusSpeed(&self) -> ::windows_core::Result<ProviderI2cBusSpeed> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ProviderI2cBusSpeed>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).BusSpeed)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -236,7 +236,7 @@ impl ProviderI2cConnectionSettings {
     pub fn SharingMode(&self) -> ::windows_core::Result<ProviderI2cSharingMode> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ProviderI2cSharingMode>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SharingMode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }

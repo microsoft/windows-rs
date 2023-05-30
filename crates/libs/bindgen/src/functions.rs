@@ -76,7 +76,7 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
                 #[inline]
                 pub unsafe fn #name<#generics>(#params) -> ::windows_core::Result<#return_type> #where_clause {
                     #link
-                    let mut result__ = ::windows_core::zeroed::<#return_type>();
+                    let mut result__ = ::std::mem::zeroed();
                     #name(#args).from_abi(result__)
                 }
             }
@@ -109,7 +109,7 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
                     #[inline]
                     pub unsafe fn #name<#generics>(#params) -> ::windows_core::Result<#return_type> #where_clause {
                         #link
-                        let mut result__ = ::windows_core::zeroed::<#return_type>();
+                        let mut result__ = ::std::mem::zeroed();
                         #name(#args);
                         ::windows_core::from_abi(result__.assume_init())
                     }
@@ -121,7 +121,7 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
                     #[inline]
                     pub unsafe fn #name<#generics>(#params) -> #return_type #where_clause {
                         #link
-                        let mut result__ = ::windows_core::zeroed::<#return_type>();
+                        let mut result__ = ::std::mem::zeroed();
                         #name(#args);
                         ::std::mem::transmute(result__)
                     }

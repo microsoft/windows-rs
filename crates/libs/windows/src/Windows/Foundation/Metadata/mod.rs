@@ -32,61 +32,61 @@ pub struct ApiInformation;
 impl ApiInformation {
     pub fn IsTypePresent(typename: &::windows_core::HSTRING) -> ::windows_core::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsTypePresent)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(typename), &mut result__).from_abi(result__)
         })
     }
     pub fn IsMethodPresent(typename: &::windows_core::HSTRING, methodname: &::windows_core::HSTRING) -> ::windows_core::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsMethodPresent)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(typename), ::core::mem::transmute_copy(methodname), &mut result__).from_abi(result__)
         })
     }
     pub fn IsMethodPresentWithArity(typename: &::windows_core::HSTRING, methodname: &::windows_core::HSTRING, inputparametercount: u32) -> ::windows_core::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsMethodPresentWithArity)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(typename), ::core::mem::transmute_copy(methodname), inputparametercount, &mut result__).from_abi(result__)
         })
     }
     pub fn IsEventPresent(typename: &::windows_core::HSTRING, eventname: &::windows_core::HSTRING) -> ::windows_core::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsEventPresent)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(typename), ::core::mem::transmute_copy(eventname), &mut result__).from_abi(result__)
         })
     }
     pub fn IsPropertyPresent(typename: &::windows_core::HSTRING, propertyname: &::windows_core::HSTRING) -> ::windows_core::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsPropertyPresent)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(typename), ::core::mem::transmute_copy(propertyname), &mut result__).from_abi(result__)
         })
     }
     pub fn IsReadOnlyPropertyPresent(typename: &::windows_core::HSTRING, propertyname: &::windows_core::HSTRING) -> ::windows_core::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsReadOnlyPropertyPresent)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(typename), ::core::mem::transmute_copy(propertyname), &mut result__).from_abi(result__)
         })
     }
     pub fn IsWriteablePropertyPresent(typename: &::windows_core::HSTRING, propertyname: &::windows_core::HSTRING) -> ::windows_core::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsWriteablePropertyPresent)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(typename), ::core::mem::transmute_copy(propertyname), &mut result__).from_abi(result__)
         })
     }
     pub fn IsEnumNamedValuePresent(enumtypename: &::windows_core::HSTRING, valuename: &::windows_core::HSTRING) -> ::windows_core::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsEnumNamedValuePresent)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(enumtypename), ::core::mem::transmute_copy(valuename), &mut result__).from_abi(result__)
         })
     }
     pub fn IsApiContractPresentByMajor(contractname: &::windows_core::HSTRING, majorversion: u16) -> ::windows_core::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsApiContractPresentByMajor)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(contractname), majorversion, &mut result__).from_abi(result__)
         })
     }
     pub fn IsApiContractPresentByMajorAndMinor(contractname: &::windows_core::HSTRING, majorversion: u16, minorversion: u16) -> ::windows_core::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsApiContractPresentByMajorAndMinor)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(contractname), majorversion, minorversion, &mut result__).from_abi(result__)
         })
     }

@@ -429,7 +429,7 @@ where
     P0: ::windows_core::IntoParam<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     ::windows_targets::link!("ntoskrnl.exe" "system" fn CcUnpinRepinnedBcb(bcb : *const ::core::ffi::c_void, writethrough : super::super::super::Win32::Foundation:: BOOLEAN, iostatus : *mut super::super::super::Win32::System::WindowsProgramming:: IO_STATUS_BLOCK) -> ());
-    let mut result__ = ::windows_core::zeroed::<super::super::super::Win32::System::WindowsProgramming::IO_STATUS_BLOCK>();
+    let mut result__ = ::std::mem::zeroed();
     CcUnpinRepinnedBcb(bcb, writethrough.into_param().abi(), &mut result__);
     ::std::mem::transmute(result__)
 }
@@ -1459,7 +1459,7 @@ pub unsafe fn FsRtlNotifyFullReportChange(notifysync: *const _REAL_NOTIFY_SYNC, 
 #[inline]
 pub unsafe fn FsRtlNotifyInitializeSync() -> *mut _REAL_NOTIFY_SYNC {
     ::windows_targets::link!("ntoskrnl.exe" "system" fn FsRtlNotifyInitializeSync(notifysync : *mut *mut _REAL_NOTIFY_SYNC) -> ());
-    let mut result__ = ::windows_core::zeroed::<*mut _REAL_NOTIFY_SYNC>();
+    let mut result__ = ::std::mem::zeroed();
     FsRtlNotifyInitializeSync(&mut result__);
     ::std::mem::transmute(result__)
 }
@@ -1755,7 +1755,7 @@ pub unsafe fn FsRtlRemovePerStreamContext(streamcontext: *const FSRTL_ADVANCED_F
 #[inline]
 pub unsafe fn FsRtlResetBaseMcb() -> BASE_MCB {
     ::windows_targets::link!("ntoskrnl.exe" "system" fn FsRtlResetBaseMcb(mcb : *mut BASE_MCB) -> ());
-    let mut result__ = ::windows_core::zeroed::<BASE_MCB>();
+    let mut result__ = ::std::mem::zeroed();
     FsRtlResetBaseMcb(&mut result__);
     ::std::mem::transmute(result__)
 }
@@ -1915,7 +1915,7 @@ pub unsafe fn ImpersonateSecurityContext(phcontext: *const SecHandle) -> ::windo
 #[inline]
 pub unsafe fn ImportSecurityContextW(pszpackage: *const super::super::super::Win32::Foundation::UNICODE_STRING, ppackedcontext: *const SecBuffer, token: *const ::core::ffi::c_void) -> ::windows_core::Result<SecHandle> {
     ::windows_targets::link!("secur32.dll" "system" fn ImportSecurityContextW(pszpackage : *const super::super::super::Win32::Foundation:: UNICODE_STRING, ppackedcontext : *const SecBuffer, token : *const ::core::ffi::c_void, phcontext : *mut SecHandle) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<SecHandle>();
+    let mut result__ = ::std::mem::zeroed();
     ImportSecurityContextW(pszpackage, ppackedcontext, token, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1950,7 +1950,7 @@ pub unsafe fn InitializeSecurityContextW(phcredential: ::core::option::Option<*c
 #[inline]
 pub unsafe fn IoAcquireVpbSpinLock() -> u8 {
     ::windows_targets::link!("ntoskrnl.exe" "system" fn IoAcquireVpbSpinLock(irql : *mut u8) -> ());
-    let mut result__ = ::windows_core::zeroed::<u8>();
+    let mut result__ = ::std::mem::zeroed();
     IoAcquireVpbSpinLock(&mut result__);
     ::std::mem::transmute(result__)
 }
@@ -3217,7 +3217,7 @@ pub unsafe fn PfxFindPrefix(prefixtable: *const PREFIX_TABLE, fullname: *const s
 #[inline]
 pub unsafe fn PfxInitialize() -> PREFIX_TABLE {
     ::windows_targets::link!("ntdll.dll" "system" fn PfxInitialize(prefixtable : *mut PREFIX_TABLE) -> ());
-    let mut result__ = ::windows_core::zeroed::<PREFIX_TABLE>();
+    let mut result__ = ::std::mem::zeroed();
     PfxInitialize(&mut result__);
     ::std::mem::transmute(result__)
 }
@@ -3426,7 +3426,7 @@ pub unsafe fn QuerySecurityContextToken(phcontext: *const SecHandle, token: *mut
 #[inline]
 pub unsafe fn QuerySecurityPackageInfoW(ppackagename: *const super::super::super::Win32::Foundation::UNICODE_STRING) -> ::windows_core::Result<*mut SecPkgInfoW> {
     ::windows_targets::link!("secur32.dll" "system" fn QuerySecurityPackageInfoW(ppackagename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, pppackageinfo : *mut *mut SecPkgInfoW) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<*mut SecPkgInfoW>();
+    let mut result__ = ::std::mem::zeroed();
     QuerySecurityPackageInfoW(ppackagename, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Wdk_Storage_FileSystem\"`*"]
@@ -3882,7 +3882,7 @@ pub unsafe fn RtlInitializeSidEx(sid: super::super::super::Win32::Foundation::PS
 #[inline]
 pub unsafe fn RtlInitializeUnicodePrefix() -> UNICODE_PREFIX_TABLE {
     ::windows_targets::link!("ntoskrnl.exe" "system" fn RtlInitializeUnicodePrefix(prefixtable : *mut UNICODE_PREFIX_TABLE) -> ());
-    let mut result__ = ::windows_core::zeroed::<UNICODE_PREFIX_TABLE>();
+    let mut result__ = ::std::mem::zeroed();
     RtlInitializeUnicodePrefix(&mut result__);
     ::std::mem::transmute(result__)
 }
@@ -4136,7 +4136,7 @@ pub unsafe fn RtlReserveChunk(compressionformat: u16, compressedbuffer: *mut *mu
 #[inline]
 pub unsafe fn RtlSecondsSince1970ToTime(elapsedseconds: u32) -> i64 {
     ::windows_targets::link!("ntdll.dll" "system" fn RtlSecondsSince1970ToTime(elapsedseconds : u32, time : *mut i64) -> ());
-    let mut result__ = ::windows_core::zeroed::<i64>();
+    let mut result__ = ::std::mem::zeroed();
     RtlSecondsSince1970ToTime(elapsedseconds, &mut result__);
     ::std::mem::transmute(result__)
 }
@@ -4144,7 +4144,7 @@ pub unsafe fn RtlSecondsSince1970ToTime(elapsedseconds: u32) -> i64 {
 #[inline]
 pub unsafe fn RtlSecondsSince1980ToTime(elapsedseconds: u32) -> i64 {
     ::windows_targets::link!("ntdll.dll" "system" fn RtlSecondsSince1980ToTime(elapsedseconds : u32, time : *mut i64) -> ());
-    let mut result__ = ::windows_core::zeroed::<i64>();
+    let mut result__ = ::std::mem::zeroed();
     RtlSecondsSince1980ToTime(elapsedseconds, &mut result__);
     ::std::mem::transmute(result__)
 }
@@ -4537,7 +4537,7 @@ where
 #[inline]
 pub unsafe fn SeCaptureSubjectContextEx(thread: ::core::option::Option<*const super::super::Foundation::KTHREAD>, process: *const super::super::Foundation::KPROCESS) -> super::super::Foundation::SECURITY_SUBJECT_CONTEXT {
     ::windows_targets::link!("ntoskrnl.exe" "system" fn SeCaptureSubjectContextEx(thread : *const super::super::Foundation:: KTHREAD, process : *const super::super::Foundation:: KPROCESS, subjectcontext : *mut super::super::Foundation:: SECURITY_SUBJECT_CONTEXT) -> ());
-    let mut result__ = ::windows_core::zeroed::<super::super::Foundation::SECURITY_SUBJECT_CONTEXT>();
+    let mut result__ = ::std::mem::zeroed();
     SeCaptureSubjectContextEx(::core::mem::transmute(thread.unwrap_or(::std::ptr::null())), process, &mut result__);
     ::std::mem::transmute(result__)
 }
@@ -4550,7 +4550,7 @@ where
     P1: ::windows_core::IntoParam<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
 {
     ::windows_targets::link!("ntoskrnl.exe" "system" fn SeCheckForCriticalAceRemoval(currentdescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, newdescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, subjectsecuritycontext : *const super::super::Foundation:: SECURITY_SUBJECT_CONTEXT, aceremoved : *mut super::super::super::Win32::Foundation:: BOOLEAN) -> ());
-    let mut result__ = ::windows_core::zeroed::<super::super::super::Win32::Foundation::BOOLEAN>();
+    let mut result__ = ::std::mem::zeroed();
     SeCheckForCriticalAceRemoval(currentdescriptor.into_param().abi(), newdescriptor.into_param().abi(), subjectsecuritycontext, &mut result__);
     ::std::mem::transmute(result__)
 }
@@ -4670,7 +4670,7 @@ where
     P2: ::windows_core::IntoParam<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     ::windows_targets::link!("ntoskrnl.exe" "system" fn SeOpenObjectAuditAlarm(objecttypename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, object : *const ::core::ffi::c_void, absoluteobjectname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, securitydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, accessstate : *const super::super::Foundation:: ACCESS_STATE, objectcreated : super::super::super::Win32::Foundation:: BOOLEAN, accessgranted : super::super::super::Win32::Foundation:: BOOLEAN, accessmode : i8, generateonclose : *mut super::super::super::Win32::Foundation:: BOOLEAN) -> ());
-    let mut result__ = ::windows_core::zeroed::<super::super::super::Win32::Foundation::BOOLEAN>();
+    let mut result__ = ::std::mem::zeroed();
     SeOpenObjectAuditAlarm(objecttypename, ::core::mem::transmute(object.unwrap_or(::std::ptr::null())), ::core::mem::transmute(absoluteobjectname.unwrap_or(::std::ptr::null())), securitydescriptor.into_param().abi(), accessstate, objectcreated.into_param().abi(), accessgranted.into_param().abi(), accessmode, &mut result__);
     ::std::mem::transmute(result__)
 }
@@ -4684,7 +4684,7 @@ where
     P2: ::windows_core::IntoParam<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     ::windows_targets::link!("ntoskrnl.exe" "system" fn SeOpenObjectAuditAlarmWithTransaction(objecttypename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, object : *const ::core::ffi::c_void, absoluteobjectname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, securitydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, accessstate : *const super::super::Foundation:: ACCESS_STATE, objectcreated : super::super::super::Win32::Foundation:: BOOLEAN, accessgranted : super::super::super::Win32::Foundation:: BOOLEAN, accessmode : i8, transactionid : *const ::windows_core::GUID, generateonclose : *mut super::super::super::Win32::Foundation:: BOOLEAN) -> ());
-    let mut result__ = ::windows_core::zeroed::<super::super::super::Win32::Foundation::BOOLEAN>();
+    let mut result__ = ::std::mem::zeroed();
     SeOpenObjectAuditAlarmWithTransaction(objecttypename, ::core::mem::transmute(object.unwrap_or(::std::ptr::null())), ::core::mem::transmute(absoluteobjectname.unwrap_or(::std::ptr::null())), securitydescriptor.into_param().abi(), accessstate, objectcreated.into_param().abi(), accessgranted.into_param().abi(), accessmode, ::core::mem::transmute(transactionid.unwrap_or(::std::ptr::null())), &mut result__);
     ::std::mem::transmute(result__)
 }
@@ -4698,7 +4698,7 @@ where
     P2: ::windows_core::IntoParam<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     ::windows_targets::link!("ntoskrnl.exe" "system" fn SeOpenObjectForDeleteAuditAlarm(objecttypename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, object : *const ::core::ffi::c_void, absoluteobjectname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, securitydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, accessstate : *const super::super::Foundation:: ACCESS_STATE, objectcreated : super::super::super::Win32::Foundation:: BOOLEAN, accessgranted : super::super::super::Win32::Foundation:: BOOLEAN, accessmode : i8, generateonclose : *mut super::super::super::Win32::Foundation:: BOOLEAN) -> ());
-    let mut result__ = ::windows_core::zeroed::<super::super::super::Win32::Foundation::BOOLEAN>();
+    let mut result__ = ::std::mem::zeroed();
     SeOpenObjectForDeleteAuditAlarm(objecttypename, ::core::mem::transmute(object.unwrap_or(::std::ptr::null())), ::core::mem::transmute(absoluteobjectname.unwrap_or(::std::ptr::null())), securitydescriptor.into_param().abi(), accessstate, objectcreated.into_param().abi(), accessgranted.into_param().abi(), accessmode, &mut result__);
     ::std::mem::transmute(result__)
 }
@@ -4712,7 +4712,7 @@ where
     P2: ::windows_core::IntoParam<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     ::windows_targets::link!("ntoskrnl.exe" "system" fn SeOpenObjectForDeleteAuditAlarmWithTransaction(objecttypename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, object : *const ::core::ffi::c_void, absoluteobjectname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, securitydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, accessstate : *const super::super::Foundation:: ACCESS_STATE, objectcreated : super::super::super::Win32::Foundation:: BOOLEAN, accessgranted : super::super::super::Win32::Foundation:: BOOLEAN, accessmode : i8, transactionid : *const ::windows_core::GUID, generateonclose : *mut super::super::super::Win32::Foundation:: BOOLEAN) -> ());
-    let mut result__ = ::windows_core::zeroed::<super::super::super::Win32::Foundation::BOOLEAN>();
+    let mut result__ = ::std::mem::zeroed();
     SeOpenObjectForDeleteAuditAlarmWithTransaction(objecttypename, ::core::mem::transmute(object.unwrap_or(::std::ptr::null())), ::core::mem::transmute(absoluteobjectname.unwrap_or(::std::ptr::null())), securitydescriptor.into_param().abi(), accessstate, objectcreated.into_param().abi(), accessgranted.into_param().abi(), accessmode, ::core::mem::transmute(transactionid.unwrap_or(::std::ptr::null())), &mut result__);
     ::std::mem::transmute(result__)
 }
@@ -5036,7 +5036,7 @@ where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("secur32.dll" "system" fn SspiGetTargetHostName(psztargetname : ::windows_core::PCWSTR, pszhostname : *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<::windows_core::PWSTR>();
+    let mut result__ = ::std::mem::zeroed();
     SspiGetTargetHostName(psztargetname.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -5115,7 +5115,7 @@ pub unsafe fn SspiZeroAuthIdentity(authdata: ::core::option::Option<*const ::cor
 #[inline]
 pub unsafe fn VerifySignature(phcontext: *const SecHandle, pmessage: *const SecBufferDesc, messageseqno: u32) -> ::windows_core::Result<u32> {
     ::windows_targets::link!("secur32.dll" "system" fn VerifySignature(phcontext : *const SecHandle, pmessage : *const SecBufferDesc, messageseqno : u32, pfqop : *mut u32) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<u32>();
+    let mut result__ = ::std::mem::zeroed();
     VerifySignature(phcontext, pmessage, messageseqno, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Wdk_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]

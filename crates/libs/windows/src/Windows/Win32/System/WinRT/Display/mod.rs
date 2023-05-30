@@ -8,7 +8,7 @@ impl IDisplayDeviceInterop {
     where
         P0: ::windows_core::IntoParam<::windows_core::IInspectable>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::HANDLE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateSharedHandle)(::windows_core::Interface::as_raw(self), pobject.into_param().abi(), psecurityattributes, access, ::core::mem::transmute_copy(name), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -17,7 +17,7 @@ impl IDisplayDeviceInterop {
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::HANDLE>,
     {
-        let mut result__ = ::windows_core::zeroed::<*mut ::core::ffi::c_void>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).OpenSharedHandle)(::windows_core::Interface::as_raw(self), nthandle.into_param().abi(), ::core::mem::transmute(riid), &mut result__).from_abi(result__)
     }
 }
@@ -64,11 +64,11 @@ impl IDisplayPathInterop {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateSourcePresentationHandle(&self) -> ::windows_core::Result<super::super::super::Foundation::HANDLE> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::HANDLE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateSourcePresentationHandle)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSourceId(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSourceId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }

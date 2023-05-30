@@ -12,7 +12,7 @@ impl IEnumVdsObject {
         (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IEnumVdsObject> {
-        let mut result__ = ::windows_core::zeroed::<IEnumVdsObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -111,7 +111,7 @@ impl IVdsAdvancedDisk {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreatePartition(&self, ulloffset: u64, ullsize: u64, para: *const CREATE_PARTITION_PARAMETERS) -> ::windows_core::Result<IVdsAsync> {
-        let mut result__ = ::windows_core::zeroed::<IVdsAsync>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreatePartition)(::windows_core::Interface::as_raw(self), ulloffset, ullsize, para, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -146,7 +146,7 @@ impl IVdsAdvancedDisk {
         P2: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
         P3: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
-        let mut result__ = ::windows_core::zeroed::<IVdsAsync>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FormatPartition)(::windows_core::Interface::as_raw(self), ulloffset, r#type, pwszlabel.into_param().abi(), dwunitallocationsize, bforce.into_param().abi(), bquickformat.into_param().abi(), benablecompression.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -157,7 +157,7 @@ impl IVdsAdvancedDisk {
         P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
         P2: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
-        let mut result__ = ::windows_core::zeroed::<IVdsAsync>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Clean)(::windows_core::Interface::as_raw(self), bforce.into_param().abi(), bforceoem.into_param().abi(), bfullclean.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -273,7 +273,7 @@ impl IVdsAdvancedDisk3 {
         (::windows_core::Interface::vtable(self).GetProperties)(::windows_core::Interface::as_raw(self), padvdiskprop).ok()
     }
     pub unsafe fn GetUniqueId(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::PWSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetUniqueId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -397,7 +397,7 @@ impl IVdsController {
         (::windows_core::Interface::vtable(self).GetProperties)(::windows_core::Interface::as_raw(self), pcontrollerprop).ok()
     }
     pub unsafe fn GetSubSystem(&self) -> ::windows_core::Result<IVdsSubSystem> {
-        let mut result__ = ::windows_core::zeroed::<IVdsSubSystem>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSubSystem)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPortProperties(&self, sportnumber: i16, pportprop: *mut VDS_PORT_PROP) -> ::windows_core::Result<()> {
@@ -413,7 +413,7 @@ impl IVdsController {
         (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn QueryAssociatedLuns(&self) -> ::windows_core::Result<IEnumVdsObject> {
-        let mut result__ = ::windows_core::zeroed::<IEnumVdsObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QueryAssociatedLuns)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetStatus(&self, status: VDS_CONTROLLER_STATUS) -> ::windows_core::Result<()> {
@@ -461,7 +461,7 @@ pub struct IVdsController_Vtbl {
 pub struct IVdsControllerControllerPort(::windows_core::IUnknown);
 impl IVdsControllerControllerPort {
     pub unsafe fn QueryControllerPorts(&self) -> ::windows_core::Result<IEnumVdsObject> {
-        let mut result__ = ::windows_core::zeroed::<IEnumVdsObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QueryControllerPorts)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -502,11 +502,11 @@ impl IVdsControllerPort {
         (::windows_core::Interface::vtable(self).GetProperties)(::windows_core::Interface::as_raw(self), pportprop).ok()
     }
     pub unsafe fn GetController(&self) -> ::windows_core::Result<IVdsController> {
-        let mut result__ = ::windows_core::zeroed::<IVdsController>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetController)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn QueryAssociatedLuns(&self) -> ::windows_core::Result<IEnumVdsObject> {
-        let mut result__ = ::windows_core::zeroed::<IEnumVdsObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QueryAssociatedLuns)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
@@ -556,7 +556,7 @@ impl IVdsCreatePartitionEx {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreatePartitionEx(&self, ulloffset: u64, ullsize: u64, ulalign: u32, para: *const CREATE_PARTITION_PARAMETERS) -> ::windows_core::Result<IVdsAsync> {
-        let mut result__ = ::windows_core::zeroed::<IVdsAsync>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreatePartitionEx)(::windows_core::Interface::as_raw(self), ulloffset, ullsize, ulalign, para, &mut result__).from_abi(result__)
     }
 }
@@ -600,7 +600,7 @@ impl IVdsDisk {
         (::windows_core::Interface::vtable(self).GetProperties)(::windows_core::Interface::as_raw(self), pdiskproperties).ok()
     }
     pub unsafe fn GetPack(&self) -> ::windows_core::Result<IVdsPack> {
-        let mut result__ = ::windows_core::zeroed::<IVdsPack>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetPack)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -794,7 +794,7 @@ impl IVdsDiskPartitionMF {
         (::windows_core::Interface::vtable(self).GetPartitionFileSystemProperties)(::windows_core::Interface::as_raw(self), ulloffset, pfilesystemprop).ok()
     }
     pub unsafe fn GetPartitionFileSystemTypeName(&self, ulloffset: u64) -> ::windows_core::Result<::windows_core::PWSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::PWSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetPartitionFileSystemTypeName)(::windows_core::Interface::as_raw(self), ulloffset, &mut result__).from_abi(result__)
     }
     pub unsafe fn QueryPartitionFileSystemFormatSupport(&self, ulloffset: u64, ppfilesystemsupportprops: *mut *mut VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP, plnumberoffilesystems: *mut i32) -> ::windows_core::Result<()> {
@@ -810,7 +810,7 @@ impl IVdsDiskPartitionMF {
         P3: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
         P4: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
-        let mut result__ = ::windows_core::zeroed::<IVdsAsync>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FormatPartitionEx)(::windows_core::Interface::as_raw(self), ulloffset, pwszfilesystemtypename.into_param().abi(), usfilesystemrevision, uldesiredunitallocationsize, pwszlabel.into_param().abi(), bforce.into_param().abi(), bquickformat.into_param().abi(), benablecompression.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -858,7 +858,7 @@ impl IVdsDiskPartitionMF2 {
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IVdsAsync>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FormatPartitionEx2)(::windows_core::Interface::as_raw(self), ulloffset, pwszfilesystemtypename.into_param().abi(), usfilesystemrevision, uldesiredunitallocationsize, pwszlabel.into_param().abi(), options, &mut result__).from_abi(result__)
     }
 }
@@ -899,7 +899,7 @@ impl IVdsDrive {
         (::windows_core::Interface::vtable(self).GetProperties)(::windows_core::Interface::as_raw(self), pdriveprop).ok()
     }
     pub unsafe fn GetSubSystem(&self) -> ::windows_core::Result<IVdsSubSystem> {
-        let mut result__ = ::windows_core::zeroed::<IVdsSubSystem>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSubSystem)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1037,7 +1037,7 @@ pub struct IVdsHbaPort_Vtbl {
 pub struct IVdsHwProvider(::windows_core::IUnknown);
 impl IVdsHwProvider {
     pub unsafe fn QuerySubSystems(&self) -> ::windows_core::Result<IEnumVdsObject> {
-        let mut result__ = ::windows_core::zeroed::<IEnumVdsObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QuerySubSystems)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Reenumerate(&self) -> ::windows_core::Result<()> {
@@ -1088,7 +1088,7 @@ impl IVdsHwProviderPrivate {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QueryIfCreatedLun)(::windows_core::Interface::as_raw(self), pwszdevicepath.into_param().abi(), pvdsluninformation, &mut result__).from_abi(result__)
     }
 }
@@ -1168,7 +1168,7 @@ impl IVdsHwProviderStoragePools {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryStoragePools(&self, ulflags: u32, ullremainingfreespace: u64, ppoolattributes: ::core::option::Option<*const VDS_POOL_ATTRIBUTES>) -> ::windows_core::Result<IEnumVdsObject> {
-        let mut result__ = ::windows_core::zeroed::<IEnumVdsObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QueryStoragePools)(::windows_core::Interface::as_raw(self), ulflags, ullremainingfreespace, ::core::mem::transmute(ppoolattributes.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1177,13 +1177,13 @@ impl IVdsHwProviderStoragePools {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IVdsAsync>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateLunInStoragePool)(::windows_core::Interface::as_raw(self), r#type, ullsizeinbytes, ::core::mem::transmute(storagepoolid), pwszunmaskinglist.into_param().abi(), ::core::mem::transmute(phints2.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryMaxLunCreateSizeInStoragePool(&self, r#type: VDS_LUN_TYPE, storagepoolid: ::windows_core::GUID, phints2: ::core::option::Option<*const VDS_HINTS2>) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QueryMaxLunCreateSizeInStoragePool)(::windows_core::Interface::as_raw(self), r#type, ::core::mem::transmute(storagepoolid), ::core::mem::transmute(phints2.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
     }
 }
@@ -1232,7 +1232,7 @@ pub struct IVdsHwProviderStoragePools_Vtbl {
 pub struct IVdsHwProviderType(::windows_core::IUnknown);
 impl IVdsHwProviderType {
     pub unsafe fn GetProviderType(&self) -> ::windows_core::Result<VDS_HWPROVIDER_TYPE> {
-        let mut result__ = ::windows_core::zeroed::<VDS_HWPROVIDER_TYPE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProviderType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -1270,7 +1270,7 @@ pub struct IVdsHwProviderType_Vtbl {
 pub struct IVdsHwProviderType2(::windows_core::IUnknown);
 impl IVdsHwProviderType2 {
     pub unsafe fn GetProviderType2(&self) -> ::windows_core::Result<VDS_HWPROVIDER_TYPE> {
-        let mut result__ = ::windows_core::zeroed::<VDS_HWPROVIDER_TYPE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProviderType2)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -1311,7 +1311,7 @@ impl IVdsIscsiInitiatorAdapter {
         (::windows_core::Interface::vtable(self).GetProperties)(::windows_core::Interface::as_raw(self), pinitiatoradapterprop).ok()
     }
     pub unsafe fn QueryInitiatorPortals(&self) -> ::windows_core::Result<IEnumVdsObject> {
-        let mut result__ = ::windows_core::zeroed::<IEnumVdsObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QueryInitiatorPortals)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1321,11 +1321,11 @@ impl IVdsIscsiInitiatorAdapter {
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
         P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
-        let mut result__ = ::windows_core::zeroed::<IVdsAsync>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).LoginToTarget)(::windows_core::Interface::as_raw(self), logintype, ::core::mem::transmute(targetid), ::core::mem::transmute(targetportalid), ::core::mem::transmute(initiatorportalid), ulloginflags, bheaderdigest.into_param().abi(), bdatadigest.into_param().abi(), authtype, &mut result__).from_abi(result__)
     }
     pub unsafe fn LogoutFromTarget(&self, targetid: ::windows_core::GUID) -> ::windows_core::Result<IVdsAsync> {
-        let mut result__ = ::windows_core::zeroed::<IVdsAsync>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).LogoutFromTarget)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(targetid), &mut result__).from_abi(result__)
     }
 }
@@ -1372,14 +1372,14 @@ impl IVdsIscsiInitiatorPortal {
         (::windows_core::Interface::vtable(self).GetProperties)(::windows_core::Interface::as_raw(self), pinitiatorportalprop).ok()
     }
     pub unsafe fn GetInitiatorAdapter(&self) -> ::windows_core::Result<IVdsIscsiInitiatorAdapter> {
-        let mut result__ = ::windows_core::zeroed::<IVdsIscsiInitiatorAdapter>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetInitiatorAdapter)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetIpsecTunnelAddress(&self, ptunneladdress: *const VDS_IPADDRESS, pdestinationaddress: *const VDS_IPADDRESS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetIpsecTunnelAddress)(::windows_core::Interface::as_raw(self), ptunneladdress, pdestinationaddress).ok()
     }
     pub unsafe fn GetIpsecSecurity(&self, targetportalid: ::windows_core::GUID) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetIpsecSecurity)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(targetportalid), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetIpsecSecurity(&self, targetportalid: ::windows_core::GUID, ullsecurityflags: u64, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> ::windows_core::Result<()> {
@@ -1427,11 +1427,11 @@ impl IVdsIscsiPortal {
         (::windows_core::Interface::vtable(self).GetProperties)(::windows_core::Interface::as_raw(self), pportalprop).ok()
     }
     pub unsafe fn GetSubSystem(&self) -> ::windows_core::Result<IVdsSubSystem> {
-        let mut result__ = ::windows_core::zeroed::<IVdsSubSystem>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSubSystem)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn QueryAssociatedPortalGroups(&self) -> ::windows_core::Result<IEnumVdsObject> {
-        let mut result__ = ::windows_core::zeroed::<IEnumVdsObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QueryAssociatedPortalGroups)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetStatus(&self, status: VDS_ISCSI_PORTAL_STATUS) -> ::windows_core::Result<()> {
@@ -1441,7 +1441,7 @@ impl IVdsIscsiPortal {
         (::windows_core::Interface::vtable(self).SetIpsecTunnelAddress)(::windows_core::Interface::as_raw(self), ptunneladdress, pdestinationaddress).ok()
     }
     pub unsafe fn GetIpsecSecurity(&self, pinitiatorportaladdress: *const VDS_IPADDRESS) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetIpsecSecurity)(::windows_core::Interface::as_raw(self), pinitiatorportaladdress, &mut result__).from_abi(result__)
     }
     pub unsafe fn SetIpsecSecurity(&self, pinitiatorportaladdress: *const VDS_IPADDRESS, ullsecurityflags: u64, pipseckey: ::core::option::Option<*const VDS_ISCSI_IPSEC_KEY>) -> ::windows_core::Result<()> {
@@ -1491,23 +1491,23 @@ impl IVdsIscsiPortalGroup {
         (::windows_core::Interface::vtable(self).GetProperties)(::windows_core::Interface::as_raw(self), pportalgroupprop).ok()
     }
     pub unsafe fn GetTarget(&self) -> ::windows_core::Result<IVdsIscsiTarget> {
-        let mut result__ = ::windows_core::zeroed::<IVdsIscsiTarget>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetTarget)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn QueryAssociatedPortals(&self) -> ::windows_core::Result<IEnumVdsObject> {
-        let mut result__ = ::windows_core::zeroed::<IEnumVdsObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QueryAssociatedPortals)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AddPortal(&self, portalid: ::windows_core::GUID) -> ::windows_core::Result<IVdsAsync> {
-        let mut result__ = ::windows_core::zeroed::<IVdsAsync>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AddPortal)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(portalid), &mut result__).from_abi(result__)
     }
     pub unsafe fn RemovePortal(&self, portalid: ::windows_core::GUID) -> ::windows_core::Result<IVdsAsync> {
-        let mut result__ = ::windows_core::zeroed::<IVdsAsync>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).RemovePortal)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(portalid), &mut result__).from_abi(result__)
     }
     pub unsafe fn Delete(&self) -> ::windows_core::Result<IVdsAsync> {
-        let mut result__ = ::windows_core::zeroed::<IVdsAsync>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Delete)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -1592,23 +1592,23 @@ impl IVdsIscsiTarget {
         (::windows_core::Interface::vtable(self).GetProperties)(::windows_core::Interface::as_raw(self), ptargetprop).ok()
     }
     pub unsafe fn GetSubSystem(&self) -> ::windows_core::Result<IVdsSubSystem> {
-        let mut result__ = ::windows_core::zeroed::<IVdsSubSystem>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSubSystem)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn QueryPortalGroups(&self) -> ::windows_core::Result<IEnumVdsObject> {
-        let mut result__ = ::windows_core::zeroed::<IEnumVdsObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QueryPortalGroups)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn QueryAssociatedLuns(&self) -> ::windows_core::Result<IEnumVdsObject> {
-        let mut result__ = ::windows_core::zeroed::<IEnumVdsObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QueryAssociatedLuns)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreatePortalGroup(&self) -> ::windows_core::Result<IVdsAsync> {
-        let mut result__ = ::windows_core::zeroed::<IVdsAsync>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreatePortalGroup)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Delete(&self) -> ::windows_core::Result<IVdsAsync> {
-        let mut result__ = ::windows_core::zeroed::<IVdsAsync>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Delete)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetFriendlyName<P0>(&self, pwszfriendlyname: P0) -> ::windows_core::Result<()>
@@ -1682,7 +1682,7 @@ impl IVdsLun {
         (::windows_core::Interface::vtable(self).GetProperties)(::windows_core::Interface::as_raw(self), plunprop).ok()
     }
     pub unsafe fn GetSubSystem(&self) -> ::windows_core::Result<IVdsSubSystem> {
-        let mut result__ = ::windows_core::zeroed::<IVdsSubSystem>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSubSystem)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1691,31 +1691,31 @@ impl IVdsLun {
         (::windows_core::Interface::vtable(self).GetIdentificationData)(::windows_core::Interface::as_raw(self), pluninfo).ok()
     }
     pub unsafe fn QueryActiveControllers(&self) -> ::windows_core::Result<IEnumVdsObject> {
-        let mut result__ = ::windows_core::zeroed::<IEnumVdsObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QueryActiveControllers)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Extend(&self, ullnumberofbytestoadd: u64, pdriveidarray: ::core::option::Option<&[::windows_core::GUID]>) -> ::windows_core::Result<IVdsAsync> {
-        let mut result__ = ::windows_core::zeroed::<IVdsAsync>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Extend)(::windows_core::Interface::as_raw(self), ullnumberofbytestoadd, ::core::mem::transmute(pdriveidarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdriveidarray.as_deref().map_or(0, |slice| slice.len() as _), &mut result__).from_abi(result__)
     }
     pub unsafe fn Shrink(&self, ullnumberofbytestoremove: u64) -> ::windows_core::Result<IVdsAsync> {
-        let mut result__ = ::windows_core::zeroed::<IVdsAsync>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Shrink)(::windows_core::Interface::as_raw(self), ullnumberofbytestoremove, &mut result__).from_abi(result__)
     }
     pub unsafe fn QueryPlexes(&self) -> ::windows_core::Result<IEnumVdsObject> {
-        let mut result__ = ::windows_core::zeroed::<IEnumVdsObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QueryPlexes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AddPlex(&self, lunid: ::windows_core::GUID) -> ::windows_core::Result<IVdsAsync> {
-        let mut result__ = ::windows_core::zeroed::<IVdsAsync>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AddPlex)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(lunid), &mut result__).from_abi(result__)
     }
     pub unsafe fn RemovePlex(&self, plexid: ::windows_core::GUID) -> ::windows_core::Result<IVdsAsync> {
-        let mut result__ = ::windows_core::zeroed::<IVdsAsync>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).RemovePlex)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(plexid), &mut result__).from_abi(result__)
     }
     pub unsafe fn Recover(&self) -> ::windows_core::Result<IVdsAsync> {
-        let mut result__ = ::windows_core::zeroed::<IVdsAsync>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Recover)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetMask<P0>(&self, pwszunmaskinglist: P0) -> ::windows_core::Result<()>
@@ -1744,7 +1744,7 @@ impl IVdsLun {
         (::windows_core::Interface::vtable(self).SetStatus)(::windows_core::Interface::as_raw(self), status).ok()
     }
     pub unsafe fn QueryMaxLunExtendSize(&self, pdriveidarray: ::core::option::Option<&[::windows_core::GUID]>) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QueryMaxLunExtendSize)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pdriveidarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdriveidarray.as_deref().map_or(0, |slice| slice.len() as _), &mut result__).from_abi(result__)
     }
 }
@@ -1861,7 +1861,7 @@ impl IVdsLunControllerPorts {
         (::windows_core::Interface::vtable(self).AssociateControllerPorts)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pactivecontrollerportidarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pactivecontrollerportidarray.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pinactivecontrollerportidarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pinactivecontrollerportidarray.as_deref().map_or(0, |slice| slice.len() as _)).ok()
     }
     pub unsafe fn QueryActiveControllerPorts(&self) -> ::windows_core::Result<IEnumVdsObject> {
-        let mut result__ = ::windows_core::zeroed::<IEnumVdsObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QueryActiveControllerPorts)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -1903,7 +1903,7 @@ impl IVdsLunIscsi {
         (::windows_core::Interface::vtable(self).AssociateTargets)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ptargetidarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ptargetidarray.as_deref().map_or(0, |slice| slice.len() as _)).ok()
     }
     pub unsafe fn QueryAssociatedTargets(&self) -> ::windows_core::Result<IEnumVdsObject> {
-        let mut result__ = ::windows_core::zeroed::<IEnumVdsObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QueryAssociatedTargets)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -1955,7 +1955,7 @@ impl IVdsLunMpio {
         (::windows_core::Interface::vtable(self).SetLoadBalancePolicy)(::windows_core::Interface::as_raw(self), policy, ::core::mem::transmute(ppaths.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ppaths.as_deref().map_or(0, |slice| slice.len() as _)).ok()
     }
     pub unsafe fn GetSupportedLbPolicies(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSupportedLbPolicies)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -2042,7 +2042,7 @@ pub struct IVdsLunNaming_Vtbl {
 pub struct IVdsLunNumber(::windows_core::IUnknown);
 impl IVdsLunNumber {
     pub unsafe fn GetLunNumber(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetLunNumber)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -2083,7 +2083,7 @@ impl IVdsLunPlex {
         (::windows_core::Interface::vtable(self).GetProperties)(::windows_core::Interface::as_raw(self), pplexprop).ok()
     }
     pub unsafe fn GetLun(&self) -> ::windows_core::Result<IVdsLun> {
-        let mut result__ = ::windows_core::zeroed::<IVdsLun>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetLun)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2199,7 +2199,7 @@ impl IVdsOpenVDisk {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IVdsAsync>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Attach)(::windows_core::Interface::as_raw(self), pstringsecuritydescriptor.into_param().abi(), flags, providerspecificflags, timeoutinms, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
@@ -2215,19 +2215,19 @@ impl IVdsOpenVDisk {
     #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
     #[cfg(feature = "Win32_Storage_Vhd")]
     pub unsafe fn Compact(&self, flags: super::Vhd::COMPACT_VIRTUAL_DISK_FLAG, reserved: u32) -> ::windows_core::Result<IVdsAsync> {
-        let mut result__ = ::windows_core::zeroed::<IVdsAsync>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Compact)(::windows_core::Interface::as_raw(self), flags, reserved, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
     #[cfg(feature = "Win32_Storage_Vhd")]
     pub unsafe fn Merge(&self, flags: super::Vhd::MERGE_VIRTUAL_DISK_FLAG, mergedepth: u32) -> ::windows_core::Result<IVdsAsync> {
-        let mut result__ = ::windows_core::zeroed::<IVdsAsync>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Merge)(::windows_core::Interface::as_raw(self), flags, mergedepth, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
     #[cfg(feature = "Win32_Storage_Vhd")]
     pub unsafe fn Expand(&self, flags: super::Vhd::EXPAND_VIRTUAL_DISK_FLAG, newsize: u64) -> ::windows_core::Result<IVdsAsync> {
-        let mut result__ = ::windows_core::zeroed::<IVdsAsync>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Expand)(::windows_core::Interface::as_raw(self), flags, newsize, &mut result__).from_abi(result__)
     }
 }
@@ -2291,19 +2291,19 @@ impl IVdsPack {
         (::windows_core::Interface::vtable(self).GetProperties)(::windows_core::Interface::as_raw(self), ppackprop).ok()
     }
     pub unsafe fn GetProvider(&self) -> ::windows_core::Result<IVdsProvider> {
-        let mut result__ = ::windows_core::zeroed::<IVdsProvider>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProvider)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn QueryVolumes(&self) -> ::windows_core::Result<IEnumVdsObject> {
-        let mut result__ = ::windows_core::zeroed::<IEnumVdsObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QueryVolumes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn QueryDisks(&self) -> ::windows_core::Result<IEnumVdsObject> {
-        let mut result__ = ::windows_core::zeroed::<IEnumVdsObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QueryDisks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateVolume(&self, r#type: VDS_VOLUME_TYPE, pinputdiskarray: &[VDS_INPUT_DISK], ulstripesize: u32) -> ::windows_core::Result<IVdsAsync> {
-        let mut result__ = ::windows_core::zeroed::<IVdsAsync>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateVolume)(::windows_core::Interface::as_raw(self), r#type, ::core::mem::transmute(pinputdiskarray.as_ptr()), pinputdiskarray.len() as _, ulstripesize, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2324,14 +2324,14 @@ impl IVdsPack {
         (::windows_core::Interface::vtable(self).MigrateDisks)(::windows_core::Interface::as_raw(self), pdiskarray, lnumberofdisks, ::core::mem::transmute(targetpack), bforce.into_param().abi(), bqueryonly.into_param().abi(), presults, pbrebootneeded).ok()
     }
     pub unsafe fn ReplaceDisk(&self, olddiskid: ::windows_core::GUID, newdiskid: ::windows_core::GUID) -> ::windows_core::Result<IVdsAsync> {
-        let mut result__ = ::windows_core::zeroed::<IVdsAsync>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ReplaceDisk)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(olddiskid), ::core::mem::transmute(newdiskid), &mut result__).from_abi(result__)
     }
     pub unsafe fn RemoveMissingDisk(&self, diskid: ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RemoveMissingDisk)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(diskid)).ok()
     }
     pub unsafe fn Recover(&self) -> ::windows_core::Result<IVdsAsync> {
-        let mut result__ = ::windows_core::zeroed::<IVdsAsync>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Recover)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -2384,7 +2384,7 @@ pub struct IVdsPack_Vtbl {
 pub struct IVdsPack2(::windows_core::IUnknown);
 impl IVdsPack2 {
     pub unsafe fn CreateVolume2(&self, r#type: VDS_VOLUME_TYPE, pinputdiskarray: &[VDS_INPUT_DISK], ulstripesize: u32, ulalign: u32) -> ::windows_core::Result<IVdsAsync> {
-        let mut result__ = ::windows_core::zeroed::<IVdsAsync>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateVolume2)(::windows_core::Interface::as_raw(self), r#type, ::core::mem::transmute(pinputdiskarray.as_ptr()), pinputdiskarray.len() as _, ulstripesize, ulalign, &mut result__).from_abi(result__)
     }
 }
@@ -2459,7 +2459,7 @@ pub struct IVdsProvider_Vtbl {
 pub struct IVdsProviderPrivate(::windows_core::IUnknown);
 impl IVdsProviderPrivate {
     pub unsafe fn GetObject(&self, objectid: ::windows_core::GUID, r#type: VDS_OBJECT_TYPE) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetObject)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(objectid), r#type, &mut result__).from_abi(result__)
     }
     pub unsafe fn OnLoad<P0, P1>(&self, pwszmachinename: P0, pcallbackobject: P1) -> ::windows_core::Result<()>
@@ -2517,7 +2517,7 @@ pub struct IVdsProviderPrivate_Vtbl {
 pub struct IVdsProviderSupport(::windows_core::IUnknown);
 impl IVdsProviderSupport {
     pub unsafe fn GetVersionSupport(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetVersionSupport)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -2602,23 +2602,23 @@ impl IVdsService {
         (::windows_core::Interface::vtable(self).WaitForServiceReady)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetProperties(&self) -> ::windows_core::Result<VDS_SERVICE_PROP> {
-        let mut result__ = ::windows_core::zeroed::<VDS_SERVICE_PROP>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn QueryProviders(&self, masks: u32) -> ::windows_core::Result<IEnumVdsObject> {
-        let mut result__ = ::windows_core::zeroed::<IEnumVdsObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QueryProviders)(::windows_core::Interface::as_raw(self), masks, &mut result__).from_abi(result__)
     }
     pub unsafe fn QueryMaskedDisks(&self) -> ::windows_core::Result<IEnumVdsObject> {
-        let mut result__ = ::windows_core::zeroed::<IEnumVdsObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QueryMaskedDisks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn QueryUnallocatedDisks(&self) -> ::windows_core::Result<IEnumVdsObject> {
-        let mut result__ = ::windows_core::zeroed::<IEnumVdsObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QueryUnallocatedDisks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetObject(&self, objectid: ::windows_core::GUID, r#type: VDS_OBJECT_TYPE) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetObject)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(objectid), r#type, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2642,7 +2642,7 @@ impl IVdsService {
     where
         P0: ::windows_core::IntoParam<IVdsAdviseSink>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Advise)(::windows_core::Interface::as_raw(self), psink.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn Unadvise(&self, dwcookie: u32) -> ::windows_core::Result<()> {
@@ -2711,7 +2711,7 @@ pub struct IVdsService_Vtbl {
 pub struct IVdsServiceHba(::windows_core::IUnknown);
 impl IVdsServiceHba {
     pub unsafe fn QueryHbaPorts(&self) -> ::windows_core::Result<IEnumVdsObject> {
-        let mut result__ = ::windows_core::zeroed::<IEnumVdsObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QueryHbaPorts)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -2789,11 +2789,11 @@ pub struct IVdsServiceInitialization_Vtbl {
 pub struct IVdsServiceIscsi(::windows_core::IUnknown);
 impl IVdsServiceIscsi {
     pub unsafe fn GetInitiatorName(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::PWSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetInitiatorName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn QueryInitiatorAdapters(&self) -> ::windows_core::Result<IEnumVdsObject> {
-        let mut result__ = ::windows_core::zeroed::<IEnumVdsObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QueryInitiatorAdapters)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetIpsecGroupPresharedKey(&self, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> ::windows_core::Result<()> {
@@ -2855,7 +2855,7 @@ impl IVdsServiceLoader {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IVdsService>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).LoadService)(::windows_core::Interface::as_raw(self), pwszmachinename.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -2893,7 +2893,7 @@ pub struct IVdsServiceLoader_Vtbl {
 pub struct IVdsServiceSAN(::windows_core::IUnknown);
 impl IVdsServiceSAN {
     pub unsafe fn GetSANPolicy(&self) -> ::windows_core::Result<VDS_SAN_POLICY> {
-        let mut result__ = ::windows_core::zeroed::<VDS_SAN_POLICY>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSANPolicy)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetSANPolicy(&self, sanpolicy: VDS_SAN_POLICY) -> ::windows_core::Result<()> {
@@ -2938,7 +2938,7 @@ impl IVdsServiceSw {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDiskObject)(::windows_core::Interface::as_raw(self), pwszdeviceid.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -2978,7 +2978,7 @@ impl IVdsServiceUninstallDisk {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDiskIdFromLunInfo(&self, pluninfo: *const VDS_LUN_INFORMATION) -> ::windows_core::Result<::windows_core::GUID> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDiskIdFromLunInfo)(::windows_core::Interface::as_raw(self), pluninfo, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -3031,7 +3031,7 @@ pub struct IVdsServiceUninstallDisk_Vtbl {
 pub struct IVdsStoragePool(::windows_core::IUnknown);
 impl IVdsStoragePool {
     pub unsafe fn GetProvider(&self) -> ::windows_core::Result<IVdsProvider> {
-        let mut result__ = ::windows_core::zeroed::<IVdsProvider>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProvider)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetProperties(&self, pstoragepoolprop: *mut VDS_STORAGE_POOL_PROP) -> ::windows_core::Result<()> {
@@ -3048,11 +3048,11 @@ impl IVdsStoragePool {
         (::windows_core::Interface::vtable(self).QueryDriveExtents)(::windows_core::Interface::as_raw(self), ppextentarray, plnumberofextents).ok()
     }
     pub unsafe fn QueryAllocatedLuns(&self) -> ::windows_core::Result<IEnumVdsObject> {
-        let mut result__ = ::windows_core::zeroed::<IEnumVdsObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QueryAllocatedLuns)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn QueryAllocatedStoragePools(&self) -> ::windows_core::Result<IEnumVdsObject> {
-        let mut result__ = ::windows_core::zeroed::<IEnumVdsObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QueryAllocatedStoragePools)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -3104,23 +3104,23 @@ impl IVdsSubSystem {
         (::windows_core::Interface::vtable(self).GetProperties)(::windows_core::Interface::as_raw(self), psubsystemprop).ok()
     }
     pub unsafe fn GetProvider(&self) -> ::windows_core::Result<IVdsProvider> {
-        let mut result__ = ::windows_core::zeroed::<IVdsProvider>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProvider)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn QueryControllers(&self) -> ::windows_core::Result<IEnumVdsObject> {
-        let mut result__ = ::windows_core::zeroed::<IEnumVdsObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QueryControllers)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn QueryLuns(&self) -> ::windows_core::Result<IEnumVdsObject> {
-        let mut result__ = ::windows_core::zeroed::<IEnumVdsObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QueryLuns)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn QueryDrives(&self) -> ::windows_core::Result<IEnumVdsObject> {
-        let mut result__ = ::windows_core::zeroed::<IEnumVdsObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QueryDrives)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDrive(&self, sbusnumber: i16, sslotnumber: i16) -> ::windows_core::Result<IVdsDrive> {
-        let mut result__ = ::windows_core::zeroed::<IVdsDrive>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDrive)(::windows_core::Interface::as_raw(self), sbusnumber, sslotnumber, &mut result__).from_abi(result__)
     }
     pub unsafe fn Reenumerate(&self) -> ::windows_core::Result<()> {
@@ -3135,7 +3135,7 @@ impl IVdsSubSystem {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IVdsAsync>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateLun)(::windows_core::Interface::as_raw(self), r#type, ullsizeinbytes, ::core::mem::transmute(pdriveidarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdriveidarray.as_deref().map_or(0, |slice| slice.len() as _), pwszunmaskinglist.into_param().abi(), ::core::mem::transmute(phints.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
     }
     pub unsafe fn ReplaceDrive(&self, drivetobereplaced: ::windows_core::GUID, replacementdrive: ::windows_core::GUID) -> ::windows_core::Result<()> {
@@ -3147,7 +3147,7 @@ impl IVdsSubSystem {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryMaxLunCreateSize(&self, r#type: VDS_LUN_TYPE, pdriveidarray: ::core::option::Option<&[::windows_core::GUID]>, phints: ::core::option::Option<*const VDS_HINTS>) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QueryMaxLunCreateSize)(::windows_core::Interface::as_raw(self), r#type, ::core::mem::transmute(pdriveidarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdriveidarray.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(phints.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
     }
 }
@@ -3205,7 +3205,7 @@ impl IVdsSubSystem2 {
         (::windows_core::Interface::vtable(self).GetProperties2)(::windows_core::Interface::as_raw(self), psubsystemprop2).ok()
     }
     pub unsafe fn GetDrive2(&self, sbusnumber: i16, sslotnumber: i16, ulenclosurenumber: u32) -> ::windows_core::Result<IVdsDrive> {
-        let mut result__ = ::windows_core::zeroed::<IVdsDrive>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDrive2)(::windows_core::Interface::as_raw(self), sbusnumber, sslotnumber, ulenclosurenumber, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -3214,13 +3214,13 @@ impl IVdsSubSystem2 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IVdsAsync>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateLun2)(::windows_core::Interface::as_raw(self), r#type, ullsizeinbytes, ::core::mem::transmute(pdriveidarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdriveidarray.as_deref().map_or(0, |slice| slice.len() as _), pwszunmaskinglist.into_param().abi(), ::core::mem::transmute(phints2.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryMaxLunCreateSize2(&self, r#type: VDS_LUN_TYPE, pdriveidarray: ::core::option::Option<&[::windows_core::GUID]>, phints2: ::core::option::Option<*const VDS_HINTS2>) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QueryMaxLunCreateSize2)(::windows_core::Interface::as_raw(self), r#type, ::core::mem::transmute(pdriveidarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdriveidarray.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(phints2.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
     }
 }
@@ -3267,7 +3267,7 @@ pub struct IVdsSubSystem2_Vtbl {
 pub struct IVdsSubSystemImportTarget(::windows_core::IUnknown);
 impl IVdsSubSystemImportTarget {
     pub unsafe fn GetImportTarget(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::PWSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetImportTarget)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetImportTarget<P0>(&self, pwsziscsiname: P0) -> ::windows_core::Result<()>
@@ -3312,7 +3312,7 @@ pub struct IVdsSubSystemImportTarget_Vtbl {
 pub struct IVdsSubSystemInterconnect(::windows_core::IUnknown);
 impl IVdsSubSystemInterconnect {
     pub unsafe fn GetSupportedInterconnects(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSupportedInterconnects)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -3350,11 +3350,11 @@ pub struct IVdsSubSystemInterconnect_Vtbl {
 pub struct IVdsSubSystemIscsi(::windows_core::IUnknown);
 impl IVdsSubSystemIscsi {
     pub unsafe fn QueryTargets(&self) -> ::windows_core::Result<IEnumVdsObject> {
-        let mut result__ = ::windows_core::zeroed::<IEnumVdsObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QueryTargets)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn QueryPortals(&self) -> ::windows_core::Result<IEnumVdsObject> {
-        let mut result__ = ::windows_core::zeroed::<IEnumVdsObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QueryPortals)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateTarget<P0, P1>(&self, pwsziscsiname: P0, pwszfriendlyname: P1) -> ::windows_core::Result<IVdsAsync>
@@ -3362,7 +3362,7 @@ impl IVdsSubSystemIscsi {
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IVdsAsync>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateTarget)(::windows_core::Interface::as_raw(self), pwsziscsiname.into_param().abi(), pwszfriendlyname.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetIpsecGroupPresharedKey(&self, pipseckey: ::core::option::Option<*const VDS_ISCSI_IPSEC_KEY>) -> ::windows_core::Result<()> {
@@ -3446,11 +3446,11 @@ pub struct IVdsSubSystemNaming_Vtbl {
 pub struct IVdsSwProvider(::windows_core::IUnknown);
 impl IVdsSwProvider {
     pub unsafe fn QueryPacks(&self) -> ::windows_core::Result<IEnumVdsObject> {
-        let mut result__ = ::windows_core::zeroed::<IEnumVdsObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QueryPacks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreatePack(&self) -> ::windows_core::Result<IVdsPack> {
-        let mut result__ = ::windows_core::zeroed::<IVdsPack>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreatePack)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -3491,7 +3491,7 @@ impl IVdsVDisk {
     #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
     #[cfg(feature = "Win32_Storage_Vhd")]
     pub unsafe fn Open(&self, accessmask: super::Vhd::VIRTUAL_DISK_ACCESS_MASK, flags: super::Vhd::OPEN_VIRTUAL_DISK_FLAG, readwritedepth: u32) -> ::windows_core::Result<IVdsOpenVDisk> {
-        let mut result__ = ::windows_core::zeroed::<IVdsOpenVDisk>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Open)(::windows_core::Interface::as_raw(self), accessmask, flags, readwritedepth, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_Vhd\"`*"]
@@ -3500,11 +3500,11 @@ impl IVdsVDisk {
         (::windows_core::Interface::vtable(self).GetProperties)(::windows_core::Interface::as_raw(self), pdiskproperties).ok()
     }
     pub unsafe fn GetHostVolume(&self) -> ::windows_core::Result<IVdsVolume> {
-        let mut result__ = ::windows_core::zeroed::<IVdsVolume>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetHostVolume)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDeviceName(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::PWSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDeviceName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -3551,7 +3551,7 @@ pub struct IVdsVDisk_Vtbl {
 pub struct IVdsVdProvider(::windows_core::IUnknown);
 impl IVdsVdProvider {
     pub unsafe fn QueryVDisks(&self) -> ::windows_core::Result<IEnumVdsObject> {
-        let mut result__ = ::windows_core::zeroed::<IEnumVdsObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QueryVDisks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
@@ -3575,14 +3575,14 @@ impl IVdsVdProvider {
     where
         P0: ::windows_core::IntoParam<IVdsVDisk>,
     {
-        let mut result__ = ::windows_core::zeroed::<IVdsDisk>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDiskFromVDisk)(::windows_core::Interface::as_raw(self), pvdisk.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetVDiskFromDisk<P0>(&self, pdisk: P0) -> ::windows_core::Result<IVdsVDisk>
     where
         P0: ::windows_core::IntoParam<IVdsDisk>,
     {
-        let mut result__ = ::windows_core::zeroed::<IVdsVDisk>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetVDiskFromDisk)(::windows_core::Interface::as_raw(self), pdisk.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -3633,31 +3633,31 @@ impl IVdsVolume {
         (::windows_core::Interface::vtable(self).GetProperties)(::windows_core::Interface::as_raw(self), pvolumeproperties).ok()
     }
     pub unsafe fn GetPack(&self) -> ::windows_core::Result<IVdsPack> {
-        let mut result__ = ::windows_core::zeroed::<IVdsPack>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetPack)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn QueryPlexes(&self) -> ::windows_core::Result<IEnumVdsObject> {
-        let mut result__ = ::windows_core::zeroed::<IEnumVdsObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QueryPlexes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Extend(&self, pinputdiskarray: ::core::option::Option<&[VDS_INPUT_DISK]>) -> ::windows_core::Result<IVdsAsync> {
-        let mut result__ = ::windows_core::zeroed::<IVdsAsync>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Extend)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pinputdiskarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pinputdiskarray.as_deref().map_or(0, |slice| slice.len() as _), &mut result__).from_abi(result__)
     }
     pub unsafe fn Shrink(&self, ullnumberofbytestoremove: u64) -> ::windows_core::Result<IVdsAsync> {
-        let mut result__ = ::windows_core::zeroed::<IVdsAsync>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Shrink)(::windows_core::Interface::as_raw(self), ullnumberofbytestoremove, &mut result__).from_abi(result__)
     }
     pub unsafe fn AddPlex(&self, volumeid: ::windows_core::GUID) -> ::windows_core::Result<IVdsAsync> {
-        let mut result__ = ::windows_core::zeroed::<IVdsAsync>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AddPlex)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(volumeid), &mut result__).from_abi(result__)
     }
     pub unsafe fn BreakPlex(&self, plexid: ::windows_core::GUID) -> ::windows_core::Result<IVdsAsync> {
-        let mut result__ = ::windows_core::zeroed::<IVdsAsync>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).BreakPlex)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(plexid), &mut result__).from_abi(result__)
     }
     pub unsafe fn RemovePlex(&self, plexid: ::windows_core::GUID) -> ::windows_core::Result<IVdsAsync> {
-        let mut result__ = ::windows_core::zeroed::<IVdsAsync>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).RemovePlex)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(plexid), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -3778,7 +3778,7 @@ impl IVdsVolumeMF {
         P2: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
         P3: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
-        let mut result__ = ::windows_core::zeroed::<IVdsAsync>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Format)(::windows_core::Interface::as_raw(self), r#type, pwszlabel.into_param().abi(), dwunitallocationsize, bforce.into_param().abi(), bquickformat.into_param().abi(), benablecompression.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn AddAccessPath<P0>(&self, pwszpath: P0) -> ::windows_core::Result<()>
@@ -3873,7 +3873,7 @@ pub struct IVdsVolumeMF_Vtbl {
 pub struct IVdsVolumeMF2(::windows_core::IUnknown);
 impl IVdsVolumeMF2 {
     pub unsafe fn GetFileSystemTypeName(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::PWSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFileSystemTypeName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn QueryFileSystemFormatSupport(&self, ppfilesystemsupportprops: *mut *mut VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP, plnumberoffilesystems: *mut i32) -> ::windows_core::Result<()> {
@@ -3889,7 +3889,7 @@ impl IVdsVolumeMF2 {
         P3: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
         P4: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
-        let mut result__ = ::windows_core::zeroed::<IVdsAsync>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FormatEx)(::windows_core::Interface::as_raw(self), pwszfilesystemtypename.into_param().abi(), usfilesystemrevision, uldesiredunitallocationsize, pwszlabel.into_param().abi(), bforce.into_param().abi(), bquickformat.into_param().abi(), benablecompression.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -3939,7 +3939,7 @@ impl IVdsVolumeMF3 {
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IVdsAsync>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FormatEx2)(::windows_core::Interface::as_raw(self), pwszfilesystemtypename.into_param().abi(), usfilesystemrevision, uldesiredunitallocationsize, pwszlabel.into_param().abi(), options, &mut result__).from_abi(result__)
     }
     pub unsafe fn OfflineVolume(&self) -> ::windows_core::Result<()> {
@@ -4022,14 +4022,14 @@ impl IVdsVolumePlex {
         (::windows_core::Interface::vtable(self).GetProperties)(::windows_core::Interface::as_raw(self), pplexproperties).ok()
     }
     pub unsafe fn GetVolume(&self) -> ::windows_core::Result<IVdsVolume> {
-        let mut result__ = ::windows_core::zeroed::<IVdsVolume>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetVolume)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn QueryExtents(&self, ppextentarray: *mut *mut VDS_DISK_EXTENT, plnumberofextents: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).QueryExtents)(::windows_core::Interface::as_raw(self), ppextentarray, plnumberofextents).ok()
     }
     pub unsafe fn Repair(&self, pinputdiskarray: &[VDS_INPUT_DISK]) -> ::windows_core::Result<IVdsAsync> {
-        let mut result__ = ::windows_core::zeroed::<IVdsAsync>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Repair)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pinputdiskarray.as_ptr()), pinputdiskarray.len() as _, &mut result__).from_abi(result__)
     }
 }
@@ -4070,11 +4070,11 @@ pub struct IVdsVolumePlex_Vtbl {
 pub struct IVdsVolumeShrink(::windows_core::IUnknown);
 impl IVdsVolumeShrink {
     pub unsafe fn QueryMaxReclaimableBytes(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QueryMaxReclaimableBytes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Shrink(&self, ulldesirednumberofreclaimablebytes: u64, ullminnumberofreclaimablebytes: u64) -> ::windows_core::Result<IVdsAsync> {
-        let mut result__ = ::windows_core::zeroed::<IVdsAsync>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Shrink)(::windows_core::Interface::as_raw(self), ulldesirednumberofreclaimablebytes, ullminnumberofreclaimablebytes, &mut result__).from_abi(result__)
     }
 }

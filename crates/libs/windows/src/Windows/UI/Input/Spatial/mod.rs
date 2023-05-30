@@ -1246,7 +1246,7 @@ impl SpatialGestureRecognizer {
     pub fn RecognitionStarted(&self, handler: &super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialRecognitionStartedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RecognitionStarted)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1261,7 +1261,7 @@ impl SpatialGestureRecognizer {
     pub fn RecognitionEnded(&self, handler: &super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialRecognitionEndedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RecognitionEnded)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1276,7 +1276,7 @@ impl SpatialGestureRecognizer {
     pub fn Tapped(&self, handler: &super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialTappedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Tapped)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1291,7 +1291,7 @@ impl SpatialGestureRecognizer {
     pub fn HoldStarted(&self, handler: &super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialHoldStartedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).HoldStarted)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1306,7 +1306,7 @@ impl SpatialGestureRecognizer {
     pub fn HoldCompleted(&self, handler: &super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialHoldCompletedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).HoldCompleted)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1321,7 +1321,7 @@ impl SpatialGestureRecognizer {
     pub fn HoldCanceled(&self, handler: &super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialHoldCanceledEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).HoldCanceled)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1336,7 +1336,7 @@ impl SpatialGestureRecognizer {
     pub fn ManipulationStarted(&self, handler: &super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialManipulationStartedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ManipulationStarted)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1351,7 +1351,7 @@ impl SpatialGestureRecognizer {
     pub fn ManipulationUpdated(&self, handler: &super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialManipulationUpdatedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ManipulationUpdated)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1366,7 +1366,7 @@ impl SpatialGestureRecognizer {
     pub fn ManipulationCompleted(&self, handler: &super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialManipulationCompletedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ManipulationCompleted)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1381,7 +1381,7 @@ impl SpatialGestureRecognizer {
     pub fn ManipulationCanceled(&self, handler: &super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialManipulationCanceledEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ManipulationCanceled)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1396,7 +1396,7 @@ impl SpatialGestureRecognizer {
     pub fn NavigationStarted(&self, handler: &super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialNavigationStartedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).NavigationStarted)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1411,7 +1411,7 @@ impl SpatialGestureRecognizer {
     pub fn NavigationUpdated(&self, handler: &super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialNavigationUpdatedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).NavigationUpdated)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1426,7 +1426,7 @@ impl SpatialGestureRecognizer {
     pub fn NavigationCompleted(&self, handler: &super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialNavigationCompletedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).NavigationCompleted)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1441,7 +1441,7 @@ impl SpatialGestureRecognizer {
     pub fn NavigationCanceled(&self, handler: &super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialNavigationCanceledEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).NavigationCanceled)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1462,20 +1462,20 @@ impl SpatialGestureRecognizer {
     pub fn TrySetGestureSettings(&self, settings: SpatialGestureSettings) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TrySetGestureSettings)(::windows_core::Interface::as_raw(this), settings, &mut result__).from_abi(result__)
         }
     }
     pub fn GestureSettings(&self) -> ::windows_core::Result<SpatialGestureSettings> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpatialGestureSettings>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GestureSettings)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Create(settings: SpatialGestureSettings) -> ::windows_core::Result<SpatialGestureRecognizer> {
         Self::ISpatialGestureRecognizerFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpatialGestureRecognizer>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), settings, &mut result__).from_abi(result__)
         })
     }
@@ -1523,7 +1523,7 @@ impl SpatialHoldCanceledEventArgs {
     pub fn InteractionSourceKind(&self) -> ::windows_core::Result<SpatialInteractionSourceKind> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpatialInteractionSourceKind>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InteractionSourceKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1566,7 +1566,7 @@ impl SpatialHoldCompletedEventArgs {
     pub fn InteractionSourceKind(&self) -> ::windows_core::Result<SpatialInteractionSourceKind> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpatialInteractionSourceKind>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InteractionSourceKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1609,7 +1609,7 @@ impl SpatialHoldStartedEventArgs {
     pub fn InteractionSourceKind(&self) -> ::windows_core::Result<SpatialInteractionSourceKind> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpatialInteractionSourceKind>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InteractionSourceKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1618,7 +1618,7 @@ impl SpatialHoldStartedEventArgs {
     pub fn TryGetPointerPose(&self, coordinatesystem: &super::super::super::Perception::Spatial::SpatialCoordinateSystem) -> ::windows_core::Result<SpatialPointerPose> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpatialPointerPose>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryGetPointerPose)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(coordinatesystem), &mut result__).from_abi(result__)
         }
     }
@@ -1661,7 +1661,7 @@ impl SpatialInteraction {
     pub fn SourceState(&self) -> ::windows_core::Result<SpatialInteractionSourceState> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpatialInteractionSourceState>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SourceState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1704,14 +1704,14 @@ impl SpatialInteractionController {
     pub fn HasTouchpad(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).HasTouchpad)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn HasThumbstick(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).HasThumbstick)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1720,28 +1720,28 @@ impl SpatialInteractionController {
     pub fn SimpleHapticsController(&self) -> ::windows_core::Result<super::super::super::Devices::Haptics::SimpleHapticsController> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Devices::Haptics::SimpleHapticsController>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SimpleHapticsController)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn VendorId(&self) -> ::windows_core::Result<u16> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u16>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).VendorId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ProductId(&self) -> ::windows_core::Result<u16> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u16>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ProductId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Version(&self) -> ::windows_core::Result<u16> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u16>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Version)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1750,7 +1750,7 @@ impl SpatialInteractionController {
     pub fn TryGetRenderableModelAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IRandomAccessStreamWithContentType>> {
         let this = &::windows_core::ComInterface::cast::<ISpatialInteractionController2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IRandomAccessStreamWithContentType>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryGetRenderableModelAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1759,7 +1759,7 @@ impl SpatialInteractionController {
     pub fn TryGetBatteryReport(&self) -> ::windows_core::Result<super::super::super::Devices::Power::BatteryReport> {
         let this = &::windows_core::ComInterface::cast::<ISpatialInteractionController3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Devices::Power::BatteryReport>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryGetBatteryReport)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1802,49 +1802,49 @@ impl SpatialInteractionControllerProperties {
     pub fn IsTouchpadTouched(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsTouchpadTouched)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsTouchpadPressed(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsTouchpadPressed)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsThumbstickPressed(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsThumbstickPressed)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ThumbstickX(&self) -> ::windows_core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ThumbstickX)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ThumbstickY(&self) -> ::windows_core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ThumbstickY)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TouchpadX(&self) -> ::windows_core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TouchpadX)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TouchpadY(&self) -> ::windows_core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TouchpadY)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1887,7 +1887,7 @@ impl SpatialInteractionDetectedEventArgs {
     pub fn InteractionSourceKind(&self) -> ::windows_core::Result<SpatialInteractionSourceKind> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpatialInteractionSourceKind>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InteractionSourceKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1896,21 +1896,21 @@ impl SpatialInteractionDetectedEventArgs {
     pub fn TryGetPointerPose(&self, coordinatesystem: &super::super::super::Perception::Spatial::SpatialCoordinateSystem) -> ::windows_core::Result<SpatialPointerPose> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpatialPointerPose>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryGetPointerPose)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(coordinatesystem), &mut result__).from_abi(result__)
         }
     }
     pub fn Interaction(&self) -> ::windows_core::Result<SpatialInteraction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpatialInteraction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Interaction)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn InteractionSource(&self) -> ::windows_core::Result<SpatialInteractionSource> {
         let this = &::windows_core::ComInterface::cast::<ISpatialInteractionDetectedEventArgs2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpatialInteractionSource>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InteractionSource)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1955,7 +1955,7 @@ impl SpatialInteractionManager {
     pub fn SourceDetected(&self, handler: &super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SourceDetected)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1970,7 +1970,7 @@ impl SpatialInteractionManager {
     pub fn SourceLost(&self, handler: &super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SourceLost)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1985,7 +1985,7 @@ impl SpatialInteractionManager {
     pub fn SourceUpdated(&self, handler: &super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SourceUpdated)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -2000,7 +2000,7 @@ impl SpatialInteractionManager {
     pub fn SourcePressed(&self, handler: &super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SourcePressed)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -2015,7 +2015,7 @@ impl SpatialInteractionManager {
     pub fn SourceReleased(&self, handler: &super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SourceReleased)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -2030,7 +2030,7 @@ impl SpatialInteractionManager {
     pub fn InteractionDetected(&self, handler: &super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionDetectedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InteractionDetected)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -2045,19 +2045,19 @@ impl SpatialInteractionManager {
     pub fn GetDetectedSourcesAtTimestamp(&self, timestamp: &super::super::super::Perception::PerceptionTimestamp) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<SpatialInteractionSourceState>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Collections::IVectorView<SpatialInteractionSourceState>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDetectedSourcesAtTimestamp)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(timestamp), &mut result__).from_abi(result__)
         }
     }
     pub fn GetForCurrentView() -> ::windows_core::Result<SpatialInteractionManager> {
         Self::ISpatialInteractionManagerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpatialInteractionManager>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetForCurrentView)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn IsSourceKindSupported(kind: SpatialInteractionSourceKind) -> ::windows_core::Result<bool> {
         Self::ISpatialInteractionManagerStatics2(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsSourceKindSupported)(::windows_core::Interface::as_raw(this), kind, &mut result__).from_abi(result__)
         })
     }
@@ -2110,42 +2110,42 @@ impl SpatialInteractionSource {
     pub fn Id(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<SpatialInteractionSourceKind> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpatialInteractionSourceKind>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsPointingSupported(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<ISpatialInteractionSource2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsPointingSupported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsMenuSupported(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<ISpatialInteractionSource2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsMenuSupported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsGraspSupported(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<ISpatialInteractionSource2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsGraspSupported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Controller(&self) -> ::windows_core::Result<SpatialInteractionController> {
         let this = &::windows_core::ComInterface::cast::<ISpatialInteractionSource2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpatialInteractionController>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Controller)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2154,14 +2154,14 @@ impl SpatialInteractionSource {
     pub fn TryGetStateAtTimestamp(&self, timestamp: &super::super::super::Perception::PerceptionTimestamp) -> ::windows_core::Result<SpatialInteractionSourceState> {
         let this = &::windows_core::ComInterface::cast::<ISpatialInteractionSource2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpatialInteractionSourceState>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryGetStateAtTimestamp)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(timestamp), &mut result__).from_abi(result__)
         }
     }
     pub fn Handedness(&self) -> ::windows_core::Result<SpatialInteractionSourceHandedness> {
         let this = &::windows_core::ComInterface::cast::<ISpatialInteractionSource3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpatialInteractionSourceHandedness>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Handedness)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2170,7 +2170,7 @@ impl SpatialInteractionSource {
     pub fn TryCreateHandMeshObserver(&self) -> ::windows_core::Result<super::super::super::Perception::People::HandMeshObserver> {
         let this = &::windows_core::ComInterface::cast::<ISpatialInteractionSource4>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Perception::People::HandMeshObserver>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryCreateHandMeshObserver)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2179,7 +2179,7 @@ impl SpatialInteractionSource {
     pub fn TryCreateHandMeshObserverAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Perception::People::HandMeshObserver>> {
         let this = &::windows_core::ComInterface::cast::<ISpatialInteractionSource4>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<super::super::super::Perception::People::HandMeshObserver>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryCreateHandMeshObserverAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2222,14 +2222,14 @@ impl SpatialInteractionSourceEventArgs {
     pub fn State(&self) -> ::windows_core::Result<SpatialInteractionSourceState> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpatialInteractionSourceState>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).State)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PressKind(&self) -> ::windows_core::Result<SpatialInteractionPressKind> {
         let this = &::windows_core::ComInterface::cast::<ISpatialInteractionSourceEventArgs2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpatialInteractionPressKind>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PressKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2274,7 +2274,7 @@ impl SpatialInteractionSourceLocation {
     pub fn Position(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Position)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2283,7 +2283,7 @@ impl SpatialInteractionSourceLocation {
     pub fn Velocity(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Velocity)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2292,14 +2292,14 @@ impl SpatialInteractionSourceLocation {
     pub fn Orientation(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Quaternion>> {
         let this = &::windows_core::ComInterface::cast::<ISpatialInteractionSourceLocation2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Quaternion>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Orientation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PositionAccuracy(&self) -> ::windows_core::Result<SpatialInteractionSourcePositionAccuracy> {
         let this = &::windows_core::ComInterface::cast::<ISpatialInteractionSourceLocation3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpatialInteractionSourcePositionAccuracy>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PositionAccuracy)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2308,14 +2308,14 @@ impl SpatialInteractionSourceLocation {
     pub fn AngularVelocity(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>> {
         let this = &::windows_core::ComInterface::cast::<ISpatialInteractionSourceLocation3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AngularVelocity)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SourcePointerPose(&self) -> ::windows_core::Result<SpatialPointerInteractionSourcePose> {
         let this = &::windows_core::ComInterface::cast::<ISpatialInteractionSourceLocation3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpatialPointerInteractionSourcePose>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SourcePointerPose)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2360,14 +2360,14 @@ impl SpatialInteractionSourceProperties {
     pub fn TryGetSourceLossMitigationDirection(&self, coordinatesystem: &super::super::super::Perception::Spatial::SpatialCoordinateSystem) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryGetSourceLossMitigationDirection)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(coordinatesystem), &mut result__).from_abi(result__)
         }
     }
     pub fn SourceLossRisk(&self) -> ::windows_core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SourceLossRisk)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2376,7 +2376,7 @@ impl SpatialInteractionSourceProperties {
     pub fn TryGetLocation(&self, coordinatesystem: &super::super::super::Perception::Spatial::SpatialCoordinateSystem) -> ::windows_core::Result<SpatialInteractionSourceLocation> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpatialInteractionSourceLocation>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryGetLocation)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(coordinatesystem), &mut result__).from_abi(result__)
         }
     }
@@ -2419,21 +2419,21 @@ impl SpatialInteractionSourceState {
     pub fn Source(&self) -> ::windows_core::Result<SpatialInteractionSource> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpatialInteractionSource>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Source)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Properties(&self) -> ::windows_core::Result<SpatialInteractionSourceProperties> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpatialInteractionSourceProperties>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Properties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsPressed(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsPressed)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2442,7 +2442,7 @@ impl SpatialInteractionSourceState {
     pub fn Timestamp(&self) -> ::windows_core::Result<super::super::super::Perception::PerceptionTimestamp> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Perception::PerceptionTimestamp>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Timestamp)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2451,42 +2451,42 @@ impl SpatialInteractionSourceState {
     pub fn TryGetPointerPose(&self, coordinatesystem: &super::super::super::Perception::Spatial::SpatialCoordinateSystem) -> ::windows_core::Result<SpatialPointerPose> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpatialPointerPose>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryGetPointerPose)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(coordinatesystem), &mut result__).from_abi(result__)
         }
     }
     pub fn IsSelectPressed(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<ISpatialInteractionSourceState2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsSelectPressed)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsMenuPressed(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<ISpatialInteractionSourceState2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsMenuPressed)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsGrasped(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<ISpatialInteractionSourceState2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsGrasped)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SelectPressedValue(&self) -> ::windows_core::Result<f64> {
         let this = &::windows_core::ComInterface::cast::<ISpatialInteractionSourceState2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SelectPressedValue)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ControllerProperties(&self) -> ::windows_core::Result<SpatialInteractionControllerProperties> {
         let this = &::windows_core::ComInterface::cast::<ISpatialInteractionSourceState2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpatialInteractionControllerProperties>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ControllerProperties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2495,7 +2495,7 @@ impl SpatialInteractionSourceState {
     pub fn TryGetHandPose(&self) -> ::windows_core::Result<super::super::super::Perception::People::HandPose> {
         let this = &::windows_core::ComInterface::cast::<ISpatialInteractionSourceState3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Perception::People::HandPose>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryGetHandPose)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2538,7 +2538,7 @@ impl SpatialManipulationCanceledEventArgs {
     pub fn InteractionSourceKind(&self) -> ::windows_core::Result<SpatialInteractionSourceKind> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpatialInteractionSourceKind>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InteractionSourceKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2581,7 +2581,7 @@ impl SpatialManipulationCompletedEventArgs {
     pub fn InteractionSourceKind(&self) -> ::windows_core::Result<SpatialInteractionSourceKind> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpatialInteractionSourceKind>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InteractionSourceKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2590,7 +2590,7 @@ impl SpatialManipulationCompletedEventArgs {
     pub fn TryGetCumulativeDelta(&self, coordinatesystem: &super::super::super::Perception::Spatial::SpatialCoordinateSystem) -> ::windows_core::Result<SpatialManipulationDelta> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpatialManipulationDelta>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryGetCumulativeDelta)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(coordinatesystem), &mut result__).from_abi(result__)
         }
     }
@@ -2635,7 +2635,7 @@ impl SpatialManipulationDelta {
     pub fn Translation(&self) -> ::windows_core::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Numerics::Vector3>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Translation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2678,7 +2678,7 @@ impl SpatialManipulationStartedEventArgs {
     pub fn InteractionSourceKind(&self) -> ::windows_core::Result<SpatialInteractionSourceKind> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpatialInteractionSourceKind>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InteractionSourceKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2687,7 +2687,7 @@ impl SpatialManipulationStartedEventArgs {
     pub fn TryGetPointerPose(&self, coordinatesystem: &super::super::super::Perception::Spatial::SpatialCoordinateSystem) -> ::windows_core::Result<SpatialPointerPose> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpatialPointerPose>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryGetPointerPose)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(coordinatesystem), &mut result__).from_abi(result__)
         }
     }
@@ -2730,7 +2730,7 @@ impl SpatialManipulationUpdatedEventArgs {
     pub fn InteractionSourceKind(&self) -> ::windows_core::Result<SpatialInteractionSourceKind> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpatialInteractionSourceKind>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InteractionSourceKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2739,7 +2739,7 @@ impl SpatialManipulationUpdatedEventArgs {
     pub fn TryGetCumulativeDelta(&self, coordinatesystem: &super::super::super::Perception::Spatial::SpatialCoordinateSystem) -> ::windows_core::Result<SpatialManipulationDelta> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpatialManipulationDelta>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryGetCumulativeDelta)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(coordinatesystem), &mut result__).from_abi(result__)
         }
     }
@@ -2782,7 +2782,7 @@ impl SpatialNavigationCanceledEventArgs {
     pub fn InteractionSourceKind(&self) -> ::windows_core::Result<SpatialInteractionSourceKind> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpatialInteractionSourceKind>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InteractionSourceKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2825,7 +2825,7 @@ impl SpatialNavigationCompletedEventArgs {
     pub fn InteractionSourceKind(&self) -> ::windows_core::Result<SpatialInteractionSourceKind> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpatialInteractionSourceKind>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InteractionSourceKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2834,7 +2834,7 @@ impl SpatialNavigationCompletedEventArgs {
     pub fn NormalizedOffset(&self) -> ::windows_core::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Numerics::Vector3>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).NormalizedOffset)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2877,7 +2877,7 @@ impl SpatialNavigationStartedEventArgs {
     pub fn InteractionSourceKind(&self) -> ::windows_core::Result<SpatialInteractionSourceKind> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpatialInteractionSourceKind>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InteractionSourceKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2886,28 +2886,28 @@ impl SpatialNavigationStartedEventArgs {
     pub fn TryGetPointerPose(&self, coordinatesystem: &super::super::super::Perception::Spatial::SpatialCoordinateSystem) -> ::windows_core::Result<SpatialPointerPose> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpatialPointerPose>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryGetPointerPose)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(coordinatesystem), &mut result__).from_abi(result__)
         }
     }
     pub fn IsNavigatingX(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsNavigatingX)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsNavigatingY(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsNavigatingY)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsNavigatingZ(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsNavigatingZ)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2950,7 +2950,7 @@ impl SpatialNavigationUpdatedEventArgs {
     pub fn InteractionSourceKind(&self) -> ::windows_core::Result<SpatialInteractionSourceKind> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpatialInteractionSourceKind>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InteractionSourceKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2959,7 +2959,7 @@ impl SpatialNavigationUpdatedEventArgs {
     pub fn NormalizedOffset(&self) -> ::windows_core::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Numerics::Vector3>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).NormalizedOffset)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3004,7 +3004,7 @@ impl SpatialPointerInteractionSourcePose {
     pub fn Position(&self) -> ::windows_core::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Numerics::Vector3>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Position)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3013,7 +3013,7 @@ impl SpatialPointerInteractionSourcePose {
     pub fn ForwardDirection(&self) -> ::windows_core::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Numerics::Vector3>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ForwardDirection)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3022,7 +3022,7 @@ impl SpatialPointerInteractionSourcePose {
     pub fn UpDirection(&self) -> ::windows_core::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Numerics::Vector3>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UpDirection)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3031,14 +3031,14 @@ impl SpatialPointerInteractionSourcePose {
     pub fn Orientation(&self) -> ::windows_core::Result<super::super::super::Foundation::Numerics::Quaternion> {
         let this = &::windows_core::ComInterface::cast::<ISpatialPointerInteractionSourcePose2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Numerics::Quaternion>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Orientation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PositionAccuracy(&self) -> ::windows_core::Result<SpatialInteractionSourcePositionAccuracy> {
         let this = &::windows_core::ComInterface::cast::<ISpatialPointerInteractionSourcePose2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpatialInteractionSourcePositionAccuracy>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PositionAccuracy)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3083,7 +3083,7 @@ impl SpatialPointerPose {
     pub fn Timestamp(&self) -> ::windows_core::Result<super::super::super::Perception::PerceptionTimestamp> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Perception::PerceptionTimestamp>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Timestamp)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3092,14 +3092,14 @@ impl SpatialPointerPose {
     pub fn Head(&self) -> ::windows_core::Result<super::super::super::Perception::People::HeadPose> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Perception::People::HeadPose>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Head)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TryGetInteractionSourcePose(&self, source: &SpatialInteractionSource) -> ::windows_core::Result<SpatialPointerInteractionSourcePose> {
         let this = &::windows_core::ComInterface::cast::<ISpatialPointerPose2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpatialPointerInteractionSourcePose>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryGetInteractionSourcePose)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(source), &mut result__).from_abi(result__)
         }
     }
@@ -3108,14 +3108,14 @@ impl SpatialPointerPose {
     pub fn Eyes(&self) -> ::windows_core::Result<super::super::super::Perception::People::EyesPose> {
         let this = &::windows_core::ComInterface::cast::<ISpatialPointerPose3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Perception::People::EyesPose>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Eyes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsHeadCapturedBySystem(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<ISpatialPointerPose3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsHeadCapturedBySystem)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3123,7 +3123,7 @@ impl SpatialPointerPose {
     #[cfg(feature = "Perception_Spatial")]
     pub fn TryGetAtTimestamp(coordinatesystem: &super::super::super::Perception::Spatial::SpatialCoordinateSystem, timestamp: &super::super::super::Perception::PerceptionTimestamp) -> ::windows_core::Result<SpatialPointerPose> {
         Self::ISpatialPointerPoseStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpatialPointerPose>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryGetAtTimestamp)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(coordinatesystem), ::core::mem::transmute_copy(timestamp), &mut result__).from_abi(result__)
         })
     }
@@ -3171,7 +3171,7 @@ impl SpatialRecognitionEndedEventArgs {
     pub fn InteractionSourceKind(&self) -> ::windows_core::Result<SpatialInteractionSourceKind> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpatialInteractionSourceKind>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InteractionSourceKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3214,7 +3214,7 @@ impl SpatialRecognitionStartedEventArgs {
     pub fn InteractionSourceKind(&self) -> ::windows_core::Result<SpatialInteractionSourceKind> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpatialInteractionSourceKind>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InteractionSourceKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3223,14 +3223,14 @@ impl SpatialRecognitionStartedEventArgs {
     pub fn TryGetPointerPose(&self, coordinatesystem: &super::super::super::Perception::Spatial::SpatialCoordinateSystem) -> ::windows_core::Result<SpatialPointerPose> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpatialPointerPose>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryGetPointerPose)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(coordinatesystem), &mut result__).from_abi(result__)
         }
     }
     pub fn IsGesturePossible(&self, gesture: SpatialGestureSettings) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsGesturePossible)(::windows_core::Interface::as_raw(this), gesture, &mut result__).from_abi(result__)
         }
     }
@@ -3273,7 +3273,7 @@ impl SpatialTappedEventArgs {
     pub fn InteractionSourceKind(&self) -> ::windows_core::Result<SpatialInteractionSourceKind> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpatialInteractionSourceKind>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InteractionSourceKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3282,14 +3282,14 @@ impl SpatialTappedEventArgs {
     pub fn TryGetPointerPose(&self, coordinatesystem: &super::super::super::Perception::Spatial::SpatialCoordinateSystem) -> ::windows_core::Result<SpatialPointerPose> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpatialPointerPose>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryGetPointerPose)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(coordinatesystem), &mut result__).from_abi(result__)
         }
     }
     pub fn TapCount(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TapCount)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }

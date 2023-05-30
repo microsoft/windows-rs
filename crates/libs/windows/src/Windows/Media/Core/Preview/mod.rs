@@ -31,7 +31,7 @@ pub struct SoundLevelBroker;
 impl SoundLevelBroker {
     pub fn SoundLevel() -> ::windows_core::Result<super::super::SoundLevel> {
         Self::ISoundLevelBrokerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::SoundLevel>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SoundLevel)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -39,7 +39,7 @@ impl SoundLevelBroker {
     #[cfg(feature = "Foundation")]
     pub fn SoundLevelChanged(handler: &super::super::super::Foundation::EventHandler<::windows_core::IInspectable>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         Self::ISoundLevelBrokerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SoundLevelChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         })
     }

@@ -72,7 +72,7 @@ pub fn gen(
                 #doc
                 #features
                 pub unsafe fn #name<#generics>(&self, #params) -> ::windows_core::Result<#return_type> #where_clause {
-                    let mut result__ = ::windows_core::zeroed::<#return_type>();
+                    let mut result__ = ::std::mem::zeroed();
                     (::windows_core::Interface::vtable(self)#bases.#vname)(::windows_core::Interface::as_raw(self), #args).from_abi(result__)
                 }
             }
@@ -101,7 +101,7 @@ pub fn gen(
                     #doc
                     #features
                     pub unsafe fn #name<#generics>(&self, #params) -> ::windows_core::Result<#return_type> #where_clause {
-                        let mut result__ = ::windows_core::zeroed::<#return_type>();
+                        let mut result__ = ::std::mem::zeroed();
                         (::windows_core::Interface::vtable(self)#bases.#vname)(::windows_core::Interface::as_raw(self), #args);
                         ::windows_core::from_abi(result__)
                     }
@@ -111,7 +111,7 @@ pub fn gen(
                     #doc
                     #features
                     pub unsafe fn #name<#generics>(&self, #params) -> #return_type #where_clause {
-                        let mut result__ = ::windows_core::zeroed::<#return_type>();
+                        let mut result__ = ::std::mem::zeroed();
                         (::windows_core::Interface::vtable(self)#bases.#vname)(::windows_core::Interface::as_raw(self), #args);
                         ::std::mem::transmute(result__)
                     }

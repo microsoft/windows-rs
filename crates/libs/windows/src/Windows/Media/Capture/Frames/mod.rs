@@ -786,7 +786,7 @@ impl AudioMediaFrame {
     pub fn FrameReference(&self) -> ::windows_core::Result<MediaFrameReference> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<MediaFrameReference>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FrameReference)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -795,14 +795,14 @@ impl AudioMediaFrame {
     pub fn AudioEncodingProperties(&self) -> ::windows_core::Result<super::super::MediaProperties::AudioEncodingProperties> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::MediaProperties::AudioEncodingProperties>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AudioEncodingProperties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetAudioFrame(&self) -> ::windows_core::Result<super::super::AudioFrame> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::AudioFrame>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetAudioFrame)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -845,7 +845,7 @@ impl BufferMediaFrame {
     pub fn FrameReference(&self) -> ::windows_core::Result<MediaFrameReference> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<MediaFrameReference>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FrameReference)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -854,7 +854,7 @@ impl BufferMediaFrame {
     pub fn Buffer(&self) -> ::windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Storage::Streams::IBuffer>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Buffer)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -897,21 +897,21 @@ impl DepthMediaFrame {
     pub fn FrameReference(&self) -> ::windows_core::Result<MediaFrameReference> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<MediaFrameReference>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FrameReference)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn VideoMediaFrame(&self) -> ::windows_core::Result<VideoMediaFrame> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<VideoMediaFrame>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).VideoMediaFrame)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DepthFormat(&self) -> ::windows_core::Result<DepthMediaFrameFormat> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<DepthMediaFrameFormat>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DepthFormat)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -920,21 +920,21 @@ impl DepthMediaFrame {
     pub fn TryCreateCoordinateMapper(&self, cameraintrinsics: &super::super::Devices::Core::CameraIntrinsics, coordinatesystem: &super::super::super::Perception::Spatial::SpatialCoordinateSystem) -> ::windows_core::Result<super::super::Devices::Core::DepthCorrelatedCoordinateMapper> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Devices::Core::DepthCorrelatedCoordinateMapper>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryCreateCoordinateMapper)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(cameraintrinsics), ::core::mem::transmute_copy(coordinatesystem), &mut result__).from_abi(result__)
         }
     }
     pub fn MaxReliableDepth(&self) -> ::windows_core::Result<u32> {
         let this = &::windows_core::ComInterface::cast::<IDepthMediaFrame2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxReliableDepth)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MinReliableDepth(&self) -> ::windows_core::Result<u32> {
         let this = &::windows_core::ComInterface::cast::<IDepthMediaFrame2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MinReliableDepth)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -977,14 +977,14 @@ impl DepthMediaFrameFormat {
     pub fn VideoFormat(&self) -> ::windows_core::Result<VideoMediaFrameFormat> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<VideoMediaFrameFormat>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).VideoFormat)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DepthScaleInMeters(&self) -> ::windows_core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DepthScaleInMeters)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1027,21 +1027,21 @@ impl InfraredMediaFrame {
     pub fn FrameReference(&self) -> ::windows_core::Result<MediaFrameReference> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<MediaFrameReference>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FrameReference)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn VideoMediaFrame(&self) -> ::windows_core::Result<VideoMediaFrame> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<VideoMediaFrame>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).VideoMediaFrame)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsIlluminated(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsIlluminated)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1119,14 +1119,14 @@ impl MediaFrameFormat {
     pub fn MajorType(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MajorType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Subtype(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Subtype)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1135,7 +1135,7 @@ impl MediaFrameFormat {
     pub fn FrameRate(&self) -> ::windows_core::Result<super::super::MediaProperties::MediaRatio> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::MediaProperties::MediaRatio>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FrameRate)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1144,14 +1144,14 @@ impl MediaFrameFormat {
     pub fn Properties(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IMapView<::windows_core::GUID, ::windows_core::IInspectable>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Collections::IMapView<::windows_core::GUID, ::windows_core::IInspectable>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Properties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn VideoFormat(&self) -> ::windows_core::Result<VideoMediaFrameFormat> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<VideoMediaFrameFormat>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).VideoFormat)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1160,7 +1160,7 @@ impl MediaFrameFormat {
     pub fn AudioEncodingProperties(&self) -> ::windows_core::Result<super::super::MediaProperties::AudioEncodingProperties> {
         let this = &::windows_core::ComInterface::cast::<IMediaFrameFormat2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::MediaProperties::AudioEncodingProperties>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AudioEncodingProperties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1211,7 +1211,7 @@ impl MediaFrameReader {
     pub fn FrameArrived(&self, handler: &super::super::super::Foundation::TypedEventHandler<MediaFrameReader, MediaFrameArrivedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FrameArrived)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1224,7 +1224,7 @@ impl MediaFrameReader {
     pub fn TryAcquireLatestFrame(&self) -> ::windows_core::Result<MediaFrameReference> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<MediaFrameReference>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryAcquireLatestFrame)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1233,7 +1233,7 @@ impl MediaFrameReader {
     pub fn StartAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<MediaFrameReaderStartStatus>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<MediaFrameReaderStartStatus>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).StartAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1242,7 +1242,7 @@ impl MediaFrameReader {
     pub fn StopAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).StopAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1253,7 +1253,7 @@ impl MediaFrameReader {
     pub fn AcquisitionMode(&self) -> ::windows_core::Result<MediaFrameReaderAcquisitionMode> {
         let this = &::windows_core::ComInterface::cast::<IMediaFrameReader2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<MediaFrameReaderAcquisitionMode>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AcquisitionMode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1304,14 +1304,14 @@ impl MediaFrameReference {
     pub fn SourceKind(&self) -> ::windows_core::Result<MediaFrameSourceKind> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<MediaFrameSourceKind>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SourceKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Format(&self) -> ::windows_core::Result<MediaFrameFormat> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<MediaFrameFormat>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Format)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1320,7 +1320,7 @@ impl MediaFrameReference {
     pub fn SystemRelativeTime(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SystemRelativeTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1329,7 +1329,7 @@ impl MediaFrameReference {
     pub fn Duration(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::TimeSpan>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Duration)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1338,21 +1338,21 @@ impl MediaFrameReference {
     pub fn Properties(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IMapView<::windows_core::GUID, ::windows_core::IInspectable>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Collections::IMapView<::windows_core::GUID, ::windows_core::IInspectable>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Properties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn BufferMediaFrame(&self) -> ::windows_core::Result<BufferMediaFrame> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<BufferMediaFrame>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).BufferMediaFrame)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn VideoMediaFrame(&self) -> ::windows_core::Result<VideoMediaFrame> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<VideoMediaFrame>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).VideoMediaFrame)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1361,14 +1361,14 @@ impl MediaFrameReference {
     pub fn CoordinateSystem(&self) -> ::windows_core::Result<super::super::super::Perception::Spatial::SpatialCoordinateSystem> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Perception::Spatial::SpatialCoordinateSystem>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CoordinateSystem)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AudioMediaFrame(&self) -> ::windows_core::Result<AudioMediaFrame> {
         let this = &::windows_core::ComInterface::cast::<IMediaFrameReference2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<AudioMediaFrame>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AudioMediaFrame)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1413,14 +1413,14 @@ impl MediaFrameSource {
     pub fn Info(&self) -> ::windows_core::Result<MediaFrameSourceInfo> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<MediaFrameSourceInfo>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Info)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Controller(&self) -> ::windows_core::Result<MediaFrameSourceController> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<MediaFrameSourceController>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Controller)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1429,14 +1429,14 @@ impl MediaFrameSource {
     pub fn SupportedFormats(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<MediaFrameFormat>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Collections::IVectorView<MediaFrameFormat>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SupportedFormats)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CurrentFormat(&self) -> ::windows_core::Result<MediaFrameFormat> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<MediaFrameFormat>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CurrentFormat)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1445,7 +1445,7 @@ impl MediaFrameSource {
     pub fn SetFormatAsync(&self, format: &MediaFrameFormat) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SetFormatAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(format), &mut result__).from_abi(result__)
         }
     }
@@ -1454,7 +1454,7 @@ impl MediaFrameSource {
     pub fn FormatChanged(&self, handler: &super::super::super::Foundation::TypedEventHandler<MediaFrameSource, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FormatChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1469,7 +1469,7 @@ impl MediaFrameSource {
     pub fn TryGetCameraIntrinsics(&self, format: &MediaFrameFormat) -> ::windows_core::Result<super::super::Devices::Core::CameraIntrinsics> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Devices::Core::CameraIntrinsics>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryGetCameraIntrinsics)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(format), &mut result__).from_abi(result__)
         }
     }
@@ -1514,7 +1514,7 @@ impl MediaFrameSourceController {
     pub fn GetPropertyAsync(&self, propertyid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<MediaFrameSourceGetPropertyResult>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<MediaFrameSourceGetPropertyResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetPropertyAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyid), &mut result__).from_abi(result__)
         }
     }
@@ -1526,7 +1526,7 @@ impl MediaFrameSourceController {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<MediaFrameSourceSetPropertyStatus>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SetPropertyAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyid), propertyvalue.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
@@ -1535,7 +1535,7 @@ impl MediaFrameSourceController {
     pub fn VideoDeviceController(&self) -> ::windows_core::Result<super::super::Devices::VideoDeviceController> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Devices::VideoDeviceController>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).VideoDeviceController)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1547,7 +1547,7 @@ impl MediaFrameSourceController {
     {
         let this = &::windows_core::ComInterface::cast::<IMediaFrameSourceController2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<MediaFrameSourceGetPropertyResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetPropertyByExtendedIdAsync)(::windows_core::Interface::as_raw(this), extendedpropertyid.len() as u32, extendedpropertyid.as_ptr(), maxpropertyvaluesize.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
@@ -1556,7 +1556,7 @@ impl MediaFrameSourceController {
     pub fn SetPropertyByExtendedIdAsync(&self, extendedpropertyid: &[u8], propertyvalue: &[u8]) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<MediaFrameSourceSetPropertyStatus>> {
         let this = &::windows_core::ComInterface::cast::<IMediaFrameSourceController2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<MediaFrameSourceSetPropertyStatus>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SetPropertyByExtendedIdAsync)(::windows_core::Interface::as_raw(this), extendedpropertyid.len() as u32, extendedpropertyid.as_ptr(), propertyvalue.len() as u32, propertyvalue.as_ptr(), &mut result__).from_abi(result__)
         }
     }
@@ -1565,7 +1565,7 @@ impl MediaFrameSourceController {
     pub fn AudioDeviceController(&self) -> ::windows_core::Result<super::super::Devices::AudioDeviceController> {
         let this = &::windows_core::ComInterface::cast::<IMediaFrameSourceController3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Devices::AudioDeviceController>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AudioDeviceController)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1608,14 +1608,14 @@ impl MediaFrameSourceGetPropertyResult {
     pub fn Status(&self) -> ::windows_core::Result<MediaFrameSourceGetPropertyStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<MediaFrameSourceGetPropertyStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Value(&self) -> ::windows_core::Result<::windows_core::IInspectable> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::IInspectable>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Value)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1658,14 +1658,14 @@ impl MediaFrameSourceGroup {
     pub fn Id(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DisplayName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DisplayName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1674,7 +1674,7 @@ impl MediaFrameSourceGroup {
     pub fn SourceInfos(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<MediaFrameSourceInfo>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Collections::IVectorView<MediaFrameSourceInfo>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SourceInfos)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1682,7 +1682,7 @@ impl MediaFrameSourceGroup {
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAllAsync() -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<MediaFrameSourceGroup>>> {
         Self::IMediaFrameSourceGroupStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<MediaFrameSourceGroup>>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FindAllAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -1690,13 +1690,13 @@ impl MediaFrameSourceGroup {
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync(id: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<MediaFrameSourceGroup>> {
         Self::IMediaFrameSourceGroupStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<MediaFrameSourceGroup>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FromIdAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(id), &mut result__).from_abi(result__)
         })
     }
     pub fn GetDeviceSelector() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaFrameSourceGroupStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDeviceSelector)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -1744,28 +1744,28 @@ impl MediaFrameSourceInfo {
     pub fn Id(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MediaStreamType(&self) -> ::windows_core::Result<super::MediaStreamType> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::MediaStreamType>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MediaStreamType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SourceKind(&self) -> ::windows_core::Result<MediaFrameSourceKind> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<MediaFrameSourceKind>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SourceKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SourceGroup(&self) -> ::windows_core::Result<MediaFrameSourceGroup> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<MediaFrameSourceGroup>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SourceGroup)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1774,7 +1774,7 @@ impl MediaFrameSourceInfo {
     pub fn DeviceInformation(&self) -> ::windows_core::Result<super::super::super::Devices::Enumeration::DeviceInformation> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Devices::Enumeration::DeviceInformation>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DeviceInformation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1783,7 +1783,7 @@ impl MediaFrameSourceInfo {
     pub fn Properties(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IMapView<::windows_core::GUID, ::windows_core::IInspectable>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Collections::IMapView<::windows_core::GUID, ::windows_core::IInspectable>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Properties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1792,14 +1792,14 @@ impl MediaFrameSourceInfo {
     pub fn CoordinateSystem(&self) -> ::windows_core::Result<super::super::super::Perception::Spatial::SpatialCoordinateSystem> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Perception::Spatial::SpatialCoordinateSystem>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CoordinateSystem)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ProfileId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IMediaFrameSourceInfo2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ProfileId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1808,7 +1808,7 @@ impl MediaFrameSourceInfo {
     pub fn VideoProfileMediaDescription(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<super::MediaCaptureVideoProfileMediaDescription>> {
         let this = &::windows_core::ComInterface::cast::<IMediaFrameSourceInfo2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Collections::IVectorView<super::MediaCaptureVideoProfileMediaDescription>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).VideoProfileMediaDescription)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1817,14 +1817,14 @@ impl MediaFrameSourceInfo {
     pub fn GetRelativePanel(&self, displayregion: &super::super::super::UI::WindowManagement::DisplayRegion) -> ::windows_core::Result<super::super::super::Devices::Enumeration::Panel> {
         let this = &::windows_core::ComInterface::cast::<IMediaFrameSourceInfo3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Devices::Enumeration::Panel>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetRelativePanel)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(displayregion), &mut result__).from_abi(result__)
         }
     }
     pub fn IsShareable(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<IMediaFrameSourceInfo4>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsShareable)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1910,7 +1910,7 @@ impl MultiSourceMediaFrameReader {
     pub fn FrameArrived(&self, handler: &super::super::super::Foundation::TypedEventHandler<MultiSourceMediaFrameReader, MultiSourceMediaFrameArrivedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FrameArrived)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1923,7 +1923,7 @@ impl MultiSourceMediaFrameReader {
     pub fn TryAcquireLatestFrame(&self) -> ::windows_core::Result<MultiSourceMediaFrameReference> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<MultiSourceMediaFrameReference>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryAcquireLatestFrame)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1932,7 +1932,7 @@ impl MultiSourceMediaFrameReader {
     pub fn StartAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<MultiSourceMediaFrameReaderStartStatus>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<MultiSourceMediaFrameReaderStartStatus>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).StartAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1941,7 +1941,7 @@ impl MultiSourceMediaFrameReader {
     pub fn StopAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).StopAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1952,7 +1952,7 @@ impl MultiSourceMediaFrameReader {
     pub fn AcquisitionMode(&self) -> ::windows_core::Result<MediaFrameReaderAcquisitionMode> {
         let this = &::windows_core::ComInterface::cast::<IMultiSourceMediaFrameReader2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<MediaFrameReaderAcquisitionMode>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AcquisitionMode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2003,7 +2003,7 @@ impl MultiSourceMediaFrameReference {
     pub fn TryGetFrameReferenceBySourceId(&self, sourceid: &::windows_core::HSTRING) -> ::windows_core::Result<MediaFrameReference> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<MediaFrameReference>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryGetFrameReferenceBySourceId)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(sourceid), &mut result__).from_abi(result__)
         }
     }
@@ -2048,14 +2048,14 @@ impl VideoMediaFrame {
     pub fn FrameReference(&self) -> ::windows_core::Result<MediaFrameReference> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<MediaFrameReference>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FrameReference)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn VideoFormat(&self) -> ::windows_core::Result<VideoMediaFrameFormat> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<VideoMediaFrameFormat>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).VideoFormat)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2064,7 +2064,7 @@ impl VideoMediaFrame {
     pub fn SoftwareBitmap(&self) -> ::windows_core::Result<super::super::super::Graphics::Imaging::SoftwareBitmap> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Graphics::Imaging::SoftwareBitmap>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SoftwareBitmap)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2073,7 +2073,7 @@ impl VideoMediaFrame {
     pub fn Direct3DSurface(&self) -> ::windows_core::Result<super::super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Direct3DSurface)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2082,28 +2082,28 @@ impl VideoMediaFrame {
     pub fn CameraIntrinsics(&self) -> ::windows_core::Result<super::super::Devices::Core::CameraIntrinsics> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Devices::Core::CameraIntrinsics>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CameraIntrinsics)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn InfraredMediaFrame(&self) -> ::windows_core::Result<InfraredMediaFrame> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<InfraredMediaFrame>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InfraredMediaFrame)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DepthMediaFrame(&self) -> ::windows_core::Result<DepthMediaFrame> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<DepthMediaFrame>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DepthMediaFrame)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetVideoFrame(&self) -> ::windows_core::Result<super::super::VideoFrame> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::VideoFrame>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetVideoFrame)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2146,28 +2146,28 @@ impl VideoMediaFrameFormat {
     pub fn MediaFrameFormat(&self) -> ::windows_core::Result<MediaFrameFormat> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<MediaFrameFormat>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MediaFrameFormat)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DepthFormat(&self) -> ::windows_core::Result<DepthMediaFrameFormat> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<DepthMediaFrameFormat>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DepthFormat)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Width(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Width)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Height(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Height)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }

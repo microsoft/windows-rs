@@ -40,7 +40,7 @@ pub struct IOplockBreakingHandler_Vtbl {
 pub struct IRandomAccessStreamFileAccessMode(::windows_core::IUnknown);
 impl IRandomAccessStreamFileAccessMode {
     pub unsafe fn GetMode(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetMode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -84,7 +84,7 @@ impl IStorageFolderHandleAccess {
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P1: ::windows_core::IntoParam<IOplockBreakingHandler>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::HANDLE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Create)(::windows_core::Interface::as_raw(self), filename.into_param().abi(), creationoptions, accessoptions, sharingoptions, options, oplockbreakinghandler.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -130,7 +130,7 @@ impl IStorageItemHandleAccess {
     where
         P0: ::windows_core::IntoParam<IOplockBreakingHandler>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::HANDLE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Create)(::windows_core::Interface::as_raw(self), accessoptions, sharingoptions, options, oplockbreakinghandler.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -211,7 +211,7 @@ impl IUnbufferedFileHandleProvider {
     where
         P0: ::windows_core::IntoParam<IUnbufferedFileHandleOplockCallback>,
     {
-        let mut result__ = ::windows_core::zeroed::<usize>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).OpenUnbufferedFileHandle)(::windows_core::Interface::as_raw(self), oplockbreakcallback.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CloseUnbufferedFileHandle(&self) -> ::windows_core::Result<()> {

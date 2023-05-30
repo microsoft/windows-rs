@@ -227,7 +227,7 @@ impl SpeechSynthesisStream {
     pub fn ContentType(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::Storage::Streams::IContentTypeProvider>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ContentType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -239,7 +239,7 @@ impl SpeechSynthesisStream {
     {
         let this = &::windows_core::ComInterface::cast::<super::super::Storage::Streams::IInputStream>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReadAsync)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi(), count, options, &mut result__).from_abi(result__)
         }
     }
@@ -251,7 +251,7 @@ impl SpeechSynthesisStream {
     {
         let this = &::windows_core::ComInterface::cast::<super::super::Storage::Streams::IOutputStream>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).WriteAsync)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
@@ -260,7 +260,7 @@ impl SpeechSynthesisStream {
     pub fn FlushAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows_core::ComInterface::cast::<super::super::Storage::Streams::IOutputStream>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FlushAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -269,7 +269,7 @@ impl SpeechSynthesisStream {
     pub fn Size(&self) -> ::windows_core::Result<u64> {
         let this = &::windows_core::ComInterface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Size)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -284,7 +284,7 @@ impl SpeechSynthesisStream {
     pub fn GetInputStreamAt(&self, position: u64) -> ::windows_core::Result<super::super::Storage::Streams::IInputStream> {
         let this = &::windows_core::ComInterface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Storage::Streams::IInputStream>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetInputStreamAt)(::windows_core::Interface::as_raw(this), position, &mut result__).from_abi(result__)
         }
     }
@@ -293,7 +293,7 @@ impl SpeechSynthesisStream {
     pub fn GetOutputStreamAt(&self, position: u64) -> ::windows_core::Result<super::super::Storage::Streams::IOutputStream> {
         let this = &::windows_core::ComInterface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Storage::Streams::IOutputStream>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetOutputStreamAt)(::windows_core::Interface::as_raw(this), position, &mut result__).from_abi(result__)
         }
     }
@@ -302,7 +302,7 @@ impl SpeechSynthesisStream {
     pub fn Position(&self) -> ::windows_core::Result<u64> {
         let this = &::windows_core::ComInterface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Position)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -317,7 +317,7 @@ impl SpeechSynthesisStream {
     pub fn CloneStream(&self) -> ::windows_core::Result<super::super::Storage::Streams::IRandomAccessStream> {
         let this = &::windows_core::ComInterface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Storage::Streams::IRandomAccessStream>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CloneStream)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -326,7 +326,7 @@ impl SpeechSynthesisStream {
     pub fn CanRead(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CanRead)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -335,7 +335,7 @@ impl SpeechSynthesisStream {
     pub fn CanWrite(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CanWrite)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -344,7 +344,7 @@ impl SpeechSynthesisStream {
     pub fn Markers(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::IMediaMarker>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<super::IMediaMarker>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Markers)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -353,7 +353,7 @@ impl SpeechSynthesisStream {
     pub fn TimedMetadataTracks(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::Core::TimedMetadataTrack>> {
         let this = &::windows_core::ComInterface::cast::<super::Core::ITimedMetadataTrackProvider>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<super::Core::TimedMetadataTrack>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TimedMetadataTracks)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -424,13 +424,13 @@ impl SpeechSynthesizer {
     #[cfg(feature = "Foundation_Collections")]
     pub fn AllVoices() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<VoiceInformation>> {
         Self::IInstalledVoicesStatic(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<VoiceInformation>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AllVoices)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn DefaultVoice() -> ::windows_core::Result<VoiceInformation> {
         Self::IInstalledVoicesStatic(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<VoiceInformation>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DefaultVoice)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -438,7 +438,7 @@ impl SpeechSynthesizer {
     #[cfg(feature = "Foundation")]
     pub fn TrySetDefaultVoiceAsync(voice: &VoiceInformation) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IInstalledVoicesStatic2(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TrySetDefaultVoiceAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(voice), &mut result__).from_abi(result__)
         })
     }
@@ -447,7 +447,7 @@ impl SpeechSynthesizer {
     pub fn SynthesizeTextToStreamAsync(&self, text: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SpeechSynthesisStream>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<SpeechSynthesisStream>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SynthesizeTextToStreamAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(text), &mut result__).from_abi(result__)
         }
     }
@@ -456,7 +456,7 @@ impl SpeechSynthesizer {
     pub fn SynthesizeSsmlToStreamAsync(&self, ssml: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SpeechSynthesisStream>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<SpeechSynthesisStream>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SynthesizeSsmlToStreamAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(ssml), &mut result__).from_abi(result__)
         }
     }
@@ -467,14 +467,14 @@ impl SpeechSynthesizer {
     pub fn Voice(&self) -> ::windows_core::Result<VoiceInformation> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<VoiceInformation>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Voice)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Options(&self) -> ::windows_core::Result<SpeechSynthesizerOptions> {
         let this = &::windows_core::ComInterface::cast::<ISpeechSynthesizer2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpeechSynthesizerOptions>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Options)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -529,7 +529,7 @@ impl SpeechSynthesizerOptions {
     pub fn IncludeWordBoundaryMetadata(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IncludeWordBoundaryMetadata)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -540,7 +540,7 @@ impl SpeechSynthesizerOptions {
     pub fn IncludeSentenceBoundaryMetadata(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IncludeSentenceBoundaryMetadata)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -551,7 +551,7 @@ impl SpeechSynthesizerOptions {
     pub fn AudioVolume(&self) -> ::windows_core::Result<f64> {
         let this = &::windows_core::ComInterface::cast::<ISpeechSynthesizerOptions2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AudioVolume)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -562,7 +562,7 @@ impl SpeechSynthesizerOptions {
     pub fn SpeakingRate(&self) -> ::windows_core::Result<f64> {
         let this = &::windows_core::ComInterface::cast::<ISpeechSynthesizerOptions2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SpeakingRate)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -573,7 +573,7 @@ impl SpeechSynthesizerOptions {
     pub fn AudioPitch(&self) -> ::windows_core::Result<f64> {
         let this = &::windows_core::ComInterface::cast::<ISpeechSynthesizerOptions2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AudioPitch)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -584,7 +584,7 @@ impl SpeechSynthesizerOptions {
     pub fn AppendedSilence(&self) -> ::windows_core::Result<SpeechAppendedSilence> {
         let this = &::windows_core::ComInterface::cast::<ISpeechSynthesizerOptions3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpeechAppendedSilence>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AppendedSilence)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -595,7 +595,7 @@ impl SpeechSynthesizerOptions {
     pub fn PunctuationSilence(&self) -> ::windows_core::Result<SpeechPunctuationSilence> {
         let this = &::windows_core::ComInterface::cast::<ISpeechSynthesizerOptions3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpeechPunctuationSilence>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PunctuationSilence)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -642,35 +642,35 @@ impl VoiceInformation {
     pub fn DisplayName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DisplayName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Id(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Language(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Language)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Description(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Description)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Gender(&self) -> ::windows_core::Result<VoiceGender> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<VoiceGender>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Gender)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }

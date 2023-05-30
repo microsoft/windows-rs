@@ -2671,7 +2671,7 @@ impl IDialBranding {
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetBitmap(&self, dwindex: u32) -> ::windows_core::Result<super::super::Graphics::Gdi::HBITMAP> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Graphics::Gdi::HBITMAP>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetBitmap)(::windows_core::Interface::as_raw(self), dwindex, &mut result__).from_abi(result__)
     }
 }
@@ -2740,11 +2740,11 @@ impl IDialEngine {
         (::windows_core::Interface::vtable(self).HangUp)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetConnectedState(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetConnectedState)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetConnectHandle(&self) -> ::windows_core::Result<usize> {
-        let mut result__ = ::windows_core::zeroed::<usize>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetConnectHandle)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }

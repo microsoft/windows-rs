@@ -28,7 +28,7 @@ impl Calendar {
     pub fn Clone(&self) -> ::windows_core::Result<Calendar> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<Calendar>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Clone)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -57,7 +57,7 @@ impl Calendar {
     pub fn Languages(&self) -> ::windows_core::Result<IVectorView<::windows_core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IVectorView<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Languages)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -68,7 +68,7 @@ impl Calendar {
     pub fn NumeralSystem(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).NumeralSystem)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -89,7 +89,7 @@ impl Calendar {
     pub fn GetCalendarSystem(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetCalendarSystem)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -113,7 +113,7 @@ impl Calendar {
     pub fn GetClock(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetClock)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -134,7 +134,7 @@ impl Calendar {
     pub fn GetDateTime(&self) -> ::windows_core::Result<DateTime> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<DateTime>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDateTime)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -164,7 +164,7 @@ impl Calendar {
     pub fn FirstEra(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FirstEra)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -175,7 +175,7 @@ impl Calendar {
     pub fn LastEra(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LastEra)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -186,7 +186,7 @@ impl Calendar {
     pub fn NumberOfEras(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).NumberOfEras)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -197,7 +197,7 @@ impl Calendar {
     pub fn Era(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Era)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -228,7 +228,7 @@ impl Calendar {
     pub fn EraAsFullString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).EraAsFullString)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -239,7 +239,7 @@ impl Calendar {
     pub fn EraAsString(&self, ideallength: i32) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).EraAsString)(
                 ::windows_core::Interface::as_raw(this),
                 ideallength,
@@ -251,7 +251,7 @@ impl Calendar {
     pub fn FirstYearInThisEra(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FirstYearInThisEra)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -262,7 +262,7 @@ impl Calendar {
     pub fn LastYearInThisEra(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LastYearInThisEra)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -273,7 +273,7 @@ impl Calendar {
     pub fn NumberOfYearsInThisEra(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).NumberOfYearsInThisEra)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -284,7 +284,7 @@ impl Calendar {
     pub fn Year(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Year)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -315,7 +315,7 @@ impl Calendar {
     pub fn YearAsString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).YearAsString)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -329,7 +329,7 @@ impl Calendar {
     ) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).YearAsTruncatedString)(
                 ::windows_core::Interface::as_raw(this),
                 remainingdigits,
@@ -344,7 +344,7 @@ impl Calendar {
     ) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).YearAsPaddedString)(
                 ::windows_core::Interface::as_raw(this),
                 mindigits,
@@ -356,7 +356,7 @@ impl Calendar {
     pub fn FirstMonthInThisYear(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FirstMonthInThisYear)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -367,7 +367,7 @@ impl Calendar {
     pub fn LastMonthInThisYear(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LastMonthInThisYear)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -378,7 +378,7 @@ impl Calendar {
     pub fn NumberOfMonthsInThisYear(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).NumberOfMonthsInThisYear)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -389,7 +389,7 @@ impl Calendar {
     pub fn Month(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Month)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -420,7 +420,7 @@ impl Calendar {
     pub fn MonthAsFullString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MonthAsFullString)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -434,7 +434,7 @@ impl Calendar {
     ) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MonthAsString)(
                 ::windows_core::Interface::as_raw(this),
                 ideallength,
@@ -446,7 +446,7 @@ impl Calendar {
     pub fn MonthAsFullSoloString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MonthAsFullSoloString)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -460,7 +460,7 @@ impl Calendar {
     ) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MonthAsSoloString)(
                 ::windows_core::Interface::as_raw(this),
                 ideallength,
@@ -472,7 +472,7 @@ impl Calendar {
     pub fn MonthAsNumericString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MonthAsNumericString)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -486,7 +486,7 @@ impl Calendar {
     ) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MonthAsPaddedNumericString)(
                 ::windows_core::Interface::as_raw(this),
                 mindigits,
@@ -508,7 +508,7 @@ impl Calendar {
     pub fn FirstDayInThisMonth(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FirstDayInThisMonth)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -519,7 +519,7 @@ impl Calendar {
     pub fn LastDayInThisMonth(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LastDayInThisMonth)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -530,7 +530,7 @@ impl Calendar {
     pub fn NumberOfDaysInThisMonth(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).NumberOfDaysInThisMonth)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -541,7 +541,7 @@ impl Calendar {
     pub fn Day(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Day)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -572,7 +572,7 @@ impl Calendar {
     pub fn DayAsString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DayAsString)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -586,7 +586,7 @@ impl Calendar {
     ) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DayAsPaddedString)(
                 ::windows_core::Interface::as_raw(this),
                 mindigits,
@@ -598,7 +598,7 @@ impl Calendar {
     pub fn DayOfWeek(&self) -> ::windows_core::Result<DayOfWeek> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<DayOfWeek>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DayOfWeek)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -609,7 +609,7 @@ impl Calendar {
     pub fn DayOfWeekAsFullString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DayOfWeekAsFullString)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -623,7 +623,7 @@ impl Calendar {
     ) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DayOfWeekAsString)(
                 ::windows_core::Interface::as_raw(this),
                 ideallength,
@@ -635,7 +635,7 @@ impl Calendar {
     pub fn DayOfWeekAsFullSoloString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DayOfWeekAsFullSoloString)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -649,7 +649,7 @@ impl Calendar {
     ) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DayOfWeekAsSoloString)(
                 ::windows_core::Interface::as_raw(this),
                 ideallength,
@@ -661,7 +661,7 @@ impl Calendar {
     pub fn FirstPeriodInThisDay(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FirstPeriodInThisDay)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -672,7 +672,7 @@ impl Calendar {
     pub fn LastPeriodInThisDay(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LastPeriodInThisDay)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -683,7 +683,7 @@ impl Calendar {
     pub fn NumberOfPeriodsInThisDay(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).NumberOfPeriodsInThisDay)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -694,7 +694,7 @@ impl Calendar {
     pub fn Period(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Period)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -725,7 +725,7 @@ impl Calendar {
     pub fn PeriodAsFullString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PeriodAsFullString)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -739,7 +739,7 @@ impl Calendar {
     ) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PeriodAsString)(
                 ::windows_core::Interface::as_raw(this),
                 ideallength,
@@ -751,7 +751,7 @@ impl Calendar {
     pub fn FirstHourInThisPeriod(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FirstHourInThisPeriod)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -762,7 +762,7 @@ impl Calendar {
     pub fn LastHourInThisPeriod(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LastHourInThisPeriod)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -773,7 +773,7 @@ impl Calendar {
     pub fn NumberOfHoursInThisPeriod(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).NumberOfHoursInThisPeriod)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -784,7 +784,7 @@ impl Calendar {
     pub fn Hour(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Hour)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -815,7 +815,7 @@ impl Calendar {
     pub fn HourAsString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).HourAsString)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -829,7 +829,7 @@ impl Calendar {
     ) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).HourAsPaddedString)(
                 ::windows_core::Interface::as_raw(this),
                 mindigits,
@@ -841,7 +841,7 @@ impl Calendar {
     pub fn Minute(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Minute)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -872,7 +872,7 @@ impl Calendar {
     pub fn MinuteAsString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MinuteAsString)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -886,7 +886,7 @@ impl Calendar {
     ) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MinuteAsPaddedString)(
                 ::windows_core::Interface::as_raw(this),
                 mindigits,
@@ -898,7 +898,7 @@ impl Calendar {
     pub fn Second(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Second)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -929,7 +929,7 @@ impl Calendar {
     pub fn SecondAsString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SecondAsString)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -943,7 +943,7 @@ impl Calendar {
     ) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SecondAsPaddedString)(
                 ::windows_core::Interface::as_raw(this),
                 mindigits,
@@ -955,7 +955,7 @@ impl Calendar {
     pub fn Nanosecond(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Nanosecond)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -986,7 +986,7 @@ impl Calendar {
     pub fn NanosecondAsString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).NanosecondAsString)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -1000,7 +1000,7 @@ impl Calendar {
     ) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).NanosecondAsPaddedString)(
                 ::windows_core::Interface::as_raw(this),
                 mindigits,
@@ -1012,7 +1012,7 @@ impl Calendar {
     pub fn Compare(&self, other: &Calendar) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Compare)(
                 ::windows_core::Interface::as_raw(this),
                 ::core::mem::transmute_copy(other),
@@ -1024,7 +1024,7 @@ impl Calendar {
     pub fn CompareDateTime(&self, other: DateTime) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CompareDateTime)(
                 ::windows_core::Interface::as_raw(this),
                 other,
@@ -1046,7 +1046,7 @@ impl Calendar {
     pub fn FirstMinuteInThisHour(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FirstMinuteInThisHour)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -1057,7 +1057,7 @@ impl Calendar {
     pub fn LastMinuteInThisHour(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LastMinuteInThisHour)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -1068,7 +1068,7 @@ impl Calendar {
     pub fn NumberOfMinutesInThisHour(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).NumberOfMinutesInThisHour)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -1079,7 +1079,7 @@ impl Calendar {
     pub fn FirstSecondInThisMinute(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FirstSecondInThisMinute)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -1090,7 +1090,7 @@ impl Calendar {
     pub fn LastSecondInThisMinute(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LastSecondInThisMinute)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -1101,7 +1101,7 @@ impl Calendar {
     pub fn NumberOfSecondsInThisMinute(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).NumberOfSecondsInThisMinute)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -1112,7 +1112,7 @@ impl Calendar {
     pub fn ResolvedLanguage(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ResolvedLanguage)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -1123,7 +1123,7 @@ impl Calendar {
     pub fn IsDaylightSavingTime(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsDaylightSavingTime)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -1138,7 +1138,7 @@ impl Calendar {
         P0: ::windows_core::TryIntoParam<IIterable<::windows_core::HSTRING>>,
     {
         Self::ICalendarFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<Calendar>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateCalendarDefaultCalendarAndClock)(
                 ::windows_core::Interface::as_raw(this),
                 languages.try_into_param()?.abi(),
@@ -1156,7 +1156,7 @@ impl Calendar {
         P0: ::windows_core::TryIntoParam<IIterable<::windows_core::HSTRING>>,
     {
         Self::ICalendarFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<Calendar>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateCalendar)(
                 ::windows_core::Interface::as_raw(this),
                 languages.try_into_param()?.abi(),
@@ -1177,7 +1177,7 @@ impl Calendar {
         P0: ::windows_core::TryIntoParam<IIterable<::windows_core::HSTRING>>,
     {
         Self::ICalendarFactory2(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<Calendar>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateCalendarWithTimeZone)(
                 ::windows_core::Interface::as_raw(this),
                 languages.try_into_param()?.abi(),
@@ -1192,7 +1192,7 @@ impl Calendar {
     pub fn GetTimeZone(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<ITimeZoneOnCalendar>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetTimeZone)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -1216,7 +1216,7 @@ impl Calendar {
     pub fn TimeZoneAsFullString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<ITimeZoneOnCalendar>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TimeZoneAsFullString)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -1230,7 +1230,7 @@ impl Calendar {
     ) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<ITimeZoneOnCalendar>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TimeZoneAsString)(
                 ::windows_core::Interface::as_raw(this),
                 ideallength,
@@ -1853,7 +1853,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IIterable<T> {
     pub fn First(&self) -> ::windows_core::Result<IIterator<T>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IIterator<T>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).First)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -1940,7 +1940,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IIterator<T> {
     pub fn Current(&self) -> ::windows_core::Result<T> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<T>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Current)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -1951,7 +1951,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IIterator<T> {
     pub fn HasCurrent(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).HasCurrent)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -1962,7 +1962,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IIterator<T> {
     pub fn MoveNext(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MoveNext)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -1976,7 +1976,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IIterator<T> {
     ) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetMany)(
                 ::windows_core::Interface::as_raw(this),
                 items.len() as u32,
@@ -2112,7 +2112,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IVectorView<T> {
     pub fn GetAt(&self, index: u32) -> ::windows_core::Result<T> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<T>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetAt)(
                 ::windows_core::Interface::as_raw(this),
                 index,
@@ -2124,7 +2124,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IVectorView<T> {
     pub fn Size(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Size)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -2138,7 +2138,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IVectorView<T> {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IndexOf)(
                 ::windows_core::Interface::as_raw(this),
                 value.into_param().abi(),
@@ -2155,7 +2155,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IVectorView<T> {
     ) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetMany)(
                 ::windows_core::Interface::as_raw(this),
                 startindex,
@@ -2169,7 +2169,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IVectorView<T> {
     pub fn First(&self) -> ::windows_core::Result<IIterator<T>> {
         let this = &::windows_core::ComInterface::cast::<IIterable<T>>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IIterator<T>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).First)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,

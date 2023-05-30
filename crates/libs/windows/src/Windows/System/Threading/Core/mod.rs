@@ -111,7 +111,7 @@ impl PreallocatedWorkItem {
     pub fn RunAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RunAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -119,7 +119,7 @@ impl PreallocatedWorkItem {
     #[cfg(feature = "Foundation")]
     pub fn CreateWorkItem(handler: &super::WorkItemHandler) -> ::windows_core::Result<PreallocatedWorkItem> {
         Self::IPreallocatedWorkItemFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<PreallocatedWorkItem>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateWorkItem)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         })
     }
@@ -127,7 +127,7 @@ impl PreallocatedWorkItem {
     #[cfg(feature = "Foundation")]
     pub fn CreateWorkItemWithPriority(handler: &super::WorkItemHandler, priority: super::WorkItemPriority) -> ::windows_core::Result<PreallocatedWorkItem> {
         Self::IPreallocatedWorkItemFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<PreallocatedWorkItem>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateWorkItemWithPriority)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), priority, &mut result__).from_abi(result__)
         })
     }
@@ -135,7 +135,7 @@ impl PreallocatedWorkItem {
     #[cfg(feature = "Foundation")]
     pub fn CreateWorkItemWithPriorityAndOptions(handler: &super::WorkItemHandler, priority: super::WorkItemPriority, options: super::WorkItemOptions) -> ::windows_core::Result<PreallocatedWorkItem> {
         Self::IPreallocatedWorkItemFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<PreallocatedWorkItem>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateWorkItemWithPriorityAndOptions)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), priority, options, &mut result__).from_abi(result__)
         })
     }
@@ -190,7 +190,7 @@ impl SignalNotifier {
     }
     pub fn AttachToEvent(name: &::windows_core::HSTRING, handler: &SignalHandler) -> ::windows_core::Result<SignalNotifier> {
         Self::ISignalNotifierStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<SignalNotifier>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AttachToEvent)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         })
     }
@@ -198,13 +198,13 @@ impl SignalNotifier {
     #[cfg(feature = "Foundation")]
     pub fn AttachToEventWithTimeout(name: &::windows_core::HSTRING, handler: &SignalHandler, timeout: super::super::super::Foundation::TimeSpan) -> ::windows_core::Result<SignalNotifier> {
         Self::ISignalNotifierStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<SignalNotifier>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AttachToEventWithTimeout)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(handler), timeout, &mut result__).from_abi(result__)
         })
     }
     pub fn AttachToSemaphore(name: &::windows_core::HSTRING, handler: &SignalHandler) -> ::windows_core::Result<SignalNotifier> {
         Self::ISignalNotifierStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<SignalNotifier>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AttachToSemaphore)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         })
     }
@@ -212,7 +212,7 @@ impl SignalNotifier {
     #[cfg(feature = "Foundation")]
     pub fn AttachToSemaphoreWithTimeout(name: &::windows_core::HSTRING, handler: &SignalHandler, timeout: super::super::super::Foundation::TimeSpan) -> ::windows_core::Result<SignalNotifier> {
         Self::ISignalNotifierStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<SignalNotifier>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AttachToSemaphoreWithTimeout)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(handler), timeout, &mut result__).from_abi(result__)
         })
     }

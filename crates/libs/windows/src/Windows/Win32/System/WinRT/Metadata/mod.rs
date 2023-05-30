@@ -9,7 +9,7 @@ pub unsafe fn MetaDataGetDispenser(rclsid: *const ::windows_core::GUID, riid: *c
 #[inline]
 pub unsafe fn RoCreateNonAgilePropertySet() -> ::windows_core::Result<super::super::super::super::Foundation::Collections::IPropertySet> {
     ::windows_targets::link!("api-ms-win-ro-typeresolution-l1-1-1.dll" "system" fn RoCreateNonAgilePropertySet(pppropertyset : *mut * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<super::super::super::super::Foundation::Collections::IPropertySet>();
+    let mut result__ = ::std::mem::zeroed();
     RoCreateNonAgilePropertySet(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`, `\"Storage_Streams\"`*"]
@@ -17,7 +17,7 @@ pub unsafe fn RoCreateNonAgilePropertySet() -> ::windows_core::Result<super::sup
 #[inline]
 pub unsafe fn RoCreatePropertySetSerializer() -> ::windows_core::Result<super::super::super::super::Storage::Streams::IPropertySetSerializer> {
     ::windows_targets::link!("api-ms-win-ro-typeresolution-l1-1-1.dll" "system" fn RoCreatePropertySetSerializer(pppropertysetserializer : *mut * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<super::super::super::super::Storage::Streams::IPropertySetSerializer>();
+    let mut result__ = ::std::mem::zeroed();
     RoCreatePropertySetSerializer(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
@@ -55,7 +55,7 @@ where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("api-ms-win-ro-typeresolution-l1-1-1.dll" "system" fn RoIsApiContractMajorVersionPresent(name : ::windows_core::PCWSTR, majorversion : u16, present : *mut super::super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::BOOL>();
+    let mut result__ = ::std::mem::zeroed();
     RoIsApiContractMajorVersionPresent(name.into_param().abi(), majorversion, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`, `\"Win32_Foundation\"`*"]
@@ -66,7 +66,7 @@ where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("api-ms-win-ro-typeresolution-l1-1-1.dll" "system" fn RoIsApiContractPresent(name : ::windows_core::PCWSTR, majorversion : u16, minorversion : u16, present : *mut super::super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::BOOL>();
+    let mut result__ = ::std::mem::zeroed();
     RoIsApiContractPresent(name.into_param().abi(), majorversion, minorversion, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
@@ -120,7 +120,7 @@ impl ICeeGen {
         (::windows_core::Interface::vtable(self).GetMethodBuffer)(::windows_core::Interface::as_raw(self), rva, lpbuffer).ok()
     }
     pub unsafe fn GetIMapTokenIface(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetIMapTokenIface)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GenerateCeeFile(&self) -> ::windows_core::Result<()> {
@@ -473,18 +473,18 @@ pub struct IMetaDataAssemblyImport_Vtbl {
 pub struct IMetaDataDispenser(::windows_core::IUnknown);
 impl IMetaDataDispenser {
     pub unsafe fn DefineScope(&self, rclsid: *const ::windows_core::GUID, dwcreateflags: u32, riid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DefineScope)(::windows_core::Interface::as_raw(self), rclsid, dwcreateflags, riid, &mut result__).from_abi(result__)
     }
     pub unsafe fn OpenScope<P0>(&self, szscope: P0, dwopenflags: u32, riid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).OpenScope)(::windows_core::Interface::as_raw(self), szscope.into_param().abi(), dwopenflags, riid, &mut result__).from_abi(result__)
     }
     pub unsafe fn OpenScopeOnMemory(&self, pdata: *const ::core::ffi::c_void, cbdata: u32, dwopenflags: u32, riid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).OpenScopeOnMemory)(::windows_core::Interface::as_raw(self), pdata, cbdata, dwopenflags, riid, &mut result__).from_abi(result__)
     }
 }
@@ -524,18 +524,18 @@ pub struct IMetaDataDispenser_Vtbl {
 pub struct IMetaDataDispenserEx(::windows_core::IUnknown);
 impl IMetaDataDispenserEx {
     pub unsafe fn DefineScope(&self, rclsid: *const ::windows_core::GUID, dwcreateflags: u32, riid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.DefineScope)(::windows_core::Interface::as_raw(self), rclsid, dwcreateflags, riid, &mut result__).from_abi(result__)
     }
     pub unsafe fn OpenScope<P0>(&self, szscope: P0, dwopenflags: u32, riid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.OpenScope)(::windows_core::Interface::as_raw(self), szscope.into_param().abi(), dwopenflags, riid, &mut result__).from_abi(result__)
     }
     pub unsafe fn OpenScopeOnMemory(&self, pdata: *const ::core::ffi::c_void, cbdata: u32, dwopenflags: u32, riid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.OpenScopeOnMemory)(::windows_core::Interface::as_raw(self), pdata, cbdata, dwopenflags, riid, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -554,7 +554,7 @@ impl IMetaDataDispenserEx {
     where
         P0: ::windows_core::IntoParam<super::super::Com::ITypeInfo>,
     {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).OpenScopeOnITypeInfo)(::windows_core::Interface::as_raw(self), piti.into_param().abi(), dwopenflags, riid, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCORSystemDirectory(&self, szbuffer: ::core::option::Option<&mut [u16]>, pchbuffer: *mut u32) -> ::windows_core::Result<()> {

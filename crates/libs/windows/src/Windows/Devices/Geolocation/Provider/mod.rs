@@ -42,14 +42,14 @@ impl GeolocationProvider {
     pub fn IsOverridden(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsOverridden)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetOverridePosition(&self, newposition: super::BasicGeoposition, positionsource: super::PositionSource, accuracyinmeters: f64) -> ::windows_core::Result<LocationOverrideStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<LocationOverrideStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SetOverridePosition)(::windows_core::Interface::as_raw(this), newposition, positionsource, accuracyinmeters, &mut result__).from_abi(result__)
         }
     }
@@ -62,7 +62,7 @@ impl GeolocationProvider {
     pub fn IsOverriddenChanged(&self, handler: &super::super::super::Foundation::EventHandler<::windows_core::IInspectable>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsOverriddenChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }

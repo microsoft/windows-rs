@@ -91,7 +91,7 @@ pub struct HolographicApplicationPreview;
 impl HolographicApplicationPreview {
     pub fn IsCurrentViewPresentedOnHolographicDisplay() -> ::windows_core::Result<bool> {
         Self::IHolographicApplicationPreviewStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsCurrentViewPresentedOnHolographicDisplay)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -102,7 +102,7 @@ impl HolographicApplicationPreview {
         P0: ::windows_core::TryIntoParam<super::super::Activation::IActivatedEventArgs>,
     {
         Self::IHolographicApplicationPreviewStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsHolographicActivation)(::windows_core::Interface::as_raw(this), activatedeventargs.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
@@ -143,7 +143,7 @@ impl HolographicKeyboardPlacementOverridePreview {
     #[cfg(feature = "deprecated")]
     pub fn GetForCurrentView() -> ::windows_core::Result<HolographicKeyboardPlacementOverridePreview> {
         Self::IHolographicKeyboardPlacementOverridePreviewStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<HolographicKeyboardPlacementOverridePreview>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetForCurrentView)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }

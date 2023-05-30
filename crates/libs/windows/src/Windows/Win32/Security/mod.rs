@@ -1286,7 +1286,7 @@ where
 #[inline]
 pub unsafe fn QuerySecurityAccessMask(securityinformation: u32) -> u32 {
     ::windows_targets::link!("advapi32.dll" "system" fn QuerySecurityAccessMask(securityinformation : u32, desiredaccess : *mut u32) -> ());
-    let mut result__ = ::windows_core::zeroed::<u32>();
+    let mut result__ = ::std::mem::zeroed();
     QuerySecurityAccessMask(securityinformation, &mut result__);
     ::std::mem::transmute(result__)
 }
@@ -1394,7 +1394,7 @@ where
 #[inline]
 pub unsafe fn SetSecurityAccessMask(securityinformation: u32) -> u32 {
     ::windows_targets::link!("advapi32.dll" "system" fn SetSecurityAccessMask(securityinformation : u32, desiredaccess : *mut u32) -> ());
-    let mut result__ = ::windows_core::zeroed::<u32>();
+    let mut result__ = ::std::mem::zeroed();
     SetSecurityAccessMask(securityinformation, &mut result__);
     ::std::mem::transmute(result__)
 }

@@ -3173,11 +3173,11 @@ impl IDebugExtendedProperty {
         (::windows_core::Interface::vtable(self).base__.SetValueAsString)(::windows_core::Interface::as_raw(self), pszvalue.into_param().abi(), nradix).ok()
     }
     pub unsafe fn EnumMembers(&self, dwfieldspec: u32, nradix: u32, refiid: *const ::windows_core::GUID) -> ::windows_core::Result<IEnumDebugPropertyInfo> {
-        let mut result__ = ::windows_core::zeroed::<IEnumDebugPropertyInfo>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EnumMembers)(::windows_core::Interface::as_raw(self), dwfieldspec, nradix, refiid, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetParent(&self) -> ::windows_core::Result<IDebugProperty> {
-        let mut result__ = ::windows_core::zeroed::<IDebugProperty>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetParent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`*"]
@@ -3186,7 +3186,7 @@ impl IDebugExtendedProperty {
         (::windows_core::Interface::vtable(self).GetExtendedPropertyInfo)(::windows_core::Interface::as_raw(self), dwfieldspec, nradix, pextendedpropertyinfo).ok()
     }
     pub unsafe fn EnumExtendedMembers(&self, dwfieldspec: u32, nradix: u32) -> ::windows_core::Result<IEnumDebugExtendedPropertyInfo> {
-        let mut result__ = ::windows_core::zeroed::<IEnumDebugExtendedPropertyInfo>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumExtendedMembers)(::windows_core::Interface::as_raw(self), dwfieldspec, nradix, &mut result__).from_abi(result__)
     }
 }
@@ -3242,11 +3242,11 @@ impl IDebugProperty {
         (::windows_core::Interface::vtable(self).SetValueAsString)(::windows_core::Interface::as_raw(self), pszvalue.into_param().abi(), nradix).ok()
     }
     pub unsafe fn EnumMembers(&self, dwfieldspec: u32, nradix: u32, refiid: *const ::windows_core::GUID) -> ::windows_core::Result<IEnumDebugPropertyInfo> {
-        let mut result__ = ::windows_core::zeroed::<IEnumDebugPropertyInfo>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumMembers)(::windows_core::Interface::as_raw(self), dwfieldspec, nradix, refiid, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetParent(&self) -> ::windows_core::Result<IDebugProperty> {
-        let mut result__ = ::windows_core::zeroed::<IDebugProperty>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetParent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -3291,7 +3291,7 @@ pub struct IDebugProperty_Vtbl {
 pub struct IDebugPropertyEnumType_All(::windows_core::IUnknown);
 impl IDebugPropertyEnumType_All {
     pub unsafe fn GetName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -3329,7 +3329,7 @@ pub struct IDebugPropertyEnumType_All_Vtbl {
 pub struct IDebugPropertyEnumType_Arguments(::windows_core::IUnknown);
 impl IDebugPropertyEnumType_Arguments {
     pub unsafe fn GetName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -3366,7 +3366,7 @@ pub struct IDebugPropertyEnumType_Arguments_Vtbl {
 pub struct IDebugPropertyEnumType_Locals(::windows_core::IUnknown);
 impl IDebugPropertyEnumType_Locals {
     pub unsafe fn GetName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -3403,7 +3403,7 @@ pub struct IDebugPropertyEnumType_Locals_Vtbl {
 pub struct IDebugPropertyEnumType_LocalsPlusArgs(::windows_core::IUnknown);
 impl IDebugPropertyEnumType_LocalsPlusArgs {
     pub unsafe fn GetName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -3440,7 +3440,7 @@ pub struct IDebugPropertyEnumType_LocalsPlusArgs_Vtbl {
 pub struct IDebugPropertyEnumType_Registers(::windows_core::IUnknown);
 impl IDebugPropertyEnumType_Registers {
     pub unsafe fn GetName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -3488,11 +3488,11 @@ impl IEnumDebugExtendedPropertyInfo {
         (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IEnumDebugExtendedPropertyInfo> {
-        let mut result__ = ::windows_core::zeroed::<IEnumDebugExtendedPropertyInfo>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCount(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -3546,11 +3546,11 @@ impl IEnumDebugPropertyInfo {
         (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IEnumDebugPropertyInfo> {
-        let mut result__ = ::windows_core::zeroed::<IEnumDebugPropertyInfo>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCount(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -3633,11 +3633,11 @@ pub struct IObjectSafety_Vtbl {
 pub struct IPerPropertyBrowsing2(::windows_core::IUnknown);
 impl IPerPropertyBrowsing2 {
     pub unsafe fn GetDisplayString(&self, dispid: i32) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDisplayString)(::windows_core::Interface::as_raw(self), dispid, &mut result__).from_abi(result__)
     }
     pub unsafe fn MapPropertyToPage(&self, dispid: i32) -> ::windows_core::Result<::windows_core::GUID> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).MapPropertyToPage)(::windows_core::Interface::as_raw(self), dispid, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Ole\"`*"]

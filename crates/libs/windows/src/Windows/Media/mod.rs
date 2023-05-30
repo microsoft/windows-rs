@@ -441,14 +441,14 @@ impl IMediaFrame {
     pub fn Type(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Type)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsReadOnly(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsReadOnly)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -466,7 +466,7 @@ impl IMediaFrame {
     pub fn RelativeTime(&self) -> ::windows_core::Result<super::Foundation::IReference<super::Foundation::TimeSpan>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::IReference<super::Foundation::TimeSpan>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RelativeTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -484,7 +484,7 @@ impl IMediaFrame {
     pub fn SystemRelativeTime(&self) -> ::windows_core::Result<super::Foundation::IReference<super::Foundation::TimeSpan>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::IReference<super::Foundation::TimeSpan>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SystemRelativeTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -502,7 +502,7 @@ impl IMediaFrame {
     pub fn Duration(&self) -> ::windows_core::Result<super::Foundation::IReference<super::Foundation::TimeSpan>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::IReference<super::Foundation::TimeSpan>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Duration)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -513,7 +513,7 @@ impl IMediaFrame {
     pub fn IsDiscontinuous(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsDiscontinuous)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -522,7 +522,7 @@ impl IMediaFrame {
     pub fn ExtendedProperties(&self) -> ::windows_core::Result<super::Foundation::Collections::IPropertySet> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::Collections::IPropertySet>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ExtendedProperties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -607,21 +607,21 @@ impl IMediaMarker {
     pub fn Time(&self) -> ::windows_core::Result<super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::TimeSpan>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Time)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MediaMarkerType(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MediaMarkerType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Text(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Text)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -692,7 +692,7 @@ impl IMediaMarkers {
     pub fn Markers(&self) -> ::windows_core::Result<super::Foundation::Collections::IVectorView<IMediaMarker>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::Collections::IVectorView<IMediaMarker>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Markers)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1472,14 +1472,14 @@ impl AudioBuffer {
     pub fn Capacity(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Capacity)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Length(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Length)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1498,7 +1498,7 @@ impl AudioBuffer {
     pub fn CreateReference(&self) -> ::windows_core::Result<super::Foundation::IMemoryBufferReference> {
         let this = &::windows_core::ComInterface::cast::<super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::IMemoryBufferReference>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateReference)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1545,13 +1545,13 @@ impl AudioFrame {
     pub fn LockBuffer(&self, mode: AudioBufferAccessMode) -> ::windows_core::Result<AudioBuffer> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<AudioBuffer>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LockBuffer)(::windows_core::Interface::as_raw(this), mode, &mut result__).from_abi(result__)
         }
     }
     pub fn Create(capacity: u32) -> ::windows_core::Result<AudioFrame> {
         Self::IAudioFrameFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<AudioFrame>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), capacity, &mut result__).from_abi(result__)
         })
     }
@@ -1564,14 +1564,14 @@ impl AudioFrame {
     pub fn Type(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IMediaFrame>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Type)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsReadOnly(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<IMediaFrame>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsReadOnly)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1589,7 +1589,7 @@ impl AudioFrame {
     pub fn RelativeTime(&self) -> ::windows_core::Result<super::Foundation::IReference<super::Foundation::TimeSpan>> {
         let this = &::windows_core::ComInterface::cast::<IMediaFrame>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::IReference<super::Foundation::TimeSpan>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RelativeTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1607,7 +1607,7 @@ impl AudioFrame {
     pub fn SystemRelativeTime(&self) -> ::windows_core::Result<super::Foundation::IReference<super::Foundation::TimeSpan>> {
         let this = &::windows_core::ComInterface::cast::<IMediaFrame>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::IReference<super::Foundation::TimeSpan>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SystemRelativeTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1625,7 +1625,7 @@ impl AudioFrame {
     pub fn Duration(&self) -> ::windows_core::Result<super::Foundation::IReference<super::Foundation::TimeSpan>> {
         let this = &::windows_core::ComInterface::cast::<IMediaFrame>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::IReference<super::Foundation::TimeSpan>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Duration)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1636,7 +1636,7 @@ impl AudioFrame {
     pub fn IsDiscontinuous(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<IMediaFrame>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsDiscontinuous)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1645,7 +1645,7 @@ impl AudioFrame {
     pub fn ExtendedProperties(&self) -> ::windows_core::Result<super::Foundation::Collections::IPropertySet> {
         let this = &::windows_core::ComInterface::cast::<IMediaFrame>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::Collections::IPropertySet>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ExtendedProperties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1696,7 +1696,7 @@ impl AutoRepeatModeChangeRequestedEventArgs {
     pub fn RequestedAutoRepeatMode(&self) -> ::windows_core::Result<MediaPlaybackAutoRepeatMode> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<MediaPlaybackAutoRepeatMode>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestedAutoRepeatMode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1739,7 +1739,7 @@ impl ImageDisplayProperties {
     pub fn Title(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Title)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1750,7 +1750,7 @@ impl ImageDisplayProperties {
     pub fn Subtitle(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Subtitle)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1799,7 +1799,7 @@ impl MediaControl {
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn SoundLevelChanged(handler: &super::Foundation::EventHandler<::windows_core::IInspectable>) -> ::windows_core::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SoundLevelChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         })
     }
@@ -1812,7 +1812,7 @@ impl MediaControl {
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn PlayPressed(handler: &super::Foundation::EventHandler<::windows_core::IInspectable>) -> ::windows_core::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PlayPressed)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         })
     }
@@ -1825,7 +1825,7 @@ impl MediaControl {
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn PausePressed(handler: &super::Foundation::EventHandler<::windows_core::IInspectable>) -> ::windows_core::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PausePressed)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         })
     }
@@ -1838,7 +1838,7 @@ impl MediaControl {
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn StopPressed(handler: &super::Foundation::EventHandler<::windows_core::IInspectable>) -> ::windows_core::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).StopPressed)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         })
     }
@@ -1851,7 +1851,7 @@ impl MediaControl {
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn PlayPauseTogglePressed(handler: &super::Foundation::EventHandler<::windows_core::IInspectable>) -> ::windows_core::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PlayPauseTogglePressed)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         })
     }
@@ -1864,7 +1864,7 @@ impl MediaControl {
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RecordPressed(handler: &super::Foundation::EventHandler<::windows_core::IInspectable>) -> ::windows_core::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RecordPressed)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         })
     }
@@ -1877,7 +1877,7 @@ impl MediaControl {
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn NextTrackPressed(handler: &super::Foundation::EventHandler<::windows_core::IInspectable>) -> ::windows_core::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).NextTrackPressed)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         })
     }
@@ -1890,7 +1890,7 @@ impl MediaControl {
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn PreviousTrackPressed(handler: &super::Foundation::EventHandler<::windows_core::IInspectable>) -> ::windows_core::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousTrackPressed)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         })
     }
@@ -1903,7 +1903,7 @@ impl MediaControl {
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn FastForwardPressed(handler: &super::Foundation::EventHandler<::windows_core::IInspectable>) -> ::windows_core::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FastForwardPressed)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         })
     }
@@ -1916,7 +1916,7 @@ impl MediaControl {
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RewindPressed(handler: &super::Foundation::EventHandler<::windows_core::IInspectable>) -> ::windows_core::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RewindPressed)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         })
     }
@@ -1929,7 +1929,7 @@ impl MediaControl {
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn ChannelUpPressed(handler: &super::Foundation::EventHandler<::windows_core::IInspectable>) -> ::windows_core::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ChannelUpPressed)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         })
     }
@@ -1942,7 +1942,7 @@ impl MediaControl {
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn ChannelDownPressed(handler: &super::Foundation::EventHandler<::windows_core::IInspectable>) -> ::windows_core::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ChannelDownPressed)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         })
     }
@@ -1955,7 +1955,7 @@ impl MediaControl {
     #[cfg(feature = "deprecated")]
     pub fn SoundLevel() -> ::windows_core::Result<SoundLevel> {
         Self::IMediaControl(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<SoundLevel>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SoundLevel)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -1968,7 +1968,7 @@ impl MediaControl {
     #[cfg(feature = "deprecated")]
     pub fn TrackName() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaControl(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TrackName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -1981,7 +1981,7 @@ impl MediaControl {
     #[cfg(feature = "deprecated")]
     pub fn ArtistName() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaControl(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ArtistName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -1994,7 +1994,7 @@ impl MediaControl {
     #[cfg(feature = "deprecated")]
     pub fn IsPlaying() -> ::windows_core::Result<bool> {
         Self::IMediaControl(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsPlaying)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -2007,7 +2007,7 @@ impl MediaControl {
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn AlbumArt() -> ::windows_core::Result<super::Foundation::Uri> {
         Self::IMediaControl(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::Uri>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AlbumArt)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -2157,7 +2157,7 @@ pub struct MediaMarkerTypes;
 impl MediaMarkerTypes {
     pub fn Bookmark() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaMarkerTypesStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Bookmark)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -2179,7 +2179,7 @@ impl MediaProcessingTriggerDetails {
     pub fn Arguments(&self) -> ::windows_core::Result<super::Foundation::Collections::ValueSet> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::Collections::ValueSet>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Arguments)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2243,7 +2243,7 @@ impl MediaTimelineController {
     pub fn Position(&self) -> ::windows_core::Result<super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::TimeSpan>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Position)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2256,7 +2256,7 @@ impl MediaTimelineController {
     pub fn ClockRate(&self) -> ::windows_core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ClockRate)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2267,7 +2267,7 @@ impl MediaTimelineController {
     pub fn State(&self) -> ::windows_core::Result<MediaTimelineControllerState> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<MediaTimelineControllerState>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).State)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2276,7 +2276,7 @@ impl MediaTimelineController {
     pub fn PositionChanged(&self, positionchangedeventhandler: &super::Foundation::TypedEventHandler<MediaTimelineController, ::windows_core::IInspectable>) -> ::windows_core::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PositionChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(positionchangedeventhandler), &mut result__).from_abi(result__)
         }
     }
@@ -2291,7 +2291,7 @@ impl MediaTimelineController {
     pub fn StateChanged(&self, statechangedeventhandler: &super::Foundation::TypedEventHandler<MediaTimelineController, ::windows_core::IInspectable>) -> ::windows_core::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).StateChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(statechangedeventhandler), &mut result__).from_abi(result__)
         }
     }
@@ -2306,7 +2306,7 @@ impl MediaTimelineController {
     pub fn Duration(&self) -> ::windows_core::Result<super::Foundation::IReference<super::Foundation::TimeSpan>> {
         let this = &::windows_core::ComInterface::cast::<IMediaTimelineController2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::IReference<super::Foundation::TimeSpan>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Duration)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2322,7 +2322,7 @@ impl MediaTimelineController {
     pub fn IsLoopingEnabled(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<IMediaTimelineController2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsLoopingEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2335,7 +2335,7 @@ impl MediaTimelineController {
     pub fn Failed(&self, eventhandler: &super::Foundation::TypedEventHandler<MediaTimelineController, MediaTimelineControllerFailedEventArgs>) -> ::windows_core::Result<super::Foundation::EventRegistrationToken> {
         let this = &::windows_core::ComInterface::cast::<IMediaTimelineController2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Failed)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(eventhandler), &mut result__).from_abi(result__)
         }
     }
@@ -2350,7 +2350,7 @@ impl MediaTimelineController {
     pub fn Ended(&self, eventhandler: &super::Foundation::TypedEventHandler<MediaTimelineController, ::windows_core::IInspectable>) -> ::windows_core::Result<super::Foundation::EventRegistrationToken> {
         let this = &::windows_core::ComInterface::cast::<IMediaTimelineController2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Ended)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(eventhandler), &mut result__).from_abi(result__)
         }
     }
@@ -2399,7 +2399,7 @@ impl MediaTimelineControllerFailedEventArgs {
     pub fn ExtendedError(&self) -> ::windows_core::Result<::windows_core::HRESULT> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HRESULT>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ExtendedError)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2442,7 +2442,7 @@ impl MusicDisplayProperties {
     pub fn Title(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Title)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2453,7 +2453,7 @@ impl MusicDisplayProperties {
     pub fn AlbumArtist(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AlbumArtist)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2464,7 +2464,7 @@ impl MusicDisplayProperties {
     pub fn Artist(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Artist)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2475,7 +2475,7 @@ impl MusicDisplayProperties {
     pub fn AlbumTitle(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IMusicDisplayProperties2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AlbumTitle)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2486,7 +2486,7 @@ impl MusicDisplayProperties {
     pub fn TrackNumber(&self) -> ::windows_core::Result<u32> {
         let this = &::windows_core::ComInterface::cast::<IMusicDisplayProperties2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TrackNumber)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2499,14 +2499,14 @@ impl MusicDisplayProperties {
     pub fn Genres(&self) -> ::windows_core::Result<super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = &::windows_core::ComInterface::cast::<IMusicDisplayProperties2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::Collections::IVector<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Genres)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AlbumTrackCount(&self) -> ::windows_core::Result<u32> {
         let this = &::windows_core::ComInterface::cast::<IMusicDisplayProperties3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AlbumTrackCount)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2555,7 +2555,7 @@ impl PlaybackPositionChangeRequestedEventArgs {
     pub fn RequestedPlaybackPosition(&self) -> ::windows_core::Result<super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::TimeSpan>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestedPlaybackPosition)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2598,7 +2598,7 @@ impl PlaybackRateChangeRequestedEventArgs {
     pub fn RequestedPlaybackRate(&self) -> ::windows_core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestedPlaybackRate)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2641,7 +2641,7 @@ impl ShuffleEnabledChangeRequestedEventArgs {
     pub fn RequestedShuffleEnabled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestedShuffleEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2684,7 +2684,7 @@ impl SystemMediaTransportControls {
     pub fn PlaybackStatus(&self) -> ::windows_core::Result<MediaPlaybackStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<MediaPlaybackStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PlaybackStatus)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2695,21 +2695,21 @@ impl SystemMediaTransportControls {
     pub fn DisplayUpdater(&self) -> ::windows_core::Result<SystemMediaTransportControlsDisplayUpdater> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SystemMediaTransportControlsDisplayUpdater>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DisplayUpdater)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SoundLevel(&self) -> ::windows_core::Result<SoundLevel> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SoundLevel>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SoundLevel)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsEnabled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2720,7 +2720,7 @@ impl SystemMediaTransportControls {
     pub fn IsPlayEnabled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsPlayEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2731,7 +2731,7 @@ impl SystemMediaTransportControls {
     pub fn IsStopEnabled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsStopEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2742,7 +2742,7 @@ impl SystemMediaTransportControls {
     pub fn IsPauseEnabled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsPauseEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2753,7 +2753,7 @@ impl SystemMediaTransportControls {
     pub fn IsRecordEnabled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsRecordEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2764,7 +2764,7 @@ impl SystemMediaTransportControls {
     pub fn IsFastForwardEnabled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsFastForwardEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2775,7 +2775,7 @@ impl SystemMediaTransportControls {
     pub fn IsRewindEnabled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsRewindEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2786,7 +2786,7 @@ impl SystemMediaTransportControls {
     pub fn IsPreviousEnabled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsPreviousEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2797,7 +2797,7 @@ impl SystemMediaTransportControls {
     pub fn IsNextEnabled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsNextEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2808,7 +2808,7 @@ impl SystemMediaTransportControls {
     pub fn IsChannelUpEnabled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsChannelUpEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2819,7 +2819,7 @@ impl SystemMediaTransportControls {
     pub fn IsChannelDownEnabled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsChannelDownEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2832,7 +2832,7 @@ impl SystemMediaTransportControls {
     pub fn ButtonPressed(&self, handler: &super::Foundation::TypedEventHandler<SystemMediaTransportControls, SystemMediaTransportControlsButtonPressedEventArgs>) -> ::windows_core::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ButtonPressed)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -2847,7 +2847,7 @@ impl SystemMediaTransportControls {
     pub fn PropertyChanged(&self, handler: &super::Foundation::TypedEventHandler<SystemMediaTransportControls, SystemMediaTransportControlsPropertyChangedEventArgs>) -> ::windows_core::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PropertyChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -2860,7 +2860,7 @@ impl SystemMediaTransportControls {
     pub fn AutoRepeatMode(&self) -> ::windows_core::Result<MediaPlaybackAutoRepeatMode> {
         let this = &::windows_core::ComInterface::cast::<ISystemMediaTransportControls2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<MediaPlaybackAutoRepeatMode>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AutoRepeatMode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2871,7 +2871,7 @@ impl SystemMediaTransportControls {
     pub fn ShuffleEnabled(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<ISystemMediaTransportControls2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ShuffleEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2882,7 +2882,7 @@ impl SystemMediaTransportControls {
     pub fn PlaybackRate(&self) -> ::windows_core::Result<f64> {
         let this = &::windows_core::ComInterface::cast::<ISystemMediaTransportControls2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PlaybackRate)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2899,7 +2899,7 @@ impl SystemMediaTransportControls {
     pub fn PlaybackPositionChangeRequested(&self, handler: &super::Foundation::TypedEventHandler<SystemMediaTransportControls, PlaybackPositionChangeRequestedEventArgs>) -> ::windows_core::Result<super::Foundation::EventRegistrationToken> {
         let this = &::windows_core::ComInterface::cast::<ISystemMediaTransportControls2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PlaybackPositionChangeRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -2914,7 +2914,7 @@ impl SystemMediaTransportControls {
     pub fn PlaybackRateChangeRequested(&self, handler: &super::Foundation::TypedEventHandler<SystemMediaTransportControls, PlaybackRateChangeRequestedEventArgs>) -> ::windows_core::Result<super::Foundation::EventRegistrationToken> {
         let this = &::windows_core::ComInterface::cast::<ISystemMediaTransportControls2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PlaybackRateChangeRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -2929,7 +2929,7 @@ impl SystemMediaTransportControls {
     pub fn ShuffleEnabledChangeRequested(&self, handler: &super::Foundation::TypedEventHandler<SystemMediaTransportControls, ShuffleEnabledChangeRequestedEventArgs>) -> ::windows_core::Result<super::Foundation::EventRegistrationToken> {
         let this = &::windows_core::ComInterface::cast::<ISystemMediaTransportControls2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ShuffleEnabledChangeRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -2944,7 +2944,7 @@ impl SystemMediaTransportControls {
     pub fn AutoRepeatModeChangeRequested(&self, handler: &super::Foundation::TypedEventHandler<SystemMediaTransportControls, AutoRepeatModeChangeRequestedEventArgs>) -> ::windows_core::Result<super::Foundation::EventRegistrationToken> {
         let this = &::windows_core::ComInterface::cast::<ISystemMediaTransportControls2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AutoRepeatModeChangeRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -2956,7 +2956,7 @@ impl SystemMediaTransportControls {
     }
     pub fn GetForCurrentView() -> ::windows_core::Result<SystemMediaTransportControls> {
         Self::ISystemMediaTransportControlsStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<SystemMediaTransportControls>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetForCurrentView)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -3004,7 +3004,7 @@ impl SystemMediaTransportControlsButtonPressedEventArgs {
     pub fn Button(&self) -> ::windows_core::Result<SystemMediaTransportControlsButton> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SystemMediaTransportControlsButton>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Button)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3047,7 +3047,7 @@ impl SystemMediaTransportControlsDisplayUpdater {
     pub fn Type(&self) -> ::windows_core::Result<MediaPlaybackType> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<MediaPlaybackType>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Type)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3058,7 +3058,7 @@ impl SystemMediaTransportControlsDisplayUpdater {
     pub fn AppMediaId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AppMediaId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3071,7 +3071,7 @@ impl SystemMediaTransportControlsDisplayUpdater {
     pub fn Thumbnail(&self) -> ::windows_core::Result<super::Storage::Streams::RandomAccessStreamReference> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Storage::Streams::RandomAccessStreamReference>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Thumbnail)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3084,21 +3084,21 @@ impl SystemMediaTransportControlsDisplayUpdater {
     pub fn MusicProperties(&self) -> ::windows_core::Result<MusicDisplayProperties> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<MusicDisplayProperties>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MusicProperties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn VideoProperties(&self) -> ::windows_core::Result<VideoDisplayProperties> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<VideoDisplayProperties>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).VideoProperties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ImageProperties(&self) -> ::windows_core::Result<ImageDisplayProperties> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ImageDisplayProperties>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ImageProperties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3107,7 +3107,7 @@ impl SystemMediaTransportControlsDisplayUpdater {
     pub fn CopyFromFileAsync(&self, r#type: MediaPlaybackType, source: &super::Storage::StorageFile) -> ::windows_core::Result<super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::IAsyncOperation<bool>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CopyFromFileAsync)(::windows_core::Interface::as_raw(this), r#type, ::core::mem::transmute_copy(source), &mut result__).from_abi(result__)
         }
     }
@@ -3158,7 +3158,7 @@ impl SystemMediaTransportControlsPropertyChangedEventArgs {
     pub fn Property(&self) -> ::windows_core::Result<SystemMediaTransportControlsProperty> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SystemMediaTransportControlsProperty>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Property)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3210,7 +3210,7 @@ impl SystemMediaTransportControlsTimelineProperties {
     pub fn StartTime(&self) -> ::windows_core::Result<super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::TimeSpan>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).StartTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3225,7 +3225,7 @@ impl SystemMediaTransportControlsTimelineProperties {
     pub fn EndTime(&self) -> ::windows_core::Result<super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::TimeSpan>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).EndTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3240,7 +3240,7 @@ impl SystemMediaTransportControlsTimelineProperties {
     pub fn MinSeekTime(&self) -> ::windows_core::Result<super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::TimeSpan>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MinSeekTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3255,7 +3255,7 @@ impl SystemMediaTransportControlsTimelineProperties {
     pub fn MaxSeekTime(&self) -> ::windows_core::Result<super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::TimeSpan>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxSeekTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3270,7 +3270,7 @@ impl SystemMediaTransportControlsTimelineProperties {
     pub fn Position(&self) -> ::windows_core::Result<super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::TimeSpan>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Position)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3319,7 +3319,7 @@ impl VideoDisplayProperties {
     pub fn Title(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Title)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3330,7 +3330,7 @@ impl VideoDisplayProperties {
     pub fn Subtitle(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Subtitle)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3343,7 +3343,7 @@ impl VideoDisplayProperties {
     pub fn Genres(&self) -> ::windows_core::Result<super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = &::windows_core::ComInterface::cast::<IVideoDisplayProperties2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::Collections::IVector<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Genres)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3384,7 +3384,7 @@ pub struct VideoEffects;
 impl VideoEffects {
     pub fn VideoStabilization() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IVideoEffectsStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).VideoStabilization)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -3410,14 +3410,14 @@ impl VideoFrame {
     pub fn Type(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IMediaFrame>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Type)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsReadOnly(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<IMediaFrame>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsReadOnly)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3435,7 +3435,7 @@ impl VideoFrame {
     pub fn RelativeTime(&self) -> ::windows_core::Result<super::Foundation::IReference<super::Foundation::TimeSpan>> {
         let this = &::windows_core::ComInterface::cast::<IMediaFrame>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::IReference<super::Foundation::TimeSpan>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RelativeTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3453,7 +3453,7 @@ impl VideoFrame {
     pub fn SystemRelativeTime(&self) -> ::windows_core::Result<super::Foundation::IReference<super::Foundation::TimeSpan>> {
         let this = &::windows_core::ComInterface::cast::<IMediaFrame>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::IReference<super::Foundation::TimeSpan>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SystemRelativeTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3471,7 +3471,7 @@ impl VideoFrame {
     pub fn Duration(&self) -> ::windows_core::Result<super::Foundation::IReference<super::Foundation::TimeSpan>> {
         let this = &::windows_core::ComInterface::cast::<IMediaFrame>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::IReference<super::Foundation::TimeSpan>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Duration)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3482,7 +3482,7 @@ impl VideoFrame {
     pub fn IsDiscontinuous(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<IMediaFrame>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsDiscontinuous)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3491,7 +3491,7 @@ impl VideoFrame {
     pub fn ExtendedProperties(&self) -> ::windows_core::Result<super::Foundation::Collections::IPropertySet> {
         let this = &::windows_core::ComInterface::cast::<IMediaFrame>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::Collections::IPropertySet>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ExtendedProperties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3500,7 +3500,7 @@ impl VideoFrame {
     pub fn SoftwareBitmap(&self) -> ::windows_core::Result<super::Graphics::Imaging::SoftwareBitmap> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Graphics::Imaging::SoftwareBitmap>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SoftwareBitmap)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3509,7 +3509,7 @@ impl VideoFrame {
     pub fn CopyToAsync(&self, frame: &VideoFrame) -> ::windows_core::Result<super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CopyToAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(frame), &mut result__).from_abi(result__)
         }
     }
@@ -3518,7 +3518,7 @@ impl VideoFrame {
     pub fn Direct3DSurface(&self) -> ::windows_core::Result<super::Graphics::DirectX::Direct3D11::IDirect3DSurface> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Graphics::DirectX::Direct3D11::IDirect3DSurface>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Direct3DSurface)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3531,7 +3531,7 @@ impl VideoFrame {
     {
         let this = &::windows_core::ComInterface::cast::<IVideoFrame2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CopyToWithBoundsAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(frame), sourcebounds.try_into_param()?.abi(), destinationbounds.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
@@ -3539,7 +3539,7 @@ impl VideoFrame {
     #[cfg(feature = "Graphics_Imaging")]
     pub fn Create(format: super::Graphics::Imaging::BitmapPixelFormat, width: i32, height: i32) -> ::windows_core::Result<VideoFrame> {
         Self::IVideoFrameFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<VideoFrame>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), format, width, height, &mut result__).from_abi(result__)
         })
     }
@@ -3547,7 +3547,7 @@ impl VideoFrame {
     #[cfg(feature = "Graphics_Imaging")]
     pub fn CreateWithAlpha(format: super::Graphics::Imaging::BitmapPixelFormat, width: i32, height: i32, alpha: super::Graphics::Imaging::BitmapAlphaMode) -> ::windows_core::Result<VideoFrame> {
         Self::IVideoFrameFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<VideoFrame>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateWithAlpha)(::windows_core::Interface::as_raw(this), format, width, height, alpha, &mut result__).from_abi(result__)
         })
     }
@@ -3555,7 +3555,7 @@ impl VideoFrame {
     #[cfg(feature = "Graphics_DirectX")]
     pub fn CreateAsDirect3D11SurfaceBacked(format: super::Graphics::DirectX::DirectXPixelFormat, width: i32, height: i32) -> ::windows_core::Result<VideoFrame> {
         Self::IVideoFrameStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<VideoFrame>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateAsDirect3D11SurfaceBacked)(::windows_core::Interface::as_raw(this), format, width, height, &mut result__).from_abi(result__)
         })
     }
@@ -3566,7 +3566,7 @@ impl VideoFrame {
         P0: ::windows_core::TryIntoParam<super::Graphics::DirectX::Direct3D11::IDirect3DDevice>,
     {
         Self::IVideoFrameStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<VideoFrame>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateAsDirect3D11SurfaceBackedWithDevice)(::windows_core::Interface::as_raw(this), format, width, height, device.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
@@ -3574,7 +3574,7 @@ impl VideoFrame {
     #[cfg(feature = "Graphics_Imaging")]
     pub fn CreateWithSoftwareBitmap(bitmap: &super::Graphics::Imaging::SoftwareBitmap) -> ::windows_core::Result<VideoFrame> {
         Self::IVideoFrameStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<VideoFrame>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateWithSoftwareBitmap)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(bitmap), &mut result__).from_abi(result__)
         })
     }
@@ -3585,7 +3585,7 @@ impl VideoFrame {
         P0: ::windows_core::TryIntoParam<super::Graphics::DirectX::Direct3D11::IDirect3DSurface>,
     {
         Self::IVideoFrameStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<VideoFrame>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateWithDirect3D11Surface)(::windows_core::Interface::as_raw(this), surface.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }

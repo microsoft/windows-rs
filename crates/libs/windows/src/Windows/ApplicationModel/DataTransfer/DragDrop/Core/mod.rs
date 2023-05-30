@@ -193,7 +193,7 @@ impl ICoreDropOperationTarget {
     pub fn EnterAsync(&self, draginfo: &CoreDragInfo, draguioverride: &CoreDragUIOverride) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).EnterAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(draginfo), ::core::mem::transmute_copy(draguioverride), &mut result__).from_abi(result__)
         }
     }
@@ -202,7 +202,7 @@ impl ICoreDropOperationTarget {
     pub fn OverAsync(&self, draginfo: &CoreDragInfo, draguioverride: &CoreDragUIOverride) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).OverAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(draginfo), ::core::mem::transmute_copy(draguioverride), &mut result__).from_abi(result__)
         }
     }
@@ -211,7 +211,7 @@ impl ICoreDropOperationTarget {
     pub fn LeaveAsync(&self, draginfo: &CoreDragInfo) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LeaveAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(draginfo), &mut result__).from_abi(result__)
         }
     }
@@ -220,7 +220,7 @@ impl ICoreDropOperationTarget {
     pub fn DropAsync(&self, draginfo: &CoreDragInfo) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DropAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(draginfo), &mut result__).from_abi(result__)
         }
     }
@@ -301,7 +301,7 @@ impl CoreDragDropManager {
     pub fn TargetRequested(&self, value: &super::super::super::super::Foundation::TypedEventHandler<CoreDragDropManager, CoreDropOperationTargetRequestedEventArgs>) -> ::windows_core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TargetRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
         }
     }
@@ -314,7 +314,7 @@ impl CoreDragDropManager {
     pub fn AreConcurrentOperationsEnabled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AreConcurrentOperationsEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -324,7 +324,7 @@ impl CoreDragDropManager {
     }
     pub fn GetForCurrentView() -> ::windows_core::Result<CoreDragDropManager> {
         Self::ICoreDragDropManagerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<CoreDragDropManager>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetForCurrentView)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -372,14 +372,14 @@ impl CoreDragInfo {
     pub fn Data(&self) -> ::windows_core::Result<super::super::DataPackageView> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::DataPackageView>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Data)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Modifiers(&self) -> ::windows_core::Result<super::DragDropModifiers> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::DragDropModifiers>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Modifiers)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -388,14 +388,14 @@ impl CoreDragInfo {
     pub fn Position(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Point> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::super::Foundation::Point>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Position)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AllowedOperations(&self) -> ::windows_core::Result<super::super::DataPackageOperation> {
         let this = &::windows_core::ComInterface::cast::<ICoreDragInfo2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::DataPackageOperation>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AllowedOperations)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -445,7 +445,7 @@ impl CoreDragOperation {
     pub fn Data(&self) -> ::windows_core::Result<super::super::DataPackage> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::DataPackage>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Data)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -468,7 +468,7 @@ impl CoreDragOperation {
     pub fn DragUIContentMode(&self) -> ::windows_core::Result<CoreDragUIContentMode> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<CoreDragUIContentMode>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DragUIContentMode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -481,14 +481,14 @@ impl CoreDragOperation {
     pub fn StartAsync(&self) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).StartAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AllowedOperations(&self) -> ::windows_core::Result<super::super::DataPackageOperation> {
         let this = &::windows_core::ComInterface::cast::<ICoreDragOperation2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::DataPackageOperation>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AllowedOperations)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -547,7 +547,7 @@ impl CoreDragUIOverride {
     pub fn IsContentVisible(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsContentVisible)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -558,7 +558,7 @@ impl CoreDragUIOverride {
     pub fn Caption(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Caption)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -569,7 +569,7 @@ impl CoreDragUIOverride {
     pub fn IsCaptionVisible(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsCaptionVisible)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -580,7 +580,7 @@ impl CoreDragUIOverride {
     pub fn IsGlyphVisible(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsGlyphVisible)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }

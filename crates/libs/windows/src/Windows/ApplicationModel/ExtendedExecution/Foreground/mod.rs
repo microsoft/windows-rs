@@ -60,7 +60,7 @@ impl ExtendedExecutionForegroundRevokedEventArgs {
     pub fn Reason(&self) -> ::windows_core::Result<ExtendedExecutionForegroundRevokedReason> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ExtendedExecutionForegroundRevokedReason>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Reason)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -116,7 +116,7 @@ impl ExtendedExecutionForegroundSession {
     pub fn Description(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Description)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -129,7 +129,7 @@ impl ExtendedExecutionForegroundSession {
     pub fn Revoked(&self, handler: &super::super::super::Foundation::TypedEventHandler<::windows_core::IInspectable, ExtendedExecutionForegroundRevokedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Revoked)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -144,14 +144,14 @@ impl ExtendedExecutionForegroundSession {
     pub fn RequestExtensionAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<ExtendedExecutionForegroundResult>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<ExtendedExecutionForegroundResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestExtensionAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Reason(&self) -> ::windows_core::Result<ExtendedExecutionForegroundReason> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ExtendedExecutionForegroundReason>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Reason)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }

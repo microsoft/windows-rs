@@ -186,7 +186,7 @@ impl IEmptyVolumeCache {
         (::windows_core::Interface::vtable(self).ShowProperties)(::windows_core::Interface::as_raw(self), hwnd.into_param().abi()).ok()
     }
     pub unsafe fn Deactivate(&self) -> ::windows_core::Result<EMPTY_VOLUME_CACHE_FLAGS> {
-        let mut result__ = ::windows_core::zeroed::<EMPTY_VOLUME_CACHE_FLAGS>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Deactivate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -263,7 +263,7 @@ impl IEmptyVolumeCache2 {
         (::windows_core::Interface::vtable(self).base__.ShowProperties)(::windows_core::Interface::as_raw(self), hwnd.into_param().abi()).ok()
     }
     pub unsafe fn Deactivate(&self) -> ::windows_core::Result<EMPTY_VOLUME_CACHE_FLAGS> {
-        let mut result__ = ::windows_core::zeroed::<EMPTY_VOLUME_CACHE_FLAGS>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Deactivate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
@@ -372,7 +372,7 @@ impl IReconcilableObject {
         (::windows_core::Interface::vtable(self).Reconcile)(::windows_core::Interface::as_raw(self), pinitiator.into_param().abi(), dwflags, hwndowner.into_param().abi(), hwndprogressfeedback.into_param().abi(), rgpmkotherinput.len() as _, ::core::mem::transmute(rgpmkotherinput.as_ptr()), ploutindex, pstgnewresidues.into_param().abi(), ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn GetProgressFeedbackMaxEstimate(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProgressFeedbackMaxEstimate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }

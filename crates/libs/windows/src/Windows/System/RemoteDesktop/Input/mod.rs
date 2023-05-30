@@ -55,7 +55,7 @@ impl RemoteTextConnection {
     pub fn IsEnabled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -77,7 +77,7 @@ impl RemoteTextConnection {
     }
     pub fn CreateInstance(connectionid: ::windows_core::GUID, pduforwarder: &RemoteTextConnectionDataHandler) -> ::windows_core::Result<RemoteTextConnection> {
         Self::IRemoteTextConnectionFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<RemoteTextConnection>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateInstance)(::windows_core::Interface::as_raw(this), connectionid, ::core::mem::transmute_copy(pduforwarder), &mut result__).from_abi(result__)
         })
     }
@@ -131,7 +131,7 @@ impl RemoteTextConnectionDataHandler {
     pub fn Invoke(&self, pdudata: &[u8]) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Invoke)(::windows_core::Interface::as_raw(this), pdudata.len() as u32, pdudata.as_ptr(), &mut result__).from_abi(result__)
         }
     }

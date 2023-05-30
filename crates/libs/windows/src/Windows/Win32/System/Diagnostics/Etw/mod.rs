@@ -644,15 +644,15 @@ where
 pub struct ITraceEvent(::windows_core::IUnknown);
 impl ITraceEvent {
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ITraceEvent> {
-        let mut result__ = ::windows_core::zeroed::<ITraceEvent>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetUserContext(&self) -> ::windows_core::Result<*mut ::core::ffi::c_void> {
-        let mut result__ = ::windows_core::zeroed::<*mut ::core::ffi::c_void>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetUserContext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetEventRecord(&self) -> ::windows_core::Result<*mut EVENT_RECORD> {
-        let mut result__ = ::windows_core::zeroed::<*mut EVENT_RECORD>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetEventRecord)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetPayload(&self, payload: &[u8]) -> ::windows_core::Result<()> {
@@ -787,14 +787,14 @@ impl ITraceRelogger {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<RELOGSTREAM_HANDLE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AddLogfileTraceStream)(::windows_core::Interface::as_raw(self), logfilename.into_param().abi(), usercontext, &mut result__).from_abi(result__)
     }
     pub unsafe fn AddRealtimeTraceStream<P0>(&self, loggername: P0, usercontext: *const ::core::ffi::c_void) -> ::windows_core::Result<RELOGSTREAM_HANDLE>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<RELOGSTREAM_HANDLE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AddRealtimeTraceStream)(::windows_core::Interface::as_raw(self), loggername.into_param().abi(), usercontext, &mut result__).from_abi(result__)
     }
     pub unsafe fn RegisterCallback<P0>(&self, callback: P0) -> ::windows_core::Result<()>
@@ -813,7 +813,7 @@ impl ITraceRelogger {
     where
         P0: ::windows_core::IntoParam<RELOGSTREAM_HANDLE>,
     {
-        let mut result__ = ::windows_core::zeroed::<ITraceEvent>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateEventInstance)(::windows_core::Interface::as_raw(self), tracehandle.into_param().abi(), flags, &mut result__).from_abi(result__)
     }
     pub unsafe fn ProcessTrace(&self) -> ::windows_core::Result<()> {

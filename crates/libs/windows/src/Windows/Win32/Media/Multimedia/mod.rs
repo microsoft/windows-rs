@@ -150,7 +150,7 @@ where
 #[inline]
 pub unsafe fn AVIGetFromClipboard() -> ::windows_core::Result<IAVIFile> {
     ::windows_targets::link!("avifil32.dll" "system" fn AVIGetFromClipboard(lppf : *mut * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<IAVIFile>();
+    let mut result__ = ::std::mem::zeroed();
     AVIGetFromClipboard(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -176,7 +176,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("avifil32.dll" "system" fn AVIMakeStreamFromClipboard(cfformat : u32, hglobal : super::super::Foundation:: HANDLE, ppstream : *mut * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<IAVIStream>();
+    let mut result__ = ::std::mem::zeroed();
     AVIMakeStreamFromClipboard(cfformat, hglobal.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -623,7 +623,7 @@ where
     P0: ::windows_core::IntoParam<IAVIStream>,
 {
     ::windows_targets::link!("avifil32.dll" "system" fn EditStreamClone(pavi : * mut::core::ffi::c_void, ppresult : *mut * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<IAVIStream>();
+    let mut result__ = ::std::mem::zeroed();
     EditStreamClone(pavi.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -1485,7 +1485,7 @@ impl IAVIEditStream {
         (::windows_core::Interface::vtable(self).Paste)(::windows_core::Interface::as_raw(self), plpos, pllength, pstream.into_param().abi(), lstart, lend).ok()
     }
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IAVIStream> {
-        let mut result__ = ::windows_core::zeroed::<IAVIStream>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1605,7 +1605,7 @@ impl IAVIPersistFile {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetClassID(&self) -> ::windows_core::Result<::windows_core::GUID> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -1641,7 +1641,7 @@ impl IAVIPersistFile {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCurFile(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::PWSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetCurFile)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Reserved1(&self) -> ::windows_core::Result<()> {

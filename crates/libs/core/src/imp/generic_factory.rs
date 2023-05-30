@@ -9,7 +9,7 @@ pub struct IGenericFactory(crate::IUnknown);
 impl IGenericFactory {
     pub fn ActivateInstance<I: crate::ComInterface>(&self) -> crate::Result<I> {
         unsafe {
-            let mut result__ = crate::zeroed::<I>();
+            let mut result__ = std::mem::zeroed();
             (crate::Interface::vtable(self).ActivateInstance)(std::mem::transmute_copy(self), &mut result__ as *mut _ as *mut _).from_abi::<crate::IInspectable>(result__)?.cast()
         }
     }

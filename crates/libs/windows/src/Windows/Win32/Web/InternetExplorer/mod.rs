@@ -13,14 +13,14 @@ where
     P0: ::windows_core::IntoParam<super::super::Graphics::Gdi::HBITMAP>,
 {
     ::windows_targets::link!("imgutil.dll" "system" fn CreateDDrawSurfaceOnDIB(hbmdib : super::super::Graphics::Gdi:: HBITMAP, ppsurface : *mut * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<super::super::Graphics::DirectDraw::IDirectDrawSurface>();
+    let mut result__ = ::std::mem::zeroed();
     CreateDDrawSurfaceOnDIB(hbmdib.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 #[inline]
 pub unsafe fn CreateMIMEMap() -> ::windows_core::Result<IMapMIMEToCLSID> {
     ::windows_targets::link!("imgutil.dll" "system" fn CreateMIMEMap(ppmap : *mut * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<IMapMIMEToCLSID>();
+    let mut result__ = ::std::mem::zeroed();
     CreateMIMEMap(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_System_Com\"`*"]
@@ -148,7 +148,7 @@ where
 #[inline]
 pub unsafe fn IEGetWriteableFolderPath(clsidfolderid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::PWSTR> {
     ::windows_targets::link!("ieframe.dll" "system" fn IEGetWriteableFolderPath(clsidfolderid : *const ::windows_core::GUID, lppwstrpath : *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<::windows_core::PWSTR>();
+    let mut result__ = ::std::mem::zeroed();
     IEGetWriteableFolderPath(clsidfolderid, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_System_Registry\"`*"]
@@ -156,7 +156,7 @@ pub unsafe fn IEGetWriteableFolderPath(clsidfolderid: *const ::windows_core::GUI
 #[inline]
 pub unsafe fn IEGetWriteableLowHKCU() -> ::windows_core::Result<super::super::System::Registry::HKEY> {
     ::windows_targets::link!("ieframe.dll" "system" fn IEGetWriteableLowHKCU(phkey : *mut super::super::System::Registry:: HKEY) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<super::super::System::Registry::HKEY>();
+    let mut result__ = ::std::mem::zeroed();
     IEGetWriteableLowHKCU(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"]
@@ -178,7 +178,7 @@ pub unsafe fn IEIsInPrivateBrowsing() -> super::super::Foundation::BOOL {
 #[inline]
 pub unsafe fn IEIsProtectedModeProcess() -> ::windows_core::Result<super::super::Foundation::BOOL> {
     ::windows_targets::link!("ieframe.dll" "system" fn IEIsProtectedModeProcess(pbresult : *mut super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+    let mut result__ = ::std::mem::zeroed();
     IEIsProtectedModeProcess(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
@@ -552,7 +552,7 @@ where
 pub struct IActiveXUIHandlerSite(::windows_core::IUnknown);
 impl IActiveXUIHandlerSite {
     pub unsafe fn CreateScrollableContextMenu(&self) -> ::windows_core::Result<IScrollableContextMenu> {
-        let mut result__ = ::windows_core::zeroed::<IScrollableContextMenu>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateScrollableContextMenu)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -562,7 +562,7 @@ impl IActiveXUIHandlerSite {
         P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
         P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PickFileAndGetResult)(::windows_core::Interface::as_raw(self), filepicker.into_param().abi(), allowmultipleselections.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -604,7 +604,7 @@ pub struct IActiveXUIHandlerSite_Vtbl {
 pub struct IActiveXUIHandlerSite2(::windows_core::IUnknown);
 impl IActiveXUIHandlerSite2 {
     pub unsafe fn AddSuspensionExemption(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AddSuspensionExemption)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn RemoveSuspensionExemption(&self, ullcookie: u64) -> ::windows_core::Result<()> {
@@ -653,7 +653,7 @@ impl IActiveXUIHandlerSite3 {
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).MessageBoxW)(::windows_core::Interface::as_raw(self), hwnd.into_param().abi(), text.into_param().abi(), caption.into_param().abi(), r#type, &mut result__).from_abi(result__)
     }
 }
@@ -741,7 +741,7 @@ pub struct IAnchorClick_Vtbl {
 pub struct IAudioSessionSite(::windows_core::IUnknown);
 impl IAudioSessionSite {
     pub unsafe fn GetAudioSessionGuid(&self) -> ::windows_core::Result<::windows_core::GUID> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetAudioSessionGuid)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn OnAudioStreamCreated<P0>(&self, endpointid: P0) -> ::windows_core::Result<()>
@@ -935,7 +935,7 @@ impl IDocObjectService {
         P3: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P4: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FireBeforeNavigate2)(::windows_core::Interface::as_raw(self), pdispatch.into_param().abi(), lpszurl.into_param().abi(), dwflags, lpszframename.into_param().abi(), ppostdata, cbpostdata, lpszheaders.into_param().abi(), fplaynavsound.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Web_MsHtml\"`*"]
@@ -969,7 +969,7 @@ impl IDocObjectService {
         (::windows_core::Interface::vtable(self).UpdateDesktopComponent)(::windows_core::Interface::as_raw(self), phtmlwindow.into_param().abi()).ok()
     }
     pub unsafe fn GetPendingUrl(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetPendingUrl)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Web_MsHtml\"`*"]
@@ -981,7 +981,7 @@ impl IDocObjectService {
         (::windows_core::Interface::vtable(self).ActiveElementChanged)(::windows_core::Interface::as_raw(self), phtmlelement.into_param().abi()).ok()
     }
     pub unsafe fn GetUrlSearchComponent(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetUrlSearchComponent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -990,7 +990,7 @@ impl IDocObjectService {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsErrorUrl)(::windows_core::Interface::as_raw(self), lpszurl.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -1164,7 +1164,7 @@ impl IEnumManagerFrames {
         (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), ppwindows.len() as _, ::core::mem::transmute(ppwindows.as_ptr()), pceltfetched).ok()
     }
     pub unsafe fn Count(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows_core::Result<()> {
@@ -1174,7 +1174,7 @@ impl IEnumManagerFrames {
         (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IEnumManagerFrames> {
-        let mut result__ = ::windows_core::zeroed::<IEnumManagerFrames>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -1228,7 +1228,7 @@ impl IEnumOpenServiceActivity {
         (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IEnumOpenServiceActivity> {
-        let mut result__ = ::windows_core::zeroed::<IEnumOpenServiceActivity>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -1278,7 +1278,7 @@ impl IEnumOpenServiceActivityCategory {
         (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IEnumOpenServiceActivityCategory> {
-        let mut result__ = ::windows_core::zeroed::<IEnumOpenServiceActivityCategory>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -1330,7 +1330,7 @@ impl IEnumSTATURL {
         (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IEnumSTATURL> {
-        let mut result__ = ::windows_core::zeroed::<IEnumSTATURL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetFilter<P0>(&self, poszfilter: P0, dwflags: u32) -> ::windows_core::Result<()>
@@ -1389,11 +1389,11 @@ impl IExtensionValidation {
         P2: ::windows_core::IntoParam<super::MsHtml::IHTMLDocument2>,
         P3: ::windows_core::IntoParam<super::MsHtml::IHTMLElement>,
     {
-        let mut result__ = ::windows_core::zeroed::<ExtensionValidationResults>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Validate)(::windows_core::Interface::as_raw(self), extensionguid, extensionmodulepath.into_param().abi(), extensionfileversionms, extensionfileversionls, htmldocumenttop.into_param().abi(), htmldocumentsubframe.into_param().abi(), htmlelement.into_param().abi(), contexts, &mut result__).from_abi(result__)
     }
     pub unsafe fn DisplayName(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::PWSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DisplayName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -1440,7 +1440,7 @@ impl IHTMLPersistData {
     where
         P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).save)(::windows_core::Interface::as_raw(self), punk.into_param().abi(), ltype, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1449,13 +1449,13 @@ impl IHTMLPersistData {
     where
         P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).load)(::windows_core::Interface::as_raw(self), punk.into_param().abi(), ltype, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn queryType(&self, ltype: i32) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).queryType)(::windows_core::Interface::as_raw(self), ltype, &mut result__).from_abi(result__)
     }
 }
@@ -1508,7 +1508,7 @@ impl IHTMLPersistDataOM {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn XMLDocument(&self) -> ::windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::IDispatch>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).XMLDocument)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -1517,7 +1517,7 @@ impl IHTMLPersistDataOM {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).getAttribute)(::windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -1593,7 +1593,7 @@ impl IHTMLUserDataOM {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn XMLDocument(&self) -> ::windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::IDispatch>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).XMLDocument)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn save<P0>(&self, strname: P0) -> ::windows_core::Result<()>
@@ -1614,7 +1614,7 @@ impl IHTMLUserDataOM {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).getAttribute)(::windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -1638,7 +1638,7 @@ impl IHTMLUserDataOM {
         (::windows_core::Interface::vtable(self).Setexpires)(::windows_core::Interface::as_raw(self), bstr.into_param().abi()).ok()
     }
     pub unsafe fn expires(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).expires)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -1702,11 +1702,11 @@ pub struct IHeaderFooter(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IHeaderFooter {
     pub unsafe fn htmlHead(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).htmlHead)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn htmlFoot(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).htmlFoot)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SettextHead<P0>(&self, v: P0) -> ::windows_core::Result<()>
@@ -1716,7 +1716,7 @@ impl IHeaderFooter {
         (::windows_core::Interface::vtable(self).SettextHead)(::windows_core::Interface::as_raw(self), v.into_param().abi()).ok()
     }
     pub unsafe fn textHead(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).textHead)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SettextFoot<P0>(&self, v: P0) -> ::windows_core::Result<()>
@@ -1726,21 +1726,21 @@ impl IHeaderFooter {
         (::windows_core::Interface::vtable(self).SettextFoot)(::windows_core::Interface::as_raw(self), v.into_param().abi()).ok()
     }
     pub unsafe fn textFoot(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).textFoot)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Setpage(&self, v: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Setpage)(::windows_core::Interface::as_raw(self), v).ok()
     }
     pub unsafe fn page(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).page)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetpageTotal(&self, v: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetpageTotal)(::windows_core::Interface::as_raw(self), v).ok()
     }
     pub unsafe fn pageTotal(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).pageTotal)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetURL<P0>(&self, v: P0) -> ::windows_core::Result<()>
@@ -1750,7 +1750,7 @@ impl IHeaderFooter {
         (::windows_core::Interface::vtable(self).SetURL)(::windows_core::Interface::as_raw(self), v.into_param().abi()).ok()
     }
     pub unsafe fn URL(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).URL)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Settitle<P0>(&self, v: P0) -> ::windows_core::Result<()>
@@ -1760,7 +1760,7 @@ impl IHeaderFooter {
         (::windows_core::Interface::vtable(self).Settitle)(::windows_core::Interface::as_raw(self), v.into_param().abi()).ok()
     }
     pub unsafe fn title(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).title)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetdateShort<P0>(&self, v: P0) -> ::windows_core::Result<()>
@@ -1770,7 +1770,7 @@ impl IHeaderFooter {
         (::windows_core::Interface::vtable(self).SetdateShort)(::windows_core::Interface::as_raw(self), v.into_param().abi()).ok()
     }
     pub unsafe fn dateShort(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).dateShort)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetdateLong<P0>(&self, v: P0) -> ::windows_core::Result<()>
@@ -1780,7 +1780,7 @@ impl IHeaderFooter {
         (::windows_core::Interface::vtable(self).SetdateLong)(::windows_core::Interface::as_raw(self), v.into_param().abi()).ok()
     }
     pub unsafe fn dateLong(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).dateLong)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SettimeShort<P0>(&self, v: P0) -> ::windows_core::Result<()>
@@ -1790,7 +1790,7 @@ impl IHeaderFooter {
         (::windows_core::Interface::vtable(self).SettimeShort)(::windows_core::Interface::as_raw(self), v.into_param().abi()).ok()
     }
     pub unsafe fn timeShort(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).timeShort)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SettimeLong<P0>(&self, v: P0) -> ::windows_core::Result<()>
@@ -1800,7 +1800,7 @@ impl IHeaderFooter {
         (::windows_core::Interface::vtable(self).SettimeLong)(::windows_core::Interface::as_raw(self), v.into_param().abi()).ok()
     }
     pub unsafe fn timeLong(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).timeLong)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -1869,11 +1869,11 @@ pub struct IHeaderFooter2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IHeaderFooter2 {
     pub unsafe fn htmlHead(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.htmlHead)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn htmlFoot(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.htmlFoot)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SettextHead<P0>(&self, v: P0) -> ::windows_core::Result<()>
@@ -1883,7 +1883,7 @@ impl IHeaderFooter2 {
         (::windows_core::Interface::vtable(self).base__.SettextHead)(::windows_core::Interface::as_raw(self), v.into_param().abi()).ok()
     }
     pub unsafe fn textHead(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.textHead)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SettextFoot<P0>(&self, v: P0) -> ::windows_core::Result<()>
@@ -1893,21 +1893,21 @@ impl IHeaderFooter2 {
         (::windows_core::Interface::vtable(self).base__.SettextFoot)(::windows_core::Interface::as_raw(self), v.into_param().abi()).ok()
     }
     pub unsafe fn textFoot(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.textFoot)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Setpage(&self, v: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Setpage)(::windows_core::Interface::as_raw(self), v).ok()
     }
     pub unsafe fn page(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.page)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetpageTotal(&self, v: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetpageTotal)(::windows_core::Interface::as_raw(self), v).ok()
     }
     pub unsafe fn pageTotal(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.pageTotal)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetURL<P0>(&self, v: P0) -> ::windows_core::Result<()>
@@ -1917,7 +1917,7 @@ impl IHeaderFooter2 {
         (::windows_core::Interface::vtable(self).base__.SetURL)(::windows_core::Interface::as_raw(self), v.into_param().abi()).ok()
     }
     pub unsafe fn URL(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.URL)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Settitle<P0>(&self, v: P0) -> ::windows_core::Result<()>
@@ -1927,7 +1927,7 @@ impl IHeaderFooter2 {
         (::windows_core::Interface::vtable(self).base__.Settitle)(::windows_core::Interface::as_raw(self), v.into_param().abi()).ok()
     }
     pub unsafe fn title(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.title)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetdateShort<P0>(&self, v: P0) -> ::windows_core::Result<()>
@@ -1937,7 +1937,7 @@ impl IHeaderFooter2 {
         (::windows_core::Interface::vtable(self).base__.SetdateShort)(::windows_core::Interface::as_raw(self), v.into_param().abi()).ok()
     }
     pub unsafe fn dateShort(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.dateShort)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetdateLong<P0>(&self, v: P0) -> ::windows_core::Result<()>
@@ -1947,7 +1947,7 @@ impl IHeaderFooter2 {
         (::windows_core::Interface::vtable(self).base__.SetdateLong)(::windows_core::Interface::as_raw(self), v.into_param().abi()).ok()
     }
     pub unsafe fn dateLong(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.dateLong)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SettimeShort<P0>(&self, v: P0) -> ::windows_core::Result<()>
@@ -1957,7 +1957,7 @@ impl IHeaderFooter2 {
         (::windows_core::Interface::vtable(self).base__.SettimeShort)(::windows_core::Interface::as_raw(self), v.into_param().abi()).ok()
     }
     pub unsafe fn timeShort(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.timeShort)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SettimeLong<P0>(&self, v: P0) -> ::windows_core::Result<()>
@@ -1967,7 +1967,7 @@ impl IHeaderFooter2 {
         (::windows_core::Interface::vtable(self).base__.SettimeLong)(::windows_core::Interface::as_raw(self), v.into_param().abi()).ok()
     }
     pub unsafe fn timeLong(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.timeLong)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Setfont<P0>(&self, v: P0) -> ::windows_core::Result<()>
@@ -1977,7 +1977,7 @@ impl IHeaderFooter2 {
         (::windows_core::Interface::vtable(self).Setfont)(::windows_core::Interface::as_raw(self), v.into_param().abi()).ok()
     }
     pub unsafe fn font(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).font)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -2040,7 +2040,7 @@ impl IHomePage {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).isHomePage)(::windows_core::Interface::as_raw(self), bstrurl.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -2106,7 +2106,7 @@ impl IHomePageSetting {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsHomePage)(::windows_core::Interface::as_raw(self), uri.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetHomePageToBrowserDefault(&self) -> ::windows_core::Result<()> {
@@ -2160,7 +2160,7 @@ impl IIEWebDriverManager {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::PWSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ExecuteCommand)(::windows_core::Interface::as_raw(self), command.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -2223,7 +2223,7 @@ impl IIEWebDriverSite {
         P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCapabilityValue)(::windows_core::Interface::as_raw(self), punkwd.into_param().abi(), capname.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -2274,7 +2274,7 @@ pub struct IIEWebDriverSite_Vtbl {
 pub struct IImageDecodeEventSink(::windows_core::IUnknown);
 impl IImageDecodeEventSink {
     pub unsafe fn GetSurface(&self, nwidth: i32, nheight: i32, bfid: *const ::windows_core::GUID, npasses: u32, dwhints: u32) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSurface)(::windows_core::Interface::as_raw(self), nwidth, nheight, bfid, npasses, dwhints, &mut result__).from_abi(result__)
     }
     pub unsafe fn OnBeginDecode(&self, pdwevents: *mut u32, pnformats: *mut u32, ppformats: *mut *mut ::windows_core::GUID) -> ::windows_core::Result<()> {
@@ -2340,7 +2340,7 @@ pub struct IImageDecodeEventSink_Vtbl {
 pub struct IImageDecodeEventSink2(::windows_core::IUnknown);
 impl IImageDecodeEventSink2 {
     pub unsafe fn GetSurface(&self, nwidth: i32, nheight: i32, bfid: *const ::windows_core::GUID, npasses: u32, dwhints: u32) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetSurface)(::windows_core::Interface::as_raw(self), nwidth, nheight, bfid, npasses, dwhints, &mut result__).from_abi(result__)
     }
     pub unsafe fn OnBeginDecode(&self, pdwevents: *mut u32, pnformats: *mut u32, ppformats: *mut *mut ::windows_core::GUID) -> ::windows_core::Result<()> {
@@ -2366,7 +2366,7 @@ impl IImageDecodeEventSink2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsAlphaPremultRequired(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsAlphaPremultRequired)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -2467,7 +2467,7 @@ impl IIntelliForms {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn enabled(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).enabled)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2570,7 +2570,7 @@ pub struct IInternetExplorerManager_Vtbl {
 pub struct IInternetExplorerManager2(::windows_core::IUnknown);
 impl IInternetExplorerManager2 {
     pub unsafe fn EnumFrameWindows(&self) -> ::windows_core::Result<IEnumManagerFrames> {
-        let mut result__ = ::windows_core::zeroed::<IEnumManagerFrames>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumFrameWindows)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -2616,7 +2616,7 @@ impl ILayoutRect {
         (::windows_core::Interface::vtable(self).SetnextRect)(::windows_core::Interface::as_raw(self), bstrelementid.into_param().abi()).ok()
     }
     pub unsafe fn nextRect(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).nextRect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -2627,7 +2627,7 @@ impl ILayoutRect {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn contentSrc(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).contentSrc)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2641,7 +2641,7 @@ impl ILayoutRect {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn honorPageBreaks(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).honorPageBreaks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2655,7 +2655,7 @@ impl ILayoutRect {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn honorPageRules(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).honorPageRules)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -2669,13 +2669,13 @@ impl ILayoutRect {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn nextRectElement(&self) -> ::windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::IDispatch>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).nextRectElement)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn contentDocument(&self) -> ::windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::IDispatch>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).contentDocument)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -2860,7 +2860,7 @@ impl IOpenService {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsDefault(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsDefault)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2873,7 +2873,7 @@ impl IOpenService {
         (::windows_core::Interface::vtable(self).SetDefault)(::windows_core::Interface::as_raw(self), fdefault.into_param().abi(), hwnd.into_param().abi()).ok()
     }
     pub unsafe fn GetID(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -2921,7 +2921,7 @@ impl IOpenServiceActivity {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsDefault(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.IsDefault)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2934,7 +2934,7 @@ impl IOpenServiceActivity {
         (::windows_core::Interface::vtable(self).base__.SetDefault)(::windows_core::Interface::as_raw(self), fdefault.into_param().abi(), hwnd.into_param().abi()).ok()
     }
     pub unsafe fn GetID(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Execute<P0, P1>(&self, pinput: P0, poutput: P1) -> ::windows_core::Result<()>
@@ -2951,13 +2951,13 @@ impl IOpenServiceActivity {
         P0: ::windows_core::IntoParam<IOpenServiceActivityInput>,
         P1: ::windows_core::IntoParam<IOpenServiceActivityOutputContext>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CanExecute)(::windows_core::Interface::as_raw(self), pinput.into_param().abi(), poutput.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CanExecuteType(&self, r#type: OpenServiceActivityContentType) -> ::windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CanExecuteType)(::windows_core::Interface::as_raw(self), r#type, &mut result__).from_abi(result__)
     }
     pub unsafe fn Preview<P0, P1>(&self, pinput: P0, poutput: P1) -> ::windows_core::Result<()>
@@ -2974,40 +2974,40 @@ impl IOpenServiceActivity {
         P0: ::windows_core::IntoParam<IOpenServiceActivityInput>,
         P1: ::windows_core::IntoParam<IOpenServiceActivityOutputContext>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CanPreview)(::windows_core::Interface::as_raw(self), pinput.into_param().abi(), poutput.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CanPreviewType(&self, r#type: OpenServiceActivityContentType) -> ::windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CanPreviewType)(::windows_core::Interface::as_raw(self), r#type, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetStatusText<P0>(&self, pinput: P0) -> ::windows_core::Result<::windows_core::BSTR>
     where
         P0: ::windows_core::IntoParam<IOpenServiceActivityInput>,
     {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetStatusText)(::windows_core::Interface::as_raw(self), pinput.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetHomepageUrl(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetHomepageUrl)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDisplayName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDisplayName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDescription(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDescription)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCategoryName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCategoryName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetIconPath(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetIconPath)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -3016,25 +3016,25 @@ impl IOpenServiceActivity {
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::UI::WindowsAndMessaging::HICON>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetIcon)(::windows_core::Interface::as_raw(self), fsmallicon.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDescriptionFilePath(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDescriptionFilePath)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDownloadUrl(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDownloadUrl)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetInstallUrl(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetInstallUrl)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsEnabled(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsEnabled)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -3120,11 +3120,11 @@ impl IOpenServiceActivityCategory {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HasDefaultActivity(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).HasDefaultActivity)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDefaultActivity(&self) -> ::windows_core::Result<IOpenServiceActivity> {
-        let mut result__ = ::windows_core::zeroed::<IOpenServiceActivity>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDefaultActivity)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -3137,7 +3137,7 @@ impl IOpenServiceActivityCategory {
         (::windows_core::Interface::vtable(self).SetDefaultActivity)(::windows_core::Interface::as_raw(self), pactivity.into_param().abi(), hwnd.into_param().abi()).ok()
     }
     pub unsafe fn GetName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetActivityEnumerator<P0, P1>(&self, pinput: P0, poutput: P1) -> ::windows_core::Result<IEnumOpenServiceActivity>
@@ -3145,7 +3145,7 @@ impl IOpenServiceActivityCategory {
         P0: ::windows_core::IntoParam<IOpenServiceActivityInput>,
         P1: ::windows_core::IntoParam<IOpenServiceActivityOutputContext>,
     {
-        let mut result__ = ::windows_core::zeroed::<IEnumOpenServiceActivity>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetActivityEnumerator)(::windows_core::Interface::as_raw(self), pinput.into_param().abi(), poutput.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -3197,7 +3197,7 @@ impl IOpenServiceActivityInput {
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetVariable)(::windows_core::Interface::as_raw(self), pwzvariablename.into_param().abi(), pwzvariabletype.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -3207,11 +3207,11 @@ impl IOpenServiceActivityInput {
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).HasVariable)(::windows_core::Interface::as_raw(self), pwzvariablename.into_param().abi(), pwzvariabletype.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetType(&self) -> ::windows_core::Result<OpenServiceActivityContentType> {
-        let mut result__ = ::windows_core::zeroed::<OpenServiceActivityContentType>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -3254,14 +3254,14 @@ pub struct IOpenServiceActivityInput_Vtbl {
 pub struct IOpenServiceActivityManager(::windows_core::IUnknown);
 impl IOpenServiceActivityManager {
     pub unsafe fn GetCategoryEnumerator(&self, etype: OpenServiceActivityContentType) -> ::windows_core::Result<IEnumOpenServiceActivityCategory> {
-        let mut result__ = ::windows_core::zeroed::<IEnumOpenServiceActivityCategory>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCategoryEnumerator)(::windows_core::Interface::as_raw(self), etype, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetActivityByID<P0>(&self, pwzactivityid: P0) -> ::windows_core::Result<IOpenServiceActivity>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IOpenServiceActivity>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetActivityByID)(::windows_core::Interface::as_raw(self), pwzactivityid.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetActivityByHomepageAndCategory<P0, P1>(&self, pwzhomepage: P0, pwzcategory: P1) -> ::windows_core::Result<IOpenServiceActivity>
@@ -3269,11 +3269,11 @@ impl IOpenServiceActivityManager {
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IOpenServiceActivity>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetActivityByHomepageAndCategory)(::windows_core::Interface::as_raw(self), pwzhomepage.into_param().abi(), pwzcategory.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetVersionCookie(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetVersionCookie)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -3333,7 +3333,7 @@ impl IOpenServiceActivityOutputContext {
         P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P3: ::windows_core::IntoParam<super::super::System::Com::IStream>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CanNavigate)(::windows_core::Interface::as_raw(self), pwzuri.into_param().abi(), pwzmethod.into_param().abi(), pwzheaders.into_param().abi(), ppostdata.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -3381,7 +3381,7 @@ impl IOpenServiceManager {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IOpenService>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).InstallService)(::windows_core::Interface::as_raw(self), pwzserviceurl.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn UninstallService<P0>(&self, pservice: P0) -> ::windows_core::Result<()>
@@ -3394,7 +3394,7 @@ impl IOpenServiceManager {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IOpenService>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetServiceByID)(::windows_core::Interface::as_raw(self), pwzid.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -3470,7 +3470,7 @@ impl IPersistHistory {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetClassID(&self) -> ::windows_core::Result<::windows_core::GUID> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -3494,7 +3494,7 @@ impl IPersistHistory {
         (::windows_core::Interface::vtable(self).SetPositionCookie)(::windows_core::Interface::as_raw(self), dwpositioncookie).ok()
     }
     pub unsafe fn GetPositionCookie(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetPositionCookie)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -3635,7 +3635,7 @@ impl IScrollableContextMenu {
         (::windows_core::Interface::vtable(self).AddItem)(::windows_core::Interface::as_raw(self), itemtext.into_param().abi(), cmdid).ok()
     }
     pub unsafe fn ShowModal(&self, x: i32, y: i32) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ShowModal)(::windows_core::Interface::as_raw(self), x, y, &mut result__).from_abi(result__)
     }
 }
@@ -3680,7 +3680,7 @@ impl IScrollableContextMenu2 {
         (::windows_core::Interface::vtable(self).base__.AddItem)(::windows_core::Interface::as_raw(self), itemtext.into_param().abi(), cmdid).ok()
     }
     pub unsafe fn ShowModal(&self, x: i32, y: i32) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ShowModal)(::windows_core::Interface::as_raw(self), x, y, &mut result__).from_abi(result__)
     }
     pub unsafe fn AddSeparator(&self) -> ::windows_core::Result<()> {
@@ -3898,13 +3898,13 @@ pub struct ISurfacePresenterFlipBuffer_Vtbl {
 pub struct ITargetContainer(::windows_core::IUnknown);
 impl ITargetContainer {
     pub unsafe fn GetFrameUrl(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::PWSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFrameUrl)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn GetFramesContainer(&self) -> ::windows_core::Result<super::super::System::Ole::IOleContainer> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Ole::IOleContainer>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFramesContainer)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -3946,7 +3946,7 @@ pub struct ITargetContainer_Vtbl {
 pub struct ITargetEmbedding(::windows_core::IUnknown);
 impl ITargetEmbedding {
     pub unsafe fn GetTargetFrame(&self) -> ::windows_core::Result<ITargetFrame> {
-        let mut result__ = ::windows_core::zeroed::<ITargetFrame>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetTargetFrame)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -3990,11 +3990,11 @@ impl ITargetFrame {
         (::windows_core::Interface::vtable(self).SetFrameName)(::windows_core::Interface::as_raw(self), pszframename.into_param().abi()).ok()
     }
     pub unsafe fn GetFrameName(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::PWSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFrameName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetParentFrame(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetParentFrame)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn FindFrame<P0, P1>(&self, psztargetname: P0, ppunkcontextframe: P1, dwflags: u32) -> ::windows_core::Result<::windows_core::IUnknown>
@@ -4002,7 +4002,7 @@ impl ITargetFrame {
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P1: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FindFrame)(::windows_core::Interface::as_raw(self), psztargetname.into_param().abi(), ppunkcontextframe.into_param().abi(), dwflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn SetFrameSrc<P0>(&self, pszframesrc: P0) -> ::windows_core::Result<()>
@@ -4012,20 +4012,20 @@ impl ITargetFrame {
         (::windows_core::Interface::vtable(self).SetFrameSrc)(::windows_core::Interface::as_raw(self), pszframesrc.into_param().abi()).ok()
     }
     pub unsafe fn GetFrameSrc(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::PWSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFrameSrc)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn GetFramesContainer(&self) -> ::windows_core::Result<super::super::System::Ole::IOleContainer> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Ole::IOleContainer>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFramesContainer)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetFrameOptions(&self, dwflags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetFrameOptions)(::windows_core::Interface::as_raw(self), dwflags).ok()
     }
     pub unsafe fn GetFrameOptions(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFrameOptions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetFrameMargins(&self, dwwidth: u32, dwheight: u32) -> ::windows_core::Result<()> {
@@ -4106,11 +4106,11 @@ impl ITargetFrame2 {
         (::windows_core::Interface::vtable(self).SetFrameName)(::windows_core::Interface::as_raw(self), pszframename.into_param().abi()).ok()
     }
     pub unsafe fn GetFrameName(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::PWSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFrameName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetParentFrame(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetParentFrame)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetFrameSrc<P0>(&self, pszframesrc: P0) -> ::windows_core::Result<()>
@@ -4120,20 +4120,20 @@ impl ITargetFrame2 {
         (::windows_core::Interface::vtable(self).SetFrameSrc)(::windows_core::Interface::as_raw(self), pszframesrc.into_param().abi()).ok()
     }
     pub unsafe fn GetFrameSrc(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::PWSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFrameSrc)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn GetFramesContainer(&self) -> ::windows_core::Result<super::super::System::Ole::IOleContainer> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Ole::IOleContainer>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFramesContainer)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetFrameOptions(&self, dwflags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetFrameOptions)(::windows_core::Interface::as_raw(self), dwflags).ok()
     }
     pub unsafe fn GetFrameOptions(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFrameOptions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetFrameMargins(&self, dwwidth: u32, dwheight: u32) -> ::windows_core::Result<()> {
@@ -4146,14 +4146,14 @@ impl ITargetFrame2 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FindFrame)(::windows_core::Interface::as_raw(self), psztargetname.into_param().abi(), dwflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetTargetAlias<P0>(&self, psztargetname: P0) -> ::windows_core::Result<::windows_core::PWSTR>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::PWSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetTargetAlias)(::windows_core::Interface::as_raw(self), psztargetname.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -4208,7 +4208,7 @@ impl ITargetFramePriv {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FindFrameDownwards)(::windows_core::Interface::as_raw(self), psztargetname.into_param().abi(), dwflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn FindFrameInContext<P0, P1>(&self, psztargetname: P0, punkcontextframe: P1, dwflags: u32) -> ::windows_core::Result<::windows_core::IUnknown>
@@ -4216,7 +4216,7 @@ impl ITargetFramePriv {
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P1: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FindFrameInContext)(::windows_core::Interface::as_raw(self), psztargetname.into_param().abi(), punkcontextframe.into_param().abi(), dwflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn OnChildFrameActivate<P0>(&self, punkchildframe: P0) -> ::windows_core::Result<()>
@@ -4244,7 +4244,7 @@ impl ITargetFramePriv {
         (::windows_core::Interface::vtable(self).NavigateHack)(::windows_core::Interface::as_raw(self), grfhlnf, pbc.into_param().abi(), pibsc.into_param().abi(), psztargetname.into_param().abi(), pszurl.into_param().abi(), pszlocation.into_param().abi()).ok()
     }
     pub unsafe fn FindBrowserByIndex(&self, dwid: u32) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FindBrowserByIndex)(::windows_core::Interface::as_raw(self), dwid, &mut result__).from_abi(result__)
     }
 }
@@ -4293,7 +4293,7 @@ impl ITargetFramePriv2 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.FindFrameDownwards)(::windows_core::Interface::as_raw(self), psztargetname.into_param().abi(), dwflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn FindFrameInContext<P0, P1>(&self, psztargetname: P0, punkcontextframe: P1, dwflags: u32) -> ::windows_core::Result<::windows_core::IUnknown>
@@ -4301,7 +4301,7 @@ impl ITargetFramePriv2 {
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P1: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.FindFrameInContext)(::windows_core::Interface::as_raw(self), psztargetname.into_param().abi(), punkcontextframe.into_param().abi(), dwflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn OnChildFrameActivate<P0>(&self, punkchildframe: P0) -> ::windows_core::Result<()>
@@ -4329,7 +4329,7 @@ impl ITargetFramePriv2 {
         (::windows_core::Interface::vtable(self).base__.NavigateHack)(::windows_core::Interface::as_raw(self), grfhlnf, pbc.into_param().abi(), pibsc.into_param().abi(), psztargetname.into_param().abi(), pszurl.into_param().abi(), pszlocation.into_param().abi()).ok()
     }
     pub unsafe fn FindBrowserByIndex(&self, dwid: u32) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.FindBrowserByIndex)(::windows_core::Interface::as_raw(self), dwid, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -4483,7 +4483,7 @@ impl ITimer {
     where
         P0: ::windows_core::IntoParam<ITimerSink>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Advise)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vtimemin), ::core::mem::transmute(vtimemax), ::core::mem::transmute(vtimeinterval), dwflags, ptimersink.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn Unadvise(&self, dwcookie: u32) -> ::windows_core::Result<()> {
@@ -4500,7 +4500,7 @@ impl ITimer {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetTime(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -4555,7 +4555,7 @@ impl ITimerEx {
     where
         P0: ::windows_core::IntoParam<ITimerSink>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Advise)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vtimemin), ::core::mem::transmute(vtimemax), ::core::mem::transmute(vtimeinterval), dwflags, ptimersink.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn Unadvise(&self, dwcookie: u32) -> ::windows_core::Result<()> {
@@ -4572,7 +4572,7 @@ impl ITimerEx {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetTime(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetMode(&self, dwmode: u32) -> ::windows_core::Result<()> {
@@ -4616,11 +4616,11 @@ impl ITimerService {
     where
         P0: ::windows_core::IntoParam<ITimer>,
     {
-        let mut result__ = ::windows_core::zeroed::<ITimer>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateTimer)(::windows_core::Interface::as_raw(self), preferencetimer.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNamedTimer(&self, rguidname: *const ::windows_core::GUID) -> ::windows_core::Result<ITimer> {
-        let mut result__ = ::windows_core::zeroed::<ITimer>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNamedTimer)(::windows_core::Interface::as_raw(self), rguidname, &mut result__).from_abi(result__)
     }
     pub unsafe fn SetNamedTimerReference<P0>(&self, rguidname: *const ::windows_core::GUID, preferencetimer: P0) -> ::windows_core::Result<()>
@@ -4714,7 +4714,7 @@ impl ITridentTouchInput {
         P0: ::windows_core::IntoParam<super::super::Foundation::WPARAM>,
         P1: ::windows_core::IntoParam<super::super::Foundation::LPARAM>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).OnPointerMessage)(::windows_core::Interface::as_raw(self), msg, wparam.into_param().abi(), lparam.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -4883,7 +4883,7 @@ impl IUrlHistoryStg {
         (::windows_core::Interface::vtable(self).BindToObject)(::windows_core::Interface::as_raw(self), pocsurl.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumUrls(&self) -> ::windows_core::Result<IEnumSTATURL> {
-        let mut result__ = ::windows_core::zeroed::<IEnumSTATURL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumUrls)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -4957,7 +4957,7 @@ impl IUrlHistoryStg2 {
         (::windows_core::Interface::vtable(self).base__.BindToObject)(::windows_core::Interface::as_raw(self), pocsurl.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumUrls(&self) -> ::windows_core::Result<IEnumSTATURL> {
-        let mut result__ = ::windows_core::zeroed::<IEnumSTATURL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EnumUrls)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
@@ -5115,13 +5115,13 @@ impl IViewObjectPresentFlipSite {
     where
         P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        let mut result__ = ::windows_core::zeroed::<ISurfacePresenterFlip>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateSurfacePresenterFlip)(::windows_core::Interface::as_raw(self), pdevice.into_param().abi(), width, height, backbuffercount, format, mode, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDeviceLuid(&self) -> ::windows_core::Result<super::super::Foundation::LUID> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::LUID>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDeviceLuid)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn EnterFullScreen(&self) -> ::windows_core::Result<()> {
@@ -5133,13 +5133,13 @@ impl IViewObjectPresentFlipSite {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsFullScreen(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsFullScreen)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetBoundingRect(&self) -> ::windows_core::Result<super::super::Foundation::RECT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::RECT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetBoundingRect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5150,7 +5150,7 @@ impl IViewObjectPresentFlipSite {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetFullScreenSize(&self) -> ::windows_core::Result<super::super::Foundation::SIZE> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::SIZE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFullScreenSize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -5215,7 +5215,7 @@ impl IViewObjectPresentFlipSite2 {
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetRotationForCurrentOutput(&self) -> ::windows_core::Result<super::super::Graphics::Dxgi::Common::DXGI_MODE_ROTATION> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Graphics::Dxgi::Common::DXGI_MODE_ROTATION>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRotationForCurrentOutput)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -5258,7 +5258,7 @@ impl IWebBrowserEventsService {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FireBeforeNavigate2Event(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FireBeforeNavigate2Event)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn FireNavigateComplete2Event(&self) -> ::windows_core::Result<()> {
@@ -5315,7 +5315,7 @@ pub struct IWebBrowserEventsService_Vtbl {
 pub struct IWebBrowserEventsUrlService(::windows_core::IUnknown);
 impl IWebBrowserEventsUrlService {
     pub unsafe fn GetUrlForEvents(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetUrlForEvents)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -5358,7 +5358,7 @@ impl Iwfolders {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).navigate)(::windows_core::Interface::as_raw(self), bstrurl.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn navigateFrame<P0, P1>(&self, bstrurl: P0, bstrtargetframe: P1) -> ::windows_core::Result<::windows_core::BSTR>
@@ -5366,7 +5366,7 @@ impl Iwfolders {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).navigateFrame)(::windows_core::Interface::as_raw(self), bstrurl.into_param().abi(), bstrtargetframe.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn navigateNoSite<P0, P1, P2>(&self, bstrurl: P0, bstrtargetframe: P1, dwhwnd: u32, pwb: P2) -> ::windows_core::Result<()>
