@@ -25,7 +25,7 @@ pub fn run_riddle(idl: &str) -> String {
     }
 
     let mut command = Command::new("riddle.exe");
-    command.arg("-in").arg(&winmd).arg("-out").arg(&idl);
+    command.arg("-in").arg(&winmd).arg("-out").arg(idl);
 
     if !command.status().unwrap().success() {
         panic!("Failed to run riddle");
