@@ -8,12 +8,9 @@ pub use format::*;
 pub use read::*;
 pub use write::*;
 
-// TODO: replace these with the Module types and just parse directly to that and reduce the number of different representations?
-
 // The value of the IDL-specific memory representation is that it allows for constructs that are not modeled in the abstract Module
 // tree such as the use declarations and if we get rid of it we'd always "format" IDL by stripping out any of that into a single
 // canonical form which would not be very friendly to developers.
-
 pub struct IdlFile {
     references: Vec<syn::ItemUse>,
     modules: Vec<IdlModule>,

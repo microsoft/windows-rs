@@ -88,6 +88,7 @@ pub struct TypeRef {
     pub namespace: String,
     pub name: String,
     pub generics: Vec<Type>,
+    // TODO: store an `assembly` for the name of the winmd/idl file where the type originates?
     // pub assembly: String,
 }
 

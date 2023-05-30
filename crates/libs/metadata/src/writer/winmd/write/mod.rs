@@ -25,8 +25,12 @@ pub fn write_winmd(module: &Module, path: &str) -> Result<()> {
     let mut gen = Gen::new(module);
 
     gen.tables.TypeDef.push(tables::TypeDef { TypeName: gen.strings.insert("<Module>"), ..Default::default() });
+
+    // The Assembly table needs the module file name without it's extension. 
+    let file_name = std::path::Path::new(path).with_extension("").file_name().map_or(path.to_string(), |name|name.to_string_lossy().to_string());
+
     gen.tables.Assembly.push(tables::Assembly {
-        Name: gen.strings.insert("name"),
+        Name: gen.strings.insert(&file_name),
         HashAlgId: 0x00008004,
         MajorVersion: 0xFF,
         MinorVersion: 0xFF,
@@ -35,9 +39,10 @@ pub fn write_winmd(module: &Module, path: &str) -> Result<()> {
         Flags: AssemblyFlags::WindowsRuntime.0,
         ..Default::default()
     });
+    
     gen.module_scope = ResolutionScope::Module(gen.tables.Module.push2(tables::Module { Name: gen.strings.insert("name.winmd"), Mvid: 1, ..Default::default() })).encode();
 
-    // Some winmd parsers will fail to read without an `mscorlib` reference. The `insert_module_types` funciton will typically include it
+    // Some winmd parsers will fail to read without an `mscorlib` reference. The `insert_module_types` function will typically include it
     // automatically but a minimal `Module` tree may not add this dependency.
     gen.insert_scope("System");
 
