@@ -145,7 +145,7 @@ impl Module {
                     self.insert(namespace, 0).types.entry(ident).or_default();
                 }
                 ReadPhase::Define => {
-                    let mut def = TypeDef { extends: Some(TypeRef {  namespace: "System".to_string(), name: "Enum".to_string(), ..Default::default() }), ..Default::default() };
+                    let mut def = TypeDef { extends: Some(TypeRef { namespace: "System".to_string(), name: "Enum".to_string(), ..Default::default() }), ..Default::default() };
                     let enum_type = Type::TypeRef(TypeRef { namespace: namespace.to_string(), name: ident.clone(), ..Default::default() });
 
                     for variant in &ty.item.variants {
@@ -313,7 +313,7 @@ impl Module {
 
         let (name, namespace) = current.split_last().ok_or_else(|| syn::Error::new(path.span(), "no type name"))?;
         let namespace = namespace.join(".");
-        
+
         if self.contains_type(&namespace, name) {
             Ok(Type::TypeRef(TypeRef { namespace, name: name.to_string(), ..Default::default() }))
         } else {
@@ -322,10 +322,10 @@ impl Module {
 
             // TODO: should we include winmd references to validate - that will also help with AssemblyRef info needed for winmd
             //if self.contains_type(&namespace, name) {
-                Ok(Type::TypeRef(TypeRef { namespace, name: name.to_string(), ..Default::default() }))
+            Ok(Type::TypeRef(TypeRef { namespace, name: name.to_string(), ..Default::default() }))
             // } else {
             //     Err(Error::new("type not found").with_span(path.span()))
             // }
-        }        
+        }
     }
 }

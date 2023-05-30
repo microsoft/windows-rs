@@ -88,7 +88,6 @@ impl Decode for MemberRefParent {
 
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Debug)]
 pub enum TypeDefOrRef {
-    None, // TOOD: should decode return Option<T>?
     TypeDef(TypeDef),
     TypeRef(TypeRef),
     TypeSpec(TypeSpec),
@@ -96,9 +95,6 @@ pub enum TypeDefOrRef {
 
 impl Decode for TypeDefOrRef {
     fn decode(file: usize, code: usize) -> Self {
-        if code == 0 {
-            return Self::None;
-        }
         let (kind, row) = (code & ((1 << 2) - 1), (code >> 2) - 1);
         match kind {
             0 => Self::TypeDef(TypeDef(Row::new(row, TABLE_TYPEDEF, file))),
